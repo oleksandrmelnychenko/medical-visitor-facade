@@ -135,6 +135,74 @@
         "sunday": "Sonntag: Geschlossen"
       }
     },
+    "fullSupport": {
+      "overline": "Rundum-Service",
+      "title": "Wir kümmern uns um alles",
+      "subtitle": "Konzentrieren Sie sich auf Ihre Gesundheit. Wir übernehmen die gesamte Logistik — von Ihrer Haustür bis zur vollständigen Genesung.",
+      "services": {
+        "flights": {
+          "title": "Flugbuchung",
+          "desc": "Wir organisieren alle Flüge und Transfers für Sie"
+        },
+        "transport": {
+          "title": "Bodentransport",
+          "desc": "Privater Fahrservice vom Flughafen zur Klinik"
+        },
+        "accommodation": {
+          "title": "Unterkunft",
+          "desc": "Komfortable Hotels nahe medizinischer Einrichtungen"
+        },
+        "escort": {
+          "title": "Persönliche Begleitung",
+          "desc": "Ein Koordinator bei jedem Schritt an Ihrer Seite"
+        },
+        "translation": {
+          "title": "Übersetzung",
+          "desc": "Dolmetscher für alle Termine"
+        },
+        "paperwork": {
+          "title": "Papierkram",
+          "desc": "Visa, Dokumente, Versicherung — erledigt"
+        },
+        "medical": {
+          "title": "Medizinische Koordination",
+          "desc": "Termine geplant und bestätigt"
+        },
+        "support": {
+          "title": "24/7 Support",
+          "desc": "Immer erreichbar, jede Frage"
+        }
+      },
+      "journey": {
+        "title": "Ihre Reise mit uns",
+        "steps": {
+          "consultation": {
+            "title": "Erstberatung",
+            "desc": "Teilen Sie uns Ihre Bedürfnisse mit, wir planen alles"
+          },
+          "travel": {
+            "title": "Reise organisiert",
+            "desc": "Flüge, Visa, Unterkunft gebucht"
+          },
+          "arrival": {
+            "title": "Ankunft & Abholung",
+            "desc": "Am Flughafen abgeholt, zum Hotel gefahren"
+          },
+          "treatment": {
+            "title": "Behandlung",
+            "desc": "Volle Unterstützung bei allen Eingriffen"
+          },
+          "recovery": {
+            "title": "Genesung & Rückkehr",
+            "desc": "Nachsorge und sichere Heimreise"
+          }
+        }
+      },
+      "promise": {
+        "title": "Sie sind nie allein",
+        "text": "Vom ersten Kontakt bis Sie sicher zu Hause sind — wir sind bei Ihnen. Jede Frage beantwortet, jedes Problem gelöst."
+      }
+    },
     "cta": {
       "overline": "Loslegen",
       "title": "Bereit für den nächsten Schritt?",

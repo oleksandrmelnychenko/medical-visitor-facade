@@ -141,6 +141,74 @@
         "sunday": "Sunday: Closed"
       }
     },
+    "fullSupport": {
+      "overline": "Complete Care",
+      "title": "We Handle Everything",
+      "subtitle": "Focus on your health. We take care of all the logistics — from your doorstep to full recovery.",
+      "services": {
+        "flights": {
+          "title": "Flight Booking",
+          "desc": "We arrange all flights and transfers for you"
+        },
+        "transport": {
+          "title": "Ground Transport",
+          "desc": "Private car service from airport to clinic"
+        },
+        "accommodation": {
+          "title": "Accommodation",
+          "desc": "Comfortable hotels near medical facilities"
+        },
+        "escort": {
+          "title": "Personal Escort",
+          "desc": "A coordinator with you at every step"
+        },
+        "translation": {
+          "title": "Translation",
+          "desc": "Interpreters for all appointments"
+        },
+        "paperwork": {
+          "title": "Paperwork",
+          "desc": "Visas, documents, insurance — handled"
+        },
+        "medical": {
+          "title": "Medical Coordination",
+          "desc": "Appointments scheduled and confirmed"
+        },
+        "support": {
+          "title": "24/7 Support",
+          "desc": "Always reachable, any question"
+        }
+      },
+      "journey": {
+        "title": "Your Journey With Us",
+        "steps": {
+          "consultation": {
+            "title": "Initial Consultation",
+            "desc": "Tell us your needs, we plan everything"
+          },
+          "travel": {
+            "title": "Travel Arranged",
+            "desc": "Flights, visas, accommodation booked"
+          },
+          "arrival": {
+            "title": "Arrival & Pickup",
+            "desc": "Met at airport, driven to hotel"
+          },
+          "treatment": {
+            "title": "Treatment",
+            "desc": "Full support during all procedures"
+          },
+          "recovery": {
+            "title": "Recovery & Return",
+            "desc": "Follow-up care and safe journey home"
+          }
+        }
+      },
+      "promise": {
+        "title": "You're Never Alone",
+        "text": "From the moment you contact us until you're safely back home — we're with you. Every question answered, every problem solved."
+      }
+    },
     "cta": {
       "overline": "Get Started",
       "title": "Ready to Take the Next Step?",
