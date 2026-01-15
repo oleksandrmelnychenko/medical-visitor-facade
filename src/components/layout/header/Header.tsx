@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, User, ChevronDown } from "lucide-react";
+import { Menu, User, ChevronDown, Sun, Moon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/providers/LanguageProvider";
@@ -16,6 +16,7 @@ export function Header() {
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -44,9 +45,9 @@ export function Header() {
   };
 
   const languages = [
-    { code: 'de' as const, name: 'Deutsch', flag: '🇩🇪' },
-    { code: 'en' as const, name: 'English', flag: '🇬🇧' },
-    { code: 'ru' as const, name: 'Русский', flag: '🇷🇺' },
+    { code: 'de' as const, name: 'Deutsch', flag: 'https://flagcdn.com/w80/de.png' },
+    { code: 'en' as const, name: 'English', flag: 'https://flagcdn.com/w80/gb.png' },
+    { code: 'ru' as const, name: 'Русский', flag: 'https://flagcdn.com/w80/ru.png' },
   ];
 
   const currentLanguage = languages.find(lang => lang.code === locale);
@@ -96,14 +97,33 @@ export function Header() {
 
           {/* Right aligned section */}
           <div className={styles.rightSection}>
-             {/* Language Selector */}
-             <div className={styles.languageSelector}>
+            {/* Language Selector - Stacked Flags */}
+            <div className={styles.languageSelector}>
               <button
                 onClick={() => toggleMenu('language')}
                 className={styles.languageButton}
               >
-                <span className={styles.flag}>{currentLanguage?.flag}</span>
-                <ChevronDown className="w-4 h-4" />
+                <div className={styles.flagStack}>
+                  {/* Reorder languages so current is first */}
+                  {[
+                    currentLanguage,
+                    ...languages.filter(l => l.code !== locale)
+                  ].map((language, index) => (
+                    <span
+                      key={language?.code}
+                      className={cn(
+                        styles.flagCircle,
+                        index === 0 && styles.flagActive,
+                        index === 1 && styles.flagBehind1,
+                        index === 2 && styles.flagBehind2
+                      )}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={language?.flag} alt={language?.name} />
+                    </span>
+                  ))}
+                </div>
+                <ChevronDown className={styles.flagChevron} />
               </button>
 
               {activeMenu === 'language' && (
@@ -117,7 +137,10 @@ export function Header() {
                       }}
                       className={cn(styles.languageOption, locale === language.code && styles.active)}
                     >
-                      <span className={styles.flag}>{language.flag}</span>
+                      <span className={styles.flagCircleSmall}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={language.flag} alt={language.name} />
+                      </span>
                       <span>{language.name}</span>
                     </button>
                   ))}
@@ -132,6 +155,19 @@ export function Header() {
               <User className="w-4 h-4" />
               {tCommon('login')}
             </a>
+
+            {/* Theme Toggle */}
+            <button
+              onClick={() => setIsDarkMode(!isDarkMode)}
+              className={styles.themeToggle}
+              aria-label="Toggle theme"
+            >
+              {isDarkMode ? (
+                <Sun className={styles.themeIcon} />
+              ) : (
+                <Moon className={styles.themeIcon} />
+              )}
+            </button>
           </div>
 
           {/* Mobile menu button */}
