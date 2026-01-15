@@ -1,0 +1,50 @@
+@use "../../../styles/variables" as *;
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contactTitle {
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.5rem, 2.6vw, 1.75rem);
+  font-weight: 600;
+}
+
+.contactSubtitle {
+  color: var(--muted-foreground);
+  margin-bottom: 1.5rem;
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
+  font-weight: 400;
+}
+
+.contactBlock {
+  margin-bottom: 1.25rem;
+}
+
+.contactLabel {
+  color: var(--foreground);
+  margin-bottom: 0.4rem;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  font-weight: 600;
+}
+
+.contactValue {
+  color: var(--muted-foreground);
+  font-size: clamp(0.95rem, 1.4vw, 1rem);
+  line-height: 1.6;
+}
+
+.mapCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  height: clamp(18rem, 50vw, 31.25rem);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  iframe {
+    border-radius: 1.5rem;
+  }
+}

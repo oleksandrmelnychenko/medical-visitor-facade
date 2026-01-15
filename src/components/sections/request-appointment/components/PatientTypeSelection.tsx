@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import styles from '../request-appointment.module.scss';
 import { PatientType } from '../RequestAppointment';
 import { ImageWithFallback } from '@/components/ui/ImageWithFallback';
@@ -12,6 +13,8 @@ interface PatientTypeSelectionProps {
 }
 
 export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
+  const t = useTranslations('appointment');
+
   return (
     <>
       <motion.div
@@ -31,10 +34,10 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
         >
           <ArrowUpRight className={styles.cardIcon} />
           <h3 className={styles.cardTitle}>
-            New Patients
+            {t('patientTypes.new.title')}
           </h3>
           <p className={styles.cardDescription}>
-            Provide your info and set a follow-up time.
+            {t('patientTypes.new.description')}
           </p>
         </motion.button>
 
@@ -47,10 +50,10 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
         >
           <ArrowUpRight className={styles.cardIcon} />
           <h3 className={styles.cardTitle}>
-            Returning Patients
+            {t('patientTypes.returning.title')}
           </h3>
           <p className={styles.cardDescription}>
-            Request using your patient account.
+            {t('patientTypes.returning.description')}
           </p>
         </motion.button>
 
@@ -63,10 +66,10 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
         >
           <ArrowUpRight className={styles.cardIcon} />
           <h3 className={styles.cardTitle}>
-            Referring Physicians
+            {t('patientTypes.physician.title')}
           </h3>
           <p className={styles.cardDescription}>
-            Get consults and refer your patients.
+            {t('patientTypes.physician.description')}
           </p>
         </motion.button>
       </motion.div>
@@ -87,28 +90,28 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
           transition={{ duration: 0.7 }}
         >
           <h3 className={styles.freeServiceTitle}>
-            Need Financial Assistance?
+            {t('freeService.title')}
           </h3>
-          
+
           <p className={styles.freeServiceText}>
-            We understand that medical care can be financially challenging. Agency for Patient Care offers a limited program for patients who need assistance with medical expenses.
+            {t('freeService.description1')}
           </p>
-          
+
           <p className={styles.freeServiceText}>
-            Our team carefully reviews each application and provides support when resources are available.
+            {t('freeService.description2')}
           </p>
 
           <div className={styles.priorityCallout}>
             <p style={{ fontWeight: 500, marginBottom: '4px' }}>
-              Priority Cases:
+              {t('freeService.priority')}
             </p>
             <p>
-              We prioritize cases involving children, urgent medical situations, and patients facing exceptional circumstances.
+              {t('freeService.priorityText')}
             </p>
           </div>
 
           <p className={styles.freeServiceText} style={{ fontSize: '15px' }}>
-            Please note: Free service requests are reviewed on a case-by-case basis depending on available capacity and the nature of medical need. We will contact you within 5-7 business days regarding your application status.
+            {t('freeService.note')}
           </p>
 
           <motion.button
@@ -116,7 +119,7 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Apply for Free Service
+            {t('freeService.applyButton')}
           </motion.button>
         </motion.div>
 
@@ -128,7 +131,7 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
           transition={{ duration: 0.7 }}
         >
           <ImageWithFallback
-            src="/assets/dfb83cb5936b44ca2202c18d197b3196619183a4.png" // Local asset
+            src="/assets/dfb83cb5936b44ca2202c18d197b3196619183a4.png"
             alt="Healthcare financial assistance"
             className="w-full h-full object-cover"
           />

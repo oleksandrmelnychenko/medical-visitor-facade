@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import styles from './request-appointment.module.scss';
 import { PatientTypeSelection } from './components/PatientTypeSelection';
@@ -14,6 +15,8 @@ import { PhysicianForm } from './components/PhysicianForm';
 export type PatientType = "new" | "returning" | "physician" | null;
 
 export function RequestAppointment() {
+  const t = useTranslations('appointment');
+  const tCommon = useTranslations('common');
   const [selectedType, setSelectedType] = useState<PatientType>(null);
 
   const handleCardClick = (type: PatientType) => {
@@ -30,9 +33,9 @@ export function RequestAppointment() {
       <div>
         <div className={cn(styles.container, 'py-3')}>
           <nav className={styles.breadcrumbs}>
-            <Link href="/">home</Link>
+            <Link href="/">{tCommon('home')}</Link>
             <ChevronRight className="w-3 h-3 text-gray-400" />
-            <span>request appointment</span>
+            <span>{t('title').toLowerCase()}</span>
           </nav>
         </div>
       </div>
@@ -53,19 +56,19 @@ export function RequestAppointment() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            Get Started
+            {t('overline')}
           </motion.p>
-          
-          <motion.h2 
+
+          <motion.h2
             className={styles.title}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Request Appointment
+            {t('title')}
           </motion.h2>
-          
+
           <motion.p
             className={styles.subtitle}
             initial={{ opacity: 0, y: 20 }}
@@ -73,7 +76,7 @@ export function RequestAppointment() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Start here. Our team will contact you within 24 hours.
+            {t('subtitle')}
           </motion.p>
         </motion.div>
 
@@ -92,9 +95,9 @@ export function RequestAppointment() {
                 onClick={handleBack}
                 className="text-gray-600 hover:text-black transition-colors mb-6 flex items-center gap-1"
               >
-                 ← Back to selection
+                {t('backToSelection')}
               </button>
-              
+
               {selectedType === 'new' && <NewPatientForm onBack={handleBack} />}
               {selectedType === 'returning' && <ReturningPatientForm onBack={handleBack} />}
               {selectedType === 'physician' && <PhysicianForm onBack={handleBack} />}

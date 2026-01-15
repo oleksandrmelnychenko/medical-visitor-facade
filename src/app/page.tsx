@@ -1,9 +1,14 @@
-import { RequestAppointment } from "@/components/sections/request-appointment/RequestAppointment";
+import { Hero, CareForward, Services, Trust, Office, CTA } from "@/components/sections/home";
 
 export default function Home() {
   return (
     <main>
-      <RequestAppointment />
+      <Hero />
+      <CareForward />
+      <Services />
+      <Trust />
+      <Office />
+      <CTA />
     </main>
   );
 }

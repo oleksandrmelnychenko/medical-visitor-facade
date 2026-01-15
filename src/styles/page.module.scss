@@ -1,0 +1,613 @@
+@use "./variables" as *;
+
+.page {
+  background-color: var(--background);
+}
+
+.heroSection {
+  padding-top: clamp(4rem, 9vw, 6rem);
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.sectionMuted {
+  background-color: var(--muted);
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.textMuted {
+  color: var(--muted-foreground);
+}
+
+.textLead {
+  color: var(--muted-foreground);
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  line-height: 1.6;
+}
+
+.textBody {
+  color: var(--muted-foreground);
+  font-size: clamp(0.95rem, 1.4vw, 1rem);
+  line-height: 1.7;
+}
+
+.textSmall {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.textStrong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.link {
+  color: var(--foreground);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.linkMuted {
+  color: var(--muted-foreground);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.sectionTitle {
+  color: var(--foreground);
+  margin-bottom: 1.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.sectionTitleSm {
+  color: var(--foreground);
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.stackLg {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 5vw, 5rem);
+}
+
+.stackMd {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.gridTwo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  @include up(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.gridThree {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  @include up(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include up(lg) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.gridFour {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @include up(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include up(lg) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.card {
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+
+.cardPadded {
+  padding: 1.5rem;
+}
+
+.cardCentered {
+  text-align: center;
+}
+
+.cardMuted {
+  background-color: var(--muted);
+  border-color: transparent;
+}
+
+.cardShadow {
+  box-shadow: 0 18px 40px -30px rgba(0, 0, 0, 0.35);
+}
+
+.cardHover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 20px 45px -28px rgba(0, 0, 0, 0.45);
+    transform: translateY(-2px);
+  }
+}
+
+.cardRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.cardTitle {
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.cardText {
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.panel {
+  background-color: var(--muted);
+  border-radius: 1rem;
+  padding: clamp(1.5rem, 3vw, 3rem);
+}
+
+.divider {
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+}
+
+.faqCard {
+  background-color: var(--background);
+  border-left: 4px solid var(--foreground);
+  padding: 1.25rem 1.5rem;
+}
+
+.imageRounded {
+  width: 100%;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+.imageShadow {
+  box-shadow: 0 20px 40px -30px rgba(0, 0, 0, 0.35);
+}
+
+.mediaCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
+
+.mediaCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.mediaCardHover:hover img {
+  transform: scale(1.04);
+}
+
+.mediaOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25), transparent);
+}
+
+.mediaContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  color: white;
+}
+
+.mediaTitle {
+  color: white;
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.mediaText {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.stackedCard {
+  background-color: var(--background);
+  border: 2px solid var(--border);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.stackedMedia {
+  position: relative;
+  overflow: hidden;
+  height: clamp(12rem, 30vw, 16rem);
+}
+
+.stackedBody {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.stackedTitle {
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.stackedText {
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.formCard {
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  box-shadow: 0 16px 30px -28px rgba(0, 0, 0, 0.35);
+}
+
+.formGrid {
+  display: grid;
+  gap: 1rem;
+
+  @include up(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.fieldWithIcon {
+  position: relative;
+}
+
+.fieldIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  color: var(--muted-foreground);
+  pointer-events: none;
+}
+
+.inputWithIcon {
+  padding-left: 2.75rem;
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background-color: var(--background);
+  font-size: 0.95rem;
+  color: var(--foreground);
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: var(--ring);
+    box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring), transparent 50%);
+  }
+}
+
+.label {
+  display: block;
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.buttonOutline,
+.buttonSolid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.buttonOutline {
+  border: 1px solid var(--foreground);
+  background: transparent;
+  color: var(--foreground);
+
+  &:hover {
+    background-color: var(--foreground);
+    color: var(--background);
+  }
+}
+
+.buttonSolid {
+  border: 1px solid var(--foreground);
+  background-color: var(--foreground);
+  color: var(--background);
+
+  &:hover {
+    background-color: var(--primary);
+    box-shadow: 0 12px 24px -18px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.buttonBlock {
+  width: 100%;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+
+  @include up(sm) {
+    flex-direction: row;
+  }
+}
+
+.buttonRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.checkList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.checkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.checkBullet {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 999px;
+  background-color: color-mix(in oklch, #16a34a, white 85%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.checkBulletInner {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background-color: #16a34a;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+
+  @include up(md) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.statNumber {
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+}
+
+.statLabel {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badgeText {
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted-foreground);
+  font-size: 0.85rem;
+}
+
+.iconAccent {
+  color: #9333ea;
+}
+
+.mapCard {
+  background-color: var(--background);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 18px 40px -30px rgba(0, 0, 0, 0.35);
+  height: clamp(18rem, 45vw, 24rem);
+}
+
+.locationGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include up(md) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  }
+}
+
+.locationImage {
+  width: 100%;
+  height: 100%;
+  min-height: 18rem;
+  object-fit: cover;
+}
+
+.locationBody {
+  padding: clamp(1.5rem, 3vw, 2rem);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  background-color: var(--muted);
+  color: var(--foreground);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.brandBadge {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f97316, #9333ea);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 auto;
+}
+
+.dotList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dotItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background-color: #9333ea;
+  margin-top: 0.45rem;
+  flex-shrink: 0;
+}
+
+.accentPanel {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.08), rgba(147, 51, 234, 0.08));
+  border-radius: 1rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.stepList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stepItem {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.stepNumber {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background-color: var(--foreground);
+  color: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.iconSuccess {
+  width: 1rem;
+  height: 1rem;
+  color: #16a34a;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.iconSuccessLg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #16a34a;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.iconSm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.iconMd {
+  width: 1.25rem;
+  height: 1.25rem;
+}

@@ -1,0 +1,10 @@
+@use "../../../styles/variables" as *;
+
+.section {
+  @include section-padding;
+  background-color: var(--background);
+}
+
+.container {
+  @include container-base;
+}

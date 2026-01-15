@@ -1,0 +1,60 @@
+@use '../../../styles/variables' as *;
+
+.footer {
+  background-color: #030712; // gray-950
+  color: #d1d5db; // gray-300
+}
+
+.container {
+  @include container-base;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.sectionTitle {
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.textSmall {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.linkItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  a {
+    transition: color 0.15s;
+    &:hover {
+      color: #60a5fa; // blue-400
+    }
+  }
+}
+
+.bottomBar {
+  border-top: 1px solid #1f2937; // gray-800
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
