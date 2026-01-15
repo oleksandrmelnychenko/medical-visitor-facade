@@ -1,0 +1,42 @@
+@use 'variables';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-color: var(--border);
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-montserrat), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+}
+
+/* Typography mappings from theme.css */
+h1 { font-size: 2.25rem; } // text-2xl approximation or adjust as needed
+h2 { font-size: 1.5rem; } // text-xl
+h3 { font-size: 1.25rem; } // text-lg
+h4, label, button, input { font-size: 1rem; } // text-base
+
+input {
+  font-weight: var(--font-weight-normal);
+}

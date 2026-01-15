@@ -1,0 +1,16 @@
+
+
+.container {
+  display: inline-block;
+  background-color: var(--muted);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.errorWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}

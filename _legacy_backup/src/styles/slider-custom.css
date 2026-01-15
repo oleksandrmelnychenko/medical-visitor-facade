@@ -1,0 +1,103 @@
+/* Custom Slider Styles */
+.services-slider-container {
+  padding: 40px 0 0 0;
+  margin: 0 -20px;
+}
+
+/* Ensure slides have proper spacing and don't get cut */
+.services-slider-container .slick-slide {
+  padding: 20px 0;
+}
+
+.services-slider-container .slick-slide > div {
+  display: flex;
+  align-items: center;
+  min-height: 600px;
+}
+
+/* Fix for top/bottom cutting - ensure full visibility */
+.services-slider-container .slick-list {
+  overflow: visible !important;
+  padding: 0 !important;
+}
+
+.services-slider-container .slick-track {
+  display: flex;
+  align-items: center;
+}
+
+/* Custom arrow styling */
+.services-slider-container .slick-prev,
+.services-slider-container .slick-next {
+  display: none !important;
+}
+
+/* Hide default dots */
+.services-slider-container .slick-dots {
+  display: none !important;
+}
+
+/* Slide counter styles */
+.slide-counter {
+  text-align: center;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.slide-navigation {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background-color: #1a1a1a;
+  border-radius: 50px;
+  padding: 12px 24px;
+  color: white;
+}
+
+.slide-nav-button {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.slide-nav-button:hover {
+  opacity: 0.7;
+}
+
+.slide-nav-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.slide-number {
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Shadow only on active/center slide */
+.services-slider-container .slick-slide > div > div > div {
+  transition: box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: none !important;
+  opacity: 0.4;
+  transform: scale(0.85);
+}
+
+.services-slider-container .slick-center > div > div > div {
+  box-shadow: -10px 0 15px rgba(249, 115, 22, 0.35), 10px 0 15px rgba(168, 85, 247, 0.35), 0 -10px 15px rgba(209, 100, 134, 0.35), 0 10px 15px rgba(209, 100, 134, 0.35) !important;
+  opacity: 1;
+  transform: scale(1);
+}
