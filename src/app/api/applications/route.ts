@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
 import { hash } from "bcryptjs";
 import { z } from "zod";
+import { Prisma } from "@prisma/client";
 
 // Validation schema for application submission
 const applicationSchema = z.object({
@@ -60,7 +61,7 @@ export async function POST(request: NextRequest) {
     data.phone = sanitize(data.phone);
 
     // Start transaction
-    const result = await prisma.$transaction(async (tx) => {
+    const result = await prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       // Check if user exists by email or phone
       let user = await tx.user.findFirst({
         where: {
