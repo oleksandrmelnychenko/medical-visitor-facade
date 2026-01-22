@@ -11,6 +11,7 @@ type SectionHeaderProps = {
   align?: "center" | "left";
   titleAs?: "h1" | "h2" | "h3";
   variant?: "section" | "page";
+  theme?: "default" | "beige";
 };
 
 export function SectionHeader({
@@ -20,10 +21,16 @@ export function SectionHeader({
   align = "center",
   titleAs,
   variant = "section",
+  theme = "default",
 }: SectionHeaderProps) {
   const TitleTag = titleAs ?? (variant === "page" ? "h1" : "h2");
   const titleClass = variant === "page" ? styles.titleHero : styles.title;
-  const subtitleClass = variant === "page" ? styles.subtitleHero : styles.subtitle;
+
+  const subtitleClass = theme === "beige"
+    ? styles.subtitleBeige
+    : (variant === "page" ? styles.subtitleHero : styles.subtitle);
+
+  const overlineClass = theme === "beige" ? styles.overlineBeige : styles.overline;
 
   return (
     <div
@@ -35,7 +42,7 @@ export function SectionHeader({
     >
       {overline ? (
         <motion.p
-          className={styles.overline}
+          className={overlineClass}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}

@@ -8,13 +8,19 @@ export async function POST(request: Request) {
     const body = await request.json();
     const validatedData = registerSchema.parse(body);
 
-    const existingUser = await prisma.user.findUnique({
-      where: { email: validatedData.email },
+    // Check if user with this email or phone already exists
+    const existingUser = await prisma.user.findFirst({
+      where: {
+        OR: [
+          { email: validatedData.email },
+          { phone: validatedData.phone },
+        ],
+      },
     });
 
     if (existingUser) {
       return NextResponse.json(
-        { error: "User with this email already exists" },
+        { error: "User with this email or phone already exists" },
         { status: 400 }
       );
     }
@@ -23,8 +29,10 @@ export async function POST(request: Request) {
 
     const user = await prisma.user.create({
       data: {
-        name: validatedData.name,
+        firstName: validatedData.firstName,
+        lastName: validatedData.lastName,
         email: validatedData.email,
+        phone: validatedData.phone,
         password: hashedPassword,
       },
     });
@@ -33,8 +41,10 @@ export async function POST(request: Request) {
       {
         user: {
           id: user.id,
-          name: user.name,
+          firstName: user.firstName,
+          lastName: user.lastName,
           email: user.email,
+          phone: user.phone,
         },
       },
       { status: 201 }

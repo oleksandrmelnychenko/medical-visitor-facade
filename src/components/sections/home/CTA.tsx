@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Package, Headphones, Activity, Video } from "lucide-react";
 import { useTranslations } from "next-intl";
 import sectionStyles from "@/components/sections/shared/section.module.scss";
 import styles from "./cta.module.scss";
@@ -9,8 +9,15 @@ import styles from "./cta.module.scss";
 export function CTA() {
   const t = useTranslations('home.cta');
 
+  const services = [
+    { icon: Package, key: 'medications', color: '#F4B4C4' },
+    { icon: Headphones, key: 'support', color: '#A8D5E5' },
+    { icon: Activity, key: 'monitoring', color: '#B5E5B0' },
+    { icon: Video, key: 'consultations', color: '#E5D5A8' },
+  ];
+
   return (
-    <section className={sectionStyles.section}>
+    <section className={styles.section}>
       <div className={sectionStyles.container}>
         <div className={styles.ctaWrapper}>
           <motion.div
@@ -27,60 +34,51 @@ export function CTA() {
             <p className={styles.ctaSubtitle}>
               {t('subtitle')}
             </p>
-
-            {/* Stats Row */}
-            <div className={styles.statsRow}>
-              <motion.div
-                className={styles.statItem}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className={styles.statNumber}>{t('stats.patients.number')}</div>
-                <div className={styles.statLabel}>{t('stats.patients.label')}</div>
-              </motion.div>
-
-              <motion.div
-                className={styles.statItem}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-              >
-                <div className={styles.statNumber}>{t('stats.specialists.number')}</div>
-                <div className={styles.statLabel}>{t('stats.specialists.label')}</div>
-              </motion.div>
-
-              <motion.div
-                className={styles.statItem}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <div className={styles.statNumber}>{t('stats.support.number')}</div>
-                <div className={styles.statLabel}>{t('stats.support.label')}</div>
-              </motion.div>
-            </div>
-
-            {/* Button */}
-            <div className={styles.ctaButtons}>
-              <motion.button
-                className={styles.primaryButton}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span>{t('bookConsultation')}</span>
-                <ArrowRight className="w-5 h-5" />
-              </motion.button>
-            </div>
-
-            {/* Office Hours */}
-            <div className={styles.ctaFooter}>
-              <p>{t('availability')}</p>
-            </div>
           </motion.div>
+
+          {/* Services Grid */}
+          <div className={styles.servicesGrid}>
+            {services.map((service, index) => (
+              <motion.div
+                key={service.key}
+                className={styles.serviceCard}
+                style={{ '--hover-color': service.color } as React.CSSProperties}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <div className={styles.serviceIcon}>
+                  <service.icon />
+                </div>
+                <h3 className={styles.serviceTitle}>{t(`services.${service.key}.title`)}</h3>
+                <p className={styles.serviceDesc}>{t(`services.${service.key}.desc`)}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Button */}
+          <motion.div
+            className={styles.ctaButtons}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <motion.button
+              className={styles.primaryButton}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span>{t('bookConsultation')}</span>
+              <ArrowRight className="w-5 h-5" />
+            </motion.button>
+          </motion.div>
+
+          {/* Footer */}
+          <div className={styles.ctaFooter}>
+            <p>{t('availability')}</p>
+          </div>
         </div>
       </div>
     </section>

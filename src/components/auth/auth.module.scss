@@ -43,7 +43,38 @@
   gap: 0;
 }
 
-// Underline input style
+// Simple input style with placeholder
+.simpleFormGroup {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.simpleInput {
+  width: 100%;
+  padding: 0.75rem 0;
+  font-size: 1.125rem;
+  font-family: inherit;
+  border: none;
+  border-bottom: 1px solid #1a1a1a;
+  background: transparent;
+  color: #1a1a1a;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-bottom-color: var(--foreground);
+  }
+
+  &::placeholder {
+    color: #999;
+  }
+
+  &.error {
+    border-bottom-color: var(--destructive);
+  }
+}
+
+// Underline input style with floating label
 .formGroup {
   position: relative;
   padding-top: 1.5rem;
@@ -153,6 +184,10 @@
 
 // Submit button - outline style
 .submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   width: 100%;
   padding: 1rem 2rem;
   font-size: 0.875rem;
@@ -166,9 +201,17 @@
   transition: all 0.3s ease;
   margin-top: 0.5rem;
 
+  svg {
+    transition: transform 0.2s ease;
+  }
+
   &:hover {
     background: var(--foreground);
     color: var(--background);
+
+    svg {
+      transform: translateX(4px);
+    }
   }
 
   &:disabled {
@@ -178,6 +221,10 @@
     &:hover {
       background: transparent;
       color: var(--foreground);
+
+      svg {
+        transform: none;
+      }
     }
   }
 }
@@ -204,25 +251,33 @@
   }
 }
 
-// Checkbox styles
+// Checkbox styles - card style like radio buttons
 .checkboxGroup {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
+  gap: 0.625rem;
 }
 
 .checkboxLabel {
   display: flex;
   align-items: flex-start;
-  gap: 0.75rem;
+  gap: 1rem;
   cursor: pointer;
-  font-size: 0.875rem;
-  color: #444;
-  line-height: 1.5;
+  font-size: 0.9375rem;
+  color: var(--foreground);
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  transition: all 0.2s ease;
+  position: relative;
 
-  &:hover .checkboxCustom {
+  &:hover {
+    border-color: var(--muted-foreground);
+  }
+
+  &:has(.checkboxInput:checked) {
     border-color: var(--foreground);
+    background: color-mix(in oklch, var(--foreground), transparent 96%);
   }
 }
 
@@ -231,8 +286,20 @@
   opacity: 0;
   width: 0;
   height: 0;
+}
 
-  &:checked + .checkboxCustom {
+.checkboxCustom {
+  position: relative;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--muted-foreground);
+  border-radius: 4px;
+  background: transparent;
+  transition: all 0.2s ease;
+  margin-top: 2px;
+
+  .checkboxInput:checked + & {
     background: var(--foreground);
     border-color: var(--foreground);
 
@@ -242,38 +309,42 @@
     }
   }
 
-  &:focus + .checkboxCustom {
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
-  }
-}
-
-.checkboxCustom {
-  position: relative;
-  flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-  border: 1px solid #999;
-  background: transparent;
-  transition: all 0.2s ease;
-  margin-top: 2px;
-
   &::after {
     content: "";
     position: absolute;
-    left: 5px;
+    left: 6px;
     top: 2px;
-    width: 5px;
-    height: 9px;
+    width: 6px;
+    height: 10px;
     border: solid white;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg) scale(0);
     opacity: 0;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
   }
 }
 
 .checkboxText {
   flex: 1;
+}
+
+.checkboxContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.checkboxTitle {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.checkboxDesc {
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  line-height: 1.4;
 }
 
 // Error states
@@ -344,12 +415,204 @@
   display: block;
   text-align: right;
   font-size: 0.8125rem;
-  color: #666;
+  color: #1a1a1a;
   text-decoration: underline;
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
 
   &:hover {
     text-decoration: none;
+  }
+}
+
+// Wizard styles
+.wizardContainer {
+  width: 100%;
+}
+
+.progressBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  gap: 0;
+}
+
+.progressStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.stepNumber {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid var(--foreground);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.stepLabel {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.progressLine {
+  width: 4rem;
+  height: 1px;
+  background: var(--border);
+  margin: 0 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.progressFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background: var(--foreground);
+  transition: width 0.3s ease;
+
+  &.active {
+    width: 100%;
+  }
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--foreground);
+  }
+}
+
+// Select styles
+.select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 2rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+}
+
+.selectLabel {
+  transform: translateY(-1.75rem) scale(0.85);
+  color: var(--muted-foreground);
+}
+
+// Textarea styles
+.textarea {
+  resize: vertical;
+  min-height: 6rem;
+  font-family: inherit;
+}
+
+// Question block styles
+.questionBlock {
+  margin-bottom: 2rem;
+}
+
+.questionText {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+// Radio button styles - card style
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  color: var(--foreground);
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  transition: all 0.2s ease;
+  position: relative;
+
+  &:hover {
+    border-color: var(--muted-foreground);
+  }
+
+  &:has(.radioInput:checked) {
+    border-color: var(--foreground);
+    background: color-mix(in oklch, var(--foreground), transparent 96%);
+  }
+}
+
+.radioInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radioCustom {
+  position: relative;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--muted-foreground);
+  border-radius: 50%;
+  background: transparent;
+  transition: all 0.2s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--foreground);
+    opacity: 0;
+    transition: all 0.15s ease;
+  }
+
+  .radioInput:checked + & {
+    border-color: var(--foreground);
+
+    &::after {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
   }
 }

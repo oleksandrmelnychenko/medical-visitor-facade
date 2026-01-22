@@ -30,7 +30,7 @@ export function LoginForm() {
     setError(null);
 
     const result = await signIn("credentials", {
-      email: data.email,
+      phone: data.phone,
       password: data.password,
       redirect: false,
     });
@@ -48,36 +48,32 @@ export function LoginForm() {
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       {error && <div className={styles.formError}>{error}</div>}
 
-      {/* Email field */}
-      <div className={styles.formGroup}>
+      {/* Phone field */}
+      <div className={styles.simpleFormGroup}>
         <input
-          id="email"
-          type="email"
-          placeholder=" "
-          className={cn(styles.input, errors.email && styles.error)}
-          {...register("email")}
+          id="phone"
+          type="tel"
+          placeholder={t("phone")}
+          className={cn(styles.simpleInput, errors.phone && styles.error)}
+          {...register("phone")}
+          autoComplete="off"
         />
-        <label htmlFor="email" className={styles.label}>
-          {t("email")}
-        </label>
-        {errors.email && (
-          <span className={styles.errorMessage}>{errors.email.message}</span>
+        {errors.phone && (
+          <span className={styles.errorMessage}>{errors.phone.message}</span>
         )}
       </div>
 
       {/* Password field */}
-      <div className={styles.formGroup}>
+      <div className={styles.simpleFormGroup}>
         <div className={styles.passwordWrapper}>
           <input
             id="password"
             type={showPassword ? "text" : "password"}
-            placeholder=" "
-            className={cn(styles.input, errors.password && styles.error)}
+            placeholder={t("password")}
+            className={cn(styles.simpleInput, errors.password && styles.error)}
             {...register("password")}
+            autoComplete="new-password"
           />
-          <label htmlFor="password" className={styles.label}>
-            {t("password")}
-          </label>
           <button
             type="button"
             className={styles.passwordToggle}

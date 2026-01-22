@@ -64,10 +64,8 @@ export function Office() {
           ))}
         </div>
 
-        {/* Closing lines */}
+        {/* Closing line */}
         <div className={styles.closingLines}>
-          <div className={styles.closingLine} />
-          <div className={styles.closingLine} />
           <div className={styles.closingLine} />
         </div>
       </div>

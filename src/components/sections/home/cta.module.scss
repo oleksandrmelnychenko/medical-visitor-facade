@@ -1,13 +1,16 @@
 @use "../../../styles/variables" as *;
 
+.section {
+  @include section-padding;
+  background-color: #f8f6f3 !important;
+}
+
 .ctaWrapper {
-  border-radius: 1.5rem;
   overflow: hidden;
-  background-color: var(--background);
 }
 
 .ctaContent {
-  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 4vw, 2.5rem);
+  padding-bottom: 2.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,59 +19,114 @@
 }
 
 .ctaOverline {
-  color: var(--muted-foreground);
+  color: #666;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.75rem;
-  font-size: clamp(0.7rem, 1vw, 0.8125rem);
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
   font-weight: 500;
 }
 
 .ctaTitle {
-  color: var(--foreground);
+  color: #1a1a1a;
   margin-bottom: 1.25rem;
   max-width: 42rem;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.15;
-  font-weight: 600;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: 300;
   letter-spacing: -0.02em;
 }
 
 .ctaSubtitle {
-  color: var(--muted-foreground);
-  margin-bottom: 2rem;
-  max-width: 42rem;
-  font-size: clamp(1rem, 1.7vw, 1.125rem);
+  color: #4a4a4a;
+  margin-bottom: 0;
+  max-width: 36rem;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
   line-height: 1.7;
 }
 
-.statsRow {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
+// Services Grid - matching FullSupport style
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem 1.5rem;
+  margin-bottom: 2.5rem;
+  margin-top: 1rem;
+  width: 100%;
 
-  @include down(sm) {
-    flex-direction: column;
-    align-items: center;
+  @include up(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include up(lg) {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-.statItem {
+.serviceCard {
+  position: relative;
+  background-color: #f8f6f3;
+  border: 1px solid #d5d2cf;
+  padding: 3rem 1.5rem 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 180px;
+  cursor: pointer;
+
+  // Animated border overlay
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border: 2px solid var(--hover-color);
+    pointer-events: none;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.15s ease-out;
+  }
+
+  &:hover::before {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
-.statNumber {
-  color: var(--foreground);
-  margin-bottom: 0.25rem;
-  font-size: clamp(2rem, 3.5vw, 2.625rem);
-  font-weight: 600;
+.serviceIcon {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+  background-color: #f8f6f3;
+  padding: 1rem;
+
+  svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    stroke-width: 1;
+  }
 }
 
-.statLabel {
-  color: var(--muted-foreground);
+.serviceTitle {
   font-size: 0.875rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.serviceDesc {
+  font-size: 0.8125rem;
+  color: #4a4a4a;
+  line-height: 1.7;
+  max-width: 220px;
 }
 
 .ctaButtons {
@@ -90,8 +148,8 @@
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  background-color: var(--foreground);
-  color: var(--background);
+  background-color: #1a1a1a;
+  color: #fff;
   padding: 1rem 2.25rem;
   font-size: 0.95rem;
   font-weight: 600;
@@ -101,7 +159,7 @@
   width: 100%;
 
   &:hover {
-    background-color: var(--muted-foreground);
+    background-color: #333;
   }
 
   @include up(sm) {
@@ -110,9 +168,9 @@
 }
 
 .secondaryButton {
-  border: 2px solid var(--border);
+  border: 2px solid #d5d2cf;
   background: transparent;
-  color: var(--foreground);
+  color: #1a1a1a;
   padding: 1rem 2.25rem;
   font-size: 0.95rem;
   font-weight: 500;
@@ -121,7 +179,7 @@
   width: 100%;
 
   &:hover {
-    background-color: var(--accent);
+    background-color: #f0eeeb;
   }
 
   @include up(sm) {
@@ -130,11 +188,10 @@
 }
 
 .ctaFooter {
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
+  text-align: center;
 
   p {
-    color: var(--muted-foreground);
+    color: #666;
     font-size: 0.8125rem;
   }
 }

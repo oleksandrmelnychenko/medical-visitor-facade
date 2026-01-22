@@ -6,8 +6,18 @@ export default async function DashboardPage() {
   const session = await auth();
 
   if (!session || !session.user) {
-    redirect("/patient-portal");
+    redirect("/login");
   }
 
-  return <DashboardContent user={session.user} />;
+  return (
+    <DashboardContent
+      user={{
+        id: session.user.id,
+        name: session.user.name,
+        email: session.user.email,
+        phone: session.user.phone,
+        role: session.user.role,
+      }}
+    />
+  );
 }

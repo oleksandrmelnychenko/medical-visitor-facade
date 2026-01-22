@@ -22,6 +22,15 @@
   font-weight: 500;
 }
 
+.overlineBeige {
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  font-size: clamp(0.7rem, 1vw, 0.8125rem);
+  font-weight: 500;
+}
+
 .title {
   color: var(--foreground);
   margin-bottom: 0.75rem;
@@ -49,6 +58,14 @@
 
 .subtitleHero {
   color: var(--muted-foreground);
+  max-width: 48rem;
+  margin: 0 auto;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.6;
+}
+
+.subtitleBeige {
+  color: #4a4a4a;
   max-width: 48rem;
   margin: 0 auto;
   font-size: clamp(1rem, 2vw, 1.25rem);

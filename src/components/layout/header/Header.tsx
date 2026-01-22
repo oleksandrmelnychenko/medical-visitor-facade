@@ -104,20 +104,16 @@ export function Header() {
           </nav>
 
           <div className={styles.utilityItems}>
-            <Link href="/apply" className={styles.appointmentParams}>
-              {tCommon('requestAppointment')}
-            </Link>
-
-            {status === "authenticated" && session?.user ? (
-              <Link href="/dashboard" className={styles.loginLink}>
-                <User className="w-4 h-4" />
-                {session.user.name || tAuth('dashboard')}
-              </Link>
-            ) : (
-              <Link href="/login" className={styles.loginLink}>
-                <User className="w-4 h-4" />
-                {tCommon('login')}
-              </Link>
+            {status !== "authenticated" && (
+              <>
+                <Link href="/apply" className={styles.appointmentParams}>
+                  {tCommon('requestAppointment')}
+                </Link>
+                <Link href="/login" className={styles.loginLink}>
+                  <User className="w-4 h-4" />
+                  {tCommon('login')}
+                </Link>
+              </>
             )}
 
             {/* Language Selector */}
@@ -183,7 +179,7 @@ export function Header() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
             >
               <div className={styles.submenuContent}>
                 {activeMenu === 'care' && (
@@ -198,7 +194,7 @@ export function Header() {
                         key={link.href}
                         initial={{ opacity: 0, y: -5 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: 0.5 + i * 0.15 }}
+                        transition={{ duration: 0.2, delay: i * 0.03 }}
                       >
                         <Link href={link.href} onClick={handleLinkClick} className={cn(styles.submenuLink, pathname === link.href && styles.active)}>
                           {link.label}
@@ -218,7 +214,7 @@ export function Header() {
                         key={link.href}
                         initial={{ opacity: 0, y: -5 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: 0.5 + i * 0.15 }}
+                        transition={{ duration: 0.2, delay: i * 0.03 }}
                       >
                         <Link href={link.href} onClick={handleLinkClick} className={cn(styles.submenuLink, pathname === link.href && styles.active)}>
                           {link.label}
@@ -239,7 +235,7 @@ export function Header() {
                         key={link.href}
                         initial={{ opacity: 0, y: -5 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: 0.5 + i * 0.15 }}
+                        transition={{ duration: 0.2, delay: i * 0.03 }}
                       >
                         <Link href={link.href} onClick={handleLinkClick} className={cn(styles.submenuLink, pathname === link.href && styles.active)}>
                           {link.label}

@@ -29,7 +29,7 @@ export function RequestAppointment() {
 
   return (
     <div className={pageStyles.page}>
-      <section className={cn(sectionStyles.section, pageStyles.heroSection)} id="appointment">
+      <section className={cn(sectionStyles.section, pageStyles.heroSection, styles.applyHeroSection)} id="appointment">
         <div className={sectionStyles.container}>
           <SectionHeader
             overline={t('overline')}

@@ -31,14 +31,14 @@
   },
   "footer": {
     "impressum": "Impressum",
-    "companyName": "Agentur für Patientenbetreuung Heorhii Hudiiev",
-    "owner": "Inhaber: Heorhii Hudiiev",
+    "companyName": "GMED Medical Concierge",
+    "owner": "Heorhii Hudiiev",
     "contact": "Kontakt",
-    "vatTitle": "Umsatzsteueridentifikationsnummer",
-    "vatLegal": "gemäß § 27 a Umsatzsteuergesetz:",
+    "vatTitle": "Steuerinformationen",
+    "vatLegal": "USt-IdNr. gemäß § 27a UStG:",
     "vatNumber": "147/220/51409",
-    "contactPrompt": "Bei Fragen und Anregungen zum Inhalt der Website schicken Sie uns bitte eine E-Mail an:",
-    "copyright": "© 2023 Agentur für Patientenbetreuung Heorhii Hudiiev"
+    "contactPrompt": "Kontaktieren Sie uns:",
+    "copyright": "© 2024 GMED Medical Concierge. Alle Rechte vorbehalten."
   },
   "home": {
     "hero": {
@@ -991,9 +991,29 @@
     "consentData": "Einwilligung zur Verarbeitung personenbezogener Daten",
     "consentMarketing": "Einwilligung zum Erhalt von Informations- und Werbemitteilungen",
     "welcomeTitle": "Willkommen zurück",
-    "welcomeSubtitle": "Melden Sie sich bei Ihrem Konto an oder erstellen Sie ein neues, um loszulegen",
+    "welcomeSubtitle": "Melden Sie sich bei Ihrem Konto an",
     "sendMessage": "Nachricht senden",
-    "overline": "Anmelden"
+    "overline": "Anmelden",
+    "registerOverline": "Registrierung",
+    "registerTitle": "Konto erstellen",
+    "registerSubtitle": "Füllen Sie das Formular aus, um sich im System zu registrieren",
+    "alreadyHaveAccount": "Haben Sie bereits ein Konto?",
+    "signInLink": "Anmelden"
+  },
+  "register": {
+    "step1Title": "Daten",
+    "step2Title": "Fragebogen",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "next": "Weiter",
+    "back": "Zurück",
+    "submit": "Anfrage senden",
+    "submitting": "Wird gesendet...",
+    "canComeToGermany": "Können Sie nach Deutschland kommen?",
+    "isEuResident": "Sind Sie ein Einwohner der Europäischen Union?",
+    "yes": "Ja",
+    "no": "Nein",
+    "needHelp": "Ich brauche Hilfe bei der Organisation der Reise"
   },
   "dashboard": {
     "title": "Dashboard",

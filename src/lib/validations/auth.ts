@@ -1,19 +1,20 @@
 import { z } from "zod";
 
 export const loginSchema = z.object({
-  email: z.string().email("Invalid email address"),
+  phone: z.string().min(5, "Phone is required"),
   password: z.string().min(1, "Password is required"),
 });
 
 export const registerSchema = z
   .object({
-    name: z.string().min(2, "Name must be at least 2 characters"),
+    firstName: z.string().min(2, "First name must be at least 2 characters"),
+    lastName: z.string().min(2, "Last name must be at least 2 characters"),
     email: z.string().email("Invalid email address"),
     phone: z
       .string()
-      .optional()
+      .min(5, "Phone number is required")
       .refine(
-        (val) => !val || val.replace(/\D/g, "").length >= 10,
+        (val) => val.replace(/\D/g, "").length >= 10,
         "Please enter a valid phone number"
       ),
     password: z

@@ -31,14 +31,14 @@
   },
   "footer": {
     "impressum": "Legal Notice",
-    "companyName": "Agency for Patient Care Heorhii Hudiiev",
-    "owner": "Owner: Heorhii Hudiiev",
-    "contact": "Contact",
-    "vatTitle": "VAT Identification Number",
-    "vatLegal": "according to § 27 a Value Added Tax Act:",
+    "companyName": "GMED Medical Concierge",
+    "owner": "Heorhii Hudiiev",
+    "contact": "Contact Us",
+    "vatTitle": "Tax Information",
+    "vatLegal": "VAT ID according to § 27a UStG:",
     "vatNumber": "147/220/51409",
-    "contactPrompt": "For questions and suggestions about the website content, please send us an email to:",
-    "copyright": "© 2023 Agency for Patient Care Heorhii Hudiiev"
+    "contactPrompt": "Get in touch:",
+    "copyright": "© 2024 GMED Medical Concierge. All rights reserved."
   },
   "home": {
     "hero": {
@@ -997,9 +997,29 @@
     "consentData": "Consent to the processing of personal data",
     "consentMarketing": "Consent to receive informational and promotional communications",
     "welcomeTitle": "Welcome Back",
-    "welcomeSubtitle": "Sign in to your account or create a new one to get started",
+    "welcomeSubtitle": "Sign in to your account",
     "sendMessage": "Send Message",
-    "overline": "Login"
+    "overline": "Login",
+    "registerOverline": "Registration",
+    "registerTitle": "Create an Account",
+    "registerSubtitle": "Fill out the form to register in the system",
+    "alreadyHaveAccount": "Already have an account?",
+    "signInLink": "Sign In"
+  },
+  "register": {
+    "step1Title": "Details",
+    "step2Title": "Survey",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "next": "Next",
+    "back": "Back",
+    "submit": "Submit Application",
+    "submitting": "Submitting...",
+    "canComeToGermany": "Can you come to Germany?",
+    "isEuResident": "Are you a resident of the European Union?",
+    "yes": "Yes",
+    "no": "No",
+    "needHelp": "I need help organizing the trip"
   },
   "dashboard": {
     "title": "Dashboard",

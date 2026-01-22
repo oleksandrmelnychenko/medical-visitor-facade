@@ -14,7 +14,7 @@
 
 .container {
   @include container-base;
-  padding-top: 0.5rem;
+  padding-top: 1.75rem;
   padding-bottom: 0.5rem;
 }
 
@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
   position: relative;
 
   &::after {
@@ -48,8 +48,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
     position: relative;
 
     &::after {
@@ -110,7 +110,7 @@
       position: absolute;
       left: 0;
       right: 0;
-      bottom: -0.5rem;
+      bottom: -0.75rem;
       height: 2px;
       background-color: var(--foreground);
       transform: scaleX(0);
@@ -158,10 +158,43 @@
   font-weight: 500;
   padding-bottom: 0.375rem;
   color: var(--foreground);
-  
+
   &:hover {
     color: var(--primary);
   }
+}
+
+.userLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem 0.25rem 0.25rem;
+  border-radius: 999px;
+  background: var(--muted);
+  transition: background 0.2s;
+
+  &:hover {
+    background: var(--accent);
+  }
+}
+
+.userAvatar {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.userName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
 }
 
 .submenuRow {
@@ -169,7 +202,6 @@
 
   @media (min-width: 768px) {
     display: block;
-    overflow: hidden;
   }
 }
 
@@ -178,9 +210,15 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  min-height: 2.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.submenuLinks {
+  display: flex;
+  align-items: center;
   gap: 2rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
 }
 
 .submenuLink {

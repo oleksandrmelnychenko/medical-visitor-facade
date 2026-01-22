@@ -1,7 +1,8 @@
 @use "../../../styles/variables" as *;
 
 .fullSupport {
-  background-color: var(--background);
+  width: 100%;
+  background-color: #f8f6f3 !important;
   color: var(--foreground);
 }
 
@@ -20,7 +21,7 @@
 .title {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 300;
-  color: var(--foreground);
+  color: #1a1a1a;
   margin-bottom: 0;
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -65,8 +66,8 @@
   text-align: center;
   padding: 2.5rem 1.5rem 2rem;
   padding-top: 3rem;
-  background-color: var(--background);
-  border: 1px solid #222;
+  background-color: #f8f6f3;
+  border: 1px solid #d5d2cf;
   min-height: 200px;
   cursor: pointer;
 
@@ -102,7 +103,7 @@
   align-items: center;
   justify-content: center;
   color: var(--foreground);
-  background-color: var(--background);
+  background-color: #f8f6f3;
   padding: 1.25rem;
 
   svg {
@@ -122,7 +123,7 @@
 .serviceTitle {
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--foreground);
+  color: #1a1a1a;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   line-height: 1.4;
@@ -130,7 +131,7 @@
 
 .serviceDesc {
   font-size: 0.8125rem;
-  color: var(--muted-foreground);
+  color: #4a4a4a;
   line-height: 1.7;
   max-width: 240px;
 }
@@ -139,7 +140,7 @@
 .closingLine {
   width: 80px;
   height: 3px;
-  background-color: var(--foreground);
+  background-color: #1a1a1a;
   margin: 1rem auto 0;
 }
 
@@ -259,7 +260,7 @@
 }
 
 .overline {
-  color: var(--muted-foreground);
+  color: #666;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   font-size: 0.75rem;
@@ -269,7 +270,7 @@
 
 .subtitle {
   font-size: 1rem;
-  color: var(--muted-foreground);
+  color: #4a4a4a;
   line-height: 1.7;
   margin-top: 1.5rem;
 }

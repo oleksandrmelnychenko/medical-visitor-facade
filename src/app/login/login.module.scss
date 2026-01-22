@@ -1,17 +1,45 @@
 @use "../../styles/variables" as *;
 
+.page {
+  background-color: #f8f6f3 !important;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.heroSection {
+  padding-top: clamp(2.5rem, 6vw, 4rem) !important;
+  padding-bottom: clamp(1.5rem, 3vw, 2rem) !important;
+  background-color: #f8f6f3 !important;
+}
+
 .headerDivider {
   width: 100%;
   height: 1px;
-  background-color: var(--border);
-  margin-top: 2rem;
+  background-color: #d5d2cf;
+  margin-top: 1.5rem;
 }
 
 .formSection {
   padding-top: 1rem !important;
+  padding-bottom: clamp(3rem, 6vw, 5rem) !important;
+  background-color: #f8f6f3 !important;
 }
 
 .formContainer {
   max-width: 480px;
   margin: 0 auto;
+}
+
+/* Text color overrides */
+.title {
+  color: #1a1a1a !important;
+}
+
+.subtitle {
+  color: #4a4a4a !important;
+}
+
+.overline {
+  color: #666 !important;
 }

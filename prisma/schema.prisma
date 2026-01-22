@@ -7,11 +7,221 @@ datasource db {
   provider = "postgresql"
 }
 
+// ============================================
+// AUTHENTICATION & USER MANAGEMENT
+// ============================================
+
 model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  phone         String?   @unique
+  password      String
+  firstName     String?
+  lastName      String?
+  emailVerified DateTime?
+  phoneVerified DateTime?
+  isActive      Boolean   @default(true)
+  role          UserRole  @default(CLIENT)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  applications Application[]
+  sessions     Session[]
+
+  @@index([email])
+  @@index([phone])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  createdAt    DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+enum UserRole {
+  CLIENT
+  MANAGER
+  ADMIN
+}
+
+// ============================================
+// REFERENCE TABLES (DICTIONARIES)
+// ============================================
+
+model Location {
   id        String   @id @default(cuid())
-  email     String   @unique
-  password  String
-  name      String?
+  code      String   @unique // germany, eu, other
+  nameEn    String
+  nameDe    String
+  nameRu    String
+  nameEs    String
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  // Relations
+  applications Application[]
+
+  @@index([code])
+}
+
+model City {
+  id        String   @id @default(cuid())
+  code      String   @unique // munich, berlin, frankfurt, nuremberg
+  nameEn    String
+  nameDe    String
+  nameRu    String
+  nameEs    String
+  address   String?
+  phone     String?
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  applications Application[]
+
+  @@index([code])
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  code        String   @unique // charter, transport, visa, translator, hotel
+  nameEn      String
+  nameDe      String
+  nameRu      String
+  nameEs      String
+  descEn      String?
+  descDe      String?
+  descRu      String?
+  descEs      String?
+  icon        String?  // lucide icon name
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  applicationServices ApplicationService[]
+
+  @@index([code])
+}
+
+model InsuranceStatus {
+  id        String   @id @default(cuid())
+  code      String   @unique // yes, no, unknown
+  nameEn    String
+  nameDe    String
+  nameRu    String
+  nameEs    String
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  applications Application[]
+
+  @@index([code])
+}
+
+model TravelAbility {
+  id        String   @id @default(cuid())
+  code      String   @unique // yes, no, need_help
+  nameEn    String
+  nameDe    String
+  nameRu    String
+  nameEs    String
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  applications Application[]
+
+  @@index([code])
+}
+
+// ============================================
+// APPLICATION (MAIN BUSINESS ENTITY)
+// ============================================
+
+model Application {
+  id              String            @id @default(cuid())
+  applicationNum  String            @unique @default(cuid()) // Human-readable number
+  userId          String
+  locationId      String?
+  preferredCityId String?
+  insuranceId     String?
+  travelAbilityId String?
+  isEuResident    Boolean?
+  status          ApplicationStatus @default(NEW)
+  notes           String?           // Internal notes for managers
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  // Relations
+  user          User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  location      Location?            @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  preferredCity City?                @relation(fields: [preferredCityId], references: [id], onDelete: SetNull)
+  insurance     InsuranceStatus?     @relation(fields: [insuranceId], references: [id], onDelete: SetNull)
+  travelAbility TravelAbility?       @relation(fields: [travelAbilityId], references: [id], onDelete: SetNull)
+  services      ApplicationService[]
+  statusHistory ApplicationStatusHistory[]
+
+  @@index([userId])
+  @@index([status])
+  @@index([createdAt])
+  @@index([applicationNum])
+}
+
+model ApplicationService {
+  id            String   @id @default(cuid())
+  applicationId String
+  serviceId     String
+  createdAt     DateTime @default(now())
+
+  // Relations
+  application Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  service     Service     @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@unique([applicationId, serviceId])
+  @@index([applicationId])
+  @@index([serviceId])
+}
+
+model ApplicationStatusHistory {
+  id            String            @id @default(cuid())
+  applicationId String
+  oldStatus     ApplicationStatus?
+  newStatus     ApplicationStatus
+  changedBy     String?           // userId of who changed it
+  comment       String?
+  createdAt     DateTime          @default(now())
+
+  // Relations
+  application Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@index([applicationId])
+  @@index([createdAt])
+}
+
+enum ApplicationStatus {
+  NEW           // Just submitted
+  IN_REVIEW     // Being reviewed by manager
+  CONTACTED     // Client has been contacted
+  IN_PROGRESS   // Services are being arranged
+  COMPLETED     // All services delivered
+  CANCELLED     // Cancelled by client or manager
+  ARCHIVED      // Old/archived application
 }

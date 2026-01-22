@@ -30,15 +30,15 @@
     "patientRights": "Derechos del paciente"
   },
   "footer": {
-    "impressum": "Aviso legal",
-    "companyName": "Agencia para la atención al paciente Heorhii Hudiiev",
-    "owner": "Propietario: Heorhii Hudiiev",
-    "contact": "Contacto",
-    "vatTitle": "Número de identificación fiscal",
-    "vatLegal": "según § 27 a de la Ley del Impuesto sobre el Valor Añadido:",
+    "impressum": "Aviso Legal",
+    "companyName": "GMED Medical Concierge",
+    "owner": "Heorhii Hudiiev",
+    "contact": "Contáctenos",
+    "vatTitle": "Información Fiscal",
+    "vatLegal": "NIF según § 27a UStG:",
     "vatNumber": "147/220/51409",
-    "contactPrompt": "Para preguntas y sugerencias sobre el contenido del sitio web, envíenos un correo electrónico a:",
-    "copyright": "© 2023 Agencia para la atención al paciente Heorhii Hudiiev"
+    "contactPrompt": "Contáctenos:",
+    "copyright": "© 2024 GMED Medical Concierge. Todos los derechos reservados."
   },
   "home": {
     "hero": {
@@ -997,9 +997,29 @@
     "consentData": "Consentimiento para el procesamiento de datos personales",
     "consentMarketing": "Consentimiento para recibir comunicaciones informativas y promocionales",
     "welcomeTitle": "Bienvenido",
-    "welcomeSubtitle": "Inicie sesión en su cuenta o cree una nueva para comenzar",
+    "welcomeSubtitle": "Inicie sesión en su cuenta",
     "sendMessage": "Enviar mensaje",
-    "overline": "Iniciar sesión"
+    "overline": "Iniciar sesión",
+    "registerOverline": "Registro",
+    "registerTitle": "Crear una cuenta",
+    "registerSubtitle": "Complete el formulario para registrarse en el sistema",
+    "alreadyHaveAccount": "¿Ya tiene una cuenta?",
+    "signInLink": "Iniciar sesión"
+  },
+  "register": {
+    "step1Title": "Datos",
+    "step2Title": "Cuestionario",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "submit": "Enviar solicitud",
+    "submitting": "Enviando...",
+    "canComeToGermany": "¿Puede venir a Alemania?",
+    "isEuResident": "¿Es usted residente de la Unión Europea?",
+    "yes": "Sí",
+    "no": "No",
+    "needHelp": "Necesito ayuda para organizar el viaje"
   },
   "dashboard": {
     "title": "Panel de control",

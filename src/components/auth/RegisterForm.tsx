@@ -45,7 +45,7 @@ export function RegisterForm() {
 
     // Auto sign in after successful registration
     const signInResult = await signIn("credentials", {
-      email: data.email,
+      phone: data.phone,
       password: data.password,
       redirect: false,
     });
@@ -62,42 +62,45 @@ export function RegisterForm() {
   // Phone mask handler
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value.replace(/\D/g, "");
-    if (value.length > 10) value = value.slice(0, 10);
-
-    let formatted = "";
-    if (value.length > 0) {
-      formatted = `(${value.slice(0, 3)}`;
-      if (value.length > 3) {
-        formatted += `) ${value.slice(3, 6)}`;
-      }
-      if (value.length > 6) {
-        formatted += `-${value.slice(6, 8)}`;
-      }
-      if (value.length > 8) {
-        formatted += `-${value.slice(8, 10)}`;
-      }
-    }
-    e.target.value = formatted;
+    if (value.length > 15) value = value.slice(0, 15);
+    e.target.value = value.length > 0 ? `+${value}` : "";
   };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       {error && <div className={styles.formError}>{error}</div>}
 
-      {/* Name field */}
+      {/* First Name field */}
       <div className={styles.formGroup}>
         <input
-          id="name"
+          id="firstName"
           type="text"
           placeholder=" "
-          className={cn(styles.input, errors.name && styles.error)}
-          {...register("name")}
+          className={cn(styles.input, errors.firstName && styles.error)}
+          {...register("firstName")}
         />
-        <label htmlFor="name" className={styles.label}>
-          {t("name")}
+        <label htmlFor="firstName" className={styles.label}>
+          {t("firstName")}
         </label>
-        {errors.name && (
-          <span className={styles.errorMessage}>{errors.name.message}</span>
+        {errors.firstName && (
+          <span className={styles.errorMessage}>{errors.firstName.message}</span>
+        )}
+      </div>
+
+      {/* Last Name field */}
+      <div className={styles.formGroup}>
+        <input
+          id="lastName"
+          type="text"
+          placeholder=" "
+          className={cn(styles.input, errors.lastName && styles.error)}
+          {...register("lastName")}
+        />
+        <label htmlFor="lastName" className={styles.label}>
+          {t("lastName")}
+        </label>
+        {errors.lastName && (
+          <span className={styles.errorMessage}>{errors.lastName.message}</span>
         )}
       </div>
 
@@ -118,18 +121,20 @@ export function RegisterForm() {
         )}
       </div>
 
-      {/* Phone field with mask */}
-      <div className={styles.phoneInputWrapper}>
-        <span className={styles.phonePrefix}>+49</span>
+      {/* Phone field */}
+      <div className={styles.formGroup}>
         <input
           id="phone"
           type="tel"
-          placeholder="(___) ___-__-__"
-          className={cn(styles.phoneInput, errors.phone && styles.error)}
+          placeholder=" "
+          className={cn(styles.input, errors.phone && styles.error)}
           {...register("phone", {
             onChange: handlePhoneChange,
           })}
         />
+        <label htmlFor="phone" className={styles.label}>
+          {t("phone")}
+        </label>
         {errors.phone && (
           <span className={styles.errorMessage}>{errors.phone.message}</span>
         )}
@@ -191,26 +196,6 @@ export function RegisterForm() {
         )}
       </div>
 
-      {/* Hint text */}
-      <p className={styles.hintText}>
-        {t("preferredContactMethod")}
-      </p>
-
-      {/* Submit button */}
-      <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
-        {isSubmitting ? t("creatingAccount") : t("createAccount")}
-      </button>
-
-      {/* Confidentiality notice */}
-      <p className={styles.confidentialityNotice}>
-        {t("confidentialityNotice")}
-      </p>
-
-      {/* Privacy policy link */}
-      <Link href="/privacy-policy" className={styles.policyLink}>
-        {t("privacyPolicyLink")}
-      </Link>
-
       {/* Consent checkboxes */}
       <div className={styles.checkboxGroup}>
         <label className={styles.checkboxLabel}>
@@ -237,6 +222,21 @@ export function RegisterForm() {
       {errors.consentData && (
         <span className={styles.errorMessage}>{errors.consentData.message}</span>
       )}
+
+      {/* Submit button */}
+      <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
+        {isSubmitting ? t("creatingAccount") : t("createAccount")}
+      </button>
+
+      {/* Confidentiality notice */}
+      <p className={styles.confidentialityNotice}>
+        {t("confidentialityNotice")}
+      </p>
+
+      {/* Privacy policy link */}
+      <Link href="/privacy-policy" className={styles.policyLink}>
+        {t("privacyPolicyLink")}
+      </Link>
     </form>
   );
 }

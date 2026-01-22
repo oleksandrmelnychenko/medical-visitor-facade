@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
-import pageStyles from '@/styles/page.module.scss';
+import { useRouter } from 'next/navigation';
 import styles from '../request-appointment.module.scss';
 import { PatientType } from '../RequestAppointment';
 
@@ -13,9 +13,10 @@ interface PatientTypeSelectionProps {
 
 export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
   const t = useTranslations('appointment');
+  const router = useRouter();
 
   return (
-    <div className={pageStyles.stackLg}>
+    <div className={styles.applyStack}>
       <motion.div
         key="selection"
         className={styles.clientCardsGrid}
@@ -24,9 +25,9 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.5 }}
       >
-        {/* New Client Card */}
+        {/* New Client Card - redirects to register */}
         <motion.div
-          onClick={() => onSelect("new")}
+          onClick={() => router.push('/register')}
           className={styles.clientCard}
           style={{ '--hover-color': '#E5D5A8' } as React.CSSProperties}
           initial={{ opacity: 0, y: 20 }}
@@ -42,9 +43,9 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
           </p>
         </motion.div>
 
-        {/* Returning Client Card */}
+        {/* Returning Client Card - redirects to login */}
         <motion.div
-          onClick={() => onSelect("returning")}
+          onClick={() => router.push('/login')}
           className={styles.clientCard}
           style={{ '--hover-color': '#A8D5E5' } as React.CSSProperties}
           initial={{ opacity: 0, y: 20 }}
@@ -62,6 +63,11 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
 
       </motion.div>
 
+      {/* Closing line */}
+      <div className={styles.closingLines}>
+        <div className={styles.closingLine} />
+      </div>
+
       {/* Free Service Card */}
       <motion.div
         key="free-service"
@@ -74,6 +80,7 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
       >
         <h3 className={styles.freeServiceTitle}>{t('freeService.title')}</h3>
         <p className={styles.freeServiceDesc}>{t('freeService.description2')}</p>
+        <p className={styles.freeServiceDesc}>{t('freeService.priorityText')}</p>
         <motion.button
           className={styles.freeServiceButton}
           whileHover={{ scale: 1.02 }}

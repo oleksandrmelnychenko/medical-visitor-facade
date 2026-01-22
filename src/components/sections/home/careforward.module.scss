@@ -1,0 +1,64 @@
+@use "../../../styles/variables" as *;
+
+.section {
+  padding: clamp(4rem, 10vw, 7rem) 0;
+  background-color: #fff;
+}
+
+.title {
+  text-align: center;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: clamp(3rem, 6vw, 4rem);
+  letter-spacing: -0.01em;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+
+  @include up(md) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+}
+
+.serviceItem {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.serviceIcon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+    stroke-width: 1.5;
+  }
+}
+
+.serviceTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: -0.01em;
+}
+
+.serviceDesc {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.7;
+  max-width: 280px;
+}
