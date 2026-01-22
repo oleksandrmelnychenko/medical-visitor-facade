@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { LogOut, RefreshCw } from "lucide-react";
+import { LogOut, RefreshCw, FileText } from "lucide-react";
 import styles from "./admin.module.scss";
 
 type Application = {
