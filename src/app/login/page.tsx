@@ -14,7 +14,7 @@ import styles from "./login.module.scss";
 import formStyles from "@/components/auth/auth.module.scss";
 
 type FormErrors = {
-  phone?: string;
+  identifier?: string;
   password?: string;
 };
 
@@ -24,38 +24,49 @@ export default function LoginPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [phone, setPhone] = useState("");
+  const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<FormErrors>({});
-  const [touched, setTouched] = useState<{ phone?: boolean; password?: boolean }>({});
+  const [touched, setTouched] = useState<{ identifier?: boolean; password?: boolean }>({});
 
-  const validatePhone = (value: string): string | undefined => {
-    if (!value.trim()) {
-      return "Введите номер телефона";
+  const validateIdentifier = (value: string): string | undefined => {
+    const trimmed = value.trim();
+    if (!trimmed) {
+      return t('identifierRequired');
     }
-    // Phone should start with + and have at least 10 digits
+
+    // Check if it's an email
+    if (trimmed.includes("@")) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(trimmed)) {
+        return t('invalidEmail');
+      }
+      return undefined;
+    }
+
+    // Otherwise treat as phone - should start with + and have at least 10 digits
     const phoneRegex = /^\+[0-9]{10,15}$/;
-    if (!phoneRegex.test(value.replace(/\s/g, ""))) {
-      return "Неверный формат телефона (например: +4917612345678)";
+    if (!phoneRegex.test(trimmed.replace(/\s/g, ""))) {
+      return t('invalidPhoneOrEmail');
     }
     return undefined;
   };
 
   const validatePassword = (value: string): string | undefined => {
     if (!value) {
-      return "Введите пароль";
+      return t('passwordRequired');
     }
     if (value.length < 6) {
-      return "Пароль должен быть не менее 6 символов";
+      return t('passwordMinLength');
     }
     return undefined;
   };
 
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleIdentifierChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setPhone(value);
-    if (touched.phone) {
-      setErrors(prev => ({ ...prev, phone: validatePhone(value) }));
+    setIdentifier(value);
+    if (touched.identifier) {
+      setErrors(prev => ({ ...prev, identifier: validateIdentifier(value) }));
     }
   };
 
@@ -67,10 +78,10 @@ export default function LoginPage() {
     }
   };
 
-  const handleBlur = (field: "phone" | "password") => {
+  const handleBlur = (field: "identifier" | "password") => {
     setTouched(prev => ({ ...prev, [field]: true }));
-    if (field === "phone") {
-      setErrors(prev => ({ ...prev, phone: validatePhone(phone) }));
+    if (field === "identifier") {
+      setErrors(prev => ({ ...prev, identifier: validateIdentifier(identifier) }));
     } else {
       setErrors(prev => ({ ...prev, password: validatePassword(password) }));
     }
@@ -80,13 +91,13 @@ export default function LoginPage() {
     e.preventDefault();
 
     // Validate all fields
-    const phoneError = validatePhone(phone);
+    const identifierError = validateIdentifier(identifier);
     const passwordError = validatePassword(password);
 
-    setErrors({ phone: phoneError, password: passwordError });
-    setTouched({ phone: true, password: true });
+    setErrors({ identifier: identifierError, password: passwordError });
+    setTouched({ identifier: true, password: true });
 
-    if (phoneError || passwordError) {
+    if (identifierError || passwordError) {
       return;
     }
 
@@ -95,7 +106,7 @@ export default function LoginPage() {
 
     try {
       const result = await signIn("credentials", {
-        phone: phone.replace(/\s/g, ""),
+        identifier: identifier.trim(),
         password,
         redirect: false,
       });
@@ -136,20 +147,20 @@ export default function LoginPage() {
             <form className={formStyles.form} onSubmit={handleSubmit} autoComplete="off" noValidate>
               {error && <div className={formStyles.formError}>{error}</div>}
 
-              {/* Phone field */}
+              {/* Phone or Email field */}
               <div className={formStyles.simpleFormGroup}>
                 <input
-                  id="phone"
-                  type="tel"
-                  placeholder={t('phone')}
-                  className={cn(formStyles.simpleInput, errors.phone && touched.phone && formStyles.error)}
+                  id="identifier"
+                  type="text"
+                  placeholder={t('phoneOrEmail')}
+                  className={cn(formStyles.simpleInput, errors.identifier && touched.identifier && formStyles.error)}
                   autoComplete="off"
-                  value={phone}
-                  onChange={handlePhoneChange}
-                  onBlur={() => handleBlur("phone")}
+                  value={identifier}
+                  onChange={handleIdentifierChange}
+                  onBlur={() => handleBlur("identifier")}
                 />
-                {errors.phone && touched.phone && (
-                  <span className={formStyles.errorMessage}>{errors.phone}</span>
+                {errors.identifier && touched.identifier && (
+                  <span className={formStyles.errorMessage}>{errors.identifier}</span>
                 )}
               </div>
 

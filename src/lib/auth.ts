@@ -36,21 +36,24 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     Credentials({
       name: "credentials",
       credentials: {
-        phone: { label: "Phone", type: "tel" },
+        identifier: { label: "Phone or Email", type: "text" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials?.phone || !credentials?.password) {
+        if (!credentials?.identifier || !credentials?.password) {
           return null;
         }
 
-        const phone = credentials.phone as string;
+        const identifier = (credentials.identifier as string).trim();
         const password = credentials.password as string;
 
-        // Find user by phone with additional security checks
+        // Determine if identifier is email or phone
+        const isEmail = identifier.includes("@");
+
+        // Find user by phone or email with additional security checks
         const user = await prisma.user.findFirst({
           where: {
-            phone,
+            ...(isEmail ? { email: identifier.toLowerCase() } : { phone: identifier }),
             isActive: true, // Only allow active users
           },
         });
