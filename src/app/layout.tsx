@@ -5,6 +5,7 @@ import { cache, Suspense } from "react";
 import "../styles/globals.scss";
 import { Header } from "@/components/layout/header/Header";
 import { Footer } from '@/components/layout/footer/Footer';
+import { MobileLoginFab } from "@/components/layout/MobileLoginFab";
 import { LanguageProvider } from "@/providers/LanguageProvider";
 import { AuthProvider } from "@/providers/AuthProvider";
 
@@ -69,6 +70,7 @@ export default async function RootLayout({
             <Suspense fallback={<FooterSkeleton />}>
               <Footer />
             </Suspense>
+            <MobileLoginFab />
           </LanguageProvider>
         </AuthProvider>
       </body>
