@@ -395,7 +395,7 @@
     },
     "doctors": {
       "title": "Our medical specialists",
-      "bookAppointment": "Request a consultation"
+      "bookAppointment": "Become a client"
     },
     "whyChoose": {
       "title": "Why choose our doctors",
@@ -1009,6 +1009,21 @@
     "registerSubtitle": "Complete the form to register",
     "alreadyHaveAccount": "Already have an account?",
     "signInLink": "Sign in"
+  },
+  "register": {
+    "step1Title": "Details",
+    "step2Title": "Questionnaire",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "next": "Next",
+    "back": "Back",
+    "submit": "Submit request",
+    "submitting": "Submitting...",
+    "canComeToGermany": "Are you able to travel to Germany?",
+    "isEuResident": "Are you an EU resident?",
+    "yes": "Yes",
+    "no": "No",
+    "needHelp": "I need help with travel arrangements"
   },
   "dashboard": {
     "title": "Client area",

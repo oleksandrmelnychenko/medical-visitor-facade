@@ -3,7 +3,7 @@
     "home": "Startseite",
     "learnMore": "Mehr erfahren",
     "contactUs": "Kontakt",
-    "requestAppointment": "Beratung anfragen",
+    "requestAppointment": "Kunde werden",
     "login": "Anmelden",
     "search": "Suche",
     "submit": "Senden",
@@ -17,7 +17,7 @@
     "trustSafety": "Vertrauen und Sicherheit",
     "patientCenteredCare": "Patientenorientierte Betreuung",
     "aboutGmed": "Über Gmed",
-    "requestAppointment": "Beratung anfragen",
+    "requestAppointment": "Kunde werden",
     "findDoctor": "Arzt finden",
     "locations": "Standorte",
     "patientServices": "Patientenservice",
@@ -37,24 +37,24 @@
     "vatTitle": "USt-IdNr.",
     "vatLegal": "gemäß § 27 a UStG:",
     "vatNumber": "147/220/51409",
-    "contactPrompt": "Bei Fragen zum Inhalt dieser Website schreiben Sie bitte an:",
+    "contactPrompt": "Bei Fragen und Anregungen zum Inhalt dieser Website schreiben Sie bitte an:",
     "copyright": "© 2023 Agentur für Patientenbetreuung Georgiy Gudiev"
   },
   "home": {
     "hero": {
-      "overline": "Persönliches Gesundheitsmanagement",
-      "title": "Wir übernehmen die umfassende Betreuung Ihrer Gesundheit",
-      "subtitle": "",
-      "requestAppointment": "Beratung anfragen",
+      "overline": "GMED Agency",
+      "title": "Medizinische Begleitung",
+      "subtitle": "Organisation der Behandlung und umfassende Begleitung unserer Kunden",
+      "requestAppointment": "Kunde werden",
       "exploreServices": "Mehr erfahren",
       "highlights": {
         "responseTime": {
           "label": "Erreichbarkeit",
-          "value": "Persönlicher Koordinator rund um die Uhr"
+          "value": "Persönlicher Ansprechpartner jederzeit erreichbar"
         },
         "careCoordination": {
           "label": "Service",
-          "value": "Umfassende Koordination"
+          "value": "Umfassende Begleitung"
         },
         "languages": {
           "label": "Sprachen",
@@ -63,28 +63,34 @@
       },
       "badge": {
         "title": "Privater Service",
-        "text": "Für Kunden, die Diskretion schätzen"
+        "text": "Für anspruchsvolle Kunden"
       },
       "videoOverlay": "Persönlicher Ansatz"
     },
     "careForward": {
-      "overline": "Unser Ansatz",
-      "title": "Betreuung mit Weitblick",
-      "subtitle": "Wir gestalten eine neue Ära patientenorientierter Medizin",
-      "trust": {
-        "title": "Vertrauen durch Exzellenz",
-        "description": "Unser Ansatz verbindet moderne Medizintechnologie mit aufmerksamer Betreuung und sorgt für persönliche Begleitung und beste Ergebnisse."
-      },
-      "worldClass": {
-        "title": "Führende Einrichtungen",
-        "description": "Moderne medizinische Zentren mit fortschrittlicher Technologie und hohem Servicestandard in angenehmer Umgebung."
+      "overline": "",
+      "title": "Was wir tun",
+      "subtitle": "",
+      "services": {
+        "clinic": {
+          "title": "Klinikauswahl",
+          "desc": "Wir finden die passende Klinik und den passenden Arzt für Ihren individuellen Fall"
+        },
+        "organization": {
+          "title": "Reiseorganisation",
+          "desc": "Visa, Flüge, Transfers und Unterkunft - wir übernehmen alles"
+        },
+        "coordination": {
+          "title": "Persönlicher Koordinator",
+          "desc": "Rund um die Uhr erreichbar - in jeder Behandlungsphase und darüber hinaus"
+        }
       },
       "learnMore": "Mehr erfahren"
     },
     "services": {
-      "overline": "Unser Angebot",
+      "overline": "Was wir anbieten",
       "title": "Unsere Leistungen",
-      "subtitle": "Ganzheitliche Lösungen, abgestimmt auf Ihre Bedürfnisse",
+      "subtitle": "Ganzheitliche Lösungen im Gesundheitswesen, abgestimmt auf Ihre Bedürfnisse",
       "items": {
         "cardiology": {
           "title": "Kardiologie",
@@ -105,11 +111,11 @@
       "learnMore": "Mehr erfahren"
     },
     "trust": {
-      "overline": "Vertraulichkeit",
-      "title": "Strenge Vertraulichkeit",
+      "overline": "Privatsphäre",
+      "title": "Absolute Vertraulichkeit",
       "subtitle": "Wir verstehen den Wert von Privatsphäre für unsere Kunden.",
-      "description": "Jede Zusammenarbeit basiert auf vollständiger Vertraulichkeit. Ihre Daten, Behandlungsverläufe und selbst die Anfrage werden geschützt.",
-      "guarantee": "Strenge Datenschutzstandards auf jeder Stufe."
+      "description": "Die Zusammenarbeit mit jedem Kunden basiert auf vollständiger Vertraulichkeit. Ihre Daten, Behandlungshistorie und selbst die Tatsache der Anfrage sind sicher geschützt.",
+      "guarantee": "Strenge Standards für Privatsphäre in jeder Phase."
     },
     "office": {
       "overline": "Deutschland",
@@ -144,36 +150,36 @@
       "subtitle": "Sie konzentrieren sich auf Ihre Gesundheit. Wir übernehmen den Rest.",
       "services": {
         "noFees": {
-          "title": "Private Flüge",
-          "desc": "Wir organisieren Privatflüge zu einem passenden Zeitpunkt, ohne unnötige Umstiege."
+          "title": "Charterflüge",
+          "desc": "Wir organisieren Privatflüge zu einem passenden Zeitpunkt. Ohne Warteschlangen und Umstiege."
         },
         "support": {
           "title": "Persönlicher Transport",
-          "desc": "Komfortfahrzeug mit Fahrer für alle Wege."
+          "desc": "Premiumfahrzeug mit Fahrer für alle Wege."
         },
         "confidentiality": {
           "title": "Visa-Unterstützung",
-          "desc": "Vollständige Dokumentenerstellung. Visa, Einladungen, Bescheinigungen - wir kümmern uns darum."
+          "desc": "Vollständige Dokumentenerstellung. Visa, Einladungen, Bescheinigungen - wir kümmern uns um alles."
         },
         "performance": {
           "title": "Persönlicher Dolmetscher",
-          "desc": "Ein professioneller Dolmetscher begleitet Sie bei Terminen und Gesprächen."
+          "desc": "Ein professioneller Dolmetscher begleitet Sie bei allen Terminen und Konsultationen."
         },
         "promptness": {
-          "title": "Fester Koordinator",
-          "desc": "Ein persönlicher Ansprechpartner ist jederzeit erreichbar und löst organisatorische Fragen."
+          "title": "Persönlicher Koordinator",
+          "desc": "Ein persönlicher Ansprechpartner ist jederzeit erreichbar. Wir klären alle Fragen."
         }
       },
       "journey": {
         "title": "Ihr Weg mit uns",
         "steps": {
           "consultation": {
-            "title": "Erstgespräch",
+            "title": "Erstberatung",
             "desc": "Sie schildern Ihre Bedürfnisse, wir planen alles"
           },
           "travel": {
             "title": "Reiseorganisation",
-            "desc": "Tickets, Visa und Unterkunft sind organisiert"
+            "desc": "Tickets, Visa und Unterkunft sind gebucht"
           },
           "arrival": {
             "title": "Anreise und Empfang",
@@ -190,56 +196,60 @@
         }
       },
       "promise": {
-        "title": "Umfassende Betreuung",
-        "text": "Wir organisieren nicht nur die Behandlung. Wir übernehmen jedes Detail - vom ersten Anruf bis zur Rückreise."
+        "title": "Umfassendes Management Ihrer Gesundheit",
+        "text": "Wir organisieren nicht nur die Behandlung. Wir übernehmen jedes Detail - vom ersten Anruf bis zu Ihrer Rückkehr nach Hause."
       }
     },
     "cta": {
-      "overline": "Privater Service",
-      "title": "Vertrauen Sie uns Ihre Gesundheit an",
-      "subtitle": "Kontaktieren Sie uns für eine vertrauliche Beratung.",
-      "stats": {
-        "patients": {
-          "number": "Umfassend",
-          "label": "Vertraulichkeit"
-        },
-        "specialists": {
-          "number": "Rund um die Uhr",
-          "label": "Erreichbarkeit"
+      "overline": "Kontinuierliche Begleitung",
+      "title": "Wir bleiben an Ihrer Seite",
+      "subtitle": "Nach der Behandlung endet unsere Unterstützung nicht. Wir bleiben in Kontakt und begleiten Sie so lange, wie es nötig ist.",
+      "services": {
+        "medications": {
+          "title": "Medikamentenlieferung",
+          "desc": "Wir organisieren die Lieferung verordneter Medikamente in jeden Teil der Welt"
         },
         "support": {
-          "number": "Persönlich",
-          "label": "Servicelevel"
+          "title": "Ständige Erreichbarkeit",
+          "desc": "Ein persönlicher Ansprechpartner ist jederzeit erreichbar und klärt alle Fragen"
+        },
+        "monitoring": {
+          "title": "Gesundheitsmonitoring",
+          "desc": "Wir überwachen Ihren Zustand und koordinieren mit den behandelnden Ärzten"
+        },
+        "consultations": {
+          "title": "Online-Konsultationen",
+          "desc": "Wir führen Videokonsultationen von überall auf der Welt durch, ohne dass eine Reise nötig ist"
         }
       },
-      "bookConsultation": "Kontakt aufnehmen",
+      "bookConsultation": "Kunde werden",
       "getStarted": "Mehr erfahren",
-      "availability": "Vertrauliche Beratung"
+      "availability": "Werden Sie Teil unserer Betreuung"
     }
   },
   "appointment": {
     "overline": "Anfrage",
-    "title": "Beratung anfragen",
-    "subtitle": "Hinterlassen Sie Ihre Kontaktdaten. Wir melden uns zeitnah.",
-    "backToSelection": "Zur Auswahl",
+    "title": "Kunde werden",
+    "subtitle": "Senden Sie eine Anfrage, damit wir uns zeitnah bei Ihnen melden können.",
+    "backToSelection": "← Zur Auswahl",
     "clientTypes": {
       "new": {
         "title": "Neukunde",
-        "description": "Hinterlassen Sie Ihre Kontaktdaten."
+        "description": "Bitte füllen Sie den Fragebogen aus."
       },
       "returning": {
-        "title": "Bestehender Kunde",
-        "description": "Melden Sie sich im Kundenkonto an."
+        "title": "Ich bin bereits Kunde",
+        "description": "Melden Sie sich im Kundenbereich an."
       }
     },
     "freeService": {
-      "title": "Finanzielle Unterstützung?",
-      "description1": "Wir wissen, dass medizinische Versorgung finanziell belastend sein kann. Die Agentur für Patientenbetreuung bietet ein begrenztes Unterstützungsprogramm für Patienten mit Bedarf.",
-      "description2": "Jeder Antrag wird sorgfältig geprüft und bei verfügbaren Ressourcen unterstützt.",
-      "priority": "Prioritäre Fälle:",
-      "priorityText": "Wir priorisieren Fälle mit Kindern, dringende medizinische Situationen und Patienten in besonderen Umständen.",
-      "note": "Hinweis: Anträge auf kostenfreie Leistungen werden individuell geprüft, abhängig von verfügbaren Kapazitäten und medizinischer Notwendigkeit. Wir melden uns innerhalb von 5-7 Werktagen.",
-      "applyButton": "Unterstützung beantragen"
+      "title": "Benötigen Sie finanzielle Unterstützung?",
+      "description1": "Wir wissen, dass medizinische Versorgung finanziell belastend sein kann. Die Agentur für Patientenbetreuung bietet ein begrenztes Programm für Patienten, die Hilfe bei medizinischen Kosten benötigen.",
+      "description2": "Unser Team prüft jede Anfrage sorgfältig und unterstützt, sofern Ressourcen verfügbar sind.",
+      "priority": "Priorisierte Fälle:",
+      "priorityText": "Wir priorisieren Fälle mit Kindern, dringliche medizinische Situationen und Patienten in besonderen Umständen.",
+      "note": "Hinweis: Anträge auf kostenfreie Leistungen werden individuell geprüft, abhängig von verfügbaren Kapazitäten und medizinischer Notwendigkeit. Wir melden uns innerhalb von 5-7 Werktagen zum Status Ihrer Anfrage.",
+      "applyButton": "Kostenfreie Betreuung beantragen"
     },
     "newPatient": {
       "intro": {
@@ -247,7 +257,7 @@
         "description": "Wir stellen einige Fragen, damit die Terminkoordination Sie kontaktieren kann.",
         "continue": "Weiter",
         "emergency": "Bei einem medizinischen Notfall wählen Sie 112.",
-        "mentalHealth": "Bei einer akuten psychischen Krise wenden Sie sich an eine Hotline."
+        "mentalHealth": "Bei einer psychischen Krise wenden Sie sich an eine Hotline."
       },
       "isPatient": {
         "title": "Sind Sie der Patient?",
@@ -257,7 +267,7 @@
         "noDesc": "Ich kontaktiere für eine andere Person"
       },
       "travel": {
-        "title": "Können Sie nach München für die Behandlung reisen?",
+        "title": "Können Sie für die Behandlung nach München reisen?",
         "description": "Für einen Termin bei der Agentur für Patientenbetreuung ist eine Reise zu unserer Einrichtung in München, Deutschland erforderlich.",
         "yes": "Ja",
         "no": "Nein"
@@ -284,12 +294,12 @@
     },
     "returningPatient": {
       "title": "Wiederkehrender Patient",
-      "formPending": "Formular in Arbeit...",
+      "formPending": "Formular in Entwicklung...",
       "back": "Zurück"
     },
     "physician": {
-      "title": "Überweisender Arzt",
-      "formPending": "Formular in Arbeit...",
+      "title": "Überweisung vom Arzt",
+      "formPending": "Formular in Entwicklung...",
       "back": "Zurück"
     }
   },
@@ -385,7 +395,7 @@
     },
     "doctors": {
       "title": "Unsere Fachärzte",
-      "bookAppointment": "Beratung anfragen"
+      "bookAppointment": "Kunde werden"
     },
     "whyChoose": {
       "title": "Warum unsere Ärzte",
@@ -983,7 +993,7 @@
     "invalidCredentials": "Ungültige E-Mail oder Passwort",
     "registrationFailed": "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.",
     "signInAfterRegisterFailed": "Konto erstellt, Anmeldung fehlgeschlagen. Bitte melden Sie sich manuell an.",
-    "dashboard": "Konto",
+    "dashboard": "Kundenbereich",
     "forgotPassword": "Passwort vergessen?",
     "preferredContactMethod": "Bitte geben Sie Ihre bevorzugte Kontaktmethode an",
     "confidentialityNotice": "Ihre Informationen sind vertraulich und werden nicht an Dritte weitergegeben.",
@@ -991,7 +1001,7 @@
     "consentData": "Einwilligung zur Verarbeitung personenbezogener Daten",
     "consentMarketing": "Einwilligung zum Erhalt von Informations- und Werbenachrichten",
     "welcomeTitle": "Willkommen",
-    "welcomeSubtitle": "Melden Sie sich an oder erstellen Sie ein Konto, um fortzufahren",
+    "welcomeSubtitle": "Melden Sie sich in Ihrem Konto an",
     "sendMessage": "Nachricht senden",
     "overline": "Anmeldung",
     "registerOverline": "Registrierung",
@@ -1000,8 +1010,23 @@
     "alreadyHaveAccount": "Haben Sie bereits ein Konto?",
     "signInLink": "Anmelden"
   },
+  "register": {
+    "step1Title": "Daten",
+    "step2Title": "Fragebogen",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "next": "Weiter",
+    "back": "Zurück",
+    "submit": "Anfrage senden",
+    "submitting": "Wird gesendet...",
+    "canComeToGermany": "Können Sie nach Deutschland reisen?",
+    "isEuResident": "Sind Sie in der EU ansässig?",
+    "yes": "Ja",
+    "no": "Nein",
+    "needHelp": "Ich benötige Unterstützung bei der Reiseorganisation"
+  },
   "dashboard": {
-    "title": "Konto",
+    "title": "Kundenbereich",
     "welcomeBack": "Willkommen zurück, {name}",
     "accountInfo": "Kontoinformationen",
     "name": "Name",

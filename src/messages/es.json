@@ -1,9 +1,9 @@
 {
   "common": {
-    "home": "inicio",
+    "home": "Inicio",
     "learnMore": "Más información",
     "contactUs": "Contáctenos",
-    "requestAppointment": "Solicitar cita",
+    "requestAppointment": "Convertirse en cliente",
     "login": "Iniciar sesión",
     "search": "Buscar",
     "submit": "Enviar",
@@ -17,7 +17,7 @@
     "trustSafety": "Confianza y seguridad",
     "patientCenteredCare": "Atención centrada en el paciente",
     "aboutGmed": "Sobre Gmed",
-    "requestAppointment": "Solicitar cita",
+    "requestAppointment": "Convertirse en cliente",
     "findDoctor": "Encontrar médico",
     "locations": "Ubicaciones",
     "patientServices": "Servicios al paciente",
@@ -30,70 +30,76 @@
     "patientRights": "Derechos del paciente"
   },
   "footer": {
-    "impressum": "Aviso Legal",
-    "companyName": "GMED Medical Concierge",
-    "owner": "Heorhii Hudiiev",
-    "contact": "Contáctenos",
-    "vatTitle": "Información Fiscal",
-    "vatLegal": "NIF según § 27a UStG:",
+    "impressum": "Información legal",
+    "companyName": "Agencia de Atención al Paciente Georgiy Gudiev",
+    "owner": "Propietario: Georgiy Gudiev",
+    "contact": "Contacto",
+    "vatTitle": "Número de identificación del IVA",
+    "vatLegal": "según § 27 a de la Ley del IVA:",
     "vatNumber": "147/220/51409",
-    "contactPrompt": "Contáctenos:",
-    "copyright": "© 2024 GMED Medical Concierge. Todos los derechos reservados."
+    "contactPrompt": "Para consultas y sugerencias sobre el contenido del sitio, por favor envíenos un correo a:",
+    "copyright": "© 2023 Agencia de Atención al Paciente Georgiy Gudiev"
   },
   "home": {
     "hero": {
-      "overline": "Atención médica premium",
-      "title": "Cuidando de usted en cada paso del camino",
-      "subtitle": "Experimente una atención médica compasiva con nuestro dedicado equipo de profesionales comprometidos con su bienestar.",
-      "requestAppointment": "Solicitar cita",
-      "exploreServices": "Explorar servicios",
+      "overline": "GMED Agency",
+      "title": "Acompañamiento médico",
+      "subtitle": "Organización del tratamiento y acompañamiento integral del cliente",
+      "requestAppointment": "Convertirse en cliente",
+      "exploreServices": "Más información",
       "highlights": {
         "responseTime": {
-          "label": "Tiempo de respuesta",
-          "value": "En 24 horas"
+          "label": "Disponibilidad",
+          "value": "Gestor personal disponible en todo momento"
         },
         "careCoordination": {
-          "label": "Coordinación de atención",
-          "value": "Soporte integral"
+          "label": "Servicio",
+          "value": "Acompañamiento integral"
         },
         "languages": {
           "label": "Idiomas",
-          "value": "DE, EN, RU, ES"
+          "value": "DE, EN, RU"
         }
       },
       "badge": {
-        "title": "Socio de confianza",
-        "text": "Su viaje de salud, guiado con cuidado"
+        "title": "Servicio privado",
+        "text": "Para clientes exigentes"
       },
-      "videoOverlay": "Excelencia en atención médica"
+      "videoOverlay": "Enfoque personalizado"
     },
     "careForward": {
-      "overline": "Nuestro enfoque",
-      "title": "Atención avanzada",
-      "subtitle": "Estamos pioneros en una nueva era de atención médica centrada en el paciente",
-      "trust": {
-        "title": "Construyendo confianza a través de la excelencia",
-        "description": "Nuestro enfoque combina tecnología médica de vanguardia con atención compasiva, asegurando que cada paciente reciba atención personalizada y los mejores resultados posibles."
-      },
-      "worldClass": {
-        "title": "Instalaciones de clase mundial",
-        "description": "Centros médicos de última generación equipados con la última tecnología, diseñados para brindarle el más alto estándar de atención en un ambiente cómodo."
+      "overline": "",
+      "title": "Lo que hacemos",
+      "subtitle": "",
+      "services": {
+        "clinic": {
+          "title": "Selección de clínica",
+          "desc": "Encontramos la clínica y el médico adecuados para su caso"
+        },
+        "organization": {
+          "title": "Organización del viaje",
+          "desc": "Visados, vuelos, traslados, alojamiento - nos ocupamos de todo"
+        },
+        "coordination": {
+          "title": "Coordinador personal",
+          "desc": "Disponible en todo momento durante cada etapa del tratamiento y después"
+        }
       },
       "learnMore": "Más información"
     },
     "services": {
       "overline": "Lo que ofrecemos",
       "title": "Nuestros servicios",
-      "subtitle": "Soluciones integrales de atención médica adaptadas a sus necesidades",
+      "subtitle": "Soluciones integrales de salud adaptadas a sus necesidades",
       "items": {
         "cardiology": {
           "title": "Cardiología",
-          "subtitle": "Atención cardíaca y vascular",
+          "subtitle": "Atención cardiovascular",
           "description": "Atención cardiovascular integral que incluye diagnóstico, tratamiento y prevención de enfermedades cardíacas."
         },
         "oncology": {
           "title": "Oncología",
-          "subtitle": "Tratamiento del cáncer",
+          "subtitle": "Atención oncológica",
           "description": "Atención avanzada del cáncer con planes de tratamiento personalizados y terapias de apoyo."
         },
         "surgery": {
@@ -105,166 +111,164 @@
       "learnMore": "Más información"
     },
     "trust": {
-      "overline": "Por qué elegirnos",
-      "title": "Confianza de miles",
-      "subtitle": "Nuestro compromiso con la excelencia ha ganado la confianza de pacientes y socios de salud en todo el mundo.",
-      "description": "Con décadas de experiencia en atención al paciente, combinamos experiencia médica con compasión genuina. Cada miembro de nuestro equipo está dedicado a su bienestar.",
-      "guarantee": "Su salud y satisfacción son nuestras principales prioridades.",
-      "stats": {
-        "patients": "Pacientes atendidos",
-        "doctors": "Médicos expertos",
-        "experience": "Años de experiencia",
-        "satisfaction": "Tasa de satisfacción"
-      }
+      "overline": "Privacidad",
+      "title": "Confidencialidad absoluta",
+      "subtitle": "Entendemos el valor de la privacidad para nuestros clientes.",
+      "description": "La colaboración con cada cliente se basa en la confidencialidad total. Sus datos, historial de tratamiento e incluso el hecho de su consulta están protegidos.",
+      "guarantee": "Estándares estrictos de privacidad en cada etapa."
     },
     "office": {
-      "overline": "Nuestras oficinas",
-      "title": "Ubicaciones en Alemania",
-      "subtitle": "Estamos cerca, dondequiera que esté.",
+      "overline": "Alemania",
+      "title": "Nuestras oficinas",
+      "subtitle": "",
       "cities": {
         "berlin": {
           "name": "Berlín",
-          "address": "Kurfürstendamm 21, 10719 Berlín",
+          "address": "Kurfürstendamm 21, 10719 Berlin",
           "phone": "+49 30 123-4567"
         },
         "frankfurt": {
           "name": "Fráncfort",
-          "address": "Kaiserstraße 50, 60329 Fráncfort",
+          "address": "Kaiserstraße 50, 60329 Frankfurt",
           "phone": "+49 69 123-4567"
         },
         "nuremberg": {
           "name": "Núremberg",
-          "address": "Königstraße 25, 90402 Núremberg",
+          "address": "Königstraße 25, 90402 Nürnberg",
           "phone": "+49 911 123-4567"
         },
         "munich": {
           "name": "Múnich",
-          "address": "Maximilianstraße 35, 80539 Múnich",
+          "address": "Maximilianstraße 35, 80539 München",
           "phone": "+49 89 123-4567"
         }
       }
     },
     "fullSupport": {
-      "overline": "Nuestro enfoque",
-      "title": "Cómo trabajamos",
-      "subtitle": "Atención al detalle en cada paso.",
+      "overline": "Acompañamiento completo",
+      "title": "Concepto de la agencia",
+      "subtitle": "Usted se ocupa de su salud. Nosotros de todo lo demás.",
       "services": {
         "noFees": {
-          "title": "Condiciones transparentes",
-          "desc": "Pago a la entrega del servicio. Sin cargos ocultos ni obligaciones."
+          "title": "Vuelos chárter",
+          "desc": "Organizamos un vuelo privado en el momento conveniente. Sin colas ni escalas."
         },
         "support": {
-          "title": "Coordinador personal",
-          "desc": "Un único punto de contacto para asuntos médicos y organizativos."
+          "title": "Transporte personal",
+          "desc": "Vehículo premium con conductor para todos sus desplazamientos."
         },
         "confidentiality": {
-          "title": "Confidencialidad",
-          "desc": "Sus datos están protegidos de forma segura. Cumplimos con estrictos estándares de privacidad."
+          "title": "Apoyo para visados",
+          "desc": "Gestión completa de documentos. Visados, invitaciones, certificados: resolvemos todo."
         },
         "performance": {
-          "title": "Atención al detalle",
-          "desc": "Servicio cuidadoso en cada etapa, desde la primera llamada hasta su regreso a casa."
+          "title": "Intérprete personal",
+          "desc": "Un intérprete profesional le acompaña en todas las reuniones y consultas."
         },
         "promptness": {
-          "title": "Respeto por su tiempo",
-          "desc": "Trabajamos según su horario. Plazos claros, proceso sencillo."
+          "title": "Coordinador dedicado",
+          "desc": "Un gestor personal está disponible en todo momento y resuelve cualquier cuestión."
         }
       },
       "journey": {
-        "title": "Su viaje con nosotros",
+        "title": "Su camino con nosotros",
         "steps": {
           "consultation": {
             "title": "Consulta inicial",
             "desc": "Cuéntenos sus necesidades, planificamos todo"
           },
           "travel": {
-            "title": "Viaje organizado",
-            "desc": "Vuelos, visas, alojamiento reservado"
+            "title": "Organización del viaje",
+            "desc": "Vuelos, visados y alojamiento reservados"
           },
           "arrival": {
-            "title": "Llegada y recogida",
-            "desc": "Recibido en el aeropuerto, llevado al hotel"
+            "title": "Llegada y recepción",
+            "desc": "Le recibimos en el aeropuerto y le llevamos al hotel"
           },
           "treatment": {
             "title": "Tratamiento",
-            "desc": "Apoyo completo durante todos los procedimientos"
+            "desc": "Apoyo completo durante los procedimientos"
           },
           "recovery": {
             "title": "Recuperación y regreso",
-            "desc": "Seguimiento y viaje seguro a casa"
+            "desc": "Seguimiento y regreso seguro"
           }
         }
       },
       "promise": {
-        "title": "Nunca está solo",
-        "text": "Desde el momento en que nos contacta hasta que regresa a casa de forma segura, estamos con usted. Cada pregunta respondida, cada problema resuelto."
+        "title": "Gestión integral de su salud",
+        "text": "No solo organizamos el tratamiento. Nos ocupamos de cada detalle, desde la primera llamada hasta su regreso a casa."
       }
     },
     "cta": {
-      "overline": "Comience",
-      "title": "¿Listo para dar el siguiente paso?",
-      "subtitle": "Programe su cita hoy y experimente la diferencia de la atención médica personalizada.",
-      "stats": {
-        "patients": {
-          "number": "15,000+",
-          "label": "Pacientes atendidos"
-        },
-        "specialists": {
-          "number": "50+",
-          "label": "Especialistas médicos"
+      "overline": "Acompañamiento continuo",
+      "title": "Siempre a su lado",
+      "subtitle": "Después del tratamiento, nuestro apoyo no termina. Seguimos en contacto y le acompañamos tanto como sea necesario.",
+      "services": {
+        "medications": {
+          "title": "Entrega de medicamentos",
+          "desc": "Organizamos la entrega de los medicamentos prescritos a cualquier parte del mundo"
         },
         "support": {
-          "number": "24/7",
-          "label": "Soporte al paciente"
+          "title": "Contacto permanente",
+          "desc": "Un gestor personal está disponible en todo momento para resolver cualquier cuestión"
+        },
+        "monitoring": {
+          "title": "Monitoreo de salud",
+          "desc": "Supervisamos su estado y coordinamos con los médicos tratantes"
+        },
+        "consultations": {
+          "title": "Consultas en línea",
+          "desc": "Realizamos videoconsultas desde cualquier parte del mundo sin necesidad de viajar"
         }
       },
-      "bookConsultation": "Reservar consulta",
-      "getStarted": "Comenzar",
-      "availability": "Disponible de lunes a sábado"
+      "bookConsultation": "Convertirse en cliente",
+      "getStarted": "Más información",
+      "availability": "Forme parte de nuestra atención"
     }
   },
   "appointment": {
-    "overline": "Comience",
-    "title": "Solicitar cita",
-    "subtitle": "Comience aquí. Nuestro equipo le contactará en 24 horas.",
+    "overline": "Solicitud",
+    "title": "Convertirse en cliente",
+    "subtitle": "Envíe una solicitud para que podamos contactarle en breve.",
     "backToSelection": "← Volver a la selección",
     "clientTypes": {
       "new": {
         "title": "Nuevo cliente",
-        "description": "Deje sus datos de contacto."
+        "description": "Complete el cuestionario."
       },
       "returning": {
-        "title": "Cliente existente",
-        "description": "Inicie sesión en su cuenta."
+        "title": "Ya soy cliente",
+        "description": "Inicie sesión en su área personal."
       }
     },
     "freeService": {
       "title": "¿Necesita asistencia financiera?",
-      "description1": "Entendemos que la atención médica puede ser financieramente desafiante. La Agencia para la Atención al Paciente ofrece un programa limitado para pacientes que necesitan asistencia con gastos médicos.",
-      "description2": "Nuestro equipo revisa cuidadosamente cada solicitud y proporciona apoyo cuando hay recursos disponibles.",
+      "description1": "Entendemos que la atención médica puede ser un desafío financiero. La Agencia de Atención al Paciente ofrece un programa limitado para pacientes que necesitan ayuda con gastos médicos.",
+      "description2": "Nuestro equipo revisa cuidadosamente cada solicitud y brinda apoyo cuando hay recursos disponibles.",
       "priority": "Casos prioritarios:",
-      "priorityText": "Priorizamos casos que involucran niños, situaciones médicas urgentes y pacientes que enfrentan circunstancias excepcionales.",
-      "note": "Tenga en cuenta: Las solicitudes de servicio gratuito se revisan caso por caso dependiendo de la capacidad disponible y la naturaleza de la necesidad médica. Le contactaremos en 5-7 días hábiles sobre el estado de su solicitud.",
-      "applyButton": "Solicitar servicio gratuito"
+      "priorityText": "Damos prioridad a casos con niños, situaciones médicas urgentes y pacientes en circunstancias excepcionales.",
+      "note": "Nota: Las solicitudes de servicios gratuitos se revisan individualmente según la capacidad disponible y la necesidad médica. Nos pondremos en contacto en un plazo de 5-7 días hábiles sobre el estado de su solicitud.",
+      "applyButton": "Solicitar atención gratuita"
     },
     "newPatient": {
       "intro": {
         "title": "Comencemos",
-        "description": "Le haremos una serie de preguntas que guiarán su seguimiento con un coordinador de citas.",
+        "description": "Le haremos algunas preguntas para que el coordinador de citas pueda contactarle.",
         "continue": "Continuar",
-        "emergency": "Si esto es una emergencia médica, llame al 112.",
-        "mentalHealth": "Si esto es una emergencia de salud mental, llame o envíe un mensaje de texto al 988 para hablar con un consejero."
+        "emergency": "Si se trata de una emergencia médica, llame al 112.",
+        "mentalHealth": "Si se trata de una crisis de salud mental, llame a la línea de ayuda."
       },
       "isPatient": {
         "title": "¿Es usted el paciente?",
         "yes": "Sí",
         "yesDesc": "Soy el paciente",
         "no": "No",
-        "noDesc": "Estoy solicitando para otra persona"
+        "noDesc": "Me comunico en nombre de otra persona"
       },
       "travel": {
-        "title": "¿Puede y está dispuesto a viajar a Múnich para recibir atención?",
-        "description": "Obtener una cita en la Agencia para la Atención al Paciente requerirá que viaje a nuestra instalación en Múnich, Alemania.",
+        "title": "¿Puede viajar a Múnich para recibir atención médica?",
+        "description": "Para programar una cita con la Agencia de Atención al Paciente será necesario viajar a nuestro centro en Múnich, Alemania.",
         "yes": "Sí",
         "no": "No"
       },
@@ -289,13 +293,13 @@
       }
     },
     "returningPatient": {
-      "title": "Paciente que regresa",
-      "formPending": "Implementación del formulario pendiente...",
+      "title": "Paciente recurrente",
+      "formPending": "Formulario en desarrollo...",
       "back": "Atrás"
     },
     "physician": {
-      "title": "Referencia médica",
-      "formPending": "Implementación del formulario pendiente...",
+      "title": "Derivación médica",
+      "formPending": "Formulario en desarrollo...",
       "back": "Atrás"
     }
   },
@@ -391,7 +395,7 @@
     },
     "doctors": {
       "title": "Nuestros profesionales médicos",
-      "bookAppointment": "Reservar cita"
+      "bookAppointment": "Convertirse en cliente"
     },
     "whyChoose": {
       "title": "Por qué elegir a nuestros médicos",
@@ -417,7 +421,7 @@
       "address": "123 Medical Center Drive",
       "city": "Healthcare City, HC 12345",
       "phone": "(555) 123-4567",
-      "hours": "Abierto 24/7"
+      "hours": "Abierto todo el día"
     },
     "specialtyCenter": {
       "name": "Centro de especialidades",
@@ -617,7 +621,7 @@
     "whyUse": {
       "title": "¿Por qué usar el portal?",
       "benefits": {
-        "access": "Acceso 24/7 a su información de salud desde cualquier dispositivo",
+        "access": "Acceso continuo a su información de salud desde cualquier dispositivo",
         "communication": "Reduzca tiempos de espera telefónica enviando mensajes a su equipo de atención",
         "reminders": "Nunca pierda una cita con recordatorios automáticos",
         "records": "Mantenga todos sus registros de salud en un lugar seguro",
@@ -725,7 +729,7 @@
       },
       "dataCenters": {
         "title": "Centros de datos seguros",
-        "description": "Su información se almacena en instalaciones certificadas SOC 2 con seguridad física 24/7."
+        "description": "Su información se almacena en instalaciones certificadas SOC 2 con seguridad física continua."
       },
       "accessControls": {
         "title": "Controles de acceso",
@@ -737,7 +741,7 @@
       },
       "threatDetection": {
         "title": "Detección de amenazas",
-        "description": "Sistemas avanzados de detección de intrusiones monitorean actividad sospechosa 24/7."
+        "description": "Sistemas avanzados de detección de intrusiones monitorean actividad sospechosa de forma continua."
       },
       "backup": {
         "title": "Respaldo y recuperación",
@@ -989,7 +993,7 @@
     "invalidCredentials": "Correo electrónico o contraseña inválidos",
     "registrationFailed": "Error en el registro. Por favor, inténtelo de nuevo.",
     "signInAfterRegisterFailed": "Cuenta creada pero el inicio de sesión falló. Por favor, inicie sesión manualmente.",
-    "dashboard": "Panel de control",
+    "dashboard": "Área del cliente",
     "forgotPassword": "¿Olvidó su contraseña?",
     "preferredContactMethod": "Por favor, indique su método de contacto preferido",
     "confidentialityNotice": "Su información es confidencial y no será transferida a terceros.",
@@ -1015,14 +1019,14 @@
     "back": "Atrás",
     "submit": "Enviar solicitud",
     "submitting": "Enviando...",
-    "canComeToGermany": "¿Puede venir a Alemania?",
+    "canComeToGermany": "¿Puede viajar a Alemania?",
     "isEuResident": "¿Es usted residente de la Unión Europea?",
     "yes": "Sí",
     "no": "No",
-    "needHelp": "Necesito ayuda para organizar el viaje"
+    "needHelp": "Necesito ayuda con la organización del viaje"
   },
   "dashboard": {
-    "title": "Panel de control",
+    "title": "Área del cliente",
     "welcomeBack": "Bienvenido de nuevo, {name}",
     "accountInfo": "Información de la cuenta",
     "name": "Nombre",
