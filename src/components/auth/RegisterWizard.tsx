@@ -35,13 +35,13 @@ const step1Schema = z.object({
 
 const step2Schema = z.object({
   currentLocation: z.enum(["germany", "eu", "other"], {
-    errorMap: () => ({ message: "Выберите ваше местоположение" }),
+    message: "Выберите ваше местоположение",
   }),
   hasInsurance: z.enum(["yes", "no"]).optional(),
   canComeToGermany: z.enum(["yes", "no", "need_help"]).optional(),
   isEuResident: z.enum(["yes", "no"]).optional(),
   preferredLocation: z.enum(["munich", "berlin", "frankfurt", "nuremberg"], {
-    errorMap: () => ({ message: "Выберите город" }),
+    message: "Выберите город",
   }),
 });
 

@@ -164,7 +164,7 @@ export async function POST(request: NextRequest) {
         });
 
         await tx.applicationService.createMany({
-          data: services.map((service) => ({
+          data: services.map((service: { id: string }) => ({
             applicationId: application.id,
             serviceId: service.id,
           })),

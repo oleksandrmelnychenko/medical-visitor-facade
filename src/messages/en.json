@@ -1,60 +1,60 @@
 {
   "common": {
-    "home": "home",
-    "learnMore": "Learn More",
-    "contactUs": "Contact Us",
-    "requestAppointment": "Request appointment",
-    "login": "Login",
+    "home": "Home",
+    "learnMore": "Learn more",
+    "contactUs": "Contact us",
+    "requestAppointment": "Request a consultation",
+    "login": "Sign in",
     "search": "Search",
     "submit": "Submit",
     "cancel": "Cancel",
-    "viewAll": "View All",
-    "readMore": "Read More"
+    "viewAll": "View all",
+    "readMore": "Read more"
   },
   "header": {
     "care": "Care",
-    "patientResources": "Patient Resources",
-    "trustSafety": "Trust & Safety",
-    "patientCenteredCare": "Patient-Centered Care",
+    "patientResources": "Patient resources",
+    "trustSafety": "Trust & safety",
+    "patientCenteredCare": "Patient-centered care",
     "aboutGmed": "About Gmed",
-    "requestAppointment": "Request Appointment",
-    "findDoctor": "Find a Doctor",
+    "requestAppointment": "Request a consultation",
+    "findDoctor": "Find a doctor",
     "locations": "Locations",
-    "patientServices": "Patient Services",
-    "medicalRecords": "Medical Records",
-    "insuranceBilling": "Insurance & Billing",
-    "patientPortal": "Patient Portal",
-    "privacyPolicy": "Privacy Policy",
-    "dataSecurity": "Data Security",
-    "hipaaCompliance": "HIPAA Compliance",
-    "patientRights": "Patient Rights"
+    "patientServices": "Patient services",
+    "medicalRecords": "Medical records",
+    "insuranceBilling": "Insurance & billing",
+    "patientPortal": "Patient portal",
+    "privacyPolicy": "Privacy policy",
+    "dataSecurity": "Data security",
+    "hipaaCompliance": "HIPAA compliance",
+    "patientRights": "Patient rights"
   },
   "footer": {
-    "impressum": "Legal Notice",
-    "companyName": "GMED Medical Concierge",
-    "owner": "Heorhii Hudiiev",
-    "contact": "Contact Us",
-    "vatTitle": "Tax Information",
-    "vatLegal": "VAT ID according to § 27a UStG:",
+    "impressum": "Legal information",
+    "companyName": "Patient Care Agency Georgiy Gudiev",
+    "owner": "Owner: Georgiy Gudiev",
+    "contact": "Contact",
+    "vatTitle": "VAT identification number",
+    "vatLegal": "in accordance with § 27 a of the VAT Act:",
     "vatNumber": "147/220/51409",
-    "contactPrompt": "Get in touch:",
-    "copyright": "© 2024 GMED Medical Concierge. All rights reserved."
+    "contactPrompt": "For questions about the site content, please email:",
+    "copyright": "© 2023 Patient Care Agency Georgiy Gudiev"
   },
   "home": {
     "hero": {
-      "overline": "Personal Health Management",
-      "title": "We Take Complete Care of Your Health",
-      "subtitle": "Charter flights, private transport, personal escort, interpreters, visa support — we arrange everything so you can focus solely on your health.",
-      "requestAppointment": "Contact Us",
-      "exploreServices": "Learn More",
+      "overline": "Personal healthcare management",
+      "title": "We take full responsibility for your care",
+      "subtitle": "",
+      "requestAppointment": "Request a consultation",
+      "exploreServices": "Learn more",
       "highlights": {
         "responseTime": {
           "label": "Availability",
-          "value": "24/7 Personal Manager"
+          "value": "Personal coordinator available around the clock"
         },
         "careCoordination": {
           "label": "Service",
-          "value": "Full Concierge"
+          "value": "Comprehensive coordination"
         },
         "languages": {
           "label": "Languages",
@@ -62,221 +62,215 @@
         }
       },
       "badge": {
-        "title": "Private Service",
-        "text": "For discerning clients"
+        "title": "Private service",
+        "text": "For clients who value discretion"
       },
-      "videoOverlay": "Personalized Approach"
+      "videoOverlay": "Personal approach"
     },
     "careForward": {
-      "overline": "Our Approach",
-      "title": "Care Forward",
-      "subtitle": "We're pioneering a new era of patient-centered healthcare",
+      "overline": "Our approach",
+      "title": "Care that looks ahead",
+      "subtitle": "We help shape a new era of patient-centered healthcare",
       "trust": {
-        "title": "Building Trust Through Excellence",
-        "description": "Our approach combines cutting-edge medical technology with compassionate care, ensuring every patient receives personalized attention and the best possible outcomes."
+        "title": "Trust through excellence",
+        "description": "Our approach combines advanced medical technology with attentive care, giving every patient personal attention and the best outcomes."
       },
       "worldClass": {
-        "title": "World-Class Facilities",
-        "description": "State-of-the-art medical centers equipped with the latest technology, designed to provide you with the highest standard of care in a comfortable environment."
+        "title": "Leading institutions",
+        "description": "Modern medical centers equipped with advanced technology, delivering high standards of care in a comfortable setting."
       },
-      "learnMore": "Learn More"
+      "learnMore": "Learn more"
     },
     "services": {
-      "overline": "What We Offer",
-      "title": "Our Services",
+      "overline": "What we offer",
+      "title": "Our services",
       "subtitle": "Comprehensive healthcare solutions tailored to your needs",
       "items": {
         "cardiology": {
           "title": "Cardiology",
-          "subtitle": "Heart & Vascular Care",
-          "description": "Comprehensive cardiovascular care including diagnostics, treatment, and prevention of heart disease."
+          "subtitle": "Cardiovascular care",
+          "description": "Comprehensive cardiology care including diagnosis, treatment, and prevention of heart disease."
         },
         "oncology": {
           "title": "Oncology",
-          "subtitle": "Cancer Treatment",
-          "description": "Advanced cancer care with personalized treatment plans and supportive therapies."
+          "subtitle": "Cancer care",
+          "description": "Advanced oncology care with personalized treatment plans and supportive therapy."
         },
         "surgery": {
           "title": "Surgery",
-          "subtitle": "Surgical Excellence",
-          "description": "Minimally invasive and traditional surgical procedures by experienced surgeons."
+          "subtitle": "Surgical expertise",
+          "description": "Minimally invasive and traditional surgical procedures performed by experienced surgeons."
         }
       },
-      "learnMore": "Learn More"
+      "learnMore": "Learn more"
     },
     "trust": {
       "overline": "Privacy",
-      "title": "Absolute Confidentiality",
+      "title": "Strict confidentiality",
       "subtitle": "We understand the value of privacy for our clients.",
-      "description": "Working with each client is built on principles of complete confidentiality. Your data, treatment history, and even the fact of your inquiry — all under secure protection.",
-      "guarantee": "Strict privacy standards at every stage.",
-      "stats": {
-        "patients": "Patients Served",
-        "doctors": "Expert Doctors",
-        "experience": "Years Experience",
-        "satisfaction": "Satisfaction Rate"
-      }
+      "description": "Every relationship is built on complete confidentiality. Your data, treatment history, and even the fact of your inquiry are protected.",
+      "guarantee": "Strict privacy standards at every stage."
     },
     "office": {
-      "overline": "Our Offices",
-      "title": "Locations in Germany",
-      "subtitle": "We are nearby, wherever you are.",
+      "overline": "Germany",
+      "title": "Our offices",
+      "subtitle": "",
       "cities": {
         "berlin": {
           "name": "Berlin",
-          "address": "Kurfürstendamm 21, 10719 Berlin",
+          "address": "Kurfurstendamm 21, 10719 Berlin",
           "phone": "+49 30 123-4567"
         },
         "frankfurt": {
           "name": "Frankfurt",
-          "address": "Kaiserstraße 50, 60329 Frankfurt",
+          "address": "Kaiserstrasse 50, 60329 Frankfurt",
           "phone": "+49 69 123-4567"
         },
         "nuremberg": {
           "name": "Nuremberg",
-          "address": "Königstraße 25, 90402 Nürnberg",
+          "address": "Konigstrasse 25, 90402 Nuremberg",
           "phone": "+49 911 123-4567"
         },
         "munich": {
           "name": "Munich",
-          "address": "Maximilianstraße 35, 80539 München",
+          "address": "Maximilianstrasse 35, 80539 Munich",
           "phone": "+49 89 123-4567"
         }
       }
     },
     "fullSupport": {
-      "overline": "Complete Concierge",
-      "title": "We Handle Everything",
-      "subtitle": "You focus on your health. We take care of the rest.",
+      "overline": "Full support",
+      "title": "Agency concept",
+      "subtitle": "You focus on your health. We handle everything else.",
       "services": {
         "noFees": {
-          "title": "Charter Flights",
-          "desc": "We arrange private flights at your convenience. No queues, no connections."
+          "title": "Private flights",
+          "desc": "We arrange private travel at a convenient time, with minimal transitions."
         },
         "support": {
-          "title": "Private Transport",
-          "desc": "Premium vehicle with driver for all your movements."
+          "title": "Personal transport",
+          "desc": "Comfort-class vehicle with driver for all your travel."
         },
         "confidentiality": {
-          "title": "Visa Support",
-          "desc": "Complete document processing. Visas, invitations, certificates — we handle everything."
+          "title": "Visa support",
+          "desc": "Full document preparation. Visas, invitations, certificates - we handle the details."
         },
         "performance": {
-          "title": "Personal Interpreter",
-          "desc": "Professional interpreter accompanies you at all meetings and consultations."
+          "title": "Personal interpreter",
+          "desc": "A professional interpreter accompanies you at consultations and meetings."
         },
         "promptness": {
-          "title": "24/7 Coordinator",
-          "desc": "Personal manager available around the clock. We solve any issues."
+          "title": "Dedicated coordinator",
+          "desc": "A personal manager is available at any time and resolves any questions."
         }
       },
       "journey": {
-        "title": "Your Journey With Us",
+        "title": "Your journey with us",
         "steps": {
           "consultation": {
-            "title": "Initial Consultation",
-            "desc": "Tell us your needs, we plan everything"
+            "title": "Initial consultation",
+            "desc": "Share your needs, and we will plan everything"
           },
           "travel": {
-            "title": "Travel Arranged",
-            "desc": "Flights, visas, accommodation booked"
+            "title": "Travel arrangements",
+            "desc": "Tickets, visas, and accommodation are arranged"
           },
           "arrival": {
-            "title": "Arrival & Pickup",
-            "desc": "Met at airport, driven to hotel"
+            "title": "Arrival and reception",
+            "desc": "We meet you at the airport and take you to your hotel"
           },
           "treatment": {
             "title": "Treatment",
-            "desc": "Full support during all procedures"
+            "desc": "Full support during procedures"
           },
           "recovery": {
-            "title": "Recovery & Return",
-            "desc": "Follow-up care and safe journey home"
+            "title": "Recovery and return",
+            "desc": "Follow-up and a safe journey home"
           }
         }
       },
       "promise": {
-        "title": "Complete Health Management",
-        "text": "We don't just arrange treatment. We take care of every detail — from your first call to your safe return home."
+        "title": "Comprehensive management of your care",
+        "text": "We do more than arrange treatment. We take care of every detail - from the first call to your return home."
       }
     },
     "cta": {
-      "overline": "Private Service",
-      "title": "Entrust Us with Your Health",
+      "overline": "Private service",
+      "title": "Entrust your health to us",
       "subtitle": "Contact us for a confidential consultation.",
       "stats": {
         "patients": {
-          "number": "100%",
+          "number": "Complete",
           "label": "Confidentiality"
         },
         "specialists": {
-          "number": "24/7",
+          "number": "Around the clock",
           "label": "Available"
         },
         "support": {
-          "number": "VIP",
-          "label": "Service Level"
+          "number": "Personal",
+          "label": "Service level"
         }
       },
-      "bookConsultation": "Contact Us",
-      "getStarted": "Learn More",
-      "availability": "Confidential Consultation"
+      "bookConsultation": "Contact us",
+      "getStarted": "Learn more",
+      "availability": "Confidential consultation"
     }
   },
   "appointment": {
-    "overline": "Get Started",
-    "title": "Request Appointment",
-    "subtitle": "Start here. Our team will contact you within 24 hours.",
-    "backToSelection": "← Back to selection",
+    "overline": "Request",
+    "title": "Request a consultation",
+    "subtitle": "Leave your contact details. We will reach out shortly.",
+    "backToSelection": "Back to selection",
     "clientTypes": {
       "new": {
-        "title": "New Client",
-        "description": "Leave your contact details."
+        "title": "New client",
+        "description": "Leave your details so we can contact you."
       },
       "returning": {
-        "title": "Existing Client",
+        "title": "Existing client",
         "description": "Sign in to your account."
       }
     },
     "freeService": {
-      "title": "Need Financial Assistance?",
-      "description1": "We understand that medical care can be financially challenging. Agency for Patient Care offers a limited program for patients who need assistance with medical expenses.",
-      "description2": "Our team carefully reviews each application and provides support when resources are available.",
-      "priority": "Priority Cases:",
-      "priorityText": "We prioritize cases involving children, urgent medical situations, and patients facing exceptional circumstances.",
-      "note": "Please note: Free service requests are reviewed on a case-by-case basis depending on available capacity and the nature of medical need. We will contact you within 5-7 business days regarding your application status.",
-      "applyButton": "Apply for Free Service"
+      "title": "Need financial assistance?",
+      "description1": "We understand that medical care can be financially challenging. The Patient Care Agency offers a limited assistance program for patients who need help with medical expenses.",
+      "description2": "Our team carefully reviews each application and provides support when resources allow.",
+      "priority": "Priority cases:",
+      "priorityText": "We prioritize cases involving children, urgent medical situations, and patients in exceptional circumstances.",
+      "note": "Please note: Applications for free services are reviewed individually depending on available capacity and medical necessity. We will contact you within 5-7 business days regarding the status of your application.",
+      "applyButton": "Apply for assistance"
     },
     "newPatient": {
       "intro": {
         "title": "Let's get started",
-        "description": "We will ask you a series of questions that will guide your follow-up with an appointment coordinator.",
+        "description": "We will ask a few questions to help our scheduling coordinator contact you.",
         "continue": "Continue",
-        "emergency": "If this is a medical emergency, call 911.",
-        "mentalHealth": "If this is a mental health emergency, call or text 988 to talk to a counselor."
+        "emergency": "If this is a medical emergency, call 112.",
+        "mentalHealth": "If this is a mental health crisis, call the crisis hotline."
       },
       "isPatient": {
         "title": "Are you the patient?",
         "yes": "Yes",
-        "yesDesc": "I'm the patient",
+        "yesDesc": "I am the patient",
         "no": "No",
-        "noDesc": "I'm requesting for someone else"
+        "noDesc": "I am contacting on behalf of someone else"
       },
       "travel": {
-        "title": "Are you able and willing to travel to Munich to receive care?",
-        "description": "Getting an appointment at Agency for Patient Care will require you to travel to our facility in Munich, Germany.",
+        "title": "Are you able to travel to Munich for medical care?",
+        "description": "Scheduling an appointment with the Patient Care Agency will require travel to our facility in Munich, Germany.",
         "yes": "Yes",
         "no": "No"
       },
       "form": {
-        "title": "New Patient Registration",
-        "personal": "Personal Information",
-        "firstName": "First Name *",
-        "lastName": "Last Name *",
-        "email": "Email Address *",
-        "phone": "Phone Number *",
-        "dateOfBirth": "Date of Birth",
-        "appointmentDetails": "Appointment Details",
+        "title": "New patient registration",
+        "personal": "Personal information",
+        "firstName": "First name *",
+        "lastName": "Last name *",
+        "email": "Email *",
+        "phone": "Phone number *",
+        "dateOfBirth": "Date of birth",
+        "appointmentDetails": "Appointment details",
         "selectService": "Select a service",
         "cardiology": "Cardiology",
         "oncology": "Oncology",
@@ -285,51 +279,51 @@
         "selectTime": "Select a time",
         "message": "Message",
         "reasonPlaceholder": "Reason for visit...",
-        "submit": "Submit Request"
+        "submit": "Submit request"
       }
     },
     "returningPatient": {
-      "title": "Returning Patient",
-      "formPending": "Form implementation pending...",
+      "title": "Returning patient",
+      "formPending": "Form in progress...",
       "back": "Back"
     },
     "physician": {
-      "title": "Physician Referral",
-      "formPending": "Form implementation pending...",
+      "title": "Physician referral",
+      "formPending": "Form in progress...",
       "back": "Back"
     }
   },
   "patientCenteredCare": {
-    "title": "Patient-Centered Care",
-    "subtitle": "Your health, your needs, and your preferences are at the heart of everything we do",
+    "title": "Patient-centered care",
+    "subtitle": "Your health, needs, and preferences are at the center of everything we do",
     "approach": {
-      "title": "Our Approach",
-      "description1": "At Gmed, we believe that exceptional healthcare goes beyond treating symptoms. We focus on understanding you as a whole person, considering your physical, emotional, and social needs.",
-      "description2": "Our patient-centered approach ensures that you're an active participant in your care, with access to the information, support, and resources you need to make informed decisions about your health."
+      "title": "Our approach",
+      "description1": "At Gmed, we believe exceptional healthcare goes beyond treating symptoms. We focus on understanding you as a whole person, considering your physical, emotional, and social needs.",
+      "description2": "Our patient-centered approach ensures your active role in care, with access to information, support, and resources needed to make informed decisions about your health."
     },
     "principles": {
-      "title": "Core Principles",
+      "title": "Core principles",
       "compassionate": {
-        "title": "Compassionate Care",
+        "title": "Compassionate care",
         "description": "We treat every patient with empathy, respect, and dignity, ensuring you feel heard and valued."
       },
       "collaborative": {
-        "title": "Collaborative Partnership",
-        "description": "Your care team works together with you and your family to develop personalized treatment plans."
+        "title": "Collaborative partnership",
+        "description": "Your care team works with you and your family to develop personalized treatment plans."
       },
       "personalized": {
-        "title": "Personalized Treatment",
-        "description": "Every patient is unique, and we tailor our approach to meet your individual health goals and preferences."
+        "title": "Personalized care",
+        "description": "Each patient is unique, and we tailor our approach to your individual goals and preferences."
       }
     },
     "benefits": {
-      "title": "What This Means for You",
+      "title": "What this means for you",
       "items": {
-        "dedicatedTeam": "Access to a dedicated care team that knows you and your health history",
+        "dedicatedTeam": "Access to a dedicated team that knows you and your medical history",
         "clearCommunication": "Clear communication about your condition and treatment options",
         "involvement": "Involvement in every decision about your care",
         "coordinatedCare": "Coordinated care across all your healthcare providers",
-        "supportServices": "Support services to address your physical and emotional needs",
+        "supportServices": "Support services for your physical and emotional needs",
         "convenientAccess": "Convenient access to your medical records and test results"
       }
     }
@@ -338,25 +332,25 @@
     "title": "About Gmed",
     "subtitle": "A legacy of excellence in healthcare spanning decades of innovation and patient care",
     "mission": {
-      "title": "Our Mission",
-      "description1": "Gmed is committed to inspiring hope and contributing to health and well-being by providing the best care to every patient through integrated clinical practice, education, and research.",
-      "description2": "We strive to deliver unparalleled expertise and compassion to all who seek healing, making a positive impact on the lives we touch through our dedication to excellence."
+      "title": "Our mission",
+      "description1": "Gmed strives to inspire hope and promote health and well-being by providing the best care to every patient through integrated clinical practice, education, and research.",
+      "description2": "We are committed to providing an unmatched experience and compassion for all who seek healing, making a positive impact through our dedication to excellence."
     },
     "stats": {
-      "years": "Years of Excellence",
-      "patients": "Patients Served",
-      "specialists": "Medical Specialists",
-      "centers": "Specialty Centers"
+      "years": "Years of excellence",
+      "patients": "Patients served",
+      "specialists": "Medical specialists",
+      "centers": "Specialized centers"
     },
     "values": {
-      "title": "Our Values",
+      "title": "Our values",
       "excellence": {
         "title": "Excellence",
-        "description": "We pursue the highest standards in everything we do, constantly innovating to improve patient outcomes."
+        "description": "We strive for the highest standards in everything we do, continually innovating to improve outcomes."
       },
       "respect": {
         "title": "Respect",
-        "description": "We honor the dignity of every individual, treating patients, families, and colleagues with compassion."
+        "description": "We honor the dignity of every person, treating patients, families, and colleagues with compassion."
       },
       "integrity": {
         "title": "Integrity",
@@ -368,178 +362,178 @@
       }
     },
     "history": {
-      "title": "Our History",
-      "description1": "Founded over half a century ago, Gmed has grown from a small community hospital to a world-renowned medical center. Our journey has been marked by groundbreaking research, innovative treatments, and an unwavering commitment to patient care.",
-      "description2": "Today, we continue to build on this legacy, combining cutting-edge technology with the compassionate, personalized care that has always been our hallmark."
+      "title": "Our history",
+      "description1": "Founded more than half a century ago, Gmed has grown from a small community hospital into a world-renowned medical center. Our journey has been marked by pioneering research, innovative treatments, and an unwavering commitment to patient care.",
+      "description2": "Today we continue to build on this legacy, combining advanced technology with compassionate, personalized care that has always been our hallmark."
     }
   },
   "findDoctor": {
-    "title": "Find a Doctor",
-    "subtitle": "Connect with our experienced medical professionals who are dedicated to your health",
+    "title": "Find a doctor",
+    "subtitle": "Connect with experienced medical specialists dedicated to your health",
     "search": {
       "placeholder": "Search by name or condition...",
-      "button": "Search Doctors"
+      "button": "Find doctors"
     },
     "specialties": {
-      "all": "All Specialties",
+      "all": "All specialties",
       "cardiology": "Cardiology",
       "oncology": "Oncology",
       "orthopedics": "Orthopedics",
       "neurology": "Neurology",
       "pediatrics": "Pediatrics",
-      "internalMedicine": "Internal Medicine"
+      "internalMedicine": "Internal medicine"
     },
     "doctors": {
-      "title": "Our Medical Professionals",
-      "bookAppointment": "Book Appointment"
+      "title": "Our medical specialists",
+      "bookAppointment": "Request a consultation"
     },
     "whyChoose": {
-      "title": "Why Choose Our Doctors",
+      "title": "Why choose our doctors",
       "boardCertified": {
-        "title": "Board Certified",
-        "description": "All our physicians are board-certified in their specialties with ongoing education."
+        "title": "Board-certified specialists",
+        "description": "All of our doctors are certified in their specialties and regularly update their expertise."
       },
       "patientFocused": {
-        "title": "Patient-Focused",
-        "description": "Our doctors prioritize patient care, taking time to listen and address concerns."
+        "title": "Patient-focused care",
+        "description": "Our doctors put patient care first, taking the time to listen and address concerns."
       },
       "advancedTraining": {
-        "title": "Advanced Training",
-        "description": "Continuous professional development ensures our doctors stay at the forefront of medicine."
+        "title": "Advanced training",
+        "description": "Ongoing professional development keeps our doctors at the forefront of medicine."
       }
     }
   },
   "locations": {
-    "title": "Our Locations",
+    "title": "Our locations",
     "subtitle": "Find a Gmed facility near you for convenient access to quality healthcare",
     "mainCampus": {
-      "name": "Main Campus",
-      "address": "123 Medical Center Drive",
-      "city": "Healthcare City, HC 12345",
+      "name": "Main campus",
+      "address": "123 Medical Center Street",
+      "city": "Health City, HC 12345",
       "phone": "(555) 123-4567",
-      "hours": "Open 24/7"
+      "hours": "Open around the clock"
     },
     "specialtyCenter": {
-      "name": "Specialty Center",
-      "address": "456 Specialist Avenue",
-      "city": "Healthcare City, HC 12346",
+      "name": "Specialty center",
+      "address": "456 Specialist Street",
+      "city": "Health City, HC 12346",
       "phone": "(555) 234-5678",
-      "hours": "Mon-Fri: 8am-6pm"
+      "hours": "Mon-Fri: 8:00-18:00"
     },
     "urgentCare": {
-      "name": "Urgent Care",
-      "address": "789 Quick Care Lane",
-      "city": "Healthcare City, HC 12347",
+      "name": "Urgent care",
+      "address": "789 Rapid Care Avenue",
+      "city": "Health City, HC 12347",
       "phone": "(555) 345-6789",
-      "hours": "Daily: 7am-10pm"
+      "hours": "Daily: 7:00-22:00"
     },
-    "getDirections": "Get Directions",
-    "callNow": "Call Now",
+    "getDirections": "Get directions",
+    "callNow": "Call now",
     "allLocations": {
-      "title": "All Gmed Locations",
-      "viewDetails": "View Details"
+      "title": "All Gmed locations",
+      "viewDetails": "View details"
     },
     "facilityTypes": {
       "hospital": "Hospital",
       "clinic": "Clinic",
-      "urgentCare": "Urgent Care"
+      "urgentCare": "Urgent care"
     }
   },
   "patientServices": {
-    "title": "Patient Services",
-    "subtitle": "Comprehensive support services designed to make your healthcare experience seamless",
+    "title": "Patient services",
+    "subtitle": "Comprehensive support services to make your healthcare experience as comfortable as possible",
     "commitment": {
-      "title": "Our Commitment to You",
-      "description1": "At Gmed, we understand that navigating healthcare can be complex. That's why we've created a comprehensive suite of patient services designed to support you at every step of your healthcare journey.",
+      "title": "Our commitment to you",
+      "description1": "At Gmed, we understand that navigating healthcare can be complex. That is why we created a comprehensive set of patient services to support you at every stage of your journey.",
       "description2": "From scheduling your first appointment to managing ongoing care, our dedicated team is here to help."
     },
     "services": {
-      "title": "Available Services",
+      "title": "Available services",
       "scheduling": {
-        "title": "Appointment Scheduling",
-        "description": "Easy online and phone scheduling for all your healthcare needs with flexible timing options."
+        "title": "Appointment scheduling",
+        "description": "Simple online and phone scheduling for your medical needs with flexible times."
       },
       "records": {
-        "title": "Medical Records",
-        "description": "Secure access to your complete medical history, test results, and treatment plans."
+        "title": "Medical records",
+        "description": "Secure access to your full medical history, test results, and care plans."
       },
       "billing": {
-        "title": "Billing Support",
+        "title": "Billing support",
         "description": "Transparent billing, payment plans, and dedicated support for insurance questions."
       },
       "pharmacy": {
-        "title": "Pharmacy Services",
+        "title": "Pharmacy services",
         "description": "On-site pharmacy with prescription management and medication counseling."
       },
       "translation": {
-        "title": "Translation Services",
-        "description": "Professional interpreters available in multiple languages for your comfort."
+        "title": "Translation services",
+        "description": "Professional interpreters in multiple languages for your comfort."
       },
       "transport": {
-        "title": "Patient Transport",
+        "title": "Patient transport",
         "description": "Wheelchair assistance and transportation services within our facilities."
       }
     },
     "help": {
-      "title": "Need Help?",
-      "description": "Our patient services team is available to assist you with any questions or concerns.",
-      "contactServices": "Contact Patient Services",
+      "title": "Need help?",
+      "description": "Our patient services team is ready to assist you with any questions or concerns.",
+      "contactServices": "Contact patient services",
       "faq": "View FAQ"
     }
   },
   "medicalRecords": {
-    "title": "Medical Records",
+    "title": "Medical records",
     "subtitle": "Secure access to your complete health information",
     "access": {
-      "title": "Access Your Records",
+      "title": "Access your records",
       "description1": "Your medical records contain important information about your health history, including diagnoses, treatments, medications, test results, and care plans.",
       "description2": "We are committed to providing you with easy, secure access to your health information while maintaining the highest standards of privacy and security."
     },
     "requestTypes": {
-      "title": "Request Types",
+      "title": "Request types",
       "personal": {
-        "title": "Personal Copy",
+        "title": "Personal copy",
         "description": "Request a copy of your medical records for your own use.",
         "timeline": "Processing time: 5-7 business days"
       },
       "transfer": {
-        "title": "Transfer to Provider",
+        "title": "Transfer to a provider",
         "description": "Send your records directly to another healthcare provider.",
         "timeline": "Processing time: 3-5 business days"
       },
       "legal": {
-        "title": "Legal/Insurance",
+        "title": "Legal/insurance",
         "description": "Records for legal proceedings or insurance purposes.",
         "timeline": "Processing time: 7-10 business days"
       }
     },
     "howTo": {
-      "title": "How to Request Records",
+      "title": "How to request records",
       "steps": {
-        "step1": "Complete the Medical Records Request Form",
+        "step1": "Complete the medical records request form",
         "step2": "Provide valid photo identification",
         "step3": "Specify the records needed and time period",
         "step4": "Submit your request online, by mail, or in person"
       }
     },
-    "requestRecords": "Request Medical Records",
-    "downloadForm": "Download Request Form",
+    "requestRecords": "Request medical records",
+    "downloadForm": "Download request form",
     "questions": {
-      "title": "Questions About Your Records?",
-      "description": "Our Health Information Management team is here to help you with any questions about accessing your medical records.",
-      "contact": "Contact HIM Department"
+      "title": "Questions about your records?",
+      "description": "Our health information management team is here to help you with any questions about accessing your medical records.",
+      "contact": "Contact the department"
     }
   },
   "insurance": {
-    "title": "Insurance & Billing",
+    "title": "Insurance & billing",
     "subtitle": "Understanding your coverage and payment options",
     "commitment": {
-      "title": "Our Commitment",
-      "description1": "We believe that understanding your healthcare costs shouldn't be complicated. Our billing team is dedicated to providing transparent pricing, helping you understand your insurance benefits, and offering flexible payment options.",
+      "title": "Our commitment",
+      "description1": "We believe understanding your healthcare costs should not be complicated. Our billing team is dedicated to providing transparent pricing, helping you understand your insurance benefits, and offering flexible payment options.",
       "description2": "We work with most major insurance providers and offer various payment plans to ensure you can access the care you need."
     },
     "accepted": {
-      "title": "Accepted Insurance Plans",
+      "title": "Accepted insurance plans",
       "description": "We accept most major insurance plans. Contact us to verify your specific coverage.",
       "plans": {
         "blueCross": "Blue Cross Blue Shield",
@@ -549,227 +543,227 @@
         "medicare": "Medicare",
         "medicaid": "Medicaid"
       },
-      "verifyButton": "Verify Your Insurance"
+      "verifyButton": "Verify your insurance"
     },
     "billing": {
-      "title": "Billing Information",
+      "title": "Billing information",
       "estimate": {
-        "title": "Cost Estimates",
-        "description": "Request an estimate before your visit to understand your expected costs."
+        "title": "Cost estimates",
+        "description": "Request an estimate before your visit to understand expected costs."
       },
       "payment": {
-        "title": "Payment Options",
+        "title": "Payment options",
         "description": "We accept cash, credit cards, and offer interest-free payment plans."
       },
       "assistance": {
-        "title": "Financial Assistance",
-        "description": "Programs available for those who qualify based on financial need."
+        "title": "Financial assistance",
+        "description": "Programs are available for those who qualify based on financial need."
       }
     },
     "questions": {
-      "title": "Billing Questions?",
+      "title": "Billing questions?",
       "description": "Our billing specialists are available to help you understand your bills and payment options.",
-      "contactBilling": "Contact Billing Department",
-      "payOnline": "Pay Your Bill Online"
+      "contactBilling": "Contact billing",
+      "payOnline": "Pay online"
     }
   },
   "patientPortal": {
-    "title": "Patient Portal",
-    "subtitle": "Your personal health hub for managing all aspects of your care",
+    "title": "Patient portal",
+    "subtitle": "Your personal health hub for managing every aspect of your care",
     "login": {
-      "title": "Log In to Your Portal",
-      "description": "Access your health information securely",
-      "email": "Email Address",
+      "title": "Log in to the portal",
+      "description": "Secure access to your health information",
+      "email": "Email",
       "emailPlaceholder": "you@example.com",
       "password": "Password",
       "passwordPlaceholder": "Enter your password",
-      "signIn": "Sign In",
+      "signIn": "Sign in",
       "forgotPassword": "Forgot password?",
       "createAccount": "Create account"
     },
     "features": {
-      "title": "Portal Features",
+      "title": "Portal features",
       "scheduling": {
-        "title": "Schedule Appointments",
-        "description": "Book, reschedule, or cancel appointments with your healthcare providers."
+        "title": "Schedule appointments",
+        "description": "Book, reschedule, or cancel appointments with your providers."
       },
       "records": {
-        "title": "View Medical Records",
-        "description": "Access your complete medical history, test results, and imaging reports."
+        "title": "View records",
+        "description": "Access your complete medical history, test results, and reports."
       },
       "messaging": {
-        "title": "Secure Messaging",
+        "title": "Secure messaging",
         "description": "Communicate directly with your care team and get answers to your questions."
       },
       "prescriptions": {
-        "title": "Prescription Refills",
-        "description": "Request prescription refills and view your medication history."
+        "title": "Prescription renewals",
+        "description": "Request renewals and view your medication history."
       },
       "healthData": {
-        "title": "Track Health Data",
-        "description": "Monitor vitals, lab results, and wellness metrics over time."
+        "title": "Health tracking",
+        "description": "Monitor vitals, test results, and health metrics over time."
       },
       "profile": {
-        "title": "Manage Profile",
-        "description": "Update your contact information, insurance details, and preferences."
+        "title": "Profile management",
+        "description": "Update contact information, insurance details, and preferences."
       }
     },
     "whyUse": {
-      "title": "Why Use the Portal?",
+      "title": "Why use the portal?",
       "benefits": {
-        "access": "24/7 access to your health information from any device",
-        "communication": "Reduce phone wait times by messaging your care team",
-        "reminders": "Never miss an appointment with automated reminders",
-        "records": "Keep all your health records in one secure location",
-        "sharing": "Share your medical information with family members",
-        "results": "Review test results as soon as they're available"
+        "access": "24-hour access to health information from any device",
+        "communication": "Reduced phone waiting times through messaging",
+        "reminders": "Automated appointment reminders",
+        "records": "All health records in one secure place",
+        "sharing": "Ability to share medical information with family members",
+        "results": "View test results as soon as they are available"
       }
     },
     "gettingStarted": {
-      "title": "Getting Started",
+      "title": "Getting started",
       "steps": {
-        "step1": "Create your account with your email and medical record number",
-        "step2": "Verify your identity through our secure verification process",
+        "step1": "Create an account with your email and medical record number",
+        "step2": "Verify your identity through a secure process",
         "step3": "Set up your profile and preferences",
-        "step4": "Start managing your health online!"
+        "step4": "Begin managing your health online"
       }
     },
     "help": {
-      "title": "Need Help with the Portal?",
-      "description": "Our support team is available to assist you with registration, login issues, or any portal questions.",
-      "contactSupport": "Contact Support",
-      "viewTutorial": "View Tutorial"
+      "title": "Need help with the portal?",
+      "description": "Our support team can assist with registration, login issues, or portal questions.",
+      "contactSupport": "Contact support",
+      "viewTutorial": "View tutorial"
     }
   },
   "privacyPolicy": {
-    "title": "Privacy Policy",
-    "subtitle": "Your privacy and the security of your personal health information are our top priorities",
+    "title": "Privacy policy",
+    "subtitle": "Your privacy and the security of your personal medical information are our top priorities",
     "highlights": {
       "encrypted": {
-        "title": "Data Encrypted",
-        "description": "All information is secured with encryption"
+        "title": "Data is encrypted",
+        "description": "All information is protected with encryption"
       },
       "limitedAccess": {
-        "title": "Limited Access",
+        "title": "Limited access",
         "description": "Only authorized personnel can view your records"
       },
       "yourControl": {
-        "title": "Your Control",
+        "title": "Your control",
         "description": "You decide who can access your information"
       }
     },
     "notice": {
-      "title": "Notice of Privacy Practices",
-      "effectiveDate": "Effective Date: January 1, 2024",
+      "title": "Notice of privacy practices",
+      "effectiveDate": "Effective date: January 1, 2024",
       "description": "This notice describes how medical information about you may be used and disclosed and how you can get access to this information. Please review it carefully."
     },
     "usage": {
-      "title": "How We Use and Disclose Your Information",
+      "title": "How we use and disclose your information",
       "treatment": {
-        "title": "For Treatment",
-        "description": "We may use your health information to provide, coordinate, or manage your healthcare and related services. This includes sharing information with other healthcare providers involved in your care."
+        "title": "For treatment",
+        "description": "We may use your medical information to provide, coordinate, or manage your medical care and related services. This includes sharing information with other healthcare providers involved in your care."
       },
       "payment": {
-        "title": "For Payment",
-        "description": "We may use and disclose your health information to obtain payment for services we provide to you, including billing and collection activities."
+        "title": "For payment",
+        "description": "We may use and disclose your medical information to obtain payment for services we provide, including billing and collections."
       },
       "operations": {
-        "title": "For Healthcare Operations",
-        "description": "We may use your information for quality improvement, training, and other business operations necessary to run our practice and ensure quality care."
+        "title": "For operations",
+        "description": "We may use your information to improve quality, training, and other business operations necessary to run our practice and provide quality care."
       }
     },
     "rights": {
-      "title": "Your Privacy Rights",
+      "title": "Your privacy rights",
       "items": {
-        "restrictions": "Right to request restrictions on certain uses and disclosures of your information",
-        "confidential": "Right to receive confidential communications of your health information",
-        "inspect": "Right to inspect and copy your health information",
-        "amend": "Right to amend your health information",
-        "accounting": "Right to receive an accounting of disclosures",
-        "copy": "Right to obtain a paper copy of this notice"
+        "restrictions": "The right to request restrictions on certain uses and disclosures of your information",
+        "confidential": "The right to receive confidential communications about your medical information",
+        "inspect": "The right to inspect and copy your medical information",
+        "amend": "The right to amend your medical information",
+        "accounting": "The right to receive an accounting of disclosures",
+        "copy": "The right to receive a paper copy of this notice"
       }
     },
     "responsibilities": {
-      "title": "Our Responsibilities",
+      "title": "Our responsibilities",
       "intro": "We are required by law to:",
       "items": {
         "maintain": "Maintain the privacy of your protected health information",
         "provide": "Provide you with this notice of our legal duties and privacy practices",
-        "follow": "Follow the terms of the notice currently in effect",
-        "notify": "Notify you if we are unable to agree to a requested restriction",
-        "breach": "Notify affected individuals following a breach of unsecured health information"
+        "follow": "Follow the terms of the current notice",
+        "notify": "Notify you if we cannot agree to a requested restriction",
+        "breach": "Notify affected individuals following a breach of unsecured protected health information"
       }
     },
-    "lastUpdated": "Last Updated: January 1, 2024 | This notice is effective as of this date",
+    "lastUpdated": "Last updated: January 1, 2024 | This notice is effective as of this date",
     "questions": {
-      "title": "Questions or Complaints?",
+      "title": "Questions or complaints?",
       "description": "If you have questions about this notice or wish to file a complaint about our privacy practices, please contact:",
-      "privacyOfficer": "Privacy Officer",
-      "organization": "Gmed Agency for Patient Care",
-      "contact": "Contact Privacy Officer"
+      "privacyOfficer": "Privacy officer",
+      "organization": "Gmed Patient Care Agency",
+      "contact": "Contact the officer"
     }
   },
   "dataSecurity": {
-    "title": "Data Security",
-    "subtitle": "Advanced protection measures to safeguard your most sensitive information",
+    "title": "Data security",
+    "subtitle": "Advanced protection measures to safeguard your most confidential information",
     "enterprise": {
-      "title": "Enterprise-Grade Security",
-      "description1": "We employ multiple layers of security to protect your health information from unauthorized access, ensuring your data remains confidential and secure at all times.",
+      "title": "Enterprise-grade security",
+      "description1": "We use layered protection to prevent unauthorized access to your medical information, ensuring confidentiality and security at all times.",
       "description2": "Our security infrastructure meets and exceeds industry standards, including HIPAA compliance, SOC 2 certification, and regular third-party security audits."
     },
     "measures": {
-      "title": "Our Security Measures",
+      "title": "Our security measures",
       "encryption": {
-        "title": "End-to-End Encryption",
-        "description": "All data is encrypted both in transit and at rest using AES-256 encryption standards."
+        "title": "End-to-end encryption",
+        "description": "All data is encrypted in transit and at rest using AES-256 encryption standards."
       },
       "dataCenters": {
-        "title": "Secure Data Centers",
-        "description": "Your information is stored in SOC 2 certified facilities with 24/7 physical security."
+        "title": "Secure data centers",
+        "description": "Your information is stored in SOC 2 certified facilities with 24-hour physical security."
       },
       "accessControls": {
-        "title": "Access Controls",
+        "title": "Access controls",
         "description": "Multi-factor authentication and role-based access ensure only authorized personnel can view your data."
       },
       "audits": {
-        "title": "Regular Audits",
+        "title": "Regular audits",
         "description": "Continuous monitoring and quarterly security assessments to identify and address vulnerabilities."
       },
       "threatDetection": {
-        "title": "Threat Detection",
-        "description": "Advanced intrusion detection systems monitor for suspicious activity 24/7."
+        "title": "Threat detection",
+        "description": "Advanced intrusion detection systems monitor suspicious activity around the clock."
       },
       "backup": {
-        "title": "Backup & Recovery",
+        "title": "Backup",
         "description": "Automated daily backups with disaster recovery procedures to prevent data loss."
       }
     },
     "compliance": {
-      "title": "Compliance & Certifications",
+      "title": "Compliance and certifications",
       "hipaa": {
-        "title": "HIPAA Compliance",
-        "description": "We are fully compliant with the Health Insurance Portability and Accountability Act (HIPAA), ensuring the highest standards of patient privacy and data security.",
+        "title": "HIPAA compliance",
+        "description": "We fully comply with the Health Insurance Portability and Accountability Act (HIPAA), ensuring the highest standards of patient privacy and data security.",
         "items": {
-          "privacy": "Privacy Rule compliance",
-          "security": "Security Rule implementation",
+          "privacy": "Privacy rule compliance",
+          "security": "Security rule implementation",
           "breach": "Breach notification procedures",
-          "baa": "Business Associate Agreements"
+          "baa": "Business associate agreements"
         }
       },
       "certifications": {
-        "title": "Industry Certifications",
-        "description": "Our security practices are validated by independent third-party auditors and meet rigorous industry standards.",
+        "title": "Industry certifications",
+        "description": "Our security practices are reviewed by independent auditors and meet strict industry standards.",
         "items": {
-          "soc2": "SOC 2 Type II Certified",
-          "iso": "ISO 27001 Compliant",
-          "hitrust": "HITRUST CSF Certified",
+          "soc2": "SOC 2 Type II certification",
+          "iso": "ISO 27001 compliance",
+          "hitrust": "HITRUST CSF certification",
           "pentest": "Annual penetration testing"
         }
       }
     },
     "training": {
-      "title": "Staff Training & Awareness",
-      "description": "Every member of our team undergoes comprehensive security training to ensure they understand their role in protecting your information.",
+      "title": "Staff training and awareness",
+      "description": "Each team member receives comprehensive security training to understand their role in protecting your information.",
       "items": {
         "annual": "Annual HIPAA and security training for all staff",
         "updates": "Regular updates on emerging security threats",
@@ -778,86 +772,86 @@
       }
     },
     "report": {
-      "title": "Report a Security Concern",
-      "description": "If you believe you've identified a security vulnerability or have concerns about the security of your information, please contact us immediately.",
-      "contact": "Contact Security Team"
+      "title": "Report a security concern",
+      "description": "If you believe you have identified a security vulnerability or have concerns about the security of your information, please contact us immediately.",
+      "contact": "Contact the security team"
     }
   },
   "hipaaCompliance": {
-    "title": "HIPAA Compliance",
-    "subtitle": "Our commitment to protecting your health information through comprehensive compliance",
+    "title": "HIPAA compliance",
+    "subtitle": "Our commitment to protecting your medical information through comprehensive compliance",
     "whatIs": {
       "title": "What is HIPAA?",
-      "description1": "The Health Insurance Portability and Accountability Act (HIPAA) is a federal law that establishes national standards to protect sensitive patient health information from being disclosed without the patient's consent or knowledge.",
-      "description2": "At Gmed, we take HIPAA compliance seriously and have implemented comprehensive policies and procedures to ensure your Protected Health Information (PHI) remains secure and confidential."
+      "description1": "The Health Insurance Portability and Accountability Act (HIPAA) is a federal law that sets national standards to protect patients' sensitive medical information from disclosure without consent or knowledge.",
+      "description2": "At Gmed, we take HIPAA compliance seriously and have implemented comprehensive policies and procedures to ensure the security and confidentiality of your protected health information (PHI)."
     },
     "rules": {
-      "title": "HIPAA Rules We Follow",
+      "title": "HIPAA rules we follow",
       "privacy": {
-        "title": "Privacy Rule",
-        "description": "Establishes national standards for the protection of health information and gives patients rights over their health information.",
+        "title": "Privacy rule",
+        "description": "Establishes national standards for protecting medical information and gives patients rights to their medical records.",
         "items": {
-          "access": "Right to access your medical records",
-          "corrections": "Right to request corrections to your records",
-          "whoAccessed": "Right to know who has accessed your information",
-          "notices": "Right to receive privacy notices"
+          "access": "The right to access your medical records",
+          "corrections": "The right to request corrections to your records",
+          "whoAccessed": "The right to know who accessed your information",
+          "notices": "The right to receive privacy notices"
         }
       },
       "security": {
-        "title": "Security Rule",
-        "description": "Sets standards for protecting electronic health information through administrative, physical, and technical safeguards.",
+        "title": "Security rule",
+        "description": "Sets standards for protecting electronic medical information through administrative, physical, and technical safeguards.",
         "items": {
-          "encryption": "Encryption of electronic health records",
+          "encryption": "Encryption of electronic medical records",
           "accessControls": "Secure access controls and authentication",
           "riskAssessment": "Regular security risk assessments",
           "incidentResponse": "Incident response procedures"
         }
       },
       "breach": {
-        "title": "Breach Notification Rule",
-        "description": "Requires covered entities to notify affected individuals in the event of a breach of unsecured protected health information.",
+        "title": "Breach notification rule",
+        "description": "Requires organizations to notify affected individuals in case of a breach of unsecured protected health information.",
         "items": {
           "individual": "Individual notification within 60 days",
           "media": "Media notification for large breaches",
-          "hhs": "HHS notification reporting",
+          "hhs": "Reporting to HHS",
           "documentation": "Documentation of all breaches"
         }
       },
       "omnibus": {
-        "title": "Omnibus Rule",
-        "description": "Strengthens privacy and security protections for health information and extends HIPAA requirements to business associates.",
+        "title": "Omnibus rule",
+        "description": "Strengthens privacy and security protections and extends HIPAA requirements to business associates.",
         "items": {
           "businessAssociate": "Business associate compliance",
           "enhancedPrivacy": "Enhanced patient privacy rights",
-          "penalties": "Increased penalty enforcement",
-          "genetic": "Genetic information protection"
+          "penalties": "Stronger enforcement of penalties",
+          "genetic": "Protection of genetic information"
         }
       }
     },
     "howWeEnsure": {
-      "title": "How We Ensure Compliance",
+      "title": "How we ensure compliance",
       "administrative": {
-        "title": "Administrative Safeguards",
+        "title": "Administrative safeguards",
         "items": {
-          "officers": "Designated Privacy Officer and Security Officer",
-          "training": "Comprehensive employee training programs",
+          "officers": "Designated privacy officer and security officer",
+          "training": "Comprehensive staff training programs",
           "policies": "Written policies and procedures",
           "riskAssessment": "Regular risk assessments and audits",
-          "sanctions": "Workforce sanctions policy"
+          "sanctions": "Sanctions policy for staff"
         }
       },
       "physical": {
-        "title": "Physical Safeguards",
+        "title": "Physical safeguards",
         "items": {
           "facilityAccess": "Controlled facility access with badge systems",
-          "workstation": "Secure workstation and device policies",
-          "disposal": "Proper disposal of PHI-containing materials",
-          "visitor": "Visitor logging and escort procedures",
+          "workstation": "Secure policies for workstations and devices",
+          "disposal": "Proper disposal of materials containing PHI",
+          "visitor": "Visitor registration and escort procedures",
           "surveillance": "Surveillance and monitoring systems"
         }
       },
       "technical": {
-        "title": "Technical Safeguards",
+        "title": "Technical safeguards",
         "items": {
           "authentication": "Unique user identification and authentication",
           "autoLogoff": "Automatic logoff after inactivity",
@@ -867,172 +861,157 @@
         }
       },
       "monitoring": {
-        "title": "Ongoing Monitoring",
+        "title": "Continuous monitoring",
         "items": {
           "continuous": "Continuous compliance monitoring",
           "updates": "Regular security updates and patches",
           "incidentResponse": "Incident response and reporting",
           "annualAudits": "Annual compliance audits",
-          "policyUpdates": "Updates to policies as regulations evolve"
+          "policyUpdates": "Policy updates as regulations change"
         }
       }
     },
     "questions": {
-      "title": "Questions About HIPAA?",
-      "description": "Our Privacy Officer is available to answer your questions about HIPAA compliance and your privacy rights.",
-      "contactPrivacy": "Contact Privacy Officer",
-      "downloadNotice": "Download Notice"
+      "title": "Questions about HIPAA?",
+      "description": "Our privacy officer is available to answer questions about HIPAA compliance and your privacy rights.",
+      "contactPrivacy": "Contact the privacy officer",
+      "downloadNotice": "Download the notice"
     }
   },
   "patientRights": {
-    "title": "Patient Rights",
-    "subtitle": "Understanding your rights as a patient and our commitment to respecting them",
+    "title": "Patient rights",
+    "subtitle": "Understanding your rights as a patient and our commitment to uphold them",
     "intro": {
-      "title": "Your Rights Matter",
-      "description1": "As a patient at Gmed, you have fundamental rights that guide how we provide your care. These rights are designed to ensure you receive respectful, safe, and high-quality healthcare.",
-      "description2": "We are committed to protecting these rights and ensuring you understand them fully so you can be an active participant in your healthcare decisions."
+      "title": "Your rights matter",
+      "description1": "As a Gmed patient, you have fundamental rights that shape how we provide your care. These rights ensure you receive respectful, safe, and high-quality medical services.",
+      "description2": "We are committed to protecting these rights and ensuring you fully understand them, so you can be an active participant in decisions about your health."
     },
     "coreRights": {
-      "title": "Your Core Rights",
+      "title": "Your core rights",
       "respectfulCare": {
-        "title": "Right to Respectful Care",
-        "description": "You have the right to receive care that respects your personal values, beliefs, and preferences, free from discrimination.",
+        "title": "Right to respectful care",
+        "description": "You have the right to care that respects your personal values, beliefs, and preferences, without discrimination.",
         "items": {
           "dignified": "Dignified and compassionate treatment",
-          "cultural": "Cultural and spiritual considerations",
+          "cultural": "Respect for cultural and spiritual needs",
           "language": "Language assistance when needed",
-          "privacy": "Privacy and confidentiality"
+          "privacy": "Confidentiality and privacy"
         }
       },
       "information": {
-        "title": "Right to Information",
+        "title": "Right to information",
         "description": "You have the right to receive complete and accurate information about your diagnosis, treatment options, and prognosis.",
         "items": {
           "clear": "Clear explanations in understandable language",
           "access": "Access to your medical records",
           "costs": "Information about costs and payment options",
-          "providers": "Details about your healthcare providers"
+          "providers": "Information about your healthcare providers"
         }
       },
       "decisions": {
-        "title": "Right to Make Decisions",
-        "description": "You have the right to participate in all decisions about your healthcare and to refuse treatment.",
+        "title": "Right to make decisions",
+        "description": "You have the right to participate in all decisions about your care and to refuse treatment.",
         "items": {
           "consent": "Informed consent for all procedures",
-          "secondOpinion": "Second opinion opportunities",
+          "secondOpinion": "Opportunity to seek a second opinion",
           "refuse": "Right to refuse treatment",
-          "advanceDirective": "Advance directive recognition"
+          "advanceDirective": "Recognition of advance directives"
         }
       },
       "communication": {
-        "title": "Right to Communication",
-        "description": "You have the right to communicate with your healthcare providers and have your concerns addressed.",
+        "title": "Right to communication",
+        "description": "You have the right to communicate with your healthcare providers and receive answers to your questions.",
         "items": {
           "questions": "Ask questions and receive answers",
-          "concerns": "Voice concerns and complaints",
+          "concerns": "Express concerns and file complaints",
           "family": "Designate family members for communication",
           "advocates": "Access to patient advocates"
         }
       }
     },
     "additionalRights": {
-      "title": "Additional Patient Rights",
+      "title": "Additional patient rights",
       "items": {
-        "safeQuality": "Right to safe, quality healthcare services",
+        "safeQuality": "Right to safe and high-quality medical services",
         "privacy": "Right to privacy during examination and treatment",
-        "painManagement": "Right to have your pain assessed and managed",
-        "continuity": "Right to continuity of care and care coordination",
-        "policies": "Right to be informed about hospital policies",
-        "advanceDirectives": "Right to formulate advance directives",
-        "visitors": "Right to have family and friends visit",
+        "painManagement": "Right to pain assessment and management",
+        "continuity": "Right to continuity and coordination of care",
+        "policies": "Right to be informed about facility policies",
+        "advanceDirectives": "Right to create advance directives",
+        "visitors": "Right to visits by family and friends",
         "protective": "Right to access protective services",
-        "emergency": "Right to emergency medical treatment",
+        "emergency": "Right to emergency medical care",
         "transfer": "Right to transfer to another facility",
-        "billing": "Right to review your bill and receive an explanation",
-        "representative": "Right to designate a healthcare representative"
+        "billing": "Right to review bills and receive explanations",
+        "representative": "Right to appoint a healthcare representative"
       }
     },
     "responsibilities": {
-      "title": "Your Responsibilities",
-      "description": "Along with your rights, patients have certain responsibilities to help ensure the best possible care for themselves and others.",
+      "title": "Your responsibilities",
+      "description": "Along with rights, patients have certain responsibilities that help ensure the best care for themselves and others.",
       "items": {
         "accurate": "Provide accurate and complete health information",
-        "followPlan": "Follow the treatment plan agreed upon with your healthcare team",
-        "askQuestions": "Ask questions when you don't understand",
+        "followPlan": "Follow the care plan agreed upon with your medical team",
+        "askQuestions": "Ask questions when something is unclear",
         "respect": "Treat healthcare providers and staff with respect",
-        "appointments": "Keep appointments or notify us if you cannot",
-        "financial": "Meet financial obligations for your care"
+        "appointments": "Keep appointments or notify if you cannot attend",
+        "financial": "Fulfill financial obligations for your care"
       }
     },
     "grievance": {
-      "title": "File a Grievance",
-      "description1": "If you believe your rights have been violated or you have concerns about your care, you have the right to file a grievance without fear of retaliation.",
-      "description2": "We take all complaints seriously and will investigate thoroughly. You may also file a complaint with state or federal agencies.",
-      "fileComplaint": "File a Complaint",
-      "contactAdvocate": "Contact Patient Advocate"
+      "title": "File a complaint",
+      "description1": "If you believe your rights have been violated or have concerns about your care, you have the right to file a complaint without fear of retaliation.",
+      "description2": "We take all complaints seriously and will conduct a thorough review. You may also file a complaint with state or federal agencies.",
+      "fileComplaint": "File a complaint",
+      "contactAdvocate": "Contact a patient advocate"
     }
   },
   "auth": {
-    "signIn": "Sign In",
-    "createAccount": "Create Account",
+    "signIn": "Sign in",
+    "createAccount": "Create account",
     "email": "Email",
     "emailPlaceholder": "Enter your email",
     "password": "Password",
     "passwordPlaceholder": "Enter your password",
-    "confirmPassword": "Confirm Password",
+    "confirmPassword": "Confirm password",
     "confirmPasswordPlaceholder": "Confirm your password",
-    "name": "Full Name",
+    "name": "Full name",
     "namePlaceholder": "Enter your full name",
     "phone": "Phone",
     "signingIn": "Signing in...",
     "creatingAccount": "Creating account...",
     "invalidCredentials": "Invalid email or password",
     "registrationFailed": "Registration failed. Please try again.",
-    "signInAfterRegisterFailed": "Account created but sign in failed. Please sign in manually.",
+    "signInAfterRegisterFailed": "Account created, but sign-in failed. Please sign in manually.",
     "dashboard": "Dashboard",
     "forgotPassword": "Forgot password?",
     "preferredContactMethod": "Please indicate your preferred contact method",
-    "confidentialityNotice": "Your information is confidential and will not be transferred to third parties.",
+    "confidentialityNotice": "Your information is confidential and will not be shared with third parties.",
     "privacyPolicyLink": "Personal data processing policy",
-    "consentData": "Consent to the processing of personal data",
-    "consentMarketing": "Consent to receive informational and promotional communications",
-    "welcomeTitle": "Welcome Back",
-    "welcomeSubtitle": "Sign in to your account",
-    "sendMessage": "Send Message",
-    "overline": "Login",
+    "consentData": "Consent to personal data processing",
+    "consentMarketing": "Consent to receive informational and promotional messages",
+    "welcomeTitle": "Welcome",
+    "welcomeSubtitle": "Sign in to your account or create a new one to get started",
+    "sendMessage": "Send message",
+    "overline": "Sign in",
     "registerOverline": "Registration",
-    "registerTitle": "Create an Account",
-    "registerSubtitle": "Fill out the form to register in the system",
+    "registerTitle": "Create an account",
+    "registerSubtitle": "Complete the form to register",
     "alreadyHaveAccount": "Already have an account?",
-    "signInLink": "Sign In"
-  },
-  "register": {
-    "step1Title": "Details",
-    "step2Title": "Survey",
-    "firstName": "First Name",
-    "lastName": "Last Name",
-    "next": "Next",
-    "back": "Back",
-    "submit": "Submit Application",
-    "submitting": "Submitting...",
-    "canComeToGermany": "Can you come to Germany?",
-    "isEuResident": "Are you a resident of the European Union?",
-    "yes": "Yes",
-    "no": "No",
-    "needHelp": "I need help organizing the trip"
+    "signInLink": "Sign in"
   },
   "dashboard": {
     "title": "Dashboard",
     "welcomeBack": "Welcome back, {name}",
-    "accountInfo": "Account Information",
+    "accountInfo": "Account information",
     "name": "Name",
     "email": "Email",
-    "signOut": "Sign Out",
+    "signOut": "Sign out",
     "appointments": "Appointments",
-    "appointmentsDescription": "View and manage your upcoming appointments",
-    "medicalRecords": "Medical Records",
+    "appointmentsDescription": "View and manage upcoming appointments",
+    "medicalRecords": "Medical records",
     "medicalRecordsDescription": "Access your medical history and documents",
     "messages": "Messages",
-    "messagesDescription": "Communicate with your healthcare team"
+    "messagesDescription": "Communication with your care team"
   }
 }
