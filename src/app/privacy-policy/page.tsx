@@ -2,7 +2,6 @@
 
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import sectionStyles from "@/components/sections/shared/section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
@@ -45,8 +44,6 @@ export default function PrivacyPolicyPage() {
 
   return (
     <div className={pageStyles.page}>
-      <Breadcrumbs items={[{ label: t('title').toLowerCase() }]} />
-
       <section className={cn(sectionStyles.section, pageStyles.heroSection)}>
         <div className={sectionStyles.container}>
           <SectionHeader

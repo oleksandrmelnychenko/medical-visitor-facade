@@ -2,8 +2,6 @@
 
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import sectionStyles from "@/components/sections/shared/section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
@@ -14,32 +12,26 @@ export default function DataSecurityPage() {
 
   const securityMeasures = [
     {
-      image: "https://images.unsplash.com/photo-1597781914467-a5b93258e748?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('measures.encryption.title'),
       description: t('measures.encryption.description')
     },
     {
-      image: "https://images.unsplash.com/flagged/photo-1579274216947-86eaa4b00475?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('measures.dataCenters.title'),
       description: t('measures.dataCenters.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1765710475256-1708882da66e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('measures.accessControls.title'),
       description: t('measures.accessControls.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1704969724221-8b7361b61f75?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('measures.audits.title'),
       description: t('measures.audits.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1762340916350-ad5a3d620c16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('measures.threatDetection.title'),
       description: t('measures.threatDetection.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1586974175094-0a7259238613?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('measures.backup.title'),
       description: t('measures.backup.description')
     }
@@ -68,8 +60,6 @@ export default function DataSecurityPage() {
 
   return (
     <div className={pageStyles.page}>
-      <Breadcrumbs items={[{ label: t('title').toLowerCase() }]} />
-
       <section className={cn(sectionStyles.section, pageStyles.heroSection)}>
         <div className={sectionStyles.container}>
           <SectionHeader
@@ -90,13 +80,9 @@ export default function DataSecurityPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-            >
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1563986768609-322da13575f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
-                alt="Cybersecurity"
-                className={cn(pageStyles.imageRounded, pageStyles.imageShadow)}
-              />
-            </motion.div>
+              className={cn(pageStyles.imageRounded, pageStyles.imageShadow)}
+              style={{ backgroundColor: '#e2e8f0', minHeight: '300px' }}
+            />
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -123,14 +109,10 @@ export default function DataSecurityPage() {
                   viewport={{ once: true }}
                   className={pageStyles.stackedCard}
                 >
-                  <div className={pageStyles.stackedMedia}>
-                    <ImageWithFallback
-                      src={feature.image}
-                      alt={feature.title}
-                      className={pageStyles.imageRounded}
-                    />
-                    <div className={pageStyles.mediaOverlay}></div>
-                  </div>
+                  <div
+                    className={cn(pageStyles.stackedMedia, pageStyles.imageRounded)}
+                    style={{ backgroundColor: '#e2e8f0', minHeight: '180px' }}
+                  />
                   <div className={pageStyles.stackedBody}>
                     <h3 className={pageStyles.stackedTitle}>{feature.title}</h3>
                     <p className={pageStyles.stackedText}>{feature.description}</p>
@@ -197,13 +179,9 @@ export default function DataSecurityPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-            >
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
-                alt="Team training"
-                className={cn(pageStyles.imageRounded, pageStyles.imageShadow)}
-              />
-            </motion.div>
+              className={cn(pageStyles.imageRounded, pageStyles.imageShadow)}
+              style={{ backgroundColor: '#e2e8f0', minHeight: '300px' }}
+            />
           </div>
           </div>
         </div>

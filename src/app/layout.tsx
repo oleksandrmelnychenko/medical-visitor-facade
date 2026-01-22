@@ -5,6 +5,7 @@ import "../styles/globals.scss";
 import { Header } from "@/components/layout/header/Header";
 import { Footer } from '@/components/layout/footer/Footer';
 import { LanguageProvider } from "@/providers/LanguageProvider";
+import { AuthProvider } from "@/providers/AuthProvider";
 
 import deMessages from "@/messages/de.json";
 import enMessages from "@/messages/en.json";
@@ -39,11 +40,13 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${montserrat.variable}`}>
-        <LanguageProvider initialLocale={locale} initialMessages={messages}>
-          <Header />
-          {children}
-          <Footer />
-        </LanguageProvider>
+        <AuthProvider>
+          <LanguageProvider initialLocale={locale} initialMessages={messages}>
+            <Header />
+            {children}
+            <Footer />
+          </LanguageProvider>
+        </AuthProvider>
       </body>
     </html>
   );

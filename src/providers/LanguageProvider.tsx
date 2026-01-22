@@ -3,7 +3,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { NextIntlClientProvider } from 'next-intl';
 
-type Locale = 'de' | 'en' | 'ru';
+type Locale = 'de' | 'en' | 'ru' | 'es';
 
 interface LanguageContextType {
   locale: Locale;

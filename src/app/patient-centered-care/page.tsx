@@ -2,8 +2,6 @@
 
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import sectionStyles from "@/components/sections/shared/section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
@@ -14,35 +12,30 @@ export default function PatientCenteredCarePage() {
 
   const principles = [
     {
-      image: "https://images.unsplash.com/photo-1764885449364-b1a758f03063?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('principles.compassionate.title'),
       description: t('principles.compassionate.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1758574437870-f83c160efd82?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('principles.collaborative.title'),
       description: t('principles.collaborative.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1695720247432-8b353fba8c7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('principles.personalized.title'),
       description: t('principles.personalized.description')
     }
   ];
 
   const benefits = [
-    t('benefits.item1'),
-    t('benefits.item2'),
-    t('benefits.item3'),
-    t('benefits.item4'),
-    t('benefits.item5'),
-    t('benefits.item6')
+    t('benefits.items.dedicatedTeam'),
+    t('benefits.items.clearCommunication'),
+    t('benefits.items.involvement'),
+    t('benefits.items.coordinatedCare'),
+    t('benefits.items.supportServices'),
+    t('benefits.items.convenientAccess')
   ];
 
   return (
     <div className={pageStyles.page}>
-      <Breadcrumbs items={[{ label: t('title').toLowerCase() }]} />
-
       <section className={cn(sectionStyles.section, pageStyles.heroSection)}>
         <div className={sectionStyles.container}>
           <SectionHeader
@@ -73,13 +66,9 @@ export default function PatientCenteredCarePage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-            >
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
-                alt="Doctor consulting with patient"
-                className={cn(pageStyles.imageRounded, pageStyles.imageShadow)}
-              />
-            </motion.div>
+              className={cn(pageStyles.imageRounded, pageStyles.imageShadow)}
+              style={{ backgroundColor: '#e2e8f0', minHeight: '300px' }}
+            />
           </div>
 
             <div>
@@ -96,14 +85,10 @@ export default function PatientCenteredCarePage() {
                   viewport={{ once: true }}
                   className={pageStyles.stackedCard}
                 >
-                  <div className={pageStyles.stackedMedia}>
-                    <ImageWithFallback
-                      src={principle.image}
-                      alt={principle.title}
-                      className={pageStyles.imageRounded}
-                    />
-                    <div className={pageStyles.mediaOverlay}></div>
-                  </div>
+                  <div
+                    className={cn(pageStyles.stackedMedia, pageStyles.imageRounded)}
+                    style={{ backgroundColor: '#e2e8f0', minHeight: '180px' }}
+                  />
                   <div className={pageStyles.stackedBody}>
                     <h3 className={pageStyles.stackedTitle}>{principle.title}</h3>
                     <p className={pageStyles.stackedText}>{principle.description}</p>

@@ -3,8 +3,6 @@
 import { motion } from "motion/react";
 import { CheckCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import sectionStyles from "@/components/sections/shared/section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
@@ -82,8 +80,6 @@ export default function PatientRightsPage() {
 
   return (
     <div className={pageStyles.page}>
-      <Breadcrumbs items={[{ label: t('title').toLowerCase() }]} />
-
       <section className={cn(sectionStyles.section, pageStyles.heroSection)}>
         <div className={sectionStyles.container}>
           <SectionHeader
@@ -114,13 +110,9 @@ export default function PatientRightsPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-            >
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
-                alt="Patient consultation"
-                className={cn(pageStyles.imageRounded, pageStyles.imageShadow)}
-              />
-            </motion.div>
+              className={cn(pageStyles.imageRounded, pageStyles.imageShadow)}
+              style={{ backgroundColor: '#e2e8f0', minHeight: '300px' }}
+            />
           </div>
 
           <div>
@@ -176,13 +168,9 @@ export default function PatientRightsPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-            >
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
-                alt="Healthcare partnership"
-                className={cn(pageStyles.imageRounded, pageStyles.imageShadow)}
-              />
-            </motion.div>
+              className={cn(pageStyles.imageRounded, pageStyles.imageShadow)}
+              style={{ backgroundColor: '#e2e8f0', minHeight: '300px' }}
+            />
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}

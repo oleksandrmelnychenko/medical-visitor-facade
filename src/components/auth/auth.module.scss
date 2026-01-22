@@ -1,0 +1,355 @@
+@use "@/styles/variables" as *;
+
+.authContainer {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+
+  &:hover {
+    color: var(--foreground);
+  }
+
+  &.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+// Underline input style
+.formGroup {
+  position: relative;
+  padding-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 0;
+  font-size: 1.125rem;
+  font-family: inherit;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+  color: var(--foreground);
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-bottom-color: var(--foreground);
+  }
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &.error {
+    border-bottom-color: var(--destructive);
+  }
+
+  // Filled state
+  &:not(:placeholder-shown) + .label,
+  &:focus + .label {
+    transform: translateY(-1.75rem) scale(0.85);
+    color: var(--muted-foreground);
+  }
+}
+
+.label {
+  position: absolute;
+  left: 0;
+  top: 1.75rem;
+  font-size: 1.125rem;
+  color: #999;
+  pointer-events: none;
+  transform-origin: left top;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.errorMessage {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--destructive);
+  margin-top: 0.5rem;
+}
+
+// Phone input with mask
+.phoneInputWrapper {
+  position: relative;
+  padding-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.phonePrefix {
+  position: absolute;
+  left: 0;
+  bottom: 0.75rem;
+  font-size: 1.125rem;
+  color: #999;
+  pointer-events: none;
+}
+
+.phoneInput {
+  width: 100%;
+  padding: 0.75rem 0 0.75rem 3rem;
+  font-size: 1.125rem;
+  font-family: inherit;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+  color: var(--foreground);
+  transition: border-color 0.3s ease;
+  letter-spacing: 0.05em;
+
+  &:focus {
+    outline: none;
+    border-bottom-color: var(--foreground);
+  }
+
+  &::placeholder {
+    color: #bbb;
+  }
+
+  &.error {
+    border-bottom-color: var(--destructive);
+  }
+}
+
+// Hint text
+.hintText {
+  text-align: center;
+  font-size: 0.9375rem;
+  color: #666;
+  margin: 1.5rem 0 2rem;
+  line-height: 1.5;
+}
+
+// Submit button - outline style
+.submitButton {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--foreground);
+  background: transparent;
+  border: 1px solid var(--foreground);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+
+  &:hover {
+    background: var(--foreground);
+    color: var(--background);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    &:hover {
+      background: transparent;
+      color: var(--foreground);
+    }
+  }
+}
+
+// Confidentiality notice
+.confidentialityNotice {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #666;
+  margin: 2rem 0 1.5rem;
+  line-height: 1.6;
+}
+
+.policyLink {
+  display: block;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  text-decoration: underline;
+  margin-bottom: 1.5rem;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Checkbox styles
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #444;
+  line-height: 1.5;
+
+  &:hover .checkboxCustom {
+    border-color: var(--foreground);
+  }
+}
+
+.checkboxInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+
+  &:checked + .checkboxCustom {
+    background: var(--foreground);
+    border-color: var(--foreground);
+
+    &::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &:focus + .checkboxCustom {
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.checkboxCustom {
+  position: relative;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #999;
+  background: transparent;
+  transition: all 0.2s ease;
+  margin-top: 2px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) scale(0);
+    opacity: 0;
+    transition: all 0.2s ease;
+  }
+}
+
+.checkboxText {
+  flex: 1;
+}
+
+// Error states
+.formError {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: var(--destructive);
+  background: rgba(212, 24, 61, 0.1);
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.formSuccess {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: #059669;
+  background: rgba(5, 150, 105, 0.1);
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+// Divider
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  span {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+  }
+}
+
+// Password toggle
+.passwordWrapper {
+  position: relative;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 0;
+  bottom: 0.75rem;
+  background: none;
+  border: none;
+  padding: 0;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--foreground);
+  }
+}
+
+// Links
+.forgotPassword {
+  display: block;
+  text-align: right;
+  font-size: 0.8125rem;
+  color: #666;
+  text-decoration: underline;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

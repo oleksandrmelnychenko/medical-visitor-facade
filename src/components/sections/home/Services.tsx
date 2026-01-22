@@ -3,7 +3,6 @@
 import { useState, useRef } from "react";
 import Slider from "react-slick";
 import { useTranslations } from "next-intl";
-import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import sectionStyles from "@/components/sections/shared/section.module.scss";
 import styles from "./services.module.scss";
@@ -20,22 +19,16 @@ export function Services() {
       title: t('items.cardiology.title'),
       subtitle: t('items.cardiology.subtitle'),
       description: t('items.cardiology.description'),
-      image:
-        "https://images.unsplash.com/photo-1690306816872-91063f6de36b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYXJkaW9sb2d5JTIwbWVkaWNhbCUyMGhlYXJ0fGVufDF8fHx8MTc2NTc4ODY4NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     },
     {
       title: t('items.oncology.title'),
       subtitle: t('items.oncology.subtitle'),
       description: t('items.oncology.description'),
-      image:
-        "https://images.unsplash.com/photo-1763310225108-9e16920156f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvbmNvbG9neSUyMGNhbmNlciUyMHRyZWF0bWVudCUyMG1lZGljYWx8ZW58MXx8fHwxNzY1NzkwMDE3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     },
     {
       title: t('items.surgery.title'),
       subtitle: t('items.surgery.subtitle'),
       description: t('items.surgery.description'),
-      image:
-        "https://images.unsplash.com/photo-1757152962882-6bf8495b324d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdXJnZXJ5JTIwbWVkaWNhbCUyMG9wZXJhdGluZyUyMHJvb218ZW58MXx8fHwxNzY1NzkwNjg5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     },
   ];
 
@@ -94,8 +87,7 @@ export function Services() {
         >
           {services.map((service, index) => (
             <div key={index} className={styles.slideWrapper}>
-              <div className={styles.serviceSlide}>
-                <ImageWithFallback src={service.image} alt={service.title} />
+              <div className={styles.serviceSlide} style={{ backgroundColor: '#e2e8f0', minHeight: '400px' }}>
                 <div className={styles.slideOverlay}>
                   <h3 className={styles.slideTitle}>{service.title}</h3>
                   <h4 className={styles.slideSubtitle}>{service.subtitle}</h4>

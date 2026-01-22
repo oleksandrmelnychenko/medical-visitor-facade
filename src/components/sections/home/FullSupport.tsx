@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Plane, Car, UserCheck, HeartHandshake, Building2, Phone, FileText, Globe } from "lucide-react";
+import { Wallet, Heart, Diamond, Star, Clock } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/section.module.scss";
@@ -10,15 +10,16 @@ import styles from "./fullsupport.module.scss";
 export function FullSupport() {
   const t = useTranslations('home.fullSupport');
 
-  const services = [
-    { icon: Plane, key: 'flights' },
-    { icon: Car, key: 'transport' },
-    { icon: Building2, key: 'accommodation' },
-    { icon: UserCheck, key: 'escort' },
-    { icon: Globe, key: 'translation' },
-    { icon: FileText, key: 'paperwork' },
-    { icon: HeartHandshake, key: 'medical' },
-    { icon: Phone, key: 'support' },
+  // 5 services like in the reference design
+  const servicesTop = [
+    { icon: Wallet, key: 'noFees', color: '#F4B4C4' },
+    { icon: Heart, key: 'support', color: '#A8D5E5' },
+    { icon: Diamond, key: 'confidentiality', color: '#B5E5B0' },
+  ];
+
+  const servicesBottom = [
+    { icon: Star, key: 'performance', color: '#E5D5A8' },
+    { icon: Clock, key: 'promptness', color: '#D5A8E5' },
   ];
 
   const journeySteps = [
@@ -33,30 +34,55 @@ export function FullSupport() {
     <section className={cn(sectionStyles.section, styles.fullSupport)}>
       <div className={sectionStyles.container}>
         <div className={styles.layout}>
-          {/* Left Column - Header + Services */}
-          <div className={styles.leftColumn}>
-            <motion.div
-              className={styles.header}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <p className={styles.overline}>{t('overline')}</p>
-              <h2 className={styles.title}>{t('title')}</h2>
-              <p className={styles.subtitle}>{t('subtitle')}</p>
-            </motion.div>
+          {/* Header */}
+          <motion.div
+            className={styles.header}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className={styles.overline}>{t('overline')}</p>
+            <h2 className={styles.title}>{t('title')}</h2>
+            <p className={styles.subtitle}>{t('subtitle')}</p>
+          </motion.div>
 
-            {/* Services List */}
-            <div className={styles.servicesList}>
-              {services.map((service, index) => (
+          {/* Services Cards - Staggered Layout */}
+          <div className={styles.servicesList}>
+            {/* Top Row - 3 cards */}
+            <div className={cn(styles.servicesRow, styles.servicesRowTop)}>
+              {servicesTop.map((service, index) => (
                 <motion.div
                   key={service.key}
                   className={styles.serviceItem}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  style={{ '--hover-color': service.color } as React.CSSProperties}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                >
+                  <div className={styles.serviceIcon}>
+                    <service.icon />
+                  </div>
+                  <div className={styles.serviceText}>
+                    <span className={styles.serviceTitle}>{t(`services.${service.key}.title`)}</span>
+                    <span className={styles.serviceDesc}>{t(`services.${service.key}.desc`)}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Bottom Row - 2 cards centered */}
+            <div className={cn(styles.servicesRow, styles.servicesRowBottom)}>
+              {servicesBottom.map((service, index) => (
+                <motion.div
+                  key={service.key}
+                  className={styles.serviceItem}
+                  style={{ '--hover-color': service.color } as React.CSSProperties}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: (servicesTop.length + index) * 0.1 }}
                 >
                   <div className={styles.serviceIcon}>
                     <service.icon />
@@ -70,7 +96,10 @@ export function FullSupport() {
             </div>
           </div>
 
-          {/* Right Column - Vertical Roadmap */}
+          {/* Closing line */}
+          <div className={styles.closingLine} />
+
+          {/* Roadmap */}
           <div className={styles.rightColumn}>
             <motion.div
               className={styles.roadmapCard}

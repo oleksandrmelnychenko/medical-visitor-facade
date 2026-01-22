@@ -2,8 +2,6 @@
 
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import sectionStyles from "@/components/sections/shared/section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
@@ -14,32 +12,26 @@ export default function PatientServicesPage() {
 
   const services = [
     {
-      image: "https://images.unsplash.com/photo-1758556549027-879615701c61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('services.appointmentScheduling.title'),
       description: t('services.appointmentScheduling.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1758691462321-9b6c98c40f7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('services.patientSupport.title'),
       description: t('services.patientSupport.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1758691462814-485c3672e447?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('services.medicalRecordsAccess.title'),
       description: t('services.medicalRecordsAccess.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1635367216109-aa3353c0c22e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('services.wellnessPrograms.title'),
       description: t('services.wellnessPrograms.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1758691462285-9e2db8b8dc44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('services.patientEducation.title'),
       description: t('services.patientEducation.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1722235623488-ae7639a2ffd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('services.careCoordination.title'),
       description: t('services.careCoordination.description')
     }
@@ -47,8 +39,6 @@ export default function PatientServicesPage() {
 
   return (
     <div className={pageStyles.page}>
-      <Breadcrumbs items={[{ label: t('title').toLowerCase() }]} />
-
       <section className={cn(sectionStyles.section, pageStyles.heroSection)}>
         <div className={sectionStyles.container}>
           <SectionHeader
@@ -73,14 +63,10 @@ export default function PatientServicesPage() {
                 viewport={{ once: true }}
                 className={pageStyles.stackedCard}
               >
-                <div className={pageStyles.stackedMedia}>
-                  <ImageWithFallback
-                    src={service.image}
-                    alt={service.title}
-                    className={pageStyles.imageRounded}
-                  />
-                  <div className={pageStyles.mediaOverlay}></div>
-                </div>
+                <div
+                  className={cn(pageStyles.stackedMedia, pageStyles.imageRounded)}
+                  style={{ backgroundColor: '#e2e8f0', minHeight: '180px' }}
+                />
                 <div className={pageStyles.stackedBody}>
                   <h3 className={pageStyles.stackedTitle}>{service.title}</h3>
                   <p className={pageStyles.stackedText}>{service.description}</p>
@@ -105,13 +91,9 @@ export default function PatientServicesPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-            >
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
-                alt="Healthcare professional with patient"
-                className={cn(pageStyles.imageRounded, pageStyles.imageShadow)}
-              />
-            </motion.div>
+              className={cn(pageStyles.imageRounded, pageStyles.imageShadow)}
+              style={{ backgroundColor: '#e2e8f0', minHeight: '300px' }}
+            />
           </div>
           </div>
         </div>

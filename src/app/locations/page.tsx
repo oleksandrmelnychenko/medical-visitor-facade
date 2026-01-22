@@ -3,8 +3,6 @@
 import { motion } from "motion/react";
 import { MapPin, Phone, Clock, Navigation } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import sectionStyles from "@/components/sections/shared/section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
@@ -20,7 +18,6 @@ export default function LocationsPage() {
       city: "New York, NY 10001",
       phone: "(555) 123-4567",
       hours: t('facilities.mainCampus.hours'),
-      image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
       services: [t('services.emergencyCare'), t('services.cardiology'), t('services.oncology'), t('services.surgery')]
     },
     {
@@ -29,7 +26,6 @@ export default function LocationsPage() {
       city: "Brooklyn, NY 11201",
       phone: "(555) 234-5678",
       hours: t('facilities.northCenter.hours'),
-      image: "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
       services: [t('services.primaryCare'), t('services.pediatrics'), t('services.orthopedics'), t('services.imaging')]
     },
     {
@@ -38,15 +34,12 @@ export default function LocationsPage() {
       city: "Queens, NY 11354",
       phone: "(555) 345-6789",
       hours: t('facilities.eastClinic.hours'),
-      image: "https://images.unsplash.com/photo-1512678080530-7760d81faba6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
       services: [t('services.familyMedicine'), t('services.preventiveCare'), t('services.labServices')]
     }
   ];
 
   return (
     <div className={pageStyles.page}>
-      <Breadcrumbs items={[{ label: t('title').toLowerCase() }]} />
-
       <section className={cn(sectionStyles.section, pageStyles.heroSection)}>
         <div className={sectionStyles.container}>
           <SectionHeader
@@ -87,13 +80,10 @@ export default function LocationsPage() {
                 className={cn(pageStyles.card, pageStyles.cardHover)}
               >
                 <div className={pageStyles.locationGrid}>
-                  <div>
-                    <ImageWithFallback
-                      src={location.image}
-                      alt={location.name}
-                      className={pageStyles.locationImage}
-                    />
-                  </div>
+                  <div
+                    className={pageStyles.locationImage}
+                    style={{ backgroundColor: '#e2e8f0', minHeight: '200px' }}
+                  />
                   <div className={pageStyles.locationBody}>
                     <h3 className={pageStyles.sectionTitleSm}>{location.name}</h3>
 

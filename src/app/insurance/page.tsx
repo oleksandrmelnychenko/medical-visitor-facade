@@ -2,8 +2,6 @@
 
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import sectionStyles from "@/components/sections/shared/section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
@@ -32,17 +30,14 @@ export default function InsurancePage() {
 
   const paymentOptions = [
     {
-      image: "https://images.unsplash.com/photo-1765226410758-9ae3d34cd791?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('paymentOptions.online.title'),
       description: t('paymentOptions.online.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1634128222187-18eababc763d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('paymentOptions.plans.title'),
       description: t('paymentOptions.plans.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1688126507367-b7cb61e19f30?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('paymentOptions.assistance.title'),
       description: t('paymentOptions.assistance.description')
     }
@@ -65,8 +60,6 @@ export default function InsurancePage() {
 
   return (
     <div className={pageStyles.page}>
-      <Breadcrumbs items={[{ label: t('title').toLowerCase() }]} />
-
       <section className={cn(sectionStyles.section, pageStyles.heroSection)}>
         <div className={sectionStyles.container}>
           <SectionHeader
@@ -129,13 +122,9 @@ export default function InsurancePage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-            >
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
-                alt="Financial planning"
-                className={cn(pageStyles.imageRounded, pageStyles.imageShadow)}
-              />
-            </motion.div>
+              className={cn(pageStyles.imageRounded, pageStyles.imageShadow)}
+              style={{ backgroundColor: '#e2e8f0', minHeight: '300px' }}
+            />
           </div>
 
           <div>
@@ -152,14 +141,10 @@ export default function InsurancePage() {
                   viewport={{ once: true }}
                   className={pageStyles.stackedCard}
                 >
-                  <div className={pageStyles.stackedMedia}>
-                    <ImageWithFallback
-                      src={option.image}
-                      alt={option.title}
-                      className={pageStyles.imageRounded}
-                    />
-                    <div className={pageStyles.mediaOverlay}></div>
-                  </div>
+                  <div
+                    className={cn(pageStyles.stackedMedia, pageStyles.imageRounded)}
+                    style={{ backgroundColor: '#e2e8f0', minHeight: '180px' }}
+                  />
                   <div className={pageStyles.stackedBody}>
                     <h3 className={pageStyles.stackedTitle}>{option.title}</h3>
                     <p className={pageStyles.stackedText}>{option.description}</p>

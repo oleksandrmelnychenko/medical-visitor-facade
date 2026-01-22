@@ -32,6 +32,18 @@
   }
 }
 
+.singleColCentered {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 2rem;
+
+  .textContent {
+    align-items: center;
+    max-width: 600px;
+  }
+}
+
 .textContent {
   display: flex;
   flex-direction: column;

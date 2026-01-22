@@ -12,20 +12,9 @@ export function Hero() {
   return (
     <section className={cn(sectionStyles.section, styles.hero)}>
       <div className={cn(sectionStyles.container, styles.heroContainer)}>
-        {/* Video with text overlay - container width */}
-        <div className={styles.heroVideoWrapper}>
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className={styles.heroVideo}
-          >
-            <source src="/assets/hero_vid.mp4" type="video/mp4" />
-          </video>
-
-          {/* Text overlay on video */}
-          <div className={styles.videoOverlay}>
+        {/* Hero with background image */}
+        <div className={styles.heroWrapper}>
+          <div className={styles.heroOverlay}>
             <div className={styles.heroContent}>
               <motion.p
                 className={styles.heroOverline}
@@ -68,34 +57,6 @@ export function Hero() {
                 >
                   {t('requestAppointment')}
                 </motion.button>
-                <motion.button
-                  type="button"
-                  className={styles.secondaryButton}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  {t('exploreServices')}
-                </motion.button>
-              </motion.div>
-
-              <motion.div
-                className={styles.heroHighlights}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-              >
-                <div className={styles.heroHighlight}>
-                  <span className={styles.highlightLabel}>{t('highlights.responseTime.label')}</span>
-                  <span className={styles.highlightValue}>{t('highlights.responseTime.value')}</span>
-                </div>
-                <div className={styles.heroHighlight}>
-                  <span className={styles.highlightLabel}>{t('highlights.careCoordination.label')}</span>
-                  <span className={styles.highlightValue}>{t('highlights.careCoordination.value')}</span>
-                </div>
-                <div className={styles.heroHighlight}>
-                  <span className={styles.highlightLabel}>{t('highlights.languages.label')}</span>
-                  <span className={styles.highlightValue}>{t('highlights.languages.value')}</span>
-                </div>
               </motion.div>
             </div>
           </div>

@@ -64,7 +64,7 @@ export function CTA() {
               </motion.div>
             </div>
 
-            {/* Buttons */}
+            {/* Button */}
             <div className={styles.ctaButtons}>
               <motion.button
                 className={styles.primaryButton}
@@ -74,8 +74,6 @@ export function CTA() {
                 <span>{t('bookConsultation')}</span>
                 <ArrowRight className="w-5 h-5" />
               </motion.button>
-
-              <button className={styles.secondaryButton}>{t('getStarted')}</button>
             </div>
 
             {/* Office Hours */}

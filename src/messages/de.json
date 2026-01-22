@@ -42,19 +42,19 @@
   },
   "home": {
     "hero": {
-      "overline": "Premium Medizinische Versorgung",
-      "title": "Für Sie da, bei jedem Schritt",
-      "subtitle": "Erleben Sie einfühlsame Gesundheitsversorgung mit unserem engagierten Team von Fachleuten, die sich Ihrem Wohlbefinden verschrieben haben.",
-      "requestAppointment": "Termin anfragen",
-      "exploreServices": "Leistungen entdecken",
+      "overline": "Persönliches Gesundheitsmanagement",
+      "title": "Wir übernehmen die vollständige Sorge um Ihre Gesundheit",
+      "subtitle": "Charterflüge, Privattransport, persönliche Begleitung, Dolmetscher, Visa-Unterstützung — wir organisieren alles, damit Sie sich ganz auf Ihre Gesundheit konzentrieren können.",
+      "requestAppointment": "Kontaktieren Sie uns",
+      "exploreServices": "Mehr erfahren",
       "highlights": {
         "responseTime": {
-          "label": "Antwortzeit",
-          "value": "Innerhalb 24 Stunden"
+          "label": "Erreichbarkeit",
+          "value": "24/7 Persönlicher Manager"
         },
         "careCoordination": {
-          "label": "Versorgungskoordination",
-          "value": "Rundum-Betreuung"
+          "label": "Service",
+          "value": "Voller Concierge"
         },
         "languages": {
           "label": "Sprachen",
@@ -62,10 +62,10 @@
         }
       },
       "badge": {
-        "title": "Vertrauenspartner",
-        "text": "Ihre Gesundheitsreise, begleitet mit Fürsorge"
+        "title": "Privater Service",
+        "text": "Für anspruchsvolle Klienten"
       },
-      "videoOverlay": "Exzellenz in der Gesundheitsversorgung"
+      "videoOverlay": "Personalisierter Ansatz"
     },
     "careForward": {
       "overline": "Unser Ansatz",
@@ -105,72 +105,63 @@
       "learnMore": "Mehr erfahren"
     },
     "trust": {
-      "overline": "Warum wir",
-      "title": "Vertrauen von Tausenden",
-      "subtitle": "Unser Engagement für Exzellenz hat das Vertrauen von Patienten und Gesundheitspartnern weltweit gewonnen.",
-      "description": "Mit jahrzehntelanger Erfahrung in der Patientenversorgung verbinden wir medizinische Expertise mit echtem Mitgefühl. Jedes Teammitglied ist Ihrem Wohlbefinden gewidmet.",
-      "guarantee": "Ihre Gesundheit und Zufriedenheit haben für uns höchste Priorität."
+      "overline": "Privatsphäre",
+      "title": "Absolute Vertraulichkeit",
+      "subtitle": "Wir verstehen den Wert der Privatsphäre für unsere Kunden.",
+      "description": "Die Zusammenarbeit mit jedem Kunden basiert auf vollständiger Vertraulichkeit. Ihre Daten, Behandlungsgeschichte und sogar die Tatsache Ihrer Anfrage — alles unter sicherem Schutz.",
+      "guarantee": "Strenge Datenschutzstandards in jeder Phase."
     },
     "office": {
-      "overline": "Besuchen Sie uns",
-      "title": "Unser Büro",
-      "subtitle": "Moderne Gesundheitsumgebung im Herzen Münchens",
-      "location": {
-        "title": "Hauptstandort",
-        "city": "München, Deutschland"
-      },
-      "address": {
-        "label": "Adresse"
-      },
-      "phone": {
-        "label": "Telefon"
-      },
-      "email": {
-        "label": "E-Mail"
-      },
-      "hours": {
-        "label": "Öffnungszeiten",
-        "weekdays": "Montag - Freitag: 8:00 - 18:00 Uhr",
-        "saturday": "Samstag: 9:00 - 13:00 Uhr",
-        "sunday": "Sonntag: Geschlossen"
+      "overline": "Unsere Büros",
+      "title": "Standorte in Deutschland",
+      "subtitle": "Wir sind in Ihrer Nähe, wo auch immer Sie sind.",
+      "cities": {
+        "berlin": {
+          "name": "Berlin",
+          "address": "Kurfürstendamm 21, 10719 Berlin",
+          "phone": "+49 30 123-4567"
+        },
+        "frankfurt": {
+          "name": "Frankfurt",
+          "address": "Kaiserstraße 50, 60329 Frankfurt",
+          "phone": "+49 69 123-4567"
+        },
+        "nuremberg": {
+          "name": "Nürnberg",
+          "address": "Königstraße 25, 90402 Nürnberg",
+          "phone": "+49 911 123-4567"
+        },
+        "munich": {
+          "name": "München",
+          "address": "Maximilianstraße 35, 80539 München",
+          "phone": "+49 89 123-4567"
+        }
       }
     },
     "fullSupport": {
-      "overline": "Rundum-Service",
-      "title": "Wir kümmern uns um alles",
-      "subtitle": "Konzentrieren Sie sich auf Ihre Gesundheit. Wir übernehmen die gesamte Logistik — von Ihrer Haustür bis zur vollständigen Genesung.",
+      "overline": "Vollständige Begleitung",
+      "title": "Wir übernehmen alles",
+      "subtitle": "Sie konzentrieren sich auf Ihre Gesundheit. Wir kümmern uns um den Rest.",
       "services": {
-        "flights": {
-          "title": "Flugbuchung",
-          "desc": "Wir organisieren alle Flüge und Transfers für Sie"
-        },
-        "transport": {
-          "title": "Bodentransport",
-          "desc": "Privater Fahrservice vom Flughafen zur Klinik"
-        },
-        "accommodation": {
-          "title": "Unterkunft",
-          "desc": "Komfortable Hotels nahe medizinischer Einrichtungen"
-        },
-        "escort": {
-          "title": "Persönliche Begleitung",
-          "desc": "Ein Koordinator bei jedem Schritt an Ihrer Seite"
-        },
-        "translation": {
-          "title": "Übersetzung",
-          "desc": "Dolmetscher für alle Termine"
-        },
-        "paperwork": {
-          "title": "Papierkram",
-          "desc": "Visa, Dokumente, Versicherung — erledigt"
-        },
-        "medical": {
-          "title": "Medizinische Koordination",
-          "desc": "Termine geplant und bestätigt"
+        "noFees": {
+          "title": "Charterflüge",
+          "desc": "Wir organisieren Privatflüge nach Ihrer Bequemlichkeit. Keine Warteschlangen, keine Umstiege."
         },
         "support": {
-          "title": "24/7 Support",
-          "desc": "Immer erreichbar, jede Frage"
+          "title": "Privattransport",
+          "desc": "Premium-Fahrzeug mit Fahrer für alle Ihre Bewegungen."
+        },
+        "confidentiality": {
+          "title": "Visa-Unterstützung",
+          "desc": "Vollständige Dokumentenbearbeitung. Visa, Einladungen, Bescheinigungen — wir erledigen alles."
+        },
+        "performance": {
+          "title": "Persönlicher Dolmetscher",
+          "desc": "Professioneller Dolmetscher begleitet Sie bei allen Treffen und Beratungen."
+        },
+        "promptness": {
+          "title": "24/7 Koordinator",
+          "desc": "Persönlicher Manager rund um die Uhr erreichbar. Wir lösen alle Probleme."
         }
       },
       "journey": {
@@ -199,31 +190,31 @@
         }
       },
       "promise": {
-        "title": "Sie sind nie allein",
-        "text": "Vom ersten Kontakt bis Sie sicher zu Hause sind — wir sind bei Ihnen. Jede Frage beantwortet, jedes Problem gelöst."
+        "title": "Vollständiges Gesundheitsmanagement",
+        "text": "Wir organisieren nicht nur die Behandlung. Wir kümmern uns um jedes Detail — von Ihrem ersten Anruf bis zu Ihrer sicheren Rückkehr nach Hause."
       }
     },
     "cta": {
-      "overline": "Loslegen",
-      "title": "Bereit für den nächsten Schritt?",
-      "subtitle": "Vereinbaren Sie noch heute Ihren Termin und erleben Sie den Unterschied einer persönlichen Gesundheitsversorgung.",
+      "overline": "Privater Service",
+      "title": "Vertrauen Sie uns Ihre Gesundheit an",
+      "subtitle": "Kontaktieren Sie uns für eine vertrauliche Beratung.",
       "stats": {
         "patients": {
-          "number": "15.000+",
-          "label": "Behandelte Patienten"
+          "number": "100%",
+          "label": "Vertraulichkeit"
         },
         "specialists": {
-          "number": "50+",
-          "label": "Fachärzte"
+          "number": "24/7",
+          "label": "Erreichbar"
         },
         "support": {
-          "number": "24/7",
-          "label": "Patientenbetreuung"
+          "number": "VIP",
+          "label": "Service-Level"
         }
       },
-      "bookConsultation": "Beratung buchen",
-      "getStarted": "Loslegen",
-      "availability": "Verfügbar Montag - Samstag"
+      "bookConsultation": "Kontaktieren Sie uns",
+      "getStarted": "Mehr erfahren",
+      "availability": "Vertrauliche Beratung"
     }
   },
   "appointment": {
@@ -231,18 +222,14 @@
     "title": "Termin anfragen",
     "subtitle": "Beginnen Sie hier. Unser Team wird Sie innerhalb von 24 Stunden kontaktieren.",
     "backToSelection": "← Zurück zur Auswahl",
-    "patientTypes": {
+    "clientTypes": {
       "new": {
-        "title": "Neue Patienten",
-        "description": "Geben Sie Ihre Daten an und vereinbaren Sie einen Folgetermin."
+        "title": "Neuer Kunde",
+        "description": "Hinterlassen Sie Ihre Kontaktdaten."
       },
       "returning": {
-        "title": "Wiederkehrende Patienten",
-        "description": "Anfrage über Ihr Patientenkonto."
-      },
-      "physician": {
-        "title": "Überweisende Ärzte",
-        "description": "Konsultationen und Patientenüberweisungen."
+        "title": "Bestehender Kunde",
+        "description": "Melden Sie sich in Ihrem Konto an."
       }
     },
     "freeService": {
@@ -978,5 +965,48 @@
       "fileComplaint": "Beschwerde einreichen",
       "contactAdvocate": "Patientenfürsprecher kontaktieren"
     }
+  },
+  "auth": {
+    "signIn": "Anmelden",
+    "createAccount": "Konto erstellen",
+    "email": "E-Mail",
+    "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+    "password": "Passwort",
+    "passwordPlaceholder": "Geben Sie Ihr Passwort ein",
+    "confirmPassword": "Passwort bestätigen",
+    "confirmPasswordPlaceholder": "Bestätigen Sie Ihr Passwort",
+    "name": "Vollständiger Name",
+    "namePlaceholder": "Geben Sie Ihren vollständigen Namen ein",
+    "phone": "Telefon",
+    "signingIn": "Anmeldung...",
+    "creatingAccount": "Konto wird erstellt...",
+    "invalidCredentials": "Ungültige E-Mail oder Passwort",
+    "registrationFailed": "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "signInAfterRegisterFailed": "Konto erstellt, aber Anmeldung fehlgeschlagen. Bitte melden Sie sich manuell an.",
+    "dashboard": "Dashboard",
+    "forgotPassword": "Passwort vergessen?",
+    "preferredContactMethod": "Bitte geben Sie Ihre bevorzugte Kontaktmethode an",
+    "confidentialityNotice": "Ihre Daten sind vertraulich und werden nicht an Dritte weitergegeben.",
+    "privacyPolicyLink": "Datenschutzrichtlinie",
+    "consentData": "Einwilligung zur Verarbeitung personenbezogener Daten",
+    "consentMarketing": "Einwilligung zum Erhalt von Informations- und Werbemitteilungen",
+    "welcomeTitle": "Willkommen zurück",
+    "welcomeSubtitle": "Melden Sie sich bei Ihrem Konto an oder erstellen Sie ein neues, um loszulegen",
+    "sendMessage": "Nachricht senden",
+    "overline": "Anmelden"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcomeBack": "Willkommen zurück, {name}",
+    "accountInfo": "Kontoinformationen",
+    "name": "Name",
+    "email": "E-Mail",
+    "signOut": "Abmelden",
+    "appointments": "Termine",
+    "appointmentsDescription": "Sehen und verwalten Sie Ihre bevorstehenden Termine",
+    "medicalRecords": "Krankenakten",
+    "medicalRecordsDescription": "Zugriff auf Ihre Krankengeschichte und Dokumente",
+    "messages": "Nachrichten",
+    "messagesDescription": "Kommunizieren Sie mit Ihrem Gesundheitsteam"
   }
 }

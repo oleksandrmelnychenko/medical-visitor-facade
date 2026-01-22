@@ -11,24 +11,17 @@
   z-index: 1;
 }
 
-.heroVideoWrapper {
+.heroWrapper {
   position: relative;
   width: 100%;
   min-height: clamp(32rem, 80vh, 52rem);
   border-radius: 1.5rem;
   overflow: hidden;
   box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.25);
+  background-color: #4a5568;
 }
 
-.heroVideo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.videoOverlay {
+.heroOverlay {
   position: absolute;
   inset: 0;
   display: flex;

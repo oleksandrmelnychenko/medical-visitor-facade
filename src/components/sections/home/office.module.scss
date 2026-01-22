@@ -1,50 +1,141 @@
 @use "../../../styles/variables" as *;
 
-.contactInfo {
+.office {
+  background-color: var(--background);
+}
+
+.header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.overline {
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 300;
+  color: var(--foreground);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}
+
+// Cities Grid - all in one
+.citiesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+// Main City (Munich) - spans all 3 columns
+.mainCity {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 3 / 1.4;
+  background-color: var(--background);
+  border: 1px solid #222;
+  position: relative;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border: 2px solid var(--hover-color);
+    pointer-events: none;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.15s ease-out;
+  }
+
+  &:hover::before {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.mainCityContent {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mainCityName {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  color: var(--foreground);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.mainCityAddress {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  letter-spacing: 0.02em;
+}
+
+// Small city cards
+.cityCard {
+  display: flex;
+  align-items: center;
   justify-content: center;
-}
-
-.contactTitle {
-  color: var(--foreground);
-  margin-bottom: 0.5rem;
-  font-size: clamp(1.5rem, 2.6vw, 1.75rem);
-  font-weight: 600;
-}
-
-.contactSubtitle {
-  color: var(--muted-foreground);
-  margin-bottom: 1.5rem;
-  font-size: clamp(1rem, 1.6vw, 1.125rem);
-  font-weight: 400;
-}
-
-.contactBlock {
-  margin-bottom: 1.25rem;
-}
-
-.contactLabel {
-  color: var(--foreground);
-  margin-bottom: 0.4rem;
-  font-size: clamp(1rem, 1.5vw, 1.125rem);
-  font-weight: 600;
-}
-
-.contactValue {
-  color: var(--muted-foreground);
-  font-size: clamp(0.95rem, 1.4vw, 1rem);
-  line-height: 1.6;
-}
-
-.mapCard {
+  aspect-ratio: 1;
+  background-color: var(--background);
+  border: 1px solid #222;
   position: relative;
-  overflow: hidden;
-  border-radius: 1.5rem;
-  height: clamp(18rem, 50vw, 31.25rem);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 
-  iframe {
-    border-radius: 1.5rem;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border: 2px solid var(--hover-color);
+    pointer-events: none;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.15s ease-out;
   }
+
+  &:hover::before {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.cityName {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--foreground);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+// Closing lines
+.closingLines {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin: 3rem auto 0;
+}
+
+.closingLine {
+  width: 80px;
+  height: 3px;
+  background-color: var(--foreground);
 }

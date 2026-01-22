@@ -2,8 +2,6 @@
 
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import sectionStyles from "@/components/sections/shared/section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
@@ -21,22 +19,18 @@ export default function AboutGmedPage() {
 
   const values = [
     {
-      image: "https://images.unsplash.com/photo-1659353888906-adb3e0041693?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('values.excellence.title'),
       description: t('values.excellence.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1685657814797-83706c4e5279?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('values.respect.title'),
       description: t('values.respect.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1640030104754-0a33c686c533?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('values.integrity.title'),
       description: t('values.integrity.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1706777280252-5de52771cf13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       title: t('values.innovation.title'),
       description: t('values.innovation.description')
     }
@@ -44,8 +38,6 @@ export default function AboutGmedPage() {
 
   return (
     <div className={pageStyles.page}>
-      <Breadcrumbs items={[{ label: t('title').toLowerCase() }]} />
-
       <section className={cn(sectionStyles.section, pageStyles.heroSection)}>
         <div className={sectionStyles.container}>
           <SectionHeader
@@ -66,13 +58,9 @@ export default function AboutGmedPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-              >
-                <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
-                  alt="Modern hospital facility"
-                  className={cn(pageStyles.imageRounded, pageStyles.imageShadow)}
-                />
-              </motion.div>
+                className={cn(pageStyles.imageRounded, pageStyles.imageShadow)}
+                style={{ backgroundColor: '#e2e8f0', minHeight: '300px' }}
+              />
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -113,9 +101,8 @@ export default function AboutGmedPage() {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     className={cn(pageStyles.mediaCard, pageStyles.mediaCardHover)}
+                    style={{ backgroundColor: '#e2e8f0', minHeight: '200px' }}
                   >
-                    <ImageWithFallback src={value.image} alt={value.title} />
-                    <div className={pageStyles.mediaOverlay}></div>
                     <div className={pageStyles.mediaContent}>
                       <h3 className={pageStyles.mediaTitle}>{value.title}</h3>
                       <p className={pageStyles.mediaText}>{value.description}</p>

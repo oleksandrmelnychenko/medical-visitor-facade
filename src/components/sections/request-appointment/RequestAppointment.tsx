@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
-import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { SectionHeader } from '@/components/sections/shared/SectionHeader';
 import sectionStyles from '@/components/sections/shared/section.module.scss';
 import pageStyles from '@/styles/page.module.scss';
@@ -30,8 +29,6 @@ export function RequestAppointment() {
 
   return (
     <div className={pageStyles.page}>
-      <Breadcrumbs items={[{ label: t('title').toLowerCase() }]} />
-
       <section className={cn(sectionStyles.section, pageStyles.heroSection)} id="appointment">
         <div className={sectionStyles.container}>
           <SectionHeader
@@ -41,10 +38,11 @@ export function RequestAppointment() {
             variant="page"
             titleAs="h1"
           />
+          <div className={styles.headerDivider} />
         </div>
       </section>
 
-      <section className={sectionStyles.section}>
+      <section className={cn(sectionStyles.section, styles.cardsSection)}>
         <div className={sectionStyles.container}>
           <AnimatePresence mode="wait">
             {!selectedType ? (

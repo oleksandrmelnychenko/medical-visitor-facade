@@ -42,19 +42,19 @@
   },
   "home": {
     "hero": {
-      "overline": "Premium Medical Care",
-      "title": "Caring for You, Every Step of the Way",
-      "subtitle": "Experience compassionate healthcare with our dedicated team of professionals committed to your well-being.",
-      "requestAppointment": "Request Appointment",
-      "exploreServices": "Explore Services",
+      "overline": "Personal Health Management",
+      "title": "We Take Complete Care of Your Health",
+      "subtitle": "Charter flights, private transport, personal escort, interpreters, visa support — we arrange everything so you can focus solely on your health.",
+      "requestAppointment": "Contact Us",
+      "exploreServices": "Learn More",
       "highlights": {
         "responseTime": {
-          "label": "Response Time",
-          "value": "Within 24 hours"
+          "label": "Availability",
+          "value": "24/7 Personal Manager"
         },
         "careCoordination": {
-          "label": "Care Coordination",
-          "value": "End-to-end support"
+          "label": "Service",
+          "value": "Full Concierge"
         },
         "languages": {
           "label": "Languages",
@@ -62,10 +62,10 @@
         }
       },
       "badge": {
-        "title": "Trusted Partner",
-        "text": "Your health journey, guided with care"
+        "title": "Private Service",
+        "text": "For discerning clients"
       },
-      "videoOverlay": "Excellence in Healthcare"
+      "videoOverlay": "Personalized Approach"
     },
     "careForward": {
       "overline": "Our Approach",
@@ -105,11 +105,11 @@
       "learnMore": "Learn More"
     },
     "trust": {
-      "overline": "Why Choose Us",
-      "title": "Trusted by Thousands",
-      "subtitle": "Our commitment to excellence has earned the trust of patients and healthcare partners worldwide.",
-      "description": "With decades of experience in patient care, we combine medical expertise with genuine compassion. Every member of our team is dedicated to your well-being.",
-      "guarantee": "Your health and satisfaction are our top priorities.",
+      "overline": "Privacy",
+      "title": "Absolute Confidentiality",
+      "subtitle": "We understand the value of privacy for our clients.",
+      "description": "Working with each client is built on principles of complete confidentiality. Your data, treatment history, and even the fact of your inquiry — all under secure protection.",
+      "guarantee": "Strict privacy standards at every stage.",
       "stats": {
         "patients": "Patients Served",
         "doctors": "Expert Doctors",
@@ -118,65 +118,56 @@
       }
     },
     "office": {
-      "overline": "Visit Us",
-      "title": "Our Office",
-      "subtitle": "Modern healthcare environment in the heart of Munich",
-      "location": {
-        "title": "Main Location",
-        "city": "Munich, Germany"
-      },
-      "address": {
-        "label": "Address"
-      },
-      "phone": {
-        "label": "Phone"
-      },
-      "email": {
-        "label": "Email"
-      },
-      "hours": {
-        "label": "Office Hours",
-        "weekdays": "Monday - Friday: 8:00 AM - 6:00 PM",
-        "saturday": "Saturday: 9:00 AM - 1:00 PM",
-        "sunday": "Sunday: Closed"
+      "overline": "Our Offices",
+      "title": "Locations in Germany",
+      "subtitle": "We are nearby, wherever you are.",
+      "cities": {
+        "berlin": {
+          "name": "Berlin",
+          "address": "Kurfürstendamm 21, 10719 Berlin",
+          "phone": "+49 30 123-4567"
+        },
+        "frankfurt": {
+          "name": "Frankfurt",
+          "address": "Kaiserstraße 50, 60329 Frankfurt",
+          "phone": "+49 69 123-4567"
+        },
+        "nuremberg": {
+          "name": "Nuremberg",
+          "address": "Königstraße 25, 90402 Nürnberg",
+          "phone": "+49 911 123-4567"
+        },
+        "munich": {
+          "name": "Munich",
+          "address": "Maximilianstraße 35, 80539 München",
+          "phone": "+49 89 123-4567"
+        }
       }
     },
     "fullSupport": {
-      "overline": "Complete Care",
+      "overline": "Complete Concierge",
       "title": "We Handle Everything",
-      "subtitle": "Focus on your health. We take care of all the logistics — from your doorstep to full recovery.",
+      "subtitle": "You focus on your health. We take care of the rest.",
       "services": {
-        "flights": {
-          "title": "Flight Booking",
-          "desc": "We arrange all flights and transfers for you"
-        },
-        "transport": {
-          "title": "Ground Transport",
-          "desc": "Private car service from airport to clinic"
-        },
-        "accommodation": {
-          "title": "Accommodation",
-          "desc": "Comfortable hotels near medical facilities"
-        },
-        "escort": {
-          "title": "Personal Escort",
-          "desc": "A coordinator with you at every step"
-        },
-        "translation": {
-          "title": "Translation",
-          "desc": "Interpreters for all appointments"
-        },
-        "paperwork": {
-          "title": "Paperwork",
-          "desc": "Visas, documents, insurance — handled"
-        },
-        "medical": {
-          "title": "Medical Coordination",
-          "desc": "Appointments scheduled and confirmed"
+        "noFees": {
+          "title": "Charter Flights",
+          "desc": "We arrange private flights at your convenience. No queues, no connections."
         },
         "support": {
-          "title": "24/7 Support",
-          "desc": "Always reachable, any question"
+          "title": "Private Transport",
+          "desc": "Premium vehicle with driver for all your movements."
+        },
+        "confidentiality": {
+          "title": "Visa Support",
+          "desc": "Complete document processing. Visas, invitations, certificates — we handle everything."
+        },
+        "performance": {
+          "title": "Personal Interpreter",
+          "desc": "Professional interpreter accompanies you at all meetings and consultations."
+        },
+        "promptness": {
+          "title": "24/7 Coordinator",
+          "desc": "Personal manager available around the clock. We solve any issues."
         }
       },
       "journey": {
@@ -205,31 +196,31 @@
         }
       },
       "promise": {
-        "title": "You're Never Alone",
-        "text": "From the moment you contact us until you're safely back home — we're with you. Every question answered, every problem solved."
+        "title": "Complete Health Management",
+        "text": "We don't just arrange treatment. We take care of every detail — from your first call to your safe return home."
       }
     },
     "cta": {
-      "overline": "Get Started",
-      "title": "Ready to Take the Next Step?",
-      "subtitle": "Schedule your appointment today and experience the difference of personalized healthcare.",
+      "overline": "Private Service",
+      "title": "Entrust Us with Your Health",
+      "subtitle": "Contact us for a confidential consultation.",
       "stats": {
         "patients": {
-          "number": "15,000+",
-          "label": "Patients Served"
+          "number": "100%",
+          "label": "Confidentiality"
         },
         "specialists": {
-          "number": "50+",
-          "label": "Medical Specialists"
+          "number": "24/7",
+          "label": "Available"
         },
         "support": {
-          "number": "24/7",
-          "label": "Patient Support"
+          "number": "VIP",
+          "label": "Service Level"
         }
       },
-      "bookConsultation": "Book a Consultation",
-      "getStarted": "Get Started",
-      "availability": "Available Monday - Saturday"
+      "bookConsultation": "Contact Us",
+      "getStarted": "Learn More",
+      "availability": "Confidential Consultation"
     }
   },
   "appointment": {
@@ -237,18 +228,14 @@
     "title": "Request Appointment",
     "subtitle": "Start here. Our team will contact you within 24 hours.",
     "backToSelection": "← Back to selection",
-    "patientTypes": {
+    "clientTypes": {
       "new": {
-        "title": "New Patients",
-        "description": "Provide your info and set a follow-up time."
+        "title": "New Client",
+        "description": "Leave your contact details."
       },
       "returning": {
-        "title": "Returning Patients",
-        "description": "Request using your patient account."
-      },
-      "physician": {
-        "title": "Referring Physicians",
-        "description": "Get consults and refer your patients."
+        "title": "Existing Client",
+        "description": "Sign in to your account."
       }
     },
     "freeService": {
@@ -984,5 +971,48 @@
       "fileComplaint": "File a Complaint",
       "contactAdvocate": "Contact Patient Advocate"
     }
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "createAccount": "Create Account",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "name": "Full Name",
+    "namePlaceholder": "Enter your full name",
+    "phone": "Phone",
+    "signingIn": "Signing in...",
+    "creatingAccount": "Creating account...",
+    "invalidCredentials": "Invalid email or password",
+    "registrationFailed": "Registration failed. Please try again.",
+    "signInAfterRegisterFailed": "Account created but sign in failed. Please sign in manually.",
+    "dashboard": "Dashboard",
+    "forgotPassword": "Forgot password?",
+    "preferredContactMethod": "Please indicate your preferred contact method",
+    "confidentialityNotice": "Your information is confidential and will not be transferred to third parties.",
+    "privacyPolicyLink": "Personal data processing policy",
+    "consentData": "Consent to the processing of personal data",
+    "consentMarketing": "Consent to receive informational and promotional communications",
+    "welcomeTitle": "Welcome Back",
+    "welcomeSubtitle": "Sign in to your account or create a new one to get started",
+    "sendMessage": "Send Message",
+    "overline": "Login"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcomeBack": "Welcome back, {name}",
+    "accountInfo": "Account Information",
+    "name": "Name",
+    "email": "Email",
+    "signOut": "Sign Out",
+    "appointments": "Appointments",
+    "appointmentsDescription": "View and manage your upcoming appointments",
+    "medicalRecords": "Medical Records",
+    "medicalRecordsDescription": "Access your medical history and documents",
+    "messages": "Messages",
+    "messagesDescription": "Communicate with your healthcare team"
   }
 }

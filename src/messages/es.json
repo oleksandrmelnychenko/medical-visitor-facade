@@ -1,0 +1,1018 @@
+{
+  "common": {
+    "home": "inicio",
+    "learnMore": "Más información",
+    "contactUs": "Contáctenos",
+    "requestAppointment": "Solicitar cita",
+    "login": "Iniciar sesión",
+    "search": "Buscar",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "viewAll": "Ver todo",
+    "readMore": "Leer más"
+  },
+  "header": {
+    "care": "Atención",
+    "patientResources": "Recursos para pacientes",
+    "trustSafety": "Confianza y seguridad",
+    "patientCenteredCare": "Atención centrada en el paciente",
+    "aboutGmed": "Sobre Gmed",
+    "requestAppointment": "Solicitar cita",
+    "findDoctor": "Encontrar médico",
+    "locations": "Ubicaciones",
+    "patientServices": "Servicios al paciente",
+    "medicalRecords": "Registros médicos",
+    "insuranceBilling": "Seguros y facturación",
+    "patientPortal": "Portal del paciente",
+    "privacyPolicy": "Política de privacidad",
+    "dataSecurity": "Seguridad de datos",
+    "hipaaCompliance": "Cumplimiento HIPAA",
+    "patientRights": "Derechos del paciente"
+  },
+  "footer": {
+    "impressum": "Aviso legal",
+    "companyName": "Agencia para la atención al paciente Heorhii Hudiiev",
+    "owner": "Propietario: Heorhii Hudiiev",
+    "contact": "Contacto",
+    "vatTitle": "Número de identificación fiscal",
+    "vatLegal": "según § 27 a de la Ley del Impuesto sobre el Valor Añadido:",
+    "vatNumber": "147/220/51409",
+    "contactPrompt": "Para preguntas y sugerencias sobre el contenido del sitio web, envíenos un correo electrónico a:",
+    "copyright": "© 2023 Agencia para la atención al paciente Heorhii Hudiiev"
+  },
+  "home": {
+    "hero": {
+      "overline": "Atención médica premium",
+      "title": "Cuidando de usted en cada paso del camino",
+      "subtitle": "Experimente una atención médica compasiva con nuestro dedicado equipo de profesionales comprometidos con su bienestar.",
+      "requestAppointment": "Solicitar cita",
+      "exploreServices": "Explorar servicios",
+      "highlights": {
+        "responseTime": {
+          "label": "Tiempo de respuesta",
+          "value": "En 24 horas"
+        },
+        "careCoordination": {
+          "label": "Coordinación de atención",
+          "value": "Soporte integral"
+        },
+        "languages": {
+          "label": "Idiomas",
+          "value": "DE, EN, RU, ES"
+        }
+      },
+      "badge": {
+        "title": "Socio de confianza",
+        "text": "Su viaje de salud, guiado con cuidado"
+      },
+      "videoOverlay": "Excelencia en atención médica"
+    },
+    "careForward": {
+      "overline": "Nuestro enfoque",
+      "title": "Atención avanzada",
+      "subtitle": "Estamos pioneros en una nueva era de atención médica centrada en el paciente",
+      "trust": {
+        "title": "Construyendo confianza a través de la excelencia",
+        "description": "Nuestro enfoque combina tecnología médica de vanguardia con atención compasiva, asegurando que cada paciente reciba atención personalizada y los mejores resultados posibles."
+      },
+      "worldClass": {
+        "title": "Instalaciones de clase mundial",
+        "description": "Centros médicos de última generación equipados con la última tecnología, diseñados para brindarle el más alto estándar de atención en un ambiente cómodo."
+      },
+      "learnMore": "Más información"
+    },
+    "services": {
+      "overline": "Lo que ofrecemos",
+      "title": "Nuestros servicios",
+      "subtitle": "Soluciones integrales de atención médica adaptadas a sus necesidades",
+      "items": {
+        "cardiology": {
+          "title": "Cardiología",
+          "subtitle": "Atención cardíaca y vascular",
+          "description": "Atención cardiovascular integral que incluye diagnóstico, tratamiento y prevención de enfermedades cardíacas."
+        },
+        "oncology": {
+          "title": "Oncología",
+          "subtitle": "Tratamiento del cáncer",
+          "description": "Atención avanzada del cáncer con planes de tratamiento personalizados y terapias de apoyo."
+        },
+        "surgery": {
+          "title": "Cirugía",
+          "subtitle": "Excelencia quirúrgica",
+          "description": "Procedimientos quirúrgicos mínimamente invasivos y tradicionales realizados por cirujanos experimentados."
+        }
+      },
+      "learnMore": "Más información"
+    },
+    "trust": {
+      "overline": "Por qué elegirnos",
+      "title": "Confianza de miles",
+      "subtitle": "Nuestro compromiso con la excelencia ha ganado la confianza de pacientes y socios de salud en todo el mundo.",
+      "description": "Con décadas de experiencia en atención al paciente, combinamos experiencia médica con compasión genuina. Cada miembro de nuestro equipo está dedicado a su bienestar.",
+      "guarantee": "Su salud y satisfacción son nuestras principales prioridades.",
+      "stats": {
+        "patients": "Pacientes atendidos",
+        "doctors": "Médicos expertos",
+        "experience": "Años de experiencia",
+        "satisfaction": "Tasa de satisfacción"
+      }
+    },
+    "office": {
+      "overline": "Nuestras oficinas",
+      "title": "Ubicaciones en Alemania",
+      "subtitle": "Estamos cerca, dondequiera que esté.",
+      "cities": {
+        "berlin": {
+          "name": "Berlín",
+          "address": "Kurfürstendamm 21, 10719 Berlín",
+          "phone": "+49 30 123-4567"
+        },
+        "frankfurt": {
+          "name": "Fráncfort",
+          "address": "Kaiserstraße 50, 60329 Fráncfort",
+          "phone": "+49 69 123-4567"
+        },
+        "nuremberg": {
+          "name": "Núremberg",
+          "address": "Königstraße 25, 90402 Núremberg",
+          "phone": "+49 911 123-4567"
+        },
+        "munich": {
+          "name": "Múnich",
+          "address": "Maximilianstraße 35, 80539 Múnich",
+          "phone": "+49 89 123-4567"
+        }
+      }
+    },
+    "fullSupport": {
+      "overline": "Nuestro enfoque",
+      "title": "Cómo trabajamos",
+      "subtitle": "Atención al detalle en cada paso.",
+      "services": {
+        "noFees": {
+          "title": "Condiciones transparentes",
+          "desc": "Pago a la entrega del servicio. Sin cargos ocultos ni obligaciones."
+        },
+        "support": {
+          "title": "Coordinador personal",
+          "desc": "Un único punto de contacto para asuntos médicos y organizativos."
+        },
+        "confidentiality": {
+          "title": "Confidencialidad",
+          "desc": "Sus datos están protegidos de forma segura. Cumplimos con estrictos estándares de privacidad."
+        },
+        "performance": {
+          "title": "Atención al detalle",
+          "desc": "Servicio cuidadoso en cada etapa, desde la primera llamada hasta su regreso a casa."
+        },
+        "promptness": {
+          "title": "Respeto por su tiempo",
+          "desc": "Trabajamos según su horario. Plazos claros, proceso sencillo."
+        }
+      },
+      "journey": {
+        "title": "Su viaje con nosotros",
+        "steps": {
+          "consultation": {
+            "title": "Consulta inicial",
+            "desc": "Cuéntenos sus necesidades, planificamos todo"
+          },
+          "travel": {
+            "title": "Viaje organizado",
+            "desc": "Vuelos, visas, alojamiento reservado"
+          },
+          "arrival": {
+            "title": "Llegada y recogida",
+            "desc": "Recibido en el aeropuerto, llevado al hotel"
+          },
+          "treatment": {
+            "title": "Tratamiento",
+            "desc": "Apoyo completo durante todos los procedimientos"
+          },
+          "recovery": {
+            "title": "Recuperación y regreso",
+            "desc": "Seguimiento y viaje seguro a casa"
+          }
+        }
+      },
+      "promise": {
+        "title": "Nunca está solo",
+        "text": "Desde el momento en que nos contacta hasta que regresa a casa de forma segura, estamos con usted. Cada pregunta respondida, cada problema resuelto."
+      }
+    },
+    "cta": {
+      "overline": "Comience",
+      "title": "¿Listo para dar el siguiente paso?",
+      "subtitle": "Programe su cita hoy y experimente la diferencia de la atención médica personalizada.",
+      "stats": {
+        "patients": {
+          "number": "15,000+",
+          "label": "Pacientes atendidos"
+        },
+        "specialists": {
+          "number": "50+",
+          "label": "Especialistas médicos"
+        },
+        "support": {
+          "number": "24/7",
+          "label": "Soporte al paciente"
+        }
+      },
+      "bookConsultation": "Reservar consulta",
+      "getStarted": "Comenzar",
+      "availability": "Disponible de lunes a sábado"
+    }
+  },
+  "appointment": {
+    "overline": "Comience",
+    "title": "Solicitar cita",
+    "subtitle": "Comience aquí. Nuestro equipo le contactará en 24 horas.",
+    "backToSelection": "← Volver a la selección",
+    "clientTypes": {
+      "new": {
+        "title": "Nuevo cliente",
+        "description": "Deje sus datos de contacto."
+      },
+      "returning": {
+        "title": "Cliente existente",
+        "description": "Inicie sesión en su cuenta."
+      }
+    },
+    "freeService": {
+      "title": "¿Necesita asistencia financiera?",
+      "description1": "Entendemos que la atención médica puede ser financieramente desafiante. La Agencia para la Atención al Paciente ofrece un programa limitado para pacientes que necesitan asistencia con gastos médicos.",
+      "description2": "Nuestro equipo revisa cuidadosamente cada solicitud y proporciona apoyo cuando hay recursos disponibles.",
+      "priority": "Casos prioritarios:",
+      "priorityText": "Priorizamos casos que involucran niños, situaciones médicas urgentes y pacientes que enfrentan circunstancias excepcionales.",
+      "note": "Tenga en cuenta: Las solicitudes de servicio gratuito se revisan caso por caso dependiendo de la capacidad disponible y la naturaleza de la necesidad médica. Le contactaremos en 5-7 días hábiles sobre el estado de su solicitud.",
+      "applyButton": "Solicitar servicio gratuito"
+    },
+    "newPatient": {
+      "intro": {
+        "title": "Comencemos",
+        "description": "Le haremos una serie de preguntas que guiarán su seguimiento con un coordinador de citas.",
+        "continue": "Continuar",
+        "emergency": "Si esto es una emergencia médica, llame al 112.",
+        "mentalHealth": "Si esto es una emergencia de salud mental, llame o envíe un mensaje de texto al 988 para hablar con un consejero."
+      },
+      "isPatient": {
+        "title": "¿Es usted el paciente?",
+        "yes": "Sí",
+        "yesDesc": "Soy el paciente",
+        "no": "No",
+        "noDesc": "Estoy solicitando para otra persona"
+      },
+      "travel": {
+        "title": "¿Puede y está dispuesto a viajar a Múnich para recibir atención?",
+        "description": "Obtener una cita en la Agencia para la Atención al Paciente requerirá que viaje a nuestra instalación en Múnich, Alemania.",
+        "yes": "Sí",
+        "no": "No"
+      },
+      "form": {
+        "title": "Registro de nuevo paciente",
+        "personal": "Información personal",
+        "firstName": "Nombre *",
+        "lastName": "Apellido *",
+        "email": "Correo electrónico *",
+        "phone": "Número de teléfono *",
+        "dateOfBirth": "Fecha de nacimiento",
+        "appointmentDetails": "Detalles de la cita",
+        "selectService": "Seleccione un servicio",
+        "cardiology": "Cardiología",
+        "oncology": "Oncología",
+        "surgery": "Cirugía",
+        "other": "Otro",
+        "selectTime": "Seleccione una hora",
+        "message": "Mensaje",
+        "reasonPlaceholder": "Motivo de la visita...",
+        "submit": "Enviar solicitud"
+      }
+    },
+    "returningPatient": {
+      "title": "Paciente que regresa",
+      "formPending": "Implementación del formulario pendiente...",
+      "back": "Atrás"
+    },
+    "physician": {
+      "title": "Referencia médica",
+      "formPending": "Implementación del formulario pendiente...",
+      "back": "Atrás"
+    }
+  },
+  "patientCenteredCare": {
+    "title": "Atención centrada en el paciente",
+    "subtitle": "Su salud, sus necesidades y sus preferencias están en el corazón de todo lo que hacemos",
+    "approach": {
+      "title": "Nuestro enfoque",
+      "description1": "En Gmed, creemos que la atención médica excepcional va más allá de tratar síntomas. Nos enfocamos en entenderle como persona completa, considerando sus necesidades físicas, emocionales y sociales.",
+      "description2": "Nuestro enfoque centrado en el paciente asegura que sea un participante activo en su atención, con acceso a la información, apoyo y recursos que necesita para tomar decisiones informadas sobre su salud."
+    },
+    "principles": {
+      "title": "Principios fundamentales",
+      "compassionate": {
+        "title": "Atención compasiva",
+        "description": "Tratamos a cada paciente con empatía, respeto y dignidad, asegurando que se sienta escuchado y valorado."
+      },
+      "collaborative": {
+        "title": "Colaboración",
+        "description": "Su equipo de atención trabaja junto con usted y su familia para desarrollar planes de tratamiento personalizados."
+      },
+      "personalized": {
+        "title": "Tratamiento personalizado",
+        "description": "Cada paciente es único, y adaptamos nuestro enfoque para cumplir con sus objetivos y preferencias de salud individuales."
+      }
+    },
+    "benefits": {
+      "title": "Qué significa esto para usted",
+      "items": {
+        "dedicatedTeam": "Acceso a un equipo de atención dedicado que le conoce y conoce su historial de salud",
+        "clearCommunication": "Comunicación clara sobre su condición y opciones de tratamiento",
+        "involvement": "Participación en cada decisión sobre su atención",
+        "coordinatedCare": "Atención coordinada entre todos sus proveedores de atención médica",
+        "supportServices": "Servicios de apoyo para atender sus necesidades físicas y emocionales",
+        "convenientAccess": "Acceso conveniente a sus registros médicos y resultados de pruebas"
+      }
+    }
+  },
+  "aboutGmed": {
+    "title": "Sobre Gmed",
+    "subtitle": "Un legado de excelencia en atención médica que abarca décadas de innovación y atención al paciente",
+    "mission": {
+      "title": "Nuestra misión",
+      "description1": "Gmed está comprometido a inspirar esperanza y contribuir a la salud y el bienestar proporcionando la mejor atención a cada paciente a través de práctica clínica integrada, educación e investigación.",
+      "description2": "Nos esforzamos por ofrecer experiencia y compasión inigualables a todos los que buscan sanación, haciendo un impacto positivo en las vidas que tocamos a través de nuestra dedicación a la excelencia."
+    },
+    "stats": {
+      "years": "Años de excelencia",
+      "patients": "Pacientes atendidos",
+      "specialists": "Especialistas médicos",
+      "centers": "Centros especializados"
+    },
+    "values": {
+      "title": "Nuestros valores",
+      "excellence": {
+        "title": "Excelencia",
+        "description": "Perseguimos los más altos estándares en todo lo que hacemos, innovando constantemente para mejorar los resultados de los pacientes."
+      },
+      "respect": {
+        "title": "Respeto",
+        "description": "Honramos la dignidad de cada individuo, tratando a pacientes, familias y colegas con compasión."
+      },
+      "integrity": {
+        "title": "Integridad",
+        "description": "Mantenemos los más altos estándares éticos, ganando confianza a través de transparencia y responsabilidad."
+      },
+      "innovation": {
+        "title": "Innovación",
+        "description": "Adoptamos nuevas ideas y tecnologías que avanzan la ciencia médica y mejoran la atención al paciente."
+      }
+    },
+    "history": {
+      "title": "Nuestra historia",
+      "description1": "Fundada hace más de medio siglo, Gmed ha crecido de un pequeño hospital comunitario a un centro médico de renombre mundial. Nuestro viaje ha estado marcado por investigación innovadora, tratamientos innovadores y un compromiso inquebrantable con la atención al paciente.",
+      "description2": "Hoy, continuamos construyendo sobre este legado, combinando tecnología de vanguardia con la atención compasiva y personalizada que siempre ha sido nuestra marca distintiva."
+    }
+  },
+  "findDoctor": {
+    "title": "Encontrar médico",
+    "subtitle": "Conéctese con nuestros experimentados profesionales médicos dedicados a su salud",
+    "search": {
+      "placeholder": "Buscar por nombre o condición...",
+      "button": "Buscar médicos"
+    },
+    "specialties": {
+      "all": "Todas las especialidades",
+      "cardiology": "Cardiología",
+      "oncology": "Oncología",
+      "orthopedics": "Ortopedia",
+      "neurology": "Neurología",
+      "pediatrics": "Pediatría",
+      "internalMedicine": "Medicina interna"
+    },
+    "doctors": {
+      "title": "Nuestros profesionales médicos",
+      "bookAppointment": "Reservar cita"
+    },
+    "whyChoose": {
+      "title": "Por qué elegir a nuestros médicos",
+      "boardCertified": {
+        "title": "Certificados",
+        "description": "Todos nuestros médicos están certificados en sus especialidades con educación continua."
+      },
+      "patientFocused": {
+        "title": "Enfocados en el paciente",
+        "description": "Nuestros médicos priorizan la atención al paciente, tomándose el tiempo para escuchar y abordar inquietudes."
+      },
+      "advancedTraining": {
+        "title": "Formación avanzada",
+        "description": "El desarrollo profesional continuo asegura que nuestros médicos estén a la vanguardia de la medicina."
+      }
+    }
+  },
+  "locations": {
+    "title": "Nuestras ubicaciones",
+    "subtitle": "Encuentre una instalación de Gmed cerca de usted para un acceso conveniente a atención médica de calidad",
+    "mainCampus": {
+      "name": "Campus principal",
+      "address": "123 Medical Center Drive",
+      "city": "Healthcare City, HC 12345",
+      "phone": "(555) 123-4567",
+      "hours": "Abierto 24/7"
+    },
+    "specialtyCenter": {
+      "name": "Centro de especialidades",
+      "address": "456 Specialist Avenue",
+      "city": "Healthcare City, HC 12346",
+      "phone": "(555) 234-5678",
+      "hours": "Lun-Vie: 8am-6pm"
+    },
+    "urgentCare": {
+      "name": "Atención urgente",
+      "address": "789 Quick Care Lane",
+      "city": "Healthcare City, HC 12347",
+      "phone": "(555) 345-6789",
+      "hours": "Diario: 7am-10pm"
+    },
+    "getDirections": "Obtener direcciones",
+    "callNow": "Llamar ahora",
+    "allLocations": {
+      "title": "Todas las ubicaciones de Gmed",
+      "viewDetails": "Ver detalles"
+    },
+    "facilityTypes": {
+      "hospital": "Hospital",
+      "clinic": "Clínica",
+      "urgentCare": "Atención urgente"
+    }
+  },
+  "patientServices": {
+    "title": "Servicios al paciente",
+    "subtitle": "Servicios de apoyo integrales diseñados para hacer su experiencia de atención médica perfecta",
+    "commitment": {
+      "title": "Nuestro compromiso con usted",
+      "description1": "En Gmed, entendemos que navegar la atención médica puede ser complejo. Por eso hemos creado un conjunto integral de servicios para pacientes diseñados para apoyarle en cada paso de su viaje de atención médica.",
+      "description2": "Desde programar su primera cita hasta gestionar la atención continua, nuestro equipo dedicado está aquí para ayudar."
+    },
+    "services": {
+      "title": "Servicios disponibles",
+      "scheduling": {
+        "title": "Programación de citas",
+        "description": "Programación fácil en línea y por teléfono para todas sus necesidades de atención médica con opciones de horarios flexibles."
+      },
+      "records": {
+        "title": "Registros médicos",
+        "description": "Acceso seguro a su historial médico completo, resultados de pruebas y planes de tratamiento."
+      },
+      "billing": {
+        "title": "Soporte de facturación",
+        "description": "Facturación transparente, planes de pago y soporte dedicado para preguntas sobre seguros."
+      },
+      "pharmacy": {
+        "title": "Servicios de farmacia",
+        "description": "Farmacia en el sitio con gestión de recetas y asesoramiento sobre medicamentos."
+      },
+      "translation": {
+        "title": "Servicios de traducción",
+        "description": "Intérpretes profesionales disponibles en múltiples idiomas para su comodidad."
+      },
+      "transport": {
+        "title": "Transporte de pacientes",
+        "description": "Asistencia en silla de ruedas y servicios de transporte dentro de nuestras instalaciones."
+      }
+    },
+    "help": {
+      "title": "¿Necesita ayuda?",
+      "description": "Nuestro equipo de servicios al paciente está disponible para asistirle con cualquier pregunta o inquietud.",
+      "contactServices": "Contactar servicios al paciente",
+      "faq": "Ver preguntas frecuentes"
+    }
+  },
+  "medicalRecords": {
+    "title": "Registros médicos",
+    "subtitle": "Acceso seguro a su información de salud completa",
+    "access": {
+      "title": "Acceda a sus registros",
+      "description1": "Sus registros médicos contienen información importante sobre su historial de salud, incluyendo diagnósticos, tratamientos, medicamentos, resultados de pruebas y planes de atención.",
+      "description2": "Estamos comprometidos a proporcionarle acceso fácil y seguro a su información de salud mientras mantenemos los más altos estándares de privacidad y seguridad."
+    },
+    "requestTypes": {
+      "title": "Tipos de solicitud",
+      "personal": {
+        "title": "Copia personal",
+        "description": "Solicite una copia de sus registros médicos para su propio uso.",
+        "timeline": "Tiempo de procesamiento: 5-7 días hábiles"
+      },
+      "transfer": {
+        "title": "Transferencia a proveedor",
+        "description": "Envíe sus registros directamente a otro proveedor de atención médica.",
+        "timeline": "Tiempo de procesamiento: 3-5 días hábiles"
+      },
+      "legal": {
+        "title": "Legal/Seguros",
+        "description": "Registros para procedimientos legales o propósitos de seguros.",
+        "timeline": "Tiempo de procesamiento: 7-10 días hábiles"
+      }
+    },
+    "howTo": {
+      "title": "Cómo solicitar registros",
+      "steps": {
+        "step1": "Complete el formulario de solicitud de registros médicos",
+        "step2": "Proporcione identificación con foto válida",
+        "step3": "Especifique los registros necesarios y el período de tiempo",
+        "step4": "Envíe su solicitud en línea, por correo o en persona"
+      }
+    },
+    "requestRecords": "Solicitar registros médicos",
+    "downloadForm": "Descargar formulario de solicitud",
+    "questions": {
+      "title": "¿Preguntas sobre sus registros?",
+      "description": "Nuestro equipo de gestión de información de salud está aquí para ayudarle con cualquier pregunta sobre el acceso a sus registros médicos.",
+      "contact": "Contactar departamento HIM"
+    }
+  },
+  "insurance": {
+    "title": "Seguros y facturación",
+    "subtitle": "Entendiendo su cobertura y opciones de pago",
+    "commitment": {
+      "title": "Nuestro compromiso",
+      "description1": "Creemos que entender los costos de atención médica no debería ser complicado. Nuestro equipo de facturación está dedicado a proporcionar precios transparentes, ayudarle a entender sus beneficios de seguro y ofrecer opciones de pago flexibles.",
+      "description2": "Trabajamos con la mayoría de los principales proveedores de seguros y ofrecemos varios planes de pago para asegurar que pueda acceder a la atención que necesita."
+    },
+    "accepted": {
+      "title": "Planes de seguro aceptados",
+      "description": "Aceptamos la mayoría de los principales planes de seguro. Contáctenos para verificar su cobertura específica.",
+      "plans": {
+        "blueCross": "Blue Cross Blue Shield",
+        "aetna": "Aetna",
+        "cigna": "Cigna",
+        "united": "United Healthcare",
+        "medicare": "Medicare",
+        "medicaid": "Medicaid"
+      },
+      "verifyButton": "Verificar su seguro"
+    },
+    "billing": {
+      "title": "Información de facturación",
+      "estimate": {
+        "title": "Estimaciones de costos",
+        "description": "Solicite una estimación antes de su visita para entender sus costos esperados."
+      },
+      "payment": {
+        "title": "Opciones de pago",
+        "description": "Aceptamos efectivo, tarjetas de crédito y ofrecemos planes de pago sin intereses."
+      },
+      "assistance": {
+        "title": "Asistencia financiera",
+        "description": "Programas disponibles para quienes califican según necesidad financiera."
+      }
+    },
+    "questions": {
+      "title": "¿Preguntas de facturación?",
+      "description": "Nuestros especialistas en facturación están disponibles para ayudarle a entender sus facturas y opciones de pago.",
+      "contactBilling": "Contactar departamento de facturación",
+      "payOnline": "Pagar su factura en línea"
+    }
+  },
+  "patientPortal": {
+    "title": "Portal del paciente",
+    "subtitle": "Su centro de salud personal para gestionar todos los aspectos de su atención",
+    "login": {
+      "title": "Inicie sesión en su portal",
+      "description": "Acceda a su información de salud de forma segura",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "usted@ejemplo.com",
+      "password": "Contraseña",
+      "passwordPlaceholder": "Ingrese su contraseña",
+      "signIn": "Iniciar sesión",
+      "forgotPassword": "¿Olvidó su contraseña?",
+      "createAccount": "Crear cuenta"
+    },
+    "features": {
+      "title": "Características del portal",
+      "scheduling": {
+        "title": "Programar citas",
+        "description": "Reserve, reprograme o cancele citas con sus proveedores de atención médica."
+      },
+      "records": {
+        "title": "Ver registros médicos",
+        "description": "Acceda a su historial médico completo, resultados de pruebas e informes de imágenes."
+      },
+      "messaging": {
+        "title": "Mensajería segura",
+        "description": "Comuníquese directamente con su equipo de atención y obtenga respuestas a sus preguntas."
+      },
+      "prescriptions": {
+        "title": "Reposición de recetas",
+        "description": "Solicite reposiciones de recetas y vea su historial de medicamentos."
+      },
+      "healthData": {
+        "title": "Seguimiento de datos de salud",
+        "description": "Monitoree signos vitales, resultados de laboratorio y métricas de bienestar a lo largo del tiempo."
+      },
+      "profile": {
+        "title": "Gestionar perfil",
+        "description": "Actualice su información de contacto, detalles de seguro y preferencias."
+      }
+    },
+    "whyUse": {
+      "title": "¿Por qué usar el portal?",
+      "benefits": {
+        "access": "Acceso 24/7 a su información de salud desde cualquier dispositivo",
+        "communication": "Reduzca tiempos de espera telefónica enviando mensajes a su equipo de atención",
+        "reminders": "Nunca pierda una cita con recordatorios automáticos",
+        "records": "Mantenga todos sus registros de salud en un lugar seguro",
+        "sharing": "Comparta su información médica con familiares",
+        "results": "Revise los resultados de pruebas tan pronto como estén disponibles"
+      }
+    },
+    "gettingStarted": {
+      "title": "Comenzando",
+      "steps": {
+        "step1": "Cree su cuenta con su correo electrónico y número de registro médico",
+        "step2": "Verifique su identidad a través de nuestro proceso de verificación seguro",
+        "step3": "Configure su perfil y preferencias",
+        "step4": "¡Comience a gestionar su salud en línea!"
+      }
+    },
+    "help": {
+      "title": "¿Necesita ayuda con el portal?",
+      "description": "Nuestro equipo de soporte está disponible para asistirle con el registro, problemas de inicio de sesión o cualquier pregunta sobre el portal.",
+      "contactSupport": "Contactar soporte",
+      "viewTutorial": "Ver tutorial"
+    }
+  },
+  "privacyPolicy": {
+    "title": "Política de privacidad",
+    "subtitle": "Su privacidad y la seguridad de su información personal de salud son nuestras principales prioridades",
+    "highlights": {
+      "encrypted": {
+        "title": "Datos encriptados",
+        "description": "Toda la información está asegurada con encriptación"
+      },
+      "limitedAccess": {
+        "title": "Acceso limitado",
+        "description": "Solo el personal autorizado puede ver sus registros"
+      },
+      "yourControl": {
+        "title": "Su control",
+        "description": "Usted decide quién puede acceder a su información"
+      }
+    },
+    "notice": {
+      "title": "Aviso de prácticas de privacidad",
+      "effectiveDate": "Fecha efectiva: 1 de enero de 2024",
+      "description": "Este aviso describe cómo la información médica sobre usted puede ser utilizada y divulgada y cómo puede obtener acceso a esta información. Por favor, revíselo cuidadosamente."
+    },
+    "usage": {
+      "title": "Cómo usamos y divulgamos su información",
+      "treatment": {
+        "title": "Para tratamiento",
+        "description": "Podemos usar su información de salud para proporcionar, coordinar o gestionar su atención médica y servicios relacionados. Esto incluye compartir información con otros proveedores de atención médica involucrados en su atención."
+      },
+      "payment": {
+        "title": "Para pago",
+        "description": "Podemos usar y divulgar su información de salud para obtener el pago por los servicios que le proporcionamos, incluyendo actividades de facturación y cobro."
+      },
+      "operations": {
+        "title": "Para operaciones de atención médica",
+        "description": "Podemos usar su información para mejora de calidad, capacitación y otras operaciones comerciales necesarias para administrar nuestra práctica y asegurar atención de calidad."
+      }
+    },
+    "rights": {
+      "title": "Sus derechos de privacidad",
+      "items": {
+        "restrictions": "Derecho a solicitar restricciones sobre ciertos usos y divulgaciones de su información",
+        "confidential": "Derecho a recibir comunicaciones confidenciales de su información de salud",
+        "inspect": "Derecho a inspeccionar y copiar su información de salud",
+        "amend": "Derecho a enmendar su información de salud",
+        "accounting": "Derecho a recibir un registro de divulgaciones",
+        "copy": "Derecho a obtener una copia en papel de este aviso"
+      }
+    },
+    "responsibilities": {
+      "title": "Nuestras responsabilidades",
+      "intro": "Estamos obligados por ley a:",
+      "items": {
+        "maintain": "Mantener la privacidad de su información de salud protegida",
+        "provide": "Proporcionarle este aviso de nuestros deberes legales y prácticas de privacidad",
+        "follow": "Seguir los términos del aviso actualmente en vigor",
+        "notify": "Notificarle si no podemos aceptar una restricción solicitada",
+        "breach": "Notificar a las personas afectadas tras una violación de información de salud no asegurada"
+      }
+    },
+    "lastUpdated": "Última actualización: 1 de enero de 2024 | Este aviso es efectivo a partir de esta fecha",
+    "questions": {
+      "title": "¿Preguntas o quejas?",
+      "description": "Si tiene preguntas sobre este aviso o desea presentar una queja sobre nuestras prácticas de privacidad, por favor contacte:",
+      "privacyOfficer": "Oficial de privacidad",
+      "organization": "Gmed Agencia para la atención al paciente",
+      "contact": "Contactar oficial de privacidad"
+    }
+  },
+  "dataSecurity": {
+    "title": "Seguridad de datos",
+    "subtitle": "Medidas de protección avanzadas para salvaguardar su información más sensible",
+    "enterprise": {
+      "title": "Seguridad de nivel empresarial",
+      "description1": "Empleamos múltiples capas de seguridad para proteger su información de salud del acceso no autorizado, asegurando que sus datos permanezcan confidenciales y seguros en todo momento.",
+      "description2": "Nuestra infraestructura de seguridad cumple y supera los estándares de la industria, incluyendo cumplimiento HIPAA, certificación SOC 2 y auditorías de seguridad regulares de terceros."
+    },
+    "measures": {
+      "title": "Nuestras medidas de seguridad",
+      "encryption": {
+        "title": "Encriptación de extremo a extremo",
+        "description": "Todos los datos están encriptados tanto en tránsito como en reposo usando estándares de encriptación AES-256."
+      },
+      "dataCenters": {
+        "title": "Centros de datos seguros",
+        "description": "Su información se almacena en instalaciones certificadas SOC 2 con seguridad física 24/7."
+      },
+      "accessControls": {
+        "title": "Controles de acceso",
+        "description": "Autenticación multifactor y acceso basado en roles aseguran que solo el personal autorizado pueda ver sus datos."
+      },
+      "audits": {
+        "title": "Auditorías regulares",
+        "description": "Monitoreo continuo y evaluaciones de seguridad trimestrales para identificar y abordar vulnerabilidades."
+      },
+      "threatDetection": {
+        "title": "Detección de amenazas",
+        "description": "Sistemas avanzados de detección de intrusiones monitorean actividad sospechosa 24/7."
+      },
+      "backup": {
+        "title": "Respaldo y recuperación",
+        "description": "Respaldos diarios automatizados con procedimientos de recuperación ante desastres para prevenir pérdida de datos."
+      }
+    },
+    "compliance": {
+      "title": "Cumplimiento y certificaciones",
+      "hipaa": {
+        "title": "Cumplimiento HIPAA",
+        "description": "Cumplimos completamente con la Ley de Portabilidad y Responsabilidad del Seguro de Salud (HIPAA), asegurando los más altos estándares de privacidad del paciente y seguridad de datos.",
+        "items": {
+          "privacy": "Cumplimiento de la Regla de Privacidad",
+          "security": "Implementación de la Regla de Seguridad",
+          "breach": "Procedimientos de notificación de violaciones",
+          "baa": "Acuerdos de asociados comerciales"
+        }
+      },
+      "certifications": {
+        "title": "Certificaciones de la industria",
+        "description": "Nuestras prácticas de seguridad son validadas por auditores independientes de terceros y cumplen con rigurosos estándares de la industria.",
+        "items": {
+          "soc2": "Certificado SOC 2 Tipo II",
+          "iso": "Cumplimiento ISO 27001",
+          "hitrust": "Certificado HITRUST CSF",
+          "pentest": "Pruebas de penetración anuales"
+        }
+      }
+    },
+    "training": {
+      "title": "Capacitación y concienciación del personal",
+      "description": "Cada miembro de nuestro equipo recibe capacitación integral en seguridad para asegurar que entiendan su papel en la protección de su información.",
+      "items": {
+        "annual": "Capacitación anual de HIPAA y seguridad para todo el personal",
+        "updates": "Actualizaciones regulares sobre amenazas de seguridad emergentes",
+        "policies": "Políticas estrictas para el manejo de información del paciente",
+        "background": "Verificación de antecedentes para todos los empleados"
+      }
+    },
+    "report": {
+      "title": "Reportar una preocupación de seguridad",
+      "description": "Si cree que ha identificado una vulnerabilidad de seguridad o tiene preocupaciones sobre la seguridad de su información, por favor contáctenos inmediatamente.",
+      "contact": "Contactar equipo de seguridad"
+    }
+  },
+  "hipaaCompliance": {
+    "title": "Cumplimiento HIPAA",
+    "subtitle": "Nuestro compromiso de proteger su información de salud a través del cumplimiento integral",
+    "whatIs": {
+      "title": "¿Qué es HIPAA?",
+      "description1": "La Ley de Portabilidad y Responsabilidad del Seguro de Salud (HIPAA) es una ley federal que establece estándares nacionales para proteger la información sensible de salud del paciente de ser divulgada sin el consentimiento o conocimiento del paciente.",
+      "description2": "En Gmed, tomamos el cumplimiento de HIPAA en serio y hemos implementado políticas y procedimientos integrales para asegurar que su Información de Salud Protegida (PHI) permanezca segura y confidencial."
+    },
+    "rules": {
+      "title": "Reglas de HIPAA que seguimos",
+      "privacy": {
+        "title": "Regla de Privacidad",
+        "description": "Establece estándares nacionales para la protección de información de salud y otorga a los pacientes derechos sobre su información de salud.",
+        "items": {
+          "access": "Derecho a acceder a sus registros médicos",
+          "corrections": "Derecho a solicitar correcciones a sus registros",
+          "whoAccessed": "Derecho a saber quién ha accedido a su información",
+          "notices": "Derecho a recibir avisos de privacidad"
+        }
+      },
+      "security": {
+        "title": "Regla de Seguridad",
+        "description": "Establece estándares para proteger información electrónica de salud a través de salvaguardas administrativas, físicas y técnicas.",
+        "items": {
+          "encryption": "Encriptación de registros electrónicos de salud",
+          "accessControls": "Controles de acceso seguros y autenticación",
+          "riskAssessment": "Evaluaciones regulares de riesgo de seguridad",
+          "incidentResponse": "Procedimientos de respuesta a incidentes"
+        }
+      },
+      "breach": {
+        "title": "Regla de Notificación de Violaciones",
+        "description": "Requiere que las entidades cubiertas notifiquen a las personas afectadas en caso de una violación de información de salud protegida no asegurada.",
+        "items": {
+          "individual": "Notificación individual dentro de 60 días",
+          "media": "Notificación a medios para violaciones grandes",
+          "hhs": "Reporte de notificación al HHS",
+          "documentation": "Documentación de todas las violaciones"
+        }
+      },
+      "omnibus": {
+        "title": "Regla Ómnibus",
+        "description": "Fortalece las protecciones de privacidad y seguridad para información de salud y extiende los requisitos de HIPAA a los asociados comerciales.",
+        "items": {
+          "businessAssociate": "Cumplimiento de asociados comerciales",
+          "enhancedPrivacy": "Derechos de privacidad mejorados para pacientes",
+          "penalties": "Aplicación aumentada de penalidades",
+          "genetic": "Protección de información genética"
+        }
+      }
+    },
+    "howWeEnsure": {
+      "title": "Cómo aseguramos el cumplimiento",
+      "administrative": {
+        "title": "Salvaguardas administrativas",
+        "items": {
+          "officers": "Oficial de Privacidad y Oficial de Seguridad designados",
+          "training": "Programas integrales de capacitación de empleados",
+          "policies": "Políticas y procedimientos escritos",
+          "riskAssessment": "Evaluaciones y auditorías de riesgo regulares",
+          "sanctions": "Política de sanciones de la fuerza laboral"
+        }
+      },
+      "physical": {
+        "title": "Salvaguardas físicas",
+        "items": {
+          "facilityAccess": "Acceso controlado a instalaciones con sistemas de credenciales",
+          "workstation": "Políticas seguras de estaciones de trabajo y dispositivos",
+          "disposal": "Disposición adecuada de materiales que contienen PHI",
+          "visitor": "Registro y procedimientos de escolta de visitantes",
+          "surveillance": "Sistemas de vigilancia y monitoreo"
+        }
+      },
+      "technical": {
+        "title": "Salvaguardas técnicas",
+        "items": {
+          "authentication": "Identificación y autenticación únicas de usuario",
+          "autoLogoff": "Cierre de sesión automático después de inactividad",
+          "encryption": "Encriptación y desencriptación de ePHI",
+          "auditControls": "Controles de auditoría y monitoreo",
+          "transmission": "Protocolos de seguridad de transmisión"
+        }
+      },
+      "monitoring": {
+        "title": "Monitoreo continuo",
+        "items": {
+          "continuous": "Monitoreo continuo de cumplimiento",
+          "updates": "Actualizaciones y parches de seguridad regulares",
+          "incidentResponse": "Respuesta y reporte de incidentes",
+          "annualAudits": "Auditorías anuales de cumplimiento",
+          "policyUpdates": "Actualizaciones de políticas a medida que evolucionan las regulaciones"
+        }
+      }
+    },
+    "questions": {
+      "title": "¿Preguntas sobre HIPAA?",
+      "description": "Nuestro Oficial de Privacidad está disponible para responder sus preguntas sobre el cumplimiento de HIPAA y sus derechos de privacidad.",
+      "contactPrivacy": "Contactar oficial de privacidad",
+      "downloadNotice": "Descargar aviso"
+    }
+  },
+  "patientRights": {
+    "title": "Derechos del paciente",
+    "subtitle": "Entendiendo sus derechos como paciente y nuestro compromiso de respetarlos",
+    "intro": {
+      "title": "Sus derechos importan",
+      "description1": "Como paciente en Gmed, tiene derechos fundamentales que guían cómo proporcionamos su atención. Estos derechos están diseñados para asegurar que reciba atención médica respetuosa, segura y de alta calidad.",
+      "description2": "Estamos comprometidos a proteger estos derechos y asegurar que los entienda completamente para que pueda ser un participante activo en sus decisiones de atención médica."
+    },
+    "coreRights": {
+      "title": "Sus derechos fundamentales",
+      "respectfulCare": {
+        "title": "Derecho a atención respetuosa",
+        "description": "Tiene derecho a recibir atención que respete sus valores personales, creencias y preferencias, libre de discriminación.",
+        "items": {
+          "dignified": "Tratamiento digno y compasivo",
+          "cultural": "Consideraciones culturales y espirituales",
+          "language": "Asistencia lingüística cuando sea necesaria",
+          "privacy": "Privacidad y confidencialidad"
+        }
+      },
+      "information": {
+        "title": "Derecho a información",
+        "description": "Tiene derecho a recibir información completa y precisa sobre su diagnóstico, opciones de tratamiento y pronóstico.",
+        "items": {
+          "clear": "Explicaciones claras en lenguaje comprensible",
+          "access": "Acceso a sus registros médicos",
+          "costs": "Información sobre costos y opciones de pago",
+          "providers": "Detalles sobre sus proveedores de atención médica"
+        }
+      },
+      "decisions": {
+        "title": "Derecho a tomar decisiones",
+        "description": "Tiene derecho a participar en todas las decisiones sobre su atención médica y a rechazar el tratamiento.",
+        "items": {
+          "consent": "Consentimiento informado para todos los procedimientos",
+          "secondOpinion": "Oportunidades de segunda opinión",
+          "refuse": "Derecho a rechazar tratamiento",
+          "advanceDirective": "Reconocimiento de directivas anticipadas"
+        }
+      },
+      "communication": {
+        "title": "Derecho a comunicación",
+        "description": "Tiene derecho a comunicarse con sus proveedores de atención médica y a que se aborden sus inquietudes.",
+        "items": {
+          "questions": "Hacer preguntas y recibir respuestas",
+          "concerns": "Expresar inquietudes y quejas",
+          "family": "Designar familiares para comunicación",
+          "advocates": "Acceso a defensores de pacientes"
+        }
+      }
+    },
+    "additionalRights": {
+      "title": "Derechos adicionales del paciente",
+      "items": {
+        "safeQuality": "Derecho a servicios de atención médica seguros y de calidad",
+        "privacy": "Derecho a privacidad durante el examen y tratamiento",
+        "painManagement": "Derecho a que su dolor sea evaluado y gestionado",
+        "continuity": "Derecho a continuidad de atención y coordinación de atención",
+        "policies": "Derecho a ser informado sobre las políticas del hospital",
+        "advanceDirectives": "Derecho a formular directivas anticipadas",
+        "visitors": "Derecho a que familiares y amigos le visiten",
+        "protective": "Derecho a acceder a servicios de protección",
+        "emergency": "Derecho a tratamiento médico de emergencia",
+        "transfer": "Derecho a transferirse a otra instalación",
+        "billing": "Derecho a revisar su factura y recibir una explicación",
+        "representative": "Derecho a designar un representante de atención médica"
+      }
+    },
+    "responsibilities": {
+      "title": "Sus responsabilidades",
+      "description": "Junto con sus derechos, los pacientes tienen ciertas responsabilidades para ayudar a asegurar la mejor atención posible para ellos mismos y para otros.",
+      "items": {
+        "accurate": "Proporcionar información de salud precisa y completa",
+        "followPlan": "Seguir el plan de tratamiento acordado con su equipo de atención médica",
+        "askQuestions": "Hacer preguntas cuando no entienda",
+        "respect": "Tratar a los proveedores de atención médica y al personal con respeto",
+        "appointments": "Cumplir con las citas o notificarnos si no puede",
+        "financial": "Cumplir con las obligaciones financieras por su atención"
+      }
+    },
+    "grievance": {
+      "title": "Presentar una queja",
+      "description1": "Si cree que sus derechos han sido violados o tiene inquietudes sobre su atención, tiene derecho a presentar una queja sin temor a represalias.",
+      "description2": "Tomamos todas las quejas en serio y las investigaremos a fondo. También puede presentar una queja ante agencias estatales o federales.",
+      "fileComplaint": "Presentar una queja",
+      "contactAdvocate": "Contactar defensor del paciente"
+    }
+  },
+  "auth": {
+    "signIn": "Iniciar sesión",
+    "createAccount": "Crear cuenta",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "Ingrese su correo electrónico",
+    "password": "Contraseña",
+    "passwordPlaceholder": "Ingrese su contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "confirmPasswordPlaceholder": "Confirme su contraseña",
+    "name": "Nombre completo",
+    "namePlaceholder": "Ingrese su nombre completo",
+    "phone": "Teléfono",
+    "signingIn": "Iniciando sesión...",
+    "creatingAccount": "Creando cuenta...",
+    "invalidCredentials": "Correo electrónico o contraseña inválidos",
+    "registrationFailed": "Error en el registro. Por favor, inténtelo de nuevo.",
+    "signInAfterRegisterFailed": "Cuenta creada pero el inicio de sesión falló. Por favor, inicie sesión manualmente.",
+    "dashboard": "Panel de control",
+    "forgotPassword": "¿Olvidó su contraseña?",
+    "preferredContactMethod": "Por favor, indique su método de contacto preferido",
+    "confidentialityNotice": "Su información es confidencial y no será transferida a terceros.",
+    "privacyPolicyLink": "Política de procesamiento de datos personales",
+    "consentData": "Consentimiento para el procesamiento de datos personales",
+    "consentMarketing": "Consentimiento para recibir comunicaciones informativas y promocionales",
+    "welcomeTitle": "Bienvenido",
+    "welcomeSubtitle": "Inicie sesión en su cuenta o cree una nueva para comenzar",
+    "sendMessage": "Enviar mensaje",
+    "overline": "Iniciar sesión"
+  },
+  "dashboard": {
+    "title": "Panel de control",
+    "welcomeBack": "Bienvenido de nuevo, {name}",
+    "accountInfo": "Información de la cuenta",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "signOut": "Cerrar sesión",
+    "appointments": "Citas",
+    "appointmentsDescription": "Ver y gestionar sus próximas citas",
+    "medicalRecords": "Registros médicos",
+    "medicalRecordsDescription": "Acceder a su historial médico y documentos",
+    "messages": "Mensajes",
+    "messagesDescription": "Comunicarse con su equipo de atención médica"
+  }
+}

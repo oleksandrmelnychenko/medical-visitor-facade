@@ -3,8 +3,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, User, ChevronDown, Sun, Moon } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Menu, User, ChevronDown } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import { useTranslations } from "next-intl";
+import { useSession } from "next-auth/react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/providers/LanguageProvider";
 import styles from "./header.module.scss";
@@ -12,11 +15,13 @@ import styles from "./header.module.scss";
 export function Header() {
   const t = useTranslations('header');
   const tCommon = useTranslations('common');
+  const tAuth = useTranslations('auth');
   const { locale, setLocale } = useLanguage();
+  const { data: session, status } = useSession();
+  const pathname = usePathname();
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -48,63 +53,80 @@ export function Header() {
     { code: 'de' as const, name: 'Deutsch', flag: 'https://flagcdn.com/w80/de.png' },
     { code: 'en' as const, name: 'English', flag: 'https://flagcdn.com/w80/gb.png' },
     { code: 'ru' as const, name: 'Русский', flag: 'https://flagcdn.com/w80/ru.png' },
+    { code: 'es' as const, name: 'Español', flag: 'https://flagcdn.com/w80/es.png' },
   ];
 
   const currentLanguage = languages.find(lang => lang.code === locale);
 
-  // Helper to close menu on link click
-  const handleLinkClick = () => setActiveMenu(null);
+  // Keep menu open on link click (page will navigate)
+  const handleLinkClick = () => {};
 
   return (
     <header ref={headerRef} className={cn(styles.header, isScrolled && styles.scrolled)}>
       <div className={styles.container}>
-        <div className={styles.navWrapper}>
-          {/* Logo and Navigation - Left aligned */}
-          <div className={styles.leftSection}>
-            <Link href="/" className={styles.logoLink}>
-              <Image
-                src="/assets/dfb83cb5936b44ca2202c18d197b3196619183a4.png"
-                alt="Agency for Patient Care"
-                width={150}
-                height={40}
-                className={styles.logo}
-                priority
-              />
+        {/* Row 1: Logo (centered) */}
+        <div className={styles.topRow}>
+          <Link href="/" className={styles.logoLink}>
+            <Image
+              src="/assets/dfb83cb5936b44ca2202c18d197b3196619183a4.png"
+              alt="Agency for Patient Care"
+              width={200}
+              height={54}
+              className={styles.logo}
+              priority
+            />
+          </Link>
+
+          {/* Mobile menu button */}
+          <button className={styles.mobileButton}>
+            <Menu className="w-6 h-6" />
+          </button>
+        </div>
+
+        {/* Row 2: Navigation + Utility items */}
+        <div className={styles.bottomRow}>
+          <nav className={styles.nav}>
+            <div className={cn(styles.navItem, styles.pastelPink, activeMenu === 'care' && styles.active)}>
+              <button onClick={() => toggleMenu('care')}>
+                {t('care')}
+              </button>
+            </div>
+            <div className={cn(styles.navItem, styles.pastelBlue, activeMenu === 'patient' && styles.active)}>
+              <button onClick={() => toggleMenu('patient')}>
+                {t('patientResources')}
+              </button>
+            </div>
+            <div className={cn(styles.navItem, styles.pastelGreen, activeMenu === 'trust' && styles.active)}>
+              <button onClick={() => toggleMenu('trust')}>
+                {t('trustSafety')}
+              </button>
+            </div>
+          </nav>
+
+          <div className={styles.utilityItems}>
+            <Link href="/apply" className={styles.appointmentParams}>
+              {tCommon('requestAppointment')}
             </Link>
 
-            {/* Navigation */}
-            <nav className={styles.nav}>
-              <div className={styles.navItem}>
-                <button onClick={() => toggleMenu('care')}>
-                  {t('care')}
-                  <ChevronDown className="w-4 h-4" />
-                </button>
-              </div>
-              <div className={styles.navItem}>
-                <button onClick={() => toggleMenu('patient')}>
-                  {t('patientResources')}
-                  <ChevronDown className="w-4 h-4" />
-                </button>
-              </div>
-              <div className={styles.navItem}>
-                <button onClick={() => toggleMenu('trust')}>
-                  {t('trustSafety')}
-                  <ChevronDown className="w-4 h-4" />
-                </button>
-              </div>
-            </nav>
-          </div>
+            {status === "authenticated" && session?.user ? (
+              <Link href="/dashboard" className={styles.loginLink}>
+                <User className="w-4 h-4" />
+                {session.user.name || tAuth('dashboard')}
+              </Link>
+            ) : (
+              <Link href="/login" className={styles.loginLink}>
+                <User className="w-4 h-4" />
+                {tCommon('login')}
+              </Link>
+            )}
 
-          {/* Right aligned section */}
-          <div className={styles.rightSection}>
-            {/* Language Selector - Stacked Flags */}
+            {/* Language Selector */}
             <div className={styles.languageSelector}>
               <button
                 onClick={() => toggleMenu('language')}
                 className={styles.languageButton}
               >
                 <div className={styles.flagStack}>
-                  {/* Reorder languages so current is first */}
                   {[
                     currentLanguage,
                     ...languages.filter(l => l.code !== locale)
@@ -148,108 +170,88 @@ export function Header() {
               )}
             </div>
 
-            <Link href="/appointment" className={styles.appointmentParams}>
-              {tCommon('requestAppointment')}
-            </Link>
-            <a href="#login" className={styles.loginLink}>
-              <User className="w-4 h-4" />
-              {tCommon('login')}
-            </a>
-
-            {/* Theme Toggle */}
-            <button
-              onClick={() => setIsDarkMode(!isDarkMode)}
-              className={styles.themeToggle}
-              aria-label="Toggle theme"
-            >
-              {isDarkMode ? (
-                <Sun className={styles.themeIcon} />
-              ) : (
-                <Moon className={styles.themeIcon} />
-              )}
-            </button>
           </div>
-
-          {/* Mobile menu button */}
-          <button className={styles.mobileButton}>
-            <Menu className="w-6 h-6" />
-          </button>
         </div>
       </div>
 
-      {/* Dropdown Menus */}
-      {activeMenu === 'care' && (
-        <div className={styles.megaMenu}>
-          <div className={styles.megaMenuContent}>
-            <div className={styles.menuGrid}>
-               <div className={styles.menuLinks}>
-                 <Link href="/patient-centered-care" onClick={handleLinkClick} className={styles.menuLink}>{t('patientCenteredCare')}</Link>
-                 <Link href="/about-gmed" onClick={handleLinkClick} className={styles.menuLink}>{t('aboutGmed')}</Link>
-                 <Link href="/appointment" onClick={handleLinkClick} className={styles.menuLink}>{t('requestAppointment')}</Link>
-                 <Link href="/find-doctor" onClick={handleLinkClick} className={styles.menuLink}>{t('findDoctor')}</Link>
-                 <Link href="/locations" onClick={handleLinkClick} className={styles.menuLink}>{t('locations')}</Link>
-               </div>
-               <div></div>
-               <div className="flex items-center justify-center">
-                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                 <img
-                   src="https://images.unsplash.com/photo-1739298061768-41a8a7d8b38f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtZWRpY2FsJTIwY2xpbmljJTIwcHJvZmVzc2lvbmFsfGVufDF8fHx8MTc2NTcyMzg0NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                   alt="Medical Professional"
-                   className={styles.menuImage}
-                 />
-               </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {activeMenu === 'patient' && (
-         <div className={styles.megaMenu}>
-          <div className={styles.megaMenuContent}>
-            <div className={styles.menuGrid}>
-               <div className={styles.menuLinks}>
-                 <Link href="/patient-services" onClick={handleLinkClick} className={styles.menuLink}>{t('patientServices')}</Link>
-                 <Link href="/medical-records" onClick={handleLinkClick} className={styles.menuLink}>{t('medicalRecords')}</Link>
-                 <Link href="/insurance" onClick={handleLinkClick} className={styles.menuLink}>{t('insuranceBilling')}</Link>
-                 <Link href="/patient-portal" onClick={handleLinkClick} className={styles.menuLink}>{t('patientPortal')}</Link>
-               </div>
-               <div></div>
-               <div className="flex items-center justify-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                 <img
-                   src="https://images.unsplash.com/photo-1739298061768-41a8a7d8b38f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtZWRpY2FsJTIwY2xpbmljJTIwcHJvZmVzc2lvbmFsfGVufDF8fHx8MTc2NTcyMzg0NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                   alt="Patient Care"
-                   className={styles.menuImage}
-                 />
-               </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {activeMenu === 'trust' && (
-         <div className={styles.megaMenu}>
-          <div className={styles.megaMenuContent}>
-            <div className={styles.menuGrid}>
-               <div className={styles.menuLinks}>
-                 <Link href="/privacy-policy" onClick={handleLinkClick} className={styles.menuLink}>{t('privacyPolicy')}</Link>
-                 <Link href="/data-security" onClick={handleLinkClick} className={styles.menuLink}>{t('dataSecurity')}</Link>
-                 <Link href="/hipaa-compliance" onClick={handleLinkClick} className={styles.menuLink}>{t('hipaaCompliance')}</Link>
-                 <Link href="/patient-rights" onClick={handleLinkClick} className={styles.menuLink}>{t('patientRights')}</Link>
-               </div>
-               <div></div>
-               <div className="flex items-center justify-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                 <img
-                   src="https://images.unsplash.com/photo-1739298061768-41a8a7d8b38f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtZWRpY2FsJTIwY2xpbmljJTIwcHJvZmVzc2lvbmFsfGVufDF8fHx8MTc2NTcyMzg0NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                   alt="Trust & Confidentiality"
-                   className={styles.menuImage}
-                 />
-               </div>
-            </div>
-          </div>
-        </div>
-      )}
+        {/* Row 3: Submenu (appears on menu item click) */}
+        <AnimatePresence mode="wait">
+          {(activeMenu === 'care' || activeMenu === 'patient' || activeMenu === 'trust') && (
+            <motion.div
+              key={activeMenu}
+              className={styles.submenuRow}
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+            >
+              <div className={styles.submenuContent}>
+                {activeMenu === 'care' && (
+                  <>
+                    {[
+                      { href: '/patient-centered-care', label: t('patientCenteredCare') },
+                      { href: '/about-gmed', label: t('aboutGmed') },
+                      { href: '/apply', label: t('requestAppointment') },
+                      { href: '/locations', label: t('locations') },
+                    ].map((link, i) => (
+                      <motion.div
+                        key={link.href}
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: 0.5 + i * 0.15 }}
+                      >
+                        <Link href={link.href} onClick={handleLinkClick} className={cn(styles.submenuLink, pathname === link.href && styles.active)}>
+                          {link.label}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </>
+                )}
+                {activeMenu === 'patient' && (
+                  <>
+                    {[
+                      { href: '/patient-services', label: t('patientServices') },
+                      { href: '/medical-records', label: t('medicalRecords') },
+                      { href: '/insurance', label: t('insuranceBilling') },
+                    ].map((link, i) => (
+                      <motion.div
+                        key={link.href}
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: 0.5 + i * 0.15 }}
+                      >
+                        <Link href={link.href} onClick={handleLinkClick} className={cn(styles.submenuLink, pathname === link.href && styles.active)}>
+                          {link.label}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </>
+                )}
+                {activeMenu === 'trust' && (
+                  <>
+                    {[
+                      { href: '/privacy-policy', label: t('privacyPolicy') },
+                      { href: '/data-security', label: t('dataSecurity') },
+                      { href: '/hipaa-compliance', label: t('hipaaCompliance') },
+                      { href: '/patient-rights', label: t('patientRights') },
+                    ].map((link, i) => (
+                      <motion.div
+                        key={link.href}
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: 0.5 + i * 0.15 }}
+                      >
+                        <Link href={link.href} onClick={handleLinkClick} className={cn(styles.submenuLink, pathname === link.href && styles.active)}>
+                          {link.label}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </>
+                )}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
     </header>
   );
