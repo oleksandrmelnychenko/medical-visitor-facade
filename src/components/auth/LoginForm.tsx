@@ -57,6 +57,7 @@ export function LoginForm() {
           className={cn(styles.simpleInput, errors.phone && styles.error)}
           {...register("phone")}
           autoComplete="off"
+          autoFocus
         />
         {errors.phone && (
           <span className={styles.errorMessage}>{errors.phone.message}</span>
