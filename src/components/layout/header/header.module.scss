@@ -210,6 +210,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  gap: 2rem;
   min-height: 2.5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -223,16 +224,14 @@
 
 .submenuLink {
   font-size: 0.9rem;
-  color: var(--muted-foreground);
-  transition: color 0.15s;
-  padding: 0.25rem 0.5rem;
+  color: #1a1a1a;
+  transition: opacity 0.15s;
 
   &:hover {
-    color: var(--foreground);
+    opacity: 0.6;
   }
 
   &.active {
-    color: var(--foreground);
     font-weight: 500;
   }
 }
