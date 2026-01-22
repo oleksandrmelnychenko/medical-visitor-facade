@@ -41,6 +41,11 @@ const nextConfig: NextConfig = {
   // Other security options
   poweredByHeader: false, // Remove X-Powered-By header
 
+  // Bundle optimization - auto tree-shake barrel imports
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'motion/react'],
+  },
+
   // Images configuration
   images: {
     remotePatterns: [

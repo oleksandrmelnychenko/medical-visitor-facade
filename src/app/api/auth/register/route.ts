@@ -8,15 +8,18 @@ export async function POST(request: Request) {
     const body = await request.json();
     const validatedData = registerSchema.parse(body);
 
-    // Check if user with this email or phone already exists
-    const existingUser = await prisma.user.findFirst({
-      where: {
-        OR: [
-          { email: validatedData.email },
-          { phone: validatedData.phone },
-        ],
-      },
-    });
+    // Run user lookup and password hashing in parallel for better performance
+    const [existingUser, hashedPassword] = await Promise.all([
+      prisma.user.findFirst({
+        where: {
+          OR: [
+            { email: validatedData.email },
+            { phone: validatedData.phone },
+          ],
+        },
+      }),
+      hash(validatedData.password, 12),
+    ]);
 
     if (existingUser) {
       return NextResponse.json(
@@ -24,8 +27,6 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
-
-    const hashedPassword = await hash(validatedData.password, 12);
 
     const user = await prisma.user.create({
       data: {

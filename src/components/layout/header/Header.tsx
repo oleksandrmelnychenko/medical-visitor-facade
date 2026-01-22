@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -17,19 +17,28 @@ export function Header() {
   const tCommon = useTranslations('common');
   const tAuth = useTranslations('auth');
   const { locale, setLocale } = useLanguage();
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const pathname = usePathname();
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const headerRef = useRef<HTMLDivElement>(null);
 
+  // Throttled scroll handler for better performance
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -45,18 +54,29 @@ export function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const toggleMenu = (menuName: string) => {
-    setActiveMenu(activeMenu === menuName ? null : menuName);
-  };
+  // Memoized toggle function using functional setState
+  const toggleMenu = useCallback((menuName: string) => {
+    setActiveMenu(prev => prev === menuName ? null : menuName);
+  }, []);
 
-  const languages = [
+  // Memoize languages array to prevent recreation on each render
+  const languages = useMemo(() => [
     { code: 'de' as const, name: 'Deutsch', flag: 'https://flagcdn.com/w80/de.png' },
     { code: 'en' as const, name: 'English', flag: 'https://flagcdn.com/w80/gb.png' },
     { code: 'ru' as const, name: 'Русский', flag: 'https://flagcdn.com/w80/ru.png' },
     { code: 'es' as const, name: 'Español', flag: 'https://flagcdn.com/w80/es.png' },
-  ];
+  ], []);
 
-  const currentLanguage = languages.find(lang => lang.code === locale);
+  const currentLanguage = useMemo(
+    () => languages.find(lang => lang.code === locale),
+    [languages, locale]
+  );
+
+  // Memoize ordered languages for flag stack
+  const orderedLanguages = useMemo(
+    () => [currentLanguage, ...languages.filter(l => l.code !== locale)],
+    [currentLanguage, languages, locale]
+  );
 
   // Keep menu open on link click (page will navigate)
   const handleLinkClick = () => {};
@@ -123,10 +143,7 @@ export function Header() {
                 className={styles.languageButton}
               >
                 <div className={styles.flagStack}>
-                  {[
-                    currentLanguage,
-                    ...languages.filter(l => l.code !== locale)
-                  ].map((language, index) => (
+                  {orderedLanguages.map((language, index) => (
                     <span
                       key={language?.code}
                       className={cn(

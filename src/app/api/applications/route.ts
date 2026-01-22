@@ -99,26 +99,25 @@ export async function POST(request: NextRequest) {
         }
       }
 
-      // Get reference IDs
-      const location = await tx.location.findUnique({
-        where: { code: data.currentLocation },
-      });
-
-      const city = await tx.city.findUnique({
-        where: { code: data.preferredLocation },
-      });
-
-      const insurance = data.hasInsurance
-        ? await tx.insuranceStatus.findUnique({
-            where: { code: data.hasInsurance },
-          })
-        : null;
-
-      const travelAbility = data.canComeToGermany
-        ? await tx.travelAbility.findUnique({
-            where: { code: data.canComeToGermany },
-          })
-        : null;
+      // Get reference IDs in parallel for better performance
+      const [location, city, insurance, travelAbility] = await Promise.all([
+        tx.location.findUnique({
+          where: { code: data.currentLocation },
+        }),
+        tx.city.findUnique({
+          where: { code: data.preferredLocation },
+        }),
+        data.hasInsurance
+          ? tx.insuranceStatus.findUnique({
+              where: { code: data.hasInsurance },
+            })
+          : Promise.resolve(null),
+        data.canComeToGermany
+          ? tx.travelAbility.findUnique({
+              where: { code: data.canComeToGermany },
+            })
+          : Promise.resolve(null),
+      ]);
 
       // Generate application number (format: APP-YYYYMMDD-XXXX)
       const today = new Date();
