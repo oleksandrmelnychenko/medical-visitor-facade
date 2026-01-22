@@ -3,7 +3,7 @@
     "home": "Home",
     "learnMore": "Learn more",
     "contactUs": "Contact us",
-    "requestAppointment": "Request a consultation",
+    "requestAppointment": "Become a client",
     "login": "Sign in",
     "search": "Search",
     "submit": "Submit",
@@ -17,7 +17,7 @@
     "trustSafety": "Trust & safety",
     "patientCenteredCare": "Patient-centered care",
     "aboutGmed": "About Gmed",
-    "requestAppointment": "Request a consultation",
+    "requestAppointment": "Become a client",
     "findDoctor": "Find a doctor",
     "locations": "Locations",
     "patientServices": "Patient services",
@@ -37,24 +37,24 @@
     "vatTitle": "VAT identification number",
     "vatLegal": "in accordance with § 27 a of the VAT Act:",
     "vatNumber": "147/220/51409",
-    "contactPrompt": "For questions about the site content, please email:",
+    "contactPrompt": "For questions and suggestions about the site content, please email:",
     "copyright": "© 2023 Patient Care Agency Georgiy Gudiev"
   },
   "home": {
     "hero": {
-      "overline": "Personal healthcare management",
-      "title": "We take full responsibility for your care",
-      "subtitle": "",
-      "requestAppointment": "Request a consultation",
+      "overline": "GMED Agency",
+      "title": "Medical concierge",
+      "subtitle": "Treatment organization and end-to-end client support",
+      "requestAppointment": "Become a client",
       "exploreServices": "Learn more",
       "highlights": {
         "responseTime": {
           "label": "Availability",
-          "value": "Personal coordinator available around the clock"
+          "value": "Personal manager available at any time"
         },
         "careCoordination": {
           "label": "Service",
-          "value": "Comprehensive coordination"
+          "value": "End-to-end support"
         },
         "languages": {
           "label": "Languages",
@@ -63,21 +63,27 @@
       },
       "badge": {
         "title": "Private service",
-        "text": "For clients who value discretion"
+        "text": "For discerning clients"
       },
       "videoOverlay": "Personal approach"
     },
     "careForward": {
-      "overline": "Our approach",
-      "title": "Care that looks ahead",
-      "subtitle": "We help shape a new era of patient-centered healthcare",
-      "trust": {
-        "title": "Trust through excellence",
-        "description": "Our approach combines advanced medical technology with attentive care, giving every patient personal attention and the best outcomes."
-      },
-      "worldClass": {
-        "title": "Leading institutions",
-        "description": "Modern medical centers equipped with advanced technology, delivering high standards of care in a comfortable setting."
+      "overline": "",
+      "title": "What we do",
+      "subtitle": "",
+      "services": {
+        "clinic": {
+          "title": "Clinic selection",
+          "desc": "We identify the right clinic and physician for your specific case"
+        },
+        "organization": {
+          "title": "Travel arrangements",
+          "desc": "Visas, flights, transfers, accommodation - we take care of it"
+        },
+        "coordination": {
+          "title": "Personal coordinator",
+          "desc": "Available around the clock throughout treatment and afterwards"
+        }
       },
       "learnMore": "Learn more"
     },
@@ -106,9 +112,9 @@
     },
     "trust": {
       "overline": "Privacy",
-      "title": "Strict confidentiality",
+      "title": "Absolute confidentiality",
       "subtitle": "We understand the value of privacy for our clients.",
-      "description": "Every relationship is built on complete confidentiality. Your data, treatment history, and even the fact of your inquiry are protected.",
+      "description": "Every engagement is built on complete confidentiality. Your data, treatment history, and even the fact of your inquiry are protected.",
       "guarantee": "Strict privacy standards at every stage."
     },
     "office": {
@@ -118,22 +124,22 @@
       "cities": {
         "berlin": {
           "name": "Berlin",
-          "address": "Kurfurstendamm 21, 10719 Berlin",
+          "address": "Kurfürstendamm 21, 10719 Berlin",
           "phone": "+49 30 123-4567"
         },
         "frankfurt": {
           "name": "Frankfurt",
-          "address": "Kaiserstrasse 50, 60329 Frankfurt",
+          "address": "Kaiserstraße 50, 60329 Frankfurt",
           "phone": "+49 69 123-4567"
         },
         "nuremberg": {
           "name": "Nuremberg",
-          "address": "Konigstrasse 25, 90402 Nuremberg",
+          "address": "Königstraße 25, 90402 Nürnberg",
           "phone": "+49 911 123-4567"
         },
         "munich": {
           "name": "Munich",
-          "address": "Maximilianstrasse 35, 80539 Munich",
+          "address": "Maximilianstraße 35, 80539 München",
           "phone": "+49 89 123-4567"
         }
       }
@@ -144,20 +150,20 @@
       "subtitle": "You focus on your health. We handle everything else.",
       "services": {
         "noFees": {
-          "title": "Private flights",
-          "desc": "We arrange private travel at a convenient time, with minimal transitions."
+          "title": "Charter flights",
+          "desc": "We arrange a private flight at a convenient time. No queues or layovers."
         },
         "support": {
           "title": "Personal transport",
-          "desc": "Comfort-class vehicle with driver for all your travel."
+          "desc": "Premium vehicle with a driver for all your travel."
         },
         "confidentiality": {
           "title": "Visa support",
-          "desc": "Full document preparation. Visas, invitations, certificates - we handle the details."
+          "desc": "Complete document preparation. Visas, invitations, certificates - we handle every detail."
         },
         "performance": {
           "title": "Personal interpreter",
-          "desc": "A professional interpreter accompanies you at consultations and meetings."
+          "desc": "A professional interpreter accompanies you at every meeting and consultation."
         },
         "promptness": {
           "title": "Dedicated coordinator",
@@ -169,11 +175,11 @@
         "steps": {
           "consultation": {
             "title": "Initial consultation",
-            "desc": "Share your needs, and we will plan everything"
+            "desc": "Share your needs, and we plan everything"
           },
           "travel": {
             "title": "Travel arrangements",
-            "desc": "Tickets, visas, and accommodation are arranged"
+            "desc": "Tickets, visas, and accommodation are booked"
           },
           "arrival": {
             "title": "Arrival and reception",
@@ -185,66 +191,70 @@
           },
           "recovery": {
             "title": "Recovery and return",
-            "desc": "Follow-up and a safe journey home"
+            "desc": "Aftercare and a safe journey home"
           }
         }
       },
       "promise": {
-        "title": "Comprehensive management of your care",
-        "text": "We do more than arrange treatment. We take care of every detail - from the first call to your return home."
+        "title": "Comprehensive management of your health",
+        "text": "We do more than organize treatment. We take care of every detail - from the first call to your return home."
       }
     },
     "cta": {
-      "overline": "Private service",
-      "title": "Entrust your health to us",
-      "subtitle": "Contact us for a confidential consultation.",
-      "stats": {
-        "patients": {
-          "number": "Complete",
-          "label": "Confidentiality"
-        },
-        "specialists": {
-          "number": "Around the clock",
-          "label": "Available"
+      "overline": "Ongoing support",
+      "title": "We are always by your side",
+      "subtitle": "After treatment, our support does not end. We stay in touch and support you for as long as needed.",
+      "services": {
+        "medications": {
+          "title": "Medication delivery",
+          "desc": "We arrange delivery of prescribed medications anywhere in the world"
         },
         "support": {
-          "number": "Personal",
-          "label": "Service level"
+          "title": "Around-the-clock contact",
+          "desc": "A personal manager is available at any time to resolve any questions"
+        },
+        "monitoring": {
+          "title": "Health monitoring",
+          "desc": "We monitor your condition and coordinate with your treating physicians"
+        },
+        "consultations": {
+          "title": "Online consultations",
+          "desc": "We provide video consultations from anywhere in the world without the need to travel"
         }
       },
-      "bookConsultation": "Contact us",
+      "bookConsultation": "Become our client",
       "getStarted": "Learn more",
-      "availability": "Confidential consultation"
+      "availability": "Become part of our care"
     }
   },
   "appointment": {
     "overline": "Request",
-    "title": "Request a consultation",
-    "subtitle": "Leave your contact details. We will reach out shortly.",
-    "backToSelection": "Back to selection",
+    "title": "Become a client",
+    "subtitle": "Submit a request and we will contact you shortly.",
+    "backToSelection": "← Back to selection",
     "clientTypes": {
       "new": {
         "title": "New client",
-        "description": "Leave your details so we can contact you."
+        "description": "Complete the questionnaire."
       },
       "returning": {
-        "title": "Existing client",
+        "title": "I am already a client",
         "description": "Sign in to your account."
       }
     },
     "freeService": {
       "title": "Need financial assistance?",
-      "description1": "We understand that medical care can be financially challenging. The Patient Care Agency offers a limited assistance program for patients who need help with medical expenses.",
+      "description1": "We understand that medical care can be financially challenging. The Patient Care Agency offers a limited program for patients who need help with medical expenses.",
       "description2": "Our team carefully reviews each application and provides support when resources allow.",
       "priority": "Priority cases:",
       "priorityText": "We prioritize cases involving children, urgent medical situations, and patients in exceptional circumstances.",
-      "note": "Please note: Applications for free services are reviewed individually depending on available capacity and medical necessity. We will contact you within 5-7 business days regarding the status of your application.",
-      "applyButton": "Apply for assistance"
+      "note": "Please note: Applications for complimentary care are reviewed individually based on available capacity and medical necessity. We will contact you within 5-7 business days regarding the status of your application.",
+      "applyButton": "Apply for complimentary care"
     },
     "newPatient": {
       "intro": {
         "title": "Let's get started",
-        "description": "We will ask a few questions to help our scheduling coordinator contact you.",
+        "description": "We will ask a few questions to help the scheduling coordinator contact you.",
         "continue": "Continue",
         "emergency": "If this is a medical emergency, call 112.",
         "mentalHealth": "If this is a mental health crisis, call the crisis hotline."
@@ -983,7 +993,7 @@
     "invalidCredentials": "Invalid email or password",
     "registrationFailed": "Registration failed. Please try again.",
     "signInAfterRegisterFailed": "Account created, but sign-in failed. Please sign in manually.",
-    "dashboard": "Dashboard",
+    "dashboard": "Client area",
     "forgotPassword": "Forgot password?",
     "preferredContactMethod": "Please indicate your preferred contact method",
     "confidentialityNotice": "Your information is confidential and will not be shared with third parties.",
@@ -991,7 +1001,7 @@
     "consentData": "Consent to personal data processing",
     "consentMarketing": "Consent to receive informational and promotional messages",
     "welcomeTitle": "Welcome",
-    "welcomeSubtitle": "Sign in to your account or create a new one to get started",
+    "welcomeSubtitle": "Sign in to your account",
     "sendMessage": "Send message",
     "overline": "Sign in",
     "registerOverline": "Registration",
@@ -1001,7 +1011,7 @@
     "signInLink": "Sign in"
   },
   "dashboard": {
-    "title": "Dashboard",
+    "title": "Client area",
     "welcomeBack": "Welcome back, {name}",
     "accountInfo": "Account information",
     "name": "Name",

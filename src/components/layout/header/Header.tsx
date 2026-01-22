@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef, useMemo, useCallback } from "react"
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, User, ChevronDown } from "lucide-react";
+import { Menu, X, User, ChevronDown, ChevronRight } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
@@ -22,6 +22,8 @@ export function Header() {
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileSubmenu, setMobileSubmenu] = useState<string | null>(null);
   const headerRef = useRef<HTMLDivElement>(null);
 
   // Throttled scroll handler for better performance
@@ -52,6 +54,28 @@ export function Header() {
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
+  const toggleMobileMenu = useCallback(() => {
+    setMobileMenuOpen(prev => !prev);
+    setMobileSubmenu(null);
+  }, []);
+
+  const closeMobileMenu = useCallback(() => {
+    setMobileMenuOpen(false);
+    setMobileSubmenu(null);
   }, []);
 
   // Memoized toggle function using functional setState
@@ -98,8 +122,8 @@ export function Header() {
           </Link>
 
           {/* Mobile menu button */}
-          <button className={styles.mobileButton}>
-            <Menu className="w-6 h-6" />
+          <button className={styles.mobileButton} onClick={toggleMobileMenu} aria-label="Toggle menu">
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
@@ -266,6 +290,172 @@ export function Header() {
           )}
         </AnimatePresence>
 
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            <motion.div
+              className={styles.mobileOverlay}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={closeMobileMenu}
+            />
+            <motion.div
+              className={styles.mobileMenu}
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'tween', duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+            >
+              <div className={styles.mobileMenuContent}>
+                {/* Navigation */}
+                <nav className={styles.mobileNav}>
+                  {/* Care Menu */}
+                  <div className={styles.mobileNavItem}>
+                    <button
+                      onClick={() => setMobileSubmenu(mobileSubmenu === 'care' ? null : 'care')}
+                      className={cn(styles.mobileNavButton, mobileSubmenu === 'care' && styles.active)}
+                    >
+                      {t('care')}
+                      <ChevronRight className={cn(styles.mobileChevron, mobileSubmenu === 'care' && styles.rotated)} />
+                    </button>
+                    <AnimatePresence>
+                      {mobileSubmenu === 'care' && (
+                        <motion.div
+                          className={styles.mobileSubmenu}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Link href="/patient-centered-care" onClick={closeMobileMenu} className={cn(styles.mobileSubmenuLink, pathname === '/patient-centered-care' && styles.active)}>
+                            {t('patientCenteredCare')}
+                          </Link>
+                          <Link href="/about-gmed" onClick={closeMobileMenu} className={cn(styles.mobileSubmenuLink, pathname === '/about-gmed' && styles.active)}>
+                            {t('aboutGmed')}
+                          </Link>
+                          <Link href="/apply" onClick={closeMobileMenu} className={cn(styles.mobileSubmenuLink, pathname === '/apply' && styles.active)}>
+                            {t('requestAppointment')}
+                          </Link>
+                          <Link href="/locations" onClick={closeMobileMenu} className={cn(styles.mobileSubmenuLink, pathname === '/locations' && styles.active)}>
+                            {t('locations')}
+                          </Link>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Patient Resources Menu */}
+                  <div className={styles.mobileNavItem}>
+                    <button
+                      onClick={() => setMobileSubmenu(mobileSubmenu === 'patient' ? null : 'patient')}
+                      className={cn(styles.mobileNavButton, mobileSubmenu === 'patient' && styles.active)}
+                    >
+                      {t('patientResources')}
+                      <ChevronRight className={cn(styles.mobileChevron, mobileSubmenu === 'patient' && styles.rotated)} />
+                    </button>
+                    <AnimatePresence>
+                      {mobileSubmenu === 'patient' && (
+                        <motion.div
+                          className={styles.mobileSubmenu}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Link href="/patient-services" onClick={closeMobileMenu} className={cn(styles.mobileSubmenuLink, pathname === '/patient-services' && styles.active)}>
+                            {t('patientServices')}
+                          </Link>
+                          <Link href="/medical-records" onClick={closeMobileMenu} className={cn(styles.mobileSubmenuLink, pathname === '/medical-records' && styles.active)}>
+                            {t('medicalRecords')}
+                          </Link>
+                          <Link href="/insurance" onClick={closeMobileMenu} className={cn(styles.mobileSubmenuLink, pathname === '/insurance' && styles.active)}>
+                            {t('insuranceBilling')}
+                          </Link>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Trust & Safety Menu */}
+                  <div className={styles.mobileNavItem}>
+                    <button
+                      onClick={() => setMobileSubmenu(mobileSubmenu === 'trust' ? null : 'trust')}
+                      className={cn(styles.mobileNavButton, mobileSubmenu === 'trust' && styles.active)}
+                    >
+                      {t('trustSafety')}
+                      <ChevronRight className={cn(styles.mobileChevron, mobileSubmenu === 'trust' && styles.rotated)} />
+                    </button>
+                    <AnimatePresence>
+                      {mobileSubmenu === 'trust' && (
+                        <motion.div
+                          className={styles.mobileSubmenu}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Link href="/privacy-policy" onClick={closeMobileMenu} className={cn(styles.mobileSubmenuLink, pathname === '/privacy-policy' && styles.active)}>
+                            {t('privacyPolicy')}
+                          </Link>
+                          <Link href="/data-security" onClick={closeMobileMenu} className={cn(styles.mobileSubmenuLink, pathname === '/data-security' && styles.active)}>
+                            {t('dataSecurity')}
+                          </Link>
+                          <Link href="/hipaa-compliance" onClick={closeMobileMenu} className={cn(styles.mobileSubmenuLink, pathname === '/hipaa-compliance' && styles.active)}>
+                            {t('hipaaCompliance')}
+                          </Link>
+                          <Link href="/patient-rights" onClick={closeMobileMenu} className={cn(styles.mobileSubmenuLink, pathname === '/patient-rights' && styles.active)}>
+                            {t('patientRights')}
+                          </Link>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </nav>
+
+                {/* Divider */}
+                <div className={styles.mobileDivider} />
+
+                {/* Actions */}
+                <div className={styles.mobileActions}>
+                  {status !== "authenticated" && (
+                    <>
+                      <Link href="/apply" onClick={closeMobileMenu} className={styles.mobileApplyButton}>
+                        {tCommon('requestAppointment')}
+                      </Link>
+                      <Link href="/login" onClick={closeMobileMenu} className={styles.mobileLoginLink}>
+                        <User className="w-5 h-5" />
+                        {tCommon('login')}
+                      </Link>
+                    </>
+                  )}
+                </div>
+
+                {/* Language Selector */}
+                <div className={styles.mobileLanguages}>
+                  {languages.map((language) => (
+                    <button
+                      key={language.code}
+                      onClick={() => {
+                        setLocale(language.code);
+                      }}
+                      className={cn(styles.mobileLanguageOption, locale === language.code && styles.active)}
+                    >
+                      <span className={styles.flagCircleSmall}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={language.flag} alt={language.name} />
+                      </span>
+                      <span>{language.name}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
