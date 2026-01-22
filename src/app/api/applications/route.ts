@@ -1,11 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
 import { hash } from "bcryptjs";
 import { z } from "zod";
-
-type TransactionClient = Omit<PrismaClient, "$connect" | "$disconnect" | "$on" | "$transaction" | "$use" | "$extends">;
 
 // Validation schema for application submission
 const applicationSchema = z.object({
@@ -63,7 +60,8 @@ export async function POST(request: NextRequest) {
     data.phone = sanitize(data.phone);
 
     // Start transaction
-    const result = await prisma.$transaction(async (tx: TransactionClient) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const result = await prisma.$transaction(async (tx: any) => {
       // Check if user exists by email or phone
       let user = await tx.user.findFirst({
         where: {
