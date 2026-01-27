@@ -117,8 +117,8 @@ export function Header() {
       <div className={styles.container} style={{ position: 'relative' }}>
         {/* Mobile hamburger button - JS controls visibility */}
         <button
-          onClick={() => setIsMobileMenuOpen(true)}
-          aria-label="Open menu"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           style={{
             display: isMobile ? 'flex' : 'none',
             position: 'absolute',
@@ -127,7 +127,7 @@ export function Header() {
             transform: 'translateY(-50%)',
             background: 'white',
             border: '1px solid #1a1a1a',
-            borderRadius: '4px',
+            borderRadius: 0,
             padding: '0.5rem',
             cursor: 'pointer',
             alignItems: 'center',
@@ -135,7 +135,7 @@ export function Header() {
             zIndex: 10
           }}
         >
-          <Menu size={20} />
+          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
 
         {/* Desktop navigation - JS hides on mobile */}
@@ -258,26 +258,26 @@ export function Header() {
           transition: 'transform 0.25s ease, opacity 0.25s ease'
         }}
       >
-            <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1.25rem', alignItems: 'center', textAlign: 'center' }}>
+            <div style={{ padding: '2rem 1.5rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center', textAlign: 'center' }}>
               {status !== "authenticated" && (
                 <Link
                   href="/login"
                   onClick={closeMobileMenu}
-                  style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1rem', fontWeight: 500 }}
+                  style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem', fontWeight: 500, padding: '0.5rem 0' }}
                 >
-                  <User size={18} />
+                  <User size={20} />
                   {tCommon('login')}
                 </Link>
               )}
 
               {status === "authenticated" && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1rem', fontWeight: 500 }}>
-                  <User size={18} />
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem', fontWeight: 500, padding: '0.5rem 0' }}>
+                  <User size={20} />
                   <span>{userName}</span>
                 </div>
               )}
 
-              <div style={{ display: 'flex', gap: '1.25rem', justifyContent: 'center' }}>
+              <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
                 {languages.map((language) => (
                   <button
                     key={language.code}
@@ -285,8 +285,8 @@ export function Header() {
                     style={{
                       background: 'none',
                       border: 'none',
-                      padding: 0,
-                      fontSize: '0.9rem',
+                      padding: '0.5rem',
+                      fontSize: '1rem',
                       fontWeight: locale === language.code ? 600 : 400,
                       color: '#1a1a1a',
                       cursor: 'pointer',
@@ -322,11 +322,11 @@ export function Header() {
               </Link>
 
               {/* Footer links */}
-              <div style={{ marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.05em' }}>The Agency</div>
-                <Link href="/financial-assistance" onClick={closeMobileMenu} style={{ fontSize: '0.875rem', color: '#1a1a1a', textDecoration: 'underline' }}>{tFooter('financialAssistance')}</Link>
-                <Link href="/privacy-policy" onClick={closeMobileMenu} style={{ fontSize: '0.875rem', color: '#1a1a1a', textDecoration: 'underline' }}>{tFooter('privacyPolicy')}</Link>
-                <Link href="/legal-notice" onClick={closeMobileMenu} style={{ fontSize: '0.875rem', color: '#1a1a1a', textDecoration: 'underline' }}>{tFooter('impressum')}</Link>
+              <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.05em', padding: '0.5rem 0' }}>The Agency</div>
+                <Link href="/financial-assistance" onClick={closeMobileMenu} style={{ fontSize: '1rem', color: '#1a1a1a', textDecoration: 'underline', padding: '0.5rem 0' }}>{tFooter('financialAssistance')}</Link>
+                <Link href="/privacy-policy" onClick={closeMobileMenu} style={{ fontSize: '1rem', color: '#1a1a1a', textDecoration: 'underline', padding: '0.5rem 0' }}>{tFooter('privacyPolicy')}</Link>
+                <Link href="/legal-notice" onClick={closeMobileMenu} style={{ fontSize: '1rem', color: '#1a1a1a', textDecoration: 'underline', padding: '0.5rem 0' }}>{tFooter('impressum')}</Link>
               </div>
 
               {status === "authenticated" && (
