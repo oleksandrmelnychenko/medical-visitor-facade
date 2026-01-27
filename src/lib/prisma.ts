@@ -1,33 +1,27 @@
 import { PrismaClient } from "@prisma/client";
-import { PrismaPg } from "@prisma/adapter-pg";
-import { Pool } from "pg";
+import { PrismaNeon } from "@prisma/adapter-neon";
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
 };
 
-const isBuildTime = !process.env.DATABASE_URL;
-
-function createPrismaClient(): PrismaClient {
-  const connectionString = process.env.DATABASE_URL;
+function createPrismaClient() {
+  const connectionString = process.env.POSTGRES_PRISMA_URL || process.env.DATABASE_URL;
 
   if (!connectionString) {
-    return new Proxy({} as PrismaClient, {
-      get(_, prop) {
-        if (prop === 'then') return undefined;
-        throw new Error(`Database not configured. Set DATABASE_URL environment variable.`);
-      },
-    });
+    throw new Error("Database connection string not found");
   }
 
-  const pool = new Pool({ connectionString });
-  const adapter = new PrismaPg(pool);
+  const adapter = new PrismaNeon({ connectionString });
 
-  return new PrismaClient({ adapter });
+  return new PrismaClient({
+    adapter,
+    log: process.env.NODE_ENV === "development" ? ["error", "warn"] : ["error"],
+  });
 }
 
 export const prisma = globalForPrisma.prisma ?? createPrismaClient();
 
-if (process.env.NODE_ENV !== "production" && !isBuildTime) {
+if (process.env.NODE_ENV !== "production") {
   globalForPrisma.prisma = prisma;
 }
