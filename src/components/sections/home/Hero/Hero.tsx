@@ -8,22 +8,31 @@ import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./Hero.module.scss";
 
+// Decorative star/flower shape
+function StarDecoration({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 100 100" fill="currentColor">
+      <path d="M50 0 L54 46 L100 50 L54 54 L50 100 L46 54 L0 50 L46 46 Z" />
+      <path d="M50 15 L52 48 L85 50 L52 52 L50 85 L48 52 L15 50 L48 48 Z" opacity="0.5" />
+    </svg>
+  );
+}
+
 export function Hero() {
   const t = useTranslations('home.hero');
 
   return (
     <section className={cn(sectionStyles.section, styles.hero)}>
-      <video
-        className={styles.heroVideo}
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster="/assets/hero-poster.jpg"
-      >
-        <source src="/assets/demo.mp4" type="video/mp4" />
-      </video>
-      <div className={styles.heroOverlay} />
+      {/* Decorative elements */}
+      <div className={styles.heroDecorations}>
+        <StarDecoration className={cn(styles.decoration, styles.decorationLeft1)} />
+        <StarDecoration className={cn(styles.decoration, styles.decorationLeft2)} />
+        <StarDecoration className={cn(styles.decoration, styles.decorationLeft3)} />
+        <StarDecoration className={cn(styles.decoration, styles.decorationRight1)} />
+        <StarDecoration className={cn(styles.decoration, styles.decorationRight2)} />
+        <StarDecoration className={cn(styles.decoration, styles.decorationBottom1)} />
+        <StarDecoration className={cn(styles.decoration, styles.decorationBottom2)} />
+      </div>
       <div className={cn(sectionStyles.container, styles.heroContainer)}>
         <div className={styles.heroWrapper}>
           <div className={styles.heroContent}>
