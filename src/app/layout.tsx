@@ -6,6 +6,7 @@ import "../styles/globals.scss";
 import { Header } from "@/components/layout/header/Header";
 import { Footer } from '@/components/layout/footer/Footer';
 import { MobileLoginFab } from "@/components/layout/MobileLoginFab";
+import { CookieConsent } from "@/components/ui/CookieConsent";
 import { LanguageProvider } from "@/providers/LanguageProvider";
 import { AuthProvider } from "@/providers/AuthProvider";
 
@@ -71,6 +72,7 @@ export default async function RootLayout({
               <Footer />
             </Suspense>
             <MobileLoginFab />
+            <CookieConsent />
           </LanguageProvider>
         </AuthProvider>
       </body>

@@ -1,4 +1,10 @@
 {
+  "cookies": {
+    "message": "We use cookies to improve your experience on our website. By continuing to browse, you agree to our use of cookies.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "learnMore": "Learn more"
+  },
   "common": {
     "home": "Home",
     "learnMore": "Learn more",
@@ -38,8 +44,10 @@
     "vatLegal": "in accordance with § 27 a of the VAT Act:",
     "vatNumber": "147/220/51409",
     "contactPrompt": "For questions and suggestions about the site content, please email:",
-    "copyright": "© 2023 Patient Care Agency Georgiy Gudiev",
-    "financialAssistance": "Financial assistance"
+    "copyright": "© {year} Patient Care Agency Heorhii Hudiiev",
+    "allRightsReserved": "All rights reserved",
+    "financialAssistance": "Financial assistance",
+    "privacyPolicy": "Privacy policy"
   },
   "home": {
     "hero": {
@@ -148,7 +156,7 @@
     "fullSupport": {
       "overline": "Full support",
       "title": "Agency concept",
-      "subtitle": "You focus on your health. We handle everything else.",
+      "subtitle": "",
       "services": {
         "noFees": {
           "title": "Charter flights",
@@ -204,7 +212,7 @@
     "cta": {
       "overline": "Ongoing support",
       "title": "We are always by your side",
-      "subtitle": "After treatment, our support does not end. We stay in touch and support you for as long as needed.",
+      "subtitle": "",
       "services": {
         "medications": {
           "title": "Medication delivery",
@@ -223,7 +231,7 @@
           "desc": "We provide video consultations from anywhere in the world without the need to travel"
         }
       },
-      "bookConsultation": "Become our client",
+      "bookConsultation": "Become a membership",
       "getStarted": "Learn more",
       "availability": ""
     }
@@ -1077,5 +1085,101 @@
     "medicalRecordsDescription": "Access your medical history and documents",
     "messages": "Messages",
     "messagesDescription": "Communication with your care team"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: 01.01.2026",
+    "intro1": "We take the protection of our website users' data very seriously and are committed to protecting the information that users provide to us in connection with the use of our website or services.",
+    "intro2": "This Privacy Policy explains our practices regarding the collection, use, and disclosure of your data through the use of our services when you access the services through your devices.",
+    "intro3": "Please read the Privacy Policy carefully and make sure you fully understand our practices regarding your data before using our services. If you have read and fully understood this policy and do not agree with our approach, you must stop using our website and services. By using our website and services, you acknowledge the terms of this Privacy Policy.",
+    "intro4": "Detailed information on data protection can be found in the points listed below.",
+    "dataCollection": {
+      "title": "Data Collection on This Website",
+      "text": "Below you will find an overview of the data we may collect:",
+      "item1": "Non-identified and non-identifiable information collected from our website (\"non-personal data\"). Non-personal data does not allow conclusions to be drawn about who collected it. Non-personal data we collect consists mainly of technical and aggregated usage information.",
+      "item2": "Individually identifiable information, i.e., any information that can identify you or could reasonably be used to identify you (\"personal data\"). Personal data may include information such as names, email addresses, addresses, phone numbers, IP addresses, and more.",
+      "text2": "Data processing on this website is carried out by the website operator. You can find the contact details of the website operator in the \"Contact\" section of this Privacy Policy."
+    },
+    "howWeCollect": {
+      "title": "How Do We Collect Your Data?",
+      "text1": "Your data is collected when you provide it to us. This may be data that you enter into a contact form or provide to us via email, such as necessary preliminary findings, laboratory results, image data, medical documentation, and more. Other data is collected automatically or with your consent when you visit the website through our IT systems.",
+      "text2": "We would like to point out that data transmission over the Internet (e.g., when communicating by email) may have security vulnerabilities. Complete protection of data against access by third parties is not possible and is not within our area of responsibility."
+    },
+    "purpose": {
+      "title": "What Do We Use Your Data For?",
+      "text": "We may use your data for the following purposes:",
+      "item1": "to ensure error-free provision of the website;",
+      "item2": "to develop, adapt, and improve our services;",
+      "item3": "to respond to your feedback, inquiries, and requests and offer assistance;",
+      "item4": "to analyze requirement and usage patterns;",
+      "item5": "for other internal, statistical, and research purposes;",
+      "item6": "to improve our data security capabilities;",
+      "item7": "to send you updates, news, and other information related to our services.",
+      "text2": "We only use your personal data for the purposes set out in the Privacy Policy and only if we are convinced that:",
+      "legal1": "the use of your personal data is necessary to fulfill or conclude a contract;",
+      "legal2": "the use of your personal data is necessary to comply with relevant legal or regulatory obligations;",
+      "legal3": "the use of your personal data is necessary to support our legitimate business interests."
+    },
+    "sharing": {
+      "title": "To Whom Do We Pass On This Data?",
+      "text1": "We may share your data with our service providers to operate our services, to the extent appropriate for business purposes. This is mainly non-identifiable information.",
+      "text2": "We may forward documents you provide to us, which may contain personal data and information about completed or ongoing medical treatment, to trusted third parties if this is necessary for the provision of our services. These include doctors, interpreters and translators, experts, cost bearers, and other medical facilities.",
+      "text3": "We may also disclose your data under the following circumstances: to establish or exercise our rights to defense; to protect our rights, property, and the safety of our users or the public; to collect, maintain, and/or manage your data through authorized third-party providers."
+    },
+    "rights": {
+      "title": "What Rights Do You Have Regarding Your Data?",
+      "text": "You have the right at any time to receive free information about the origin, recipients, and purpose of your stored personal data. You also have the right to request correction or deletion of this data. If you have given consent to data processing, you can revoke this consent at any time for the future. You can contact us at any time regarding this and other questions on the subject of data protection."
+    },
+    "hosting": {
+      "title": "Hosting",
+      "text1": "We host the content of our website and the data recorded in the CRM with reliable cloud hosting providers.",
+      "text2": "Our hosting providers have servers all over the world, including Europe and the USA, as well as backup servers.",
+      "text3": "The personal data collected on this website and in our CRM is stored on the servers of these hosts. This may include IP addresses, contact requests, meta and communication data, contact details, names, website access, and other data generated via a website.",
+      "text4": "Our hosts will only process your data to the extent necessary to fulfill their performance obligations and will follow our instructions regarding this data."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text1": "When you visit or access our services, we authorize third parties to use web beacons, cookies, and other technologies and analytics services. These tracking technologies may allow third parties to automatically collect your data to improve the navigation experience on our digital assets, optimize their performance, and ensure a customized user experience.",
+      "text2": "Without your consent, we will not share your email address or other personal data with advertising companies or advertising networks."
+    },
+    "storage": {
+      "title": "Where Do We Store the Data?",
+      "text1": "Please note that our trusted partners and service providers are located all over the world. For the purposes explained in this Privacy Policy, we store and process all non-personal data we collect in different jurisdictions.",
+      "text2": "Personal data may be maintained, processed, and stored in the United States, Ireland, South Korea, Taiwan, Israel, and other jurisdictions as necessary for the proper provision of our services and/or as required by law."
+    },
+    "retention": {
+      "title": "Storage Duration",
+      "text": "Unless a more specific storage period is stated in this Privacy Policy, your personal data will remain with us until the purpose for data processing no longer applies. If you wish to have your personal data deleted, an informal letter by email to contact@gmed-health.com is usually sufficient."
+    },
+    "security": {
+      "title": "How Do We Protect Your Data?",
+      "text1": "The hosting service provides us with the online platform through which we can offer you our services. Your data may be stored through our hosting provider's data storage, databases, and general applications.",
+      "text2": "Notwithstanding the measures and efforts taken by us and our hosting provider, we cannot and will not guarantee absolute protection and security of data that you upload, publish, or otherwise share with us or others.",
+      "text3": "For this reason, we ask you to set secure passwords and not to transmit confidential information to us or others if possible, the disclosure of which you believe could cause significant or lasting harm to you.",
+      "text4": "If you send us documents with personal or confidential information by email or instant messaging, it is your responsibility."
+    },
+    "minors": {
+      "title": "How Do We Handle Minors?",
+      "text1": "Minors may use our services.",
+      "text2": "However, if they wish to use our services, they may need to provide certain information (particularly parental contact details). The collection of some data may occur automatically. If we knowingly collect, use, or disclose data collected from a minor, we will indicate this in accordance with applicable law and obtain parental consent.",
+      "text3": "We may also use a parent's contact information to communicate about a minor's activities in the services. Parents can view data we have collected from their child and request that any data we have collected be deleted from our records.",
+      "text4": "Please contact us to view, update, or delete your child's data."
+    },
+    "updates": {
+      "title": "Updates or Changes to the Privacy Policy",
+      "text": "We may revise this Privacy Policy at our discretion from time to time; the version published on the website is always current. We ask you to check this Privacy Policy regularly for changes. In the event of material changes, we will post a notice on our website."
+    },
+    "contact": {
+      "title": "Contact",
+      "text": "If you have general questions about the services or the data we collect about you and its use, please contact us at:"
+    }
+  },
+  "impressumPage": {
+    "title": "Legal Notice",
+    "owner": "Owner",
+    "contact": "Contact",
+    "vatTitle": "VAT ID",
+    "vatLegal": "VAT identification number according to § 27 a of the German VAT Act:",
+    "contactPrompt": "For questions and suggestions about the content of the website, please send us an email to:"
   }
 }

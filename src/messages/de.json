@@ -1,4 +1,10 @@
 {
+  "cookies": {
+    "message": "Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Durch die weitere Nutzung stimmen Sie der Verwendung von Cookies zu.",
+    "accept": "Akzeptieren",
+    "decline": "Ablehnen",
+    "learnMore": "Mehr erfahren"
+  },
   "common": {
     "home": "Startseite",
     "learnMore": "Mehr erfahren",
@@ -38,8 +44,10 @@
     "vatLegal": "gemäß § 27 a UStG:",
     "vatNumber": "147/220/51409",
     "contactPrompt": "Bei Fragen und Anregungen zum Inhalt dieser Website schreiben Sie bitte an:",
-    "copyright": "© 2023 Agentur für Patientenbetreuung Georgiy Gudiev",
-    "financialAssistance": "Finanzielle Unterstützung"
+    "copyright": "© {year} Patient Care Agency Heorhii Hudiiev",
+    "allRightsReserved": "Alle Rechte vorbehalten",
+    "financialAssistance": "Finanzielle Unterstützung",
+    "privacyPolicy": "Datenschutzerklärung"
   },
   "home": {
     "hero": {
@@ -148,7 +156,7 @@
     "fullSupport": {
       "overline": "Umfassende Begleitung",
       "title": "Agenturkonzept",
-      "subtitle": "Sie konzentrieren sich auf Ihre Gesundheit. Wir übernehmen den Rest.",
+      "subtitle": "",
       "services": {
         "noFees": {
           "title": "Charterflüge",
@@ -204,7 +212,7 @@
     "cta": {
       "overline": "Kontinuierliche Begleitung",
       "title": "Wir bleiben an Ihrer Seite",
-      "subtitle": "Nach der Behandlung endet unsere Unterstützung nicht. Wir bleiben in Kontakt und begleiten Sie so lange, wie es nötig ist.",
+      "subtitle": "",
       "services": {
         "medications": {
           "title": "Medikamentenlieferung",
@@ -1077,5 +1085,101 @@
     "medicalRecordsDescription": "Zugriff auf Ihre Krankengeschichte und Dokumente",
     "messages": "Nachrichten",
     "messagesDescription": "Kommunikation mit Ihrem Behandlungsteam"
+  },
+  "privacyPolicy": {
+    "title": "Datenschutzerklärung",
+    "lastUpdated": "Stand: 01.01.2026",
+    "intro1": "Wir nehmen den Schutz der Daten der Nutzer unserer Website sehr ernst und verpflichten uns, die Informationen, die Nutzer uns in Verbindung mit der Nutzung unserer Website bzw. unserer Dienste zur Verfügung stellen, zu schützen.",
+    "intro2": "Diese Datenschutzrichtlinie erläutert unsere Praktiken in Bezug auf die Erfassung, Verwendung und Offenlegung Ihrer Daten durch die Nutzung unserer Dienste, wenn Sie über Ihre Geräte auf die Dienste zugreifen.",
+    "intro3": "Lesen Sie die Datenschutzrichtlinie bitte sorgfältig durch und stellen Sie sicher, dass Sie unsere Praktiken in Bezug auf Ihre Daten vollumfänglich verstehen, bevor Sie unsere Dienste verwenden. Wenn Sie diese Richtlinie gelesen, vollumfänglich verstanden haben und nicht mit unserer Vorgehensweise einverstanden sind, müssen Sie die Nutzung unserer Website und Dienste einstellen. Mit der Nutzung unserer Website und Dienste erkennen Sie die Bedingungen dieser Datenschutzrichtlinie an.",
+    "intro4": "Ausführliche Informationen zum Thema Datenschutz entnehmen Sie aus den unten aufgeführten Punkten.",
+    "dataCollection": {
+      "title": "Datenerfassung auf dieser Website",
+      "text": "Nachstehend erhalten Sie einen Überblick über die Daten, die wir erfassen können:",
+      "item1": "Nicht identifizierte und nicht identifizierbare Informationen, die von unserer Webseite gesammelt werden (\"nicht personenbezogene Daten\"). Nicht personenbezogene Daten lassen keine Rückschlüsse darauf zu, von wem sie erfasst wurden. Nicht personenbezogene Daten, die wir erfassen, bestehen hauptsächlich aus technischen und zusammengefassten Nutzungsinformationen.",
+      "item2": "Individuell identifizierbare Informationen, d. h. all jene, über die man Sie identifizieren kann oder mit vertretbarem Aufwand identifizieren könnte (\"personenbezogene Daten\"). Zu den personenbezogenen Daten können Informationen gehören, wie Namen, E-Mail-Adressen, Adressen, Telefonnummern, IP-Adressen und mehr.",
+      "text2": "Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Die Kontaktdaten des Websitebetreibers können Sie dem Abschnitt \"Kontakt\" in dieser Datenschutzerklärung entnehmen."
+    },
+    "howWeCollect": {
+      "title": "Wie erfassen wir Ihre Daten?",
+      "text1": "Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich um Daten handeln, die Sie in ein Kontaktformular eingeben oder uns per Email zur Verfügung stellen, wie z.B. notwendige Vorbefunde, Laborbefunde, Bilddaten, ärztliche Dokumentation und mehr. Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst.",
+      "text2": "Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich und liegt nicht in unserem Verantwortungsbereich."
+    },
+    "purpose": {
+      "title": "Wofür nutzen wir Ihre Daten?",
+      "text": "Wir können Ihre Daten für folgende Zwecke verwenden:",
+      "item1": "um eine fehlerfreie Bereitstellung der Website zu gewährleisten;",
+      "item2": "um unsere Dienste zu entwickeln, anzupassen und zu verbessern;",
+      "item3": "um auf Ihr Feedback, Ihre Anfragen und Wünsche zu reagieren und Hilfe anzubieten;",
+      "item4": "um Anforderungs- und Nutzungsmuster zu analysieren;",
+      "item5": "für sonstige interne, statistische und Recherchezwecke;",
+      "item6": "um unsere Möglichkeiten zur Datensicherheit verbessern zu können;",
+      "item7": "um Ihnen Aktualisierungen, Nachrichten und sonstige Informationen im Zusammenhang mit unseren Diensten zu übermitteln.",
+      "text2": "Wir verwenden Ihre personenbezogenen Daten nur für die in der Datenschutzrichtlinie festgelegten Zwecke und nur, wenn wir davon überzeugt sind, dass:",
+      "legal1": "die Verwendung Ihrer personenbezogenen Daten erforderlich ist, um einen Vertrag zu erfüllen oder zu schließen;",
+      "legal2": "die Verwendung Ihrer personenbezogenen Daten notwendig ist, um entsprechenden rechtlichen oder behördlichen Verpflichtungen nachzukommen;",
+      "legal3": "die Verwendung Ihrer personenbezogenen Daten notwendig ist, um unsere berechtigten geschäftlichen Interessen zu unterstützen."
+    },
+    "sharing": {
+      "title": "An wen geben wir diese Daten weiter?",
+      "text1": "Wir können Ihre Daten an unsere Dienstleister weitergeben, um unsere Dienste zu betreiben, soweit dies für geschäftliche Zwecke angemessen ist. Dabei handelt es sich hauptsächlich um nicht identifizierbare Informationen.",
+      "text2": "Wir können die uns von Ihnen zur Verfügung gestellte Unterlagen, welche ggf. personenbezogene Daten und Informationen zur abgeschlossenen oder andauernden medizinischen Behandlung beinhalten, an vertraute Drittpersonen weiterleiten, falls dies für die Ausübung unserer Dienste notwendig ist. Hierbei handelt es sich um Ärzte, Dolmetscher und Übersetzer, Gutachter, Kostenträger und andere medizinische Einrichtungen.",
+      "text3": "Wir können Ihre Daten auch unter folgenden Umständen offenlegen: um unsere Rechte auf Verteidigung zu begründen oder auszuüben; um unsere Rechte, unser Eigentum sowie die Sicherheit unserer Nutzer oder der Öffentlichkeit zu schützen; um Ihre Daten mittels befugter Drittanbieter zu erfassen, vorzuhalten und/oder zu verwalten."
+    },
+    "rights": {
+      "title": "Welche Rechte haben Sie bezüglich Ihrer Daten?",
+      "text": "Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden."
+    },
+    "hosting": {
+      "title": "Hosting",
+      "text1": "Wir hosten die Inhalte unserer Website sowie die im CRM erfassten Daten bei zuverlässigen Cloud-Hosting-Anbietern.",
+      "text2": "Unsere Hosting-Anbieter haben Server auf der ganzen Welt, einschließlich Europa und den USA, sowie Backup-Server.",
+      "text3": "Die personenbezogenen Daten, die auf dieser Website sowie in unserem CRM erfasst wurden, werden auf den Servern dieser Hoster gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln.",
+      "text4": "Unsere Hoster werden Ihre Daten nur insoweit verarbeiten, wie dies zur Erfüllung seiner Leistungspflichten erforderlich ist und unsere Weisungen in Bezug auf diese Daten befolgen."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text1": "Wenn Sie unsere Dienste besuchen oder darauf zugreifen, autorisieren wir Dritte dazu, Webbeacons, Cookies sowie andere Technologien und Analysedienste einzusetzen. Diese Tracking-Technologien können es Dritten ermöglichen, Ihre Daten automatisch zu erfassen, um das Navigationserlebnis auf unseren digitalen Assets zu verbessern, deren Performance zu optimieren und ein maßgeschneidertes Nutzererlebnis zu gewährleisten.",
+      "text2": "Ohne Ihre Zustimmung werden wir Ihre E-Mail-Adresse oder andere personenbezogenen Daten nicht an Werbeunternehmen oder Werbenetzwerke weitergeben."
+    },
+    "storage": {
+      "title": "Wo speichern wir die Daten?",
+      "text1": "Bitte beachten Sie, dass unsere vertrauenswürdigen Partner und Dienstanbieter auf der ganzen Welt ansässig sind. Zu den in dieser Datenschutzrichtlinie erläuterten Zwecke speichern und verarbeiten wir alle nicht personenbezogenen Daten, die wir erfassen, in unterschiedlichen Rechtsordnungen.",
+      "text2": "Personenbezogene Daten können in den Vereinigten Staaten, in Irland, Südkorea, Taiwan, Israel und soweit für die ordnungsgemäße Bereitstellung unserer Dienste und/oder gesetzlich vorgeschrieben in anderen Rechtsordnungen gepflegt, verarbeitet und gespeichert werden."
+    },
+    "retention": {
+      "title": "Speicherdauer",
+      "text": "Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wollen Sie Ihre personenbezogenen Daten löschen lassen, genügt in der Regel ein entsprechendes formloses Schreiben per Email an contact@gmed-health.com."
+    },
+    "security": {
+      "title": "Wie schützen wir Ihre Daten?",
+      "text1": "Der Hosting-Dienst stellt uns die Online-Plattform zur Verfügung, über die wir Ihnen unsere Dienste anbieten können. Ihre Daten können über die Datenspeicherung, Datenbanken und allgemeine Anwendungen unseres Hosting-Anbieters gespeichert werden.",
+      "text2": "Ungeachtet der von uns und unserem Hosting-Anbieter ergriffenen Maßnahmen und Bemühungen können und werden wir keinen absoluten Schutz und keine absolute Sicherheit der Daten garantieren, die Sie hochladen, veröffentlichen oder anderweitig an uns oder andere weitergeben.",
+      "text3": "Aus diesem Grund möchten wir Sie bitten, sichere Passwörter festzulegen und uns oder anderen nach Möglichkeit keine vertraulichen Informationen zu übermitteln, deren Offenlegung Ihnen Ihrer Meinung nach erheblich bzw. nachhaltig schaden könnte.",
+      "text4": "Falls Sie uns Dokumente mit personenbezogenen bzw. vertraulichen Informationen per E-Mail oder Instant Messaging zukommen lassen, liegt es in Ihrem Verantwortungsbereich."
+    },
+    "minors": {
+      "title": "Wie gehen wir mit Minderjährigen um?",
+      "text1": "Minderjährige können unsere Dienste nutzen.",
+      "text2": "Wenn sie jedoch unsere Dienste nutzen möchten, müssen sie ggf. gewisse Angaben machen (insbesondere Kontaktdaten der Eltern). Die Erfassung einiger Daten kann automatisch erfolgen. Wenn wir wissentlich von einem Minderjährigen erfasste Daten sammeln, verwenden oder offenlegen, werden wir in Übereinstimmung mit geltendem Recht darauf hinweisen und die Zustimmung der Eltern einholen.",
+      "text3": "Wir können auch die Kontaktdaten eines Elternteils verwenden, um über die Aktivitäten eines Minderjährigen in den Diensten zu kommunizieren. Eltern können Daten, die wir von ihrem Kind erfasst haben, einsehen und verlangen, dass alle von uns erfassten Daten aus unseren Aufzeichnungen gelöscht werden.",
+      "text4": "Bitte nehmen Sie Kontakt zu uns auf, um die Daten Ihres Kindes einzusehen, zu aktualisieren oder zu löschen."
+    },
+    "updates": {
+      "title": "Aktualisierungen oder Änderungen der Datenschutzrichtlinie",
+      "text": "Wir können diese Datenschutzrichtlinie nach eigenem Ermessen von Zeit zu Zeit überarbeiten, die auf der Website veröffentlichte Version ist immer aktuell. Wir bitten Sie, diese Datenschutzrichtlinie regelmäßig auf Änderungen zu überprüfen. Bei wesentlichen Änderungen werden wir einen Hinweis dazu auf unserer Website veröffentlichen."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "text": "Wenn Sie allgemeine Fragen zu den Diensten oder den von uns über Sie erfassten Daten und deren Verwendung haben, kontaktieren Sie uns bitte unter:"
+    }
+  },
+  "impressumPage": {
+    "title": "Impressum",
+    "owner": "Inhaber",
+    "contact": "Kontakt",
+    "vatTitle": "Umsatzsteuer-ID",
+    "vatLegal": "Umsatzsteueridentifikationsnummer gemäß § 27 a Umsatzsteuergesetz:",
+    "contactPrompt": "Bei Fragen und Anregungen zum Inhalt der Website schicken Sie uns bitte eine E-Mail an:"
   }
 }

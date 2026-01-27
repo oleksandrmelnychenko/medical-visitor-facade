@@ -1,7 +1,7 @@
 @use '../../../styles/variables' as *;
 
 .footer {
-  background-color: #030712; // gray-950
+  background-color: #171717; // neutral-900
   color: #d1d5db; // gray-300
 }
 
@@ -22,28 +22,33 @@
 }
 
 .sectionTitle {
-  color: white;
+  color: #9ca3af; // gray-400
   margin-bottom: 1rem;
   font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
 }
 
 .textSmall {
   font-size: 0.875rem;
   line-height: 1.25rem;
+  color: white;
 }
 
 .linkList {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1.25rem;
 }
 
 .linkItem {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  
+
   a {
+    color: white;
+    text-decoration: underline;
     transition: color 0.15s;
     &:hover {
       color: #60a5fa; // blue-400
@@ -57,4 +62,5 @@
   padding-top: 1.5rem;
   text-align: center;
   font-size: 0.875rem;
+  color: white;
 }

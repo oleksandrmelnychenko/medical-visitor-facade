@@ -35,7 +35,8 @@ const step1Schema = z.object({
 
 const step2Schema = z.object({
   currentLocation: z
-    .string({ required_error: "Please select your location" })
+    .string({ message: "Please select your location" })
+    .min(1, "Please select your location")
     .refine((val) => ["germany", "eu", "other"].includes(val), {
       message: "Please select your location",
     }),

@@ -14,10 +14,10 @@ export function FullSupport() {
   const servicesTop = [
     { icon: Wallet, key: 'noFees', color: '#F4B4C4' },
     { icon: Heart, key: 'support', color: '#A8D5E5' },
-    { icon: Diamond, key: 'confidentiality', color: '#B5E5B0' },
   ];
 
   const servicesBottom = [
+    { icon: Diamond, key: 'confidentiality', color: '#B5E5B0' },
     { icon: Clock, key: 'promptness', color: '#D5A8E5' },
   ];
 

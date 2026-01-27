@@ -53,13 +53,16 @@
   margin-bottom: 2.5rem;
   margin-top: 1rem;
   width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 
   @include up(sm) {
     grid-template-columns: repeat(2, 1fr);
   }
 
   @include up(lg) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

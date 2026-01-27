@@ -1,4 +1,10 @@
 {
+  "cookies": {
+    "message": "Utilizamos cookies para mejorar su experiencia en nuestro sitio web. Al continuar navegando, acepta el uso de cookies.",
+    "accept": "Aceptar",
+    "decline": "Rechazar",
+    "learnMore": "Más información"
+  },
   "common": {
     "home": "Inicio",
     "learnMore": "Más información",
@@ -38,8 +44,10 @@
     "vatLegal": "según § 27 a de la Ley del IVA:",
     "vatNumber": "147/220/51409",
     "contactPrompt": "Para consultas y sugerencias sobre el contenido del sitio, por favor envíenos un correo a:",
-    "copyright": "© 2023 Agencia de Atención al Paciente Georgiy Gudiev",
-    "financialAssistance": "Asistencia financiera"
+    "copyright": "© {year} Patient Care Agency Heorhii Hudiiev",
+    "allRightsReserved": "Todos los derechos reservados",
+    "financialAssistance": "Asistencia financiera",
+    "privacyPolicy": "Política de privacidad"
   },
   "home": {
     "hero": {
@@ -148,7 +156,7 @@
     "fullSupport": {
       "overline": "Acompañamiento completo",
       "title": "Concepto de la agencia",
-      "subtitle": "Usted se ocupa de su salud. Nosotros de todo lo demás.",
+      "subtitle": "",
       "services": {
         "noFees": {
           "title": "Vuelos chárter",
@@ -204,7 +212,7 @@
     "cta": {
       "overline": "Acompañamiento continuo",
       "title": "Siempre a su lado",
-      "subtitle": "Después del tratamiento, nuestro apoyo no termina. Seguimos en contacto y le acompañamos tanto como sea necesario.",
+      "subtitle": "",
       "services": {
         "medications": {
           "title": "Entrega de medicamentos",
@@ -1077,5 +1085,101 @@
     "medicalRecordsDescription": "Acceder a su historial médico y documentos",
     "messages": "Mensajes",
     "messagesDescription": "Comunicarse con su equipo de atención médica"
+  },
+  "privacyPolicy": {
+    "title": "Política de privacidad",
+    "lastUpdated": "Última actualización: 01.01.2026",
+    "intro1": "Nos tomamos muy en serio la protección de los datos de los usuarios de nuestro sitio web y nos comprometemos a proteger la información que los usuarios nos proporcionan en relación con el uso de nuestro sitio web o servicios.",
+    "intro2": "Esta Política de Privacidad explica nuestras prácticas con respecto a la recopilación, uso y divulgación de sus datos a través del uso de nuestros servicios cuando accede a los servicios a través de sus dispositivos.",
+    "intro3": "Por favor, lea la Política de Privacidad detenidamente y asegúrese de comprender completamente nuestras prácticas con respecto a sus datos antes de utilizar nuestros servicios. Si ha leído y comprendido completamente esta política y no está de acuerdo con nuestro enfoque, debe dejar de utilizar nuestro sitio web y servicios.",
+    "intro4": "La información detallada sobre la protección de datos se puede encontrar en los puntos que se enumeran a continuación.",
+    "dataCollection": {
+      "title": "Recopilación de datos en este sitio web",
+      "text": "A continuación encontrará un resumen de los datos que podemos recopilar:",
+      "item1": "Información no identificada y no identificable recopilada de nuestro sitio web (\"datos no personales\"). Los datos no personales no permiten sacar conclusiones sobre quién los recopiló. Los datos no personales que recopilamos consisten principalmente en información técnica y de uso agregada.",
+      "item2": "Información identificable individualmente, es decir, cualquier información que pueda identificarle o que razonablemente pueda usarse para identificarle (\"datos personales\"). Los datos personales pueden incluir información como nombres, direcciones de correo electrónico, direcciones, números de teléfono, direcciones IP y más.",
+      "text2": "El procesamiento de datos en este sitio web es realizado por el operador del sitio web. Puede encontrar los datos de contacto del operador del sitio web en la sección \"Contacto\" de esta Política de Privacidad."
+    },
+    "howWeCollect": {
+      "title": "¿Cómo recopilamos sus datos?",
+      "text1": "Sus datos se recopilan cuando usted nos los proporciona. Estos pueden ser datos que ingresa en un formulario de contacto o nos proporciona por correo electrónico, como hallazgos preliminares necesarios, resultados de laboratorio, datos de imágenes, documentación médica y más. Otros datos se recopilan automáticamente o con su consentimiento cuando visita el sitio web a través de nuestros sistemas de TI.",
+      "text2": "Nos gustaría señalar que la transmisión de datos a través de Internet (por ejemplo, al comunicarse por correo electrónico) puede tener vulnerabilidades de seguridad. La protección completa de los datos contra el acceso de terceros no es posible y no está dentro de nuestra área de responsabilidad."
+    },
+    "purpose": {
+      "title": "¿Para qué utilizamos sus datos?",
+      "text": "Podemos utilizar sus datos para los siguientes fines:",
+      "item1": "para garantizar la provisión sin errores del sitio web;",
+      "item2": "para desarrollar, adaptar y mejorar nuestros servicios;",
+      "item3": "para responder a sus comentarios, consultas y solicitudes y ofrecer asistencia;",
+      "item4": "para analizar patrones de requisitos y uso;",
+      "item5": "para otros fines internos, estadísticos y de investigación;",
+      "item6": "para mejorar nuestras capacidades de seguridad de datos;",
+      "item7": "para enviarle actualizaciones, noticias y otra información relacionada con nuestros servicios.",
+      "text2": "Solo utilizamos sus datos personales para los fines establecidos en la Política de Privacidad y solo si estamos convencidos de que:",
+      "legal1": "el uso de sus datos personales es necesario para cumplir o celebrar un contrato;",
+      "legal2": "el uso de sus datos personales es necesario para cumplir con las obligaciones legales o reglamentarias correspondientes;",
+      "legal3": "el uso de sus datos personales es necesario para apoyar nuestros intereses comerciales legítimos."
+    },
+    "sharing": {
+      "title": "¿A quién transmitimos estos datos?",
+      "text1": "Podemos compartir sus datos con nuestros proveedores de servicios para operar nuestros servicios, en la medida en que sea apropiado para fines comerciales. Esta es principalmente información no identificable.",
+      "text2": "Podemos reenviar los documentos que nos proporcione, que pueden contener datos personales e información sobre tratamiento médico completado o en curso, a terceros de confianza si es necesario para la prestación de nuestros servicios. Estos incluyen médicos, intérpretes y traductores, expertos, pagadores y otras instalaciones médicas.",
+      "text3": "También podemos divulgar sus datos en las siguientes circunstancias: para establecer o ejercer nuestros derechos de defensa; para proteger nuestros derechos, propiedad y la seguridad de nuestros usuarios o del público; para recopilar, mantener y/o gestionar sus datos a través de proveedores externos autorizados."
+    },
+    "rights": {
+      "title": "¿Qué derechos tiene respecto a sus datos?",
+      "text": "Tiene derecho en cualquier momento a recibir información gratuita sobre el origen, los destinatarios y el propósito de sus datos personales almacenados. También tiene derecho a solicitar la corrección o eliminación de estos datos. Si ha dado su consentimiento para el procesamiento de datos, puede revocar este consentimiento en cualquier momento para el futuro. Puede contactarnos en cualquier momento sobre este y otros asuntos relacionados con la protección de datos."
+    },
+    "hosting": {
+      "title": "Alojamiento",
+      "text1": "Alojamos el contenido de nuestro sitio web y los datos registrados en el CRM con proveedores de alojamiento en la nube confiables.",
+      "text2": "Nuestros proveedores de alojamiento tienen servidores en todo el mundo, incluidos Europa y EE.UU., así como servidores de respaldo.",
+      "text3": "Los datos personales recopilados en este sitio web y en nuestro CRM se almacenan en los servidores de estos hosts. Esto puede incluir direcciones IP, solicitudes de contacto, datos de meta y comunicación, datos de contacto, nombres, acceso al sitio web y otros datos generados a través de un sitio web.",
+      "text4": "Nuestros hosts solo procesarán sus datos en la medida necesaria para cumplir con sus obligaciones de rendimiento y seguirán nuestras instrucciones con respecto a estos datos."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text1": "Cuando visita o accede a nuestros servicios, autorizamos a terceros a utilizar balizas web, cookies y otras tecnologías y servicios de análisis. Estas tecnologías de seguimiento pueden permitir que terceros recopilen automáticamente sus datos para mejorar la experiencia de navegación en nuestros activos digitales, optimizar su rendimiento y garantizar una experiencia de usuario personalizada.",
+      "text2": "Sin su consentimiento, no compartiremos su dirección de correo electrónico u otros datos personales con empresas de publicidad o redes publicitarias."
+    },
+    "storage": {
+      "title": "¿Dónde almacenamos los datos?",
+      "text1": "Tenga en cuenta que nuestros socios y proveedores de servicios de confianza están ubicados en todo el mundo. Para los fines explicados en esta Política de Privacidad, almacenamos y procesamos todos los datos no personales que recopilamos en diferentes jurisdicciones.",
+      "text2": "Los datos personales pueden mantenerse, procesarse y almacenarse en Estados Unidos, Irlanda, Corea del Sur, Taiwán, Israel y otras jurisdicciones según sea necesario para la prestación adecuada de nuestros servicios y/o según lo requiera la ley."
+    },
+    "retention": {
+      "title": "Duración del almacenamiento",
+      "text": "A menos que se indique un período de almacenamiento más específico en esta Política de Privacidad, sus datos personales permanecerán con nosotros hasta que ya no se aplique el propósito del procesamiento de datos. Si desea que se eliminen sus datos personales, generalmente es suficiente una carta informal por correo electrónico a contact@gmed-health.com."
+    },
+    "security": {
+      "title": "¿Cómo protegemos sus datos?",
+      "text1": "El servicio de alojamiento nos proporciona la plataforma en línea a través de la cual podemos ofrecerle nuestros servicios. Sus datos pueden almacenarse a través del almacenamiento de datos, bases de datos y aplicaciones generales de nuestro proveedor de alojamiento.",
+      "text2": "A pesar de las medidas y esfuerzos tomados por nosotros y nuestro proveedor de alojamiento, no podemos ni garantizaremos la protección y seguridad absolutas de los datos que carga, publica o comparte de otro modo con nosotros u otros.",
+      "text3": "Por esta razón, le pedimos que establezca contraseñas seguras y que, si es posible, no nos transmita a nosotros ni a otros información confidencial cuya divulgación crea que podría causarle un daño significativo o duradero.",
+      "text4": "Si nos envía documentos con información personal o confidencial por correo electrónico o mensajería instantánea, es su responsabilidad."
+    },
+    "minors": {
+      "title": "¿Cómo tratamos a los menores?",
+      "text1": "Los menores pueden utilizar nuestros servicios.",
+      "text2": "Sin embargo, si desean utilizar nuestros servicios, es posible que deban proporcionar cierta información (particularmente los datos de contacto de los padres). La recopilación de algunos datos puede ocurrir automáticamente. Si recopilamos, usamos o divulgamos conscientemente datos recopilados de un menor, lo indicaremos de acuerdo con la ley aplicable y obtendremos el consentimiento de los padres.",
+      "text3": "También podemos usar la información de contacto de un padre para comunicarnos sobre las actividades de un menor en los servicios. Los padres pueden ver los datos que hemos recopilado de su hijo y solicitar que se eliminen de nuestros registros todos los datos que hayamos recopilado.",
+      "text4": "Por favor, contáctenos para ver, actualizar o eliminar los datos de su hijo."
+    },
+    "updates": {
+      "title": "Actualizaciones o cambios en la Política de Privacidad",
+      "text": "Podemos revisar esta Política de Privacidad a nuestra discreción de vez en cuando; la versión publicada en el sitio web siempre es la actual. Le pedimos que revise esta Política de Privacidad regularmente para ver si hay cambios. En caso de cambios materiales, publicaremos un aviso en nuestro sitio web."
+    },
+    "contact": {
+      "title": "Contacto",
+      "text": "Si tiene preguntas generales sobre los servicios o los datos que recopilamos sobre usted y su uso, contáctenos en:"
+    }
+  },
+  "impressumPage": {
+    "title": "Aviso legal",
+    "owner": "Propietario",
+    "contact": "Contacto",
+    "vatTitle": "NIF",
+    "vatLegal": "Número de identificación fiscal según § 27 a de la Ley alemana del IVA:",
+    "contactPrompt": "Para preguntas y sugerencias sobre el contenido del sitio web, envíenos un correo electrónico a:"
   }
 }
