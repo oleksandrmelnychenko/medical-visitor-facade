@@ -8,10 +8,10 @@ import Link from "next/link";
 import { Eye, EyeOff } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
-import sectionStyles from "@/components/sections/shared/section.module.scss";
+import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
 import styles from "./login.module.scss";
-import formStyles from "@/components/auth/auth.module.scss";
+import formStyles from "@/components/auth/Auth.module.scss";
 
 type FormErrors = {
   identifier?: string;
@@ -35,7 +35,6 @@ export default function LoginPage() {
       return t('identifierRequired');
     }
 
-    // Check if it's an email
     if (trimmed.includes("@")) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(trimmed)) {
@@ -44,7 +43,6 @@ export default function LoginPage() {
       return undefined;
     }
 
-    // Otherwise treat as phone - should start with + and have at least 10 digits
     const phoneRegex = /^\+[0-9]{10,15}$/;
     if (!phoneRegex.test(trimmed.replace(/\s/g, ""))) {
       return t('invalidPhoneOrEmail');
@@ -90,7 +88,6 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validate all fields
     const identifierError = validateIdentifier(identifier);
     const passwordError = validatePassword(password);
 
@@ -146,8 +143,8 @@ export default function LoginPage() {
             <form className={formStyles.form} onSubmit={handleSubmit} autoComplete="off" noValidate>
               {error && <div className={formStyles.formError}>{error}</div>}
 
-              {/* Phone or Email field */}
               <div className={formStyles.simpleFormGroup}>
+                <label htmlFor="identifier" className={formStyles.srOnly}>{t('phoneOrEmail')}</label>
                 <input
                   id="identifier"
                   type="text"
@@ -163,8 +160,8 @@ export default function LoginPage() {
                 )}
               </div>
 
-              {/* Password field */}
               <div className={formStyles.simpleFormGroup}>
+                <label htmlFor="password" className={formStyles.srOnly}>{t('password')}</label>
                 <div className={formStyles.passwordWrapper}>
                   <input
                     id="password"
@@ -181,8 +178,9 @@ export default function LoginPage() {
                     className={formStyles.passwordToggle}
                     onClick={() => setShowPassword(!showPassword)}
                     tabIndex={-1}
+                    aria-label={showPassword ? t('hidePassword') : t('showPassword')}
                   >
-                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                    {showPassword ? <EyeOff size={20} aria-hidden="true" /> : <Eye size={20} aria-hidden="true" />}
                   </button>
                 </div>
                 {errors.password && touched.password && (
@@ -190,22 +188,18 @@ export default function LoginPage() {
                 )}
               </div>
 
-              {/* Forgot password link */}
               <Link href="/forgot-password" className={formStyles.forgotPassword}>
                 {t('forgotPassword')}
               </Link>
 
-              {/* Submit button */}
               <button type="submit" className={formStyles.submitButton} disabled={isSubmitting}>
                 {isSubmitting ? t('signingIn') : t('signIn')}
               </button>
 
-              {/* Confidentiality notice */}
               <p className={formStyles.confidentialityNotice}>
                 {t('confidentialityNotice')}
               </p>
 
-              {/* Privacy policy link */}
               <Link href="/privacy-policy" className={formStyles.policyLink}>
                 {t('privacyPolicyLink')}
               </Link>

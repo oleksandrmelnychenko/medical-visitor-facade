@@ -15,7 +15,9 @@
     "submit": "Enviar",
     "cancel": "Cancelar",
     "viewAll": "Ver todo",
-    "readMore": "Leer más"
+    "readMore": "Leer más",
+    "selectLanguage": "Seleccionar idioma",
+    "userMenu": "Menú de usuario"
   },
   "header": {
     "care": "Atención",
@@ -1016,6 +1018,8 @@
     "privacyPolicyLink": "Política de procesamiento de datos personales",
     "consentData": "Consentimiento para el procesamiento de datos personales",
     "consentMarketing": "Consentimiento para recibir comunicaciones informativas y promocionales",
+    "showPassword": "Mostrar contraseña",
+    "hidePassword": "Ocultar contraseña",
     "welcomeTitle": "Bienvenido",
     "welcomeSubtitle": "Inicie sesión en su cuenta",
     "registerTitle": "Hazte miembro",

@@ -4,7 +4,6 @@ import { compare } from "bcryptjs";
 import { prisma } from "./prisma";
 import type { UserRole } from "@prisma/client";
 
-// Extend the built-in types
 declare module "next-auth" {
   interface User {
     id: string;
@@ -47,19 +46,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         const identifier = (credentials.identifier as string).trim();
         const password = credentials.password as string;
 
-        // Determine if identifier is email or phone
         const isEmail = identifier.includes("@");
 
-        // Find user by phone or email with additional security checks
         const user = await prisma.user.findFirst({
           where: {
             ...(isEmail ? { email: identifier.toLowerCase() } : { phone: identifier }),
-            isActive: true, // Only allow active users
+            isActive: true,
           },
         });
 
         if (!user) {
-          // Prevent timing attacks - always hash even if user not found
           await compare(password, "$2a$12$dummy.hash.to.prevent.timing.attacks");
           return null;
         }
@@ -70,7 +66,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           return null;
         }
 
-        // For CLIENT users, check if they have a COMPLETED application
         if (user.role === "CLIENT") {
           const completedApplication = await prisma.application.findFirst({
             where: {
@@ -80,12 +75,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           });
 
           if (!completedApplication) {
-            // Throw error with specific code for pending application
             throw new Error("APPLICATION_PENDING");
           }
         }
 
-        // Combine firstName and lastName for the name field
         const fullName = [user.firstName, user.lastName].filter(Boolean).join(" ");
 
         return {
@@ -99,27 +92,22 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
   ],
 
-  // Session configuration
   session: {
     strategy: "jwt",
-    maxAge: 24 * 60 * 60, // 24 hours
-    updateAge: 60 * 60, // Update session every hour
+    maxAge: 24 * 60 * 60,
+    updateAge: 60 * 60,
   },
 
-  // JWT configuration
   jwt: {
-    maxAge: 24 * 60 * 60, // 24 hours
+    maxAge: 24 * 60 * 60,
   },
 
-  // Custom pages
   pages: {
     signIn: "/login",
     error: "/login",
   },
 
-  // Security callbacks
   callbacks: {
-    // Add role and other data to JWT token
     async jwt({ token, user, trigger, session }) {
       if (user) {
         token.id = user.id;
@@ -127,7 +115,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.phone = user.phone;
       }
 
-      // Handle session update
       if (trigger === "update" && session) {
         token.name = session.name;
       }
@@ -135,7 +122,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return token;
     },
 
-    // Add role and other data to session
     async session({ session, token }) {
       if (session.user) {
         session.user.id = token.id;
@@ -147,7 +133,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
   },
 
-  // Events for logging/auditing
   events: {
     async signIn({ user }) {
       console.log(`[AUTH] User signed in: ${user.email}`);
@@ -157,25 +142,20 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
   },
 
-  // Trust the host header
   trustHost: true,
 
-  // Enable debug in development
   debug: process.env.NODE_ENV === "development",
 });
 
-// Helper function to check if user has required role
 export function hasRole(userRole: UserRole | undefined, requiredRoles: UserRole[]): boolean {
   if (!userRole) return false;
   return requiredRoles.includes(userRole);
 }
 
-// Helper function to check if user is admin
 export function isAdmin(userRole: UserRole | undefined): boolean {
   return hasRole(userRole, ["ADMIN"]);
 }
 
-// Helper function to check if user is manager or admin
 export function isManagerOrAdmin(userRole: UserRole | undefined): boolean {
   return hasRole(userRole, ["ADMIN", "MANAGER"]);
 }

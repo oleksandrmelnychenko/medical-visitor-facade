@@ -4,7 +4,7 @@ import React from 'react';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import pageStyles from '@/styles/page.module.scss';
-import styles from '../request-appointment.module.scss';
+import styles from '../RequestAppointment/RequestAppointment.module.scss';
 
 interface PhysicianFormProps {
   onBack: () => void;

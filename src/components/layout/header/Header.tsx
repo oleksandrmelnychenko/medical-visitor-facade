@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 import { useSession, signOut } from "next-auth/react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/providers/LanguageProvider";
-import styles from "./header.module.scss";
+import styles from "./Header.module.scss";
 
 export function Header() {
   const tCommon = useTranslations('common');
@@ -24,7 +24,6 @@ export function Header() {
   const langRef = useRef<HTMLDivElement>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
 
-  // Throttled scroll handler for better performance
   useEffect(() => {
     let ticking = false;
 
@@ -42,7 +41,6 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (langRef.current && !langRef.current.contains(event.target as Node)) {
@@ -57,7 +55,6 @@ export function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Memoize languages array to prevent recreation on each render
   const languages = useMemo(() => [
     { code: 'de' as const, label: 'DE', fullName: 'Deutsch' },
     { code: 'en' as const, label: 'EN', fullName: 'English' },
@@ -80,7 +77,6 @@ export function Header() {
     await signOut({ callbackUrl: "/" });
   };
 
-  // Get user info
   const userName = session?.user?.name ||
     ((session?.user as { firstName?: string; lastName?: string })?.firstName &&
      (session?.user as { firstName?: string; lastName?: string })?.lastName
@@ -96,9 +92,7 @@ export function Header() {
   return (
     <header ref={headerRef} className={cn(styles.header, isScrolled && styles.scrolled)}>
       <div className={styles.container}>
-        {/* Row 1: Utility items (above logo) */}
         <div className={styles.utilityRow}>
-          {/* Admin title on the left */}
           {isAdmin && (
             <Link href="/admin" className={styles.adminTitle}>{tAdmin("adminPanel")}</Link>
           )}
@@ -110,17 +104,18 @@ export function Header() {
                   {tCommon('requestAppointment')}
                 </Link>
                 <Link href="/login" className={styles.loginLink}>
-                  <User />
+                  <User aria-hidden="true" />
                   {tCommon('login')}
                 </Link>
               </>
             )}
 
-            {/* Language Selector */}
             <div className={styles.languageSelector} ref={langRef}>
               <button
                 className={styles.langToggle}
                 onClick={() => setIsLangOpen(!isLangOpen)}
+                aria-label={tCommon('selectLanguage')}
+                aria-expanded={isLangOpen}
               >
                 {currentLanguage?.label}
               </button>
@@ -141,14 +136,15 @@ export function Header() {
               )}
             </div>
 
-            {/* User menu for authenticated users */}
             {status === "authenticated" && (
               <div className={styles.userMenu} ref={userMenuRef}>
                 <button
                   className={styles.userMenuToggle}
                   onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                  aria-label={tCommon('userMenu')}
+                  aria-expanded={isUserMenuOpen}
                 >
-                  <User size={18} />
+                  <User size={18} aria-hidden="true" />
                   {userName}
                 </button>
                 {isUserMenuOpen && (
@@ -161,7 +157,7 @@ export function Header() {
                     )}
                     <div className={styles.userMenuSeparator} />
                     <button onClick={handleLogout} className={styles.userMenuLogout}>
-                      <LogOut size={16} />
+                      <LogOut size={16} aria-hidden="true" />
                       {tAdmin("logout")}
                     </button>
                   </div>
@@ -171,7 +167,6 @@ export function Header() {
           </div>
         </div>
 
-        {/* Row 2: Logo (centered) */}
         <div className={styles.logoRow}>
           <Link href="/" className={styles.logoLink}>
             <Image

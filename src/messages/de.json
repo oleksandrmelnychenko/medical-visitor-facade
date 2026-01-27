@@ -15,7 +15,9 @@
     "submit": "Senden",
     "cancel": "Abbrechen",
     "viewAll": "Alle ansehen",
-    "readMore": "Weiterlesen"
+    "readMore": "Weiterlesen",
+    "selectLanguage": "Sprache auswählen",
+    "userMenu": "Benutzermenü"
   },
   "header": {
     "care": "Betreuung",
@@ -1016,6 +1018,8 @@
     "privacyPolicyLink": "Richtlinie zur Verarbeitung personenbezogener Daten",
     "consentData": "Einwilligung zur Verarbeitung personenbezogener Daten",
     "consentMarketing": "Einwilligung zum Erhalt von Informations- und Werbenachrichten",
+    "showPassword": "Passwort anzeigen",
+    "hidePassword": "Passwort ausblenden",
     "welcomeTitle": "Willkommen",
     "welcomeSubtitle": "Melden Sie sich in Ihrem Konto an",
     "registerTitle": "Mitglied werden",

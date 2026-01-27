@@ -72,3 +72,34 @@
     text-decoration: none;
   }
 }
+
+@media (max-width: 640px) {
+  .heroSection {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  .formSection {
+    padding-top: 0.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .formContainer {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .headerDivider {
+    margin-top: 1rem;
+  }
+
+  .backLink {
+    font-size: 0.8125rem;
+    margin-bottom: 1rem;
+  }
+
+  .switchText {
+    margin-top: 1.5rem;
+    font-size: 0.8125rem;
+  }
+}

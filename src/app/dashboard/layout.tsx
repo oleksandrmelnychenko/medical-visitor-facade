@@ -1,3 +1,14 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dashboard",
+  description: "Your GMED Agency dashboard - manage your applications and medical services.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+
 export default function DashboardLayout({
   children,
 }: {

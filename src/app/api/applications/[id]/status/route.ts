@@ -14,7 +14,6 @@ const statusSchema = z.object({
   comment: z.string().optional(),
 });
 
-// PATCH - Update application status
 export async function PATCH(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -26,7 +25,6 @@ export async function PATCH(
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // Check role - only ADMIN and MANAGER can update status
     const userRole = session.user.role;
     if (userRole !== "ADMIN" && userRole !== "MANAGER") {
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
@@ -35,7 +33,6 @@ export async function PATCH(
     const { id } = await params;
     const body = await request.json();
 
-    // Validate input
     const validationResult = statusSchema.safeParse(body);
     if (!validationResult.success) {
       return NextResponse.json(
@@ -46,7 +43,6 @@ export async function PATCH(
 
     const { status, comment } = validationResult.data;
 
-    // Get current application
     const application = await prisma.application.findUnique({
       where: { id },
       select: { status: true },
@@ -56,7 +52,6 @@ export async function PATCH(
       return NextResponse.json({ error: "Application not found" }, { status: 404 });
     }
 
-    // Update application status and create history entry
     const [updatedApplication] = await prisma.$transaction([
       prisma.application.update({
         where: { id },

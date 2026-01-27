@@ -35,17 +35,13 @@ export function LanguageProvider({
   const [messages, setMessages] = useState<Record<string, unknown>>(initialMessages);
 
   const setLocale = async (newLocale: Locale) => {
-    // Load new messages
     const newMessages = await import(`../messages/${newLocale}.json`);
     setMessages(newMessages.default);
     setLocaleState(newLocale);
-
-    // Save to cookie for server-side persistence
     document.cookie = `locale=${newLocale};path=/;max-age=31536000`;
   };
 
   useEffect(() => {
-    // Check for saved locale in cookie on mount
     const savedLocale = document.cookie
       .split('; ')
       .find(row => row.startsWith('locale='))

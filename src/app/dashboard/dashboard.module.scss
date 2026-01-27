@@ -109,7 +109,6 @@
   padding-bottom: 4rem;
 }
 
-// Welcome Section
 .welcomeSection {
   margin-bottom: 2rem;
 }
@@ -174,7 +173,6 @@
   }
 }
 
-// Stats Grid
 .statsGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -247,7 +245,6 @@
   color: var(--muted-foreground);
 }
 
-// Content Grid
 .contentGrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -258,7 +255,6 @@
   }
 }
 
-// Applications Section
 .applicationsCard {
   background: var(--background);
   border: 1px solid var(--border);
@@ -410,7 +406,6 @@
   }
 }
 
-// Quick Actions
 .quickActionsCard {
   background: var(--background);
   border: 1px solid var(--border);
@@ -466,7 +461,6 @@
   }
 }
 
-// Profile Card
 .profileCard {
   background: var(--background);
   border: 1px solid var(--border);
@@ -534,7 +528,6 @@
   }
 }
 
-// Loading State
 .loadingContainer {
   display: flex;
   flex-direction: column;

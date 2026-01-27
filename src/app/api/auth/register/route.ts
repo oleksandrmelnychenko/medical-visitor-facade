@@ -8,7 +8,6 @@ export async function POST(request: Request) {
     const body = await request.json();
     const validatedData = registerSchema.parse(body);
 
-    // Run user lookup and password hashing in parallel for better performance
     const [existingUser, hashedPassword] = await Promise.all([
       prisma.user.findFirst({
         where: {

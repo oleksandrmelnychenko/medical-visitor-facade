@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import styles from '../request-appointment.module.scss';
+import styles from '../RequestAppointment/RequestAppointment.module.scss';
 import { PatientType } from '../RequestAppointment';
 
 interface PatientTypeSelectionProps {

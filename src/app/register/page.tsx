@@ -5,7 +5,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import { RegisterWizard } from "@/components/auth/RegisterWizard";
-import sectionStyles from "@/components/sections/shared/section.module.scss";
+import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
 import styles from "./register.module.scss";
 

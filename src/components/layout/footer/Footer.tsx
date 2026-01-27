@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import styles from "./footer.module.scss";
+import styles from "./Footer.module.scss";
 
 export function Footer() {
   const t = useTranslations("footer");

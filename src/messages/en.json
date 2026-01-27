@@ -15,7 +15,9 @@
     "submit": "Submit",
     "cancel": "Cancel",
     "viewAll": "View all",
-    "readMore": "Read more"
+    "readMore": "Read more",
+    "selectLanguage": "Select language",
+    "userMenu": "User menu"
   },
   "header": {
     "care": "Care",
@@ -1016,6 +1018,8 @@
     "privacyPolicyLink": "Personal data processing policy",
     "consentData": "Consent to personal data processing",
     "consentMarketing": "Consent to receive informational and promotional messages",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
     "welcomeTitle": "Welcome",
     "welcomeSubtitle": "Sign in to your account",
     "registerTitle": "Become a member",

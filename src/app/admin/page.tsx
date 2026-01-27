@@ -73,7 +73,6 @@ export default function AdminPage() {
   const [updatingStatus, setUpdatingStatus] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
 
-  // Click outside to close sidebar
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
@@ -110,7 +109,6 @@ export default function AdminPage() {
     if (status === "unauthenticated") {
       router.push("/login");
     }
-    // Check role - only ADMIN and MANAGER can access
     if (status === "authenticated" && session?.user) {
       const role = (session.user as { role?: string }).role;
       if (role !== "ADMIN" && role !== "MANAGER") {
@@ -177,7 +175,6 @@ export default function AdminPage() {
         throw new Error(data.error || "Failed to update status");
       }
 
-      // Update local state
       const updatedApp = data.data;
       setApplications((prev) =>
         prev.map((app) => (app.id === appId ? updatedApp : app))
@@ -205,7 +202,6 @@ export default function AdminPage() {
 
   return (
     <div className={styles.adminContainer}>
-      {/* Sidebar */}
       <AnimatePresence>
         {selectedApp && (
           <motion.div
@@ -223,7 +219,6 @@ export default function AdminPage() {
               </button>
             </div>
           <div className={styles.sidebarContent}>
-            {/* Status Selector */}
             <div className={styles.statusSection}>
               <h4 className={styles.sectionTitle}>{t("status")}</h4>
               <div className={styles.statusGrid}>
@@ -247,7 +242,6 @@ export default function AdminPage() {
               </div>
             </div>
 
-            {/* Services */}
             <div className={styles.servicesSection}>
               <h4 className={styles.sectionTitle}>{t("services")}</h4>
               <div className={styles.servicesList}>
@@ -269,7 +263,6 @@ export default function AdminPage() {
               </div>
             </div>
 
-            {/* Client Notes */}
             {selectedApp.clientNotes && (
               <div className={styles.notesSection}>
                 <h4 className={styles.notesTitle}>{t("clientNotes")}</h4>
@@ -281,7 +274,6 @@ export default function AdminPage() {
         )}
       </AnimatePresence>
 
-      {/* Main content */}
       <main className={styles.main}>
         <div className={styles.tableHeader}>
           <div className={styles.tableHeaderLeft}>
@@ -299,7 +291,6 @@ export default function AdminPage() {
 
         {error && <div className={styles.error}>{error}</div>}
 
-        {/* Status Legend */}
         <div className={styles.statusLegend}>
           {Object.entries(statusLabelKeys).map(([key, labelKey]) => (
             <div key={key} className={styles.legendItem}>
@@ -358,7 +349,6 @@ export default function AdminPage() {
           </div>
         )}
 
-        {/* Pagination */}
         {pagination && pagination.totalPages > 1 && (
           <div className={styles.pagination}>
             <button

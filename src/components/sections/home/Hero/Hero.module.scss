@@ -1,0 +1,209 @@
+@use "../../../../styles/variables" as *;
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: #0a0a0a !important;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 70% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    width: 1px;
+    height: 30%;
+    transform: translateY(-50%);
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.15), transparent);
+    pointer-events: none;
+
+    @include up(lg) {
+      height: 40%;
+    }
+  }
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.heroWrapper {
+  position: relative;
+  width: 100%;
+  padding: clamp(6rem, 15vh, 10rem) 0;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 720px;
+}
+
+.heroOverline {
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  &::before {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.heroTitle {
+  color: #fff;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  max-width: 14ch;
+}
+
+.heroSubtitle {
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 32rem;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.heroActions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  @include up(sm) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid #fff;
+  background-color: #fff;
+  color: #0a0a0a;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.25s, color 0.25s;
+
+  &:hover {
+    background-color: transparent;
+    color: #fff;
+  }
+}
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.25s, color 0.25s;
+
+  &:hover {
+    border-color: #fff;
+    color: #fff;
+  }
+}
+
+.heroHighlights {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  gap: 2rem;
+
+  @include up(sm) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3rem;
+  }
+}
+
+.heroHighlight {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.highlightLabel {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.highlightValue {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 3rem;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scaleY(1.1);
+  }
+}

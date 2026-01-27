@@ -6,7 +6,7 @@ import { User, ChevronDown } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import pageStyles from '@/styles/page.module.scss';
-import styles from '../request-appointment.module.scss';
+import styles from '../RequestAppointment/RequestAppointment.module.scss';
 
 export function NewPatientForm() {
   const t = useTranslations('appointment.newPatient');
