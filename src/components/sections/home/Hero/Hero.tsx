@@ -8,12 +8,49 @@ import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./Hero.module.scss";
 
+// Floating blob component
+function FloatingBlob({
+  color,
+  size,
+  top,
+  left,
+  morphDelay = 0,
+  morphDuration = 15
+}: {
+  color: string;
+  size: number;
+  top: string;
+  left: string;
+  morphDelay?: number;
+  morphDuration?: number;
+}) {
+  return (
+    <div
+      className={styles.blob}
+      style={{
+        background: color,
+        width: size,
+        height: size,
+        top,
+        left,
+        animationDelay: `${morphDelay}s`,
+        animationDuration: `${morphDuration}s`,
+      }}
+    />
+  );
+}
 
 export function Hero() {
   const t = useTranslations('home.hero');
 
   return (
     <section className={cn(sectionStyles.section, styles.hero)}>
+      {/* Floating blobs background */}
+      <div className={styles.blobsContainer}>
+        <FloatingBlob color="#D5A8E5" size={350} top="20%" left="-5%" morphDelay={0} morphDuration={20} />
+        <FloatingBlob color="#A8D5E5" size={300} top="30%" left="85%" morphDelay={5} morphDuration={25} />
+        <FloatingBlob color="#B5E5B0" size={250} top="70%" left="0%" morphDelay={10} morphDuration={22} />
+      </div>
       <div className={cn(sectionStyles.container, styles.heroContainer)}>
         <div className={styles.heroWrapper}>
           <div className={styles.heroContent}>

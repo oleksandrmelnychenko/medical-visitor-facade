@@ -7,7 +7,51 @@
   align-items: flex-start;
   padding-top: 4rem;
   padding-bottom: 2rem;
-  background: linear-gradient(180deg, #ffffff 0%, #f0f6fc 50%, #e6f0f8 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+}
+
+.blobsContainer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  filter: blur(120px);
+  opacity: 0.45;
+  animation: blobMorph 15s ease-in-out infinite;
+
+  @media (max-width: 768px) {
+    filter: blur(80px);
+    transform: scale(0.6);
+  }
+}
+
+@keyframes blobMorph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: translate(20px, -30px) scale(1.05);
+  }
+  50% {
+    border-radius: 50% 60% 30% 60% / 30% 40% 70% 50%;
+    transform: translate(-15px, 20px) scale(0.95);
+  }
+  75% {
+    border-radius: 40% 30% 60% 50% / 70% 50% 40% 60%;
+    transform: translate(25px, 15px) scale(1.02);
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: translate(0, 0) scale(1);
+  }
 }
 
 .heroContainer {
