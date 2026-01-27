@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { Search, Plane, Headphones } from "lucide-react";
+import { Building2, Stethoscope, Activity } from "lucide-react";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./CareForward.module.scss";
 
@@ -10,9 +10,9 @@ export function CareForward() {
   const t = useTranslations('home.careForward');
 
   const services = [
-    { icon: Search, key: 'clinic' },
-    { icon: Plane, key: 'organization' },
-    { icon: Headphones, key: 'coordination' },
+    { icon: Building2, key: 'clinic' },
+    { icon: Stethoscope, key: 'organization' },
+    { icon: Activity, key: 'coordination' },
   ];
 
   return (

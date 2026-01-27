@@ -53,80 +53,27 @@
   },
   "home": {
     "hero": {
-      "overline": "GMED Agency",
-      "title": "Medizinische Begleitung",
-      "subtitle": "Organisation der Behandlung und umfassende Begleitung unserer Kunden",
-      "requestAppointment": "Kunde werden",
-      "exploreServices": "Mehr erfahren",
-      "highlights": {
-        "responseTime": {
-          "label": "Erreichbarkeit",
-          "value": "Persönlicher Ansprechpartner jederzeit erreichbar"
-        },
-        "careCoordination": {
-          "label": "Service",
-          "value": "Umfassende Begleitung"
-        },
-        "languages": {
-          "label": "Sprachen",
-          "value": "DE, EN, RU"
-        }
-      },
-      "badge": {
-        "title": "Privater Service",
-        "text": "Für anspruchsvolle Kunden"
-      },
-      "videoOverlay": "Persönlicher Ansatz"
+      "overline": "",
+      "title": "Medizinische Concierge-Agentur",
+      "subtitle": "von Heorhii Hudiiev",
+      "requestAppointment": "Kunde werden"
     },
     "careForward": {
-      "overline": "",
       "title": "Was wir tun",
-      "subtitle": "",
       "services": {
         "clinic": {
-          "title": "Klinikauswahl",
-          "desc": "Wir finden die passende Klinik und den passenden Arzt für Ihren individuellen Fall"
+          "title": "Klinik",
+          "desc": "Auswahl einer spezialisierten medizinischen Einrichtung"
         },
         "organization": {
-          "title": "Reiseorganisation",
-          "desc": "Visa, Flüge, Transfers und Unterkunft - wir übernehmen alles"
+          "title": "Spezialisten",
+          "desc": "Vermittlung führender Fachärzte"
         },
         "coordination": {
-          "title": "Persönlicher Koordinator",
-          "desc": "Rund um die Uhr erreichbar - in jeder Behandlungsphase und darüber hinaus"
+          "title": "Behandlung",
+          "desc": "Organisation von Diagnostik und Behandlungen"
         }
-      },
-      "learnMore": "Mehr erfahren"
-    },
-    "services": {
-      "overline": "Was wir anbieten",
-      "title": "Unsere Leistungen",
-      "subtitle": "Ganzheitliche Lösungen im Gesundheitswesen, abgestimmt auf Ihre Bedürfnisse",
-      "items": {
-        "cardiology": {
-          "title": "Kardiologie",
-          "subtitle": "Herz-Kreislauf-Medizin",
-          "description": "Umfassende kardiologische Versorgung mit Diagnostik, Behandlung und Prävention."
-        },
-        "oncology": {
-          "title": "Onkologie",
-          "subtitle": "Onkologische Versorgung",
-          "description": "Moderne Krebstherapie mit individuellen Behandlungsplänen und unterstützender Betreuung."
-        },
-        "surgery": {
-          "title": "Chirurgie",
-          "subtitle": "Chirurgische Kompetenz",
-          "description": "Minimalinvasive und klassische Eingriffe durch erfahrene Chirurgen."
-        }
-      },
-      "learnMore": "Mehr erfahren"
-    },
-    "trust": {
-      "overline": "Privatsphäre",
-      "title": "Absolute Vertraulichkeit",
-      "subtitle": "Wir verstehen den Wert von Privatsphäre für unsere Kunden.",
-      "description": "Die Zusammenarbeit mit jedem Kunden basiert auf vollständiger Vertraulichkeit. Ihre Daten, Behandlungshistorie und selbst die Tatsache der Anfrage sind sicher geschützt.",
-      "guarantee": "Strenge Standards für Privatsphäre in jeder Phase."
+      }
     },
     "office": {
       "overline": "",
@@ -160,25 +107,21 @@
       "title": "Agenturkonzept",
       "subtitle": "",
       "services": {
-        "noFees": {
-          "title": "Charterflüge",
-          "desc": "Wir organisieren Privatflüge zu einem passenden Zeitpunkt. Ohne Warteschlangen und Umstiege."
-        },
-        "support": {
-          "title": "Persönlicher Transport",
-          "desc": "Premiumfahrzeug mit Fahrer für alle Wege."
+        "promptness": {
+          "title": "Koordinator",
+          "desc": "Begleitung in allen Phasen Ihres Aufenthalts"
         },
         "confidentiality": {
           "title": "Visa-Unterstützung",
-          "desc": "Vollständige Dokumentenerstellung. Visa, Einladungen, Bescheinigungen - wir kümmern uns um alles."
+          "desc": "Bearbeitung der Einreisedokumente"
         },
-        "performance": {
-          "title": "Persönlicher Dolmetscher",
-          "desc": "Ein professioneller Dolmetscher begleitet Sie bei allen Terminen und Konsultationen."
+        "support": {
+          "title": "Transfer",
+          "desc": "Organisation des Bodentransports"
         },
-        "promptness": {
-          "title": "Persönlicher Koordinator",
-          "desc": "Ein persönlicher Ansprechpartner ist jederzeit erreichbar. Wir klären alle Fragen."
+        "noFees": {
+          "title": "Charter",
+          "desc": "Organisation des Lufttransports"
         }
       },
       "journey": {
@@ -194,7 +137,7 @@
           },
           "arrival": {
             "title": "Anreise und Empfang",
-            "desc": "Wir empfangen Sie am Flughafen und bringen Sie ins Hotel"
+            "desc": "Wir empfangen Sie am Flughafen und bringen Sie zum Hotel"
           },
           "treatment": {
             "title": "Behandlung",
@@ -207,30 +150,26 @@
         }
       },
       "promise": {
-        "title": "Umfassendes Management Ihrer Gesundheit",
-        "text": "Wir organisieren nicht nur die Behandlung. Wir übernehmen jedes Detail - vom ersten Anruf bis zu Ihrer Rückkehr nach Hause."
+        "title": "Begleitung in jeder Phase",
+        "text": "Vom ersten Anruf bis zur Rückkehr — wir begleiten Sie bei der Organisation."
       }
     },
     "cta": {
       "overline": "",
-      "title": "Wir bleiben an Ihrer Seite",
+      "title": "Begleitung",
       "subtitle": "",
       "services": {
-        "medications": {
-          "title": "Medikamentenlieferung",
-          "desc": "Wir organisieren die Lieferung verordneter Medikamente in jeden Teil der Welt"
-        },
         "support": {
-          "title": "Ständige Erreichbarkeit",
-          "desc": "Ein persönlicher Ansprechpartner ist jederzeit erreichbar und klärt alle Fragen"
+          "title": "Kontakt",
+          "desc": "Koordinator für Kommunikation erreichbar"
         },
         "monitoring": {
-          "title": "Gesundheitsmonitoring",
-          "desc": "Wir überwachen Ihren Zustand und koordinieren mit den behandelnden Ärzten"
+          "title": "Ärzte",
+          "desc": "Kommunikation mit behandelnden Ärzten"
         },
         "consultations": {
-          "title": "Online-Konsultationen",
-          "desc": "Wir führen Videokonsultationen von überall auf der Welt durch, ohne dass eine Reise nötig ist"
+          "title": "Konsultationen",
+          "desc": "Organisation von Online-Konsultationen"
         }
       },
       "bookConsultation": "Kunde werden",

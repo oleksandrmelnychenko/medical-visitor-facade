@@ -53,80 +53,27 @@
   },
   "home": {
     "hero": {
-      "overline": "GMED Agency",
-      "title": "Acompañamiento médico",
-      "subtitle": "Organización del tratamiento y acompañamiento integral del cliente",
-      "requestAppointment": "Convertirse en cliente",
-      "exploreServices": "Más información",
-      "highlights": {
-        "responseTime": {
-          "label": "Disponibilidad",
-          "value": "Gestor personal disponible en todo momento"
-        },
-        "careCoordination": {
-          "label": "Servicio",
-          "value": "Acompañamiento integral"
-        },
-        "languages": {
-          "label": "Idiomas",
-          "value": "DE, EN, RU"
-        }
-      },
-      "badge": {
-        "title": "Servicio privado",
-        "text": "Para clientes exigentes"
-      },
-      "videoOverlay": "Enfoque personalizado"
+      "overline": "",
+      "title": "Agencia de Concierge Médico",
+      "subtitle": "de Heorhii Hudiiev",
+      "requestAppointment": "Convertirse en cliente"
     },
     "careForward": {
-      "overline": "",
       "title": "Lo que hacemos",
-      "subtitle": "",
       "services": {
         "clinic": {
-          "title": "Selección de clínica",
-          "desc": "Encontramos la clínica y el médico adecuados para su caso"
+          "title": "Clínica",
+          "desc": "Selección de centro médico especializado"
         },
         "organization": {
-          "title": "Organización del viaje",
-          "desc": "Visados, vuelos, traslados, alojamiento - nos ocupamos de todo"
+          "title": "Especialistas",
+          "desc": "Asignación de médicos líderes en el campo"
         },
         "coordination": {
-          "title": "Coordinador personal",
-          "desc": "Disponible en todo momento durante cada etapa del tratamiento y después"
+          "title": "Tratamiento",
+          "desc": "Organización de diagnósticos y procedimientos"
         }
-      },
-      "learnMore": "Más información"
-    },
-    "services": {
-      "overline": "Lo que ofrecemos",
-      "title": "Nuestros servicios",
-      "subtitle": "Soluciones integrales de salud adaptadas a sus necesidades",
-      "items": {
-        "cardiology": {
-          "title": "Cardiología",
-          "subtitle": "Atención cardiovascular",
-          "description": "Atención cardiovascular integral que incluye diagnóstico, tratamiento y prevención de enfermedades cardíacas."
-        },
-        "oncology": {
-          "title": "Oncología",
-          "subtitle": "Atención oncológica",
-          "description": "Atención avanzada del cáncer con planes de tratamiento personalizados y terapias de apoyo."
-        },
-        "surgery": {
-          "title": "Cirugía",
-          "subtitle": "Excelencia quirúrgica",
-          "description": "Procedimientos quirúrgicos mínimamente invasivos y tradicionales realizados por cirujanos experimentados."
-        }
-      },
-      "learnMore": "Más información"
-    },
-    "trust": {
-      "overline": "Privacidad",
-      "title": "Confidencialidad absoluta",
-      "subtitle": "Entendemos el valor de la privacidad para nuestros clientes.",
-      "description": "La colaboración con cada cliente se basa en la confidencialidad total. Sus datos, historial de tratamiento e incluso el hecho de su consulta están protegidos.",
-      "guarantee": "Estándares estrictos de privacidad en cada etapa."
+      }
     },
     "office": {
       "overline": "",
@@ -157,28 +104,24 @@
     },
     "fullSupport": {
       "overline": "",
-      "title": "Concepto de la agencia",
+      "title": "Concepto de la Agencia",
       "subtitle": "",
       "services": {
-        "noFees": {
-          "title": "Vuelos chárter",
-          "desc": "Organizamos un vuelo privado en el momento conveniente. Sin colas ni escalas."
-        },
-        "support": {
-          "title": "Transporte personal",
-          "desc": "Vehículo premium con conductor para todos sus desplazamientos."
+        "promptness": {
+          "title": "Coordinador",
+          "desc": "Acompañamiento en todas las etapas de su estancia"
         },
         "confidentiality": {
-          "title": "Apoyo para visados",
-          "desc": "Gestión completa de documentos. Visados, invitaciones, certificados: resolvemos todo."
+          "title": "Apoyo para Visados",
+          "desc": "Tramitación de documentación de entrada"
         },
-        "performance": {
-          "title": "Intérprete personal",
-          "desc": "Un intérprete profesional le acompaña en todas las reuniones y consultas."
+        "support": {
+          "title": "Traslado",
+          "desc": "Organización de transporte terrestre"
         },
-        "promptness": {
-          "title": "Coordinador dedicado",
-          "desc": "Un gestor personal está disponible en todo momento y resuelve cualquier cuestión."
+        "noFees": {
+          "title": "Chárter",
+          "desc": "Organización de transporte aéreo"
         }
       },
       "journey": {
@@ -207,30 +150,26 @@
         }
       },
       "promise": {
-        "title": "Gestión integral de su salud",
-        "text": "No solo organizamos el tratamiento. Nos ocupamos de cada detalle, desde la primera llamada hasta su regreso a casa."
+        "title": "Acompañamiento en cada etapa",
+        "text": "Desde la primera consulta hasta su regreso a casa — estamos aquí para asistir en la organización."
       }
     },
     "cta": {
       "overline": "",
-      "title": "Siempre a su lado",
+      "title": "Acompañamiento",
       "subtitle": "",
       "services": {
-        "medications": {
-          "title": "Entrega de medicamentos",
-          "desc": "Organizamos la entrega de los medicamentos prescritos a cualquier parte del mundo"
-        },
         "support": {
-          "title": "Contacto permanente",
-          "desc": "Un gestor personal está disponible en todo momento para resolver cualquier cuestión"
+          "title": "Contacto",
+          "desc": "Coordinador disponible para comunicación"
         },
         "monitoring": {
-          "title": "Monitoreo de salud",
-          "desc": "Supervisamos su estado y coordinamos con los médicos tratantes"
+          "title": "Médicos",
+          "desc": "Comunicación con médicos tratantes"
         },
         "consultations": {
-          "title": "Consultas en línea",
-          "desc": "Realizamos videoconsultas desde cualquier parte del mundo sin necesidad de viajar"
+          "title": "Consultas",
+          "desc": "Organización de consultas en línea"
         }
       },
       "bookConsultation": "Convertirse en cliente",
@@ -1022,7 +961,7 @@
     "hidePassword": "Ocultar contraseña",
     "welcomeTitle": "Bienvenido",
     "welcomeSubtitle": "Inicie sesión en su cuenta",
-    "registerTitle": "Hazte miembro",
+    "registerTitle": "Hágase miembro",
     "registerSubtitle": "Complete sus datos para unirse a nuestra membresía",
     "sendMessage": "Enviar mensaje",
     "overline": "Iniciar sesión",
@@ -1030,7 +969,7 @@
     "signInLink": "Iniciar sesión"
   },
   "register": {
-    "registerTitle": "Hazte miembro",
+    "registerTitle": "Hágase miembro",
     "registerSubtitle": "Complete sus datos para unirse a nuestra membresía",
     "step1Title": "Datos",
     "step2Title": "Cuestionario",

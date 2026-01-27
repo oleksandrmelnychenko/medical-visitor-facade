@@ -66,8 +66,9 @@ export function CTA() {
             <Link href="/apply">
               <motion.button
                 className={styles.primaryButton}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: 0.96 }}
+                whileTap={{ scale: 0.94 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 <span>{t('bookConsultation')}</span>
                 <ArrowRight className="w-5 h-5" aria-hidden="true" />

@@ -9,7 +9,7 @@
     "home": "Home",
     "learnMore": "Learn more",
     "contactUs": "Contact us",
-    "requestAppointment": "Become a membership",
+    "requestAppointment": "Become a Member",
     "login": "Sign in",
     "search": "Search",
     "submit": "Submit",
@@ -25,7 +25,7 @@
     "trustSafety": "Trust & safety",
     "patientCenteredCare": "Patient-centered care",
     "aboutGmed": "About Gmed",
-    "requestAppointment": "Become a membership",
+    "requestAppointment": "Become a Member",
     "findDoctor": "Find a doctor",
     "locations": "Locations",
     "patientServices": "Patient services",
@@ -53,80 +53,27 @@
   },
   "home": {
     "hero": {
-      "overline": "GMED Agency",
-      "title": "Medical concierge",
-      "subtitle": "Treatment organization and end-to-end client support",
-      "requestAppointment": "Become a membership",
-      "exploreServices": "Learn more",
-      "highlights": {
-        "responseTime": {
-          "label": "Availability",
-          "value": "Personal manager available at any time"
-        },
-        "careCoordination": {
-          "label": "Service",
-          "value": "End-to-end support"
-        },
-        "languages": {
-          "label": "Languages",
-          "value": "DE, EN, RU"
-        }
-      },
-      "badge": {
-        "title": "Private service",
-        "text": "For discerning clients"
-      },
-      "videoOverlay": "Personal approach"
+      "overline": "",
+      "title": "Medical Concierge Agency",
+      "subtitle": "of Heorhii Hudiiev",
+      "requestAppointment": "Become a Member"
     },
     "careForward": {
-      "overline": "",
       "title": "What we do",
-      "subtitle": "",
       "services": {
         "clinic": {
-          "title": "Clinic selection",
-          "desc": "We identify the right clinic and physician for your specific case"
+          "title": "Clinic",
+          "desc": "Selection of specialized medical facility"
         },
         "organization": {
-          "title": "Travel arrangements",
-          "desc": "Visas, flights, transfers, accommodation - we take care of it"
+          "title": "Specialists",
+          "desc": "Appointment of leading physicians in the field"
         },
         "coordination": {
-          "title": "Personal coordinator",
-          "desc": "Available around the clock throughout treatment and afterwards"
+          "title": "Treatment",
+          "desc": "Organization of diagnostics and procedures"
         }
-      },
-      "learnMore": "Learn more"
-    },
-    "services": {
-      "overline": "What we offer",
-      "title": "Our services",
-      "subtitle": "Comprehensive healthcare solutions tailored to your needs",
-      "items": {
-        "cardiology": {
-          "title": "Cardiology",
-          "subtitle": "Cardiovascular care",
-          "description": "Comprehensive cardiology care including diagnosis, treatment, and prevention of heart disease."
-        },
-        "oncology": {
-          "title": "Oncology",
-          "subtitle": "Cancer care",
-          "description": "Advanced oncology care with personalized treatment plans and supportive therapy."
-        },
-        "surgery": {
-          "title": "Surgery",
-          "subtitle": "Surgical expertise",
-          "description": "Minimally invasive and traditional surgical procedures performed by experienced surgeons."
-        }
-      },
-      "learnMore": "Learn more"
-    },
-    "trust": {
-      "overline": "Privacy",
-      "title": "Absolute confidentiality",
-      "subtitle": "We understand the value of privacy for our clients.",
-      "description": "Every engagement is built on complete confidentiality. Your data, treatment history, and even the fact of your inquiry are protected.",
-      "guarantee": "Strict privacy standards at every stage."
+      }
     },
     "office": {
       "overline": "",
@@ -157,28 +104,24 @@
     },
     "fullSupport": {
       "overline": "",
-      "title": "Agency concept",
+      "title": "Agency Concept",
       "subtitle": "",
       "services": {
-        "noFees": {
-          "title": "Charter flights",
-          "desc": "We arrange a private flight at a convenient time. No queues or layovers."
-        },
-        "support": {
-          "title": "Personal transport",
-          "desc": "Premium vehicle with a driver for all your travel."
+        "promptness": {
+          "title": "Coordinator",
+          "desc": "Support at all stages of your stay"
         },
         "confidentiality": {
-          "title": "Visa support",
-          "desc": "Complete document preparation. Visas, invitations, certificates - we handle every detail."
+          "title": "Visa Support",
+          "desc": "Entry documentation processing"
         },
-        "performance": {
-          "title": "Personal interpreter",
-          "desc": "A professional interpreter accompanies you at every meeting and consultation."
+        "support": {
+          "title": "Transfer",
+          "desc": "Ground transportation organization"
         },
-        "promptness": {
-          "title": "Dedicated coordinator",
-          "desc": "A personal manager is available at any time and resolves any questions."
+        "noFees": {
+          "title": "Charter",
+          "desc": "Air transportation organization"
         }
       },
       "journey": {
@@ -207,40 +150,36 @@
         }
       },
       "promise": {
-        "title": "Comprehensive management of your health",
-        "text": "We do more than organize treatment. We take care of every detail - from the first call to your return home."
+        "title": "Support at every stage",
+        "text": "From the initial inquiry to your return home — we are here to assist with arrangements."
       }
     },
     "cta": {
       "overline": "",
-      "title": "We are always by your side",
+      "title": "Support",
       "subtitle": "",
       "services": {
-        "medications": {
-          "title": "Medication delivery",
-          "desc": "We arrange delivery of prescribed medications anywhere in the world"
-        },
         "support": {
-          "title": "Around-the-clock contact",
-          "desc": "A personal manager is available at any time to resolve any questions"
+          "title": "Contact",
+          "desc": "Coordinator available for communication"
         },
         "monitoring": {
-          "title": "Health monitoring",
-          "desc": "We monitor your condition and coordinate with your treating physicians"
+          "title": "Physicians",
+          "desc": "Communication with treating doctors"
         },
         "consultations": {
-          "title": "Online consultations",
-          "desc": "We provide video consultations from anywhere in the world without the need to travel"
+          "title": "Consultations",
+          "desc": "Organization of online consultations"
         }
       },
-      "bookConsultation": "Become a membership",
+      "bookConsultation": "Become a Member",
       "getStarted": "Learn more",
       "availability": ""
     }
   },
   "appointment": {
     "overline": "Request",
-    "title": "Become a membership",
+    "title": "Become a Member",
     "subtitle": "Submit a request and we will contact you shortly.",
     "backToSelection": "← Back to selection",
     "clientTypes": {
@@ -249,7 +188,7 @@
         "description": "Complete the questionnaire."
       },
       "returning": {
-        "title": "I am already a membership",
+        "title": "I am already a member",
         "description": "Sign in to your account."
       }
     },
@@ -406,7 +345,7 @@
     },
     "doctors": {
       "title": "Our medical specialists",
-      "bookAppointment": "Become a membership"
+      "bookAppointment": "Become a Member"
     },
     "whyChoose": {
       "title": "Why choose our doctors",
