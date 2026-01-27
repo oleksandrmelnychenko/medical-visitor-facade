@@ -73,26 +73,6 @@ model Location {
   @@index([code])
 }
 
-model City {
-  id        String   @id @default(cuid())
-  code      String   @unique // munich, berlin, frankfurt, nuremberg
-  nameEn    String
-  nameDe    String
-  nameRu    String
-  nameEs    String
-  address   String?
-  phone     String?
-  sortOrder Int      @default(0)
-  isActive  Boolean  @default(true)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  // Relations
-  applications Application[]
-
-  @@index([code])
-}
-
 model Service {
   id          String   @id @default(cuid())
   code        String   @unique // charter, transport, visa, translator, hotel
@@ -161,19 +141,18 @@ model Application {
   applicationNum  String            @unique @default(cuid()) // Human-readable number
   userId          String
   locationId      String?
-  preferredCityId String?
   insuranceId     String?
   travelAbilityId String?
   isEuResident    Boolean?
   status          ApplicationStatus @default(NEW)
   notes           String?           // Internal notes for managers
+  clientNotes     String?           @db.VarChar(2000) // Notes from client during registration
   createdAt       DateTime          @default(now())
   updatedAt       DateTime          @updatedAt
 
   // Relations
   user          User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
   location      Location?            @relation(fields: [locationId], references: [id], onDelete: SetNull)
-  preferredCity City?                @relation(fields: [preferredCityId], references: [id], onDelete: SetNull)
   insurance     InsuranceStatus?     @relation(fields: [insuranceId], references: [id], onDelete: SetNull)
   travelAbility TravelAbility?       @relation(fields: [travelAbilityId], references: [id], onDelete: SetNull)
   services      ApplicationService[]
@@ -220,8 +199,6 @@ enum ApplicationStatus {
   NEW           // Just submitted
   IN_REVIEW     // Being reviewed by manager
   CONTACTED     // Client has been contacted
-  IN_PROGRESS   // Services are being arranged
   COMPLETED     // All services delivered
   CANCELLED     // Cancelled by client or manager
-  ARCHIVED      // Old/archived application
 }

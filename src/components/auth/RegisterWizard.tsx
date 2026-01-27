@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import styles from "./auth.module.scss";
 
@@ -31,6 +31,18 @@ const step1Schema = z.object({
     .string()
     .min(1, "Введите номер телефона")
     .regex(/^\+[0-9]{10,15}$/, "Неверный формат телефона (например: +4917612345678)"),
+  password: z
+    .string()
+    .min(1, "Введите пароль")
+    .min(8, "Пароль должен содержать минимум 8 символов")
+    .regex(/[A-Z]/, "Пароль должен содержать хотя бы одну заглавную букву")
+    .regex(/[0-9]/, "Пароль должен содержать хотя бы одну цифру"),
+  confirmPassword: z
+    .string()
+    .min(1, "Подтвердите пароль"),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Пароли не совпадают",
+  path: ["confirmPassword"],
 });
 
 const step2Schema = z.object({
@@ -51,6 +63,7 @@ const step3Schema = z.object({
   needVisa: z.boolean(),
   needTranslator: z.boolean(),
   needHotel: z.boolean(),
+  clientNotes: z.string().max(2000, "Максимум 2000 символов").optional(),
 });
 
 type Step1Data = z.infer<typeof step1Schema>;
@@ -70,6 +83,8 @@ export function RegisterWizard() {
   const [questionnaireData, setQuestionnaireData] = useState<Step2Data | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [countdown, setCountdown] = useState(5);
 
   // Step 1 form
   const step1Form = useForm<Step1Data>({
@@ -79,6 +94,8 @@ export function RegisterWizard() {
       lastName: "",
       email: "",
       phone: "",
+      password: "",
+      confirmPassword: "",
     },
     mode: "onBlur",
   });
@@ -104,11 +121,22 @@ export function RegisterWizard() {
       needVisa: false,
       needTranslator: false,
       needHotel: false,
+      clientNotes: "",
     },
   });
 
   // Watch current location to conditionally show insurance question
   const currentLocation = step2Form.watch("currentLocation");
+
+  // Countdown and redirect after success
+  useEffect(() => {
+    if (showSuccess && countdown > 0) {
+      const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
+      return () => clearTimeout(timer);
+    } else if (showSuccess && countdown === 0) {
+      router.push("/");
+    }
+  }, [showSuccess, countdown, router]);
 
   const handleStep1Submit = (data: Step1Data) => {
     setPersonalData(data);
@@ -146,8 +174,8 @@ export function RegisterWizard() {
         throw new Error(result.error || "Failed to submit application");
       }
 
-      // Success - redirect to dashboard or success page
-      router.push("/dashboard");
+      // Success - show success popup
+      setShowSuccess(true);
     } catch (error) {
       console.error("Application submission error:", error);
       setSubmitError(error instanceof Error ? error.message : "Произошла ошибка при отправке заявки");
@@ -178,6 +206,27 @@ export function RegisterWizard() {
     e.target.value = value;
     step1Form.setValue("phone", value, { shouldValidate: true });
   };
+
+  // Success modal
+  if (showSuccess) {
+    return (
+      <div className={styles.successOverlay}>
+        <motion.div
+          className={styles.successModal}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <CheckCircle className={styles.successIcon} size={64} />
+          <h2 className={styles.successTitle}>{t('successTitle')}</h2>
+          <p className={styles.successMessage}>{t('successMessage')}</p>
+          <p className={styles.successRedirect}>
+            {t('redirecting', { seconds: countdown })}
+          </p>
+        </motion.div>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.wizardContainer}>
@@ -279,6 +328,44 @@ export function RegisterWizard() {
               {step1Form.formState.errors.phone && (
                 <span className={styles.errorMessage}>
                   {step1Form.formState.errors.phone.message}
+                </span>
+              )}
+            </div>
+
+            {/* Password */}
+            <div className={styles.formGroup}>
+              <input
+                id="password"
+                type="password"
+                placeholder=" "
+                className={cn(styles.input, step1Form.formState.errors.password && styles.error)}
+                {...step1Form.register("password")}
+              />
+              <label htmlFor="password" className={styles.label}>
+                {t('password')}
+              </label>
+              {step1Form.formState.errors.password && (
+                <span className={styles.errorMessage}>
+                  {step1Form.formState.errors.password.message}
+                </span>
+              )}
+            </div>
+
+            {/* Confirm Password */}
+            <div className={styles.formGroup}>
+              <input
+                id="confirmPassword"
+                type="password"
+                placeholder=" "
+                className={cn(styles.input, step1Form.formState.errors.confirmPassword && styles.error)}
+                {...step1Form.register("confirmPassword")}
+              />
+              <label htmlFor="confirmPassword" className={styles.label}>
+                {t('confirmPassword')}
+              </label>
+              {step1Form.formState.errors.confirmPassword && (
+                <span className={styles.errorMessage}>
+                  {step1Form.formState.errors.confirmPassword.message}
                 </span>
               )}
             </div>
@@ -520,6 +607,28 @@ export function RegisterWizard() {
                   <span className={styles.checkboxText}>{t('hotelBooking')}</span>
                 </label>
               </div>
+            </div>
+
+            {/* Client Notes */}
+            <div className={styles.questionBlock}>
+              <p className={styles.questionText}>{t('notesLabel')}</p>
+              <div className={styles.textareaWrapper}>
+                <textarea
+                  className={styles.textarea}
+                  placeholder={t('notesPlaceholder')}
+                  maxLength={2000}
+                  rows={4}
+                  {...step3Form.register("clientNotes")}
+                />
+                <span className={styles.charCount}>
+                  {step3Form.watch("clientNotes")?.length || 0} / 2000
+                </span>
+              </div>
+              {step3Form.formState.errors.clientNotes && (
+                <span className={styles.errorMessage}>
+                  {step3Form.formState.errors.clientNotes.message}
+                </span>
+              )}
             </div>
 
             {/* Submit button */}

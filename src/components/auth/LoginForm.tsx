@@ -30,13 +30,18 @@ export function LoginForm() {
     setError(null);
 
     const result = await signIn("credentials", {
-      phone: data.phone,
+      identifier: data.phone,
       password: data.password,
       redirect: false,
     });
 
     if (result?.error) {
-      setError(t("invalidCredentials"));
+      // Check for specific error codes
+      if (result.error.includes("APPLICATION_PENDING") || result.code === "APPLICATION_PENDING") {
+        setError(t("applicationPending"));
+      } else {
+        setError(t("invalidCredentials"));
+      }
       return;
     }
 

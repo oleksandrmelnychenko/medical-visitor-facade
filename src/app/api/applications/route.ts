@@ -11,20 +11,21 @@ const applicationSchema = z.object({
   lastName: z.string().min(1, "Last name is required"),
   email: z.string().email("Invalid email address"),
   phone: z.string().min(5, "Phone is required"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
 
   // Questionnaire (Step 2)
   currentLocation: z.string().min(1, "Location is required"),
   hasInsurance: z.enum(["yes", "no"]).optional(),
   canComeToGermany: z.enum(["yes", "no", "need_help"]).optional(),
   isEuResident: z.enum(["yes", "no"]).optional(),
-  preferredLocation: z.enum(["munich", "berlin", "frankfurt", "nuremberg"]).optional(),
-
   // Services (Step 3)
   needCharter: z.boolean().default(false),
   needTransport: z.boolean().default(false),
   needVisa: z.boolean().default(false),
   needTranslator: z.boolean().default(false),
   needHotel: z.boolean().default(false),
+  // Notes
+  clientNotes: z.string().max(2000, "Notes cannot exceed 2000 characters").optional(),
 });
 
 // POST - Create new application (public, but with validation)
@@ -74,14 +75,14 @@ export async function POST(request: NextRequest) {
 
       // Create user if not exists
       if (!user) {
-        // Generate temporary password (user will set it later or login via phone)
-        const tempPassword = await hash(Math.random().toString(36).slice(-12), 12);
+        // Hash the user-provided password
+        const hashedPassword = await hash(data.password, 12);
 
         user = await tx.user.create({
           data: {
             email: data.email,
             phone: data.phone,
-            password: tempPassword,
+            password: hashedPassword,
             firstName: data.firstName,
             lastName: data.lastName,
           },
@@ -100,15 +101,10 @@ export async function POST(request: NextRequest) {
       }
 
       // Get reference IDs in parallel for better performance
-      const [location, city, insurance, travelAbility] = await Promise.all([
+      const [location, insurance, travelAbility] = await Promise.all([
         tx.location.findFirst({
           where: { code: data.currentLocation },
         }),
-        data.preferredLocation
-          ? tx.city.findFirst({
-              where: { code: data.preferredLocation },
-            })
-          : Promise.resolve(null),
         data.hasInsurance
           ? tx.insuranceStatus.findFirst({
               where: { code: data.hasInsurance },
@@ -133,11 +129,11 @@ export async function POST(request: NextRequest) {
           applicationNum,
           userId: user.id,
           locationId: location?.id,
-          preferredCityId: city?.id,
           insuranceId: insurance?.id,
           travelAbilityId: travelAbility?.id,
           isEuResident: data.isEuResident === "yes" ? true : data.isEuResident === "no" ? false : null,
           status: "NEW",
+          clientNotes: data.clientNotes || null,
         },
       });
 
@@ -255,7 +251,6 @@ export async function GET(request: NextRequest) {
             },
           },
           location: true,
-          preferredCity: true,
           insurance: true,
           travelAbility: true,
           services: {

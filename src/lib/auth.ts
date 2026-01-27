@@ -70,6 +70,21 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           return null;
         }
 
+        // For CLIENT users, check if they have a COMPLETED application
+        if (user.role === "CLIENT") {
+          const completedApplication = await prisma.application.findFirst({
+            where: {
+              userId: user.id,
+              status: "COMPLETED",
+            },
+          });
+
+          if (!completedApplication) {
+            // Throw error with specific code for pending application
+            throw new Error("APPLICATION_PENDING");
+          }
+        }
+
         // Combine firstName and lastName for the name field
         const fullName = [user.firstName, user.lastName].filter(Boolean).join(" ");
 

@@ -51,61 +51,6 @@ async function main() {
   console.log("✅ Locations seeded");
 
   // ============================================
-  // CITIES
-  // ============================================
-  const cities = [
-    {
-      code: "munich",
-      nameEn: "Munich",
-      nameDe: "München",
-      nameRu: "Мюнхен",
-      nameEs: "Múnich",
-      address: "Maximilianstraße 35, 80539 München",
-      phone: "+49 89 123-4567",
-      sortOrder: 1,
-    },
-    {
-      code: "berlin",
-      nameEn: "Berlin",
-      nameDe: "Berlin",
-      nameRu: "Берлин",
-      nameEs: "Berlín",
-      address: "Kurfürstendamm 21, 10719 Berlin",
-      phone: "+49 30 123-4567",
-      sortOrder: 2,
-    },
-    {
-      code: "frankfurt",
-      nameEn: "Frankfurt",
-      nameDe: "Frankfurt",
-      nameRu: "Франкфурт",
-      nameEs: "Fráncfort",
-      address: "Kaiserstraße 50, 60329 Frankfurt",
-      phone: "+49 69 123-4567",
-      sortOrder: 3,
-    },
-    {
-      code: "nuremberg",
-      nameEn: "Nuremberg",
-      nameDe: "Nürnberg",
-      nameRu: "Нюрнберг",
-      nameEs: "Núremberg",
-      address: "Königstraße 25, 90402 Nürnberg",
-      phone: "+49 911 123-4567",
-      sortOrder: 4,
-    },
-  ];
-
-  for (const city of cities) {
-    await prisma.city.upsert({
-      where: { code: city.code },
-      update: city,
-      create: city,
-    });
-  }
-  console.log("✅ Cities seeded");
-
-  // ============================================
   // SERVICES
   // ============================================
   const services = [

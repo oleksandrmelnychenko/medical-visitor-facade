@@ -3,22 +3,26 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { User } from "lucide-react";
+import { User, LogOut } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/providers/LanguageProvider";
 import styles from "./header.module.scss";
 
 export function Header() {
   const tCommon = useTranslations('common');
+  const tAdmin = useTranslations('admin');
   const { locale, setLocale } = useLanguage();
-  const { status } = useSession();
+  const { data: session, status } = useSession();
+  const userRole = (session?.user as { role?: string })?.role;
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
   const langRef = useRef<HTMLDivElement>(null);
+  const userMenuRef = useRef<HTMLDivElement>(null);
 
   // Throttled scroll handler for better performance
   useEffect(() => {
@@ -38,11 +42,14 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close dropdown when clicking outside
+  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (langRef.current && !langRef.current.contains(event.target as Node)) {
         setIsLangOpen(false);
+      }
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
+        setIsUserMenuOpen(false);
       }
     };
 
@@ -68,11 +75,34 @@ export function Header() {
     setIsLangOpen(false);
   };
 
+  const handleLogout = async () => {
+    setIsUserMenuOpen(false);
+    await signOut({ callbackUrl: "/" });
+  };
+
+  // Get user info
+  const userName = session?.user?.name ||
+    ((session?.user as { firstName?: string; lastName?: string })?.firstName &&
+     (session?.user as { firstName?: string; lastName?: string })?.lastName
+      ? `${(session?.user as { firstName?: string })?.firstName} ${(session?.user as { lastName?: string })?.lastName}`
+      : null) ||
+    session?.user?.email?.split('@')[0] ||
+    'User';
+  const userEmail = session?.user?.email;
+  const userPhone = (session?.user as { phone?: string })?.phone;
+
+  const isAdmin = userRole === "ADMIN" || userRole === "MANAGER";
+
   return (
     <header ref={headerRef} className={cn(styles.header, isScrolled && styles.scrolled)}>
       <div className={styles.container}>
         {/* Row 1: Utility items (above logo) */}
         <div className={styles.utilityRow}>
+          {/* Admin title on the left */}
+          {isAdmin && (
+            <Link href="/admin" className={styles.adminTitle}>{tAdmin("adminPanel")}</Link>
+          )}
+
           <div className={styles.utilityItems}>
             {status !== "authenticated" && (
               <>
@@ -110,6 +140,34 @@ export function Header() {
                 </div>
               )}
             </div>
+
+            {/* User menu for authenticated users */}
+            {status === "authenticated" && (
+              <div className={styles.userMenu} ref={userMenuRef}>
+                <button
+                  className={styles.userMenuToggle}
+                  onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                >
+                  <User size={18} />
+                  {userName}
+                </button>
+                {isUserMenuOpen && (
+                  <div className={styles.userMenuDropdown}>
+                    {userPhone && (
+                      <div className={styles.userMenuInfo}>{userPhone}</div>
+                    )}
+                    {userEmail && (
+                      <div className={styles.userMenuInfo}>{userEmail}</div>
+                    )}
+                    <div className={styles.userMenuSeparator} />
+                    <button onClick={handleLogout} className={styles.userMenuLogout}>
+                      <LogOut size={16} />
+                      {tAdmin("logout")}
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
 
