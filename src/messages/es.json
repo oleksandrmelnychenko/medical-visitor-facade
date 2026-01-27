@@ -127,7 +127,7 @@
       "guarantee": "Estándares estrictos de privacidad en cada etapa."
     },
     "office": {
-      "overline": "Alemania",
+      "overline": "",
       "title": "Nuestras oficinas",
       "subtitle": "",
       "cities": {
@@ -154,7 +154,7 @@
       }
     },
     "fullSupport": {
-      "overline": "Acompañamiento completo",
+      "overline": "",
       "title": "Concepto de la agencia",
       "subtitle": "",
       "services": {
@@ -210,7 +210,7 @@
       }
     },
     "cta": {
-      "overline": "Acompañamiento continuo",
+      "overline": "",
       "title": "Siempre a su lado",
       "subtitle": "",
       "services": {

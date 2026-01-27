@@ -127,7 +127,7 @@
       "guarantee": "Strict privacy standards at every stage."
     },
     "office": {
-      "overline": "Germany",
+      "overline": "",
       "title": "Our offices",
       "subtitle": "",
       "cities": {
@@ -154,7 +154,7 @@
       }
     },
     "fullSupport": {
-      "overline": "Full support",
+      "overline": "",
       "title": "Agency concept",
       "subtitle": "",
       "services": {
@@ -210,7 +210,7 @@
       }
     },
     "cta": {
-      "overline": "Ongoing support",
+      "overline": "",
       "title": "We are always by your side",
       "subtitle": "",
       "services": {
