@@ -303,7 +303,7 @@ export function RegisterWizard() {
           >
             {/* Back button */}
             <button type="button" className={styles.backButton} onClick={goBack}>
-              <span className={styles.backArrow}>‹</span> {t('back')}
+              <span className={styles.backArrow}>‹</span> <span className={styles.backText}>{t('back')}</span>
             </button>
 
             {/* Current Location */}
@@ -465,7 +465,7 @@ export function RegisterWizard() {
           >
             {/* Back button */}
             <button type="button" className={styles.backButton} onClick={goBack}>
-              <span className={styles.backArrow}>‹</span> {t('back')}
+              <span className={styles.backArrow}>‹</span> <span className={styles.backText}>{t('back')}</span>
             </button>
 
             {submitError && <div className={styles.formError}>{submitError}</div>}

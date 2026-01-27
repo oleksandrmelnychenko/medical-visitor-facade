@@ -101,19 +101,21 @@ export async function POST(request: NextRequest) {
 
       // Get reference IDs in parallel for better performance
       const [location, city, insurance, travelAbility] = await Promise.all([
-        tx.location.findUnique({
+        tx.location.findFirst({
           where: { code: data.currentLocation },
         }),
-        tx.city.findUnique({
-          where: { code: data.preferredLocation },
-        }),
+        data.preferredLocation
+          ? tx.city.findFirst({
+              where: { code: data.preferredLocation },
+            })
+          : Promise.resolve(null),
         data.hasInsurance
-          ? tx.insuranceStatus.findUnique({
+          ? tx.insuranceStatus.findFirst({
               where: { code: data.hasInsurance },
             })
           : Promise.resolve(null),
         data.canComeToGermany
-          ? tx.travelAbility.findUnique({
+          ? tx.travelAbility.findFirst({
               where: { code: data.canComeToGermany },
             })
           : Promise.resolve(null),

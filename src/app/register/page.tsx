@@ -17,7 +17,7 @@ export default function RegisterPage() {
       <section className={cn(sectionStyles.section, pageStyles.heroSection, styles.heroSection)}>
         <div className={sectionStyles.container}>
           <Link href="/apply" className={styles.backLink}>
-            <span className={styles.backArrow}>‹</span> {t('back')}
+            <span className={styles.backArrow}>‹</span> <span className={styles.backText}>{t('back')}</span>
           </Link>
           <SectionHeader
             title={t('registerTitle')}

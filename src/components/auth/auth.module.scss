@@ -498,18 +498,21 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  padding-bottom: 2px;
-  border-bottom: 2px solid #1a1a1a;
   margin-bottom: 1.5rem;
-  transition: border-color 0.2s ease;
 
-  &:hover {
-    border-bottom-color: transparent;
+  &:hover .backText {
+    border-color: transparent;
   }
 }
 
 .backArrow {
   font-weight: 600;
+}
+
+.backText {
+  padding-bottom: 2px;
+  border-bottom: 2px solid #1a1a1a;
+  transition: border-color 0.2s ease;
 }
 
 // Select styles
