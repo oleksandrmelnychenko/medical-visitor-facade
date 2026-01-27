@@ -2,6 +2,16 @@
 
 @import "tailwindcss";
 
+/* Custom Display Font */
+@font-face {
+  font-family: 'Gmed Display';
+  src: url('../assets/GmedDisplay-Light.woff2') format('woff2'),
+       url('../assets/GmedDisplay-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 [data-theme="dark"],
 .dark {
   --background: oklch(0.145 0 0);
