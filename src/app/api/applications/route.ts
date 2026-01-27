@@ -13,11 +13,11 @@ const applicationSchema = z.object({
   phone: z.string().min(5, "Phone is required"),
 
   // Questionnaire (Step 2)
-  currentLocation: z.enum(["germany", "eu", "other"]),
+  currentLocation: z.string().min(1, "Location is required"),
   hasInsurance: z.enum(["yes", "no"]).optional(),
   canComeToGermany: z.enum(["yes", "no", "need_help"]).optional(),
   isEuResident: z.enum(["yes", "no"]).optional(),
-  preferredLocation: z.enum(["munich", "berlin", "frankfurt", "nuremberg"]),
+  preferredLocation: z.enum(["munich", "berlin", "frankfurt", "nuremberg"]).optional(),
 
   // Services (Step 3)
   needCharter: z.boolean().default(false),
@@ -184,6 +184,7 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("Application submission error:", error);
+    console.error("Error details:", JSON.stringify(error, Object.getOwnPropertyNames(error)));
 
     // Handle unique constraint errors
     if (error instanceof Error && error.message.includes("Unique constraint")) {
@@ -194,7 +195,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { error: "Failed to submit application" },
+      { error: "Failed to submit application", details: error instanceof Error ? error.message : "Unknown error" },
       { status: 500 }
     );
   }

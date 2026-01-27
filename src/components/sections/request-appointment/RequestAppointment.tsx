@@ -32,7 +32,6 @@ export function RequestAppointment() {
       <section className={cn(sectionStyles.section, pageStyles.heroSection, styles.applyHeroSection)} id="appointment">
         <div className={sectionStyles.container}>
           <SectionHeader
-            overline={t('overline')}
             title={t('title')}
             subtitle={t('subtitle')}
             variant="page"

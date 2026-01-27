@@ -7,7 +7,7 @@ import { z } from "zod";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import styles from "./auth.module.scss";
 
@@ -34,15 +34,14 @@ const step1Schema = z.object({
 });
 
 const step2Schema = z.object({
-  currentLocation: z.enum(["germany", "eu", "other"], {
-    message: "Выберите ваше местоположение",
-  }),
+  currentLocation: z
+    .string({ required_error: "Please select your location" })
+    .refine((val) => ["germany", "eu", "other"].includes(val), {
+      message: "Please select your location",
+    }),
   hasInsurance: z.enum(["yes", "no"]).optional(),
   canComeToGermany: z.enum(["yes", "no", "need_help"]).optional(),
   isEuResident: z.enum(["yes", "no"]).optional(),
-  preferredLocation: z.enum(["munich", "berlin", "frankfurt", "nuremberg"], {
-    message: "Выберите город",
-  }),
 });
 
 const step3Schema = z.object({
@@ -54,11 +53,16 @@ const step3Schema = z.object({
 });
 
 type Step1Data = z.infer<typeof step1Schema>;
-type Step2Data = z.infer<typeof step2Schema>;
+type Step2Data = {
+  currentLocation: string;
+  hasInsurance?: "yes" | "no";
+  canComeToGermany?: "yes" | "no" | "need_help";
+  isEuResident?: "yes" | "no";
+};
 type Step3Data = z.infer<typeof step3Schema>;
 
 export function RegisterWizard() {
-  const t = useTranslations("auth");
+  const t = useTranslations("register");
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [personalData, setPersonalData] = useState<Step1Data | null>(null);
@@ -82,13 +86,12 @@ export function RegisterWizard() {
   const step2Form = useForm<Step2Data>({
     resolver: zodResolver(step2Schema),
     defaultValues: questionnaireData || {
-      currentLocation: undefined,
+      currentLocation: "",
       hasInsurance: undefined,
       canComeToGermany: undefined,
       isEuResident: undefined,
-      preferredLocation: "munich",
     },
-    mode: "onBlur",
+    mode: "onSubmit",
   });
 
   // Step 3 form
@@ -179,23 +182,14 @@ export function RegisterWizard() {
     <div className={styles.wizardContainer}>
       {/* Progress indicator */}
       <div className={styles.progressBar}>
-        <div className={cn(styles.progressStep, step >= 1 && styles.active)}>
-          <span className={styles.stepNumber}>1</span>
-          <span className={styles.stepLabel}>Данные</span>
+        <div className={cn(styles.progressStep, step === 1 && styles.active)}>
+          <span className={styles.stepLabel}>1 {t('step1Title')}</span>
         </div>
-        <div className={styles.progressLine}>
-          <div className={cn(styles.progressFill, step >= 2 && styles.active)} />
+        <div className={cn(styles.progressStep, step === 2 && styles.active)}>
+          <span className={styles.stepLabel}>2 {t('step2Title')}</span>
         </div>
-        <div className={cn(styles.progressStep, step >= 2 && styles.active)}>
-          <span className={styles.stepNumber}>2</span>
-          <span className={styles.stepLabel}>Анкета</span>
-        </div>
-        <div className={styles.progressLine}>
-          <div className={cn(styles.progressFill, step >= 3 && styles.active)} />
-        </div>
-        <div className={cn(styles.progressStep, step >= 3 && styles.active)}>
-          <span className={styles.stepNumber}>3</span>
-          <span className={styles.stepLabel}>Услуги</span>
+        <div className={cn(styles.progressStep, step === 3 && styles.active)}>
+          <span className={styles.stepLabel}>3 {t('step3Title')}</span>
         </div>
       </div>
 
@@ -220,7 +214,7 @@ export function RegisterWizard() {
                 {...step1Form.register("firstName")}
               />
               <label htmlFor="firstName" className={styles.label}>
-                Имя *
+                {t('firstName')}
               </label>
               {step1Form.formState.errors.firstName && (
                 <span className={styles.errorMessage}>
@@ -239,7 +233,7 @@ export function RegisterWizard() {
                 {...step1Form.register("lastName")}
               />
               <label htmlFor="lastName" className={styles.label}>
-                Фамилия *
+                {t('lastName')}
               </label>
               {step1Form.formState.errors.lastName && (
                 <span className={styles.errorMessage}>
@@ -258,7 +252,7 @@ export function RegisterWizard() {
                 {...step1Form.register("email")}
               />
               <label htmlFor="email" className={styles.label}>
-                Email *
+                {t('email')}
               </label>
               {step1Form.formState.errors.email && (
                 <span className={styles.errorMessage}>
@@ -279,7 +273,7 @@ export function RegisterWizard() {
                 })}
               />
               <label htmlFor="phone" className={styles.label}>
-                Телефон *
+                {t('phone')}
               </label>
               {step1Form.formState.errors.phone && (
                 <span className={styles.errorMessage}>
@@ -290,7 +284,7 @@ export function RegisterWizard() {
 
             {/* Next button */}
             <button type="submit" className={styles.submitButton}>
-              Далее
+              {t('next')}
               <ArrowRight size={18} />
             </button>
           </motion.form>
@@ -308,13 +302,12 @@ export function RegisterWizard() {
           >
             {/* Back button */}
             <button type="button" className={styles.backButton} onClick={goBack}>
-              <ArrowLeft size={18} />
-              Назад
+              <span className={styles.backArrow}>‹</span> {t('back')}
             </button>
 
             {/* Current Location */}
             <div className={styles.questionBlock}>
-              <p className={styles.questionText}>Где вы сейчас находитесь? *</p>
+              <p className={styles.questionText}>{t('whereAreYou')}</p>
               <div className={styles.radioGroup}>
                 <label className={styles.radioLabel}>
                   <input
@@ -324,7 +317,7 @@ export function RegisterWizard() {
                     {...step2Form.register("currentLocation")}
                   />
                   <span className={styles.radioCustom} />
-                  <span>Германия</span>
+                  <span>{t('germany')}</span>
                 </label>
                 <label className={styles.radioLabel}>
                   <input
@@ -334,7 +327,7 @@ export function RegisterWizard() {
                     {...step2Form.register("currentLocation")}
                   />
                   <span className={styles.radioCustom} />
-                  <span>Евросоюз (не Германия)</span>
+                  <span>{t('euNotGermany')}</span>
                 </label>
                 <label className={styles.radioLabel}>
                   <input
@@ -344,7 +337,7 @@ export function RegisterWizard() {
                     {...step2Form.register("currentLocation")}
                   />
                   <span className={styles.radioCustom} />
-                  <span>Другая страна</span>
+                  <span>{t('otherCountry')}</span>
                 </label>
               </div>
               {step2Form.formState.errors.currentLocation && (
@@ -357,7 +350,7 @@ export function RegisterWizard() {
             {/* Insurance - only show if in Germany */}
             {currentLocation === "germany" && (
               <div className={styles.questionBlock}>
-                <p className={styles.questionText}>Есть ли у вас медицинская страховка в Германии?</p>
+                <p className={styles.questionText}>{t('hasInsurance')}</p>
                 <div className={styles.radioGroup}>
                   <label className={styles.radioLabel}>
                     <input
@@ -367,7 +360,7 @@ export function RegisterWizard() {
                       {...step2Form.register("hasInsurance")}
                     />
                     <span className={styles.radioCustom} />
-                    <span>Да, есть страховка</span>
+                    <span>{t('yesInsurance')}</span>
                   </label>
                   <label className={styles.radioLabel}>
                     <input
@@ -377,7 +370,7 @@ export function RegisterWizard() {
                       {...step2Form.register("hasInsurance")}
                     />
                     <span className={styles.radioCustom} />
-                    <span>Нет страховки</span>
+                    <span>{t('noInsurance')}</span>
                   </label>
                 </div>
               </div>
@@ -387,7 +380,7 @@ export function RegisterWizard() {
             {currentLocation && currentLocation !== "germany" && (
               <>
                 <div className={styles.questionBlock}>
-                  <p className={styles.questionText}>Можете ли вы приехать в Германию?</p>
+                  <p className={styles.questionText}>{t('canComeToGermany')}</p>
                   <div className={styles.radioGroup}>
                     <label className={styles.radioLabel}>
                       <input
@@ -397,7 +390,7 @@ export function RegisterWizard() {
                         {...step2Form.register("canComeToGermany")}
                       />
                       <span className={styles.radioCustom} />
-                      <span>Да</span>
+                      <span>{t('yes')}</span>
                     </label>
                     <label className={styles.radioLabel}>
                       <input
@@ -407,7 +400,7 @@ export function RegisterWizard() {
                         {...step2Form.register("canComeToGermany")}
                       />
                       <span className={styles.radioCustom} />
-                      <span>Нет</span>
+                      <span>{t('no')}</span>
                     </label>
                     <label className={styles.radioLabel}>
                       <input
@@ -417,14 +410,14 @@ export function RegisterWizard() {
                         {...step2Form.register("canComeToGermany")}
                       />
                       <span className={styles.radioCustom} />
-                      <span>Нужна помощь с организацией поездки</span>
+                      <span>{t('needHelp')}</span>
                     </label>
                   </div>
                 </div>
 
                 {/* EU Resident */}
                 <div className={styles.questionBlock}>
-                  <p className={styles.questionText}>Являетесь ли вы резидентом Евросоюза?</p>
+                  <p className={styles.questionText}>{t('isEuResident')}</p>
                   <div className={styles.radioGroup}>
                     <label className={styles.radioLabel}>
                       <input
@@ -434,7 +427,7 @@ export function RegisterWizard() {
                         {...step2Form.register("isEuResident")}
                       />
                       <span className={styles.radioCustom} />
-                      <span>Да</span>
+                      <span>{t('yes')}</span>
                     </label>
                     <label className={styles.radioLabel}>
                       <input
@@ -444,68 +437,16 @@ export function RegisterWizard() {
                         {...step2Form.register("isEuResident")}
                       />
                       <span className={styles.radioCustom} />
-                      <span>Нет</span>
+                      <span>{t('no')}</span>
                     </label>
                   </div>
                 </div>
               </>
             )}
 
-            {/* Preferred Location */}
-            <div className={styles.questionBlock}>
-              <p className={styles.questionText}>Выберите предпочтительный город: *</p>
-              <div className={styles.radioGroup}>
-                <label className={styles.radioLabel}>
-                  <input
-                    type="radio"
-                    value="munich"
-                    className={styles.radioInput}
-                    {...step2Form.register("preferredLocation")}
-                  />
-                  <span className={styles.radioCustom} />
-                  <span>Мюнхен</span>
-                </label>
-                <label className={styles.radioLabel}>
-                  <input
-                    type="radio"
-                    value="berlin"
-                    className={styles.radioInput}
-                    {...step2Form.register("preferredLocation")}
-                  />
-                  <span className={styles.radioCustom} />
-                  <span>Берлин</span>
-                </label>
-                <label className={styles.radioLabel}>
-                  <input
-                    type="radio"
-                    value="frankfurt"
-                    className={styles.radioInput}
-                    {...step2Form.register("preferredLocation")}
-                  />
-                  <span className={styles.radioCustom} />
-                  <span>Франкфурт</span>
-                </label>
-                <label className={styles.radioLabel}>
-                  <input
-                    type="radio"
-                    value="nuremberg"
-                    className={styles.radioInput}
-                    {...step2Form.register("preferredLocation")}
-                  />
-                  <span className={styles.radioCustom} />
-                  <span>Нюрнберг</span>
-                </label>
-              </div>
-              {step2Form.formState.errors.preferredLocation && (
-                <span className={styles.errorMessage}>
-                  {step2Form.formState.errors.preferredLocation.message}
-                </span>
-              )}
-            </div>
-
             {/* Next button */}
             <button type="submit" className={styles.submitButton}>
-              Далее
+              {t('next')}
               <ArrowRight size={18} />
             </button>
           </motion.form>
@@ -523,15 +464,14 @@ export function RegisterWizard() {
           >
             {/* Back button */}
             <button type="button" className={styles.backButton} onClick={goBack}>
-              <ArrowLeft size={18} />
-              Назад
+              <span className={styles.backArrow}>‹</span> {t('back')}
             </button>
 
             {submitError && <div className={styles.formError}>{submitError}</div>}
 
             {/* Additional Services */}
             <div className={styles.questionBlock}>
-              <p className={styles.questionText}>Какие услуги вам могут понадобиться?</p>
+              <p className={styles.questionText}>{t('whatServices')}</p>
               <div className={styles.checkboxGroup}>
                 <label className={styles.checkboxLabel}>
                   <input
@@ -540,10 +480,7 @@ export function RegisterWizard() {
                     {...step3Form.register("needCharter")}
                   />
                   <span className={styles.checkboxCustom} />
-                  <div className={styles.checkboxContent}>
-                    <span className={styles.checkboxTitle}>Чартерный рейс</span>
-                    <span className={styles.checkboxDesc}>Частный перелёт без очередей и пересадок</span>
-                  </div>
+                  <span className={styles.checkboxText}>{t('charterFlight')}</span>
                 </label>
                 <label className={styles.checkboxLabel}>
                   <input
@@ -552,10 +489,7 @@ export function RegisterWizard() {
                     {...step3Form.register("needTransport")}
                   />
                   <span className={styles.checkboxCustom} />
-                  <div className={styles.checkboxContent}>
-                    <span className={styles.checkboxTitle}>Личный транспорт</span>
-                    <span className={styles.checkboxDesc}>Премиальный автомобиль с водителем</span>
-                  </div>
+                  <span className={styles.checkboxText}>{t('personalTransport')}</span>
                 </label>
                 <label className={styles.checkboxLabel}>
                   <input
@@ -564,10 +498,7 @@ export function RegisterWizard() {
                     {...step3Form.register("needVisa")}
                   />
                   <span className={styles.checkboxCustom} />
-                  <div className={styles.checkboxContent}>
-                    <span className={styles.checkboxTitle}>Визовая поддержка</span>
-                    <span className={styles.checkboxDesc}>Визы, приглашения, оформление документов</span>
-                  </div>
+                  <span className={styles.checkboxText}>{t('visaSupport')}</span>
                 </label>
                 <label className={styles.checkboxLabel}>
                   <input
@@ -576,10 +507,7 @@ export function RegisterWizard() {
                     {...step3Form.register("needTranslator")}
                   />
                   <span className={styles.checkboxCustom} />
-                  <div className={styles.checkboxContent}>
-                    <span className={styles.checkboxTitle}>Личный переводчик</span>
-                    <span className={styles.checkboxDesc}>Сопровождение на всех встречах и консультациях</span>
-                  </div>
+                  <span className={styles.checkboxText}>{t('personalTranslator')}</span>
                 </label>
                 <label className={styles.checkboxLabel}>
                   <input
@@ -588,23 +516,15 @@ export function RegisterWizard() {
                     {...step3Form.register("needHotel")}
                   />
                   <span className={styles.checkboxCustom} />
-                  <div className={styles.checkboxContent}>
-                    <span className={styles.checkboxTitle}>Бронирование отеля</span>
-                    <span className={styles.checkboxDesc}>Подберём размещение рядом с клиникой</span>
-                  </div>
+                  <span className={styles.checkboxText}>{t('hotelBooking')}</span>
                 </label>
               </div>
             </div>
 
             {/* Submit button */}
             <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
-              {isSubmitting ? "Отправка..." : "Отправить заявку"}
+              {isSubmitting ? t('submitting') : t('submit')}
             </button>
-
-            {/* Confidentiality notice */}
-            <p className={styles.confidentialityNotice}>
-              {t("confidentialityNotice")}
-            </p>
           </motion.form>
         )}
       </AnimatePresence>

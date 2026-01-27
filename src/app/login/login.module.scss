@@ -1,7 +1,7 @@
 @use "../../styles/variables" as *;
 
 .page {
-  background-color: #f8f6f3 !important;
+  background-color: #fbfbfb !important;
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -10,7 +10,7 @@
 .heroSection {
   padding-top: clamp(2.5rem, 6vw, 4rem) !important;
   padding-bottom: clamp(1.5rem, 3vw, 2rem) !important;
-  background-color: #f8f6f3 !important;
+  background-color: #fbfbfb !important;
 }
 
 .headerDivider {
@@ -23,7 +23,7 @@
 .formSection {
   padding-top: 1rem !important;
   padding-bottom: clamp(3rem, 6vw, 5rem) !important;
-  background-color: #f8f6f3 !important;
+  background-color: #fbfbfb !important;
 }
 
 .formContainer {

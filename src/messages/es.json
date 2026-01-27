@@ -38,7 +38,8 @@
     "vatLegal": "según § 27 a de la Ley del IVA:",
     "vatNumber": "147/220/51409",
     "contactPrompt": "Para consultas y sugerencias sobre el contenido del sitio, por favor envíenos un correo a:",
-    "copyright": "© 2023 Agencia de Atención al Paciente Georgiy Gudiev"
+    "copyright": "© 2023 Agencia de Atención al Paciente Georgiy Gudiev",
+    "financialAssistance": "Asistencia financiera"
   },
   "home": {
     "hero": {
@@ -127,15 +128,15 @@
           "address": "Kurfürstendamm 21, 10719 Berlin",
           "phone": "+49 30 123-4567"
         },
-        "frankfurt": {
+        "hamburg": {
           "name": "Fráncfort",
-          "address": "Kaiserstraße 50, 60329 Frankfurt",
-          "phone": "+49 69 123-4567"
+          "address": "Kaiserstraße 50, 60329 Hamburg",
+          "phone": "+49 40 123-4567"
         },
-        "nuremberg": {
+        "cologne": {
           "name": "Núremberg",
-          "address": "Königstraße 25, 90402 Nürnberg",
-          "phone": "+49 911 123-4567"
+          "address": "Königstraße 25, 90402 Köln",
+          "phone": "+49 221 123-4567"
         },
         "munich": {
           "name": "Múnich",
@@ -224,7 +225,7 @@
       },
       "bookConsultation": "Convertirse en cliente",
       "getStarted": "Más información",
-      "availability": "Forme parte de nuestra atención"
+      "availability": ""
     }
   },
   "appointment": {
@@ -1008,28 +1009,60 @@
     "consentMarketing": "Consentimiento para recibir comunicaciones informativas y promocionales",
     "welcomeTitle": "Bienvenido",
     "welcomeSubtitle": "Inicie sesión en su cuenta",
+    "registerTitle": "Hazte miembro",
+    "registerSubtitle": "Complete sus datos para unirse a nuestra membresía",
     "sendMessage": "Enviar mensaje",
     "overline": "Iniciar sesión",
-    "registerOverline": "Registro",
-    "registerTitle": "Crear una cuenta",
-    "registerSubtitle": "Complete el formulario para registrarse en el sistema",
     "alreadyHaveAccount": "¿Ya tiene una cuenta?",
     "signInLink": "Iniciar sesión"
   },
   "register": {
+    "registerTitle": "Hazte miembro",
+    "registerSubtitle": "Complete sus datos para unirse a nuestra membresía",
     "step1Title": "Datos",
     "step2Title": "Cuestionario",
-    "firstName": "Nombre",
-    "lastName": "Apellido",
+    "step3Title": "Servicios",
+    "firstName": "Nombre *",
+    "lastName": "Apellido *",
+    "email": "Correo electrónico *",
+    "phone": "Teléfono *",
     "next": "Siguiente",
     "back": "Atrás",
     "submit": "Enviar solicitud",
     "submitting": "Enviando...",
+    "whereAreYou": "¿Dónde se encuentra actualmente? *",
+    "germany": "Alemania",
+    "euNotGermany": "UE (no Alemania)",
+    "otherCountry": "Otro país",
+    "hasInsurance": "¿Tiene seguro médico en Alemania?",
+    "yesInsurance": "Sí, tengo seguro",
+    "noInsurance": "Sin seguro",
     "canComeToGermany": "¿Puede viajar a Alemania?",
     "isEuResident": "¿Es usted residente de la Unión Europea?",
     "yes": "Sí",
     "no": "No",
-    "needHelp": "Necesito ayuda con la organización del viaje"
+    "needHelp": "Necesito ayuda con la organización del viaje",
+    "whatServices": "¿Qué servicios podría necesitar?",
+    "charterFlight": "Vuelo chárter",
+    "charterFlightDesc": "Vuelo privado sin colas ni escalas",
+    "personalTransport": "Transporte personal",
+    "personalTransportDesc": "Vehículo premium con conductor",
+    "visaSupport": "Asistencia con visa",
+    "visaSupportDesc": "Visas, invitaciones, tramitación de documentos",
+    "personalTranslator": "Traductor personal",
+    "personalTranslatorDesc": "Acompañamiento en todas las reuniones y consultas",
+    "hotelBooking": "Reserva de hotel",
+    "hotelBookingDesc": "Encontraremos alojamiento cerca de la clínica",
+    "validationFirstName": "Por favor ingrese su nombre",
+    "validationFirstNameMin": "El nombre debe tener al menos 2 caracteres",
+    "validationLastName": "Por favor ingrese su apellido",
+    "validationLastNameMin": "El apellido debe tener al menos 2 caracteres",
+    "validationEmail": "Por favor ingrese su correo electrónico",
+    "validationEmailFormat": "Formato de correo electrónico inválido",
+    "validationPhone": "Por favor ingrese su número de teléfono",
+    "validationPhoneFormat": "Formato de teléfono inválido (ej: +4917612345678)",
+    "validationLocation": "Por favor seleccione su ubicación",
+    "submitError": "Ocurrió un error al enviar la solicitud"
   },
   "dashboard": {
     "title": "Área del cliente",

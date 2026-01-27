@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Wallet, Heart, Diamond, Star, Clock } from "lucide-react";
+import { Wallet, Heart, Diamond, Clock } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/section.module.scss";
@@ -18,7 +18,6 @@ export function FullSupport() {
   ];
 
   const servicesBottom = [
-    { icon: Star, key: 'performance', color: '#E5D5A8' },
     { icon: Clock, key: 'promptness', color: '#D5A8E5' },
   ];
 

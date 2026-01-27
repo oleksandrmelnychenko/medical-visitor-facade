@@ -9,7 +9,8 @@ $breakpoints: (
 
 :root {
   --font-size: 16px;
-  --font-display: 'Gmed Display', serif;
+  --font-display: 'Gucci Sans Pro', var(--font-montserrat), sans-serif;
+  --font-primary: 'Gucci Sans Pro', var(--font-montserrat), sans-serif;
   --background: #ffffff;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;

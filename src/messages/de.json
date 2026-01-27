@@ -38,7 +38,8 @@
     "vatLegal": "gemäß § 27 a UStG:",
     "vatNumber": "147/220/51409",
     "contactPrompt": "Bei Fragen und Anregungen zum Inhalt dieser Website schreiben Sie bitte an:",
-    "copyright": "© 2023 Agentur für Patientenbetreuung Georgiy Gudiev"
+    "copyright": "© 2023 Agentur für Patientenbetreuung Georgiy Gudiev",
+    "financialAssistance": "Finanzielle Unterstützung"
   },
   "home": {
     "hero": {
@@ -127,15 +128,15 @@
           "address": "Kurfürstendamm 21, 10719 Berlin",
           "phone": "+49 30 123-4567"
         },
-        "frankfurt": {
-          "name": "Frankfurt",
-          "address": "Kaiserstraße 50, 60329 Frankfurt",
-          "phone": "+49 69 123-4567"
+        "hamburg": {
+          "name": "Hamburg",
+          "address": "Kaiserstraße 50, 60329 Hamburg",
+          "phone": "+49 40 123-4567"
         },
-        "nuremberg": {
-          "name": "Nürnberg",
-          "address": "Königstraße 25, 90402 Nürnberg",
-          "phone": "+49 911 123-4567"
+        "cologne": {
+          "name": "Köln",
+          "address": "Königstraße 25, 90402 Köln",
+          "phone": "+49 221 123-4567"
         },
         "munich": {
           "name": "München",
@@ -224,7 +225,7 @@
       },
       "bookConsultation": "Kunde werden",
       "getStarted": "Mehr erfahren",
-      "availability": "Werden Sie Teil unserer Betreuung"
+      "availability": ""
     }
   },
   "appointment": {
@@ -1008,28 +1009,60 @@
     "consentMarketing": "Einwilligung zum Erhalt von Informations- und Werbenachrichten",
     "welcomeTitle": "Willkommen",
     "welcomeSubtitle": "Melden Sie sich in Ihrem Konto an",
+    "registerTitle": "Mitglied werden",
+    "registerSubtitle": "Füllen Sie Ihre Daten aus, um Mitglied zu werden",
     "sendMessage": "Nachricht senden",
     "overline": "Anmeldung",
-    "registerOverline": "Registrierung",
-    "registerTitle": "Konto erstellen",
-    "registerSubtitle": "Bitte füllen Sie das Formular zur Registrierung aus",
     "alreadyHaveAccount": "Haben Sie bereits ein Konto?",
     "signInLink": "Anmelden"
   },
   "register": {
+    "registerTitle": "Mitglied werden",
+    "registerSubtitle": "Füllen Sie Ihre Daten aus, um Mitglied zu werden",
     "step1Title": "Daten",
     "step2Title": "Fragebogen",
-    "firstName": "Vorname",
-    "lastName": "Nachname",
+    "step3Title": "Dienstleistungen",
+    "firstName": "Vorname *",
+    "lastName": "Nachname *",
+    "email": "E-Mail *",
+    "phone": "Telefon *",
     "next": "Weiter",
     "back": "Zurück",
     "submit": "Anfrage senden",
     "submitting": "Wird gesendet...",
+    "whereAreYou": "Wo befinden Sie sich derzeit? *",
+    "germany": "Deutschland",
+    "euNotGermany": "EU (nicht Deutschland)",
+    "otherCountry": "Anderes Land",
+    "hasInsurance": "Haben Sie eine Krankenversicherung in Deutschland?",
+    "yesInsurance": "Ja, ich bin versichert",
+    "noInsurance": "Keine Versicherung",
     "canComeToGermany": "Können Sie nach Deutschland reisen?",
     "isEuResident": "Sind Sie in der EU ansässig?",
     "yes": "Ja",
     "no": "Nein",
-    "needHelp": "Ich benötige Unterstützung bei der Reiseorganisation"
+    "needHelp": "Ich benötige Unterstützung bei der Reiseorganisation",
+    "whatServices": "Welche Dienstleistungen könnten Sie benötigen?",
+    "charterFlight": "Charterflug",
+    "charterFlightDesc": "Privatflug ohne Wartezeiten und Umsteigen",
+    "personalTransport": "Persönlicher Transport",
+    "personalTransportDesc": "Premium-Fahrzeug mit Fahrer",
+    "visaSupport": "Visaunterstützung",
+    "visaSupportDesc": "Visa, Einladungen, Dokumentenbearbeitung",
+    "personalTranslator": "Persönlicher Übersetzer",
+    "personalTranslatorDesc": "Begleitung bei allen Terminen und Beratungen",
+    "hotelBooking": "Hotelbuchung",
+    "hotelBookingDesc": "Wir finden eine Unterkunft in Kliniknähe",
+    "validationFirstName": "Bitte geben Sie Ihren Vornamen ein",
+    "validationFirstNameMin": "Vorname muss mindestens 2 Zeichen haben",
+    "validationLastName": "Bitte geben Sie Ihren Nachnamen ein",
+    "validationLastNameMin": "Nachname muss mindestens 2 Zeichen haben",
+    "validationEmail": "Bitte geben Sie Ihre E-Mail ein",
+    "validationEmailFormat": "Ungültiges E-Mail-Format",
+    "validationPhone": "Bitte geben Sie Ihre Telefonnummer ein",
+    "validationPhoneFormat": "Ungültiges Telefonformat (z.B. +4917612345678)",
+    "validationLocation": "Bitte wählen Sie Ihren Standort",
+    "submitError": "Bei der Übermittlung ist ein Fehler aufgetreten"
   },
   "dashboard": {
     "title": "Kundenbereich",

@@ -1,6 +1,7 @@
 "use client";
 
-import { Activity, Mail } from "lucide-react";
+import Link from "next/link";
+import { Activity, Mail, Heart } from "lucide-react";
 import { useTranslations } from "next-intl";
 import styles from "./footer.module.scss";
 
@@ -17,8 +18,7 @@ export function Footer() {
             <div className={styles.textSmall}>
               <p className="text-white">{t("companyName")}</p>
               <p>{t("owner")}</p>
-              <p className="mt-3">Albert-Schweitzer-Straße 56</p>
-              <p>81735 München, Germany</p>
+              <p className="mt-3">81735 München, Germany</p>
             </div>
           </div>
 
@@ -35,6 +35,12 @@ export function Footer() {
               <li className={styles.linkItem}>
                 <Activity className="w-4 h-4 flex-shrink-0" />
                 <a href="https://www.gmed-health.com">www.gmed-health.com</a>
+              </li>
+              <li className={styles.linkItem}>
+                <Heart className="w-4 h-4 flex-shrink-0" />
+                <Link href="/financial-assistance">
+                  {t("financialAssistance")}
+                </Link>
               </li>
             </ul>
           </div>

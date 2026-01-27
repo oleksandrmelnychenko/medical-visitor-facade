@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ArrowRight, Package, Headphones, Activity, Video } from "lucide-react";
+import { ArrowRight, Headphones, Activity, Video } from "lucide-react";
 import { useTranslations } from "next-intl";
 import sectionStyles from "@/components/sections/shared/section.module.scss";
 import styles from "./cta.module.scss";
@@ -10,7 +10,6 @@ export function CTA() {
   const t = useTranslations('home.cta');
 
   const services = [
-    { icon: Package, key: 'medications', color: '#F4B4C4' },
     { icon: Headphones, key: 'support', color: '#A8D5E5' },
     { icon: Activity, key: 'monitoring', color: '#B5E5B0' },
     { icon: Video, key: 'consultations', color: '#E5D5A8' },

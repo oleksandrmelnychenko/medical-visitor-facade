@@ -2,7 +2,6 @@
 
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import { RegisterWizard } from "@/components/auth/RegisterWizard";
@@ -11,36 +10,22 @@ import pageStyles from "@/styles/page.module.scss";
 import styles from "./register.module.scss";
 
 export default function RegisterPage() {
-  const t = useTranslations('auth');
+  const t = useTranslations('register');
 
   return (
-    <div className={pageStyles.page}>
+    <div className={cn(pageStyles.page, styles.page)}>
       <section className={cn(sectionStyles.section, pageStyles.heroSection, styles.heroSection)}>
         <div className={sectionStyles.container}>
+          <Link href="/apply" className={styles.backLink}>
+            <span className={styles.backArrow}>‹</span> {t('back')}
+          </Link>
           <SectionHeader
-            overline="Первый шаг"
-            title="Начните свой путь к здоровью"
-            subtitle="Заполните анкетные данные, чтобы персональный консультант GMED связался с Вами"
+            title={t('registerTitle')}
+            subtitle={t('registerSubtitle')}
             variant="page"
             titleAs="h1"
+            theme="beige"
           />
-
-          {/* Benefits */}
-          <div className={styles.benefits}>
-            <div className={styles.benefitItem}>
-              <Check className={styles.benefitIcon} />
-              <span>Персональные рекомендации по программам лечения</span>
-            </div>
-            <div className={styles.benefitItem}>
-              <Check className={styles.benefitIcon} />
-              <span>Консьерж-сервис: отели, трансферы, переводчики</span>
-            </div>
-            <div className={styles.benefitItem}>
-              <Check className={styles.benefitIcon} />
-              <span>Организация лечения в ведущих клиниках</span>
-            </div>
-          </div>
-
           <div className={styles.headerDivider} />
         </div>
       </section>
@@ -49,14 +34,6 @@ export default function RegisterPage() {
         <div className={sectionStyles.container}>
           <div className={styles.formContainer}>
             <RegisterWizard />
-
-            {/* Link to login */}
-            <p className={styles.switchText}>
-              {t('alreadyHaveAccount')}{' '}
-              <Link href="/login" className={styles.switchLink}>
-                {t('signInLink')}
-              </Link>
-            </p>
           </div>
         </div>
       </section>

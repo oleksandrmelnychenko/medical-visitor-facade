@@ -3,7 +3,7 @@
     "home": "Home",
     "learnMore": "Learn more",
     "contactUs": "Contact us",
-    "requestAppointment": "Become a client",
+    "requestAppointment": "Become a membership",
     "login": "Sign in",
     "search": "Search",
     "submit": "Submit",
@@ -17,7 +17,7 @@
     "trustSafety": "Trust & safety",
     "patientCenteredCare": "Patient-centered care",
     "aboutGmed": "About Gmed",
-    "requestAppointment": "Become a client",
+    "requestAppointment": "Become a membership",
     "findDoctor": "Find a doctor",
     "locations": "Locations",
     "patientServices": "Patient services",
@@ -38,14 +38,15 @@
     "vatLegal": "in accordance with § 27 a of the VAT Act:",
     "vatNumber": "147/220/51409",
     "contactPrompt": "For questions and suggestions about the site content, please email:",
-    "copyright": "© 2023 Patient Care Agency Georgiy Gudiev"
+    "copyright": "© 2023 Patient Care Agency Georgiy Gudiev",
+    "financialAssistance": "Financial assistance"
   },
   "home": {
     "hero": {
       "overline": "GMED Agency",
       "title": "Medical concierge",
       "subtitle": "Treatment organization and end-to-end client support",
-      "requestAppointment": "Become a client",
+      "requestAppointment": "Become a membership",
       "exploreServices": "Learn more",
       "highlights": {
         "responseTime": {
@@ -127,15 +128,15 @@
           "address": "Kurfürstendamm 21, 10719 Berlin",
           "phone": "+49 30 123-4567"
         },
-        "frankfurt": {
-          "name": "Frankfurt",
-          "address": "Kaiserstraße 50, 60329 Frankfurt",
-          "phone": "+49 69 123-4567"
+        "hamburg": {
+          "name": "Hamburg",
+          "address": "Kaiserstraße 50, 60329 Hamburg",
+          "phone": "+49 40 123-4567"
         },
-        "nuremberg": {
+        "cologne": {
           "name": "Nuremberg",
-          "address": "Königstraße 25, 90402 Nürnberg",
-          "phone": "+49 911 123-4567"
+          "address": "Königstraße 25, 90402 Köln",
+          "phone": "+49 221 123-4567"
         },
         "munich": {
           "name": "Munich",
@@ -224,21 +225,21 @@
       },
       "bookConsultation": "Become our client",
       "getStarted": "Learn more",
-      "availability": "Become part of our care"
+      "availability": ""
     }
   },
   "appointment": {
     "overline": "Request",
-    "title": "Become a client",
+    "title": "Become a membership",
     "subtitle": "Submit a request and we will contact you shortly.",
     "backToSelection": "← Back to selection",
     "clientTypes": {
       "new": {
-        "title": "New client",
+        "title": "New membership",
         "description": "Complete the questionnaire."
       },
       "returning": {
-        "title": "I am already a client",
+        "title": "I am already a membership",
         "description": "Sign in to your account."
       }
     },
@@ -395,7 +396,7 @@
     },
     "doctors": {
       "title": "Our medical specialists",
-      "bookAppointment": "Become a client"
+      "bookAppointment": "Become a membership"
     },
     "whyChoose": {
       "title": "Why choose our doctors",
@@ -1008,28 +1009,60 @@
     "consentMarketing": "Consent to receive informational and promotional messages",
     "welcomeTitle": "Welcome",
     "welcomeSubtitle": "Sign in to your account",
+    "registerTitle": "Become a member",
+    "registerSubtitle": "Fill in your details to join our membership",
     "sendMessage": "Send message",
     "overline": "Sign in",
-    "registerOverline": "Registration",
-    "registerTitle": "Create an account",
-    "registerSubtitle": "Complete the form to register",
     "alreadyHaveAccount": "Already have an account?",
     "signInLink": "Sign in"
   },
   "register": {
+    "registerTitle": "Become a member",
+    "registerSubtitle": "Fill in your details to join our membership",
     "step1Title": "Details",
     "step2Title": "Questionnaire",
-    "firstName": "First name",
-    "lastName": "Last name",
+    "step3Title": "Services",
+    "firstName": "First name *",
+    "lastName": "Last name *",
+    "email": "Email *",
+    "phone": "Phone *",
     "next": "Next",
     "back": "Back",
     "submit": "Submit request",
     "submitting": "Submitting...",
+    "whereAreYou": "Where are you currently located? *",
+    "germany": "Germany",
+    "euNotGermany": "EU (not Germany)",
+    "otherCountry": "Other country",
+    "hasInsurance": "Do you have medical insurance in Germany?",
+    "yesInsurance": "Yes, I have insurance",
+    "noInsurance": "No insurance",
     "canComeToGermany": "Are you able to travel to Germany?",
     "isEuResident": "Are you an EU resident?",
     "yes": "Yes",
     "no": "No",
-    "needHelp": "I need help with travel arrangements"
+    "needHelp": "I need help with travel arrangements",
+    "whatServices": "What services might you need?",
+    "charterFlight": "Charter flight",
+    "charterFlightDesc": "Private flight without queues and layovers",
+    "personalTransport": "Personal transport",
+    "personalTransportDesc": "Premium car with driver",
+    "visaSupport": "Visa support",
+    "visaSupportDesc": "Visas, invitations, document processing",
+    "personalTranslator": "Personal translator",
+    "personalTranslatorDesc": "Accompaniment at all meetings and consultations",
+    "hotelBooking": "Hotel booking",
+    "hotelBookingDesc": "We'll find accommodation near the clinic",
+    "validationFirstName": "Please enter your first name",
+    "validationFirstNameMin": "First name must be at least 2 characters",
+    "validationLastName": "Please enter your last name",
+    "validationLastNameMin": "Last name must be at least 2 characters",
+    "validationEmail": "Please enter your email",
+    "validationEmailFormat": "Invalid email format",
+    "validationPhone": "Please enter your phone number",
+    "validationPhoneFormat": "Invalid phone format (e.g., +4917612345678)",
+    "validationLocation": "Please select your location",
+    "submitError": "An error occurred while submitting the application"
   },
   "dashboard": {
     "title": "Client area",

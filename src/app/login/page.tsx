@@ -130,7 +130,6 @@ export default function LoginPage() {
       <section className={cn(sectionStyles.section, pageStyles.heroSection, styles.heroSection)}>
         <div className={sectionStyles.container}>
           <SectionHeader
-            overline={t('overline')}
             title={t('welcomeTitle')}
             subtitle={t('welcomeSubtitle')}
             variant="page"

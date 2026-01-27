@@ -9,12 +9,6 @@ import styles from "./hero.module.scss";
 export function Hero() {
   const t = useTranslations('home.hero');
 
-  const highlights = [
-    { key: 'responseTime' },
-    { key: 'careCoordination' },
-    { key: 'languages' },
-  ];
-
   return (
     <section className={cn(sectionStyles.section, styles.hero)}>
       <div className={cn(sectionStyles.container, styles.heroContainer)}>
@@ -63,25 +57,7 @@ export function Hero() {
               </motion.button>
             </motion.div>
 
-            {/* Highlights */}
-            <motion.div
-              className={styles.heroHighlights}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-            >
-              {highlights.map((highlight) => (
-                <div key={highlight.key} className={styles.heroHighlight}>
-                  <span className={styles.highlightLabel}>
-                    {t(`highlights.${highlight.key}.label`)}
-                  </span>
-                  <span className={styles.highlightValue}>
-                    {t(`highlights.${highlight.key}.value`)}
-                  </span>
-                </div>
-              ))}
-            </motion.div>
-          </div>
+                      </div>
         </div>
       </div>
 

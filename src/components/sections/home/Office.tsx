@@ -11,8 +11,8 @@ export function Office() {
 
   const otherCities = [
     { key: 'berlin', color: '#F4B4C4' },
-    { key: 'frankfurt', color: '#A8D5E5' },
-    { key: 'nuremberg', color: '#B5E5B0' },
+    { key: 'hamburg', color: '#A8D5E5' },
+    { key: 'cologne', color: '#B5E5B0' },
   ];
 
   return (
@@ -44,7 +44,6 @@ export function Office() {
           >
             <div className={styles.mainCityContent}>
               <h3 className={styles.mainCityName}>{t('cities.munich.name')}</h3>
-              <p className={styles.mainCityAddress}>Albert-Schweitzer-Straße 56</p>
             </div>
           </motion.div>
 
