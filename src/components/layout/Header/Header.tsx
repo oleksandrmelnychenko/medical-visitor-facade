@@ -115,53 +115,28 @@ export function Header() {
   return (
     <header ref={headerRef} className={cn(styles.header, isScrolled && styles.scrolled)} style={{ position: 'relative' }}>
       <div className={styles.container} style={{ position: 'relative' }}>
-        {/* Mobile header buttons - login + hamburger */}
-        <div
+        {/* Mobile hamburger button */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           style={{
             display: isMobile ? 'flex' : 'none',
             position: 'absolute',
             right: '1rem',
             top: '50%',
             transform: 'translateY(-50%)',
+            background: 'white',
+            border: '1px solid #1a1a1a',
+            borderRadius: 0,
+            padding: '0.5rem',
+            cursor: 'pointer',
             alignItems: 'center',
-            gap: '0.5rem',
+            justifyContent: 'center',
             zIndex: 10
           }}
         >
-          {status !== "authenticated" && (
-            <Link
-              href="/login"
-              aria-label={tCommon('login')}
-              style={{
-                display: 'flex',
-                background: 'white',
-                border: '1px solid #1a1a1a',
-                borderRadius: 0,
-                padding: '0.5rem',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <User size={20} />
-            </Link>
-          )}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            style={{
-              display: 'flex',
-              background: 'white',
-              border: '1px solid #1a1a1a',
-              borderRadius: 0,
-              padding: '0.5rem',
-              cursor: 'pointer',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
+          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
 
         {/* Desktop navigation - JS hides on mobile */}
         <div className={styles.utilityRow} style={{ display: isMobile ? 'none' : 'flex' }}>
