@@ -49,7 +49,11 @@
     "copyright": "© {year} Patient Care Agency Heorhii Hudiiev",
     "allRightsReserved": "Все права защищены",
     "financialAssistance": "Финансовая помощь",
-    "privacyPolicy": "Политика конфиденциальности"
+    "privacyPolicy": "Политика конфиденциальности",
+    "headquarters": "Офис",
+    "ownerName": "Георгий Гудиев",
+    "address": "81735 Мюнхен, Германия",
+    "theAgency": "Агентство"
   },
   "home": {
     "hero": {

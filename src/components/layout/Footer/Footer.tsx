@@ -13,10 +13,10 @@ export function Footer() {
         <div className={styles.grid}>
           {/* Company Info */}
           <div>
-            <h3 className={styles.sectionTitle}>Patient Care Agency</h3>
+            <h3 className={styles.sectionTitle}>{t("headquarters")}</h3>
             <div className={styles.textSmall}>
-              <p>Heorhii Hudiiev</p>
-              <p>81735 München, Germany</p>
+              <p>{t("ownerName")}</p>
+              <p>{t("address")}</p>
             </div>
           </div>
 
@@ -34,7 +34,7 @@ export function Footer() {
 
           {/* Links */}
           <div>
-            <h3 className={styles.sectionTitle}>The Agency</h3>
+            <h3 className={styles.sectionTitle}>{t("theAgency")}</h3>
             <ul className={styles.linkList}>
               <li className={styles.linkItem}>
                 <Link href="/financial-assistance">

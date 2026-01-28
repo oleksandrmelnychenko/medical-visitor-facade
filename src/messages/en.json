@@ -49,7 +49,11 @@
     "copyright": "© {year} Patient Care Agency Heorhii Hudiiev",
     "allRightsReserved": "All rights reserved",
     "financialAssistance": "Financial assistance",
-    "privacyPolicy": "Privacy policy"
+    "privacyPolicy": "Privacy policy",
+    "headquarters": "Office",
+    "ownerName": "Heorhii Hudiiev",
+    "address": "81735 Munich, Germany",
+    "theAgency": "The Agency"
   },
   "home": {
     "hero": {
