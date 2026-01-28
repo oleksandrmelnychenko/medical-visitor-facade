@@ -26,8 +26,9 @@
   animation: blobMorph 15s ease-in-out infinite;
 
   @media (max-width: 768px) {
-    filter: blur(80px);
+    filter: blur(60px);
     transform: scale(0.6);
+    animation: none;
   }
 }
 
