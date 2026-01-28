@@ -1,0 +1,132 @@
+@use '../../styles/variables' as *;
+
+.page {
+  min-height: 100vh;
+}
+
+.heroSection {
+  background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.headerDivider {
+  width: 100%;
+  max-width: 600px;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 2rem auto 0;
+}
+
+.loadingSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+}
+
+.profileSection {
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+.profileCard {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.profileHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.profileName {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.profileInfo {
+  padding: 1.5rem 2rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.infoIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f5f3f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #1a1a1a;
+}
+
+.infoContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.infoLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.infoValue {
+  font-size: 1rem;
+  color: #1a1a1a;
+}
+
+@media (max-width: 480px) {
+  .profileCard {
+    margin: 0 -1rem;
+    border-radius: 0;
+  }
+
+  .profileHeader {
+    padding: 2rem 1.5rem;
+  }
+
+  .profileInfo {
+    padding: 1rem 1.5rem;
+  }
+}

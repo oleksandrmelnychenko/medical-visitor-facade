@@ -116,7 +116,17 @@ export default function LoginPage() {
         return;
       }
 
-      router.push("/admin");
+      // Get session to check role
+      const sessionRes = await fetch("/api/auth/session");
+      const session = await sessionRes.json();
+      const userRole = session?.user?.role;
+
+      // Redirect based on role
+      if (userRole === "ADMIN" || userRole === "MANAGER") {
+        router.push("/admin");
+      } else {
+        router.push("/account");
+      }
       router.refresh();
     } catch {
       setError(t('invalidCredentials'));
