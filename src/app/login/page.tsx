@@ -71,7 +71,9 @@ export default function LoginPage() {
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setPassword(value);
-    if (touched.password) {
+    // Show validation after user starts typing (at least 1 character)
+    if (value.length > 0) {
+      setTouched(prev => ({ ...prev, password: true }));
       setErrors(prev => ({ ...prev, password: validatePassword(value) }));
     }
   };

@@ -95,7 +95,7 @@ export function RegisterWizard() {
       password: "",
       confirmPassword: "",
     },
-    mode: "onBlur",
+    mode: "onChange",
   });
 
   const step2Form = useForm<Step2Data>({
