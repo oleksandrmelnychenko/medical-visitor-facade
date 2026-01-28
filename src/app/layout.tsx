@@ -12,7 +12,7 @@ import { AuthProvider } from "@/providers/AuthProvider";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/seo/JsonLd";
 
 const montserrat = Montserrat({
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic", "latin-ext"],
   variable: "--font-montserrat",
   display: "swap",
 });
@@ -128,6 +128,13 @@ export default async function RootLayout({
       <head>
         <link
           rel="preload"
+          href="/_next/static/media/GmedDisplay-Light.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
           href="/_next/static/media/GmedDisplay-Book.woff2"
           as="font"
           type="font/woff2"
@@ -136,6 +143,13 @@ export default async function RootLayout({
         <link
           rel="preload"
           href="/_next/static/media/GmedDisplay-Medium.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/_next/static/media/GmedDisplay-Bold.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
