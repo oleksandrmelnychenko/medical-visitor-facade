@@ -33,6 +33,8 @@
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: white;
+  font-weight: 400;
+  letter-spacing: normal;
 }
 
 .linkList {
@@ -48,6 +50,7 @@
 
   a {
     color: white;
+    font-weight: 400;
     text-decoration: underline;
     transition: color 0.15s;
     &:hover {
@@ -63,4 +66,5 @@
   text-align: center;
   font-size: 0.875rem;
   color: white;
+  font-weight: 400;
 }
