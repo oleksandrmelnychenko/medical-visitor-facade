@@ -52,6 +52,7 @@ export const metadata: Metadata = {
       'en-US': `${baseUrl}?lang=en`,
       'ru-RU': `${baseUrl}?lang=ru`,
       'es-ES': `${baseUrl}?lang=es`,
+      'x-default': baseUrl,
     },
   },
   openGraph: {
@@ -64,10 +65,11 @@ export const metadata: Metadata = {
     description: "Premium medical concierge service in Germany. Treatment organization, clinic selection, and end-to-end patient support.",
     images: [
       {
-        url: "/og-image.svg",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "GMED Agency - Medical Concierge Service",
+        type: "image/png",
       },
     ],
   },
@@ -75,7 +77,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "GMED Agency - Medical Concierge Service",
     description: "Premium medical concierge service in Germany. Treatment organization and patient support.",
-    images: ["/og-image.svg"],
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
