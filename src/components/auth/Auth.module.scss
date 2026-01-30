@@ -56,26 +56,30 @@
 }
 
 .simpleFormGroup {
-  position: relative;
-  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .simpleInput {
   width: 100%;
-  padding: 0.75rem 0;
+  padding: 0.875rem 1rem;
   font-size: 1rem;
   font-weight: 400;
   letter-spacing: -0.02em;
   font-family: inherit;
-  border: none;
-  border-bottom: 1px solid #1a1a1a;
-  background: transparent;
+  font-variant-numeric: lining-nums;
+  border: 1px solid #1a1a1a;
+  border-radius: 6px;
+  background: #fff;
   color: #1a1a1a;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
   &:focus {
     outline: none;
-    border-bottom-color: var(--foreground);
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
   }
 
   &::placeholder {
@@ -85,65 +89,56 @@
   }
 
   &.error {
-    border-bottom-color: var(--destructive);
+    border-color: #d4183d;
   }
 }
 
 .formGroup {
-  position: relative;
-  padding-top: 1.5rem;
-  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .input {
   width: 100%;
-  padding: 0.75rem 0;
-  font-size: 1.125rem;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
   font-family: inherit;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  background: transparent;
+  font-variant-numeric: lining-nums;
+  border: 1px solid #1a1a1a;
+  border-radius: 6px;
+  background: #fff;
   color: var(--foreground);
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
   &:focus {
     outline: none;
-    border-bottom-color: var(--foreground);
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
   }
 
   &::placeholder {
-    color: transparent;
+    color: #999;
   }
 
   &.error {
-    border-bottom-color: var(--destructive);
-  }
-
-  &:not(:placeholder-shown) + .label,
-  &:focus + .label {
-    transform: translateY(-1.75rem) scale(0.85);
-    color: var(--muted-foreground);
+    border-color: var(--destructive);
   }
 }
 
 .label {
-  position: absolute;
-  left: 0;
-  top: 1.75rem;
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 0.875rem;
+  font-weight: 500;
   letter-spacing: -0.02em;
-  color: #999;
-  pointer-events: none;
-  transform-origin: left top;
-  transition: transform 0.3s ease, color 0.3s ease;
+  color: #1a1a1a;
 }
 
 .errorMessage {
   display: block;
   font-size: 0.75rem;
-  color: var(--destructive);
-  margin-top: 0.5rem;
+  color: #d4183d;
+  margin-top: 0.125rem;
 }
 
 .phoneInputWrapper {
@@ -206,9 +201,10 @@
   font-weight: 500;
   letter-spacing: -0.02em;
   text-transform: none;
-  color: #1a1a1a;
-  background: transparent;
-  border: 1px solid #1a1a1a;
+  color: #fff;
+  background: #1a1a1a;
+  border: 1px solid #fff;
+  box-shadow: 0 0 0 1px #1a1a1a;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 1.5rem;
@@ -218,8 +214,7 @@
   }
 
   &:hover {
-    background: #1a1a1a;
-    color: #fff;
+    background: #333;
 
     svg {
       transform: translateX(4px);
@@ -231,8 +226,7 @@
     cursor: not-allowed;
 
     &:hover {
-      background: transparent;
-      color: #1a1a1a;
+      background: #1a1a1a;
 
       svg {
         transform: none;
@@ -404,13 +398,13 @@
   width: 100%;
 
   .simpleInput {
-    padding-right: 2.5rem;
+    padding-right: 3rem;
   }
 }
 
 .passwordToggle {
   position: absolute;
-  right: 0;
+  right: 0.75rem;
   top: 50%;
   transform: translateY(-50%);
   background: none;
@@ -424,7 +418,7 @@
   justify-content: center;
 
   &:hover {
-    color: var(--foreground);
+    color: #1a1a1a;
   }
 }
 
@@ -711,16 +705,18 @@
   }
 
   .formGroup {
-    padding-top: 1.25rem;
+    gap: 0.375rem;
+    margin-bottom: 0.75rem;
   }
 
   .input,
   .phoneInput {
-    font-size: 1rem;
+    font-size: 0.9375rem;
+    padding: 0.75rem 0.875rem;
   }
 
   .label {
-    font-size: 0.9rem;
+    font-size: 0.8125rem;
   }
 
   .submitButton {

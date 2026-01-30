@@ -11,68 +11,82 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import styles from "../Auth.module.scss";
 
-const step1Schema = z.object({
+const createStep1Schema = (t: (key: string) => string) => z.object({
   firstName: z
     .string()
-    .min(1, "Введите имя")
-    .min(2, "Имя должно содержать минимум 2 символа")
-    .max(50, "Имя слишком длинное"),
+    .min(1, t('validationFirstName'))
+    .min(2, t('validationFirstNameMin'))
+    .max(50, t('validationFirstNameMax')),
   lastName: z
     .string()
-    .min(1, "Введите фамилию")
-    .min(2, "Фамилия должна содержать минимум 2 символа")
-    .max(50, "Фамилия слишком длинная"),
+    .min(1, t('validationLastName'))
+    .min(2, t('validationLastNameMin'))
+    .max(50, t('validationLastNameMax')),
   email: z
     .string()
-    .min(1, "Введите email")
-    .email("Неверный формат email"),
+    .min(1, t('validationEmail'))
+    .email(t('validationEmailFormat')),
   phone: z
     .string()
-    .min(1, "Введите номер телефона")
-    .regex(/^\+[0-9]{10,15}$/, "Неверный формат телефона (например: +4917612345678)"),
+    .min(1, t('validationPhone'))
+    .regex(/^\+[0-9]{10,15}$/, t('validationPhoneFormat')),
   password: z
     .string()
-    .min(1, "Введите пароль")
-    .min(8, "Пароль должен содержать минимум 8 символов")
-    .regex(/[A-Z]/, "Пароль должен содержать хотя бы одну заглавную букву")
-    .regex(/[0-9]/, "Пароль должен содержать хотя бы одну цифру"),
+    .min(1, t('validationPassword'))
+    .min(8, t('validationPasswordMin'))
+    .regex(/[A-Z]/, t('validationPasswordUppercase'))
+    .regex(/[0-9]/, t('validationPasswordNumber')),
   confirmPassword: z
     .string()
-    .min(1, "Подтвердите пароль"),
+    .min(1, t('validationConfirmPassword')),
 }).refine((data) => data.password === data.confirmPassword, {
-  message: "Пароли не совпадают",
+  message: t('validationPasswordMismatch'),
   path: ["confirmPassword"],
 });
 
-const step2Schema = z.object({
+const createStep2Schema = (t: (key: string) => string) => z.object({
   currentLocation: z
-    .string({ message: "Please select your location" })
-    .min(1, "Please select your location")
+    .string({ message: t('validationLocation') })
+    .min(1, t('validationLocation'))
     .refine((val) => ["germany", "eu", "other"].includes(val), {
-      message: "Please select your location",
+      message: t('validationLocation'),
     }),
   hasInsurance: z.enum(["yes", "no"]).optional(),
   canComeToGermany: z.enum(["yes", "no", "need_help"]).optional(),
   isEuResident: z.enum(["yes", "no"]).optional(),
 });
 
-const step3Schema = z.object({
+const createStep3Schema = (t: (key: string) => string) => z.object({
   needCharter: z.boolean(),
   needTransport: z.boolean(),
   needVisa: z.boolean(),
   needTranslator: z.boolean(),
   needHotel: z.boolean(),
-  clientNotes: z.string().max(2000, "Максимум 2000 символов").optional(),
+  clientNotes: z.string().max(2000, t('validationNotesMax')).optional(),
 });
 
-type Step1Data = z.infer<typeof step1Schema>;
+type Step1Data = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  password: string;
+  confirmPassword: string;
+};
 type Step2Data = {
   currentLocation: string;
   hasInsurance?: "yes" | "no";
   canComeToGermany?: "yes" | "no" | "need_help";
   isEuResident?: "yes" | "no";
 };
-type Step3Data = z.infer<typeof step3Schema>;
+type Step3Data = {
+  needCharter: boolean;
+  needTransport: boolean;
+  needVisa: boolean;
+  needTranslator: boolean;
+  needHotel: boolean;
+  clientNotes?: string;
+};
 
 export function RegisterWizard() {
   const t = useTranslations("register");
@@ -84,6 +98,10 @@ export function RegisterWizard() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [showSuccess, setShowSuccess] = useState(false);
   const [countdown, setCountdown] = useState(5);
+
+  const step1Schema = createStep1Schema(t);
+  const step2Schema = createStep2Schema(t);
+  const step3Schema = createStep3Schema(t);
 
   const step1Form = useForm<Step1Data>({
     resolver: zodResolver(step1Schema),
@@ -241,16 +259,15 @@ export function RegisterWizard() {
             transition={{ duration: 0.3 }}
           >
             <div className={styles.formGroup}>
-              <input
-                id="firstName"
-                type="text"
-                placeholder=" "
-                className={cn(styles.input, step1Form.formState.errors.firstName && styles.error)}
-                {...step1Form.register("firstName")}
-              />
               <label htmlFor="firstName" className={styles.label}>
                 {t('firstName')}
               </label>
+              <input
+                id="firstName"
+                type="text"
+                className={cn(styles.input, step1Form.formState.errors.firstName && styles.error)}
+                {...step1Form.register("firstName")}
+              />
               {step1Form.formState.errors.firstName && (
                 <span className={styles.errorMessage}>
                   {step1Form.formState.errors.firstName.message}
@@ -259,16 +276,15 @@ export function RegisterWizard() {
             </div>
 
             <div className={styles.formGroup}>
-              <input
-                id="lastName"
-                type="text"
-                placeholder=" "
-                className={cn(styles.input, step1Form.formState.errors.lastName && styles.error)}
-                {...step1Form.register("lastName")}
-              />
               <label htmlFor="lastName" className={styles.label}>
                 {t('lastName')}
               </label>
+              <input
+                id="lastName"
+                type="text"
+                className={cn(styles.input, step1Form.formState.errors.lastName && styles.error)}
+                {...step1Form.register("lastName")}
+              />
               {step1Form.formState.errors.lastName && (
                 <span className={styles.errorMessage}>
                   {step1Form.formState.errors.lastName.message}
@@ -277,16 +293,15 @@ export function RegisterWizard() {
             </div>
 
             <div className={styles.formGroup}>
-              <input
-                id="email"
-                type="email"
-                placeholder=" "
-                className={cn(styles.input, step1Form.formState.errors.email && styles.error)}
-                {...step1Form.register("email")}
-              />
               <label htmlFor="email" className={styles.label}>
                 {t('email')}
               </label>
+              <input
+                id="email"
+                type="email"
+                className={cn(styles.input, step1Form.formState.errors.email && styles.error)}
+                {...step1Form.register("email")}
+              />
               {step1Form.formState.errors.email && (
                 <span className={styles.errorMessage}>
                   {step1Form.formState.errors.email.message}
@@ -295,18 +310,18 @@ export function RegisterWizard() {
             </div>
 
             <div className={styles.formGroup}>
+              <label htmlFor="phone" className={styles.label}>
+                {t('phone')}
+              </label>
               <input
                 id="phone"
                 type="tel"
-                placeholder=" "
+                placeholder="+49..."
                 className={cn(styles.input, step1Form.formState.errors.phone && styles.error)}
                 {...step1Form.register("phone", {
                   onChange: handlePhoneChange,
                 })}
               />
-              <label htmlFor="phone" className={styles.label}>
-                {t('phone')}
-              </label>
               {step1Form.formState.errors.phone && (
                 <span className={styles.errorMessage}>
                   {step1Form.formState.errors.phone.message}
@@ -315,16 +330,15 @@ export function RegisterWizard() {
             </div>
 
             <div className={styles.formGroup}>
-              <input
-                id="password"
-                type="password"
-                placeholder=" "
-                className={cn(styles.input, step1Form.formState.errors.password && styles.error)}
-                {...step1Form.register("password")}
-              />
               <label htmlFor="password" className={styles.label}>
                 {t('password')}
               </label>
+              <input
+                id="password"
+                type="password"
+                className={cn(styles.input, step1Form.formState.errors.password && styles.error)}
+                {...step1Form.register("password")}
+              />
               {step1Form.formState.errors.password && (
                 <span className={styles.errorMessage}>
                   {step1Form.formState.errors.password.message}
@@ -333,16 +347,15 @@ export function RegisterWizard() {
             </div>
 
             <div className={styles.formGroup}>
-              <input
-                id="confirmPassword"
-                type="password"
-                placeholder=" "
-                className={cn(styles.input, step1Form.formState.errors.confirmPassword && styles.error)}
-                {...step1Form.register("confirmPassword")}
-              />
               <label htmlFor="confirmPassword" className={styles.label}>
                 {t('confirmPassword')}
               </label>
+              <input
+                id="confirmPassword"
+                type="password"
+                className={cn(styles.input, step1Form.formState.errors.confirmPassword && styles.error)}
+                {...step1Form.register("confirmPassword")}
+              />
               {step1Form.formState.errors.confirmPassword && (
                 <span className={styles.errorMessage}>
                   {step1Form.formState.errors.confirmPassword.message}

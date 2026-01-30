@@ -156,11 +156,10 @@ export default function LoginPage() {
               {error && <div className={formStyles.formError}>{error}</div>}
 
               <div className={formStyles.simpleFormGroup}>
-                <label htmlFor="identifier" className={formStyles.srOnly}>{t('phoneOrEmail')}</label>
+                <label htmlFor="identifier" className={formStyles.label}>{t('phoneOrEmail')}</label>
                 <input
                   id="identifier"
                   type="text"
-                  placeholder={t('phoneOrEmail')}
                   className={cn(formStyles.simpleInput, errors.identifier && touched.identifier && formStyles.error)}
                   autoComplete="off"
                   value={identifier}
@@ -173,12 +172,11 @@ export default function LoginPage() {
               </div>
 
               <div className={formStyles.simpleFormGroup}>
-                <label htmlFor="password" className={formStyles.srOnly}>{t('password')}</label>
+                <label htmlFor="password" className={formStyles.label}>{t('password')}</label>
                 <div className={formStyles.passwordWrapper}>
                   <input
                     id="password"
                     type={showPassword ? "text" : "password"}
-                    placeholder={t('password')}
                     className={cn(formStyles.simpleInput, errors.password && touched.password && formStyles.error)}
                     autoComplete="new-password"
                     value={password}

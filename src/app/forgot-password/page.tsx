@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
@@ -142,6 +141,9 @@ export default function ForgotPasswordPage() {
     <div className={cn(pageStyles.page, styles.page)}>
       <section className={cn(sectionStyles.section, pageStyles.heroSection, styles.heroSection)}>
         <div className={sectionStyles.container}>
+          <Link href="/login" className={styles.backLink}>
+            <span className={styles.backArrow}>‹</span> <span className={styles.backText}>{t("back")}</span>
+          </Link>
           <SectionHeader
             title={t("title")}
             subtitle={t("subtitle")}
@@ -158,16 +160,14 @@ export default function ForgotPasswordPage() {
           <div className={styles.formContainer}>
             {step === "phone" && (
               <form className={formStyles.form} onSubmit={handleSendCode} noValidate>
-                <p className={styles.instruction}>{t("enterPhone")}</p>
-
                 {error && <div className={formStyles.formError}>{error}</div>}
 
                 <div className={formStyles.simpleFormGroup}>
-                  <label htmlFor="phone" className={formStyles.srOnly}>{t("phone")}</label>
+                  <label htmlFor="phone" className={formStyles.label}>{t("phone")}</label>
                   <input
                     id="phone"
                     type="tel"
-                    placeholder={t("phonePlaceholder")}
+                    placeholder="+49..."
                     className={formStyles.simpleInput}
                     value={phone}
                     onChange={handlePhoneChange}
@@ -177,11 +177,6 @@ export default function ForgotPasswordPage() {
                 <button type="submit" className={formStyles.submitButton} disabled={isSubmitting}>
                   {isSubmitting ? t("sending") : t("sendCode")}
                 </button>
-
-                <Link href="/login" className={styles.backLink}>
-                  <ArrowLeft size={16} />
-                  {t("backToLogin")}
-                </Link>
               </form>
             )}
 
