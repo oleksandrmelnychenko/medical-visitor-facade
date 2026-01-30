@@ -29,6 +29,7 @@ model User {
   applications  Application[]
   sessions      Session[]
   passwordReset PasswordReset?
+  messages      Message[]
 
   @@index([email])
   @@index([phone])
@@ -171,6 +172,7 @@ model Application {
   travelAbility TravelAbility?       @relation(fields: [travelAbilityId], references: [id], onDelete: SetNull)
   services      ApplicationService[]
   statusHistory ApplicationStatusHistory[]
+  messages      Message[]
 
   @@index([userId])
   @@index([status])
@@ -215,4 +217,27 @@ enum ApplicationStatus {
   CONTACTED     // Client has been contacted
   COMPLETED     // All services delivered
   CANCELLED     // Cancelled by client or manager
+}
+
+// ============================================
+// MESSAGING
+// ============================================
+
+model Message {
+  id            String   @id @default(cuid())
+  applicationId String
+  senderId      String
+  senderRole    UserRole
+  content       String   @db.VarChar(2000)
+  isRead        Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relations
+  application Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  sender      User        @relation(fields: [senderId], references: [id], onDelete: Cascade)
+
+  @@index([applicationId])
+  @@index([senderId])
+  @@index([createdAt])
 }

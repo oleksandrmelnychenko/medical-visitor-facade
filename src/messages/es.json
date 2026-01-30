@@ -1081,7 +1081,9 @@
     "serviceTransport": "Transporte personal",
     "serviceVisa": "Apoyo de visa",
     "serviceTranslator": "Intérprete personal",
-    "serviceHotel": "Reserva de hotel"
+    "serviceHotel": "Reserva de hotel",
+    "tableMessages": "Mensajes",
+    "chatWith": "Chat con {name}"
   },
   "privacyPolicy": {
     "title": "Política de privacidad",
@@ -1197,6 +1199,17 @@
     "messages": {
       "empty": "Aún no hay mensajes"
     }
+  },
+  "messages": {
+    "typeMessage": "Escribe un mensaje...",
+    "send": "Enviar",
+    "noMessages": "Aún no hay mensajes. ¡Comienza la conversación!",
+    "loading": "Cargando mensajes...",
+    "retry": "Reintentar",
+    "today": "Hoy",
+    "yesterday": "Ayer",
+    "client": "Cliente",
+    "support": "Soporte"
   },
   "forgotPassword": {
     "title": "Recuperación de contraseña",

@@ -1081,7 +1081,9 @@
     "serviceTransport": "Privater Transport",
     "serviceVisa": "Visa-Unterstützung",
     "serviceTranslator": "Persönlicher Dolmetscher",
-    "serviceHotel": "Hotelbuchung"
+    "serviceHotel": "Hotelbuchung",
+    "tableMessages": "Nachrichten",
+    "chatWith": "Chat mit {name}"
   },
   "privacyPolicy": {
     "title": "Datenschutzerklärung",
@@ -1197,6 +1199,17 @@
     "messages": {
       "empty": "Noch keine Nachrichten"
     }
+  },
+  "messages": {
+    "typeMessage": "Nachricht eingeben...",
+    "send": "Senden",
+    "noMessages": "Noch keine Nachrichten. Starten Sie das Gespräch!",
+    "loading": "Nachrichten laden...",
+    "retry": "Erneut versuchen",
+    "today": "Heute",
+    "yesterday": "Gestern",
+    "client": "Kunde",
+    "support": "Support"
   },
   "forgotPassword": {
     "title": "Passwort wiederherstellen",

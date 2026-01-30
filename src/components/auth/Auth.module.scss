@@ -70,7 +70,7 @@
   letter-spacing: -0.02em;
   font-family: inherit;
   border: 1px solid #1a1a1a;
-  border-radius: 6px;
+  border-radius: 0;
   background: #fff;
   color: #1a1a1a;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -105,7 +105,7 @@
   font-size: 1rem;
   font-family: inherit;
   border: 1px solid #1a1a1a;
-  border-radius: 6px;
+  border-radius: 0;
   background: #fff;
   color: var(--foreground);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -201,8 +201,7 @@
   text-transform: none;
   color: #fff;
   background: #1a1a1a;
-  border: 1px solid #fff;
-  box-shadow: 0 0 0 1px #1a1a1a;
+  border: none;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 1.5rem;

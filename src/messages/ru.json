@@ -1081,7 +1081,9 @@
     "serviceTransport": "Личный транспорт",
     "serviceVisa": "Визовая поддержка",
     "serviceTranslator": "Личный переводчик",
-    "serviceHotel": "Бронирование отеля"
+    "serviceHotel": "Бронирование отеля",
+    "tableMessages": "Сообщения",
+    "chatWith": "Чат с {name}"
   },
   "privacyPolicy": {
     "title": "Политика конфиденциальности",
@@ -1197,6 +1199,17 @@
     "messages": {
       "empty": "Сообщений пока нет"
     }
+  },
+  "messages": {
+    "typeMessage": "Введите сообщение...",
+    "send": "Отправить",
+    "noMessages": "Сообщений пока нет. Начните диалог!",
+    "loading": "Загрузка сообщений...",
+    "retry": "Повторить",
+    "today": "Сегодня",
+    "yesterday": "Вчера",
+    "client": "Клиент",
+    "support": "Поддержка"
   },
   "forgotPassword": {
     "title": "Восстановление пароля",

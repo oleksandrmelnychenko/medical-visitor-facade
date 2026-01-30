@@ -2,28 +2,56 @@
 
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { User, Phone, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
+import { ChatContainer } from "@/components/chat";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
 import styles from "./account.module.scss";
 
 type TabType = "account" | "history" | "messages";
 
+type Application = {
+  id: string;
+  applicationNum: string;
+};
+
 export default function AccountPage() {
   const t = useTranslations("account");
   const { data: session, status } = useSession();
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<TabType>("account");
+  const [applications, setApplications] = useState<Application[]>([]);
+  const [loadingApps, setLoadingApps] = useState(true);
+
+  const fetchApplications = useCallback(async () => {
+    try {
+      const response = await fetch("/api/applications");
+      const data = await response.json();
+      if (response.ok && data.data) {
+        setApplications(data.data);
+      }
+    } catch (error) {
+      console.error("Failed to fetch applications:", error);
+    } finally {
+      setLoadingApps(false);
+    }
+  }, []);
 
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/login");
     }
   }, [status, router]);
+
+  useEffect(() => {
+    if (session?.user) {
+      fetchApplications();
+    }
+  }, [session, fetchApplications]);
 
   if (status === "loading") {
     return (
@@ -49,6 +77,8 @@ export default function AccountPage() {
     phone?: string | null;
   };
 
+  const currentApplication = applications.length > 0 ? applications[0] : null;
+
   return (
     <div className={cn(pageStyles.page, styles.page)}>
       <section className={cn(sectionStyles.section, pageStyles.heroSection, styles.heroSection)}>
@@ -58,7 +88,6 @@ export default function AccountPage() {
             subtitle={t("subtitle", { name: user.name || user.email })}
             variant="page"
             titleAs="h1"
-            theme="beige"
           />
           <div className={styles.headerDivider} />
         </div>
@@ -90,45 +119,36 @@ export default function AccountPage() {
 
             <div className={styles.tabContent}>
               {activeTab === "account" && (
-                <div className={styles.profileCard}>
-                  <div className={styles.profileHeader}>
-                    <div className={styles.avatar}>
-                      <User size={48} />
+                <div className={styles.profileList}>
+                  <div className={styles.profileItem}>
+                    <div className={styles.profileIcon}>
+                      <User size={20} />
                     </div>
-                    <h2 className={styles.profileName}>{user.name}</h2>
+                    <div className={styles.profileContent}>
+                      <span className={styles.profileLabel}>{t("name")}</span>
+                      <span className={styles.profileValue}>{user.name}</span>
+                    </div>
                   </div>
 
-                  <div className={styles.profileInfo}>
-                    <div className={styles.infoItem}>
-                      <div className={styles.infoIcon}>
-                        <User size={20} />
+                  {user.phone && (
+                    <div className={styles.profileItem}>
+                      <div className={styles.profileIcon}>
+                        <Phone size={20} />
                       </div>
-                      <div className={styles.infoContent}>
-                        <span className={styles.infoLabel}>{t("name")}</span>
-                        <span className={styles.infoValue}>{user.name}</span>
+                      <div className={styles.profileContent}>
+                        <span className={styles.profileLabel}>{t("phone")}</span>
+                        <span className={styles.profileValue}>{user.phone}</span>
                       </div>
                     </div>
+                  )}
 
-                    {user.phone && (
-                      <div className={styles.infoItem}>
-                        <div className={styles.infoIcon}>
-                          <Phone size={20} />
-                        </div>
-                        <div className={styles.infoContent}>
-                          <span className={styles.infoLabel}>{t("phone")}</span>
-                          <span className={styles.infoValue}>{user.phone}</span>
-                        </div>
-                      </div>
-                    )}
-
-                    <div className={styles.infoItem}>
-                      <div className={styles.infoIcon}>
-                        <Mail size={20} />
-                      </div>
-                      <div className={styles.infoContent}>
-                        <span className={styles.infoLabel}>{t("email")}</span>
-                        <span className={styles.infoValue}>{user.email}</span>
-                      </div>
+                  <div className={styles.profileItem}>
+                    <div className={styles.profileIcon}>
+                      <Mail size={20} />
+                    </div>
+                    <div className={styles.profileContent}>
+                      <span className={styles.profileLabel}>{t("email")}</span>
+                      <span className={styles.profileValue}>{user.email}</span>
                     </div>
                   </div>
                 </div>
@@ -141,8 +161,21 @@ export default function AccountPage() {
               )}
 
               {activeTab === "messages" && (
-                <div className={styles.emptyState}>
-                  <p className={styles.emptyText}>{t("messages.empty")}</p>
+                <div className={styles.messagesTab}>
+                  {loadingApps ? (
+                    <div className={styles.emptyState}>
+                      <p className={styles.emptyText}>{t("loading")}</p>
+                    </div>
+                  ) : currentApplication ? (
+                    <ChatContainer
+                      applicationId={currentApplication.id}
+                      currentUserId={user.id}
+                    />
+                  ) : (
+                    <div className={styles.emptyState}>
+                      <p className={styles.emptyText}>{t("messages.empty")}</p>
+                    </div>
+                  )}
                 </div>
               )}
             </div>

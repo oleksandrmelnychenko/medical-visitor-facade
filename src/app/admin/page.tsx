@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { RefreshCw, FileText, X, Check } from "lucide-react";
+import { RefreshCw, FileText, X, Check, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { ChatContainer } from "@/components/chat";
 import styles from "./admin.module.scss";
 
 type Application = {
@@ -53,14 +54,6 @@ const statusLabelKeys: Record<string, string> = {
   CANCELLED: "statusCancelled",
 };
 
-const serviceLabelKeys: Record<string, string> = {
-  charter: "serviceCharter",
-  transport: "serviceTransport",
-  visa: "serviceVisa",
-  translator: "serviceTranslator",
-  hotel: "serviceHotel",
-};
-
 export default function AdminPage() {
   const t = useTranslations("admin");
   const { data: session, status } = useSession();
@@ -71,7 +64,40 @@ export default function AdminPage() {
   const [error, setError] = useState<string | null>(null);
   const [selectedApp, setSelectedApp] = useState<Application | null>(null);
   const [updatingStatus, setUpdatingStatus] = useState(false);
+  const [unreadCounts, setUnreadCounts] = useState<Record<string, number>>({});
+  const [chatApp, setChatApp] = useState<Application | null>(null);
   const sidebarRef = useRef<HTMLDivElement>(null);
+  const chatPanelRef = useRef<HTMLDivElement>(null);
+
+  const currentUserId = (session?.user as { id?: string })?.id || "";
+
+  const allStatuses = [
+    "NEW",
+    "IN_REVIEW",
+    "CONTACTED",
+    "COMPLETED",
+    "CANCELLED",
+  ] as const;
+
+  const allServices = [
+    { code: "charter", labelKey: "serviceCharter" },
+    { code: "transport", labelKey: "serviceTransport" },
+    { code: "visa", labelKey: "serviceVisa" },
+    { code: "translator", labelKey: "serviceTranslator" },
+    { code: "hotel", labelKey: "serviceHotel" },
+  ];
+
+  const fetchUnreadCounts = useCallback(async () => {
+    try {
+      const response = await fetch("/api/applications/unread-counts");
+      const data = await response.json();
+      if (response.ok && data.data) {
+        setUnreadCounts(data.data);
+      }
+    } catch (error) {
+      console.error("Failed to fetch unread counts:", error);
+    }
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -89,21 +115,23 @@ export default function AdminPage() {
     };
   }, [selectedApp]);
 
-  const allStatuses = [
-    "NEW",
-    "IN_REVIEW",
-    "CONTACTED",
-    "COMPLETED",
-    "CANCELLED",
-  ] as const;
+  useEffect(() => {
+    const handleClickOutsideChat = (event: MouseEvent) => {
+      if (chatPanelRef.current && !chatPanelRef.current.contains(event.target as Node)) {
+        setChatApp(null);
+        // Refresh unread counts after closing chat
+        fetchUnreadCounts();
+      }
+    };
 
-  const allServices = [
-    { code: "charter", labelKey: "serviceCharter" },
-    { code: "transport", labelKey: "serviceTransport" },
-    { code: "visa", labelKey: "serviceVisa" },
-    { code: "translator", labelKey: "serviceTranslator" },
-    { code: "hotel", labelKey: "serviceHotel" },
-  ];
+    if (chatApp) {
+      document.addEventListener("mousedown", handleClickOutsideChat);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutsideChat);
+    };
+  }, [chatApp, fetchUnreadCounts]);
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -136,7 +164,7 @@ export default function AdminPage() {
       setPagination(data.pagination);
       setError(null);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Ошибка загрузки");
+      setError(err instanceof Error ? err.message : "Error loading");
     } finally {
       setLoading(false);
     }
@@ -145,8 +173,13 @@ export default function AdminPage() {
   useEffect(() => {
     if (status === "authenticated") {
       fetchApplications();
+      fetchUnreadCounts();
+
+      // Poll for unread counts every 10 seconds
+      const interval = setInterval(fetchUnreadCounts, 10000);
+      return () => clearInterval(interval);
     }
-  }, [status]);
+  }, [status, fetchUnreadCounts]);
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("ru-RU", {
@@ -181,10 +214,28 @@ export default function AdminPage() {
       );
       setSelectedApp(updatedApp);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Ошибка обновления статуса");
+      setError(err instanceof Error ? err.message : "Error updating status");
     } finally {
       setUpdatingStatus(false);
     }
+  };
+
+  const handleOpenChat = (app: Application, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setChatApp(app);
+  };
+
+  const handleCloseChat = useCallback(() => {
+    setChatApp(null);
+    // Refresh unread counts after closing chat (messages were marked as read)
+    fetchUnreadCounts();
+  }, [fetchUnreadCounts]);
+
+  const getClientName = (app: Application) => {
+    if (app.user.firstName && app.user.lastName) {
+      return `${app.user.firstName} ${app.user.lastName}`;
+    }
+    return app.user.email;
   };
 
   if (status === "loading" || loading) {
@@ -202,6 +253,7 @@ export default function AdminPage() {
 
   return (
     <div className={styles.adminContainer}>
+      {/* Details Sidebar */}
       <AnimatePresence>
         {selectedApp && (
           <motion.div
@@ -274,6 +326,36 @@ export default function AdminPage() {
         )}
       </AnimatePresence>
 
+      {/* Chat Panel */}
+      <AnimatePresence>
+        {chatApp && (
+          <motion.div
+            ref={chatPanelRef}
+            className={styles.chatPanel}
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
+          >
+            <div className={styles.chatPanelHeader}>
+              <div className={styles.chatPanelTitle}>
+                <h3>{t("chatWith", { name: getClientName(chatApp) })}</h3>
+                <span className={styles.chatAppNum}>#{chatApp.applicationNum}</span>
+              </div>
+              <button onClick={handleCloseChat} className={styles.closeButton}>
+                <X size={20} />
+              </button>
+            </div>
+            <div className={styles.chatPanelContent}>
+              <ChatContainer
+                applicationId={chatApp.id}
+                currentUserId={currentUserId}
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <main className={styles.main}>
         <div className={styles.tableHeader}>
           <div className={styles.tableHeaderLeft}>
@@ -318,6 +400,7 @@ export default function AdminPage() {
                   <th>{t("tableClient")}</th>
                   <th>{t("tablePhone")}</th>
                   <th>{t("tableEmail")}</th>
+                  <th className={styles.messagesHeader}>{t("tableMessages")}</th>
                   <th>{t("tableFrom")}</th>
                   <th>{t("tableCreated")}</th>
                 </tr>
@@ -340,6 +423,20 @@ export default function AdminPage() {
                     </td>
                     <td className={styles.phone}>{app.user.phone || "—"}</td>
                     <td className={styles.email}>{app.user.email || "—"}</td>
+                    <td className={styles.messagesCell}>
+                      <button
+                        className={styles.messageButton}
+                        onClick={(e) => handleOpenChat(app, e)}
+                        title={t("tableMessages")}
+                      >
+                        <Mail size={18} />
+                        {unreadCounts[app.id] && unreadCounts[app.id] > 0 && (
+                          <span className={styles.unreadBadge}>
+                            {unreadCounts[app.id]}
+                          </span>
+                        )}
+                      </button>
+                    </td>
                     <td>{app.location?.nameRu || "—"}</td>
                     <td className={styles.date}>{formatDate(app.createdAt)}</td>
                   </tr>
