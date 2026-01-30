@@ -56,9 +56,8 @@ export async function GET(
     });
   } catch (error) {
     console.error("Failed to fetch messages:", error);
-    const errorMessage = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: "Failed to fetch messages", details: errorMessage },
+      { error: "Failed to fetch messages" },
       { status: 500 }
     );
   }

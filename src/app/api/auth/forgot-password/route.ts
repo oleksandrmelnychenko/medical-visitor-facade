@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { randomInt } from "crypto";
 import { prisma } from "@/lib/prisma";
 
 // TODO: Connect SMS provider (Twilio, etc.)
@@ -25,8 +26,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true });
     }
 
-    // Generate 6-digit code
-    const code = Math.floor(100000 + Math.random() * 900000).toString();
+    // Generate 6-digit code using cryptographically secure random
+    const code = randomInt(100000, 999999).toString();
     const expiresAt = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
 
     // Store reset code (you may need to add this table to your schema)
