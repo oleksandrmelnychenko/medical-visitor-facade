@@ -14,6 +14,7 @@ export function Header() {
   const tCommon = useTranslations('common');
   const tAdmin = useTranslations('admin');
   const tFooter = useTranslations('footer');
+  const tAccount = useTranslations('account');
   const { locale, setLocale } = useLanguage();
   const { data: session, status } = useSession();
   const userRole = (session?.user as { role?: string })?.role;
@@ -140,8 +141,12 @@ export function Header() {
 
         {/* Desktop navigation - JS hides on mobile */}
         <div className={styles.utilityRow} style={{ display: isMobile ? 'none' : 'flex' }}>
-            {isAdmin && (
-              <Link href="/admin" className={styles.adminTitle}>{tAdmin("adminPanel")}</Link>
+            {status === "authenticated" && (
+              isAdmin ? (
+                <Link href="/admin" className={styles.adminTitle}>{tAdmin("adminPanel")}</Link>
+              ) : (
+                <Link href="/account" className={styles.adminTitle}>{tAccount("tabs.account")}</Link>
+              )
             )}
 
             <div className={styles.utilityItems}>
@@ -271,10 +276,14 @@ export function Header() {
               )}
 
               {status === "authenticated" && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem', fontWeight: 500, padding: '0.5rem 0' }}>
+                <Link
+                  href={isAdmin ? "/admin" : "/account"}
+                  onClick={closeMobileMenu}
+                  style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem', fontWeight: 500, padding: '0.5rem 0' }}
+                >
                   <User size={20} />
                   <span>{userName}</span>
-                </div>
+                </Link>
               )}
 
               <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>

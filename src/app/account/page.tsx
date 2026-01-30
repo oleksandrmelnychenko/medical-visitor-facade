@@ -4,7 +4,6 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useCallback } from "react";
 import { useTranslations } from "next-intl";
-import { User, Phone, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import { ChatContainer } from "@/components/chat";
@@ -121,35 +120,20 @@ export default function AccountPage() {
               {activeTab === "account" && (
                 <div className={styles.profileList}>
                   <div className={styles.profileItem}>
-                    <div className={styles.profileIcon}>
-                      <User size={20} />
-                    </div>
-                    <div className={styles.profileContent}>
-                      <span className={styles.profileLabel}>{t("name")}</span>
-                      <span className={styles.profileValue}>{user.name}</span>
-                    </div>
+                    <span className={styles.profileLabel}>{t("name")}</span>
+                    <span className={styles.profileValue}>{user.name}</span>
                   </div>
 
                   {user.phone && (
                     <div className={styles.profileItem}>
-                      <div className={styles.profileIcon}>
-                        <Phone size={20} />
-                      </div>
-                      <div className={styles.profileContent}>
-                        <span className={styles.profileLabel}>{t("phone")}</span>
-                        <span className={styles.profileValue}>{user.phone}</span>
-                      </div>
+                      <span className={styles.profileLabel}>{t("phone")}</span>
+                      <span className={styles.profileValue}>{user.phone}</span>
                     </div>
                   )}
 
                   <div className={styles.profileItem}>
-                    <div className={styles.profileIcon}>
-                      <Mail size={20} />
-                    </div>
-                    <div className={styles.profileContent}>
-                      <span className={styles.profileLabel}>{t("email")}</span>
-                      <span className={styles.profileValue}>{user.email}</span>
-                    </div>
+                    <span className={styles.profileLabel}>{t("email")}</span>
+                    <span className={styles.profileValue}>{user.email}</span>
                   </div>
                 </div>
               )}
