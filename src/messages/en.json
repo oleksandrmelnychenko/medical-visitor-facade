@@ -1185,7 +1185,18 @@
     "loading": "Loading...",
     "name": "Name",
     "phone": "Mobile number",
-    "email": "Email"
+    "email": "Email",
+    "tabs": {
+      "account": "Account",
+      "history": "Treatment History",
+      "messages": "Messages"
+    },
+    "history": {
+      "empty": "No treatment history yet"
+    },
+    "messages": {
+      "empty": "No messages yet"
+    }
   },
   "forgotPassword": {
     "title": "Password Recovery",

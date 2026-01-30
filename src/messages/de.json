@@ -1185,7 +1185,18 @@
     "loading": "Laden...",
     "name": "Name",
     "phone": "Handynummer",
-    "email": "E-Mail"
+    "email": "E-Mail",
+    "tabs": {
+      "account": "Konto",
+      "history": "Behandlungsverlauf",
+      "messages": "Nachrichten"
+    },
+    "history": {
+      "empty": "Noch kein Behandlungsverlauf"
+    },
+    "messages": {
+      "empty": "Noch keine Nachrichten"
+    }
   },
   "forgotPassword": {
     "title": "Passwort wiederherstellen",

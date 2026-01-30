@@ -2,20 +2,20 @@
 
 .page {
   min-height: 100vh;
+  background-color: #fbfbfb !important;
 }
 
 .heroSection {
-  background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: clamp(2.5rem, 6vw, 4rem) !important;
+  padding-bottom: clamp(1.5rem, 3vw, 2rem) !important;
+  background-color: #fbfbfb !important;
 }
 
 .headerDivider {
   width: 100%;
-  max-width: 600px;
   height: 1px;
-  background: rgba(0, 0, 0, 0.1);
-  margin: 2rem auto 0;
+  background-color: #d5d2cf;
+  margin-top: 1.5rem;
 }
 
 .loadingSection {
@@ -25,9 +25,78 @@
   min-height: 50vh;
 }
 
-.profileSection {
-  padding-top: 3rem;
-  padding-bottom: 4rem;
+.contentSection {
+  padding-top: 1rem !important;
+  padding-bottom: clamp(3rem, 6vw, 5rem) !important;
+  background-color: #fbfbfb !important;
+}
+
+.tabsContainer {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid #d5d2cf;
+  margin-bottom: 2rem;
+}
+
+.tab {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #717182;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #1a1a1a;
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    color: #1a1a1a;
+  }
+
+  &.active {
+    color: #1a1a1a;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.tabContent {
+  min-height: 300px;
+}
+
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.emptyText {
+  font-size: 1rem;
+  color: #717182;
 }
 
 .profileCard {

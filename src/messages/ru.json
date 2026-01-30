@@ -1185,7 +1185,18 @@
     "loading": "Загрузка...",
     "name": "Имя",
     "phone": "Мобильный номер",
-    "email": "Email"
+    "email": "Email",
+    "tabs": {
+      "account": "Аккаунт",
+      "history": "История лечения",
+      "messages": "Сообщения"
+    },
+    "history": {
+      "empty": "История лечения пока пуста"
+    },
+    "messages": {
+      "empty": "Сообщений пока нет"
+    }
   },
   "forgotPassword": {
     "title": "Восстановление пароля",

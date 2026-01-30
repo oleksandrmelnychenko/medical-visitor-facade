@@ -1185,7 +1185,18 @@
     "loading": "Cargando...",
     "name": "Nombre",
     "phone": "Número móvil",
-    "email": "Correo electrónico"
+    "email": "Correo electrónico",
+    "tabs": {
+      "account": "Cuenta",
+      "history": "Historial de tratamiento",
+      "messages": "Mensajes"
+    },
+    "history": {
+      "empty": "Aún no hay historial de tratamiento"
+    },
+    "messages": {
+      "empty": "Aún no hay mensajes"
+    }
   },
   "forgotPassword": {
     "title": "Recuperación de contraseña",
