@@ -135,3 +135,30 @@
   height: 2px;
   background-color: var(--foreground);
 }
+
+@media (max-width: 767px) {
+  .header {
+    margin: 0 auto 1.5rem;
+  }
+
+  .citiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .mainCity {
+    aspect-ratio: 2 / 1;
+  }
+
+  .cityCard {
+    aspect-ratio: 1.2;
+  }
+
+  .closingLines {
+    margin: 1.5rem auto 0;
+  }
+
+  .closingLine {
+    width: 60px;
+  }
+}

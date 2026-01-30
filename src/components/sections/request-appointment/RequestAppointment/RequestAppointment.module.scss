@@ -66,6 +66,7 @@
   position: relative;
   cursor: pointer;
   min-height: 140px;
+  outline: none;
 
   &::before {
     content: '';
@@ -78,6 +79,10 @@
   }
 
   &:hover::before {
+    clip-path: inset(0 0 0 0);
+  }
+
+  &:focus-visible::before {
     clip-path: inset(0 0 0 0);
   }
 }
