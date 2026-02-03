@@ -46,12 +46,11 @@
     "vatLegal": "in accordance with § 27 a of the VAT Act:",
     "vatNumber": "147/220/51409",
     "contactPrompt": "For questions and suggestions about the site content, please email:",
-    "copyright": "© {year} Patient Care Agency Heorhii Hudiiev",
+    "copyright": "© {year} Patient Care Agency",
     "allRightsReserved": "All rights reserved",
     "financialAssistance": "Financial assistance",
     "privacyPolicy": "Privacy policy",
     "headquarters": "Office",
-    "ownerName": "Heorhii Hudiiev",
     "address": "81735 Munich, Germany",
     "theAgency": "The Agency"
   },
@@ -59,7 +58,7 @@
     "hero": {
       "overline": "",
       "title": "Medical Concierge Agency",
-      "subtitle": "of Heorhii Hudiiev",
+      "subtitle": "",
       "requestAppointment": "Become a Member"
     },
     "careForward": {

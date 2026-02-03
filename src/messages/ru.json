@@ -46,12 +46,11 @@
     "vatLegal": "согласно § 27 a Закона о налоге с оборота:",
     "vatNumber": "147/220/51409",
     "contactPrompt": "По вопросам и предложениям относительно содержания сайта, пожалуйста, отправьте нам электронное письмо на адрес:",
-    "copyright": "© {year} Patient Care Agency Heorhii Hudiiev",
+    "copyright": "© {year} Patient Care Agency",
     "allRightsReserved": "Все права защищены",
     "financialAssistance": "Финансовая помощь",
     "privacyPolicy": "Политика конфиденциальности",
     "headquarters": "Офис",
-    "ownerName": "Георгий Гудиев",
     "address": "81735 Мюнхен, Германия",
     "theAgency": "Агентство"
   },
@@ -59,7 +58,7 @@
     "hero": {
       "overline": "",
       "title": "Медицинское консьерж-агентство",
-      "subtitle": "Георгия Гудиева",
+      "subtitle": "",
       "requestAppointment": "Подать заявку"
     },
     "careForward": {

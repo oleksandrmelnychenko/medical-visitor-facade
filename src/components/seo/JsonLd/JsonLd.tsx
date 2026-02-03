@@ -4,7 +4,6 @@ export function OrganizationJsonLd() {
     "@type": "MedicalBusiness",
     "@id": "https://gmed.agency/#organization",
     name: "GMED Agency",
-    alternateName: "Agentur für Patientenbetreuung Heorhii Hudiiev",
     description: "Premium medical concierge service in Germany. Treatment organization, clinic selection, and end-to-end patient support.",
     url: "https://gmed.agency",
     logo: "https://gmed.agency/assets/dfb83cb5936b44ca2202c18d197b3196619183a4.png",
