@@ -398,12 +398,13 @@
         "zipCode": "Zip Code"
       },
       "patientInfo": {
-        "introTitle": "Let's get started with",
-        "introTitleBold": "Patient Information",
-        "introDescription1": "In this section, we'll gather basic information to create the patient's medical profile.",
-        "introDescription2": "These details will also help us begin our conversation about the patient and their care needs.",
+        "introTitle": "Provide your contact details",
+        "introTitleBold": "Our team will contact you shortly.",
+        "introDescription1": "",
+        "introDescription2": "",
         "start": "Start",
         "formTitle": "Patient Information",
+        "contactTitle": "Contact Information",
         "personalInfo": "Personal Information",
         "firstName": "First name",
         "lastName": "Last name",
@@ -413,7 +414,51 @@
         "country": "Country",
         "message": "Additional Information",
         "messagePlaceholder": "Tell us about your medical condition, treatment goals, or any questions you have...",
-        "submit": "Submit Application"
+        "submit": "Submit Application",
+        "submitting": "Submitting...",
+        "successTitle": "Thank you!",
+        "successMessage": "Your application has been submitted. Our team will contact you shortly.",
+        "backToHome": "Back to Home"
+      },
+      "optional": "Optional",
+      "yes": "Yes",
+      "no": "No",
+      "continue": "Continue",
+      "whatsapp": {
+        "question": "Would you like us to communicate with you through WhatsApp?",
+        "description": "If yes, we will ask for your WhatsApp country code and number on the next page.",
+        "yesDisclaimer": "I understand that WhatsApp communications may not be secure and are subject to WhatsApp's privacy policies and terms of use.",
+        "numberQuestion": "What's your WhatsApp number?",
+        "numberLabel": "WhatsApp number"
+      },
+      "interpreter": {
+        "question": "Would you like an interpreter?",
+        "description": "If so, we'll have interpreter services present at your appointment.",
+        "learnMore": "Learn more",
+        "aboutServices": "about interpreter services."
+      },
+      "primaryLanguage": {
+        "question": "What is your primary language?",
+        "description": "This is the language we'll use when we call you back about this appointment.",
+        "label": "Language"
+      },
+      "legalSex": {
+        "question": "Please tell us your legal sex.",
+        "description": "Select the sex identification that appears on your legal ID.",
+        "female": "Female",
+        "male": "Male",
+        "nonbinary": "Nonbinary"
+      },
+      "address": {
+        "question": "Finally, your home address.",
+        "learnMore": "Learn more",
+        "whyAsking": "about why we're asking for your address now.",
+        "country": "Country",
+        "selectCountry": "Select country",
+        "street": "Street or Mailing address",
+        "city": "City or Town",
+        "state": "State/Territory/Province (enter a zero if you do not have one)",
+        "postalCode": "Postal code (enter a zero if you do not have one)"
       }
     },
     "returningPatient": {

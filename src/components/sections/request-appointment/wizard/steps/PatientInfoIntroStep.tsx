@@ -33,11 +33,6 @@ export function PatientInfoIntroStep({ wizardPath }: PatientInfoIntroStepProps) 
       onBack={handleBack}
       backLabel={t('back')}
     >
-      <div className={styles.documentsInfo}>
-        <p className={styles.documentsDescription}>{t('patientInfo.introDescription1')}</p>
-        <p className={styles.documentsDescription}>{t('patientInfo.introDescription2')}</p>
-      </div>
-
       <div className={styles.clientCardsGrid}>
         <motion.div
           onClick={handleStart}

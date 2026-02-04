@@ -2,7 +2,9 @@
 
 .section {
   @include section-padding;
-  background-color: #fbfbfb !important;
+  background-color: transparent !important;
+  position: relative;
+  z-index: 1;
 }
 
 .ctaWrapper {
@@ -69,7 +71,7 @@
   position: relative;
   background-color: #fbfbfb;
   border: 1px solid #d5d2cf;
-  padding: 3rem 1.5rem 2rem;
+  padding: 2rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -94,18 +96,13 @@
 }
 
 .serviceIcon {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #1a1a1a;
-  background-color: #fbfbfb;
-  padding: 1rem;
+  margin-bottom: 0.5rem;
 
   svg {
     width: 2.5rem;
@@ -151,18 +148,18 @@
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  background-color: #1a1a1a;
+  background-color: #2d2d32;
   color: #fff;
   padding: 1rem 2.25rem;
   font-size: 0.95rem;
   font-weight: 600;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: opacity 0.2s;
   width: 100%;
 
   &:hover {
-    background-color: #333;
+    opacity: 0.9;
   }
 
   @include up(sm) {

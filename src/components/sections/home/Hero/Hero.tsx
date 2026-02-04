@@ -45,11 +45,18 @@ export function Hero() {
 
   return (
     <section className={cn(sectionStyles.section, styles.hero)}>
-      {/* Floating blobs background */}
-      <div className={styles.blobsContainer}>
-        <FloatingBlob color="#D5A8E5" size={350} top="20%" left="-5%" morphDelay={0} morphDuration={20} />
-        <FloatingBlob color="#A8D5E5" size={300} top="30%" left="85%" morphDelay={5} morphDuration={25} />
-        <FloatingBlob color="#B5E5B0" size={250} top="70%" left="0%" morphDelay={10} morphDuration={22} />
+      {/* Video background */}
+      <div className={styles.videoContainer}>
+        <video
+          className={styles.heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/hero_web.mp4" type="video/mp4" />
+        </video>
+        <div className={styles.videoOverlay} />
       </div>
       <div className={cn(sectionStyles.container, styles.heroContainer)}>
         <div className={styles.heroWrapper}>
@@ -92,18 +99,18 @@ export function Hero() {
               </Link>
             </motion.div>
 
-            <motion.div
-              className={styles.scrollIndicator}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
-            >
-              <Mouse className={styles.scrollMouse} />
-              <div className={styles.scrollLine} />
-            </motion.div>
           </div>
         </div>
       </div>
+      <motion.div
+        className={styles.scrollIndicator}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+      >
+        <Mouse className={styles.scrollMouse} />
+        <div className={styles.scrollLine} />
+      </motion.div>
     </section>
   );
 }

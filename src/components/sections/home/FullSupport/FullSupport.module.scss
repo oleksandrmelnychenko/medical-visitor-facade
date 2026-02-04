@@ -2,8 +2,10 @@
 
 .fullSupport {
   width: 100%;
-  background-color: #fbfbfb !important;
+  background-color: transparent !important;
   color: var(--foreground);
+  position: relative;
+  z-index: 1;
 }
 
 .layout {
@@ -58,15 +60,14 @@
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  padding: 2.5rem 1.5rem 2rem;
-  padding-top: 3rem;
-  background-color: #fbfbfb;
+  padding: 2rem;
+  background-color: rgba(251, 251, 251, 0.85);
   border: 1px solid #d5d2cf;
   min-height: 200px;
   cursor: pointer;
 
   @include up(lg) {
-    padding: 3.5rem 2rem 2.5rem;
+    padding: 2.5rem;
     min-height: 220px;
   }
 
@@ -76,32 +77,21 @@
     inset: -1px;
     border: 2px solid var(--hover-color);
     pointer-events: none;
-    clip-path: inset(0 100% 0 0);
-    transition: clip-path 0.15s ease-out;
-  }
-
-  &:hover::before {
-    clip-path: inset(0 0 0 0);
   }
 }
 
 .serviceIcon {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 5rem;
-  height: 5rem;
+  width: 3rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--foreground);
-  background-color: #fbfbfb;
-  padding: 1.25rem;
+  margin-bottom: 0.5rem;
 
   svg {
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     stroke-width: 1;
   }
 }

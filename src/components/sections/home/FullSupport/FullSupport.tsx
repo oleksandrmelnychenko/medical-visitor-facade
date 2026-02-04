@@ -17,7 +17,7 @@ export function FullSupport() {
   ];
 
   const servicesBottom = [
-    { icon: Plane, key: 'noFees', color: '#F4B4C4' },
+    { icon: Plane, key: 'noFees', color: '#A8E5C4' },
     { icon: MessageCircle, key: 'concierge', color: '#E5D5A8' },
   ];
 

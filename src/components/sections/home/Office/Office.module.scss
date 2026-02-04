@@ -1,7 +1,9 @@
 @use "../../../../styles/variables" as *;
 
 .office {
-  background-color: var(--background);
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
 }
 
 .header {

@@ -38,37 +38,6 @@ export function TravelDocumentsStep({ wizardPath }: TravelDocumentsStepProps) {
       onBack={handleBack}
       backLabel={t('back')}
     >
-      <div className={styles.documentsInfo}>
-        <p className={styles.documentsDescription}>{t(`${documentsKey}.needList`)}</p>
-        <ul className={styles.documentsList}>
-          <li>{t(`${documentsKey}.passport`)}</li>
-          <li>
-            {t(`${documentsKey}.visa`)}{' '}
-            <a
-              href="https://www.auswaertiges-amt.de/en/visa-service"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.documentsLink}
-            >
-              {t(`${documentsKey}.visaWaiverProgram`)}
-            </a>
-            .
-          </li>
-        </ul>
-        <p className={styles.documentsNote}>
-          {t(`${documentsKey}.note`)}{' '}
-          <a
-            href="https://www.auswaertiges-amt.de/en/aussenpolitik/laenderinformationen"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.documentsLink}
-          >
-            {t(`${documentsKey}.embassy`)}
-          </a>{' '}
-          {t(`${documentsKey}.noteEnd`)}
-        </p>
-      </div>
-
       <div className={styles.clientCardsGrid}>
         <motion.div
           onClick={() => handleSelect('yes')}

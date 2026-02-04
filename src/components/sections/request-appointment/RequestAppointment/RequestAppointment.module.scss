@@ -1964,3 +1964,638 @@
     text-decoration: none;
   }
 }
+
+// Patient Form Styles - Login style (black borders, no radius)
+.patientForm {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.formGroupFull {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.formLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
+}
+
+.formInput {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-family: inherit;
+  border: 1px solid #1a1a1a;
+  border-radius: 0;
+  background: #fff;
+  color: #1a1a1a;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:focus {
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
+  }
+
+  &::placeholder {
+    color: #999;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+}
+
+.formTextarea {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background: #fff;
+  border: 1px solid #1a1a1a;
+  border-radius: 0;
+  resize: vertical;
+  min-height: 120px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:focus {
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
+  }
+
+  &::placeholder {
+    color: #999;
+  }
+}
+
+.formActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #fff;
+  background: #1a1a1a;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover:not(:disabled) {
+    background: #333;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// Card Form Styles (card with left border, fields separated by lines)
+.cardForm {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cardFormBox {
+  background: transparent;
+  border-left: none;
+  box-shadow: none;
+}
+
+.cardFormField {
+  padding: 0;
+  margin-bottom: 1rem;
+  border-bottom: none;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.cardFormLabelRow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cardFormLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
+}
+
+.cardFormOptional {
+  display: none;
+}
+
+.cardFormInput {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-family: inherit;
+  border: 1px solid #1a1a1a;
+  border-radius: 0;
+  background: #fff;
+  color: #1a1a1a;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
+  }
+
+  &::placeholder {
+    color: #999;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+}
+
+// Phone input with country code dropdown
+.phoneInputWrapper {
+  display: flex;
+  gap: 0;
+}
+
+.phoneCountrySelect {
+  width: 180px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-family: inherit;
+  border: 1px solid #1a1a1a;
+  border-right: none;
+  border-radius: 0;
+  background: #fff;
+  color: #1a1a1a;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.5rem;
+
+  &:focus {
+    outline: none;
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
+  }
+}
+
+.phoneNumberInput {
+  flex: 1;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-family: inherit;
+  border: 1px solid #1a1a1a;
+  border-radius: 0;
+  background: #fff;
+  color: #1a1a1a;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
+  }
+
+  &::placeholder {
+    color: #999;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+}
+
+// WhatsApp Split Card Layout
+.whatsappSplitCard {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.whatsappQuestion {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.whatsappQuestionTitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.whatsappQuestionDesc {
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.whatsappOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.whatsappOption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 1.25rem;
+  border: 1px solid #1a1a1a;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #f8f8f8;
+  }
+}
+
+.whatsappOptionSelected {
+  background-color: #1a1a1a !important;
+  border-color: #1a1a1a !important;
+
+  .whatsappOptionTitle,
+  .whatsappOptionDesc {
+    color: white;
+  }
+}
+
+.whatsappOptionTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 0.25rem;
+}
+
+.whatsappOptionDesc {
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+// WhatsApp Number Input Card
+.whatsappNumberCard {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.whatsappNumberQuestion {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.whatsappNumberInput {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.whatsappInputLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.whatsappInputRow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.whatsappCountryCode {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 1rem;
+  color: #1a1a1a;
+  padding: 0.875rem 1rem;
+  border: 1px solid #1a1a1a;
+  border-right: none;
+  cursor: pointer;
+  background: #fff;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.whatsappCountrySelect {
+  width: 180px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-family: inherit;
+  border: 1px solid #1a1a1a;
+  border-right: none;
+  border-radius: 0;
+  background: #fff;
+  color: #1a1a1a;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.5rem;
+
+  &:focus {
+    outline: none;
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
+  }
+}
+
+.whatsappNumberField {
+  flex: 1;
+  font-size: 1rem;
+  color: #1a1a1a;
+  border: 1px solid #1a1a1a;
+  padding: 0.875rem 1rem;
+  outline: none;
+  background: #fff;
+
+  &::placeholder {
+    color: #999;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
+  }
+}
+
+// Split Card Back Button (chevron up)
+.splitCardBackBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+// Split Card Continue Button
+.splitCardContinue {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.continueBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #1a1a1a;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 1rem;
+  transition: opacity 0.2s ease;
+
+  &:hover:not(:disabled) {
+    opacity: 0.7;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+// Interpreter Link
+.interpreterLink {
+  color: var(--foreground);
+  text-decoration: underline;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Legal Sex Card (3 options)
+.legalSexCard {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.legalSexOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.legalSexOption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 1.25rem;
+  border: 1px solid #1a1a1a;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background-color: #f8f8f8;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+// Address Card
+.addressCard {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.addressForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.addressField {
+  margin-bottom: 1rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.addressLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.addressInput {
+  width: 100%;
+  font-size: 1rem;
+  color: #1a1a1a;
+  border: 1px solid #1a1a1a;
+  padding: 0.875rem 1rem;
+  outline: none;
+  background: #fff;
+
+  &::placeholder {
+    color: #999;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
+  }
+}
+
+.addressSelectWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.addressSelect {
+  width: 100%;
+  font-size: 1rem;
+  color: #1a1a1a;
+  border: 1px solid #1a1a1a;
+  padding: 0.875rem 1rem;
+  padding-right: 2.5rem;
+  outline: none;
+  background: #fff;
+  appearance: none;
+  cursor: pointer;
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.1);
+  }
+}
+
+.addressSelectIcon {
+  position: absolute;
+  right: 1rem;
+  color: #1a1a1a;
+  pointer-events: none;
+}
+
+.addressSubmitWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  max-width: 600px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.addressSubmitBtn {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  background: #1a1a1a;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: #333;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

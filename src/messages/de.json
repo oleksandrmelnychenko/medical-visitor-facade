@@ -324,13 +324,22 @@
         "yes": "Ja, Hilfe benötigt",
         "no": "Nein, Visum vorhanden"
       },
+      "euPatientName": {
+        "title": "Wie lautet der rechtliche Name des Patienten?",
+        "subtitle": "Geben Sie den Namen ein, wie er im Ausweis steht.",
+        "middleName": "Zweiter Vorname (optional)",
+        "addSuffix": "Suffix hinzufügen",
+        "suffix": "Suffix (optional)",
+        "preferredName": "Bevorzugter Name (optional)"
+      },
       "patientInfo": {
-        "introTitle": "Beginnen wir mit",
-        "introTitleBold": "Patienteninformationen",
-        "introDescription1": "In diesem Abschnitt sammeln wir grundlegende Informationen, um das medizinische Profil des Patienten zu erstellen.",
-        "introDescription2": "Diese Details helfen uns auch, unser Gespräch über den Patienten und seine Pflegebedürfnisse zu beginnen.",
+        "introTitle": "Geben Sie Ihre Kontaktdaten an",
+        "introTitleBold": "Unser Team wird sich in Kürze bei Ihnen melden.",
+        "introDescription1": "",
+        "introDescription2": "",
         "start": "Start",
         "formTitle": "Patienteninformationen",
+        "contactTitle": "Kontaktinformationen",
         "personalInfo": "Persönliche Angaben",
         "firstName": "Vorname",
         "lastName": "Nachname",
@@ -340,7 +349,51 @@
         "country": "Land",
         "message": "Zusätzliche Informationen",
         "messagePlaceholder": "Erzählen Sie uns von Ihrem Gesundheitszustand, Behandlungszielen oder Fragen...",
-        "submit": "Antrag absenden"
+        "submit": "Antrag absenden",
+        "submitting": "Wird gesendet...",
+        "successTitle": "Vielen Dank!",
+        "successMessage": "Ihr Antrag wurde eingereicht. Unser Team wird sich in Kürze bei Ihnen melden.",
+        "backToHome": "Zurück zur Startseite"
+      },
+      "optional": "Optional",
+      "yes": "Ja",
+      "no": "Nein",
+      "continue": "Weiter",
+      "whatsapp": {
+        "question": "Möchten Sie, dass wir Sie über WhatsApp kontaktieren?",
+        "description": "Falls ja, werden wir auf der nächsten Seite nach Ihrer WhatsApp-Landesvorwahl und Nummer fragen.",
+        "yesDisclaimer": "Ich verstehe, dass WhatsApp-Kommunikation möglicherweise nicht sicher ist und den Datenschutzrichtlinien und Nutzungsbedingungen von WhatsApp unterliegt.",
+        "numberQuestion": "Wie lautet Ihre WhatsApp-Nummer?",
+        "numberLabel": "WhatsApp-Nummer"
+      },
+      "interpreter": {
+        "question": "Benötigen Sie einen Dolmetscher?",
+        "description": "Falls ja, werden wir bei Ihrem Termin Dolmetscherdienste bereitstellen.",
+        "learnMore": "Mehr erfahren",
+        "aboutServices": "über Dolmetscherdienste."
+      },
+      "primaryLanguage": {
+        "question": "Was ist Ihre Muttersprache?",
+        "description": "In dieser Sprache werden wir Sie kontaktieren, wenn wir wegen Ihres Termins zurückrufen.",
+        "label": "Sprache"
+      },
+      "legalSex": {
+        "question": "Bitte geben Sie Ihr rechtliches Geschlecht an.",
+        "description": "Wählen Sie das Geschlecht, das auf Ihrem Ausweis steht.",
+        "female": "Weiblich",
+        "male": "Männlich",
+        "nonbinary": "Nicht-binär"
+      },
+      "address": {
+        "question": "Zum Schluss Ihre Privatadresse.",
+        "learnMore": "Mehr erfahren",
+        "whyAsking": "darüber, warum wir jetzt nach Ihrer Adresse fragen.",
+        "country": "Land",
+        "selectCountry": "Land auswählen",
+        "street": "Straße und Hausnummer",
+        "city": "Stadt oder Ort",
+        "state": "Bundesland/Region (0 eingeben, falls nicht zutreffend)",
+        "postalCode": "Postleitzahl (0 eingeben, falls nicht zutreffend)"
       }
     },
     "returningPatient": {

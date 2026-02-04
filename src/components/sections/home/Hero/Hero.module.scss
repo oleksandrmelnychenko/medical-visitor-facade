@@ -4,10 +4,16 @@
   position: relative;
   overflow: hidden;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  min-height: 50vh;
   padding-top: 4rem;
-  padding-bottom: 2rem;
-  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+  padding-bottom: 4rem;
+  background: transparent;
+  z-index: 1;
+
+  @include up(md) {
+    min-height: 60vh;
+  }
 }
 
 .blobsContainer {
@@ -28,6 +34,32 @@
     filter: blur(80px);
     transform: scale(0.6);
   }
+}
+
+// Video background
+.videoContainer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heroVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.videoOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 
@@ -131,7 +163,7 @@
 
 .heroTitle {
   color: #1a1a1a;
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.1;
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -167,13 +199,13 @@
   font-weight: 500;
   letter-spacing: 0.02em;
   border: 1px solid #fff;
-  background-color: #1a1a1a;
+  background-color: #2d2d32;
   color: #fff;
   cursor: pointer;
-  transition: background-color 0.25s;
+  transition: background 0.25s, opacity 0.25s;
 
   &:hover {
-    background-color: #2a2a2a;
+    opacity: 0.9;
   }
 }
 
@@ -236,11 +268,14 @@
 }
 
 .scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 5rem;
   color: #1a1a1a;
 }
 

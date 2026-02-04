@@ -10,9 +10,9 @@ export function CareForward() {
   const t = useTranslations('home.careForward');
 
   const services = [
-    { icon: Building2, key: 'clinic' },
-    { icon: Stethoscope, key: 'organization' },
-    { icon: Activity, key: 'coordination' },
+    { icon: Building2, key: 'clinic', color: '#E5B8A8' },
+    { icon: Stethoscope, key: 'organization', color: '#C4A8E5' },
+    { icon: Activity, key: 'coordination', color: '#A8E5D5' },
   ];
 
   return (
@@ -33,6 +33,7 @@ export function CareForward() {
             <motion.div
               key={service.key}
               className={styles.serviceItem}
+              style={{ '--hover-color': service.color } as React.CSSProperties}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

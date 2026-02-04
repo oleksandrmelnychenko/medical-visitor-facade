@@ -1,8 +1,10 @@
 @use '../../../styles/variables' as *;
 
 .footer {
-  background-color: #171717; // neutral-900
-  color: #d1d5db; // gray-300
+  background-color: #2d2d32;
+  color: #d1d5db;
+  position: relative;
+  z-index: 10;
 }
 
 .container {

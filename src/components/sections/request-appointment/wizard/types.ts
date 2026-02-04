@@ -42,6 +42,9 @@ export interface WizardData {
   message: string;
   needsInterpreter: YesNoType;
   primaryLanguage: string;
+  // WhatsApp
+  whatsappConsent: boolean | null;
+  whatsappNumber: string;
   // Address
   streetAddress: string;
   city: string;
@@ -81,6 +84,8 @@ export const initialWizardData: WizardData = {
   message: '',
   needsInterpreter: null,
   primaryLanguage: '',
+  whatsappConsent: null,
+  whatsappNumber: '',
   streetAddress: '',
   city: '',
   state: '',
