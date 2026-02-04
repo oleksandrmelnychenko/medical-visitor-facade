@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { WizardWrapper } from "@/components/sections/request-appointment/wizard";
 
 export const metadata: Metadata = {
   title: "Register",
@@ -14,5 +15,5 @@ export default function RegisterLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return <WizardWrapper>{children}</WizardWrapper>;
 }

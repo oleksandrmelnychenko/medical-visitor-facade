@@ -15,7 +15,6 @@ export function Footer() {
           <div>
             <h3 className={styles.sectionTitle}>{t("headquarters")}</h3>
             <div className={styles.textSmall}>
-              <p>{t("ownerName")}</p>
               <p>{t("address")}</p>
             </div>
           </div>

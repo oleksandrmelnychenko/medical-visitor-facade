@@ -1,42 +1,42 @@
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import styles from '../RequestAppointment/RequestAppointment.module.scss';
-import { PatientType } from '../RequestAppointment';
+import { useWizard } from '../WizardContext';
+import { LocationType } from '../types';
+import { WizardStepLayout } from '../components/WizardStepLayout';
+import styles from '../../RequestAppointment/RequestAppointment.module.scss';
 
-interface PatientTypeSelectionProps {
-  onSelect: (type: PatientType) => void;
-}
-
-export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
-  const t = useTranslations('appointment');
+export function LocationStep() {
+  const t = useTranslations('appointment.newPatient');
   const router = useRouter();
-  const [isExiting, setIsExiting] = useState(false);
+  const { updateData } = useWizard();
 
-  const handleNavigate = (path: string) => {
-    setIsExiting(true);
-    setTimeout(() => {
-      router.push(path);
-    }, 300);
+  const handleSelect = (location: LocationType) => {
+    updateData({ location });
+    if (location === 'eu') {
+      router.push('/register/eu/step/role');
+    } else {
+      router.push('/register/outside-eu/step/role');
+    }
+  };
+
+  const handleBack = () => {
+    router.push('/apply');
   };
 
   return (
-    <div className={styles.applyStack}>
-      <motion.div
-        key="selection"
-        className={styles.clientCardsGrid}
-        initial={{ opacity: 0, y: 20 }}
-        animate={isExiting ? { opacity: 0, y: -20 } : { opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.3 }}
-      >
-        {/* New Client Card - redirects to register */}
+    <WizardStepLayout
+      title={t('location.title')}
+      onBack={handleBack}
+      backLabel={t('back')}
+    >
+      <div className={styles.clientCardsGrid}>
         <motion.div
-          onClick={() => handleNavigate('/register')}
+          onClick={() => handleSelect('eu')}
           className={styles.clientCard}
           style={{ '--hover-color': '#E5D5A8' } as React.CSSProperties}
           initial={{ opacity: 0, y: 20 }}
@@ -46,18 +46,17 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
         >
           <div className={styles.clientCardContent}>
             <h3 className={styles.clientCardTitle}>
-              {t('clientTypes.new.title')}
+              {t('location.insideEU')}
             </h3>
             <p className={styles.clientCardDesc}>
-              {t('clientTypes.new.description')}
+              {t('location.insideEUDesc')}
             </p>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
         </motion.div>
 
-        {/* Returning Client Card - redirects to login */}
         <motion.div
-          onClick={() => handleNavigate('/login')}
+          onClick={() => handleSelect('outside_eu')}
           className={styles.clientCard}
           style={{ '--hover-color': '#A8D5E5' } as React.CSSProperties}
           initial={{ opacity: 0, y: 20 }}
@@ -67,16 +66,15 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
         >
           <div className={styles.clientCardContent}>
             <h3 className={styles.clientCardTitle}>
-              {t('clientTypes.returning.title')}
+              {t('location.outsideEU')}
             </h3>
             <p className={styles.clientCardDesc}>
-              {t('clientTypes.returning.description')}
+              {t('location.outsideEUDesc')}
             </p>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
         </motion.div>
-
-      </motion.div>
-    </div>
+      </div>
+    </WizardStepLayout>
   );
 }

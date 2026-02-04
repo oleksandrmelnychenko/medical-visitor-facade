@@ -37,7 +37,6 @@ export function RequestAppointment() {
             variant="page"
             titleAs="h1"
           />
-          <div className={styles.headerDivider} />
         </div>
       </section>
 

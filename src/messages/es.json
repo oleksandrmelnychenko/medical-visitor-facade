@@ -39,8 +39,7 @@
   },
   "footer": {
     "impressum": "Información legal",
-    "companyName": "Agencia de Atención al Paciente Georgiy Gudiev",
-    "owner": "Propietario: Georgiy Gudiev",
+    "companyName": "Agencia de Atención al Paciente",
     "contact": "Contacto",
     "vatTitle": "Número de identificación del IVA",
     "vatLegal": "según § 27 a de la Ley del IVA:",
@@ -111,8 +110,8 @@
       "subtitle": "",
       "services": {
         "promptness": {
-          "title": "Coordinador",
-          "desc": "Acompañamiento en todas las etapas de su estancia"
+          "title": "Coordinación",
+          "desc": "Coordinación médica y acompañamiento"
         },
         "confidentiality": {
           "title": "Apoyo para Visados",
@@ -123,8 +122,12 @@
           "desc": "Organización de transporte terrestre"
         },
         "noFees": {
-          "title": "Chárter",
-          "desc": "Organización de transporte aéreo"
+          "title": "Aviación",
+          "desc": "Jets privados y vuelos médicos"
+        },
+        "concierge": {
+          "title": "Servicio de Conserjería",
+          "desc": "Soporte 24/7"
         }
       },
       "journey": {
@@ -205,44 +208,139 @@
       "applyButton": "Solicitar atención gratuita"
     },
     "newPatient": {
-      "intro": {
-        "title": "Comencemos",
-        "description": "Le haremos algunas preguntas para que el coordinador de citas pueda contactarle.",
-        "continue": "Continuar",
-        "emergency": "Si se trata de una emergencia médica, llame al 112.",
-        "mentalHealth": "Si se trata de una crisis de salud mental, llame a la línea de ayuda."
+      "progress": {
+        "location": "Ubicación",
+        "patientRole": "Rol",
+        "travelReady": "Preparación",
+        "patientInfo": "Información",
+        "wrapUp": "Completar"
       },
-      "isPatient": {
+      "progressSteps": {
+        "travelReady": "Travel Readiness",
+        "patientInfo": "Patient Information",
+        "primaryConcern": "Primary Concern",
+        "insuranceDetails": "Insurance Details",
+        "wrapUp": "Wrap Up"
+      },
+      "back": "Atrás",
+      "location": {
+        "title": "¿Dónde se encuentra actualmente?",
+        "insideEU": "Dentro de la UE",
+        "insideEUDesc": "Actualmente me encuentro en un país de la Unión Europea",
+        "outsideEU": "Fuera de la UE",
+        "outsideEUDesc": "Actualmente me encuentro fuera de la Unión Europea"
+      },
+      "patientRole": {
         "title": "¿Es usted el paciente?",
         "yes": "Sí",
         "yesDesc": "Soy el paciente",
         "no": "No",
-        "noDesc": "Me comunico en nombre de otra persona"
+        "noDesc": "Estoy solicitando para otra persona"
       },
-      "travel": {
-        "title": "¿Puede viajar a Múnich para recibir atención médica?",
-        "description": "Para programar una cita con la Agencia de Atención al Paciente será necesario viajar a nuestro centro en Múnich, Alemania.",
+      "continue": "Continuar",
+      "travelCompanion": {
+        "title": "¿Este paciente puede y está dispuesto a viajar a Alemania para recibir atención?",
+        "description": "Para obtener una cita en Gmed, los pacientes deben viajar a nuestro centro en Alemania.",
+        "note": "Gmed no proporciona atención a pacientes internacionales a través de citas remotas o videoconferencias.",
+        "getHelp": "Obtener ayuda",
         "yes": "Sí",
         "no": "No"
       },
-      "form": {
-        "title": "Registro de nuevo paciente",
-        "personal": "Información personal",
-        "firstName": "Nombre *",
-        "lastName": "Apellido *",
-        "email": "Correo electrónico *",
-        "phone": "Número de teléfono *",
+      "travelPatient": {
+        "title": "¿Puede y está dispuesto a viajar a Alemania para recibir atención?",
+        "description": "Para obtener una cita en Gmed, deberá viajar a nuestro centro en Alemania.",
+        "note": "Gmed no proporciona atención a pacientes internacionales a través de citas remotas o videoconferencias.",
+        "getHelp": "Obtener ayuda",
+        "yes": "Sí",
+        "no": "No"
+      },
+      "recordsCompanion": {
+        "title": "¿Este paciente puede presentar sus registros médicos?",
+        "description": "Los registros médicos del paciente son esenciales para el proceso de revisión médica.",
+        "yes": "Sí",
+        "no": "No",
+        "none": "Este paciente no tiene registros médicos"
+      },
+      "recordsPatient": {
+        "title": "¿Puede presentar sus registros médicos?",
+        "description": "Sus registros médicos son esenciales para el proceso de revisión médica.",
+        "yes": "Sí",
+        "no": "No",
+        "none": "No tengo registros médicos"
+      },
+      "documentsCompanion": {
+        "title": "¿Este paciente tiene los documentos necesarios para viajar a Alemania?",
+        "needList": "Necesitará:",
+        "passport": "Un pasaporte vigente.",
+        "visa": "Una visa vigente a menos que sea ciudadano de un país de la UE o de un país que participa en el",
+        "visaWaiverProgram": "Programa de Exención de Visa",
+        "note": "Por favor contacte al",
+        "embassy": "consulado / embajada de Alemania",
+        "noteEnd": "en su país para preguntar sobre tiempos de procesamiento y requisitos de visa.",
+        "yes": "Sí",
+        "no": "No"
+      },
+      "documentsPatient": {
+        "title": "¿Tiene los documentos necesarios para viajar a Alemania?",
+        "needList": "Necesitará:",
+        "passport": "Un pasaporte vigente.",
+        "visa": "Una visa vigente a menos que sea ciudadano de un país de la UE o de un país que participa en el",
+        "visaWaiverProgram": "Programa de Exención de Visa",
+        "note": "Por favor contacte al",
+        "embassy": "consulado / embajada de Alemania",
+        "noteEnd": "en su país para preguntar sobre tiempos de procesamiento y requisitos de visa.",
+        "yes": "Sí",
+        "no": "No"
+      },
+      "exitNoTravelCompanion": {
+        "title": "Gracias. Solo aceptamos pacientes que pueden viajar a Alemania.",
+        "description": "Si este paciente puede viajar a Alemania en el futuro, solicite una cita en ese momento.",
+        "button": "Salir de la solicitud"
+      },
+      "exitNoTravelPatient": {
+        "title": "Gracias. Solo aceptamos pacientes que pueden viajar a Alemania.",
+        "description": "Si puede viajar a Alemania en el futuro, solicite una cita en ese momento.",
+        "button": "Salir de la solicitud"
+      },
+      "exitNoRecordsCompanion": {
+        "title": "Gracias. Solo aceptamos pacientes que pueden presentar sus registros médicos.",
+        "description": "Si este paciente puede presentar sus registros en el futuro, solicite una cita en ese momento.",
+        "button": "Salir de la solicitud"
+      },
+      "exitNoRecordsPatient": {
+        "title": "Gracias. Solo aceptamos pacientes que pueden presentar sus registros médicos.",
+        "description": "Si puede presentar sus registros en el futuro, solicite una cita en ese momento.",
+        "button": "Salir de la solicitud"
+      },
+      "visaHelpCompanion": {
+        "title": "¿El paciente necesita ayuda con el trámite de visa?",
+        "description": "Podemos ayudar con el apoyo de visa para pacientes que necesitan viajar a Alemania.",
+        "yes": "Sí, necesita ayuda",
+        "no": "No, ya tiene visa"
+      },
+      "visaHelpPatient": {
+        "title": "¿Necesita ayuda con el trámite de visa?",
+        "description": "Podemos ayudar con el apoyo de visa si necesita viajar a Alemania.",
+        "yes": "Sí, necesito ayuda",
+        "no": "No, ya tengo visa"
+      },
+      "patientInfo": {
+        "introTitle": "Comencemos con",
+        "introTitleBold": "Información del Paciente",
+        "introDescription1": "En esta sección, recopilaremos información básica para crear el perfil médico del paciente.",
+        "introDescription2": "Estos detalles también nos ayudarán a iniciar nuestra conversación sobre el paciente y sus necesidades de atención.",
+        "start": "Comenzar",
+        "formTitle": "Información del Paciente",
+        "personalInfo": "Información Personal",
+        "firstName": "Nombre",
+        "lastName": "Apellido",
+        "email": "Correo electrónico",
+        "phone": "Número de teléfono",
         "dateOfBirth": "Fecha de nacimiento",
-        "appointmentDetails": "Detalles de la cita",
-        "selectService": "Seleccione un servicio",
-        "cardiology": "Cardiología",
-        "oncology": "Oncología",
-        "surgery": "Cirugía",
-        "other": "Otro",
-        "selectTime": "Seleccione una hora",
-        "message": "Mensaje",
-        "reasonPlaceholder": "Motivo de la visita...",
-        "submit": "Enviar solicitud"
+        "country": "País",
+        "message": "Información Adicional",
+        "messagePlaceholder": "Cuéntenos sobre su condición médica, objetivos de tratamiento o cualquier pregunta que tenga...",
+        "submit": "Enviar Solicitud"
       }
     },
     "returningPatient": {

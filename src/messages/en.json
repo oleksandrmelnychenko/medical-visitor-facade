@@ -39,8 +39,7 @@
   },
   "footer": {
     "impressum": "Legal information",
-    "companyName": "Patient Care Agency Georgiy Gudiev",
-    "owner": "Owner: Georgiy Gudiev",
+    "companyName": "Patient Care Agency",
     "contact": "Contact",
     "vatTitle": "VAT identification number",
     "vatLegal": "in accordance with § 27 a of the VAT Act:",
@@ -111,8 +110,8 @@
       "subtitle": "",
       "services": {
         "promptness": {
-          "title": "Coordinator",
-          "desc": "Support at all stages of your stay"
+          "title": "Coordination",
+          "desc": "Medical coordination and accompaniment"
         },
         "confidentiality": {
           "title": "Visa Support",
@@ -123,8 +122,12 @@
           "desc": "Ground transportation organization"
         },
         "noFees": {
-          "title": "Charter",
-          "desc": "Air transportation organization"
+          "title": "Aviation",
+          "desc": "Business jets and medical charters"
+        },
+        "concierge": {
+          "title": "Concierge Service",
+          "desc": "24/7 Support"
         }
       },
       "journey": {
@@ -205,44 +208,212 @@
       "applyButton": "Apply for complimentary care"
     },
     "newPatient": {
-      "intro": {
-        "title": "Let's get started",
-        "description": "We will ask a few questions to help the scheduling coordinator contact you.",
-        "continue": "Continue",
-        "emergency": "If this is a medical emergency, call 112.",
-        "mentalHealth": "If this is a mental health crisis, call the crisis hotline."
+      "progress": {
+        "location": "Location",
+        "patientRole": "Role",
+        "travelReady": "Readiness",
+        "patientInfo": "Information",
+        "wrapUp": "Complete"
       },
-      "isPatient": {
+      "progressSteps": {
+        "travelReady": "Travel Readiness",
+        "patientInfo": "Patient Information",
+        "primaryConcern": "Primary Concern",
+        "insuranceDetails": "Insurance Details",
+        "wrapUp": "Wrap Up"
+      },
+      "euProgress": {
+        "part1": "Part 1",
+        "part2": "Part 2",
+        "part2Note": "These steps will show once Part 1 is complete.",
+        "patientInfo": "Patient info",
+        "medicalConcerns": "Medical concerns",
+        "insuranceDetails": "Insurance details",
+        "preferences": "Preferences"
+      },
+      "back": "Back",
+      "continue": "Continue",
+      "location": {
+        "title": "Where are you currently located?",
+        "insideEU": "Inside the EU",
+        "insideEUDesc": "I am currently in a European Union country",
+        "outsideEU": "Outside the EU",
+        "outsideEUDesc": "I am currently outside the European Union"
+      },
+      "patientRole": {
         "title": "Are you the patient?",
         "yes": "Yes",
-        "yesDesc": "I am the patient",
+        "yesDesc": "I'm the patient",
         "no": "No",
-        "noDesc": "I am contacting on behalf of someone else"
+        "noDesc": "I'm requesting for someone else"
       },
-      "travel": {
-        "title": "Are you able to travel to Munich for medical care?",
-        "description": "Scheduling an appointment with the Patient Care Agency will require travel to our facility in Munich, Germany.",
+      "travelCompanion": {
+        "title": "Is this patient able and willing to travel to Germany to receive care?",
+        "description": "Getting an appointment at Gmed requires patients to travel to our facility in Germany.",
+        "note": "Gmed does not provide care to international patients through remote appointments or video conferences.",
+        "getHelp": "Get help",
         "yes": "Yes",
         "no": "No"
       },
-      "form": {
-        "title": "New patient registration",
-        "personal": "Personal information",
-        "firstName": "First name *",
-        "lastName": "Last name *",
-        "email": "Email *",
-        "phone": "Phone number *",
+      "travelPatient": {
+        "title": "Are you able and willing to travel to Germany to receive care?",
+        "description": "Getting an appointment at Gmed will require you to travel to our facility in Germany.",
+        "note": "Gmed does not provide care to international patients through remote appointments or video conferences.",
+        "getHelp": "Get help",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "recordsCompanion": {
+        "title": "Is this patient able to submit their medical records?",
+        "description": "Patient medical records are essential to the physician review process.",
+        "yes": "Yes",
+        "no": "No",
+        "none": "This patient does not have any medical records"
+      },
+      "recordsPatient": {
+        "title": "Are you able to submit your medical records?",
+        "description": "Your medical records are essential to the physician review process.",
+        "yes": "Yes",
+        "no": "No",
+        "none": "I do not have any medical records"
+      },
+      "documentsCompanion": {
+        "title": "Does this patient have the necessary documents required to travel to Germany?",
+        "needList": "They will need:",
+        "passport": "An active passport.",
+        "visa": "An active visa unless you are a citizen of an EU country, or a country that participates in the",
+        "visaWaiverProgram": "Visa Waiver Program",
+        "note": "Please contact the",
+        "embassy": "German consulate / embassy",
+        "noteEnd": "in their country to ask about visa processing time and requirements.",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "documentsPatient": {
+        "title": "Do you have the necessary documents required to travel to Germany?",
+        "needList": "You will need:",
+        "passport": "An active passport.",
+        "visa": "An active visa unless you are a citizen of an EU country, or a country that participates in the",
+        "visaWaiverProgram": "Visa Waiver Program",
+        "note": "Please contact the",
+        "embassy": "German consulate / embassy",
+        "noteEnd": "in your country to ask about visa processing time and requirements.",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "exitNoTravelCompanion": {
+        "title": "Thank you. We are only accepting patients who are able to travel to Germany.",
+        "description": "If this patient is able to travel to Germany in the future please request an appointment at that time.",
+        "button": "Exit the request"
+      },
+      "exitNoTravelPatient": {
+        "title": "Thank you. We are only accepting patients who are able to travel to Germany.",
+        "description": "If you are able to travel to Germany in the future please request an appointment at that time.",
+        "button": "Exit the request"
+      },
+      "exitNoRecordsCompanion": {
+        "title": "Thank you. We are only accepting patients who are able to submit their medical records.",
+        "description": "If this patient is able to submit their records in the future please request an appointment at that time.",
+        "button": "Exit the request"
+      },
+      "exitNoRecordsPatient": {
+        "title": "Thank you. We are only accepting patients who are able to submit their medical records.",
+        "description": "If you are able to submit your records in the future please request an appointment at that time.",
+        "button": "Exit the request"
+      },
+      "visaHelpCompanion": {
+        "title": "Do you need help with visa arrangements?",
+        "description": "We can assist with visa support for patients who need to travel to Germany.",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "visaHelpPatient": {
+        "title": "Do you need help with visa arrangements?",
+        "description": "We can assist with visa support if you need to travel to Germany.",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "euCompanionInfo": {
+        "title": "Tell us about yourself.",
+        "subtitle": "We'll ask for the patient's info next.",
+        "relationship": "Relationship to patient",
+        "selectPlaceholder": "Select",
+        "relationships": {
+          "child": "Child",
+          "grandchild": "Grandchild",
+          "grandparent": "Grandparent",
+          "guardian": "Guardian",
+          "inLaw": "In-Law",
+          "lifePartner": "Life Partner",
+          "other": "Other",
+          "parent": "Parent",
+          "sibling": "Sibling",
+          "spouse": "Spouse"
+        }
+      },
+      "euPatientName": {
+        "title": "What's the patient's legal name?",
+        "subtitle": "Enter their name as it appears on their legal ID.",
+        "middleName": "Middle name (Optional)",
+        "addSuffix": "Add suffix",
+        "suffix": "Suffix (Optional)",
+        "preferredName": "Preferred name (Optional)"
+      },
+      "euPatientDob": {
+        "title": "What's the patient's legal sex and date of birth?",
+        "legalSex": "Legal sex",
+        "legalSexNote": "This must match what is on their legal ID",
+        "female": "Female",
+        "male": "Male",
+        "nonBinary": "Non-binary",
         "dateOfBirth": "Date of birth",
-        "appointmentDetails": "Appointment details",
-        "selectService": "Select a service",
-        "cardiology": "Cardiology",
-        "oncology": "Oncology",
-        "surgery": "Surgery",
-        "other": "Other",
-        "selectTime": "Select a time",
-        "message": "Message",
-        "reasonPlaceholder": "Reason for visit...",
-        "submit": "Submit request"
+        "dateFormat": "MM/DD/YYYY"
+      },
+      "euPatientContact": {
+        "title": "What's the patient's contact info?",
+        "subtitle": "This is for their profile. You'll tell us who to follow up with next.",
+        "email": "Patient's Email",
+        "emailPlaceholder": "name@email.com",
+        "phone": "Patient's Phone Number",
+        "phonePlaceholder": "(xxx) xxx-xxxx",
+        "phoneType": "Phone type",
+        "mobile": "Mobile",
+        "home": "Home",
+        "work": "Work",
+        "addPhone": "Add another phone"
+      },
+      "euInterpreter": {
+        "title": "Would you like an interpreter?",
+        "subtitle": "If so, we'll provide an interpreter when we contact you.",
+        "yes": "Yes",
+        "no": "No",
+        "primaryLanguage": "What is your primary language?"
+      },
+      "euAddress": {
+        "title": "What is your address?",
+        "streetAddress": "Street Address",
+        "city": "City",
+        "state": "State",
+        "statePlaceholder": "Select",
+        "zipCode": "Zip Code"
+      },
+      "patientInfo": {
+        "introTitle": "Let's get started with",
+        "introTitleBold": "Patient Information",
+        "introDescription1": "In this section, we'll gather basic information to create the patient's medical profile.",
+        "introDescription2": "These details will also help us begin our conversation about the patient and their care needs.",
+        "start": "Start",
+        "formTitle": "Patient Information",
+        "personalInfo": "Personal Information",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "phone": "Phone number",
+        "dateOfBirth": "Date of birth",
+        "country": "Country",
+        "message": "Additional Information",
+        "messagePlaceholder": "Tell us about your medical condition, treatment goals, or any questions you have...",
+        "submit": "Submit Application"
       }
     },
     "returningPatient": {

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Wallet, Heart, Diamond, Clock } from "lucide-react";
+import { Plane, Heart, Clock, MessageCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
@@ -12,12 +12,13 @@ export function FullSupport() {
 
   const servicesTop = [
     { icon: Clock, key: 'promptness', color: '#D5A8E5' },
-    { icon: Diamond, key: 'confidentiality', color: '#B5E5B0' },
+    { icon: Heart, key: 'support', color: '#A8D5E5' },
+    // { icon: Diamond, key: 'confidentiality', color: '#B5E5B0' }, // Visa Support - temporarily hidden
   ];
 
   const servicesBottom = [
-    { icon: Heart, key: 'support', color: '#A8D5E5' },
-    { icon: Wallet, key: 'noFees', color: '#F4B4C4' },
+    { icon: Plane, key: 'noFees', color: '#F4B4C4' },
+    { icon: MessageCircle, key: 'concierge', color: '#E5D5A8' },
   ];
 
   const journeySteps = [

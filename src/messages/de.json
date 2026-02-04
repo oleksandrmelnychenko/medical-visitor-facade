@@ -39,8 +39,7 @@
   },
   "footer": {
     "impressum": "Rechtliche Hinweise",
-    "companyName": "Agentur für Patientenbetreuung Georgiy Gudiev",
-    "owner": "Inhaber: Georgiy Gudiev",
+    "companyName": "Agentur für Patientenbetreuung",
     "contact": "Kontakt",
     "vatTitle": "USt-IdNr.",
     "vatLegal": "gemäß § 27 a UStG:",
@@ -111,8 +110,8 @@
       "subtitle": "",
       "services": {
         "promptness": {
-          "title": "Koordinator",
-          "desc": "Begleitung in allen Phasen Ihres Aufenthalts"
+          "title": "Koordination",
+          "desc": "Medizinische Koordination und Begleitung"
         },
         "confidentiality": {
           "title": "Visa-Unterstützung",
@@ -123,8 +122,12 @@
           "desc": "Organisation des Bodentransports"
         },
         "noFees": {
-          "title": "Charter",
-          "desc": "Organisation des Lufttransports"
+          "title": "Luftfahrt",
+          "desc": "Business-Jets und Medizincharter"
+        },
+        "concierge": {
+          "title": "Concierge-Service",
+          "desc": "24/7 Unterstützung"
         }
       },
       "journey": {
@@ -205,44 +208,139 @@
       "applyButton": "Kostenfreie Betreuung beantragen"
     },
     "newPatient": {
-      "intro": {
-        "title": "Lassen Sie uns beginnen",
-        "description": "Wir stellen einige Fragen, damit die Terminkoordination Sie kontaktieren kann.",
-        "continue": "Weiter",
-        "emergency": "Bei einem medizinischen Notfall wählen Sie 112.",
-        "mentalHealth": "Bei einer psychischen Krise wenden Sie sich an eine Hotline."
+      "progress": {
+        "location": "Standort",
+        "patientRole": "Rolle",
+        "travelReady": "Bereitschaft",
+        "patientInfo": "Informationen",
+        "wrapUp": "Abschluss"
       },
-      "isPatient": {
+      "progressSteps": {
+        "travelReady": "Travel Readiness",
+        "patientInfo": "Patient Information",
+        "primaryConcern": "Primary Concern",
+        "insuranceDetails": "Insurance Details",
+        "wrapUp": "Wrap Up"
+      },
+      "back": "Zurück",
+      "location": {
+        "title": "Wo befinden Sie sich derzeit?",
+        "insideEU": "Innerhalb der EU",
+        "insideEUDesc": "Ich befinde mich derzeit in einem EU-Land",
+        "outsideEU": "Außerhalb der EU",
+        "outsideEUDesc": "Ich befinde mich derzeit außerhalb der Europäischen Union"
+      },
+      "patientRole": {
         "title": "Sind Sie der Patient?",
         "yes": "Ja",
         "yesDesc": "Ich bin der Patient",
         "no": "Nein",
-        "noDesc": "Ich kontaktiere für eine andere Person"
+        "noDesc": "Ich stelle eine Anfrage für jemand anderen"
       },
-      "travel": {
-        "title": "Können Sie für die Behandlung nach München reisen?",
-        "description": "Für einen Termin bei der Agentur für Patientenbetreuung ist eine Reise zu unserer Einrichtung in München, Deutschland erforderlich.",
+      "continue": "Weiter",
+      "travelCompanion": {
+        "title": "Ist dieser Patient in der Lage und bereit, zur Behandlung nach Deutschland zu reisen?",
+        "description": "Für einen Termin bei Gmed müssen Patienten zu unserer Einrichtung in Deutschland reisen.",
+        "note": "Gmed bietet keine Versorgung für internationale Patienten durch Ferntermine oder Videokonferenzen an.",
+        "getHelp": "Hilfe erhalten",
         "yes": "Ja",
         "no": "Nein"
       },
-      "form": {
-        "title": "Registrierung neuer Patienten",
-        "personal": "Persönliche Angaben",
-        "firstName": "Vorname *",
-        "lastName": "Nachname *",
-        "email": "E-Mail *",
-        "phone": "Telefonnummer *",
+      "travelPatient": {
+        "title": "Sind Sie in der Lage und bereit, zur Behandlung nach Deutschland zu reisen?",
+        "description": "Für einen Termin bei Gmed müssen Sie zu unserer Einrichtung in Deutschland reisen.",
+        "note": "Gmed bietet keine Versorgung für internationale Patienten durch Ferntermine oder Videokonferenzen an.",
+        "getHelp": "Hilfe erhalten",
+        "yes": "Ja",
+        "no": "Nein"
+      },
+      "recordsCompanion": {
+        "title": "Kann dieser Patient seine medizinischen Unterlagen einreichen?",
+        "description": "Medizinische Unterlagen des Patienten sind für den ärztlichen Überprüfungsprozess unerlässlich.",
+        "yes": "Ja",
+        "no": "Nein",
+        "none": "Dieser Patient hat keine medizinischen Unterlagen"
+      },
+      "recordsPatient": {
+        "title": "Können Sie Ihre medizinischen Unterlagen einreichen?",
+        "description": "Ihre medizinischen Unterlagen sind für den ärztlichen Überprüfungsprozess unerlässlich.",
+        "yes": "Ja",
+        "no": "Nein",
+        "none": "Ich habe keine medizinischen Unterlagen"
+      },
+      "documentsCompanion": {
+        "title": "Hat dieser Patient die erforderlichen Dokumente für die Reise nach Deutschland?",
+        "needList": "Er/Sie benötigt:",
+        "passport": "Einen gültigen Reisepass.",
+        "visa": "Ein gültiges Visum, es sei denn, Sie sind Staatsbürger eines EU-Landes oder eines Landes, das am",
+        "visaWaiverProgram": "Visa Waiver Program",
+        "note": "Bitte kontaktieren Sie das",
+        "embassy": "deutsche Konsulat / die Botschaft",
+        "noteEnd": "in Ihrem Land, um sich über Bearbeitungszeiten und Anforderungen für Visa zu informieren.",
+        "yes": "Ja",
+        "no": "Nein"
+      },
+      "documentsPatient": {
+        "title": "Haben Sie die erforderlichen Dokumente für die Reise nach Deutschland?",
+        "needList": "Sie benötigen:",
+        "passport": "Einen gültigen Reisepass.",
+        "visa": "Ein gültiges Visum, es sei denn, Sie sind Staatsbürger eines EU-Landes oder eines Landes, das am",
+        "visaWaiverProgram": "Visa Waiver Program",
+        "note": "Bitte kontaktieren Sie das",
+        "embassy": "deutsche Konsulat / die Botschaft",
+        "noteEnd": "in Ihrem Land, um sich über Bearbeitungszeiten und Anforderungen für Visa zu informieren.",
+        "yes": "Ja",
+        "no": "Nein"
+      },
+      "exitNoTravelCompanion": {
+        "title": "Vielen Dank. Wir nehmen derzeit nur Patienten an, die nach Deutschland reisen können.",
+        "description": "Wenn dieser Patient in Zukunft nach Deutschland reisen kann, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
+        "button": "Anfrage beenden"
+      },
+      "exitNoTravelPatient": {
+        "title": "Vielen Dank. Wir nehmen derzeit nur Patienten an, die nach Deutschland reisen können.",
+        "description": "Wenn Sie in Zukunft nach Deutschland reisen können, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
+        "button": "Anfrage beenden"
+      },
+      "exitNoRecordsCompanion": {
+        "title": "Vielen Dank. Wir nehmen derzeit nur Patienten an, die ihre medizinischen Unterlagen einreichen können.",
+        "description": "Wenn dieser Patient in Zukunft seine Unterlagen einreichen kann, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
+        "button": "Anfrage beenden"
+      },
+      "exitNoRecordsPatient": {
+        "title": "Vielen Dank. Wir nehmen derzeit nur Patienten an, die ihre medizinischen Unterlagen einreichen können.",
+        "description": "Wenn Sie in Zukunft Ihre Unterlagen einreichen können, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
+        "button": "Anfrage beenden"
+      },
+      "visaHelpCompanion": {
+        "title": "Benötigt der Patient Hilfe bei der Visumbeantragung?",
+        "description": "Wir können bei der Visumunterstützung für Patienten helfen, die nach Deutschland reisen müssen.",
+        "yes": "Ja, Hilfe benötigt",
+        "no": "Nein, Visum vorhanden"
+      },
+      "visaHelpPatient": {
+        "title": "Benötigen Sie Hilfe bei der Visumbeantragung?",
+        "description": "Wir können bei der Visumunterstützung helfen, wenn Sie nach Deutschland reisen müssen.",
+        "yes": "Ja, Hilfe benötigt",
+        "no": "Nein, Visum vorhanden"
+      },
+      "patientInfo": {
+        "introTitle": "Beginnen wir mit",
+        "introTitleBold": "Patienteninformationen",
+        "introDescription1": "In diesem Abschnitt sammeln wir grundlegende Informationen, um das medizinische Profil des Patienten zu erstellen.",
+        "introDescription2": "Diese Details helfen uns auch, unser Gespräch über den Patienten und seine Pflegebedürfnisse zu beginnen.",
+        "start": "Start",
+        "formTitle": "Patienteninformationen",
+        "personalInfo": "Persönliche Angaben",
+        "firstName": "Vorname",
+        "lastName": "Nachname",
+        "email": "E-Mail",
+        "phone": "Telefonnummer",
         "dateOfBirth": "Geburtsdatum",
-        "appointmentDetails": "Termindetails",
-        "selectService": "Leistung auswählen",
-        "cardiology": "Kardiologie",
-        "oncology": "Onkologie",
-        "surgery": "Chirurgie",
-        "other": "Sonstiges",
-        "selectTime": "Uhrzeit auswählen",
-        "message": "Nachricht",
-        "reasonPlaceholder": "Grund des Besuchs...",
-        "submit": "Anfrage senden"
+        "country": "Land",
+        "message": "Zusätzliche Informationen",
+        "messagePlaceholder": "Erzählen Sie uns von Ihrem Gesundheitszustand, Behandlungszielen oder Fragen...",
+        "submit": "Antrag absenden"
       }
     },
     "returningPatient": {
