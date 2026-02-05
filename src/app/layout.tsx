@@ -6,6 +6,7 @@ import "../styles/globals.scss";
 import { Header } from "@/components/layout/Header";
 import { Footer } from '@/components/layout/Footer';
 import { MobileLoginFab } from "@/components/layout/MobileLoginFab";
+import { HomeBackground } from "@/components/sections/home";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import { LanguageProvider } from "@/providers/LanguageProvider";
 import { AuthProvider } from "@/providers/AuthProvider";
@@ -135,6 +136,7 @@ export default async function RootLayout({
         <WebsiteJsonLd />
       </head>
       <body className={`${montserrat.variable}`}>
+        <HomeBackground />
         <AuthProvider>
           <LanguageProvider initialLocale={locale} initialMessages={messages}>
             <Suspense fallback={<HeaderSkeleton />}>

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Hero, FullSupport, CareForward, Office, CTA, HomeBackground } from "@/components/sections/home";
+import { Hero, FullSupport, CareForward, Office, CTA } from "@/components/sections/home";
 import { getAlternateLanguages } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main style={{ position: 'relative' }}>
-      <HomeBackground />
       <Hero />
       <FullSupport />
       <CareForward />
