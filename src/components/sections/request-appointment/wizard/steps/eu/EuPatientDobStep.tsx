@@ -34,7 +34,7 @@ export function EuPatientDobStep() {
 
   const isValid = legalSex && dateOfBirth.trim();
 
-  const sexOptions: { value: LegalSexType; label: string }[] = [
+  const sexOptions: { value: 'female' | 'male' | 'non-binary'; label: string }[] = [
     { value: 'female', label: t('euPatientDob.female') },
     { value: 'male', label: t('euPatientDob.male') },
     { value: 'non-binary', label: t('euPatientDob.nonBinary') },
