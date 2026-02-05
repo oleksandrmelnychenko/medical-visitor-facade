@@ -7,36 +7,8 @@ import { useTranslations } from "next-intl";
 import { RefreshCw, FileText, X, Check, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChatContainer } from "@/components/chat";
+import { useApplications, useUnreadCounts, updateApplicationStatus, type Application } from "@/hooks/useApplications";
 import styles from "./admin.module.scss";
-
-type Application = {
-  id: string;
-  applicationNum: string;
-  status: string;
-  isEuResident: boolean | null;
-  clientNotes: string | null;
-  createdAt: string;
-  user: {
-    id: string;
-    email: string;
-    phone: string | null;
-    firstName: string | null;
-    lastName: string | null;
-  };
-  location: { code: string; nameRu: string } | null;
-  insurance: { code: string; nameRu: string } | null;
-  travelAbility: { code: string; nameRu: string } | null;
-  services: Array<{
-    service: { code: string; nameRu: string };
-  }>;
-};
-
-type PaginationInfo = {
-  page: number;
-  limit: number;
-  total: number;
-  totalPages: number;
-};
 
 const statusColors: Record<string, string> = {
   NEW: "#3b82f6",
@@ -54,85 +26,55 @@ const statusLabelKeys: Record<string, string> = {
   CANCELLED: "statusCancelled",
 };
 
+const allStatuses = ["NEW", "IN_REVIEW", "CONTACTED", "COMPLETED", "CANCELLED"] as const;
+
+const allServices = [
+  { code: "charter", labelKey: "serviceCharter" },
+  { code: "transport", labelKey: "serviceTransport" },
+  { code: "visa", labelKey: "serviceVisa" },
+  { code: "translator", labelKey: "serviceTranslator" },
+  { code: "hotel", labelKey: "serviceHotel" },
+];
+
 export default function AdminPage() {
   const t = useTranslations("admin");
   const { data: session, status } = useSession();
   const router = useRouter();
-  const [applications, setApplications] = useState<Application[]>([]);
-  const [pagination, setPagination] = useState<PaginationInfo | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+
+  const [page, setPage] = useState(1);
   const [selectedApp, setSelectedApp] = useState<Application | null>(null);
   const [updatingStatus, setUpdatingStatus] = useState(false);
-  const [unreadCounts, setUnreadCounts] = useState<Record<string, number>>({});
   const [chatApp, setChatApp] = useState<Application | null>(null);
+  const [statusError, setStatusError] = useState<string | null>(null);
+
   const sidebarRef = useRef<HTMLDivElement>(null);
   const chatPanelRef = useRef<HTMLDivElement>(null);
 
+  // SWR hooks for data fetching
+  const { applications, pagination, isLoading, error, mutate } = useApplications(page);
+  const { unreadCounts, mutate: mutateUnreadCounts } = useUnreadCounts();
+
   const currentUserId = (session?.user as { id?: string })?.id || "";
 
-  const allStatuses = [
-    "NEW",
-    "IN_REVIEW",
-    "CONTACTED",
-    "COMPLETED",
-    "CANCELLED",
-  ] as const;
-
-  const allServices = [
-    { code: "charter", labelKey: "serviceCharter" },
-    { code: "transport", labelKey: "serviceTransport" },
-    { code: "visa", labelKey: "serviceVisa" },
-    { code: "translator", labelKey: "serviceTranslator" },
-    { code: "hotel", labelKey: "serviceHotel" },
-  ];
-
-  const fetchUnreadCounts = useCallback(async () => {
-    try {
-      const response = await fetch("/api/applications/unread-counts");
-      const data = await response.json();
-      if (response.ok && data.data) {
-        setUnreadCounts(data.data);
-      }
-    } catch (error) {
-      console.error("Failed to fetch unread counts:", error);
-    }
-  }, []);
-
+  // Combined click outside handler
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
+      if (selectedApp && sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
         setSelectedApp(null);
       }
-    };
-
-    if (selectedApp) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [selectedApp]);
-
-  useEffect(() => {
-    const handleClickOutsideChat = (event: MouseEvent) => {
-      if (chatPanelRef.current && !chatPanelRef.current.contains(event.target as Node)) {
+      if (chatApp && chatPanelRef.current && !chatPanelRef.current.contains(event.target as Node)) {
         setChatApp(null);
-        // Refresh unread counts after closing chat
-        fetchUnreadCounts();
+        mutateUnreadCounts();
       }
     };
 
-    if (chatApp) {
-      document.addEventListener("mousedown", handleClickOutsideChat);
+    if (selectedApp || chatApp) {
+      document.addEventListener("mousedown", handleClickOutside);
     }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [selectedApp, chatApp, mutateUnreadCounts]);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutsideChat);
-    };
-  }, [chatApp, fetchUnreadCounts]);
-
+  // Auth redirect
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/login");
@@ -145,42 +87,6 @@ export default function AdminPage() {
     }
   }, [status, session, router]);
 
-  const fetchApplications = async (page = 1) => {
-    setLoading(true);
-    try {
-      const response = await fetch(`/api/applications?page=${page}&limit=10`);
-      const data = await response.json();
-
-      if (response.status === 401) {
-        router.push("/login");
-        return;
-      }
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to fetch applications");
-      }
-
-      setApplications(data.data);
-      setPagination(data.pagination);
-      setError(null);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Error loading");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    if (status === "authenticated") {
-      fetchApplications();
-      fetchUnreadCounts();
-
-      // Poll for unread counts every 10 seconds
-      const interval = setInterval(fetchUnreadCounts, 10000);
-      return () => clearInterval(interval);
-    }
-  }, [status, fetchUnreadCounts]);
-
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("ru-RU", {
       day: "2-digit",
@@ -191,30 +97,18 @@ export default function AdminPage() {
     });
   };
 
-  const updateStatus = async (appId: string, newStatus: string) => {
+  const handleUpdateStatus = async (appId: string, newStatus: string) => {
     setUpdatingStatus(true);
+    setStatusError(null);
     try {
-      const response = await fetch(`/api/applications/${appId}/status`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ status: newStatus }),
-      });
+      const result = await updateApplicationStatus(appId, newStatus);
+      const updatedApp = result.data;
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to update status");
-      }
-
-      const updatedApp = data.data;
-      setApplications((prev) =>
-        prev.map((app) => (app.id === appId ? updatedApp : app))
-      );
+      // Optimistically update local state and revalidate
       setSelectedApp(updatedApp);
+      mutate();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Error updating status");
+      setStatusError(err instanceof Error ? err.message : "Error updating status");
     } finally {
       setUpdatingStatus(false);
     }
@@ -227,9 +121,8 @@ export default function AdminPage() {
 
   const handleCloseChat = useCallback(() => {
     setChatApp(null);
-    // Refresh unread counts after closing chat (messages were marked as read)
-    fetchUnreadCounts();
-  }, [fetchUnreadCounts]);
+    mutateUnreadCounts();
+  }, [mutateUnreadCounts]);
 
   const getClientName = (app: Application) => {
     if (app.user.firstName && app.user.lastName) {
@@ -238,7 +131,7 @@ export default function AdminPage() {
     return app.user.email;
   };
 
-  if (status === "loading" || loading) {
+  if (status === "loading" || isLoading) {
     return (
       <div className={styles.loadingContainer}>
         <RefreshCw className={styles.spinner} size={32} />
@@ -281,7 +174,7 @@ export default function AdminPage() {
                     style={{
                       "--status-color": statusColors[statusKey],
                     } as React.CSSProperties}
-                    onClick={() => updateStatus(selectedApp.id, statusKey)}
+                    onClick={() => handleUpdateStatus(selectedApp.id, statusKey)}
                     disabled={updatingStatus || selectedApp.status === statusKey}
                   >
                     <span
@@ -365,13 +258,13 @@ export default function AdminPage() {
               <span><strong>{applications.filter((a) => a.status === "NEW").length}</strong> {t("new")}</span>
             </div>
           </div>
-          <button onClick={() => fetchApplications(pagination?.page || 1)} className={styles.refreshButton}>
+          <button onClick={() => mutate()} className={styles.refreshButton}>
             <RefreshCw size={18} />
             {t("refresh")}
           </button>
         </div>
 
-        {error && <div className={styles.error}>{error}</div>}
+        {(error || statusError) && <div className={styles.error}>{error?.message || statusError}</div>}
 
         <div className={styles.statusLegend}>
           {Object.entries(statusLabelKeys).map(([key, labelKey]) => (
@@ -449,8 +342,8 @@ export default function AdminPage() {
         {pagination && pagination.totalPages > 1 && (
           <div className={styles.pagination}>
             <button
-              onClick={() => fetchApplications(pagination.page - 1)}
-              disabled={pagination.page <= 1}
+              onClick={() => setPage(p => p - 1)}
+              disabled={page <= 1}
               className={styles.pageButton}
             >
               ← {t("prev")}
@@ -459,8 +352,8 @@ export default function AdminPage() {
               {t("pageInfo", { page: pagination.page, totalPages: pagination.totalPages })}
             </span>
             <button
-              onClick={() => fetchApplications(pagination.page + 1)}
-              disabled={pagination.page >= pagination.totalPages}
+              onClick={() => setPage(p => p + 1)}
+              disabled={page >= pagination.totalPages}
               className={styles.pageButton}
             >
               {t("next")} →
