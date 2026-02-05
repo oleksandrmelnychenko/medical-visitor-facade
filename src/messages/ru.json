@@ -344,7 +344,7 @@
       },
       "euCompanionInfo": {
         "title": "Расскажите о себе.",
-        "subtitle": "Далее мы спросим информацию о участнике.",
+        "subtitle": "",
         "relationship": "Отношение к участнику",
         "selectPlaceholder": "Выберите",
         "relationships": {
@@ -381,7 +381,7 @@
       },
       "euPatientContact": {
         "title": "Какие контактные данные участника?",
-        "subtitle": "Это для его профиля. Далее вы укажете, с кем связаться.",
+        "subtitle": "",
         "email": "Email участника",
         "emailPlaceholder": "name@email.com",
         "phone": "Телефон участника",
@@ -394,7 +394,7 @@
       },
       "euInterpreter": {
         "title": "Нужен ли вам переводчик?",
-        "subtitle": "Если да, мы предоставим переводчика при связи с вами.",
+        "subtitle": "",
         "needInterpreter": "Вам нужен переводчик?",
         "select": "Выбрать",
         "yes": "Да",

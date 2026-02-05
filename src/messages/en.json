@@ -352,7 +352,7 @@
       },
       "euCompanionInfo": {
         "title": "Tell us about yourself.",
-        "subtitle": "We'll ask for the member's info next.",
+        "subtitle": "",
         "relationship": "Relationship to member",
         "selectPlaceholder": "Select",
         "relationships": {
@@ -389,7 +389,7 @@
       },
       "euPatientContact": {
         "title": "What's the member's contact info?",
-        "subtitle": "This is for their profile. You'll tell us who to follow up with next.",
+        "subtitle": "",
         "email": "Member's Email",
         "emailPlaceholder": "name@email.com",
         "phone": "Member's Phone Number",
@@ -402,7 +402,7 @@
       },
       "euInterpreter": {
         "title": "Would you like an interpreter?",
-        "subtitle": "If so, we'll provide an interpreter when we contact you.",
+        "subtitle": "",
         "needInterpreter": "Do you need an interpreter?",
         "select": "Select",
         "yes": "Yes",

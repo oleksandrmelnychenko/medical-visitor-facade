@@ -353,7 +353,7 @@
       },
       "euPatientContact": {
         "title": "Wie sind die Kontaktdaten des Mitglieds?",
-        "subtitle": "Dies ist für das Profil. Sie geben als Nächstes an, mit wem wir Kontakt aufnehmen sollen.",
+        "subtitle": "",
         "email": "E-Mail des Mitglieds",
         "emailPlaceholder": "name@email.com",
         "phone": "Telefonnummer des Mitglieds",
@@ -366,7 +366,7 @@
       },
       "euInterpreter": {
         "title": "Benötigen Sie einen Dolmetscher?",
-        "subtitle": "Falls ja, stellen wir bei der Kontaktaufnahme einen Dolmetscher bereit.",
+        "subtitle": "",
         "needInterpreter": "Benötigen Sie einen Dolmetscher?",
         "select": "Auswählen",
         "yes": "Ja",
