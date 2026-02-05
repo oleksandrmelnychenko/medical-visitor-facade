@@ -58,6 +58,23 @@
   object-fit: cover;
 }
 
+// CSS-based responsive video switching (no JS re-renders)
+.desktopVideo {
+  display: block;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.mobileVideo {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
 .videoOverlay {
   position: absolute;
   inset: 0;

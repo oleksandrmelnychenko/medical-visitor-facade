@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
@@ -9,65 +8,32 @@ import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./Hero.module.scss";
 
-// Floating blob component
-function FloatingBlob({
-  color,
-  size,
-  top,
-  left,
-  morphDelay = 0,
-  morphDuration = 15
-}: {
-  color: string;
-  size: number;
-  top: string;
-  left: string;
-  morphDelay?: number;
-  morphDuration?: number;
-}) {
-  return (
-    <div
-      className={styles.blob}
-      style={{
-        background: color,
-        width: size,
-        height: size,
-        top,
-        left,
-        animationDelay: `${morphDelay}s`,
-        animationDuration: `${morphDuration}s`,
-      }}
-    />
-  );
-}
-
 export function Hero() {
   const t = useTranslations('home.hero');
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   return (
     <section className={cn(sectionStyles.section, styles.hero)}>
-      {/* Video background */}
+      {/* Video background - CSS handles which video is visible */}
       <div className={styles.videoContainer}>
+        {/* Desktop video */}
         <video
-          className={styles.heroVideo}
+          className={cn(styles.heroVideo, styles.desktopVideo)}
           autoPlay
           muted
           loop
           playsInline
-          key={isMobile ? 'mobile' : 'desktop'}
         >
-          <source
-            src={isMobile ? "/hero_mobile.mp4" : "/hero_web.mp4"}
-            type="video/mp4"
-          />
+          <source src="/hero_web.mp4" type="video/mp4" />
+        </video>
+        {/* Mobile video */}
+        <video
+          className={cn(styles.heroVideo, styles.mobileVideo)}
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/hero_mobile.mp4" type="video/mp4" />
         </video>
         <div className={styles.videoOverlay} />
       </div>
