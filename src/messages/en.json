@@ -21,31 +21,31 @@
   },
   "header": {
     "care": "Care",
-    "patientResources": "Patient resources",
+    "patientResources": "Member resources",
     "trustSafety": "Trust & safety",
-    "patientCenteredCare": "Patient-centered care",
+    "patientCenteredCare": "Member-centered care",
     "aboutGmed": "About Gmed",
     "requestAppointment": "Become a Member",
     "findDoctor": "Find a doctor",
     "locations": "Locations",
-    "patientServices": "Patient services",
+    "patientServices": "Member services",
     "medicalRecords": "Medical records",
     "insuranceBilling": "Insurance & billing",
-    "patientPortal": "Patient portal",
+    "patientPortal": "Member portal",
     "privacyPolicy": "Privacy policy",
     "dataSecurity": "Data security",
     "hipaaCompliance": "HIPAA compliance",
-    "patientRights": "Patient rights"
+    "patientRights": "Member rights"
   },
   "footer": {
     "impressum": "Legal information",
-    "companyName": "Patient Care Agency",
+    "companyName": "Member Care Agency",
     "contact": "Contact",
     "vatTitle": "VAT identification number",
     "vatLegal": "in accordance with § 27 a of the VAT Act:",
     "vatNumber": "147/220/51409",
     "contactPrompt": "For questions and suggestions about the site content, please email:",
-    "copyright": "© {year} Patient Care Agency",
+    "copyright": "© {year} Member Care Agency",
     "allRightsReserved": "All rights reserved",
     "financialAssistance": "Financial assistance",
     "privacyPolicy": "Privacy policy",
@@ -200,14 +200,14 @@
     },
     "freeService": {
       "title": "Need financial assistance?",
-      "description1": "We understand that medical care can be financially challenging. The Patient Care Agency offers a limited program for patients who need help with medical expenses.",
+      "description1": "We understand that medical care can be financially challenging. The Member Care Agency offers a limited program for members who need help with medical expenses.",
       "description2": "Our team carefully reviews each application and provides support when resources allow.",
       "priority": "Priority cases:",
-      "priorityText": "We prioritize cases involving children, urgent medical situations, and patients in exceptional circumstances.",
+      "priorityText": "We prioritize cases involving children, urgent medical situations, and members in exceptional circumstances.",
       "note": "Please note: Applications for complimentary care are reviewed individually based on available capacity and medical necessity. We will contact you within 5-7 business days regarding the status of your application.",
       "applyButton": "Apply for complimentary care"
     },
-    "newPatient": {
+    "newMember": {
       "progress": {
         "location": "Location",
         "patientRole": "Role",
@@ -217,7 +217,7 @@
       },
       "progressSteps": {
         "travelReady": "Travel Readiness",
-        "patientInfo": "Patient Information",
+        "patientInfo": "Member Information",
         "primaryConcern": "Primary Concern",
         "insuranceDetails": "Insurance Details",
         "wrapUp": "Wrap Up"
@@ -226,7 +226,7 @@
         "part1": "Part 1",
         "part2": "Part 2",
         "part2Note": "These steps will show once Part 1 is complete.",
-        "patientInfo": "Patient info",
+        "patientInfo": "Member info",
         "medicalConcerns": "Medical concerns",
         "insuranceDetails": "Insurance details",
         "preferences": "Preferences"
@@ -241,9 +241,9 @@
         "outsideEUDesc": "I am currently outside the European Union"
       },
       "patientRole": {
-        "title": "Are you the patient?",
+        "title": "Are you the member?",
         "yes": "Yes",
-        "yesDesc": "I'm the patient",
+        "yesDesc": "I'm the member",
         "no": "No",
         "noDesc": "I'm requesting for someone else"
       },
@@ -275,29 +275,29 @@
         "charLimit": "Maximum 300 characters"
       },
       "travelCompanion": {
-        "title": "Is this patient able and willing to travel to Germany to receive care?",
+        "title": "Is this member able and willing to travel to Germany to receive care?",
         "yes": "Yes",
         "no": "No"
       },
-      "travelPatient": {
+      "travelMember": {
         "title": "Are you able and willing to travel to Germany to receive care?",
         "yes": "Yes",
         "no": "No"
       },
       "recordsCompanion": {
-        "title": "Is this patient able to submit their medical records?",
+        "title": "Is this member able to submit their medical records?",
         "yes": "Yes",
         "no": "No",
-        "none": "This patient does not have any medical records"
+        "none": "This member does not have any medical records"
       },
-      "recordsPatient": {
+      "recordsMember": {
         "title": "Are you able to submit your medical records?",
         "yes": "Yes",
         "no": "No",
         "none": "I do not have any medical records"
       },
       "documentsCompanion": {
-        "title": "Does this patient have the necessary documents required to travel to Germany?",
+        "title": "Does this member have the necessary documents required to travel to Germany?",
         "needList": "They will need:",
         "passport": "An active passport.",
         "visa": "An active visa unless you are a citizen of an EU country, or a country that participates in the",
@@ -308,7 +308,7 @@
         "yes": "Yes",
         "no": "No"
       },
-      "documentsPatient": {
+      "documentsMember": {
         "title": "Do you have the necessary documents required to travel to Germany?",
         "needList": "You will need:",
         "passport": "An active passport.",
@@ -321,30 +321,30 @@
         "no": "No"
       },
       "exitNoTravelCompanion": {
-        "title": "Thank you. We are only accepting patients who are able to travel to Germany.",
+        "title": "Thank you. We are only accepting members who are able to travel to Germany.",
         "button": "Exit the request"
       },
-      "exitNoTravelPatient": {
-        "title": "Thank you. We are only accepting patients who are able to travel to Germany.",
+      "exitNoTravelMember": {
+        "title": "Thank you. We are only accepting members who are able to travel to Germany.",
         "button": "Exit the request"
       },
       "exitNoRecordsCompanion": {
-        "title": "Thank you. We are only accepting patients who are able to submit their medical records.",
-        "description": "Medical records help our specialists provide the best possible care for the patient's needs.",
+        "title": "Thank you. We are only accepting members who are able to submit their medical records.",
+        "description": "Medical records help our specialists provide the best possible care for the member's needs.",
         "button": "Exit the request"
       },
-      "exitNoRecordsPatient": {
-        "title": "Thank you. We are only accepting patients who are able to submit their medical records.",
+      "exitNoRecordsMember": {
+        "title": "Thank you. We are only accepting members who are able to submit their medical records.",
         "description": "Medical records help our specialists provide the best possible care for your needs.",
         "button": "Exit the request"
       },
       "visaHelpCompanion": {
         "title": "Do you need help with visa arrangements?",
-        "description": "We can assist with visa support for patients who need to travel to Germany.",
+        "description": "We can assist with visa support for members who need to travel to Germany.",
         "yes": "Yes",
         "no": "No"
       },
-      "visaHelpPatient": {
+      "visaHelpMember": {
         "title": "Do you need help with visa arrangements?",
         "description": "We can assist with visa support if you need to travel to Germany.",
         "yes": "Yes",
@@ -352,8 +352,8 @@
       },
       "euCompanionInfo": {
         "title": "Tell us about yourself.",
-        "subtitle": "We'll ask for the patient's info next.",
-        "relationship": "Relationship to patient",
+        "subtitle": "We'll ask for the member's info next.",
+        "relationship": "Relationship to member",
         "selectPlaceholder": "Select",
         "relationships": {
           "child": "Child",
@@ -369,7 +369,7 @@
         }
       },
       "euPatientName": {
-        "title": "What's the patient's legal name?",
+        "title": "What's the member's legal name?",
         "subtitle": "",
         "middleName": "Middle name (Optional)",
         "addSuffix": "Add suffix",
@@ -377,7 +377,7 @@
         "preferredName": "Preferred name (Optional)"
       },
       "euPatientDob": {
-        "title": "What's the patient's legal sex and date of birth?",
+        "title": "What's the member's legal sex and date of birth?",
         "legalSex": "Legal sex",
         "legalSexNote": "This must match what is on their legal ID",
         "selectSex": "Select",
@@ -388,11 +388,11 @@
         "dateFormat": "MM/DD/YYYY"
       },
       "euPatientContact": {
-        "title": "What's the patient's contact info?",
+        "title": "What's the member's contact info?",
         "subtitle": "This is for their profile. You'll tell us who to follow up with next.",
-        "email": "Patient's Email",
+        "email": "Member's Email",
         "emailPlaceholder": "name@email.com",
-        "phone": "Patient's Phone Number",
+        "phone": "Member's Phone Number",
         "phonePlaceholder": "(xxx) xxx-xxxx",
         "phoneType": "Phone type",
         "mobile": "Mobile",
@@ -423,7 +423,7 @@
         "introDescription1": "",
         "introDescription2": "",
         "start": "Start",
-        "formTitle": "Patient Information",
+        "formTitle": "Member Information",
         "contactTitle": "Contact Information",
         "personalInfo": "Personal Information",
         "firstName": "First name",
@@ -481,8 +481,8 @@
         "postalCode": "Postal code (enter a zero if you do not have one)"
       }
     },
-    "returningPatient": {
-      "title": "Returning patient",
+    "returningMember": {
+      "title": "Returning member",
       "formPending": "Form in progress...",
       "back": "Back"
     },
@@ -493,18 +493,18 @@
     }
   },
   "patientCenteredCare": {
-    "title": "Patient-centered care",
+    "title": "Member-centered care",
     "subtitle": "Your health, needs, and preferences are at the center of everything we do",
     "approach": {
       "title": "Our approach",
       "description1": "At Gmed, we believe exceptional healthcare goes beyond treating symptoms. We focus on understanding you as a whole person, considering your physical, emotional, and social needs.",
-      "description2": "Our patient-centered approach ensures your active role in care, with access to information, support, and resources needed to make informed decisions about your health."
+      "description2": "Our member-centered approach ensures your active role in care, with access to information, support, and resources needed to make informed decisions about your health."
     },
     "principles": {
       "title": "Core principles",
       "compassionate": {
         "title": "Compassionate care",
-        "description": "We treat every patient with empathy, respect, and dignity, ensuring you feel heard and valued."
+        "description": "We treat every member with empathy, respect, and dignity, ensuring you feel heard and valued."
       },
       "collaborative": {
         "title": "Collaborative partnership",
@@ -512,7 +512,7 @@
       },
       "personalized": {
         "title": "Personalized care",
-        "description": "Each patient is unique, and we tailor our approach to your individual goals and preferences."
+        "description": "Each member is unique, and we tailor our approach to your individual goals and preferences."
       }
     },
     "benefits": {
@@ -529,15 +529,15 @@
   },
   "aboutGmed": {
     "title": "About Gmed",
-    "subtitle": "A legacy of excellence in healthcare spanning decades of innovation and patient care",
+    "subtitle": "A legacy of excellence in healthcare spanning decades of innovation and member care",
     "mission": {
       "title": "Our mission",
-      "description1": "Gmed strives to inspire hope and promote health and well-being by providing the best care to every patient through integrated clinical practice, education, and research.",
+      "description1": "Gmed strives to inspire hope and promote health and well-being by providing the best care to every member through integrated clinical practice, education, and research.",
       "description2": "We are committed to providing an unmatched experience and compassion for all who seek healing, making a positive impact through our dedication to excellence."
     },
     "stats": {
       "years": "Years of excellence",
-      "patients": "Patients served",
+      "members": "Members served",
       "specialists": "Medical specialists",
       "centers": "Specialized centers"
     },
@@ -549,7 +549,7 @@
       },
       "respect": {
         "title": "Respect",
-        "description": "We honor the dignity of every person, treating patients, families, and colleagues with compassion."
+        "description": "We honor the dignity of every person, treating members, families, and colleagues with compassion."
       },
       "integrity": {
         "title": "Integrity",
@@ -557,12 +557,12 @@
       },
       "innovation": {
         "title": "Innovation",
-        "description": "We embrace new ideas and technologies that advance medical science and improve patient care."
+        "description": "We embrace new ideas and technologies that advance medical science and improve member care."
       }
     },
     "history": {
       "title": "Our history",
-      "description1": "Founded more than half a century ago, Gmed has grown from a small community hospital into a world-renowned medical center. Our journey has been marked by pioneering research, innovative treatments, and an unwavering commitment to patient care.",
+      "description1": "Founded more than half a century ago, Gmed has grown from a small community hospital into a world-renowned medical center. Our journey has been marked by pioneering research, innovative treatments, and an unwavering commitment to member care.",
       "description2": "Today we continue to build on this legacy, combining advanced technology with compassionate, personalized care that has always been our hallmark."
     }
   },
@@ -593,8 +593,8 @@
         "description": "All of our doctors are certified in their specialties and regularly update their expertise."
       },
       "patientFocused": {
-        "title": "Patient-focused care",
-        "description": "Our doctors put patient care first, taking the time to listen and address concerns."
+        "title": "Member-focused care",
+        "description": "Our doctors put member care first, taking the time to listen and address concerns."
       },
       "advancedTraining": {
         "title": "Advanced training",
@@ -639,11 +639,11 @@
     }
   },
   "patientServices": {
-    "title": "Patient services",
+    "title": "Member services",
     "subtitle": "Comprehensive support services to make your healthcare experience as comfortable as possible",
     "commitment": {
       "title": "Our commitment to you",
-      "description1": "At Gmed, we understand that navigating healthcare can be complex. That is why we created a comprehensive set of patient services to support you at every stage of your journey.",
+      "description1": "At Gmed, we understand that navigating healthcare can be complex. That is why we created a comprehensive set of member services to support you at every stage of your journey.",
       "description2": "From scheduling your first appointment to managing ongoing care, our dedicated team is here to help."
     },
     "services": {
@@ -669,14 +669,14 @@
         "description": "Professional interpreters in multiple languages for your comfort."
       },
       "transport": {
-        "title": "Patient transport",
+        "title": "Member transport",
         "description": "Wheelchair assistance and transportation services within our facilities."
       }
     },
     "help": {
       "title": "Need help?",
-      "description": "Our patient services team is ready to assist you with any questions or concerns.",
-      "contactServices": "Contact patient services",
+      "description": "Our member services team is ready to assist you with any questions or concerns.",
+      "contactServices": "Contact member services",
       "faq": "View FAQ"
     }
   },
@@ -767,7 +767,7 @@
     }
   },
   "patientPortal": {
-    "title": "Patient portal",
+    "title": "Member portal",
     "subtitle": "Your personal health hub for managing every aspect of your care",
     "login": {
       "title": "Log in to the portal",
@@ -898,7 +898,7 @@
       "title": "Questions or complaints?",
       "description": "If you have questions about this notice or wish to file a complaint about our privacy practices, please contact:",
       "privacyOfficer": "Privacy officer",
-      "organization": "Gmed Patient Care Agency",
+      "organization": "Gmed Member Care Agency",
       "contact": "Contact the officer"
     }
   },
@@ -941,7 +941,7 @@
       "title": "Compliance and certifications",
       "hipaa": {
         "title": "HIPAA compliance",
-        "description": "We fully comply with the Health Insurance Portability and Accountability Act (HIPAA), ensuring the highest standards of patient privacy and data security.",
+        "description": "We fully comply with the Health Insurance Portability and Accountability Act (HIPAA), ensuring the highest standards of member privacy and data security.",
         "items": {
           "privacy": "Privacy rule compliance",
           "security": "Security rule implementation",
@@ -966,7 +966,7 @@
       "items": {
         "annual": "Annual HIPAA and security training for all staff",
         "updates": "Regular updates on emerging security threats",
-        "policies": "Strict policies for handling patient information",
+        "policies": "Strict policies for handling member information",
         "background": "Background checks for all employees"
       }
     },
@@ -981,14 +981,14 @@
     "subtitle": "Our commitment to protecting your medical information through comprehensive compliance",
     "whatIs": {
       "title": "What is HIPAA?",
-      "description1": "The Health Insurance Portability and Accountability Act (HIPAA) is a federal law that sets national standards to protect patients' sensitive medical information from disclosure without consent or knowledge.",
+      "description1": "The Health Insurance Portability and Accountability Act (HIPAA) is a federal law that sets national standards to protect members' sensitive medical information from disclosure without consent or knowledge.",
       "description2": "At Gmed, we take HIPAA compliance seriously and have implemented comprehensive policies and procedures to ensure the security and confidentiality of your protected health information (PHI)."
     },
     "rules": {
       "title": "HIPAA rules we follow",
       "privacy": {
         "title": "Privacy rule",
-        "description": "Establishes national standards for protecting medical information and gives patients rights to their medical records.",
+        "description": "Establishes national standards for protecting medical information and gives members rights to their medical records.",
         "items": {
           "access": "The right to access your medical records",
           "corrections": "The right to request corrections to your records",
@@ -1021,7 +1021,7 @@
         "description": "Strengthens privacy and security protections and extends HIPAA requirements to business associates.",
         "items": {
           "businessAssociate": "Business associate compliance",
-          "enhancedPrivacy": "Enhanced patient privacy rights",
+          "enhancedPrivacy": "Enhanced member privacy rights",
           "penalties": "Stronger enforcement of penalties",
           "genetic": "Protection of genetic information"
         }
@@ -1078,11 +1078,11 @@
     }
   },
   "patientRights": {
-    "title": "Patient rights",
-    "subtitle": "Understanding your rights as a patient and our commitment to uphold them",
+    "title": "Member rights",
+    "subtitle": "Understanding your rights as a member and our commitment to uphold them",
     "intro": {
       "title": "Your rights matter",
-      "description1": "As a Gmed patient, you have fundamental rights that shape how we provide your care. These rights ensure you receive respectful, safe, and high-quality medical services.",
+      "description1": "As a Gmed member, you have fundamental rights that shape how we provide your care. These rights ensure you receive respectful, safe, and high-quality medical services.",
       "description2": "We are committed to protecting these rights and ensuring you fully understand them, so you can be an active participant in decisions about your health."
     },
     "coreRights": {
@@ -1124,12 +1124,12 @@
           "questions": "Ask questions and receive answers",
           "concerns": "Express concerns and file complaints",
           "family": "Designate family members for communication",
-          "advocates": "Access to patient advocates"
+          "advocates": "Access to member advocates"
         }
       }
     },
     "additionalRights": {
-      "title": "Additional patient rights",
+      "title": "Additional member rights",
       "items": {
         "safeQuality": "Right to safe and high-quality medical services",
         "privacy": "Right to privacy during examination and treatment",
@@ -1147,7 +1147,7 @@
     },
     "responsibilities": {
       "title": "Your responsibilities",
-      "description": "Along with rights, patients have certain responsibilities that help ensure the best care for themselves and others.",
+      "description": "Along with rights, members have certain responsibilities that help ensure the best care for themselves and others.",
       "items": {
         "accurate": "Provide accurate and complete health information",
         "followPlan": "Follow the care plan agreed upon with your medical team",
@@ -1162,7 +1162,7 @@
       "description1": "If you believe your rights have been violated or have concerns about your care, you have the right to file a complaint without fear of retaliation.",
       "description2": "We take all complaints seriously and will conduct a thorough review. You may also file a complaint with state or federal agencies.",
       "fileComplaint": "File a complaint",
-      "contactAdvocate": "Contact a patient advocate"
+      "contactAdvocate": "Contact a member advocate"
     }
   },
   "auth": {

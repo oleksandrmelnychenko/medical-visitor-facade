@@ -21,25 +21,25 @@
   },
   "header": {
     "care": "Atención",
-    "patientResources": "Recursos para pacientes",
+    "patientResources": "Recursos para miembros",
     "trustSafety": "Confianza y seguridad",
-    "patientCenteredCare": "Atención centrada en el paciente",
+    "patientCenteredCare": "Atención centrada en el miembro",
     "aboutGmed": "Sobre Gmed",
     "requestAppointment": "Convertirse en cliente",
     "findDoctor": "Encontrar médico",
     "locations": "Ubicaciones",
-    "patientServices": "Servicios al paciente",
+    "patientServices": "Servicios al miembro",
     "medicalRecords": "Registros médicos",
     "insuranceBilling": "Seguros y facturación",
-    "patientPortal": "Portal del paciente",
+    "patientPortal": "Portal del miembro",
     "privacyPolicy": "Política de privacidad",
     "dataSecurity": "Seguridad de datos",
     "hipaaCompliance": "Cumplimiento HIPAA",
-    "patientRights": "Derechos del paciente"
+    "patientRights": "Derechos del miembro"
   },
   "footer": {
     "impressum": "Información legal",
-    "companyName": "Agencia de Atención al Paciente",
+    "companyName": "Agencia de Atención al Miembro",
     "contact": "Contacto",
     "vatTitle": "Número de identificación del IVA",
     "vatLegal": "según § 27 a de la Ley del IVA:",
@@ -200,10 +200,10 @@
     },
     "freeService": {
       "title": "¿Necesita asistencia financiera?",
-      "description1": "Entendemos que la atención médica puede ser un desafío financiero. La Agencia de Atención al Paciente ofrece un programa limitado para pacientes que necesitan ayuda con gastos médicos.",
+      "description1": "Entendemos que la atención médica puede ser un desafío financiero. La Agencia de Atención al Miembro ofrece un programa limitado para miembros que necesitan ayuda con gastos médicos.",
       "description2": "Nuestro equipo revisa cuidadosamente cada solicitud y brinda apoyo cuando hay recursos disponibles.",
       "priority": "Casos prioritarios:",
-      "priorityText": "Damos prioridad a casos con niños, situaciones médicas urgentes y pacientes en circunstancias excepcionales.",
+      "priorityText": "Damos prioridad a casos con niños, situaciones médicas urgentes y miembros en circunstancias excepcionales.",
       "note": "Nota: Las solicitudes de servicios gratuitos se revisan individualmente según la capacidad disponible y la necesidad médica. Nos pondremos en contacto en un plazo de 5-7 días hábiles sobre el estado de su solicitud.",
       "applyButton": "Solicitar atención gratuita"
     },
@@ -231,9 +231,9 @@
         "outsideEUDesc": "Actualmente me encuentro fuera de la Unión Europea"
       },
       "patientRole": {
-        "title": "¿Es usted el paciente?",
+        "title": "¿Es usted el miembro?",
         "yes": "Sí",
-        "yesDesc": "Soy el paciente",
+        "yesDesc": "Soy el miembro",
         "no": "No",
         "noDesc": "Estoy solicitando para otra persona"
       },
@@ -255,7 +255,7 @@
       },
       "continue": "Continuar",
       "travelCompanion": {
-        "title": "¿Este paciente puede y está dispuesto a viajar a Alemania para recibir atención?",
+        "title": "¿Este miembro puede y está dispuesto a viajar a Alemania para recibir atención?",
         "yes": "Sí",
         "no": "No"
       },
@@ -265,10 +265,10 @@
         "no": "No"
       },
       "recordsCompanion": {
-        "title": "¿Este paciente puede presentar sus registros médicos?",
+        "title": "¿Este miembro puede presentar sus registros médicos?",
         "yes": "Sí",
         "no": "No",
-        "none": "Este paciente no tiene registros médicos"
+        "none": "Este miembro no tiene registros médicos"
       },
       "recordsPatient": {
         "title": "¿Puede presentar sus registros médicos?",
@@ -277,7 +277,7 @@
         "none": "No tengo registros médicos"
       },
       "documentsCompanion": {
-        "title": "¿Este paciente tiene los documentos necesarios para viajar a Alemania?",
+        "title": "¿Este miembro tiene los documentos necesarios para viajar a Alemania?",
         "needList": "Necesitará:",
         "passport": "Un pasaporte vigente.",
         "visa": "Una visa vigente a menos que sea ciudadano de un país de la UE o de un país que participa en el",
@@ -301,28 +301,28 @@
         "no": "No"
       },
       "exitNoTravelCompanion": {
-        "title": "Gracias. Solo aceptamos pacientes que pueden viajar a Alemania.",
-        "description": "Si este paciente puede viajar a Alemania en el futuro, solicite una cita en ese momento.",
+        "title": "Gracias. Solo aceptamos miembros que pueden viajar a Alemania.",
+        "description": "Si este miembro puede viajar a Alemania en el futuro, solicite una cita en ese momento.",
         "button": "Salir de la solicitud"
       },
       "exitNoTravelPatient": {
-        "title": "Gracias. Solo aceptamos pacientes que pueden viajar a Alemania.",
+        "title": "Gracias. Solo aceptamos miembros que pueden viajar a Alemania.",
         "description": "Si puede viajar a Alemania en el futuro, solicite una cita en ese momento.",
         "button": "Salir de la solicitud"
       },
       "exitNoRecordsCompanion": {
-        "title": "Gracias. Solo aceptamos pacientes que pueden presentar sus registros médicos.",
-        "description": "Si este paciente puede presentar sus registros en el futuro, solicite una cita en ese momento.",
+        "title": "Gracias. Solo aceptamos miembros que pueden presentar sus registros médicos.",
+        "description": "Si este miembro puede presentar sus registros en el futuro, solicite una cita en ese momento.",
         "button": "Salir de la solicitud"
       },
       "exitNoRecordsPatient": {
-        "title": "Gracias. Solo aceptamos pacientes que pueden presentar sus registros médicos.",
+        "title": "Gracias. Solo aceptamos miembros que pueden presentar sus registros médicos.",
         "description": "Si puede presentar sus registros en el futuro, solicite una cita en ese momento.",
         "button": "Salir de la solicitud"
       },
       "visaHelpCompanion": {
-        "title": "¿El paciente necesita ayuda con el trámite de visa?",
-        "description": "Podemos ayudar con el apoyo de visa para pacientes que necesitan viajar a Alemania.",
+        "title": "¿El miembro necesita ayuda con el trámite de visa?",
+        "description": "Podemos ayudar con el apoyo de visa para miembros que necesitan viajar a Alemania.",
         "yes": "Sí, necesita ayuda",
         "no": "No, ya tiene visa"
       },
@@ -333,12 +333,45 @@
         "no": "No, ya tengo visa"
       },
       "euPatientName": {
-        "title": "¿Cuál es el nombre legal del paciente?",
-        "subtitle": "Ingrese el nombre tal como aparece en su identificación legal.",
+        "title": "¿Cuál es el nombre legal del miembro?",
+        "subtitle": "",
         "middleName": "Segundo nombre (opcional)",
         "addSuffix": "Agregar sufijo",
         "suffix": "Sufijo (opcional)",
         "preferredName": "Nombre preferido (opcional)"
+      },
+      "euPatientDob": {
+        "title": "¿Cuál es el sexo legal y fecha de nacimiento del miembro?",
+        "legalSex": "Sexo legal",
+        "legalSexNote": "Debe coincidir con el documento de identidad",
+        "selectSex": "Seleccionar",
+        "female": "Femenino",
+        "male": "Masculino",
+        "nonBinary": "No binario",
+        "dateOfBirth": "Fecha de nacimiento",
+        "dateFormat": "DD/MM/AAAA"
+      },
+      "euPatientContact": {
+        "title": "¿Cuál es la información de contacto del miembro?",
+        "subtitle": "Esto es para su perfil. A continuación nos dirá con quién contactar.",
+        "email": "Email del miembro",
+        "emailPlaceholder": "nombre@email.com",
+        "phone": "Teléfono del miembro",
+        "phonePlaceholder": "(xxx) xxx-xxxx",
+        "phoneType": "Tipo de teléfono",
+        "mobile": "Móvil",
+        "home": "Casa",
+        "work": "Trabajo",
+        "addPhone": "Agregar otro teléfono"
+      },
+      "euInterpreter": {
+        "title": "¿Necesita un intérprete?",
+        "subtitle": "Si es así, proporcionaremos un intérprete cuando nos comuniquemos con usted.",
+        "needInterpreter": "¿Necesita un intérprete?",
+        "select": "Seleccionar",
+        "yes": "Sí",
+        "no": "No",
+        "primaryLanguage": "¿Cuál es su idioma principal?"
       },
       "patientInfo": {
         "introTitle": "Proporcione sus datos de contacto",
@@ -346,7 +379,7 @@
         "introDescription1": "",
         "introDescription2": "",
         "start": "Comenzar",
-        "formTitle": "Información del Paciente",
+        "formTitle": "Información del Miembro",
         "contactTitle": "Información de Contacto",
         "personalInfo": "Información Personal",
         "firstName": "Nombre",
@@ -370,6 +403,7 @@
       "whatsapp": {
         "question": "¿Le gustaría que nos comuniquemos con usted a través de WhatsApp?",
         "description": "Si es así, le pediremos su código de país y número de WhatsApp en la siguiente página.",
+        "consent": "Comunicación por WhatsApp",
         "yesDisclaimer": "Entiendo que las comunicaciones de WhatsApp pueden no ser seguras y están sujetas a las políticas de privacidad y términos de uso de WhatsApp.",
         "numberQuestion": "¿Cuál es su número de WhatsApp?",
         "numberLabel": "Número de WhatsApp"
@@ -405,7 +439,7 @@
       }
     },
     "returningPatient": {
-      "title": "Paciente recurrente",
+      "title": "Miembro recurrente",
       "formPending": "Formulario en desarrollo...",
       "back": "Atrás"
     },
@@ -416,18 +450,18 @@
     }
   },
   "patientCenteredCare": {
-    "title": "Atención centrada en el paciente",
+    "title": "Atención centrada en el miembro",
     "subtitle": "Su salud, sus necesidades y sus preferencias están en el corazón de todo lo que hacemos",
     "approach": {
       "title": "Nuestro enfoque",
       "description1": "En Gmed, creemos que la atención médica excepcional va más allá de tratar síntomas. Nos enfocamos en entenderle como persona completa, considerando sus necesidades físicas, emocionales y sociales.",
-      "description2": "Nuestro enfoque centrado en el paciente asegura que sea un participante activo en su atención, con acceso a la información, apoyo y recursos que necesita para tomar decisiones informadas sobre su salud."
+      "description2": "Nuestro enfoque centrado en el miembro asegura que sea un participante activo en su atención, con acceso a la información, apoyo y recursos que necesita para tomar decisiones informadas sobre su salud."
     },
     "principles": {
       "title": "Principios fundamentales",
       "compassionate": {
         "title": "Atención compasiva",
-        "description": "Tratamos a cada paciente con empatía, respeto y dignidad, asegurando que se sienta escuchado y valorado."
+        "description": "Tratamos a cada miembro con empatía, respeto y dignidad, asegurando que se sienta escuchado y valorado."
       },
       "collaborative": {
         "title": "Colaboración",
@@ -435,7 +469,7 @@
       },
       "personalized": {
         "title": "Tratamiento personalizado",
-        "description": "Cada paciente es único, y adaptamos nuestro enfoque para cumplir con sus objetivos y preferencias de salud individuales."
+        "description": "Cada miembro es único, y adaptamos nuestro enfoque para cumplir con sus objetivos y preferencias de salud individuales."
       }
     },
     "benefits": {
@@ -452,15 +486,15 @@
   },
   "aboutGmed": {
     "title": "Sobre Gmed",
-    "subtitle": "Un legado de excelencia en atención médica que abarca décadas de innovación y atención al paciente",
+    "subtitle": "Un legado de excelencia en atención médica que abarca décadas de innovación y atención al miembro",
     "mission": {
       "title": "Nuestra misión",
-      "description1": "Gmed está comprometido a inspirar esperanza y contribuir a la salud y el bienestar proporcionando la mejor atención a cada paciente a través de práctica clínica integrada, educación e investigación.",
+      "description1": "Gmed está comprometido a inspirar esperanza y contribuir a la salud y el bienestar proporcionando la mejor atención a cada miembro a través de práctica clínica integrada, educación e investigación.",
       "description2": "Nos esforzamos por ofrecer experiencia y compasión inigualables a todos los que buscan sanación, haciendo un impacto positivo en las vidas que tocamos a través de nuestra dedicación a la excelencia."
     },
     "stats": {
       "years": "Años de excelencia",
-      "patients": "Pacientes atendidos",
+      "patients": "Miembros atendidos",
       "specialists": "Especialistas médicos",
       "centers": "Centros especializados"
     },
@@ -468,11 +502,11 @@
       "title": "Nuestros valores",
       "excellence": {
         "title": "Excelencia",
-        "description": "Perseguimos los más altos estándares en todo lo que hacemos, innovando constantemente para mejorar los resultados de los pacientes."
+        "description": "Perseguimos los más altos estándares en todo lo que hacemos, innovando constantemente para mejorar los resultados de los miembros."
       },
       "respect": {
         "title": "Respeto",
-        "description": "Honramos la dignidad de cada individuo, tratando a pacientes, familias y colegas con compasión."
+        "description": "Honramos la dignidad de cada individuo, tratando a miembros, familias y colegas con compasión."
       },
       "integrity": {
         "title": "Integridad",
@@ -480,12 +514,12 @@
       },
       "innovation": {
         "title": "Innovación",
-        "description": "Adoptamos nuevas ideas y tecnologías que avanzan la ciencia médica y mejoran la atención al paciente."
+        "description": "Adoptamos nuevas ideas y tecnologías que avanzan la ciencia médica y mejoran la atención al miembro."
       }
     },
     "history": {
       "title": "Nuestra historia",
-      "description1": "Fundada hace más de medio siglo, Gmed ha crecido de un pequeño hospital comunitario a un centro médico de renombre mundial. Nuestro viaje ha estado marcado por investigación innovadora, tratamientos innovadores y un compromiso inquebrantable con la atención al paciente.",
+      "description1": "Fundada hace más de medio siglo, Gmed ha crecido de un pequeño hospital comunitario a un centro médico de renombre mundial. Nuestro viaje ha estado marcado por investigación innovadora, tratamientos innovadores y un compromiso inquebrantable con la atención al miembro.",
       "description2": "Hoy, continuamos construyendo sobre este legado, combinando tecnología de vanguardia con la atención compasiva y personalizada que siempre ha sido nuestra marca distintiva."
     }
   },
@@ -516,8 +550,8 @@
         "description": "Todos nuestros médicos están certificados en sus especialidades con educación continua."
       },
       "patientFocused": {
-        "title": "Enfocados en el paciente",
-        "description": "Nuestros médicos priorizan la atención al paciente, tomándose el tiempo para escuchar y abordar inquietudes."
+        "title": "Enfocados en el miembro",
+        "description": "Nuestros médicos priorizan la atención al miembro, tomándose el tiempo para escuchar y abordar inquietudes."
       },
       "advancedTraining": {
         "title": "Formación avanzada",
@@ -562,11 +596,11 @@
     }
   },
   "patientServices": {
-    "title": "Servicios al paciente",
+    "title": "Servicios al miembro",
     "subtitle": "Servicios de apoyo integrales diseñados para hacer su experiencia de atención médica perfecta",
     "commitment": {
       "title": "Nuestro compromiso con usted",
-      "description1": "En Gmed, entendemos que navegar la atención médica puede ser complejo. Por eso hemos creado un conjunto integral de servicios para pacientes diseñados para apoyarle en cada paso de su viaje de atención médica.",
+      "description1": "En Gmed, entendemos que navegar la atención médica puede ser complejo. Por eso hemos creado un conjunto integral de servicios para miembros diseñados para apoyarle en cada paso de su viaje de atención médica.",
       "description2": "Desde programar su primera cita hasta gestionar la atención continua, nuestro equipo dedicado está aquí para ayudar."
     },
     "services": {
@@ -592,14 +626,14 @@
         "description": "Intérpretes profesionales disponibles en múltiples idiomas para su comodidad."
       },
       "transport": {
-        "title": "Transporte de pacientes",
+        "title": "Transporte de miembros",
         "description": "Asistencia en silla de ruedas y servicios de transporte dentro de nuestras instalaciones."
       }
     },
     "help": {
       "title": "¿Necesita ayuda?",
-      "description": "Nuestro equipo de servicios al paciente está disponible para asistirle con cualquier pregunta o inquietud.",
-      "contactServices": "Contactar servicios al paciente",
+      "description": "Nuestro equipo de servicios al miembro está disponible para asistirle con cualquier pregunta o inquietud.",
+      "contactServices": "Contactar servicios al miembro",
       "faq": "Ver preguntas frecuentes"
     }
   },
@@ -690,7 +724,7 @@
     }
   },
   "patientPortal": {
-    "title": "Portal del paciente",
+    "title": "Portal del miembro",
     "subtitle": "Su centro de salud personal para gestionar todos los aspectos de su atención",
     "login": {
       "title": "Inicie sesión en su portal",
@@ -821,7 +855,7 @@
       "title": "¿Preguntas o quejas?",
       "description": "Si tiene preguntas sobre este aviso o desea presentar una queja sobre nuestras prácticas de privacidad, por favor contacte:",
       "privacyOfficer": "Oficial de privacidad",
-      "organization": "Gmed Agencia para la atención al paciente",
+      "organization": "Gmed Agencia para la atención al miembro",
       "contact": "Contactar oficial de privacidad"
     }
   },
@@ -864,7 +898,7 @@
       "title": "Cumplimiento y certificaciones",
       "hipaa": {
         "title": "Cumplimiento HIPAA",
-        "description": "Cumplimos completamente con la Ley de Portabilidad y Responsabilidad del Seguro de Salud (HIPAA), asegurando los más altos estándares de privacidad del paciente y seguridad de datos.",
+        "description": "Cumplimos completamente con la Ley de Portabilidad y Responsabilidad del Seguro de Salud (HIPAA), asegurando los más altos estándares de privacidad del miembro y seguridad de datos.",
         "items": {
           "privacy": "Cumplimiento de la Regla de Privacidad",
           "security": "Implementación de la Regla de Seguridad",
@@ -889,7 +923,7 @@
       "items": {
         "annual": "Capacitación anual de HIPAA y seguridad para todo el personal",
         "updates": "Actualizaciones regulares sobre amenazas de seguridad emergentes",
-        "policies": "Políticas estrictas para el manejo de información del paciente",
+        "policies": "Políticas estrictas para el manejo de información del miembro",
         "background": "Verificación de antecedentes para todos los empleados"
       }
     },
@@ -904,14 +938,14 @@
     "subtitle": "Nuestro compromiso de proteger su información de salud a través del cumplimiento integral",
     "whatIs": {
       "title": "¿Qué es HIPAA?",
-      "description1": "La Ley de Portabilidad y Responsabilidad del Seguro de Salud (HIPAA) es una ley federal que establece estándares nacionales para proteger la información sensible de salud del paciente de ser divulgada sin el consentimiento o conocimiento del paciente.",
+      "description1": "La Ley de Portabilidad y Responsabilidad del Seguro de Salud (HIPAA) es una ley federal que establece estándares nacionales para proteger la información sensible de salud del miembro de ser divulgada sin el consentimiento o conocimiento del miembro.",
       "description2": "En Gmed, tomamos el cumplimiento de HIPAA en serio y hemos implementado políticas y procedimientos integrales para asegurar que su Información de Salud Protegida (PHI) permanezca segura y confidencial."
     },
     "rules": {
       "title": "Reglas de HIPAA que seguimos",
       "privacy": {
         "title": "Regla de Privacidad",
-        "description": "Establece estándares nacionales para la protección de información de salud y otorga a los pacientes derechos sobre su información de salud.",
+        "description": "Establece estándares nacionales para la protección de información de salud y otorga a los miembros derechos sobre su información de salud.",
         "items": {
           "access": "Derecho a acceder a sus registros médicos",
           "corrections": "Derecho a solicitar correcciones a sus registros",
@@ -944,7 +978,7 @@
         "description": "Fortalece las protecciones de privacidad y seguridad para información de salud y extiende los requisitos de HIPAA a los asociados comerciales.",
         "items": {
           "businessAssociate": "Cumplimiento de asociados comerciales",
-          "enhancedPrivacy": "Derechos de privacidad mejorados para pacientes",
+          "enhancedPrivacy": "Derechos de privacidad mejorados para miembros",
           "penalties": "Aplicación aumentada de penalidades",
           "genetic": "Protección de información genética"
         }
@@ -1001,11 +1035,11 @@
     }
   },
   "patientRights": {
-    "title": "Derechos del paciente",
-    "subtitle": "Entendiendo sus derechos como paciente y nuestro compromiso de respetarlos",
+    "title": "Derechos del miembro",
+    "subtitle": "Entendiendo sus derechos como miembro y nuestro compromiso de respetarlos",
     "intro": {
       "title": "Sus derechos importan",
-      "description1": "Como paciente en Gmed, tiene derechos fundamentales que guían cómo proporcionamos su atención. Estos derechos están diseñados para asegurar que reciba atención médica respetuosa, segura y de alta calidad.",
+      "description1": "Como miembro en Gmed, tiene derechos fundamentales que guían cómo proporcionamos su atención. Estos derechos están diseñados para asegurar que reciba atención médica respetuosa, segura y de alta calidad.",
       "description2": "Estamos comprometidos a proteger estos derechos y asegurar que los entienda completamente para que pueda ser un participante activo en sus decisiones de atención médica."
     },
     "coreRights": {
@@ -1047,12 +1081,12 @@
           "questions": "Hacer preguntas y recibir respuestas",
           "concerns": "Expresar inquietudes y quejas",
           "family": "Designar familiares para comunicación",
-          "advocates": "Acceso a defensores de pacientes"
+          "advocates": "Acceso a defensores de miembros"
         }
       }
     },
     "additionalRights": {
-      "title": "Derechos adicionales del paciente",
+      "title": "Derechos adicionales del miembro",
       "items": {
         "safeQuality": "Derecho a servicios de atención médica seguros y de calidad",
         "privacy": "Derecho a privacidad durante el examen y tratamiento",
@@ -1070,7 +1104,7 @@
     },
     "responsibilities": {
       "title": "Sus responsabilidades",
-      "description": "Junto con sus derechos, los pacientes tienen ciertas responsabilidades para ayudar a asegurar la mejor atención posible para ellos mismos y para otros.",
+      "description": "Junto con sus derechos, los miembros tienen ciertas responsabilidades para ayudar a asegurar la mejor atención posible para ellos mismos y para otros.",
       "items": {
         "accurate": "Proporcionar información de salud precisa y completa",
         "followPlan": "Seguir el plan de tratamiento acordado con su equipo de atención médica",
@@ -1085,7 +1119,7 @@
       "description1": "Si cree que sus derechos han sido violados o tiene inquietudes sobre su atención, tiene derecho a presentar una queja sin temor a represalias.",
       "description2": "Tomamos todas las quejas en serio y las investigaremos a fondo. También puede presentar una queja ante agencias estatales o federales.",
       "fileComplaint": "Presentar una queja",
-      "contactAdvocate": "Contactar defensor del paciente"
+      "contactAdvocate": "Contactar defensor del miembro"
     }
   },
   "auth": {
