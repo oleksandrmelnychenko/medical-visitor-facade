@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
@@ -10,6 +11,27 @@ import styles from "./Hero.module.scss";
 
 export function Hero() {
   const t = useTranslations('home.hero');
+  const desktopVideoRef = useRef<HTMLVideoElement>(null);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Safari needs explicit play() call for autoplay to work reliably
+    const playVideos = () => {
+      desktopVideoRef.current?.play().catch(() => {});
+      mobileVideoRef.current?.play().catch(() => {});
+    };
+
+    playVideos();
+
+    // Also try on user interaction for stricter browsers
+    document.addEventListener('touchstart', playVideos, { once: true });
+    document.addEventListener('click', playVideos, { once: true });
+
+    return () => {
+      document.removeEventListener('touchstart', playVideos);
+      document.removeEventListener('click', playVideos);
+    };
+  }, []);
 
   return (
     <section className={cn(sectionStyles.section, styles.hero)}>
@@ -17,23 +39,27 @@ export function Hero() {
       <div className={styles.videoContainer}>
         {/* Desktop video */}
         <video
+          ref={desktopVideoRef}
           className={cn(styles.heroVideo, styles.desktopVideo)}
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
         >
-          <source src="/hero_web.mp4" type="video/mp4" />
+          <source src="/hero_web.mp4" type="video/mp4; codecs=avc1.42E01E" />
         </video>
         {/* Mobile video */}
         <video
+          ref={mobileVideoRef}
           className={cn(styles.heroVideo, styles.mobileVideo)}
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
         >
-          <source src="/hero_mobile.mp4" type="video/mp4" />
+          <source src="/hero_mobile.mp4" type="video/mp4; codecs=avc1.42E01E" />
         </video>
         <div className={styles.videoOverlay} />
       </div>
