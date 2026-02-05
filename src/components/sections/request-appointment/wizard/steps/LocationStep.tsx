@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'motion/react';
 import { ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
@@ -35,14 +34,10 @@ export function LocationStep() {
       backLabel={t('back')}
     >
       <div className={styles.clientCardsGrid}>
-        <motion.div
+        <div
           onClick={() => handleSelect('eu')}
           className={styles.clientCard}
           style={{ '--hover-color': '#E5D5A8' } as React.CSSProperties}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
         >
           <div className={styles.clientCardContent}>
             <h3 className={styles.clientCardTitle}>
@@ -53,16 +48,12 @@ export function LocationStep() {
             </p>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
-        </motion.div>
+        </div>
 
-        <motion.div
+        <div
           onClick={() => handleSelect('outside_eu')}
           className={styles.clientCard}
           style={{ '--hover-color': '#A8D5E5' } as React.CSSProperties}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.1 }}
         >
           <div className={styles.clientCardContent}>
             <h3 className={styles.clientCardTitle}>
@@ -73,7 +64,7 @@ export function LocationStep() {
             </p>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
-        </motion.div>
+        </div>
       </div>
     </WizardStepLayout>
   );

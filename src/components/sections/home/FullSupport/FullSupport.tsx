@@ -104,13 +104,9 @@ export function FullSupport() {
               <h3 className={styles.roadmapTitle}>{t('journey.title')}</h3>
               <div className={styles.roadmap}>
                 {journeySteps.map((step, index) => (
-                  <motion.div
+                  <div
                     key={step.key}
                     className={styles.roadmapStep}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
                   >
                     <div className={styles.roadmapLine}>
                       <div className={styles.roadmapDot} />
@@ -121,7 +117,7 @@ export function FullSupport() {
                       <h4 className={styles.roadmapStepTitle}>{t(`journey.steps.${step.key}.title`)}</h4>
                       <p className={styles.roadmapStepDesc}>{t(`journey.steps.${step.key}.desc`)}</p>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
 
