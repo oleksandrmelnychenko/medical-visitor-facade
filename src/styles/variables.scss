@@ -5,6 +5,7 @@ $breakpoints: (
   md: 768px,
   lg: 1024px,
   xl: 1200px,
+  "2xl": 1600px,
 );
 
 :root {
@@ -56,7 +57,7 @@ $breakpoints: (
   --container-md: 768px;
   --container-lg: 1024px;
   --container-xl: 1200px;
-  --container-2xl: 1200px;
+  --container-2xl: 1600px;
 }
 
 @mixin up($size) {
@@ -94,5 +95,9 @@ $breakpoints: (
   @include up(md) {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  @include up("2xl") {
+    max-width: var(--container-2xl);
   }
 }

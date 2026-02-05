@@ -7,6 +7,8 @@ export function HomeBackground() {
     <div className={styles.background}>
       {/* Grid */}
       <div className={styles.grid} />
+      
+
 
       {/* Blurred colored circles - wrapped for proportional mobile scaling */}
       <div className={styles.blobsContainer}>
