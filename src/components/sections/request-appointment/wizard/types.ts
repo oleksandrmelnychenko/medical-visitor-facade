@@ -14,6 +14,7 @@ export type PatientRoleType = 'patient' | 'companion' | null;
 export type YesNoType = 'yes' | 'no' | null;
 export type MedicalRecordsType = 'yes' | 'no' | 'none' | null;
 export type LegalSexType = 'female' | 'male' | 'non-binary' | null;
+export type MedicalAreaType = 'cardiology' | 'neurology' | 'oncology' | 'other' | 'none' | null;
 export type PhoneType = 'mobile' | 'home' | 'work';
 
 export interface PhoneEntry {
@@ -24,6 +25,7 @@ export interface PhoneEntry {
 export interface WizardData {
   location: LocationType;
   patientRole: PatientRoleType;
+  medicalArea: MedicalAreaType;
   canTravel: YesNoType;
   needsVisaHelp: YesNoType;
   hasMedicalRecords: MedicalRecordsType;
@@ -67,6 +69,7 @@ export const PROGRESS_STEPS = [
 export const initialWizardData: WizardData = {
   location: null,
   patientRole: null,
+  medicalArea: null,
   canTravel: null,
   needsVisaHelp: null,
   hasMedicalRecords: null,

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Plane, Heart, Clock, MessageCircle } from "lucide-react";
+import { Plane, Heart, Clock, MessageCircle, Stamp } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
@@ -10,15 +10,12 @@ import styles from "./FullSupport.module.scss";
 export function FullSupport() {
   const t = useTranslations('home.fullSupport');
 
-  const servicesTop = [
-    { icon: Clock, key: 'promptness', color: '#D5A8E5' },
-    { icon: Heart, key: 'support', color: '#A8D5E5' },
-    // { icon: Diamond, key: 'confidentiality', color: '#B5E5B0' }, // Visa Support - temporarily hidden
-  ];
-
-  const servicesBottom = [
-    { icon: Plane, key: 'noFees', color: '#A8E5C4' },
-    { icon: MessageCircle, key: 'concierge', color: '#E5D5A8' },
+  const services = [
+    { icon: Heart, key: 'support', color: '#A8D5E5', size: 'normal' as const },
+    { icon: Clock, key: 'promptness', color: '#D5A8E5', size: 'large' as const },
+    { icon: Stamp, key: 'confidentiality', color: '#B5E5B0', size: 'normal' as const },
+    { icon: Plane, key: 'noFees', color: '#A8E5C4', size: 'normal' as const },
+    { icon: MessageCircle, key: 'concierge', color: '#E5D5A8', size: 'normal' as const },
   ];
 
   const journeySteps = [
@@ -45,50 +42,29 @@ export function FullSupport() {
             <p className={styles.subtitle}>{t('subtitle')}</p>
           </motion.div>
 
-          <div className={styles.servicesList}>
-            <div className={cn(styles.servicesRow, styles.servicesRowTop)}>
-              {servicesTop.map((service, index) => (
-                <motion.div
-                  key={service.key}
-                  className={styles.serviceItem}
-                  style={{ '--hover-color': service.color } as React.CSSProperties}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                >
-                  <div className={styles.serviceIcon}>
-                    <service.icon />
-                  </div>
-                  <div className={styles.serviceText}>
-                    <span className={styles.serviceTitle}>{t(`services.${service.key}.title`)}</span>
-                    <span className={styles.serviceDesc}>{t(`services.${service.key}.desc`)}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className={cn(styles.servicesRow, styles.servicesRowBottom)}>
-              {servicesBottom.map((service, index) => (
-                <motion.div
-                  key={service.key}
-                  className={styles.serviceItem}
-                  style={{ '--hover-color': service.color } as React.CSSProperties}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: (servicesTop.length + index) * 0.1 }}
-                >
-                  <div className={styles.serviceIcon}>
-                    <service.icon />
-                  </div>
-                  <div className={styles.serviceText}>
-                    <span className={styles.serviceTitle}>{t(`services.${service.key}.title`)}</span>
-                    <span className={styles.serviceDesc}>{t(`services.${service.key}.desc`)}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          <div className={styles.bentoGrid}>
+            {services.map((service, index) => (
+              <motion.div
+                key={service.key}
+                className={cn(
+                  styles.serviceItem,
+                  service.size === 'large' && styles.serviceItemLarge
+                )}
+                style={{ '--hover-color': service.color } as React.CSSProperties}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+              >
+                <div className={styles.serviceIcon}>
+                  <service.icon />
+                </div>
+                <div className={styles.serviceText}>
+                  <span className={styles.serviceTitle}>{t(`services.${service.key}.title`)}</span>
+                  <span className={styles.serviceDesc}>{t(`services.${service.key}.desc`)}</span>
+                </div>
+              </motion.div>
+            ))}
           </div>
 
           <div className={styles.closingLine} />

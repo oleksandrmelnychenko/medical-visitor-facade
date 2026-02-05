@@ -30,7 +30,6 @@ export function ExitNoTravelStep({ wizardPath }: ExitNoTravelStepProps) {
   return (
     <WizardStepLayout
       title={t(`${exitKey}.title`)}
-      subtitle={t(`${exitKey}.description`)}
       showStepper={wizardPath === 'outside-eu'}
       activeStepIndex={0}
       onBack={handleBack}

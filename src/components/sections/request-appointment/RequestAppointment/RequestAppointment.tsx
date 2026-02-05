@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
@@ -19,6 +19,14 @@ export function RequestAppointment() {
   const t = useTranslations('appointment');
   const [selectedType, setSelectedType] = useState<PatientType>(null);
 
+  // Add transparent header class to body on mount
+  useEffect(() => {
+    document.body.classList.add('transparent-header-mode');
+    return () => {
+      document.body.classList.remove('transparent-header-mode');
+    };
+  }, []);
+
   const handleCardClick = (type: PatientType) => {
     setSelectedType(type);
   };
@@ -28,9 +36,25 @@ export function RequestAppointment() {
   };
 
   return (
-    <div className={cn(pageStyles.page, styles.gridBackground)}>
-      <div className={styles.gridOverlay} />
-      <section className={cn(sectionStyles.section, pageStyles.heroSection, styles.applyHeroSection)} id="appointment">
+    <div className={cn(pageStyles.page, styles.gridBackground)} style={{ position: 'relative', zIndex: 0 }}>
+      {/* Fixed background image with brightness filter */}
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: 'url(/images/bg.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'top center',
+          backgroundRepeat: 'no-repeat',
+          zIndex: 0,
+          pointerEvents: 'none',
+          filter: 'brightness(1.1) contrast(1.1)',
+        }}
+      />
+      <section className={cn(sectionStyles.section, pageStyles.heroSection, styles.applyHeroSection)} id="appointment" style={{ position: 'relative', zIndex: 1 }}>
         <div className={sectionStyles.container}>
           <SectionHeader
             title={t('title')}
@@ -41,7 +65,7 @@ export function RequestAppointment() {
         </div>
       </section>
 
-      <section className={cn(sectionStyles.section, styles.cardsSection)}>
+      <section className={cn(sectionStyles.section, styles.cardsSection)} style={{ position: 'relative', zIndex: 1 }}>
         <div className={sectionStyles.container}>
           <AnimatePresence mode="wait">
             {!selectedType ? (

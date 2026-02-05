@@ -148,7 +148,7 @@ export function Header() {
 
             <div className={styles.utilityItems}>
               {status !== "authenticated" && (
-                <>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
                   <Link href="/apply" className={styles.appointmentLink}>
                     {tCommon('requestAppointment')}
                   </Link>
@@ -156,7 +156,7 @@ export function Header() {
                     <User aria-hidden="true" />
                     {tCommon('login')}
                   </Link>
-                </>
+                </div>
               )}
 
               <div className={styles.languageSelector} ref={langRef}>

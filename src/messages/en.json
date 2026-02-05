@@ -247,6 +247,17 @@
         "no": "No",
         "noDesc": "I'm requesting for someone else"
       },
+      "medicalDiagnosis": {
+        "title": "Do you have a diagnosis in one of the following areas?",
+        "description": "",
+        "options": {
+          "cardiology": "Cardiology",
+          "neurology": "Neurology",
+          "oncology": "Oncology",
+          "otherDiagnosis": "I have a diagnosis in an other area",
+          "noDiagnosis": "I do not have a diagnosis"
+        }
+      },
       "primaryConcern": {
         "title": "What is your primary concern?",
         "description": "Select the area that best describes your medical needs",
@@ -311,20 +322,20 @@
       },
       "exitNoTravelCompanion": {
         "title": "Thank you. We are only accepting patients who are able to travel to Germany.",
-        "description": "If this patient is able to travel to Germany in the future please request an appointment at that time.",
         "button": "Exit the request"
       },
       "exitNoTravelPatient": {
         "title": "Thank you. We are only accepting patients who are able to travel to Germany.",
-        "description": "If you are able to travel to Germany in the future please request an appointment at that time.",
         "button": "Exit the request"
       },
       "exitNoRecordsCompanion": {
         "title": "Thank you. We are only accepting patients who are able to submit their medical records.",
+        "description": "Medical records help our specialists provide the best possible care for the patient's needs.",
         "button": "Exit the request"
       },
       "exitNoRecordsPatient": {
         "title": "Thank you. We are only accepting patients who are able to submit their medical records.",
+        "description": "Medical records help our specialists provide the best possible care for your needs.",
         "button": "Exit the request"
       },
       "visaHelpCompanion": {
@@ -359,7 +370,7 @@
       },
       "euPatientName": {
         "title": "What's the patient's legal name?",
-        "subtitle": "Enter their name as it appears on their legal ID.",
+        "subtitle": "",
         "middleName": "Middle name (Optional)",
         "addSuffix": "Add suffix",
         "suffix": "Suffix (Optional)",
@@ -402,7 +413,7 @@
         "title": "What is your address?",
         "streetAddress": "Street Address",
         "city": "City",
-        "state": "State",
+        "state": "",
         "statePlaceholder": "Select",
         "zipCode": "Zip Code"
       },
@@ -435,6 +446,7 @@
       "continue": "Continue",
       "whatsapp": {
         "question": "Would you like us to communicate with you through WhatsApp?",
+        "description": "We can send you appointment updates and important information via WhatsApp.",
         "consent": "WhatsApp communication",
         "numberQuestion": "What's your WhatsApp number?",
         "numberLabel": "WhatsApp number"

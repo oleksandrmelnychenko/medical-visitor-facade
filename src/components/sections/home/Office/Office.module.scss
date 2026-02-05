@@ -60,7 +60,7 @@
     content: '';
     position: absolute;
     inset: -1px;
-    border: 2px solid var(--hover-color);
+    border: 1px solid var(--hover-color);
     pointer-events: none;
     clip-path: inset(0 100% 0 0);
     transition: clip-path 0.15s ease-out;
@@ -106,7 +106,7 @@
     content: '';
     position: absolute;
     inset: -1px;
-    border: 2px solid var(--hover-color);
+    border: 1px solid var(--hover-color);
     pointer-events: none;
     clip-path: inset(0 100% 0 0);
     transition: clip-path 0.15s ease-out;

@@ -4,11 +4,20 @@ import styles from "./HomeBackground.module.scss";
 
 export function HomeBackground() {
   return (
-    <div className={styles.background}>
+    <div className={styles.background} data-home-background>
       {/* Grid */}
       <div className={styles.grid} />
-      
 
+      {/* Decorative side element - Right only */}
+      <div className={styles.sideDecorationRight}>
+        <div className={styles.verticalLine} />
+        <div className={styles.heartIcon} style={{ top: '25%' }} />
+        <div className={styles.dotMarker} style={{ top: '45%' }} />
+        <div className={styles.pulseIcon} style={{ top: '65%' }} />
+        <div className={styles.dotMarker} style={{ top: '85%' }} />
+        <div className={styles.techText} style={{ top: '32%' }}>CARE.01</div>
+        <div className={styles.techText} style={{ top: '72%' }}>HEALTH</div>
+      </div>
 
       {/* Blurred colored circles - wrapped for proportional mobile scaling */}
       <div className={styles.blobsContainer}>

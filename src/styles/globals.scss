@@ -94,3 +94,20 @@ a {
 input {
   font-weight: var(--font-weight-normal);
 }
+
+// Transparent header mode for pages with full-page background
+body.transparent-header-mode {
+  header {
+    background-color: transparent !important;
+  }
+
+  main {
+    background-color: transparent !important;
+    background: transparent !important;
+  }
+
+  // Hide the default HomeBackground (grid, blobs, decorations)
+  [data-home-background] {
+    display: none !important;
+  }
+}

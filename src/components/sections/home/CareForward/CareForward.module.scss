@@ -21,12 +21,20 @@
 .servicesGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.5rem;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
 
   @include up(md) {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
   }
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .serviceItem {
@@ -37,8 +45,51 @@
   align-items: center;
   gap: 1rem;
   padding: 2rem 1.5rem;
-  background-color: rgba(251, 251, 251, 0.85);
-  border: 2px solid var(--hover-color);
+  background-color: #fff;
+  border: 1px solid var(--hover-color);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border: 1px solid var(--hover-color);
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+.serviceItemLarge {
+  @include up(md) {
+    height: 100%;
+    justify-content: center;
+    padding: 3rem 2rem;
+  }
+
+  .serviceIcon {
+    @include up(md) {
+      width: 4rem;
+      height: 4rem;
+      margin-bottom: 1rem;
+
+      svg {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+  }
+
+  .serviceTitle {
+    @include up(md) {
+      font-size: 1.125rem;
+    }
+  }
+
+  .serviceDesc {
+    @include up(md) {
+      font-size: 0.9375rem;
+      max-width: 320px;
+    }
+  }
 }
 
 .serviceIcon {
@@ -58,17 +109,19 @@
 }
 
 .serviceTitle {
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: #1a1a1a;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.4;
 }
 
 .serviceDesc {
   font-size: 0.875rem;
   font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 1.4;
-  color: var(--muted-foreground);
+  letter-spacing: 0.03em;
+  line-height: 1.4rem;
+  color: #717182;
   max-width: 280px;
 }
