@@ -1,16 +1,19 @@
 "use client";
 
 import React from 'react';
+import { motion } from 'motion/react';
 import { cn } from '@/lib/utils';
 import sectionStyles from '@/components/sections/shared/Section.module.scss';
 import pageStyles from '@/styles/page.module.scss';
 import { WizardSidebar } from './WizardSidebar';
+import { EuWizardSidebar } from './EuWizardSidebar';
 import styles from '../../RequestAppointment/RequestAppointment.module.scss';
 
 interface WizardStepLayoutProps {
   title: string;
   subtitle?: string;
   showStepper?: boolean;
+  showEuStepper?: boolean;
   activeStepIndex?: number;
   onBack?: () => void;
   backLabel?: string;
@@ -21,6 +24,7 @@ export function WizardStepLayout({
   title,
   subtitle,
   showStepper = false,
+  showEuStepper = false,
   activeStepIndex = 0,
   onBack,
   backLabel = 'Back',
@@ -36,13 +40,36 @@ export function WizardStepLayout({
           </div>
         </section>
       )}
+      {showEuStepper && (
+        <section className={cn(sectionStyles.section, styles.stepperSection)}>
+          <div className={sectionStyles.container}>
+            <EuWizardSidebar activeStep={activeStepIndex} />
+          </div>
+        </section>
+      )}
 
       <section className={cn(sectionStyles.section, pageStyles.heroSection, styles.applyHeroSection)} id="register">
         <div className={sectionStyles.container}>
-          <h1 className={styles.wizardHeaderTitle}>{title}</h1>
-          {subtitle && (
-            <p className={styles.wizardHeaderSubtitle}>{subtitle}</p>
-          )}
+          <div className={styles.wizardHeaderWrapper}>
+            <motion.h1
+              className={styles.wizardHeaderTitle}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              {title}
+            </motion.h1>
+            {subtitle && (
+              <motion.p
+                className={styles.wizardHeaderSubtitle}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                {subtitle}
+              </motion.p>
+            )}
+          </div>
         </div>
       </section>
 

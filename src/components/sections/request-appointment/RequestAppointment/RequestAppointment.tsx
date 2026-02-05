@@ -28,7 +28,8 @@ export function RequestAppointment() {
   };
 
   return (
-    <div className={pageStyles.page}>
+    <div className={cn(pageStyles.page, styles.gridBackground)}>
+      <div className={styles.gridOverlay} />
       <section className={cn(sectionStyles.section, pageStyles.heroSection, styles.applyHeroSection)} id="appointment">
         <div className={sectionStyles.container}>
           <SectionHeader

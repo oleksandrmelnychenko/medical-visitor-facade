@@ -39,7 +39,6 @@ export function MedicalRecordsStep({ wizardPath }: MedicalRecordsStepProps) {
   return (
     <WizardStepLayout
       title={t(`${recordsKey}.title`)}
-      subtitle={t(`${recordsKey}.description`)}
       showStepper={wizardPath === 'outside-eu'}
       activeStepIndex={0}
       onBack={handleBack}

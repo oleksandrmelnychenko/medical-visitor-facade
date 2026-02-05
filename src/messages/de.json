@@ -57,7 +57,7 @@
     "hero": {
       "overline": "",
       "title": "Medizinische Concierge-Agentur",
-      "subtitle": "",
+      "subtitle": "Exzellenz in der medizinischen Versorgung",
       "requestAppointment": "Kunde werden"
     },
     "careForward": {
@@ -237,33 +237,41 @@
         "no": "Nein",
         "noDesc": "Ich stelle eine Anfrage für jemand anderen"
       },
+      "primaryConcern": {
+        "title": "Was ist Ihr Hauptanliegen?",
+        "description": "Wählen Sie den Bereich, der Ihre medizinischen Bedürfnisse am besten beschreibt",
+        "options": {
+          "cardiology": "Kardiologie",
+          "neurology": "Neurologie",
+          "oncology": "Onkologie",
+          "otherDiagnosis": "Ich habe eine Diagnose in einem anderen Bereich",
+          "noDiagnosis": "Ich habe keine Diagnose"
+        }
+      },
+      "seekingCareFor": {
+        "title": "Wofür suchen Sie Hilfe?",
+        "description": "Bitte beschreiben Sie Ihre medizinische Situation, Symptome oder Anliegen",
+        "charLimit": "Maximal 300 Zeichen"
+      },
       "continue": "Weiter",
       "travelCompanion": {
         "title": "Ist dieser Patient in der Lage und bereit, zur Behandlung nach Deutschland zu reisen?",
-        "description": "Für einen Termin bei Gmed müssen Patienten zu unserer Einrichtung in Deutschland reisen.",
-        "note": "Gmed bietet keine Versorgung für internationale Patienten durch Ferntermine oder Videokonferenzen an.",
-        "getHelp": "Hilfe erhalten",
         "yes": "Ja",
         "no": "Nein"
       },
       "travelPatient": {
         "title": "Sind Sie in der Lage und bereit, zur Behandlung nach Deutschland zu reisen?",
-        "description": "Für einen Termin bei Gmed müssen Sie zu unserer Einrichtung in Deutschland reisen.",
-        "note": "Gmed bietet keine Versorgung für internationale Patienten durch Ferntermine oder Videokonferenzen an.",
-        "getHelp": "Hilfe erhalten",
         "yes": "Ja",
         "no": "Nein"
       },
       "recordsCompanion": {
         "title": "Kann dieser Patient seine medizinischen Unterlagen einreichen?",
-        "description": "Medizinische Unterlagen des Patienten sind für den ärztlichen Überprüfungsprozess unerlässlich.",
         "yes": "Ja",
         "no": "Nein",
         "none": "Dieser Patient hat keine medizinischen Unterlagen"
       },
       "recordsPatient": {
         "title": "Können Sie Ihre medizinischen Unterlagen einreichen?",
-        "description": "Ihre medizinischen Unterlagen sind für den ärztlichen Überprüfungsprozess unerlässlich.",
         "yes": "Ja",
         "no": "Nein",
         "none": "Ich habe keine medizinischen Unterlagen"
@@ -334,7 +342,7 @@
       },
       "patientInfo": {
         "introTitle": "Geben Sie Ihre Kontaktdaten an",
-        "introTitleBold": "Unser Team wird sich in Kürze bei Ihnen melden.",
+        "introTitleBold": "",
         "introDescription1": "",
         "introDescription2": "",
         "start": "Start",

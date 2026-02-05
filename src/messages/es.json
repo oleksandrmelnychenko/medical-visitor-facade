@@ -57,7 +57,7 @@
     "hero": {
       "overline": "",
       "title": "Agencia de Concierge Médico",
-      "subtitle": "",
+      "subtitle": "Excelencia en atención médica",
       "requestAppointment": "Convertirse en cliente"
     },
     "careForward": {
@@ -237,33 +237,41 @@
         "no": "No",
         "noDesc": "Estoy solicitando para otra persona"
       },
+      "primaryConcern": {
+        "title": "¿Cuál es su principal preocupación?",
+        "description": "Seleccione el área que mejor describe sus necesidades médicas",
+        "options": {
+          "cardiology": "Cardiología",
+          "neurology": "Neurología",
+          "oncology": "Oncología",
+          "otherDiagnosis": "Tengo un diagnóstico en otra área",
+          "noDiagnosis": "No tengo un diagnóstico"
+        }
+      },
+      "seekingCareFor": {
+        "title": "¿Para qué busca atención?",
+        "description": "Por favor describa su situación médica, síntomas o preocupaciones",
+        "charLimit": "Máximo 300 caracteres"
+      },
       "continue": "Continuar",
       "travelCompanion": {
         "title": "¿Este paciente puede y está dispuesto a viajar a Alemania para recibir atención?",
-        "description": "Para obtener una cita en Gmed, los pacientes deben viajar a nuestro centro en Alemania.",
-        "note": "Gmed no proporciona atención a pacientes internacionales a través de citas remotas o videoconferencias.",
-        "getHelp": "Obtener ayuda",
         "yes": "Sí",
         "no": "No"
       },
       "travelPatient": {
         "title": "¿Puede y está dispuesto a viajar a Alemania para recibir atención?",
-        "description": "Para obtener una cita en Gmed, deberá viajar a nuestro centro en Alemania.",
-        "note": "Gmed no proporciona atención a pacientes internacionales a través de citas remotas o videoconferencias.",
-        "getHelp": "Obtener ayuda",
         "yes": "Sí",
         "no": "No"
       },
       "recordsCompanion": {
         "title": "¿Este paciente puede presentar sus registros médicos?",
-        "description": "Los registros médicos del paciente son esenciales para el proceso de revisión médica.",
         "yes": "Sí",
         "no": "No",
         "none": "Este paciente no tiene registros médicos"
       },
       "recordsPatient": {
         "title": "¿Puede presentar sus registros médicos?",
-        "description": "Sus registros médicos son esenciales para el proceso de revisión médica.",
         "yes": "Sí",
         "no": "No",
         "none": "No tengo registros médicos"
@@ -334,7 +342,7 @@
       },
       "patientInfo": {
         "introTitle": "Proporcione sus datos de contacto",
-        "introTitleBold": "Nuestro equipo se pondrá en contacto con usted pronto.",
+        "introTitleBold": "",
         "introDescription1": "",
         "introDescription2": "",
         "start": "Comenzar",

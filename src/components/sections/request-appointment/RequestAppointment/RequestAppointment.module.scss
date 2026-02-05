@@ -49,13 +49,24 @@
   width: 100%;
 }
 
+.wizardHeaderWrapper {
+  text-align: center;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
 .wizardHeaderTitle {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 300;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 500;
   color: var(--foreground);
   letter-spacing: -0.02em;
   line-height: 1.2;
   text-align: center;
+  padding: 0 1rem;
+
+  @media (min-width: 768px) {
+    padding: 0;
+  }
 }
 
 .wizardHeaderSpacer {
@@ -76,6 +87,78 @@
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+}
+
+// Wizard form styles (no card background)
+.wizardFormContainer {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @media (min-width: 768px) {
+    padding: 0;
+  }
+}
+
+.wizardFormGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.wizardFormGroup {
+  margin-bottom: 1.25rem;
+}
+
+.wizardFormLabel {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.wizardAddLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #1a1a1a;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 0.5rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.wizardSubmitBtn {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: #333;
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
 }
 
 // Mayo Clinic style wizard layout
@@ -103,9 +186,14 @@
   border-radius: 16px;
 
   @media (max-width: 768px) {
-    padding: 1rem 1rem;
+    padding: 1rem 0.75rem;
     overflow-x: auto;
     border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.75rem 0.5rem;
   }
 }
 
@@ -200,6 +288,11 @@
   @media (max-width: 768px) {
     width: 36px;
     height: 36px;
+  }
+
+  @media (max-width: 480px) {
+    width: 32px;
+    height: 32px;
   }
 }
 
@@ -731,6 +824,11 @@
   max-width: 600px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 1rem;
+
+  @media (min-width: 768px) {
+    padding: 0;
+  }
 }
 
 .clientCard {
@@ -2596,6 +2694,77 @@
 
   &:disabled {
     opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// Seeking Care For Step - textarea section
+.splitCardTextarea {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2.5rem;
+  border-left: 1px solid #e5e5e5;
+  position: relative;
+
+  @media (max-width: 768px) {
+    border-left: none;
+    border-top: 1px solid #e5e5e5;
+  }
+}
+
+.charCounter {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-bottom: 0.5rem;
+}
+
+.charLimit {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.seekingCareTextarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background: #fff;
+  border: none;
+  outline: none;
+  resize: none;
+
+  &::placeholder {
+    color: #999;
+  }
+}
+
+.textareaSubmitButton {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #0057b8;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: #004494;
+  }
+
+  &:disabled {
+    background: #ccc;
     cursor: not-allowed;
   }
 }

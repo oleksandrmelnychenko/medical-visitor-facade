@@ -42,8 +42,9 @@
 .titleHero {
   color: var(--foreground);
   margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
   font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
@@ -57,12 +58,12 @@
 }
 
 .subtitleHero {
-  color: var(--muted-foreground);
+  color: #1a1a1a;
   max-width: 48rem;
   margin: 0 auto;
   font-size: 1rem;
   font-weight: 500;
-  letter-spacing: -0.04em;
+  letter-spacing: 0.03em;
   line-height: 1.5rem;
 }
 

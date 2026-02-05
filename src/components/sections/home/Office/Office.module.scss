@@ -22,8 +22,9 @@
 }
 
 .title {
+  font-family: 'Playfair Display', serif;
   font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 300;
+  font-weight: 500;
   color: var(--foreground);
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;

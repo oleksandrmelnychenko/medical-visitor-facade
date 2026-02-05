@@ -38,7 +38,6 @@ export function TravelReadyStep({ wizardPath }: TravelReadyStepProps) {
   return (
     <WizardStepLayout
       title={t(`${travelKey}.title`)}
-      subtitle={`${t(`${travelKey}.description`)} ${t(`${travelKey}.note`)}`}
       showStepper={wizardPath === 'outside-eu'}
       activeStepIndex={0}
       onBack={handleBack}

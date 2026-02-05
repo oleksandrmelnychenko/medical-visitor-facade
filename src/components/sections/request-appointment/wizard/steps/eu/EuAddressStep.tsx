@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ChevronLeft } from 'lucide-react';
+import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useWizard } from '../../WizardContext';
-import { EuWizardSidebar } from '../../components/EuWizardSidebar';
+import { WizardStepLayout } from '../../components/WizardStepLayout';
+import formStyles from '@/components/auth/Auth.module.scss';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
 
 const US_STATES = [
@@ -48,74 +49,74 @@ export function EuAddressStep() {
   const isValid = streetAddress.trim() && city.trim() && state && zipCode.trim();
 
   return (
-    <div className={styles.euWizardContainer}>
-      <EuWizardSidebar activeStep={0} />
-
-      <div className={styles.euWizardMain}>
-        <button onClick={handleBack} className={styles.euBackLink} type="button">
-          <ChevronLeft size={20} />
-          <span>{t('back')}</span>
-        </button>
-
-        <div className={styles.euWizardContent}>
-          <h1 className={styles.euWizardTitle}>{t('euAddress.title')}</h1>
-
-          <div className={styles.euFormGroup}>
-            <label className={styles.euFormLabel}>{t('euAddress.streetAddress')}</label>
+    <WizardStepLayout
+      title={t('euAddress.title')}
+      showStepper={true}
+      activeStepIndex={0}
+      onBack={handleBack}
+      backLabel={t('back')}
+    >
+      <motion.div
+        className={styles.wizardFormContainer}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className={styles.wizardFormGrid}>
+          <div className={formStyles.simpleFormGroup}>
+            <label className={formStyles.label}>{t('euAddress.streetAddress')}</label>
             <input
               type="text"
               value={streetAddress}
               onChange={(e) => setStreetAddress(e.target.value)}
-              className={styles.euFormInput}
+              className={formStyles.simpleInput}
             />
           </div>
 
-          <div className={styles.euFormGroup}>
-            <label className={styles.euFormLabel}>{t('euAddress.city')}</label>
+          <div className={formStyles.simpleFormGroup}>
+            <label className={formStyles.label}>{t('euAddress.city')}</label>
             <input
               type="text"
               value={city}
               onChange={(e) => setCity(e.target.value)}
-              className={styles.euFormInput}
+              className={formStyles.simpleInput}
             />
           </div>
 
-          <div className={styles.euFormRowHalf}>
-            <div className={styles.euFormGroup}>
-              <label className={styles.euFormLabel}>{t('euAddress.state')}</label>
-              <select
-                value={state}
-                onChange={(e) => setState(e.target.value)}
-                className={styles.euFormSelect}
-              >
-                <option value="">{t('euAddress.statePlaceholder')}</option>
-                {US_STATES.map((s) => (
-                  <option key={s} value={s}>{s}</option>
-                ))}
-              </select>
-            </div>
-
-            <div className={styles.euFormGroup}>
-              <label className={styles.euFormLabel}>{t('euAddress.zipCode')}</label>
-              <input
-                type="text"
-                value={zipCode}
-                onChange={(e) => setZipCode(e.target.value)}
-                className={styles.euFormInput}
-              />
-            </div>
+          <div className={formStyles.simpleFormGroup}>
+            <label className={formStyles.label}>{t('euAddress.state')}</label>
+            <select
+              value={state}
+              onChange={(e) => setState(e.target.value)}
+              className={formStyles.simpleInput}
+            >
+              <option value="">{t('euAddress.statePlaceholder')}</option>
+              {US_STATES.map((s) => (
+                <option key={s} value={s}>{s}</option>
+              ))}
+            </select>
           </div>
 
-          <button
-            onClick={handleNext}
-            disabled={!isValid}
-            className={styles.euNextButton}
-            type="button"
-          >
-            {t('continue')}
-          </button>
+          <div className={formStyles.simpleFormGroup}>
+            <label className={formStyles.label}>{t('euAddress.zipCode')}</label>
+            <input
+              type="text"
+              value={zipCode}
+              onChange={(e) => setZipCode(e.target.value)}
+              className={formStyles.simpleInput}
+            />
+          </div>
         </div>
-      </div>
-    </div>
+
+        <button
+          onClick={handleNext}
+          disabled={!isValid}
+          className={formStyles.submitButton}
+          type="button"
+        >
+          {t('continue')}
+        </button>
+      </motion.div>
+    </WizardStepLayout>
   );
 }

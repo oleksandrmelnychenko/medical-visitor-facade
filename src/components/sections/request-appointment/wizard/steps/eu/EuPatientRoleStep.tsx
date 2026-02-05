@@ -1,93 +1,82 @@
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
+import { motion } from 'motion/react';
+import { ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import { cn } from '@/lib/utils';
 import { useWizard } from '../../WizardContext';
 import { PatientRoleType } from '../../types';
-import { EuWizardSidebar } from '../../components/EuWizardSidebar';
+import { WizardStepLayout } from '../../components/WizardStepLayout';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
 
 export function EuPatientRoleStep() {
   const t = useTranslations('appointment.newPatient');
   const router = useRouter();
-  const { data, updateData } = useWizard();
-  const [selected, setSelected] = useState<PatientRoleType>(data.patientRole);
+  const { updateData } = useWizard();
 
-  const handleNext = () => {
-    if (selected) {
-      updateData({ patientRole: selected });
-      if (selected === 'patient') {
-        router.push('/register/eu/step/form');
-      } else {
-        router.push('/register/eu/step/companion');
-      }
+  const handleSelect = (role: PatientRoleType) => {
+    updateData({ patientRole: role });
+    if (role === 'patient') {
+      router.push('/register/eu/step/form');
+    } else {
+      router.push('/register/eu/step/companion');
     }
   };
 
+  const handleBack = () => {
+    router.push('/register');
+  };
+
   return (
-    <div className={styles.euWizardContainer}>
-      <EuWizardSidebar activeStep={0} />
-
-      <div className={styles.euWizardMain}>
-        <div className={styles.euWizardContent}>
-          <h1 className={styles.euWizardTitle}>{t('patientRole.title')}</h1>
-
-          <div className={styles.euRadioGroup}>
-            <label
-              className={cn(
-                styles.euRadioOption,
-                selected === 'patient' && styles.euRadioOptionSelected
-              )}
-            >
-              <input
-                type="radio"
-                name="patientRole"
-                value="patient"
-                checked={selected === 'patient'}
-                onChange={() => setSelected('patient')}
-                className={styles.euRadioInput}
-              />
-              <div className={styles.euRadioCircle} />
-              <div className={styles.euRadioContent}>
-                <span className={styles.euRadioTitle}>{t('patientRole.yes')}</span>
-                <span className={styles.euRadioDesc}>{t('patientRole.yesDesc')}</span>
-              </div>
-            </label>
-
-            <label
-              className={cn(
-                styles.euRadioOption,
-                selected === 'companion' && styles.euRadioOptionSelected
-              )}
-            >
-              <input
-                type="radio"
-                name="patientRole"
-                value="companion"
-                checked={selected === 'companion'}
-                onChange={() => setSelected('companion')}
-                className={styles.euRadioInput}
-              />
-              <div className={styles.euRadioCircle} />
-              <div className={styles.euRadioContent}>
-                <span className={styles.euRadioTitle}>{t('patientRole.no')}</span>
-                <span className={styles.euRadioDesc}>{t('patientRole.noDesc')}</span>
-              </div>
-            </label>
+    <WizardStepLayout
+      title={t('patientRole.title')}
+      showStepper={true}
+      activeStepIndex={0}
+      onBack={handleBack}
+      backLabel={t('back')}
+    >
+      <div className={styles.clientCardsGrid}>
+        <motion.div
+          onClick={() => handleSelect('patient')}
+          className={styles.clientCard}
+          style={{ '--hover-color': '#E5D5A8' } as React.CSSProperties}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+        >
+          <div className={styles.clientCardContent}>
+            <h3 className={styles.clientCardTitle}>
+              {t('patientRole.yes')}
+            </h3>
+            <p className={styles.clientCardDesc}>
+              {t('patientRole.yesDesc')}
+            </p>
           </div>
+          <ChevronRight size={24} className={styles.clientCardArrow} />
+        </motion.div>
 
-          <button
-            onClick={handleNext}
-            disabled={!selected}
-            className={styles.euNextButton}
-            type="button"
-          >
-            {t('continue')}
-          </button>
-        </div>
+        <motion.div
+          onClick={() => handleSelect('companion')}
+          className={styles.clientCard}
+          style={{ '--hover-color': '#A8D5E5' } as React.CSSProperties}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+        >
+          <div className={styles.clientCardContent}>
+            <h3 className={styles.clientCardTitle}>
+              {t('patientRole.no')}
+            </h3>
+            <p className={styles.clientCardDesc}>
+              {t('patientRole.noDesc')}
+            </p>
+          </div>
+          <ChevronRight size={24} className={styles.clientCardArrow} />
+        </motion.div>
       </div>
-    </div>
+    </WizardStepLayout>
   );
 }

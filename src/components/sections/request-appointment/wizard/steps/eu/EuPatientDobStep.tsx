@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ChevronLeft } from 'lucide-react';
+import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import { cn } from '@/lib/utils';
 import { useWizard } from '../../WizardContext';
 import { LegalSexType } from '../../types';
-import { EuWizardSidebar } from '../../components/EuWizardSidebar';
+import { WizardStepLayout } from '../../components/WizardStepLayout';
+import formStyles from '@/components/auth/Auth.module.scss';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
 
 export function EuPatientDobStep() {
@@ -34,108 +34,63 @@ export function EuPatientDobStep() {
 
   const isValid = legalSex && dateOfBirth.trim();
 
+  const sexOptions: { value: LegalSexType; label: string }[] = [
+    { value: 'female', label: t('euPatientDob.female') },
+    { value: 'male', label: t('euPatientDob.male') },
+    { value: 'non-binary', label: t('euPatientDob.nonBinary') },
+  ];
+
   return (
-    <div className={styles.euWizardContainer}>
-      <EuWizardSidebar activeStep={0} />
-
-      <div className={styles.euWizardMain}>
-        <button onClick={handleBack} className={styles.euBackLink} type="button">
-          <ChevronLeft size={20} />
-          <span>{t('back')}</span>
-        </button>
-
-        <div className={styles.euWizardContent}>
-          <h1 className={styles.euWizardTitle}>{t('euPatientDob.title')}</h1>
-
-          <div className={styles.euFormGroup}>
-            <label className={styles.euFormLabel}>{t('euPatientDob.legalSex')}</label>
-            <p className={styles.euFormHint}>{t('euPatientDob.legalSexNote')}</p>
+    <WizardStepLayout
+      title={t('euPatientDob.title')}
+      showStepper={true}
+      activeStepIndex={0}
+      onBack={handleBack}
+      backLabel={t('back')}
+    >
+      <motion.div
+        className={styles.wizardFormContainer}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className={styles.wizardFormGrid}>
+          <div className={formStyles.simpleFormGroup}>
+            <label className={formStyles.label}>{t('euPatientDob.legalSex')}</label>
+            <select
+              value={legalSex || ''}
+              onChange={(e) => setLegalSex(e.target.value as LegalSexType)}
+              className={formStyles.simpleInput}
+            >
+              <option value="">{t('euPatientDob.selectSex')}</option>
+              {sexOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
           </div>
 
-          <div className={styles.euRadioGroup}>
-            <label
-              className={cn(
-                styles.euRadioOption,
-                legalSex === 'female' && styles.euRadioOptionSelected
-              )}
-            >
-              <input
-                type="radio"
-                name="legalSex"
-                value="female"
-                checked={legalSex === 'female'}
-                onChange={() => setLegalSex('female')}
-                className={styles.euRadioInput}
-              />
-              <div className={styles.euRadioCircle} />
-              <div className={styles.euRadioContent}>
-                <span className={styles.euRadioTitle}>{t('euPatientDob.female')}</span>
-              </div>
-            </label>
-
-            <label
-              className={cn(
-                styles.euRadioOption,
-                legalSex === 'male' && styles.euRadioOptionSelected
-              )}
-            >
-              <input
-                type="radio"
-                name="legalSex"
-                value="male"
-                checked={legalSex === 'male'}
-                onChange={() => setLegalSex('male')}
-                className={styles.euRadioInput}
-              />
-              <div className={styles.euRadioCircle} />
-              <div className={styles.euRadioContent}>
-                <span className={styles.euRadioTitle}>{t('euPatientDob.male')}</span>
-              </div>
-            </label>
-
-            <label
-              className={cn(
-                styles.euRadioOption,
-                legalSex === 'non-binary' && styles.euRadioOptionSelected
-              )}
-            >
-              <input
-                type="radio"
-                name="legalSex"
-                value="non-binary"
-                checked={legalSex === 'non-binary'}
-                onChange={() => setLegalSex('non-binary')}
-                className={styles.euRadioInput}
-              />
-              <div className={styles.euRadioCircle} />
-              <div className={styles.euRadioContent}>
-                <span className={styles.euRadioTitle}>{t('euPatientDob.nonBinary')}</span>
-              </div>
-            </label>
-          </div>
-
-          <div className={styles.euFormGroup}>
-            <label className={styles.euFormLabel}>{t('euPatientDob.dateOfBirth')}</label>
+          <div className={formStyles.simpleFormGroup}>
+            <label className={formStyles.label}>{t('euPatientDob.dateOfBirth')}</label>
             <input
-              type="text"
+              type="date"
               value={dateOfBirth}
               onChange={(e) => setDateOfBirth(e.target.value)}
-              placeholder={t('euPatientDob.dateFormat')}
-              className={styles.euFormInput}
+              className={formStyles.simpleInput}
             />
-            <p className={styles.euFormHint}>{t('euPatientDob.dateFormat')}</p>
           </div>
-
-          <button
-            onClick={handleNext}
-            disabled={!isValid}
-            className={styles.euNextButton}
-            type="button"
-          >
-            {t('continue')}
-          </button>
         </div>
-      </div>
-    </div>
+
+        <button
+          onClick={handleNext}
+          disabled={!isValid}
+          className={formStyles.submitButton}
+          type="button"
+        >
+          {t('continue')}
+        </button>
+      </motion.div>
+    </WizardStepLayout>
   );
 }

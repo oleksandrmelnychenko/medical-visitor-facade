@@ -1,11 +1,13 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ChevronLeft, Plus } from 'lucide-react';
+import { motion } from 'motion/react';
+import { Plus } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useWizard } from '../../WizardContext';
-import { EuWizardSidebar } from '../../components/EuWizardSidebar';
+import { WizardStepLayout } from '../../components/WizardStepLayout';
+import formStyles from '@/components/auth/Auth.module.scss';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
 
 export function EuPatientNameStep() {
@@ -44,90 +46,94 @@ export function EuPatientNameStep() {
   const isValid = firstName.trim() && lastName.trim();
 
   return (
-    <div className={styles.euWizardContainer}>
-      <EuWizardSidebar activeStep={0} />
-
-      <div className={styles.euWizardMain}>
-        <button onClick={handleBack} className={styles.euBackLink} type="button">
-          <ChevronLeft size={20} />
-          <span>{t('back')}</span>
-        </button>
-
-        <div className={styles.euWizardContent}>
-          <h1 className={styles.euWizardTitle}>{t('euPatientName.title')}</h1>
-          <p className={styles.euWizardSubtitle}>{t('euPatientName.subtitle')}</p>
-
-          <div className={styles.euFormGroup}>
-            <label className={styles.euFormLabel}>{t('patientInfo.firstName')}</label>
+    <WizardStepLayout
+      title={t('euPatientName.title')}
+      subtitle={t('euPatientName.subtitle')}
+      showStepper={true}
+      activeStepIndex={0}
+      onBack={handleBack}
+      backLabel={t('back')}
+    >
+      <motion.div
+        className={styles.wizardFormContainer}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className={styles.wizardFormGrid}>
+          <div className={formStyles.simpleFormGroup}>
+            <label className={formStyles.label}>{t('patientInfo.firstName')}</label>
             <input
               type="text"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              className={styles.euFormInput}
+              className={formStyles.simpleInput}
             />
           </div>
 
-          <div className={styles.euFormGroup}>
-            <label className={styles.euFormLabel}>{t('euPatientName.middleName')}</label>
+          <div className={formStyles.simpleFormGroup}>
+            <label className={formStyles.label}>{t('euPatientName.middleName')}</label>
             <input
               type="text"
               value={middleName}
               onChange={(e) => setMiddleName(e.target.value)}
-              className={styles.euFormInput}
+              className={formStyles.simpleInput}
             />
           </div>
 
-          <div className={styles.euFormGroup}>
-            <label className={styles.euFormLabel}>{t('patientInfo.lastName')}</label>
+          <div className={formStyles.simpleFormGroup}>
+            <label className={formStyles.label}>{t('patientInfo.lastName')}</label>
             <input
               type="text"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
-              className={styles.euFormInput}
+              className={formStyles.simpleInput}
             />
           </div>
 
           {showSuffix ? (
-            <div className={styles.euFormGroup}>
-              <label className={styles.euFormLabel}>{t('euPatientName.suffix')}</label>
+            <div className={formStyles.simpleFormGroup}>
+              <label className={formStyles.label}>{t('euPatientName.suffix')}</label>
               <input
                 type="text"
                 value={suffix}
                 onChange={(e) => setSuffix(e.target.value)}
-                className={styles.euFormInput}
+                className={formStyles.simpleInput}
               />
             </div>
           ) : (
-            <button
-              onClick={() => setShowSuffix(true)}
-              className={styles.euAddLink}
-              type="button"
-            >
-              <Plus size={18} />
-              <span>{t('euPatientName.addSuffix')}</span>
-            </button>
+            <div className={formStyles.simpleFormGroup}>
+              <button
+                onClick={() => setShowSuffix(true)}
+                className={styles.wizardAddLink}
+                type="button"
+              >
+                <Plus size={18} />
+                <span>{t('euPatientName.addSuffix')}</span>
+              </button>
+            </div>
           )}
 
-          <div className={styles.euFormGroup}>
-            <label className={styles.euFormLabel}>{t('euPatientName.preferredName')}</label>
+          <div className={formStyles.simpleFormGroup}>
+            <label className={formStyles.label}>{t('euPatientName.preferredName')}</label>
             <input
               type="text"
               value={preferredName}
               onChange={(e) => setPreferredName(e.target.value)}
-              className={styles.euFormInput}
+              className={formStyles.simpleInput}
             />
           </div>
-
-          <button
-            onClick={handleNext}
-            disabled={!isValid}
-            className={styles.euNextButton}
-            type="button"
-          >
-            {t('continue')}
-          </button>
         </div>
-      </div>
-    </div>
+
+        <button
+          onClick={handleNext}
+          disabled={!isValid}
+          className={formStyles.submitButton}
+          type="button"
+        >
+          {t('continue')}
+        </button>
+      </motion.div>
+    </WizardStepLayout>
   );
 }

@@ -57,7 +57,7 @@
     "hero": {
       "overline": "",
       "title": "Medical Concierge Agency",
-      "subtitle": "",
+      "subtitle": "Excellence in medical care",
       "requestAppointment": "Become a Member"
     },
     "careForward": {
@@ -247,32 +247,40 @@
         "no": "No",
         "noDesc": "I'm requesting for someone else"
       },
+      "primaryConcern": {
+        "title": "What is your primary concern?",
+        "description": "Select the area that best describes your medical needs",
+        "options": {
+          "cardiology": "Cardiology",
+          "neurology": "Neurology",
+          "oncology": "Oncology",
+          "otherDiagnosis": "I have a diagnosis in another area",
+          "noDiagnosis": "I do not have a diagnosis"
+        }
+      },
+      "seekingCareFor": {
+        "title": "What are you seeking care for?",
+        "description": "Please describe your medical situation, symptoms, or concerns",
+        "charLimit": "Maximum 300 characters"
+      },
       "travelCompanion": {
         "title": "Is this patient able and willing to travel to Germany to receive care?",
-        "description": "Getting an appointment at Gmed requires patients to travel to our facility in Germany.",
-        "note": "Gmed does not provide care to international patients through remote appointments or video conferences.",
-        "getHelp": "Get help",
         "yes": "Yes",
         "no": "No"
       },
       "travelPatient": {
         "title": "Are you able and willing to travel to Germany to receive care?",
-        "description": "Getting an appointment at Gmed will require you to travel to our facility in Germany.",
-        "note": "Gmed does not provide care to international patients through remote appointments or video conferences.",
-        "getHelp": "Get help",
         "yes": "Yes",
         "no": "No"
       },
       "recordsCompanion": {
         "title": "Is this patient able to submit their medical records?",
-        "description": "Patient medical records are essential to the physician review process.",
         "yes": "Yes",
         "no": "No",
         "none": "This patient does not have any medical records"
       },
       "recordsPatient": {
         "title": "Are you able to submit your medical records?",
-        "description": "Your medical records are essential to the physician review process.",
         "yes": "Yes",
         "no": "No",
         "none": "I do not have any medical records"
@@ -313,12 +321,10 @@
       },
       "exitNoRecordsCompanion": {
         "title": "Thank you. We are only accepting patients who are able to submit their medical records.",
-        "description": "If this patient is able to submit their records in the future please request an appointment at that time.",
         "button": "Exit the request"
       },
       "exitNoRecordsPatient": {
         "title": "Thank you. We are only accepting patients who are able to submit their medical records.",
-        "description": "If you are able to submit your records in the future please request an appointment at that time.",
         "button": "Exit the request"
       },
       "visaHelpCompanion": {
@@ -363,6 +369,7 @@
         "title": "What's the patient's legal sex and date of birth?",
         "legalSex": "Legal sex",
         "legalSexNote": "This must match what is on their legal ID",
+        "selectSex": "Select",
         "female": "Female",
         "male": "Male",
         "nonBinary": "Non-binary",
@@ -385,6 +392,8 @@
       "euInterpreter": {
         "title": "Would you like an interpreter?",
         "subtitle": "If so, we'll provide an interpreter when we contact you.",
+        "needInterpreter": "Do you need an interpreter?",
+        "select": "Select",
         "yes": "Yes",
         "no": "No",
         "primaryLanguage": "What is your primary language?"
@@ -399,7 +408,7 @@
       },
       "patientInfo": {
         "introTitle": "Provide your contact details",
-        "introTitleBold": "Our team will contact you shortly.",
+        "introTitleBold": "",
         "introDescription1": "",
         "introDescription2": "",
         "start": "Start",
@@ -426,8 +435,7 @@
       "continue": "Continue",
       "whatsapp": {
         "question": "Would you like us to communicate with you through WhatsApp?",
-        "description": "If yes, we will ask for your WhatsApp country code and number on the next page.",
-        "yesDisclaimer": "I understand that WhatsApp communications may not be secure and are subject to WhatsApp's privacy policies and terms of use.",
+        "consent": "WhatsApp communication",
         "numberQuestion": "What's your WhatsApp number?",
         "numberLabel": "WhatsApp number"
       },

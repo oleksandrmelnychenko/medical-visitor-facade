@@ -35,7 +35,6 @@ export function VisaHelpStep({ wizardPath }: VisaHelpStepProps) {
   return (
     <WizardStepLayout
       title={t(`${visaKey}.title`)}
-      subtitle={t(`${visaKey}.description`)}
       showStepper={wizardPath === 'outside-eu'}
       activeStepIndex={0}
       onBack={handleBack}

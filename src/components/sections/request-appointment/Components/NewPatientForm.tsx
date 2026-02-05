@@ -8,6 +8,8 @@ import pageStyles from '@/styles/page.module.scss';
 import styles from '../RequestAppointment/RequestAppointment.module.scss';
 
 type WizardStep =
+  | 'primaryConcern'
+  | 'seekingCareFor'
   | 'location'
   | 'patientRole'
   | 'travelReady'
@@ -22,8 +24,11 @@ type LocationType = 'eu' | 'outside_eu' | null;
 type PatientRoleType = 'patient' | 'companion' | null;
 type YesNoType = 'yes' | 'no' | null;
 type MedicalRecordsType = 'yes' | 'no' | 'none' | null;
+type PrimaryConcernType = 'cardiology' | 'neurology' | 'oncology' | 'other_diagnosis' | 'no_diagnosis' | null;
 
 interface WizardData {
+  primaryConcern: PrimaryConcernType;
+  seekingCareDescription: string;
   location: LocationType;
   patientRole: PatientRoleType;
   canTravel: YesNoType;
@@ -39,17 +44,19 @@ interface WizardData {
 }
 
 const PROGRESS_STEPS = [
+  { key: 'primaryConcern', label: 'Primary Concern' },
   { key: 'travelReady', label: 'Travel Readiness' },
   { key: 'patientInfo', label: 'Patient Information' },
-  { key: 'primaryConcern', label: 'Primary Concern' },
   { key: 'insuranceDetails', label: 'Insurance Details' },
   { key: 'wrapUp', label: 'Wrap Up' },
 ];
 
 export function NewPatientForm() {
   const t = useTranslations('appointment.newPatient');
-  const [step, setStep] = useState<WizardStep>('location');
+  const [step, setStep] = useState<WizardStep>('primaryConcern');
   const [data, setData] = useState<WizardData>({
+    primaryConcern: null,
+    seekingCareDescription: '',
     location: null,
     patientRole: null,
     canTravel: null,
@@ -68,13 +75,25 @@ export function NewPatientForm() {
   const getRoleSuffix = () => data.patientRole === 'patient' ? 'Patient' : 'Companion';
 
   const getCurrentProgressIndex = () => {
-    if (['patientRole', 'travelReady', 'medicalRecords', 'travelDocuments'].includes(step)) return 0;
-    if (['patientInfoIntro', 'patientInfoForm'].includes(step)) return 1;
+    if (['primaryConcern', 'seekingCareFor', 'location', 'patientRole'].includes(step)) return 0;
+    if (['travelReady', 'medicalRecords', 'travelDocuments'].includes(step)) return 1;
+    if (['patientInfoIntro', 'patientInfoForm'].includes(step)) return 2;
     return 0;
   };
 
   const handleBack = () => {
     switch (step) {
+      case 'seekingCareFor':
+        setStep('primaryConcern');
+        break;
+      case 'location':
+        // Go back to seekingCareFor if cardiology or neurology, otherwise primaryConcern
+        if (data.primaryConcern === 'cardiology' || data.primaryConcern === 'neurology') {
+          setStep('seekingCareFor');
+        } else {
+          setStep('primaryConcern');
+        }
+        break;
       case 'patientRole':
         setStep('location');
         break;
@@ -144,6 +163,101 @@ export function NewPatientForm() {
       ))}
     </div>
   );
+
+  // Step 0: Primary Concern (first step)
+  if (step === 'primaryConcern') {
+    const concerns = [
+      { key: 'cardiology', value: 'cardiology' as PrimaryConcernType },
+      { key: 'neurology', value: 'neurology' as PrimaryConcernType },
+      { key: 'oncology', value: 'oncology' as PrimaryConcernType },
+      { key: 'otherDiagnosis', value: 'other_diagnosis' as PrimaryConcernType },
+      { key: 'noDiagnosis', value: 'no_diagnosis' as PrimaryConcernType },
+    ];
+
+    const handleConcernSelect = (value: PrimaryConcernType) => {
+      setData({ ...data, primaryConcern: value });
+      // Cardiology and Neurology go to seekingCareFor step
+      if (value === 'cardiology' || value === 'neurology') {
+        setStep('seekingCareFor');
+      } else {
+        setStep('location');
+      }
+    };
+
+    return (
+      <div className={styles.wizardContainer}>
+        <Sidebar activeIndex={0} />
+        <div className={styles.wizardMain}>
+          <div className={styles.splitCard}>
+            <div className={styles.splitCardQuestion}>
+              <h2 className={styles.questionTitle}>{t('primaryConcern.title')}</h2>
+              <p className={styles.questionDescription}>{t('primaryConcern.description')}</p>
+            </div>
+
+            <div className={styles.splitCardOptions}>
+              {concerns.map((concern) => (
+                <button
+                  key={concern.key}
+                  onClick={() => handleConcernSelect(concern.value)}
+                  className={styles.splitCardOption}
+                  type="button"
+                >
+                  <span className={styles.optionTitle}>{t(`primaryConcern.options.${concern.key}`)}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Step 0b: Seeking Care For (for Cardiology/Neurology)
+  if (step === 'seekingCareFor') {
+    const maxChars = 300;
+    const charCount = data.seekingCareDescription.length;
+
+    return (
+      <div className={styles.wizardContainer}>
+        <Sidebar activeIndex={0} />
+        <div className={styles.wizardMain}>
+          <button onClick={handleBack} className={styles.wizardBackButton} type="button">
+            <ChevronUp size={24} />
+          </button>
+
+          <div className={styles.splitCard}>
+            <div className={styles.splitCardQuestion}>
+              <h2 className={styles.questionTitle}>{t('seekingCareFor.title')}</h2>
+              <p className={styles.questionDescription}>{t('seekingCareFor.description')}</p>
+            </div>
+
+            <div className={styles.splitCardTextarea}>
+              <div className={styles.charCounter}>{charCount}/{maxChars}</div>
+              <p className={styles.charLimit}>{t('seekingCareFor.charLimit')}</p>
+              <textarea
+                value={data.seekingCareDescription}
+                onChange={(e) => {
+                  if (e.target.value.length <= maxChars) {
+                    setData({ ...data, seekingCareDescription: e.target.value });
+                  }
+                }}
+                className={styles.seekingCareTextarea}
+                rows={6}
+              />
+              <button
+                onClick={() => setStep('location')}
+                className={styles.textareaSubmitButton}
+                type="button"
+                disabled={charCount === 0}
+              >
+                <ChevronDown size={20} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // Step 1: Location (light blue background, different layout)
   if (step === 'location') {
@@ -257,9 +371,6 @@ export function NewPatientForm() {
           <div className={styles.splitCard}>
             <div className={styles.splitCardQuestion}>
               <h2 className={styles.questionTitle}>{t(`${travelKey}.title`)}</h2>
-              <p className={styles.questionDescription}>{t(`${travelKey}.description`)}</p>
-              <p className={styles.questionNote}>{t(`${travelKey}.note`)}</p>
-              <a href="/contact" className={styles.questionLink}>{t(`${travelKey}.getHelp`)}</a>
             </div>
 
             <div className={styles.splitCardOptions}>
@@ -322,7 +433,6 @@ export function NewPatientForm() {
           <div className={styles.splitCard}>
             <div className={styles.splitCardQuestion}>
               <h2 className={styles.questionTitle}>{t(`${recordsKey}.title`)}</h2>
-              <p className={styles.questionDescription}>{t(`${recordsKey}.description`)}</p>
             </div>
 
             <div className={styles.splitCardOptions}>

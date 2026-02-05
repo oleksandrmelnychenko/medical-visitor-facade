@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ChevronLeft } from 'lucide-react';
+import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useWizard } from '../../WizardContext';
-import { EuWizardSidebar } from '../../components/EuWizardSidebar';
+import { WizardStepLayout } from '../../components/WizardStepLayout';
+import formStyles from '@/components/auth/Auth.module.scss';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
 
 export function EuCompanionInfoStep() {
@@ -35,45 +36,47 @@ export function EuCompanionInfoStep() {
   const isValid = firstName.trim() && lastName.trim() && relationship;
 
   return (
-    <div className={styles.euWizardContainer}>
-      <EuWizardSidebar activeStep={0} />
-
-      <div className={styles.euWizardMain}>
-        <button onClick={handleBack} className={styles.euBackLink} type="button">
-          <ChevronLeft size={20} />
-          <span>{t('back')}</span>
-        </button>
-
-        <div className={styles.euWizardContent}>
-          <h1 className={styles.euWizardTitle}>{t('euCompanionInfo.title')}</h1>
-          <p className={styles.euWizardSubtitle}>{t('euCompanionInfo.subtitle')}</p>
-
-          <div className={styles.euFormGroup}>
-            <label className={styles.euFormLabel}>{t('patientInfo.firstName')}</label>
+    <WizardStepLayout
+      title={t('euCompanionInfo.title')}
+      subtitle={t('euCompanionInfo.subtitle')}
+      showStepper={true}
+      activeStepIndex={0}
+      onBack={handleBack}
+      backLabel={t('back')}
+    >
+      <motion.div
+        className={styles.wizardFormContainer}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className={styles.wizardFormGrid}>
+          <div className={formStyles.simpleFormGroup}>
+            <label className={formStyles.label}>{t('patientInfo.firstName')}</label>
             <input
               type="text"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              className={styles.euFormInput}
+              className={formStyles.simpleInput}
             />
           </div>
 
-          <div className={styles.euFormGroup}>
-            <label className={styles.euFormLabel}>{t('patientInfo.lastName')}</label>
+          <div className={formStyles.simpleFormGroup}>
+            <label className={formStyles.label}>{t('patientInfo.lastName')}</label>
             <input
               type="text"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
-              className={styles.euFormInput}
+              className={formStyles.simpleInput}
             />
           </div>
 
-          <div className={styles.euFormGroup}>
-            <label className={styles.euFormLabel}>{t('euCompanionInfo.relationship')}</label>
+          <div className={formStyles.simpleFormGroup}>
+            <label className={formStyles.label}>{t('euCompanionInfo.relationship')}</label>
             <select
               value={relationship}
               onChange={(e) => setRelationship(e.target.value)}
-              className={styles.euFormSelect}
+              className={formStyles.simpleInput}
             >
               <option value="">{t('euCompanionInfo.selectPlaceholder')}</option>
               <option value="child">{t('euCompanionInfo.relationships.child')}</option>
@@ -88,17 +91,17 @@ export function EuCompanionInfoStep() {
               <option value="spouse">{t('euCompanionInfo.relationships.spouse')}</option>
             </select>
           </div>
-
-          <button
-            onClick={handleNext}
-            disabled={!isValid}
-            className={styles.euNextButton}
-            type="button"
-          >
-            {t('continue')}
-          </button>
         </div>
-      </div>
-    </div>
+
+        <button
+          onClick={handleNext}
+          disabled={!isValid}
+          className={formStyles.submitButton}
+          type="button"
+        >
+          {t('continue')}
+        </button>
+      </motion.div>
+    </WizardStepLayout>
   );
 }

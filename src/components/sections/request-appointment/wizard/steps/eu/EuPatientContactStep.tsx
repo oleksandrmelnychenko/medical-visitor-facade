@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ChevronLeft, Plus } from 'lucide-react';
+import { motion } from 'motion/react';
+import { Plus } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useWizard } from '../../WizardContext';
 import { PhoneEntry, PhoneType } from '../../types';
-import { EuWizardSidebar } from '../../components/EuWizardSidebar';
+import { WizardStepLayout } from '../../components/WizardStepLayout';
+import formStyles from '@/components/auth/Auth.module.scss';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
 
 export function EuPatientContactStep() {
@@ -50,34 +52,36 @@ export function EuPatientContactStep() {
   const isValid = email.trim() && phones[0].number.trim();
 
   return (
-    <div className={styles.euWizardContainer}>
-      <EuWizardSidebar activeStep={0} />
-
-      <div className={styles.euWizardMain}>
-        <button onClick={handleBack} className={styles.euBackLink} type="button">
-          <ChevronLeft size={20} />
-          <span>{t('back')}</span>
-        </button>
-
-        <div className={styles.euWizardContent}>
-          <h1 className={styles.euWizardTitle}>{t('euPatientContact.title')}</h1>
-          <p className={styles.euWizardSubtitle}>{t('euPatientContact.subtitle')}</p>
-
-          <div className={styles.euFormGroup}>
-            <label className={styles.euFormLabel}>{t('euPatientContact.email')}</label>
+    <WizardStepLayout
+      title={t('euPatientContact.title')}
+      subtitle={t('euPatientContact.subtitle')}
+      showStepper={true}
+      activeStepIndex={0}
+      onBack={handleBack}
+      backLabel={t('back')}
+    >
+      <motion.div
+        className={styles.wizardFormContainer}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className={styles.wizardFormGrid}>
+          <div className={formStyles.simpleFormGroup}>
+            <label className={formStyles.label}>{t('euPatientContact.email')}</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t('euPatientContact.emailPlaceholder')}
-              className={styles.euFormInput}
+              className={formStyles.simpleInput}
             />
           </div>
 
           {phones.map((phone, index) => (
-            <div key={index} className={styles.euPhoneRow}>
-              <div className={styles.euFormGroup}>
-                <label className={styles.euFormLabel}>
+            <React.Fragment key={index}>
+              <div className={formStyles.simpleFormGroup}>
+                <label className={formStyles.label}>
                   {t('euPatientContact.phone')}
                 </label>
                 <input
@@ -85,45 +89,47 @@ export function EuPatientContactStep() {
                   value={phone.number}
                   onChange={(e) => updatePhone(index, 'number', e.target.value)}
                   placeholder={t('euPatientContact.phonePlaceholder')}
-                  className={styles.euFormInput}
+                  className={formStyles.simpleInput}
                 />
               </div>
-              <div className={styles.euFormGroup}>
-                <label className={styles.euFormLabel}>
+              <div className={formStyles.simpleFormGroup}>
+                <label className={formStyles.label}>
                   {t('euPatientContact.phoneType')}
                 </label>
                 <select
                   value={phone.type}
                   onChange={(e) => updatePhone(index, 'type', e.target.value)}
-                  className={styles.euFormSelect}
+                  className={formStyles.simpleInput}
                 >
                   <option value="mobile">{t('euPatientContact.mobile')}</option>
                   <option value="home">{t('euPatientContact.home')}</option>
                   <option value="work">{t('euPatientContact.work')}</option>
                 </select>
               </div>
-            </div>
+            </React.Fragment>
           ))}
 
-          <button
-            onClick={addPhone}
-            className={styles.euAddLink}
-            type="button"
-          >
-            <Plus size={18} />
-            <span>{t('euPatientContact.addPhone')}</span>
-          </button>
-
-          <button
-            onClick={handleNext}
-            disabled={!isValid}
-            className={styles.euNextButton}
-            type="button"
-          >
-            {t('continue')}
-          </button>
+          <div className={formStyles.simpleFormGroup}>
+            <button
+              onClick={addPhone}
+              className={styles.wizardAddLink}
+              type="button"
+            >
+              <Plus size={18} />
+              <span>{t('euPatientContact.addPhone')}</span>
+            </button>
+          </div>
         </div>
-      </div>
-    </div>
+
+        <button
+          onClick={handleNext}
+          disabled={!isValid}
+          className={formStyles.submitButton}
+          type="button"
+        >
+          {t('continue')}
+        </button>
+      </motion.div>
+    </WizardStepLayout>
   );
 }
