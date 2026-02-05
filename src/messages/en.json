@@ -207,7 +207,7 @@
       "note": "Please note: Applications for complimentary care are reviewed individually based on available capacity and medical necessity. We will contact you within 5-7 business days regarding the status of your application.",
       "applyButton": "Apply for complimentary care"
     },
-    "newMember": {
+    "newPatient": {
       "progress": {
         "location": "Location",
         "patientRole": "Role",
@@ -279,7 +279,7 @@
         "yes": "Yes",
         "no": "No"
       },
-      "travelMember": {
+      "travelPatient": {
         "title": "Are you able and willing to travel to Germany to receive care?",
         "yes": "Yes",
         "no": "No"
@@ -290,7 +290,7 @@
         "no": "No",
         "none": "This member does not have any medical records"
       },
-      "recordsMember": {
+      "recordsPatient": {
         "title": "Are you able to submit your medical records?",
         "yes": "Yes",
         "no": "No",
@@ -308,7 +308,7 @@
         "yes": "Yes",
         "no": "No"
       },
-      "documentsMember": {
+      "documentsPatient": {
         "title": "Do you have the necessary documents required to travel to Germany?",
         "needList": "You will need:",
         "passport": "An active passport.",
@@ -324,7 +324,7 @@
         "title": "Thank you. We are only accepting members who are able to travel to Germany.",
         "button": "Exit the request"
       },
-      "exitNoTravelMember": {
+      "exitNoTravelPatient": {
         "title": "Thank you. We are only accepting members who are able to travel to Germany.",
         "button": "Exit the request"
       },
@@ -333,7 +333,7 @@
         "description": "Medical records help our specialists provide the best possible care for the member's needs.",
         "button": "Exit the request"
       },
-      "exitNoRecordsMember": {
+      "exitNoRecordsPatient": {
         "title": "Thank you. We are only accepting members who are able to submit their medical records.",
         "description": "Medical records help our specialists provide the best possible care for your needs.",
         "button": "Exit the request"
@@ -344,7 +344,7 @@
         "yes": "Yes",
         "no": "No"
       },
-      "visaHelpMember": {
+      "visaHelpPatient": {
         "title": "Do you need help with visa arrangements?",
         "description": "We can assist with visa support if you need to travel to Germany.",
         "yes": "Yes",
@@ -481,7 +481,7 @@
         "postalCode": "Postal code (enter a zero if you do not have one)"
       }
     },
-    "returningMember": {
+    "returningPatient": {
       "title": "Returning member",
       "formPending": "Form in progress...",
       "back": "Back"

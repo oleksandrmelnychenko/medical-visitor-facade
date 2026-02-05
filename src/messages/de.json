@@ -207,7 +207,7 @@
       "note": "Hinweis: Anträge auf kostenfreie Leistungen werden individuell geprüft, abhängig von verfügbaren Kapazitäten und medizinischer Notwendigkeit. Wir melden uns innerhalb von 5-7 Werktagen zum Status Ihrer Anfrage.",
       "applyButton": "Kostenfreie Betreuung beantragen"
     },
-    "newMitglied": {
+    "newPatient": {
       "progress": {
         "location": "Standort",
         "patientRole": "Rolle",
@@ -259,7 +259,7 @@
         "yes": "Ja",
         "no": "Nein"
       },
-      "travelMitglied": {
+      "travelPatient": {
         "title": "Sind Sie in der Lage und bereit, zur Behandlung nach Deutschland zu reisen?",
         "yes": "Ja",
         "no": "Nein"
@@ -270,7 +270,7 @@
         "no": "Nein",
         "none": "Dieser Mitglied hat keine medizinischen Unterlagen"
       },
-      "recordsMitglied": {
+      "recordsPatient": {
         "title": "Können Sie Ihre medizinischen Unterlagen einreichen?",
         "yes": "Ja",
         "no": "Nein",
@@ -288,7 +288,7 @@
         "yes": "Ja",
         "no": "Nein"
       },
-      "documentsMitglied": {
+      "documentsPatient": {
         "title": "Haben Sie die erforderlichen Dokumente für die Reise nach Deutschland?",
         "needList": "Sie benötigen:",
         "passport": "Einen gültigen Reisepass.",
@@ -305,7 +305,7 @@
         "description": "Wenn dieser Mitglied in Zukunft nach Deutschland reisen kann, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
         "button": "Anfrage beenden"
       },
-      "exitNoTravelMitglied": {
+      "exitNoTravelPatient": {
         "title": "Vielen Dank. Wir nehmen derzeit nur Mitglieden an, die nach Deutschland reisen können.",
         "description": "Wenn Sie in Zukunft nach Deutschland reisen können, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
         "button": "Anfrage beenden"
@@ -315,7 +315,7 @@
         "description": "Wenn dieser Mitglied in Zukunft seine Unterlagen einreichen kann, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
         "button": "Anfrage beenden"
       },
-      "exitNoRecordsMitglied": {
+      "exitNoRecordsPatient": {
         "title": "Vielen Dank. Wir nehmen derzeit nur Mitglieden an, die ihre medizinischen Unterlagen einreichen können.",
         "description": "Wenn Sie in Zukunft Ihre Unterlagen einreichen können, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
         "button": "Anfrage beenden"
@@ -326,13 +326,13 @@
         "yes": "Ja, Hilfe benötigt",
         "no": "Nein, Visum vorhanden"
       },
-      "visaHelpMitglied": {
+      "visaHelpPatient": {
         "title": "Benötigen Sie Hilfe bei der Visumbeantragung?",
         "description": "Wir können bei der Visumunterstützung helfen, wenn Sie nach Deutschland reisen müssen.",
         "yes": "Ja, Hilfe benötigt",
         "no": "Nein, Visum vorhanden"
       },
-      "euMitgliedName": {
+      "euPatientName": {
         "title": "Wie lautet der rechtliche Name des Mitglieden?",
         "subtitle": "",
         "middleName": "Zweiter Vorname (optional)",
@@ -438,7 +438,7 @@
         "postalCode": "Postleitzahl (0 eingeben, falls nicht zutreffend)"
       }
     },
-    "returningMitglied": {
+    "returningPatient": {
       "title": "Wiederkehrender Mitglied",
       "formPending": "Formular in Entwicklung...",
       "back": "Zurück"
