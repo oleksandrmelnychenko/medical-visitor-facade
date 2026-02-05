@@ -24,9 +24,9 @@
   opacity: 0.25;
 
   @media (max-width: 768px) {
-    width: 250px;
-    height: 250px;
-    filter: blur(120px);
-    opacity: 0.2;
+    width: 300px;
+    height: 300px;
+    filter: blur(200px);
+    opacity: 0.15;
   }
 }
