@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
@@ -42,6 +43,14 @@ function FloatingBlob({
 
 export function Hero() {
   const t = useTranslations('home.hero');
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   return (
     <section className={cn(sectionStyles.section, styles.hero)}>
@@ -53,8 +62,12 @@ export function Hero() {
           muted
           loop
           playsInline
+          key={isMobile ? 'mobile' : 'desktop'}
         >
-          <source src="/hero_web.mp4" type="video/mp4" />
+          <source
+            src={isMobile ? "/hero_mobile.mp4" : "/hero_web.mp4"}
+            type="video/mp4"
+          />
         </video>
         <div className={styles.videoOverlay} />
       </div>
