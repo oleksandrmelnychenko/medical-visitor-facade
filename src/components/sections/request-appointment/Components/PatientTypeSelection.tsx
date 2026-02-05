@@ -35,14 +35,10 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
         transition={{ duration: 0.3 }}
       >
         {/* New Client Card - redirects to register */}
-        <motion.div
+        <div
           onClick={() => handleNavigate('/register')}
           className={styles.clientCard}
           style={{ '--hover-color': '#E5D5A8' } as React.CSSProperties}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
         >
           <div className={styles.clientCardContent}>
             <h3 className={styles.clientCardTitle}>
@@ -53,17 +49,13 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
             </p>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
-        </motion.div>
+        </div>
 
         {/* Returning Client Card - redirects to login */}
-        <motion.div
+        <div
           onClick={() => handleNavigate('/login')}
           className={styles.clientCard}
           style={{ '--hover-color': '#A8D5E5' } as React.CSSProperties}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.1 }}
         >
           <div className={styles.clientCardContent}>
             <h3 className={styles.clientCardTitle}>
@@ -74,7 +66,7 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
             </p>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
-        </motion.div>
+        </div>
 
       </motion.div>
     </div>
