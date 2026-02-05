@@ -42,6 +42,8 @@
   inset: 0;
   overflow: hidden;
   z-index: 0;
+  // Mobile fallback background
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
 }
 
 .heroVideo {
@@ -54,6 +56,26 @@
   height: auto;
   transform: translate(-50%, -50%);
   object-fit: cover;
+
+  // Hide video on mobile to improve performance
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.heroPoster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+
+  // Show poster image on mobile instead of video
+  @media (max-width: 768px) {
+    display: block;
+  }
 }
 
 .videoOverlay {
