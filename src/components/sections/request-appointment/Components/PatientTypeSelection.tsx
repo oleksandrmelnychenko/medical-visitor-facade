@@ -1,12 +1,18 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { motion } from 'motion/react';
 import { ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import styles from '../RequestAppointment/RequestAppointment.module.scss';
 import { PatientType } from '../RequestAppointment';
+
+// Static style objects to prevent recreation on each render
+const CARD_STYLES = {
+  new: { '--hover-color': '#E5D5A8' } as React.CSSProperties,
+  returning: { '--hover-color': '#A8D5E5' } as React.CSSProperties,
+};
 
 interface PatientTypeSelectionProps {
   onSelect: (type: PatientType) => void;
@@ -16,13 +22,18 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
   const t = useTranslations('appointment');
   const router = useRouter();
   const [isExiting, setIsExiting] = useState(false);
+  const isNavigatingRef = useRef(false);
 
-  const handleNavigate = (path: string) => {
+  const handleNavigate = useCallback((path: string) => {
+    // Prevent double-clicks
+    if (isNavigatingRef.current || isExiting) return;
+    isNavigatingRef.current = true;
+
     setIsExiting(true);
     setTimeout(() => {
       router.push(path);
     }, 300);
-  };
+  }, [router, isExiting]);
 
   return (
     <div className={styles.applyStack}>
@@ -38,7 +49,7 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
         <div
           onClick={() => handleNavigate('/register')}
           className={styles.clientCard}
-          style={{ '--hover-color': '#E5D5A8' } as React.CSSProperties}
+          style={CARD_STYLES.new}
         >
           <div className={styles.clientCardContent}>
             <h3 className={styles.clientCardTitle}>
@@ -55,7 +66,7 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
         <div
           onClick={() => handleNavigate('/login')}
           className={styles.clientCard}
-          style={{ '--hover-color': '#A8D5E5' } as React.CSSProperties}
+          style={CARD_STYLES.returning}
         >
           <div className={styles.clientCardContent}>
             <h3 className={styles.clientCardTitle}>

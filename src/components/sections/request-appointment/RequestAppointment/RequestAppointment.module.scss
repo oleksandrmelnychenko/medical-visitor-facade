@@ -1271,13 +1271,11 @@
 }
 
 // Subtle grid background - only for this component
-// Background image is now applied to body via globals.scss when transparent-header-mode is active
 .gridBackground {
   position: relative;
   min-height: calc(100vh - 80px);
   overflow: hidden;
-  background-color: transparent !important;
-  background: transparent !important;
+  background: transparent;
 
   section {
     background: transparent !important;

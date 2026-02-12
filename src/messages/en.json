@@ -39,15 +39,15 @@
   },
   "footer": {
     "impressum": "Legal information",
-    "companyName": "Member Care Agency",
+    "companyName": "Medical Concierge Agency",
     "contact": "Contact",
     "vatTitle": "VAT identification number",
     "vatLegal": "in accordance with § 27 a of the VAT Act:",
     "vatNumber": "147/220/51409",
     "contactPrompt": "For questions and suggestions about the site content, please email:",
-    "copyright": "© {year} Member Care Agency",
+    "copyright": "© {year} Medical Concierge Agency",
     "allRightsReserved": "All rights reserved",
-    "financialAssistance": "Financial assistance",
+    "financialAssistance": "Pro bono",
     "privacyPolicy": "Privacy policy",
     "headquarters": "Office",
     "address": "81735 Munich, Germany",
@@ -57,6 +57,9 @@
     "hero": {
       "overline": "",
       "title": "Medical Concierge Agency",
+      "titlePart1": "Medical",
+      "titleAccent": "Concierge",
+      "titlePart2": "Agency",
       "subtitle": "Excellence in medical care",
       "requestAppointment": "Become a Member"
     },
@@ -200,7 +203,7 @@
     },
     "freeService": {
       "title": "Need financial assistance?",
-      "description1": "We understand that medical care can be financially challenging. The Member Care Agency offers a limited program for members who need help with medical expenses.",
+      "description1": "We understand that medical care can be financially challenging. The Medical Concierge Agency offers a limited program for members who need help with medical expenses.",
       "description2": "Our team carefully reviews each application and provides support when resources allow.",
       "priority": "Priority cases:",
       "priorityText": "We prioritize cases involving children, urgent medical situations, and members in exceptional circumstances.",
@@ -898,7 +901,7 @@
       "title": "Questions or complaints?",
       "description": "If you have questions about this notice or wish to file a complaint about our privacy practices, please contact:",
       "privacyOfficer": "Privacy officer",
-      "organization": "Gmed Member Care Agency",
+      "organization": "Gmed Medical Concierge Agency",
       "contact": "Contact the officer"
     }
   },

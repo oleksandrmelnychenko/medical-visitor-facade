@@ -105,10 +105,27 @@ body.transparent-header-mode {
     background-color: transparent !important;
     background: transparent !important;
   }
+}
 
-  // Hide the default HomeBackground (grid, blobs, decorations)
-  [data-home-background] {
-    display: none !important;
+// Apply page background
+body.apply-page-bg {
+  background-image: url('/images/bg.png');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+    z-index: 0;
   }
 }
 

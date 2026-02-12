@@ -39,15 +39,15 @@
   },
   "footer": {
     "impressum": "Юридическая информация",
-    "companyName": "Агентство по уходу за участниками",
+    "companyName": "Медицинское консьерж-агентство",
     "contact": "Контакты",
     "vatTitle": "Идентификационный номер НДС",
     "vatLegal": "согласно § 27 a Закона о налоге с оборота:",
     "vatNumber": "147/220/51409",
     "contactPrompt": "По вопросам и предложениям относительно содержания сайта, пожалуйста, отправьте нам электронное письмо на адрес:",
-    "copyright": "© {year} Patient Care Agency",
+    "copyright": "© {year} Медицинское консьерж-агентство",
     "allRightsReserved": "Все права защищены",
-    "financialAssistance": "Финансовая помощь",
+    "financialAssistance": "Pro bono",
     "privacyPolicy": "Политика конфиденциальности",
     "headquarters": "Офис",
     "address": "81735 Мюнхен, Германия",
@@ -57,6 +57,9 @@
     "hero": {
       "overline": "",
       "title": "Медицинское консьерж-агентство",
+      "titlePart1": "Медицинское",
+      "titleAccent": "консьерж",
+      "titlePart2": "агентство",
       "subtitle": "Превосходство в медицинской помощи",
       "requestAppointment": "Подать заявку"
     },

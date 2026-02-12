@@ -7,11 +7,12 @@ import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./Office.module.scss";
 
-// Static arrays moved outside component to prevent recreation on each render
+// Static styles moved outside component to prevent recreation on each render
+const MUNICH_STYLE = { backgroundColor: '#fcfbf7' };
 const OTHER_CITIES = [
-  { key: 'berlin', image: '/assets/1_city-berlin.png', bg: '#f7f9fb' },    // very light blue
-  { key: 'hamburg', image: '/assets/1_city-hamburg.png', bg: '#fcf8f6' },  // very light coral
-  { key: 'cologne', image: '/assets/1_city-cologne.png', bg: '#f9f7fb' },  // very light purple
+  { key: 'berlin', image: '/assets/1_city-berlin.png', style: { backgroundColor: '#f7f9fb' } },
+  { key: 'hamburg', image: '/assets/1_city-hamburg.png', style: { backgroundColor: '#fcf8f6' } },
+  { key: 'cologne', image: '/assets/1_city-cologne.png', style: { backgroundColor: '#f9f7fb' } },
 ];
 
 export const Office = memo(function Office() {
@@ -32,7 +33,7 @@ export const Office = memo(function Office() {
         {/* Cities Grid */}
         <div className={styles.citiesGrid} ref={gridRef}>
           {/* Munich - Main City */}
-          <div className={styles.mainCity} style={{ backgroundColor: '#fcfbf7' }}>
+          <div className={styles.mainCity} style={MUNICH_STYLE}>
             <div className={styles.mainCityContent}>
               <h3 className={styles.mainCityName}>{t('cities.munich.name')}</h3>
             </div>
@@ -47,7 +48,7 @@ export const Office = memo(function Office() {
 
           {/* Other Cities */}
           {OTHER_CITIES.map((city, index) => (
-            <div key={city.key} className={styles.cityCard} style={{ backgroundColor: city.bg }}>
+            <div key={city.key} className={styles.cityCard} style={city.style}>
               <div className={styles.cityImageWrapper}>
                 <img
                   src={city.image}

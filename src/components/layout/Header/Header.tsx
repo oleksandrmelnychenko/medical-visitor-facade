@@ -39,7 +39,7 @@ export function Header() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 50);
+          setIsScrolled(window.scrollY > 150);
           ticking = false;
         });
         ticking = true;
@@ -111,9 +111,51 @@ export function Header() {
   };
 
   return (
-    <header ref={headerRef} className={cn(styles.header, isScrolled && styles.scrolled)} style={{ position: 'relative' }}>
-      <div className={styles.container} style={{ position: 'relative' }}>
-        {/* Mobile hamburger button */}
+    <>
+      {/* Sticky Header - appears on scroll */}
+      <div className={cn(styles.stickyHeader, isScrolled && styles.visible)}>
+        <div className={styles.stickyContainer}>
+          <Link href="/" className={styles.stickyLogoLink}>
+            <Image
+              src="/assets/logo.png"
+              alt="Medical Concierge Agency"
+              width={120}
+              height={32}
+              className={styles.stickyLogo}
+            />
+          </Link>
+          <div className={styles.stickyActions}>
+            <Link href="/apply" className={styles.stickyButton}>
+              {tCommon('requestAppointment')}
+              <ArrowRight size={16} />
+            </Link>
+            {status !== "authenticated" && (
+              <Link href="/login" className={styles.stickyLoginLink}>
+                <User size={18} aria-hidden="true" />
+                {tCommon('login')}
+              </Link>
+            )}
+            {status === "authenticated" && (
+              <Link href={isAdmin ? "/admin" : "/account"} className={styles.stickyLoginLink}>
+                <User size={18} aria-hidden="true" />
+                {userName}
+              </Link>
+            )}
+            <button
+              className={styles.stickyLangToggle}
+              onClick={() => setIsLangOpen(!isLangOpen)}
+              aria-label={tCommon('selectLanguage')}
+            >
+              {currentLanguage?.label}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Header */}
+      <header ref={headerRef} className={styles.header} style={{ position: 'relative' }}>
+        <div className={styles.container} style={{ position: 'relative' }}>
+          {/* Mobile hamburger button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
@@ -147,18 +189,6 @@ export function Header() {
             )}
 
             <div className={styles.utilityItems}>
-              {status !== "authenticated" && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
-                  <Link href="/apply" className={styles.appointmentLink}>
-                    {tCommon('requestAppointment')}
-                  </Link>
-                  <Link href="/login" className={styles.loginLink}>
-                    <User aria-hidden="true" />
-                    {tCommon('login')}
-                  </Link>
-                </div>
-              )}
-
               <div className={styles.languageSelector} ref={langRef}>
                 <button
                   className={styles.langToggle}
@@ -219,7 +249,7 @@ export function Header() {
         <div className={styles.logoRow}>
           <Link href="/" className={styles.logoLink}>
             <Image
-              src="/assets/dfb83cb5936b44ca2202c18d197b3196619183a4.png"
+              src="/assets/logo.png"
               alt="Agency for Patient Care"
               width={200}
               height={54}
@@ -357,6 +387,7 @@ export function Header() {
               )}
             </div>
           </div>
-    </header>
+      </header>
+    </>
   );
 }

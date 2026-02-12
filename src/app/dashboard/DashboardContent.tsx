@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import { signOut } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -74,11 +74,11 @@ export function DashboardContent({ user }: DashboardContentProps) {
     }
   };
 
-  const handleSignOut = () => {
+  const handleSignOut = useCallback(() => {
     signOut({ callbackUrl: "/login" });
-  };
+  }, []);
 
-  const getInitials = (name: string | null | undefined, email: string | null | undefined) => {
+  const getInitials = useCallback((name: string | null | undefined, email: string | null | undefined) => {
     if (name) {
       return name.split(" ").map((n) => n[0]).join("").toUpperCase().slice(0, 2);
     }
@@ -86,9 +86,9 @@ export function DashboardContent({ user }: DashboardContentProps) {
       return email[0].toUpperCase();
     }
     return "U";
-  };
+  }, []);
 
-  const formatDate = (dateString: string) => {
+  const formatDate = useCallback((dateString: string) => {
     const date = new Date(dateString);
     const now = new Date();
     const diff = now.getTime() - date.getTime();
@@ -102,20 +102,20 @@ export function DashboardContent({ user }: DashboardContentProps) {
       day: "2-digit",
       month: "2-digit",
     });
-  };
+  }, []);
 
-  const today = new Date().toLocaleDateString("ru-RU", {
+  const today = useMemo(() => new Date().toLocaleDateString("ru-RU", {
     weekday: "long",
     day: "numeric",
     month: "long",
-  });
+  }), []);
 
-  const stats = {
+  const stats = useMemo(() => ({
     total: applications.length,
     new: applications.filter((a) => a.status === "NEW").length,
     inProgress: applications.filter((a) => ["IN_REVIEW", "CONTACTED", "IN_PROGRESS"].includes(a.status)).length,
     completed: applications.filter((a) => a.status === "COMPLETED").length,
-  };
+  }), [applications]);
 
   if (loading) {
     return (

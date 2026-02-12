@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
@@ -9,23 +9,35 @@ import { PatientRoleType } from '../../types';
 import { WizardStepLayout } from '../../components/WizardStepLayout';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
 
+// Static style objects to prevent recreation on each render
+const CARD_STYLES = {
+  patient: { '--hover-color': '#E5D5A8' } as React.CSSProperties,
+  companion: { '--hover-color': '#A8D5E5' } as React.CSSProperties,
+};
+
 export function EuPatientRoleStep() {
   const t = useTranslations('appointment.newPatient');
   const router = useRouter();
   const { updateData } = useWizard();
+  const isNavigatingRef = useRef(false);
 
-  const handleSelect = (role: PatientRoleType) => {
+  const handleSelect = useCallback((role: PatientRoleType) => {
+    if (isNavigatingRef.current) return;
+    isNavigatingRef.current = true;
+
     updateData({ patientRole: role });
     if (role === 'patient') {
       router.push('/register/eu/step/form');
     } else {
       router.push('/register/eu/step/companion');
     }
-  };
+  }, [updateData, router]);
 
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
+    if (isNavigatingRef.current) return;
+    isNavigatingRef.current = true;
     router.push('/register');
-  };
+  }, [router]);
 
   return (
     <WizardStepLayout
@@ -39,7 +51,7 @@ export function EuPatientRoleStep() {
         <div
           onClick={() => handleSelect('patient')}
           className={styles.clientCard}
-          style={{ '--hover-color': '#E5D5A8' } as React.CSSProperties}
+          style={CARD_STYLES.patient}
         >
           <div className={styles.clientCardContent}>
             <h3 className={styles.clientCardTitle}>
@@ -55,7 +67,7 @@ export function EuPatientRoleStep() {
         <div
           onClick={() => handleSelect('companion')}
           className={styles.clientCard}
-          style={{ '--hover-color': '#A8D5E5' } as React.CSSProperties}
+          style={CARD_STYLES.companion}
         >
           <div className={styles.clientCardContent}>
             <h3 className={styles.clientCardTitle}>

@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useCallback, useRef, useMemo } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
@@ -8,6 +8,12 @@ import { useWizard } from '../WizardContext';
 import { YesNoType } from '../types';
 import { WizardStepLayout } from '../components/WizardStepLayout';
 import styles from '../../RequestAppointment/RequestAppointment.module.scss';
+
+// Static style objects to prevent recreation on each render
+const CARD_STYLES = {
+  yes: { '--hover-color': '#E5D5A8' } as React.CSSProperties,
+  no: { '--hover-color': '#A8D5E5' } as React.CSSProperties,
+};
 
 interface TravelDocumentsStepProps {
   wizardPath: 'eu' | 'outside-eu';
@@ -17,17 +23,26 @@ export function TravelDocumentsStep({ wizardPath }: TravelDocumentsStepProps) {
   const t = useTranslations('appointment.newPatient');
   const router = useRouter();
   const { data, updateData } = useWizard();
+  const isNavigatingRef = useRef(false);
 
-  const documentsKey = data.patientRole === 'patient' ? 'documentsPatient' : 'documentsCompanion';
+  const documentsKey = useMemo(
+    () => data.patientRole === 'patient' ? 'documentsPatient' : 'documentsCompanion',
+    [data.patientRole]
+  );
 
-  const handleSelect = (value: YesNoType) => {
+  const handleSelect = useCallback((value: YesNoType) => {
+    if (isNavigatingRef.current) return;
+    isNavigatingRef.current = true;
+
     updateData({ hasTravelDocuments: value });
     router.push(`/register/${wizardPath}/step/info`);
-  };
+  }, [updateData, router, wizardPath]);
 
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
+    if (isNavigatingRef.current) return;
+    isNavigatingRef.current = true;
     router.push(`/register/${wizardPath}/step/records`);
-  };
+  }, [router, wizardPath]);
 
   return (
     <WizardStepLayout
@@ -41,7 +56,7 @@ export function TravelDocumentsStep({ wizardPath }: TravelDocumentsStepProps) {
         <div
           onClick={() => handleSelect('yes')}
           className={styles.clientCard}
-          style={{ '--hover-color': '#E5D5A8' } as React.CSSProperties}
+          style={CARD_STYLES.yes}
         >
           <div className={styles.clientCardContent}>
             <h3 className={styles.clientCardTitle}>
@@ -54,7 +69,7 @@ export function TravelDocumentsStep({ wizardPath }: TravelDocumentsStepProps) {
         <div
           onClick={() => handleSelect('no')}
           className={styles.clientCard}
-          style={{ '--hover-color': '#A8D5E5' } as React.CSSProperties}
+          style={CARD_STYLES.no}
         >
           <div className={styles.clientCardContent}>
             <h3 className={styles.clientCardTitle}>

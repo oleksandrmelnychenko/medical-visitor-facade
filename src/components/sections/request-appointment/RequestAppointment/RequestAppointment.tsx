@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
@@ -18,6 +18,13 @@ export type PatientType = "new" | "returning" | "physician" | null;
 export function RequestAppointment() {
   const t = useTranslations('appointment');
   const [selectedType, setSelectedType] = useState<PatientType>(null);
+
+  useEffect(() => {
+    document.body.classList.add('transparent-header-mode', 'apply-page-bg');
+    return () => {
+      document.body.classList.remove('transparent-header-mode', 'apply-page-bg');
+    };
+  }, []);
 
   const handleCardClick = (type: PatientType) => {
     setSelectedType(type);

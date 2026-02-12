@@ -1,8 +1,8 @@
 @use '../../../styles/variables' as *;
 
 .footer {
-  background-color: #2d2d32;
-  color: #d1d5db;
+  background-color: #f7f9fb;
+  color: #2d2d32;
   position: relative;
   z-index: 10;
 }
@@ -17,24 +17,25 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  
+
   @media (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 .sectionTitle {
-  color: #9ca3af; // gray-400
+  color: #717182;
   margin-bottom: 1rem;
   font-weight: 600;
   font-size: 0.75rem;
   text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .textSmall {
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: white;
+  color: #2d2d32;
   font-weight: 400;
   letter-spacing: normal;
 }
@@ -51,22 +52,22 @@
   gap: 0.5rem;
 
   a {
-    color: white;
-    font-weight: 400;
-    text-decoration: underline;
+    color: #2d2d32;
+    font-weight: 500;
+    text-decoration: none;
     transition: color 0.15s;
     &:hover {
-      color: #60a5fa; // blue-400
+      color: #3b82f6;
     }
   }
 }
 
 .bottomBar {
-  border-top: 1px solid #1f2937; // gray-800
+  border-top: 1px solid #e5e7eb;
   margin-top: 2rem;
   padding-top: 1.5rem;
   text-align: center;
   font-size: 0.875rem;
-  color: white;
+  color: #717182;
   font-weight: 400;
 }

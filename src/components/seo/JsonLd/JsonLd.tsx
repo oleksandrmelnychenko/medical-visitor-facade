@@ -6,7 +6,7 @@ export function OrganizationJsonLd() {
     name: "GMED Agency",
     description: "Premium medical concierge service in Germany. Treatment organization, clinic selection, and end-to-end patient support.",
     url: "https://gmed.agency",
-    logo: "https://gmed.agency/assets/dfb83cb5936b44ca2202c18d197b3196619183a4.png",
+    logo: "https://gmed.agency/assets/logo.png",
     image: "https://gmed.agency/og-image.png",
     email: "contact@gmed-health.com",
     address: {

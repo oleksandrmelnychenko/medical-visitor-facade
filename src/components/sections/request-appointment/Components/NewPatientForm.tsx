@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo, memo } from 'react';
 import { ChevronRight, ChevronUp, ChevronDown, ArrowLeft } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
@@ -51,6 +51,42 @@ const PROGRESS_STEPS = [
   { key: 'wrapUp', label: 'Wrap Up' },
 ];
 
+// Sidebar components extracted outside to prevent remounting on every render
+const Sidebar = memo(({ activeIndex }: { activeIndex: number }) => (
+  <div className={styles.wizardSidebar}>
+    {PROGRESS_STEPS.map((s, index) => (
+      <div
+        key={s.key}
+        className={cn(
+          styles.sidebarStep,
+          index === activeIndex && styles.sidebarStepActive,
+          index < activeIndex && styles.sidebarStepComplete
+        )}
+      >
+        {s.label}
+      </div>
+    ))}
+  </div>
+));
+Sidebar.displayName = 'Sidebar';
+
+const IntroSidebar = memo(({ activeIndex }: { activeIndex: number }) => (
+  <div className={styles.introSidebar}>
+    {PROGRESS_STEPS.map((s, index) => (
+      <div
+        key={s.key}
+        className={cn(
+          styles.introSidebarStep,
+          index <= activeIndex && styles.introSidebarStepActive
+        )}
+      >
+        {s.label}
+      </div>
+    ))}
+  </div>
+));
+IntroSidebar.displayName = 'IntroSidebar';
+
 export function NewPatientForm() {
   const t = useTranslations('appointment.newPatient');
   const [step, setStep] = useState<WizardStep>('primaryConcern');
@@ -72,16 +108,12 @@ export function NewPatientForm() {
   });
 
   // Get translation key suffix based on patient role
-  const getRoleSuffix = () => data.patientRole === 'patient' ? 'Patient' : 'Companion';
+  const getRoleSuffix = useCallback(
+    () => data.patientRole === 'patient' ? 'Patient' : 'Companion',
+    [data.patientRole]
+  );
 
-  const getCurrentProgressIndex = () => {
-    if (['primaryConcern', 'seekingCareFor', 'location', 'patientRole'].includes(step)) return 0;
-    if (['travelReady', 'medicalRecords', 'travelDocuments'].includes(step)) return 1;
-    if (['patientInfoIntro', 'patientInfoForm'].includes(step)) return 2;
-    return 0;
-  };
-
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
     switch (step) {
       case 'seekingCareFor':
         setStep('primaryConcern');
@@ -123,46 +155,11 @@ export function NewPatientForm() {
         setStep('medicalRecords');
         break;
     }
-  };
+  }, [step, data.primaryConcern, data.hasMedicalRecords]);
 
-  const handleExit = () => {
+  const handleExit = useCallback(() => {
     window.location.href = '/';
-  };
-
-  // Sidebar component
-  const Sidebar = ({ activeIndex }: { activeIndex: number }) => (
-    <div className={styles.wizardSidebar}>
-      {PROGRESS_STEPS.map((s, index) => (
-        <div
-          key={s.key}
-          className={cn(
-            styles.sidebarStep,
-            index === activeIndex && styles.sidebarStepActive,
-            index < activeIndex && styles.sidebarStepComplete
-          )}
-        >
-          {s.label}
-        </div>
-      ))}
-    </div>
-  );
-
-  // Blue sidebar for intro screens
-  const IntroSidebar = ({ activeIndex }: { activeIndex: number }) => (
-    <div className={styles.introSidebar}>
-      {PROGRESS_STEPS.map((s, index) => (
-        <div
-          key={s.key}
-          className={cn(
-            styles.introSidebarStep,
-            index <= activeIndex && styles.introSidebarStepActive
-          )}
-        >
-          {s.label}
-        </div>
-      ))}
-    </div>
-  );
+  }, []);
 
   // Step 0: Primary Concern (first step)
   if (step === 'primaryConcern') {

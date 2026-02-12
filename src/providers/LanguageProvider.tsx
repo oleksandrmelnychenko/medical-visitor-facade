@@ -42,15 +42,31 @@ export function LanguageProvider({
   };
 
   useEffect(() => {
+    let cancelled = false;
+
     const savedLocale = document.cookie
       .split('; ')
       .find(row => row.startsWith('locale='))
       ?.split('=')[1] as Locale | undefined;
 
     if (savedLocale && savedLocale !== locale) {
-      setLocale(savedLocale);
+      // Async import with cancellation check
+      (async () => {
+        try {
+          const newMessages = await import(`../messages/${savedLocale}.json`);
+          if (!cancelled) {
+            setMessages(newMessages.default);
+            setLocaleState(savedLocale);
+            document.cookie = `locale=${savedLocale};path=/;max-age=31536000`;
+          }
+        } catch (error) {
+          console.error('Failed to load locale:', error);
+        }
+      })();
     }
-  }, []);
+
+    return () => { cancelled = true; };
+  }, [locale]);
 
   return (
     <LanguageContext.Provider value={{ locale, setLocale }}>

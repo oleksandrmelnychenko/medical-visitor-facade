@@ -39,15 +39,15 @@
   },
   "footer": {
     "impressum": "Rechtliche Hinweise",
-    "companyName": "Agentur für Mitgliedenbetreuung",
+    "companyName": "Medizinische Concierge-Agentur",
     "contact": "Kontakt",
     "vatTitle": "USt-IdNr.",
     "vatLegal": "gemäß § 27 a UStG:",
     "vatNumber": "147/220/51409",
     "contactPrompt": "Bei Fragen und Anregungen zum Inhalt dieser Website schreiben Sie bitte an:",
-    "copyright": "© {year} Mitglied Care Agency",
+    "copyright": "© {year} Medizinische Concierge-Agentur",
     "allRightsReserved": "Alle Rechte vorbehalten",
-    "financialAssistance": "Finanzielle Unterstützung",
+    "financialAssistance": "Pro bono",
     "privacyPolicy": "Datenschutzerklärung",
     "headquarters": "Büro",
     "address": "81735 München, Deutschland",
@@ -57,6 +57,9 @@
     "hero": {
       "overline": "",
       "title": "Medizinische Concierge-Agentur",
+      "titlePart1": "Medizinische",
+      "titleAccent": "Concierge",
+      "titlePart2": "Agentur",
       "subtitle": "Exzellenz in der medizinischen Versorgung",
       "requestAppointment": "Kunde werden"
     },

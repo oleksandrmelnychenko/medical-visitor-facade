@@ -19,6 +19,8 @@ const SUPPORT_SERVICES = [
   { icon: Video, key: 'consultations' },
 ];
 
+const SUPPORT_BLOCK_STYLE = { '--hover-color': '#D5A8E5' } as React.CSSProperties;
+
 export const CareForward = memo(function CareForward() {
   const t = useTranslations('home.careForward');
   const tCta = useTranslations('home.cta');
@@ -68,7 +70,7 @@ export const CareForward = memo(function CareForward() {
           {/* 4th block - Сопровождение with hover sub-services */}
           <motion.div
             className={styles.serviceItem}
-            style={{ '--hover-color': '#D5A8E5' } as React.CSSProperties}
+            style={SUPPORT_BLOCK_STYLE}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
