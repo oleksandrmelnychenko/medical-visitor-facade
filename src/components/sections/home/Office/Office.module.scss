@@ -49,33 +49,88 @@
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   aspect-ratio: 3 / 1.4;
-  background-color: var(--background);
-  border: 1px solid #222;
+  border-radius: 16px;
   position: relative;
+  overflow: hidden;
+  padding: 1.5rem 2rem;
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border: 1px solid var(--hover-color);
-    pointer-events: none;
-    clip-path: inset(0 100% 0 0);
-    transition: clip-path 0.15s ease-out;
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+    .cityImageMunich {
+      transform: scale(1.08);
+    }
   }
+}
 
-  &:hover::before {
+.mainCityImageWrapper {
+  height: calc(100% - 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.cityImageMunich {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+// Smooth brush stroke paint animation - from top-left corner
+@keyframes brushReveal {
+  0% {
+    clip-path: inset(0 100% 100% 0);
+    opacity: 0;
+  }
+  100% {
     clip-path: inset(0 0 0 0);
+    opacity: 1;
   }
+}
+
+.brushPaint {
+  clip-path: inset(0 100% 100% 0);
+  opacity: 0;
+}
+
+.brushPaintActive {
+  animation: brushReveal 1s ease-out forwards;
 }
 
 .mainCityContent {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+.cityImageWrapper {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.cityImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
 }
 
 .mainCityName {
@@ -86,34 +141,26 @@
   text-transform: uppercase;
 }
 
-.mainCityAddress {
-  font-size: 0.875rem;
-  color: var(--muted-foreground);
-  letter-spacing: 0.02em;
-}
-
 .cityCard {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  aspect-ratio: 1;
-  background-color: var(--background);
-  border: 1px solid #222;
+  justify-content: flex-start;
+  border-radius: 16px;
   position: relative;
+  overflow: hidden;
+  padding: 1.5rem;
+  gap: 1rem;
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border: 1px solid var(--hover-color);
-    pointer-events: none;
-    clip-path: inset(0 100% 0 0);
-    transition: clip-path 0.15s ease-out;
-  }
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 
-  &:hover::before {
-    clip-path: inset(0 0 0 0);
+    .cityImage {
+      transform: scale(1.12);
+    }
   }
 }
 
@@ -151,10 +198,24 @@
 
   .mainCity {
     aspect-ratio: 2 / 1;
+    padding: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .mainCityContent {
+    flex: none;
+  }
+
+  .mainCityImageWrapper {
+    height: auto;
+    max-height: 60%;
   }
 
   .cityCard {
-    aspect-ratio: 1.2;
+    padding: 1rem;
+    gap: 0.75rem;
   }
 
   .closingLines {

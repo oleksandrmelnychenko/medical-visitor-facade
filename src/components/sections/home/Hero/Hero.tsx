@@ -1,68 +1,32 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { ArrowRight, Mouse } from "lucide-react";
+import { Mouse, User, UserPlus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./Hero.module.scss";
 
 export function Hero() {
   const t = useTranslations('home.hero');
-  const desktopVideoRef = useRef<HTMLVideoElement>(null);
-  const mobileVideoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    // Safari needs explicit play() call for autoplay to work reliably
-    const playVideos = () => {
-      desktopVideoRef.current?.play().catch(() => {});
-      mobileVideoRef.current?.play().catch(() => {});
-    };
-
-    playVideos();
-
-    // Also try on user interaction for stricter browsers
-    document.addEventListener('touchstart', playVideos, { once: true });
-    document.addEventListener('click', playVideos, { once: true });
-
-    return () => {
-      document.removeEventListener('touchstart', playVideos);
-      document.removeEventListener('click', playVideos);
-    };
-  }, []);
+  const tCommon = useTranslations('common');
 
   return (
     <section className={cn(sectionStyles.section, styles.hero)}>
-      {/* Video background - CSS handles which video is visible */}
+      {/* Background Video */}
       <div className={styles.videoContainer}>
-        {/* Desktop video */}
         <video
-          ref={desktopVideoRef}
-          className={cn(styles.heroVideo, styles.desktopVideo)}
+          className={styles.heroVideo}
           autoPlay
           muted
           loop
           playsInline
-          preload="auto"
         >
-          <source src="/hero_web.mp4" type="video/mp4; codecs=avc1.42E01E" />
+          <source src="/assets/hero_hd.mp4" type="video/mp4" />
         </video>
-        {/* Mobile video */}
-        <video
-          ref={mobileVideoRef}
-          className={cn(styles.heroVideo, styles.mobileVideo)}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-        >
-          <source src="/hero_mobile.mp4" type="video/mp4; codecs=avc1.42E01E" />
-        </video>
-        <div className={styles.videoOverlay} />
       </div>
+
       <div className={cn(sectionStyles.container, styles.heroContainer)}>
         <div className={styles.heroWrapper}>
           <div className={styles.heroContent}>
@@ -72,7 +36,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
             >
-              {t('title')}
+              {t('titlePart1')} <span className={styles.heroTitleAccent}>{t('titleAccent')}</span> {t('titlePart2')}
             </motion.h1>
 
             <motion.div
@@ -87,10 +51,22 @@ export function Hero() {
                   className={styles.primaryButton}
                   whileHover={{ scale: 0.96 }}
                   whileTap={{ scale: 0.94 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  transition={{ duration: 0.15, ease: "easeOut" }}
                 >
+                  <UserPlus className={styles.buttonArrow} />
                   {t('requestAppointment')}
-                  <ArrowRight className={styles.buttonArrow} />
+                </motion.button>
+              </Link>
+              <Link href="/login">
+                <motion.button
+                  type="button"
+                  className={styles.secondaryButton}
+                  whileHover={{ scale: 0.96 }}
+                  whileTap={{ scale: 0.94 }}
+                  transition={{ duration: 0.15, ease: "easeOut" }}
+                >
+                  <User className={styles.buttonIcon} />
+                  {tCommon('login')}
                 </motion.button>
               </Link>
             </motion.div>

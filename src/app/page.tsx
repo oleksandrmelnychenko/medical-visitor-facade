@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Hero, FullSupport, CareForward, Office, CTA } from "@/components/sections/home";
+import { Hero, FullSupport, CareForward, Office } from "@/components/sections/home";
 import { getAlternateLanguages } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -15,7 +15,6 @@ export default function Home() {
       <FullSupport />
       <CareForward />
       <Office />
-      <CTA />
     </main>
   );
 }

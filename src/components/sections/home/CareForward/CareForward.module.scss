@@ -12,7 +12,7 @@
   font-family: 'Playfair Display', serif;
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 500;
-  color: #1a1a1a;
+  color: #2d2d32;
   margin-bottom: clamp(3rem, 6vw, 4rem);
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -22,19 +22,16 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
 
-  @include up(md) {
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+  @include up(sm) {
+    grid-template-columns: repeat(2, 1fr);
   }
-}
 
-.rightColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  @include up(md) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .serviceItem {
@@ -43,85 +40,124 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  padding: 2rem 1.5rem;
+  justify-content: center;
+  padding: 3.5rem 1.75rem;
   background-color: #fff;
   border: 1px solid var(--hover-color);
+  border-radius: 1rem;
+  cursor: pointer;
+  overflow: hidden;
+  min-height: 260px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
 
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border: 1px solid var(--hover-color);
-    pointer-events: none;
-    opacity: 0.5;
+  &:hover {
+    box-shadow: 0 8px 32px color-mix(in srgb, var(--hover-color) 40%, transparent);
+    transform: translateY(-2px);
+
+    .serviceFront {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .serviceBack {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
-.serviceItemLarge {
-  @include up(md) {
-    height: 100%;
-    justify-content: center;
-    padding: 3rem 2rem;
-  }
+.serviceFront {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
 
-  .serviceIcon {
-    @include up(md) {
-      width: 4rem;
-      height: 4rem;
-      margin-bottom: 1rem;
-
-      svg {
-        width: 3rem;
-        height: 3rem;
-      }
-    }
-  }
-
-  .serviceTitle {
-    @include up(md) {
-      font-size: 1.125rem;
-    }
-  }
-
-  .serviceDesc {
-    @include up(md) {
-      font-size: 0.9375rem;
-      max-width: 320px;
-    }
-  }
+.serviceBack {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1;
 }
 
 .serviceIcon {
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #1a1a1a;
-  margin-bottom: 0.5rem;
+  color: #2d2d32;
+  background: color-mix(in srgb, var(--hover-color) 15%, transparent);
+  border-radius: 50%;
+  transition: background 0.3s ease, transform 0.3s ease;
+
+  .serviceItem:hover & {
+    background: color-mix(in srgb, var(--hover-color) 25%, transparent);
+    transform: scale(1.1);
+  }
 
   svg {
-    width: 2rem;
-    height: 2rem;
+    width: 1.75rem;
+    height: 1.75rem;
     stroke-width: 1.5;
   }
 }
 
 .serviceTitle {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: #1a1a1a;
-  letter-spacing: 0.1em;
+  color: #2d2d32;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1.4;
 }
 
 .serviceDesc {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
-  letter-spacing: 0.03em;
-  line-height: 1.4rem;
-  color: #717182;
-  max-width: 280px;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  color: #2d2d32;
+  text-align: center;
+}
+
+.subServiceItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5rem;
+  width: 100%;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.subServiceIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #2d2d32;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+.subServiceTitle {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #2d2d32;
+  letter-spacing: 0.02em;
 }

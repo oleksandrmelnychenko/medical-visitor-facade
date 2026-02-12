@@ -1,20 +1,21 @@
 "use client";
 
+import { memo } from "react";
 import { motion } from "motion/react";
-import Link from "next/link";
-import { ArrowRight, Headphones, Activity, Video } from "lucide-react";
+import { Headphones, Activity, Video } from "lucide-react";
 import { useTranslations } from "next-intl";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./CTA.module.scss";
 
-export function CTA() {
-  const t = useTranslations('home.cta');
+// Static arrays moved outside component to prevent recreation on each render
+const SERVICES = [
+  { icon: Headphones, key: 'support', style: { '--hover-color': '#A8D5E5' } as React.CSSProperties },
+  { icon: Activity, key: 'monitoring', style: { '--hover-color': '#B5E5B0' } as React.CSSProperties },
+  { icon: Video, key: 'consultations', style: { '--hover-color': '#E5D5A8' } as React.CSSProperties },
+];
 
-  const services = [
-    { icon: Headphones, key: 'support', color: '#A8D5E5' },
-    { icon: Activity, key: 'monitoring', color: '#B5E5B0' },
-    { icon: Video, key: 'consultations', color: '#E5D5A8' },
-  ];
+export const CTA = memo(function CTA() {
+  const t = useTranslations('home.cta');
 
   return (
     <section className={styles.section}>
@@ -37,11 +38,11 @@ export function CTA() {
           </motion.div>
 
           <div className={styles.servicesGrid}>
-            {services.map((service, index) => (
+            {SERVICES.map((service, index) => (
               <motion.div
                 key={service.key}
                 className={styles.serviceCard}
-                style={{ '--hover-color': service.color } as React.CSSProperties}
+                style={service.style}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -56,26 +57,6 @@ export function CTA() {
             ))}
           </div>
 
-          <motion.div
-            className={styles.ctaButtons}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <Link href="/apply">
-              <motion.button
-                className={styles.primaryButton}
-                whileHover={{ scale: 0.96 }}
-                whileTap={{ scale: 0.94 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-              >
-                <span>{t('bookConsultation')}</span>
-                <ArrowRight className="w-5 h-5" aria-hidden="true" />
-              </motion.button>
-            </Link>
-          </motion.div>
-
           <div className={styles.ctaFooter}>
             <p>{t('availability')}</p>
           </div>
@@ -83,4 +64,4 @@ export function CTA() {
       </div>
     </section>
   );
-}
+});

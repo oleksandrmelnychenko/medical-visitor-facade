@@ -1,30 +1,32 @@
 "use client";
 
+import { memo } from "react";
 import { motion } from "motion/react";
-import { Plane, Heart, Clock, MessageCircle, Stamp } from "lucide-react";
+import { Plane, CarTaxiFront, Clock, MessageCircle, Stamp } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./FullSupport.module.scss";
 
-export function FullSupport() {
+// Static arrays moved outside component to prevent recreation on each render
+const SERVICES = [
+  { icon: CarTaxiFront, key: 'support', size: 'normal' as const, style: { '--hover-color': '#A8D5E5' } as React.CSSProperties },
+  { icon: Clock, key: 'promptness', size: 'large' as const, style: { '--hover-color': '#D5A8E5' } as React.CSSProperties },
+  { icon: Stamp, key: 'confidentiality', size: 'normal' as const, style: { '--hover-color': '#B5E5B0' } as React.CSSProperties },
+  { icon: Plane, key: 'noFees', size: 'normal' as const, style: { '--hover-color': '#A8E5C4' } as React.CSSProperties },
+  { icon: MessageCircle, key: 'concierge', size: 'normal' as const, style: { '--hover-color': '#E5D5A8' } as React.CSSProperties },
+];
+
+const JOURNEY_STEPS = [
+  { number: '01', key: 'consultation' },
+  { number: '02', key: 'travel' },
+  { number: '03', key: 'arrival' },
+  { number: '04', key: 'treatment' },
+  { number: '05', key: 'recovery' },
+];
+
+export const FullSupport = memo(function FullSupport() {
   const t = useTranslations('home.fullSupport');
-
-  const services = [
-    { icon: Heart, key: 'support', color: '#A8D5E5', size: 'normal' as const },
-    { icon: Clock, key: 'promptness', color: '#D5A8E5', size: 'large' as const },
-    { icon: Stamp, key: 'confidentiality', color: '#B5E5B0', size: 'normal' as const },
-    { icon: Plane, key: 'noFees', color: '#A8E5C4', size: 'normal' as const },
-    { icon: MessageCircle, key: 'concierge', color: '#E5D5A8', size: 'normal' as const },
-  ];
-
-  const journeySteps = [
-    { number: '01', key: 'consultation' },
-    { number: '02', key: 'travel' },
-    { number: '03', key: 'arrival' },
-    { number: '04', key: 'treatment' },
-    { number: '05', key: 'recovery' },
-  ];
 
   return (
     <section className={cn(sectionStyles.section, styles.fullSupport)}>
@@ -43,24 +45,28 @@ export function FullSupport() {
           </motion.div>
 
           <div className={styles.bentoGrid}>
-            {services.map((service, index) => (
+            {SERVICES.map((service, index) => (
               <motion.div
                 key={service.key}
                 className={cn(
                   styles.serviceItem,
                   service.size === 'large' && styles.serviceItemLarge
                 )}
-                style={{ '--hover-color': service.color } as React.CSSProperties}
+                style={service.style}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
               >
-                <div className={styles.serviceIcon}>
-                  <service.icon />
-                </div>
-                <div className={styles.serviceText}>
+                {/* Front - visible by default */}
+                <div className={styles.serviceFront}>
+                  <div className={styles.serviceIcon}>
+                    <service.icon />
+                  </div>
                   <span className={styles.serviceTitle}>{t(`services.${service.key}.title`)}</span>
+                </div>
+                {/* Back - visible on hover */}
+                <div className={styles.serviceBack}>
                   <span className={styles.serviceDesc}>{t(`services.${service.key}.desc`)}</span>
                 </div>
               </motion.div>
@@ -79,14 +85,14 @@ export function FullSupport() {
             >
               <h3 className={styles.roadmapTitle}>{t('journey.title')}</h3>
               <div className={styles.roadmap}>
-                {journeySteps.map((step, index) => (
+                {JOURNEY_STEPS.map((step, index) => (
                   <div
                     key={step.key}
                     className={styles.roadmapStep}
                   >
                     <div className={styles.roadmapLine}>
                       <div className={styles.roadmapDot} />
-                      {index < journeySteps.length - 1 && <div className={styles.roadmapConnector} />}
+                      {index < JOURNEY_STEPS.length - 1 && <div className={styles.roadmapConnector} />}
                     </div>
                     <div className={styles.roadmapContent}>
                       <span className={styles.roadmapNumber}>{step.number}</span>
@@ -106,4 +112,4 @@ export function FullSupport() {
       </div>
     </section>
   );
-}
+});
