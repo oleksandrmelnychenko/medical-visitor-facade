@@ -36,6 +36,18 @@ export function RequestAppointment() {
 
   return (
     <div className={cn(pageStyles.page, styles.gridBackground)}>
+      <div className={styles.videoBackground}>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className={styles.backgroundVideo}
+        >
+          <source src="/assets/333.mp4" type="video/mp4" />
+        </video>
+        <div className={styles.videoOverlay} />
+      </div>
       <div className={styles.gridOverlay} />
       <section className={cn(sectionStyles.section, pageStyles.heroSection, styles.applyHeroSection)} id="appointment">
         <div className={sectionStyles.container}>
