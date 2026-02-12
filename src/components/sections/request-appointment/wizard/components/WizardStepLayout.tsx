@@ -17,6 +17,9 @@ interface WizardStepLayoutProps {
   activeStepIndex?: number;
   onBack?: () => void;
   backLabel?: string;
+  onContinue?: () => void;
+  continueLabel?: string;
+  continueDisabled?: boolean;
   children: React.ReactNode;
 }
 
@@ -28,11 +31,13 @@ export function WizardStepLayout({
   activeStepIndex = 0,
   onBack,
   backLabel = 'Back',
+  onContinue,
+  continueLabel = 'Continue',
+  continueDisabled = false,
   children,
 }: WizardStepLayoutProps) {
   return (
     <div className={cn(pageStyles.page, styles.gridBackground)}>
-      <div className={styles.gridOverlay} />
       {showStepper && (
         <section className={cn(sectionStyles.section, styles.stepperSection)}>
           <div className={sectionStyles.container}>
@@ -78,15 +83,27 @@ export function WizardStepLayout({
           <div className={styles.locationStepContent}>
             {children}
 
-            {onBack && (
+            {(onBack || onContinue) && (
               <div className={styles.wizardButtonRow}>
-                <button
-                  onClick={onBack}
-                  className={styles.wizardBackBtn}
-                  type="button"
-                >
-                  {backLabel}
-                </button>
+                {onBack && (
+                  <button
+                    onClick={onBack}
+                    className={styles.wizardBackBtnHalf}
+                    type="button"
+                  >
+                    {backLabel}
+                  </button>
+                )}
+                {onContinue && (
+                  <button
+                    onClick={onContinue}
+                    disabled={continueDisabled}
+                    className={styles.wizardContinueBtnHalf}
+                    type="button"
+                  >
+                    {continueLabel}
+                  </button>
+                )}
               </div>
             )}
           </div>

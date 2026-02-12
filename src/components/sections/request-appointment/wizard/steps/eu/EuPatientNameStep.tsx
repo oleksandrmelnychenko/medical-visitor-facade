@@ -53,6 +53,9 @@ export function EuPatientNameStep() {
       activeStepIndex={0}
       onBack={handleBack}
       backLabel={t('back')}
+      onContinue={handleNext}
+      continueLabel={t('continue')}
+      continueDisabled={!isValid}
     >
       <motion.div
         className={styles.wizardFormContainer}
@@ -124,15 +127,6 @@ export function EuPatientNameStep() {
             />
           </div>
         </div>
-
-        <button
-          onClick={handleNext}
-          disabled={!isValid}
-          className={formStyles.submitButton}
-          type="button"
-        >
-          {t('continue')}
-        </button>
       </motion.div>
     </WizardStepLayout>
   );
