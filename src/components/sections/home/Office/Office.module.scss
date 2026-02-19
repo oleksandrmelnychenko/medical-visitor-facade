@@ -61,6 +61,7 @@
   justify-content: space-between;
   aspect-ratio: 3 / 1.4;
   border-radius: 16px;
+  border: 1px solid transparent;
   position: relative;
   overflow: hidden;
   padding: 1.5rem 2rem;
@@ -156,6 +157,7 @@
   align-items: center;
   justify-content: flex-start;
   border-radius: 16px;
+  border: 1px solid transparent;
   position: relative;
   overflow: hidden;
   padding: 1.5rem;

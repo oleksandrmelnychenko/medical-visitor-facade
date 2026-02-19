@@ -9,11 +9,26 @@ import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./Office.module.scss";
 
 // Static styles moved outside component to prevent recreation on each render
-const MUNICH_STYLE = { backgroundColor: '#fcfbf7' };
+const MUNICH_STYLE = {
+  backgroundColor: "#fcfbf7",
+  borderColor: "#ece9df",
+};
 const OTHER_CITIES = [
-  { key: 'berlin', image: '/assets/1_city-berlin.png', style: { backgroundColor: '#f7f9fb' } },
-  { key: 'hamburg', image: '/assets/1_city-hamburg.png', style: { backgroundColor: '#fcf8f6' } },
-  { key: 'cologne', image: '/assets/1_city-cologne.png', style: { backgroundColor: '#f9f7fb' } },
+  {
+    key: "berlin",
+    image: "/assets/1_city-berlin.png",
+    style: { backgroundColor: "#f7f9fb", borderColor: "#e3e9f1" },
+  },
+  {
+    key: "hamburg",
+    image: "/assets/1_city-hamburg.png",
+    style: { backgroundColor: "#fcf8f6", borderColor: "#eee3dd" },
+  },
+  {
+    key: "cologne",
+    image: "/assets/1_city-cologne.png",
+    style: { backgroundColor: "#f9f7fb", borderColor: "#e8e2ef" },
+  },
 ];
 
 export const Office = memo(function Office() {
