@@ -24,7 +24,7 @@ export function Hero() {
           playsInline
           preload="metadata"
         >
-          <source src="/assets/hero_1.mp4" type="video/mp4" />
+          <source src="/assets/hero_1_loop.mp4" type="video/mp4" />
         </video>
         <div className={styles.videoOverlay} />
         <div className={styles.sketchVignette} />

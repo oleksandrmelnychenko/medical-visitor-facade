@@ -68,7 +68,7 @@
   justify-content: center;
   text-align: center;
   padding: 1.5rem;
-  background-color: #fff;
+  background-color: color-mix(in srgb, var(--hover-color) 6%, #fff);
   border: 1px solid var(--hover-color);
   border-radius: 1rem;
   min-height: 160px;
@@ -166,27 +166,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--foreground);
+  color: #0d121a;
   margin-bottom: 0.75rem;
-  background: color-mix(in srgb, var(--hover-color) 15%, transparent);
-  border-radius: 50%;
+  background: color-mix(in srgb, var(--hover-color) 24%, #ffffff 76%);
+  border: 1px solid color-mix(in srgb, var(--hover-color) 42%, #dfe4ec 58%);
+  border-radius: 0.85rem;
   transition: background 0.3s ease, transform 0.3s ease;
 
   @media (max-width: 639px) {
     width: 2.75rem;
     height: 2.75rem;
     margin-bottom: 0.5rem;
+    border-radius: 0.75rem;
   }
 
   .serviceItem:hover & {
-    background: color-mix(in srgb, var(--hover-color) 25%, transparent);
+    background: color-mix(in srgb, var(--hover-color) 34%, #ffffff 66%);
+    border-color: color-mix(in srgb, var(--hover-color) 52%, #d7dde8 48%);
     transform: scale(1.1);
   }
 
   svg {
     width: 2.5rem;
     height: 2.5rem;
-    stroke-width: 1;
+    color: #0d121a;
+    stroke: currentColor;
+    stroke-width: 1.35;
 
     @media (max-width: 639px) {
       width: 1.75rem;
