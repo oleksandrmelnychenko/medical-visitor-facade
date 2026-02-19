@@ -39,13 +39,12 @@ export const Office = memo(function Office() {
               <h3 className={styles.mainCityName}>{t('cities.munich.name')}</h3>
             </div>
             <div className={styles.mainCityImageWrapper}>
-              <Image
+              <img
                 src="/assets/1_city-munich.png"
                 alt="Munich"
-                width={560}
-                height={320}
-                sizes="(max-width: 767px) 60vw, 45vw"
-                className={cn(styles.cityImageMunich, styles.brushPaint, isInView && styles.brushPaintActive)}
+                className={styles.cityImageMunich}
+                loading="eager"
+                decoding="async"
               />
             </div>
           </div>

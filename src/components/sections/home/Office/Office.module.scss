@@ -188,6 +188,15 @@
 }
 
 @media (max-width: 767px) {
+  .brushPaint {
+    clip-path: inset(0);
+    opacity: 1;
+  }
+
+  .brushPaintActive {
+    animation: none;
+  }
+
   .header {
     margin: 0 auto 1.5rem;
   }
@@ -200,33 +209,40 @@
   .mainCity {
     aspect-ratio: unset;
     padding: 0;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
+    align-items: stretch;
     gap: 0;
     border-radius: 16px;
     overflow: hidden;
   }
 
   .mainCityContent {
-    flex: none;
-    padding: 1.25rem 1rem 0.75rem;
+    flex: 1;
+    padding: 1rem;
     order: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .mainCityName {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   .mainCityImageWrapper {
     height: auto;
     max-height: none;
-    width: 100%;
+    width: 40%;
+    flex: none;
+    aspect-ratio: 1;
     order: 1;
   }
 
   .cityImageMunich {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     border-radius: 0;
   }
 
