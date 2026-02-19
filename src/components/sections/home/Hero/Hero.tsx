@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -12,13 +13,35 @@ import styles from "./Hero.module.scss";
 export function Hero() {
   const t = useTranslations('home.hero');
   const tCommon = useTranslations('common');
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const videoY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    shouldReduceMotion ? ["0%", "0%"] : ["0%", "10%"]
+  );
+  const overlayY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    shouldReduceMotion ? ["0%", "0%"] : ["0%", "5%"]
+  );
+  const contentY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    shouldReduceMotion ? ["0%", "0%"] : ["0%", "-4%"]
+  );
 
   return (
-    <section className={cn(sectionStyles.section, styles.hero)}>
+    <section ref={sectionRef} className={cn(sectionStyles.section, styles.hero)}>
       {/* Hero video background */}
       <div className={styles.sketchScene} aria-hidden="true">
-        <video
+        <motion.video
           className={cn(styles.heroVideo, styles.heroVideoDesktop)}
+          style={{ y: videoY }}
           autoPlay
           muted
           loop
@@ -26,9 +49,10 @@ export function Hero() {
           preload="metadata"
         >
           <source src="/assets/hero_1_loop.mp4" type="video/mp4" />
-        </video>
-        <video
+        </motion.video>
+        <motion.video
           className={cn(styles.heroVideo, styles.heroVideoMobile)}
+          style={{ y: videoY }}
           autoPlay
           muted
           loop
@@ -36,12 +60,12 @@ export function Hero() {
           preload="metadata"
         >
           <source src="/assets/hero_1_loop_mobile.mp4" type="video/mp4" />
-        </video>
-        <div className={styles.videoOverlay} />
-        <div className={styles.sketchVignette} />
+        </motion.video>
+        <motion.div className={styles.videoOverlay} style={{ y: overlayY }} />
+        <motion.div className={styles.sketchVignette} style={{ y: overlayY }} />
       </div>
 
-      <div className={cn(sectionStyles.container, styles.heroContainer)}>
+      <motion.div className={cn(sectionStyles.container, styles.heroContainer)} style={{ y: contentY }}>
         <div className={styles.heroWrapper}>
           <div className={styles.heroContent}>
             <div className={styles.heroBrand}>
@@ -100,7 +124,7 @@ export function Hero() {
 
           </div>
         </div>
-      </div>
+      </motion.div>
       <motion.div
         className={styles.scrollIndicator}
         initial={{ opacity: 0 }}
