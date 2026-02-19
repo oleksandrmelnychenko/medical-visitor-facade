@@ -240,12 +240,85 @@
 }
 
 @media (max-width: 640px) {
+  .section {
+    padding: clamp(3rem, 7vw, 5rem) 0;
+  }
+
+  .shell {
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+  }
+
+  .title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  .header {
+    margin-bottom: 1.25rem;
+  }
+
   .flowCard {
     align-items: flex-start;
+    min-height: 100px;
+    padding: 1rem;
+    border-radius: 0.875rem;
   }
 
   .flowIcon {
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+
+    svg {
+      width: 1.15rem;
+      height: 1.15rem;
+    }
+  }
+
+  .serviceTitle {
+    font-size: 0.9rem;
+  }
+
+  .serviceDesc {
+    font-size: 0.84rem;
+    margin-top: 0.25rem;
+  }
+
+  .supportPanel {
+    padding: 1.1rem;
+    border-radius: 0.875rem;
+  }
+
+  .supportHead {
+    margin-bottom: 0.75rem;
+    gap: 0.7rem;
+  }
+
+  .supportIcon {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 0.75rem;
+
+    svg {
+      width: 1.1rem;
+      height: 1.1rem;
+    }
+  }
+
+  .supportTitle {
+    font-size: 0.9rem;
+  }
+
+  .supportItem {
+    padding: 0.7rem;
+    border-radius: 0.625rem;
+  }
+
+  .subServiceTitle {
+    font-size: 0.84rem;
+  }
+
+  .subServiceDesc {
+    font-size: 0.78rem;
   }
 }

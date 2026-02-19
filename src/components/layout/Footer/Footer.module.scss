@@ -88,7 +88,39 @@
 
 @media (max-width: 767px) {
   .footer {
-    border-radius: 40px 40px 0 0;
-    margin-top: -40px;
+    border-radius: 32px 32px 0 0;
+    margin-top: -32px;
+  }
+
+  .container {
+    padding-top: 2.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .grid {
+    gap: 1.75rem;
+    text-align: center;
+  }
+
+  .column {
+    align-items: center;
+  }
+
+  .linkList {
+    align-items: center;
+  }
+
+  .sectionTitle {
+    font-size: 0.68rem;
+  }
+
+  .textSmall {
+    font-size: 0.88rem;
+  }
+
+  .bottomBar {
+    font-size: 0.76rem;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
   }
 }

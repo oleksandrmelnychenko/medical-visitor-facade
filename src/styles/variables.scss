@@ -73,7 +73,11 @@ $breakpoints: (
 }
 
 @mixin section-padding {
-  padding: 2.5rem 0;
+  padding: 2rem 0;
+
+  @include up(sm) {
+    padding: 2.5rem 0;
+  }
 
   @include up(md) {
     padding: 3.5rem 0;
