@@ -25,6 +25,7 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
   const langRef = useRef<HTMLDivElement>(null);
+  const stickyLangRef = useRef<HTMLDivElement>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
 
   // Combined event listeners for better performance
@@ -43,7 +44,10 @@ export function Header() {
 
     // Click outside detection for dropdowns
     const handleClickOutside = (event: MouseEvent) => {
-      if (langRef.current && !langRef.current.contains(event.target as Node)) {
+      const clickedOutsideDesktopLang = langRef.current && !langRef.current.contains(event.target as Node);
+      const clickedOutsideStickyLang = stickyLangRef.current && !stickyLangRef.current.contains(event.target as Node);
+
+      if (clickedOutsideDesktopLang && clickedOutsideStickyLang) {
         setIsLangOpen(false);
       }
       if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
@@ -167,13 +171,31 @@ export function Header() {
                 {userName}
               </Link>
             )}
-            <button
-              className={styles.stickyLangToggle}
-              onClick={() => setIsLangOpen(!isLangOpen)}
-              aria-label={tCommon('selectLanguage')}
-            >
-              {currentLanguage?.label}
-            </button>
+            <div className={styles.languageSelector} ref={stickyLangRef}>
+              <button
+                className={styles.stickyLangToggle}
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                aria-label={tCommon('selectLanguage')}
+                aria-expanded={isLangOpen}
+              >
+                {currentLanguage?.label}
+              </button>
+              {isLangOpen && isScrolled && (
+                <div className={styles.langDropdown}>
+                  {languages.map((language, index) => (
+                    <React.Fragment key={language.code}>
+                      <button
+                        onClick={() => handleLanguageSelect(language.code)}
+                        className={cn(styles.langOption, locale === language.code && styles.active)}
+                      >
+                        {language.fullName}
+                      </button>
+                      {index < languages.length - 1 && <div className={styles.langSeparator} />}
+                    </React.Fragment>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -217,7 +239,7 @@ export function Header() {
                 >
                   {currentLanguage?.label}
                 </button>
-                {isLangOpen && (
+                {isLangOpen && !isScrolled && (
                   <div className={styles.langDropdown}>
                     {languages.map((language, index) => (
                       <React.Fragment key={language.code}>

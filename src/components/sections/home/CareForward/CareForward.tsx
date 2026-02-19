@@ -35,7 +35,6 @@ export const CareForward = memo(function CareForward() {
           transition={{ duration: 0.6 }}
         >
           <div className={styles.header}>
-            <span className={styles.headerLine} />
             <h2 className={styles.title}>{t("title")}</h2>
           </div>
 

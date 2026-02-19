@@ -878,18 +878,20 @@
   cursor: pointer;
   min-height: 70px;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.3s ease, transform 0.2s ease, background 0.25s ease;
+  transition: border-color 0.24s ease, box-shadow 0.26s ease, background 0.24s ease;
   touch-action: manipulation;
   overflow: hidden;
 
   &:hover {
-    box-shadow: 0 16px 34px color-mix(in srgb, var(--hover-color) 30%, transparent);
-    transform: translateY(-3px) scale(1.005);
-    background: linear-gradient(135deg, color-mix(in srgb, var(--hover-color) 17%, #ffffff) 0%, #ffffff 62%);
+    border-color: color-mix(in srgb, var(--hover-color) 72%, #bfc1cb);
+    box-shadow:
+      0 10px 24px color-mix(in srgb, var(--hover-color) 20%, transparent),
+      0 0 0 1px color-mix(in srgb, var(--hover-color) 30%, transparent) inset;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--hover-color) 15%, #ffffff) 0%, #ffffff 64%);
 
     .clientCardArrow {
-      transform: translateX(3px);
-      opacity: 1;
+      transform: translateX(2px);
+      opacity: 0.95;
     }
   }
 

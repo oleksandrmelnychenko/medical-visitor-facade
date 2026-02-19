@@ -12,7 +12,7 @@ export function Footer() {
       <div className={styles.container}>
         <div className={styles.grid}>
           {/* Company Info */}
-          <div>
+          <div className={styles.column}>
             <h3 className={styles.sectionTitle}>{t("headquarters")}</h3>
             <div className={styles.textSmall}>
               <p>{t("address")}</p>
@@ -20,7 +20,7 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className={styles.column}>
             <h3 className={styles.sectionTitle}>{t("contact")}</h3>
             <ul className={styles.linkList}>
               <li className={styles.linkItem}>
@@ -32,7 +32,7 @@ export function Footer() {
           </div>
 
           {/* Links */}
-          <div>
+          <div className={styles.column}>
             <h3 className={styles.sectionTitle}>{t("theAgency")}</h3>
             <ul className={styles.linkList}>
               <li className={styles.linkItem}>

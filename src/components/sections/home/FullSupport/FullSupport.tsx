@@ -34,10 +34,10 @@ export const FullSupport = memo(function FullSupport() {
         <div className={styles.layout}>
           <motion.div
             className={styles.header}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <p className={styles.overline}>{t('overline')}</p>
             <h2 className={styles.title}>{t('title')}</h2>
@@ -53,10 +53,10 @@ export const FullSupport = memo(function FullSupport() {
                   service.size === 'large' && styles.serviceItemLarge
                 )}
                 style={service.style}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.45, delay: index * 0.06, ease: "easeOut" }}
               >
                 {/* Front - visible by default */}
                 <div className={styles.serviceFront}>
@@ -73,15 +73,15 @@ export const FullSupport = memo(function FullSupport() {
             ))}
           </div>
 
-          <div className={styles.closingLine} />
+          <div className={styles.closingSpacer} aria-hidden="true" />
 
           <div className={styles.rightColumn}>
             <motion.div
               className={styles.roadmapCard}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, ease: "easeOut" }}
             >
               <h3 className={styles.roadmapTitle}>{t('journey.title')}</h3>
               <div className={styles.roadmap}>

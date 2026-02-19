@@ -50,9 +50,6 @@ export function RequestAppointment() {
 
       <section className={cn(sectionStyles.section, styles.cardsSection)}>
         <div className={sectionStyles.container}>
-          {!selectedType && (
-            <p className={styles.selectionLead}>{t("selectionLead")}</p>
-          )}
           <AnimatePresence mode="wait">
             {!selectedType ? (
                <PatientTypeSelection onSelect={handleCardClick} />
