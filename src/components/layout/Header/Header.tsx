@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { User, UserPlus, LogOut, ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useSession, signOut } from "next-auth/react";
@@ -16,6 +17,7 @@ export function Header() {
   const tFooter = useTranslations('footer');
   const tAccount = useTranslations('account');
   const { locale, setLocale } = useLanguage();
+  const pathname = usePathname();
   const { data: session, status } = useSession();
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -93,6 +95,11 @@ export function Header() {
     () => languages.find(lang => lang.code === locale),
     [languages, locale]
   );
+
+  const isHomePath = useMemo(() => {
+    const cleanPath = (pathname ?? "/").replace(/\/$/, "") || "/";
+    return cleanPath === "/" || ["/de", "/en", "/ru", "/es"].includes(cleanPath);
+  }, [pathname]);
 
   const handleLanguageSelect = (code: 'de' | 'en' | 'ru' | 'es') => {
     setLocale(code);
@@ -198,13 +205,16 @@ export function Header() {
       </div>
 
       {/* Main Header */}
-      <header ref={headerRef} className={styles.header} style={{ position: 'relative' }}>
-        <div className={styles.container} style={{ position: 'relative' }}>
+      <header
+        ref={headerRef}
+        className={cn(styles.header, isHomePath && styles.headerHome)}
+      >
+        <div className={styles.container}>
           {/* Mobile hamburger button */}
           <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-          className={cn(styles.mobileMenuButton, isMobileMenuOpen && styles.menuButtonOpen)}
+          className={cn(styles.mobileMenuButton, isMobileMenuOpen && styles.menuButtonOpen, isScrolled && styles.mobileMenuButtonHidden)}
         >
           <span
             className={cn(styles.hamburgerIcon, isMobileMenuOpen && styles.hamburgerIconOpen)}
@@ -280,18 +290,20 @@ export function Header() {
             </div>
           </div>
 
-        <div className={styles.logoRow}>
-          <Link href="/" className={styles.logoLink}>
-            <Image
-              src="/assets/logo.png"
-              alt="Agency for Patient Care"
-              width={200}
-              height={54}
-              className={styles.logo}
-              priority
-            />
-          </Link>
-        </div>
+        {!isHomePath && (
+          <div className={styles.logoRow}>
+            <Link href="/" className={styles.logoLink}>
+              <Image
+                src="/assets/logo.png"
+                alt="Agency for Patient Care"
+                width={200}
+                height={54}
+                className={styles.logo}
+                priority
+              />
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* Mobile Dropdown Menu - appears below hamburger */}

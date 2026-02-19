@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Mouse, User, UserPlus } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -17,7 +18,7 @@ export function Hero() {
       {/* Hero video background */}
       <div className={styles.sketchScene} aria-hidden="true">
         <video
-          className={styles.heroVideo}
+          className={cn(styles.heroVideo, styles.heroVideoDesktop)}
           autoPlay
           muted
           loop
@@ -26,6 +27,16 @@ export function Hero() {
         >
           <source src="/assets/hero_1_loop.mp4" type="video/mp4" />
         </video>
+        <video
+          className={cn(styles.heroVideo, styles.heroVideoMobile)}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        >
+          <source src="/assets/hero_1_loop_mobile.mp4" type="video/mp4" />
+        </video>
         <div className={styles.videoOverlay} />
         <div className={styles.sketchVignette} />
       </div>
@@ -33,13 +44,26 @@ export function Hero() {
       <div className={cn(sectionStyles.container, styles.heroContainer)}>
         <div className={styles.heroWrapper}>
           <div className={styles.heroContent}>
+            <div className={styles.heroBrand}>
+              <Image
+                src="/assets/logo.png"
+                alt="Medical Concierge Agency"
+                width={320}
+                height={86}
+                className={styles.heroLogo}
+                priority
+              />
+            </div>
             <motion.h1
               className={styles.heroTitle}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+              transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
             >
-              {t('titlePart1')} <span className={styles.heroTitleAccent}>{t('titleAccent')}</span> {t('titlePart2')}
+              <span className={styles.heroTitleLine}>
+                {t('titlePart1')} <span className={styles.heroTitleAccentWord}>{t('titleAccent')}</span>
+              </span>
+              <span className={styles.heroTitleLine}>{t('titlePart2')}</span>
             </motion.h1>
 
             <motion.div
