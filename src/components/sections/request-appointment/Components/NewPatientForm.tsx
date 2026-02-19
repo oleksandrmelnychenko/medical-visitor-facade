@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback, useMemo, memo } from 'react';
+import React, { useState, useCallback, useEffect, memo } from 'react';
 import { ChevronRight, ChevronUp, ChevronDown, ArrowLeft } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
@@ -41,6 +41,20 @@ interface WizardData {
   dateOfBirth: string;
   country: string;
   message: string;
+}
+
+const DRAFT_STORAGE_KEY = "gmed.apply.new-patient.draft.v1";
+const SUBMISSIONS_STORAGE_KEY = "gmed.apply.new-patient.submissions.v1";
+
+function getInitialDraft(): { step?: WizardStep; data?: WizardData } | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const rawDraft = localStorage.getItem(DRAFT_STORAGE_KEY);
+    if (!rawDraft) return null;
+    return JSON.parse(rawDraft) as { step?: WizardStep; data?: WizardData };
+  } catch {
+    return null;
+  }
 }
 
 const PROGRESS_STEPS = [
@@ -89,23 +103,42 @@ IntroSidebar.displayName = 'IntroSidebar';
 
 export function NewPatientForm() {
   const t = useTranslations('appointment.newPatient');
-  const [step, setStep] = useState<WizardStep>('primaryConcern');
-  const [data, setData] = useState<WizardData>({
-    primaryConcern: null,
-    seekingCareDescription: '',
-    location: null,
-    patientRole: null,
-    canTravel: null,
-    hasMedicalRecords: null,
-    hasTravelDocuments: null,
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    dateOfBirth: '',
-    country: '',
-    message: '',
-  });
+  const [step, setStep] = useState<WizardStep>(() => getInitialDraft()?.step || 'primaryConcern');
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [data, setData] = useState<WizardData>(
+    () =>
+      getInitialDraft()?.data || {
+        primaryConcern: null,
+        seekingCareDescription: '',
+        location: null,
+        patientRole: null,
+        canTravel: null,
+        hasMedicalRecords: null,
+        hasTravelDocuments: null,
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        dateOfBirth: '',
+        country: '',
+        message: '',
+      }
+  );
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(
+        DRAFT_STORAGE_KEY,
+        JSON.stringify({
+          step,
+          data,
+          updatedAt: new Date().toISOString(),
+        }),
+      );
+    } catch {
+      // Ignore storage quota errors
+    }
+  }, [step, data]);
 
   // Get translation key suffix based on patient role
   const getRoleSuffix = useCallback(
@@ -643,8 +676,27 @@ export function NewPatientForm() {
 
     const handleSubmit = (e: React.FormEvent) => {
       e.preventDefault();
-      console.log("Form submitted:", data);
-      // TODO: Submit to API
+      const payload = {
+        ...data,
+        submittedAt: new Date().toISOString(),
+        source: "apply-form",
+      };
+
+      try {
+        const current = localStorage.getItem(SUBMISSIONS_STORAGE_KEY);
+        const submissions = current ? (JSON.parse(current) as unknown[]) : [];
+        submissions.push(payload);
+        localStorage.setItem(SUBMISSIONS_STORAGE_KEY, JSON.stringify(submissions));
+        localStorage.removeItem(DRAFT_STORAGE_KEY);
+      } catch {
+        // Ignore storage errors; continue to email draft
+      }
+
+      const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@gmed-health.com";
+      const subject = encodeURIComponent("New membership application");
+      const body = encodeURIComponent(JSON.stringify(payload, null, 2));
+      window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+      setSubmitSuccess(true);
     };
 
     return (
@@ -658,6 +710,9 @@ export function NewPatientForm() {
           <div className={cn(pageStyles.formCard, pageStyles.cardShadow, styles.stepCard)}>
             <div className={styles.stepContent}>
               <h3 className={pageStyles.sectionTitleSm}>{t('patientInfo.formTitle')}</h3>
+              {submitSuccess && (
+                <p className={styles.successMessage}>{t('patientInfo.successMessage')}</p>
+              )}
 
               <form onSubmit={handleSubmit} className={pageStyles.stackMd}>
                 <div className={styles.formSection}>

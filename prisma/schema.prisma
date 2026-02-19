@@ -177,6 +177,8 @@ model Application {
   @@index([userId])
   @@index([status])
   @@index([createdAt])
+  @@index([userId, createdAt])
+  @@index([status, createdAt])
   @@index([applicationNum])
 }
 

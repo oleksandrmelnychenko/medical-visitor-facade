@@ -17,7 +17,6 @@ export function Header() {
   const tAccount = useTranslations('account');
   const { locale, setLocale } = useLanguage();
   const { data: session, status } = useSession();
-  const userRole = (session?.user as { role?: string })?.role;
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
@@ -115,8 +114,6 @@ export function Header() {
   const userEmail = session?.user?.email;
   const userPhone = (session?.user as { phone?: string })?.phone;
 
-  const isAdmin = userRole === "ADMIN" || userRole === "MANAGER";
-
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   // Close mobile menu on language select
@@ -166,7 +163,7 @@ export function Header() {
               </Link>
             )}
             {status === "authenticated" && (
-              <Link href={isAdmin ? "/admin" : "/account"} className={styles.stickyLoginLink}>
+              <Link href="/account" className={styles.stickyLoginLink}>
                 <User size={18} aria-hidden="true" />
                 {userName}
               </Link>
@@ -222,11 +219,7 @@ export function Header() {
           {/* Desktop navigation - hidden via CSS on mobile */}
           <div className={styles.utilityRow}>
             {status === "authenticated" && (
-              isAdmin ? (
-                <Link href="/admin" className={styles.adminTitle}>{tAdmin("adminPanel")}</Link>
-              ) : (
-                <Link href="/account" className={styles.adminTitle}>{tAccount("tabs.account")}</Link>
-              )
+              <Link href="/account" className={styles.adminTitle}>{tAccount("tabs.account")}</Link>
             )}
 
             <div className={styles.utilityItems}>
@@ -331,7 +324,7 @@ export function Header() {
 
               {status === "authenticated" && (
                 <Link
-                  href={isAdmin ? "/admin" : "/account"}
+                  href="/account"
                   onClick={closeMobileMenu}
                   style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem', fontWeight: 500, padding: '0.5rem 0', textDecoration: 'none', color: '#2d2d32' }}
                 >

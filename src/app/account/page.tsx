@@ -2,55 +2,27 @@
 
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
-import { ChatContainer } from "@/components/chat";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
 import styles from "./account.module.scss";
 
-type TabType = "account" | "history" | "messages";
-
-type Application = {
-  id: string;
-  applicationNum: string;
-};
+type TabType = "account" | "history";
 
 export default function AccountPage() {
   const t = useTranslations("account");
   const { data: session, status } = useSession();
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<TabType>("account");
-  const [applications, setApplications] = useState<Application[]>([]);
-  const [loadingApps, setLoadingApps] = useState(true);
-
-  const fetchApplications = useCallback(async () => {
-    try {
-      const response = await fetch("/api/applications");
-      const data = await response.json();
-      if (response.ok && data.data) {
-        setApplications(data.data);
-      }
-    } catch (error) {
-      console.error("Failed to fetch applications:", error);
-    } finally {
-      setLoadingApps(false);
-    }
-  }, []);
 
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/login");
     }
   }, [status, router]);
-
-  useEffect(() => {
-    if (session?.user) {
-      fetchApplications();
-    }
-  }, [session, fetchApplications]);
 
   if (status === "loading") {
     return (
@@ -75,8 +47,6 @@ export default function AccountPage() {
     role: string;
     phone?: string | null;
   };
-
-  const currentApplication = applications.length > 0 ? applications[0] : null;
 
   return (
     <div className={cn(pageStyles.page, styles.page)}>
@@ -108,12 +78,6 @@ export default function AccountPage() {
               >
                 {t("tabs.history")}
               </button>
-              <button
-                className={cn(styles.tab, activeTab === "messages" && styles.active)}
-                onClick={() => setActiveTab("messages")}
-              >
-                {t("tabs.messages")}
-              </button>
             </div>
 
             <div className={styles.tabContent}>
@@ -140,28 +104,12 @@ export default function AccountPage() {
 
               {activeTab === "history" && (
                 <div className={styles.emptyState}>
-                  <p className={styles.emptyText}>{t("history.empty")}</p>
+                  <p className={styles.emptyText}>
+                    {t("history.empty")}
+                  </p>
                 </div>
               )}
 
-              {activeTab === "messages" && (
-                <div className={styles.messagesTab}>
-                  {loadingApps ? (
-                    <div className={styles.emptyState}>
-                      <p className={styles.emptyText}>{t("loading")}</p>
-                    </div>
-                  ) : currentApplication ? (
-                    <ChatContainer
-                      applicationId={currentApplication.id}
-                      currentUserId={user.id}
-                    />
-                  ) : (
-                    <div className={styles.emptyState}>
-                      <p className={styles.emptyText}>{t("messages.empty")}</p>
-                    </div>
-                  )}
-                </div>
-              )}
             </div>
           </div>
         </div>

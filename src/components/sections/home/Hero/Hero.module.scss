@@ -12,6 +12,25 @@
   background: transparent;
   z-index: 1;
 
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: clamp(90px, 12vh, 150px);
+    pointer-events: none;
+    z-index: 3;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.58) 62%,
+      rgba(255, 255, 255, 0.9) 84%,
+      #fff 100%
+    );
+    box-shadow: 0 18px 30px -26px rgba(25, 32, 45, 0.45);
+  }
+
   @include up(md) {
     min-height: calc(70vh + 200px);
   }
@@ -23,14 +42,13 @@
   }
 }
 
-// Video container
-.videoContainer {
+.sketchScene {
   position: absolute;
   inset: 0;
   z-index: 0;
   overflow: hidden;
+  background: #eceef2;
 
-  // Blur fade transition at the bottom
   &::after {
     content: '';
     position: absolute;
@@ -41,15 +59,11 @@
     background: linear-gradient(
       to bottom,
       transparent 0%,
-      rgba(255, 255, 255, 0.3) 30%,
-      rgba(255, 255, 255, 0.7) 60%,
+      rgba(255, 255, 255, 0.35) 30%,
+      rgba(255, 255, 255, 0.75) 60%,
       rgba(255, 255, 255, 0.95) 85%,
       #fff 100%
     );
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    mask-image: linear-gradient(to bottom, transparent, black 30%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent, black 30%);
     z-index: 2;
     pointer-events: none;
 
@@ -61,42 +75,192 @@
 
 .heroVideo {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-
-  @media (max-width: 768px) {
-    // On mobile, scale and position video better
-    min-width: 180%;
-    min-height: 100%;
-    left: 60%;
-  }
-
-  @media (max-width: 480px) {
-    min-width: 220%;
-    left: 65%;
-  }
+  object-position: center;
+  z-index: 1;
 }
 
 .videoOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.45);
-  z-index: 1;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.08), transparent 52%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 46%, rgba(255, 255, 255, 0.16) 100%);
+}
 
-  @media (max-width: 768px) {
-    background: rgba(255, 255, 255, 0.55);
+.paperTexture {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(0, 0, 0, 0.06) 0.4px, transparent 0.7px),
+    radial-gradient(circle, rgba(0, 0, 0, 0.04) 0.4px, transparent 0.7px);
+  background-size: 4px 4px, 5px 5px;
+  background-position: 0 0, 1.5px 2px;
+  opacity: 0.28;
+  z-index: 1;
+}
+
+.sketchLayer {
+  --reveal-delay: 0s;
+  --reveal-duration: 6.2s;
+  --develop-duration: 5.4s;
+  position: absolute;
+  overflow: hidden;
+  z-index: 2;
+  clip-path: inset(0 0 0 0);
+  will-change: auto;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -8%;
+    pointer-events: none;
+    z-index: 3;
+    animation: none;
+    opacity: 0;
   }
+
+  &::before {
+    background:
+      repeating-linear-gradient(
+        -14deg,
+        transparent 0 7px,
+        rgba(28, 28, 32, 0.18) 7px 8px,
+        transparent 8px 14px
+      );
+    mix-blend-mode: multiply;
+    transform: translateX(-112%) rotate(-1.2deg);
+  }
+
+  &::after {
+    background: linear-gradient(
+      92deg,
+      transparent 8%,
+      rgba(25, 25, 30, 0.34) 48%,
+      rgba(25, 25, 30, 0.12) 56%,
+      transparent 75%
+    );
+    transform: translateX(-128%);
+    filter: blur(0.8px);
+  }
+}
+
+.sketchImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 1;
+  filter: grayscale(1) contrast(1.14) brightness(0.93);
+  transform-origin: center;
+  animation: none;
+}
+
+.sketchFacade {
+  width: clamp(400px, 48vw, 620px);
+  left: clamp(-24px, 1.5vw, 30px);
+  top: clamp(86px, 12vh, 152px);
+  opacity: 1;
+  filter: blur(0.1px);
+  --reveal-delay: 0.2s;
+  --reveal-duration: 6.6s;
+  --develop-duration: 5.8s;
+}
+
+.sketchColumns {
+  width: clamp(340px, 44vw, 560px);
+  right: clamp(42px, 8vw, 140px);
+  top: clamp(60px, 9vh, 116px);
+  opacity: 0.74;
+  --reveal-delay: 0.95s;
+  --reveal-duration: 6.9s;
+  --develop-duration: 6.1s;
+}
+
+.sketchDust {
+  width: clamp(300px, 34vw, 450px);
+  left: clamp(28px, 7vw, 140px);
+  top: clamp(122px, 18vh, 220px);
+  opacity: 0.14;
+  transform: rotate(-4deg);
+  --reveal-delay: 1.7s;
+  --reveal-duration: 5.2s;
+  --develop-duration: 4.4s;
+}
+
+.sketchVignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, rgba(236, 238, 242, 0.88) 14%, rgba(236, 238, 242, 0.46) 42%, rgba(236, 238, 242, 0.12) 62%, rgba(236, 238, 242, 0.58) 100%),
+    radial-gradient(circle at 86% 20%, rgba(20, 26, 36, 0.05), transparent 48%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.cloudBand {
+  position: absolute;
+  left: -6%;
+  right: -6%;
+  bottom: clamp(8px, 1.6vw, 20px);
+  height: clamp(92px, 13vh, 170px);
+  z-index: 4;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  bottom: 0;
+  border-radius: 999px;
+  filter: blur(2px);
+  opacity: 0.78;
+  background:
+    radial-gradient(ellipse at 50% 58%, rgba(255, 255, 255, 0.95) 0%, rgba(244, 247, 252, 0.9) 55%, rgba(236, 240, 247, 0.72) 78%, rgba(236, 240, 247, 0) 100%);
+  animation-name: cloudDrift;
+  animation-duration: 14s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.cloudOne {
+  left: 3%;
+  width: clamp(300px, 36vw, 620px);
+  height: clamp(64px, 9vh, 126px);
+  animation-delay: 0s;
+  animation-duration: 12s;
+}
+
+.cloudTwo {
+  left: 34%;
+  width: clamp(260px, 31vw, 560px);
+  height: clamp(58px, 8.4vh, 114px);
+  opacity: 0.66;
+  animation-delay: -7s;
+  animation-duration: 16s;
+  animation-direction: reverse;
+}
+
+.cloudThree {
+  right: 1%;
+  width: clamp(280px, 34vw, 600px);
+  height: clamp(60px, 8.8vh, 118px);
+  opacity: 0.72;
+  animation-delay: -13s;
+  animation-duration: 13s;
 }
 
 .heroContainer {
   position: relative;
-  z-index: 3;
+  z-index: 4;
   width: 100%;
 }
 
@@ -337,7 +501,7 @@
   align-items: center;
   gap: 0.5rem;
   color: #2d2d32;
-  z-index: 5;
+  z-index: 6;
 
   @media (max-width: 768px) {
     display: none;
@@ -348,7 +512,7 @@
   width: 1.25rem;
   height: 1.25rem;
   stroke-width: 1.5;
-  animation: mouseFloat 2s ease-in-out infinite;
+  animation: none;
 }
 
 .scrollLine {
@@ -363,5 +527,190 @@
   }
   50% {
     transform: translateY(4px);
+  }
+}
+
+@keyframes cloudDrift {
+  0% {
+    transform: translateX(-18px) translateY(2px) scale(1);
+  }
+  50% {
+    transform: translateX(26px) translateY(-7px) scale(1.02);
+  }
+  100% {
+    transform: translateX(-18px) translateY(2px) scale(1);
+  }
+}
+
+@keyframes sketchRise {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.988);
+    filter: blur(1.2px);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes sketchStrokeReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  16% {
+    clip-path: inset(0 82% 0 0);
+  }
+  38% {
+    clip-path: inset(0 63% 0 0);
+  }
+  58% {
+    clip-path: inset(0 40% 0 0);
+  }
+  76% {
+    clip-path: inset(0 20% 0 0);
+  }
+  90% {
+    clip-path: inset(0 8% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes sketchBreath {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes sketchDevelop {
+  0% {
+    opacity: 0.1;
+    filter: grayscale(1) contrast(1.26) brightness(0.84) blur(0.45px);
+  }
+  55% {
+    opacity: 0.52;
+    filter: grayscale(1) contrast(1.2) brightness(0.89) blur(0.2px);
+  }
+  100% {
+    opacity: 1;
+    filter: grayscale(1) contrast(1.14) brightness(0.93) blur(0);
+  }
+}
+
+@keyframes hatchSweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-112%) rotate(-1.2deg);
+  }
+  10% {
+    opacity: 0.34;
+  }
+  70% {
+    opacity: 0.28;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(114%) rotate(-1.2deg);
+  }
+}
+
+@keyframes pencilLead {
+  0% {
+    opacity: 0;
+    transform: translateX(-128%);
+  }
+  20% {
+    opacity: 0.58;
+  }
+  85% {
+    opacity: 0.34;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(120%);
+  }
+}
+
+@media (max-width: 900px) {
+  .sketchFacade {
+    left: clamp(-130px, -4vw, -44px);
+    top: clamp(112px, 13vh, 164px);
+    opacity: 1;
+  }
+
+  .sketchColumns {
+    right: clamp(-24px, 3vw, 50px);
+    top: clamp(82px, 10vh, 140px);
+    width: clamp(330px, 64vw, 520px);
+    opacity: 0.46;
+  }
+
+  .sketchDust {
+    opacity: 0.1;
+    left: clamp(12px, 3vw, 64px);
+  }
+
+  .sketchVignette {
+    background:
+      linear-gradient(100deg, rgba(236, 238, 242, 0.9) 4%, rgba(236, 238, 242, 0.54) 38%, rgba(236, 238, 242, 0.2) 68%, rgba(236, 238, 242, 0.78) 100%);
+  }
+}
+
+@media (max-width: 640px) {
+  .sketchFacade {
+    display: none;
+  }
+
+  .sketchColumns {
+    width: clamp(300px, 95vw, 430px);
+    right: clamp(-60px, -7vw, -10px);
+    top: clamp(84px, 12vh, 140px);
+    opacity: 0.38;
+  }
+
+  .sketchDust {
+    width: clamp(180px, 56vw, 260px);
+    left: clamp(8px, 4vw, 22px);
+    top: clamp(130px, 19vh, 182px);
+    opacity: 0.08;
+  }
+
+  .cloudBand {
+    left: -10%;
+    right: -10%;
+    bottom: 0;
+    height: clamp(72px, 11vh, 116px);
+  }
+
+  .cloud {
+    filter: blur(1.8px);
+    opacity: 0.72;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sketchLayer {
+    clip-path: inset(0 0 0 0);
+  }
+
+  .sketchLayer::before,
+  .sketchLayer::after {
+    animation: none;
+    opacity: 0;
+  }
+
+  .sketchImage {
+    animation: none;
+    opacity: 1;
+    filter: grayscale(1) contrast(1.14) brightness(0.93);
+  }
+
+  .cloud {
+    animation: none;
   }
 }

@@ -14,17 +14,20 @@ export function Hero() {
 
   return (
     <section className={cn(sectionStyles.section, styles.hero)}>
-      {/* Background Video */}
-      <div className={styles.videoContainer}>
+      {/* Hero video background */}
+      <div className={styles.sketchScene} aria-hidden="true">
         <video
           className={styles.heroVideo}
           autoPlay
           muted
           loop
           playsInline
+          preload="metadata"
         >
-          <source src="/assets/hero_hd.mp4" type="video/mp4" />
+          <source src="/assets/hero_1.mp4" type="video/mp4" />
         </video>
+        <div className={styles.videoOverlay} />
+        <div className={styles.sketchVignette} />
       </div>
 
       <div className={cn(sectionStyles.container, styles.heroContainer)}>

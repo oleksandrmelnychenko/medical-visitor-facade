@@ -1,6 +1,7 @@
 "use client";
 
 import { memo, useRef } from "react";
+import Image from "next/image";
 import { useInView } from "motion/react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
@@ -38,9 +39,12 @@ export const Office = memo(function Office() {
               <h3 className={styles.mainCityName}>{t('cities.munich.name')}</h3>
             </div>
             <div className={styles.mainCityImageWrapper}>
-              <img
+              <Image
                 src="/assets/1_city-munich.png"
                 alt="Munich"
+                width={560}
+                height={320}
+                sizes="(max-width: 767px) 60vw, 45vw"
                 className={cn(styles.cityImageMunich, styles.brushPaint, isInView && styles.brushPaintActive)}
               />
             </div>
@@ -50,9 +54,12 @@ export const Office = memo(function Office() {
           {OTHER_CITIES.map((city, index) => (
             <div key={city.key} className={styles.cityCard} style={city.style}>
               <div className={styles.cityImageWrapper}>
-                <img
+                <Image
                   src={city.image}
-                  alt={city.key}
+                  alt={t(`cities.${city.key}.name`)}
+                  width={300}
+                  height={220}
+                  sizes="(max-width: 767px) 45vw, 25vw"
                   className={cn(styles.cityImage, styles.brushPaint, isInView && styles.brushPaintActive)}
                   style={{ animationDelay: `${0.2 + index * 0.2}s` }}
                 />
@@ -62,10 +69,8 @@ export const Office = memo(function Office() {
           ))}
         </div>
 
-        {/* Closing line */}
-        <div className={styles.closingLines}>
-          <div className={styles.closingLine} />
-        </div>
+        <div className={styles.closingSpacer} aria-hidden="true" />
+
       </div>
     </section>
   );

@@ -88,12 +88,40 @@ type Step3Data = {
   clientNotes?: string;
 };
 
+const DRAFT_STORAGE_KEY = "gmed.register-wizard.draft.v1";
+const SUBMISSIONS_STORAGE_KEY = "gmed.register-wizard.submissions.v1";
+
+type RegisterDraft = {
+  step?: number;
+  personalData?: Step1Data | null;
+  questionnaireData?: Step2Data | null;
+  step3Data?: Step3Data | null;
+};
+
+function readRegisterDraft(): RegisterDraft | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const rawDraft = localStorage.getItem(DRAFT_STORAGE_KEY);
+    if (!rawDraft) return null;
+    return JSON.parse(rawDraft) as RegisterDraft;
+  } catch {
+    return null;
+  }
+}
+
 export function RegisterWizard() {
   const t = useTranslations("register");
   const router = useRouter();
-  const [step, setStep] = useState(1);
-  const [personalData, setPersonalData] = useState<Step1Data | null>(null);
-  const [questionnaireData, setQuestionnaireData] = useState<Step2Data | null>(null);
+  const [step, setStep] = useState(() => {
+    const draftStep = readRegisterDraft()?.step;
+    return typeof draftStep === "number" && draftStep >= 1 && draftStep <= 3 ? draftStep : 1;
+  });
+  const [personalData, setPersonalData] = useState<Step1Data | null>(
+    () => readRegisterDraft()?.personalData || null
+  );
+  const [questionnaireData, setQuestionnaireData] = useState<Step2Data | null>(
+    () => readRegisterDraft()?.questionnaireData || null
+  );
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -129,7 +157,7 @@ export function RegisterWizard() {
 
   const step3Form = useForm<Step3Data>({
     resolver: zodResolver(step3Schema),
-    defaultValues: {
+    defaultValues: readRegisterDraft()?.step3Data || {
       needCharter: false,
       needTransport: false,
       needVisa: false,
@@ -140,6 +168,23 @@ export function RegisterWizard() {
   });
 
   const currentLocation = step2Form.watch("currentLocation");
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(
+        DRAFT_STORAGE_KEY,
+        JSON.stringify({
+          step,
+          personalData,
+          questionnaireData,
+          step3Data: step3Form.getValues(),
+          updatedAt: new Date().toISOString(),
+        }),
+      );
+    } catch {
+      // Ignore storage quota errors
+    }
+  }, [step, personalData, questionnaireData, step3Form]);
 
   useEffect(() => {
     if (showSuccess && countdown > 0) {
@@ -171,20 +216,22 @@ export function RegisterWizard() {
     };
 
     try {
-      const response = await fetch("/api/applications", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(fullData),
-      });
+      const payload = {
+        ...fullData,
+        submittedAt: new Date().toISOString(),
+        source: "register-wizard",
+      };
 
-      const result = await response.json();
+      const current = localStorage.getItem(SUBMISSIONS_STORAGE_KEY);
+      const submissions = current ? (JSON.parse(current) as unknown[]) : [];
+      submissions.push(payload);
+      localStorage.setItem(SUBMISSIONS_STORAGE_KEY, JSON.stringify(submissions));
+      localStorage.removeItem(DRAFT_STORAGE_KEY);
 
-      if (!response.ok) {
-        throw new Error(result.error || "Failed to submit application");
-      }
-
+      const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@gmed-health.com";
+      const subject = encodeURIComponent("New membership application");
+      const body = encodeURIComponent(JSON.stringify(payload, null, 2));
+      window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
       setShowSuccess(true);
     } catch (error) {
       console.error("Application submission error:", error);

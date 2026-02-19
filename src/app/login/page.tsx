@@ -121,9 +121,9 @@ export default function LoginPage() {
       const session = await sessionRes.json();
       const userRole = session?.user?.role;
 
-      // Redirect based on role
-      if (userRole === "ADMIN" || userRole === "MANAGER") {
-        router.push("/admin");
+      // Redirect to account page after successful sign-in
+      if (userRole) {
+        router.push("/account");
       } else {
         router.push("/account");
       }

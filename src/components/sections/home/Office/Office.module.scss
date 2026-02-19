@@ -172,18 +172,10 @@
   text-transform: uppercase;
 }
 
-.closingLines {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  margin: 3rem auto 0;
-}
-
-.closingLine {
-  width: 80px;
-  height: 2px;
-  background-color: var(--foreground);
+.closingSpacer {
+  width: 100%;
+  height: clamp(1.6rem, 2.8vw, 2.4rem);
+  margin-top: clamp(1.1rem, 2.2vw, 1.9rem);
 }
 
 @media (max-width: 767px) {
@@ -218,11 +210,9 @@
     gap: 0.75rem;
   }
 
-  .closingLines {
-    margin: 1.5rem auto 0;
+  .closingSpacer {
+    height: 1.4rem;
+    margin-top: 1rem;
   }
 
-  .closingLine {
-    width: 60px;
-  }
 }
