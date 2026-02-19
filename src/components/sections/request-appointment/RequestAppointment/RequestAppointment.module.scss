@@ -1,9 +1,10 @@
 @use "../../../../styles/variables" as *;
 
 .applyHeroSection {
-  padding-top: clamp(2rem, 5vw, 3rem) !important;
-  padding-bottom: 1.5rem !important;
+  padding-top: clamp(2.75rem, 7vw, 4.5rem) !important;
+  padding-bottom: clamp(1.5rem, 4vw, 2.5rem) !important;
 }
+
 
 .headerDivider {
   width: 100%;
@@ -829,8 +830,8 @@
 }
 
 .cardsSection {
-  padding-top: 0.5rem !important;
-  padding-bottom: 2rem !important;
+  padding-top: clamp(1rem, 3vw, 1.5rem) !important;
+  padding-bottom: clamp(2.5rem, 6vw, 4rem) !important;
 }
 
 .applyStack {
@@ -839,10 +840,20 @@
   gap: 0;
 }
 
+.selectionLead {
+  margin: 0 auto 1rem;
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6a6a7c;
+}
+
 .clientCardsGrid {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.9rem;
   max-width: 460px;
   width: 100%;
   margin: 0 auto;
@@ -859,20 +870,27 @@
   align-items: center;
   justify-content: space-between;
   text-align: left;
-  padding: 1.25rem 1.25rem;
-  background-color: var(--background);
-  border: 1px solid var(--hover-color);
-  border-radius: 12px;
+  padding: 1.35rem 1.3rem;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--hover-color) 12%, #ffffff) 0%, #ffffff 60%);
+  border: 1px solid color-mix(in srgb, var(--hover-color) 55%, #d6d6de);
+  border-radius: 14px;
   position: relative;
   cursor: pointer;
   min-height: 70px;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.3s ease, transform 0.2s ease, background 0.25s ease;
   touch-action: manipulation;
+  overflow: hidden;
 
   &:hover {
-    box-shadow: 0 8px 32px color-mix(in srgb, var(--hover-color) 40%, transparent);
-    transform: translateY(-2px);
+    box-shadow: 0 16px 34px color-mix(in srgb, var(--hover-color) 30%, transparent);
+    transform: translateY(-3px) scale(1.005);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--hover-color) 17%, #ffffff) 0%, #ffffff 62%);
+
+    .clientCardArrow {
+      transform: translateX(3px);
+      opacity: 1;
+    }
   }
 
   &:focus-visible {
@@ -890,25 +908,27 @@
 }
 
 .clientCardArrow {
-  color: #1a1a1a;
+  color: #2d2d32;
   flex-shrink: 0;
   margin-left: 1rem;
+  opacity: 0.78;
+  transition: transform 0.22s ease, opacity 0.22s ease;
 }
 
 .clientCardTitle {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--foreground);
+  color: #24242d;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .clientCardDesc {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.02em;
-  line-height: 1.4rem;
-  color: var(--muted-foreground);
+  line-height: 1.45;
+  color: #5b5b6d;
 }
 
 .selectionCard {
@@ -1142,7 +1162,7 @@
 
 @media (max-width: 640px) {
   .applyHeroSection {
-    padding-top: 1.5rem !important;
+    padding-top: 2rem !important;
     padding-bottom: 1rem !important;
   }
 
@@ -1278,7 +1298,7 @@
   position: relative;
   min-height: calc(100vh - 80px);
   overflow: hidden;
-  background: #fafafa;
+  background: #ffffff;
 
   section {
     background: transparent !important;

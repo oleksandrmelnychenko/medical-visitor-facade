@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { User, UserPlus, LogOut, Menu, X, ArrowRight } from "lucide-react";
+import { User, UserPlus, LogOut, ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useSession, signOut } from "next-auth/react";
 import { cn } from "@/lib/utils";
@@ -139,9 +139,16 @@ export function Header() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            className={styles.stickyMobileMenuButton}
+            className={cn(styles.stickyMobileMenuButton, isMobileMenuOpen && styles.menuButtonOpen)}
           >
-            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            <span
+              className={cn(styles.hamburgerIcon, isMobileMenuOpen && styles.hamburgerIconOpen)}
+              aria-hidden="true"
+            >
+              <span />
+              <span />
+              <span />
+            </span>
           </button>
           <div className={styles.stickyActions}>
             <Link href="/apply" className={styles.stickyButton}>
@@ -178,9 +185,16 @@ export function Header() {
           <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-          className={styles.mobileMenuButton}
+          className={cn(styles.mobileMenuButton, isMobileMenuOpen && styles.menuButtonOpen)}
         >
-          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          <span
+            className={cn(styles.hamburgerIcon, isMobileMenuOpen && styles.hamburgerIconOpen)}
+            aria-hidden="true"
+          >
+            <span />
+            <span />
+            <span />
+          </span>
         </button>
 
           {/* Desktop navigation - hidden via CSS on mobile */}

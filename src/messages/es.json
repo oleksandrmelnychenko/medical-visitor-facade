@@ -191,6 +191,7 @@
     "title": "Convertirse en cliente",
     "subtitle": "Envíe una solicitud para que podamos contactarle en breve.",
     "backToSelection": "← Volver a la selección",
+    "selectionLead": "Elija su ruta de incorporación",
     "clientTypes": {
       "new": {
         "title": "Nuevo cliente",

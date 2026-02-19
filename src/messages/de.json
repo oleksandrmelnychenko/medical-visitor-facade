@@ -191,6 +191,7 @@
     "title": "Kunde werden",
     "subtitle": "Senden Sie eine Anfrage, damit wir uns zeitnah bei Ihnen melden können.",
     "backToSelection": "← Zur Auswahl",
+    "selectionLead": "Wählen Sie Ihren Aufnahmeweg",
     "clientTypes": {
       "new": {
         "title": "Neukunde",

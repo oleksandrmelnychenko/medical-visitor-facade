@@ -191,6 +191,7 @@
     "title": "Become a Member",
     "subtitle": "Submit a request and we will contact you shortly.",
     "backToSelection": "← Back to selection",
+    "selectionLead": "Choose your membership path",
     "clientTypes": {
       "new": {
         "title": "New membership",
