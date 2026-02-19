@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { User, LogOut, Menu, X, ArrowRight } from "lucide-react";
+import { User, UserPlus, LogOut, Menu, X, ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useSession, signOut } from "next-auth/react";
 import { cn } from "@/lib/utils";
@@ -23,17 +23,12 @@ export function Header() {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
   const langRef = useRef<HTMLDivElement>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
 
   // Combined event listeners for better performance
   useEffect(() => {
-    // Mobile detection
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-    checkMobile();
-
     // Scroll detection with RAF throttling
     let ticking = false;
     const handleScroll = () => {
@@ -56,16 +51,33 @@ export function Header() {
       }
     };
 
-    window.addEventListener('resize', checkMobile);
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
     window.addEventListener('scroll', handleScroll, { passive: true });
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
-      window.removeEventListener('resize', checkMobile);
+      window.removeEventListener('resize', handleResize);
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isMobileMenuOpen]);
 
   const languages = useMemo(() => [
     { code: 'de' as const, label: 'DE', fullName: 'Deutsch' },
@@ -113,7 +125,7 @@ export function Header() {
   return (
     <>
       {/* Sticky Header - appears on scroll */}
-      <div className={cn(styles.stickyHeader, isScrolled && styles.visible)}>
+      <div className={cn(styles.stickyHeader, isScrolled && styles.visible, isMobileMenuOpen && styles.noShadow)}>
         <div className={styles.stickyContainer}>
           <Link href="/" className={styles.stickyLogoLink}>
             <Image
@@ -124,6 +136,13 @@ export function Header() {
               className={styles.stickyLogo}
             />
           </Link>
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            className={styles.stickyMobileMenuButton}
+          >
+            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
           <div className={styles.stickyActions}>
             <Link href="/apply" className={styles.stickyButton}>
               {tCommon('requestAppointment')}
@@ -156,30 +175,16 @@ export function Header() {
       <header ref={headerRef} className={styles.header} style={{ position: 'relative' }}>
         <div className={styles.container} style={{ position: 'relative' }}>
           {/* Mobile hamburger button */}
-        <button
+          <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-          style={{
-            display: isMobile ? 'flex' : 'none',
-            position: 'absolute',
-            right: '1rem',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            background: 'transparent',
-            border: 'none',
-            borderRadius: 0,
-            padding: '0.5rem',
-            cursor: 'pointer',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 10
-          }}
+          className={styles.mobileMenuButton}
         >
           {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
 
-        {/* Desktop navigation - JS hides on mobile */}
-        <div className={styles.utilityRow} style={{ display: isMobile ? 'none' : 'flex' }}>
+          {/* Desktop navigation - hidden via CSS on mobile */}
+          <div className={styles.utilityRow}>
             {status === "authenticated" && (
               isAdmin ? (
                 <Link href="/admin" className={styles.adminTitle}>{tAdmin("adminPanel")}</Link>
@@ -262,40 +267,26 @@ export function Header() {
 
       {/* Mobile Dropdown Menu - appears below hamburger */}
       {/* Invisible backdrop to close menu on outside click */}
-      {isMobileMenuOpen && (
-        <div
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 998
-          }}
-          onClick={closeMobileMenu}
-        />
-      )}
+      <div
+        className={cn(styles.mobileMenuBackdrop, isMobileMenuOpen && styles.mobileMenuBackdropOpen)}
+        onClick={closeMobileMenu}
+        aria-hidden="true"
+      />
 
       {/* Dropdown panel */}
       <div
-        style={{
-          position: 'absolute',
-          top: '100%',
-          left: 0,
-          right: 0,
-          background: 'white',
-          zIndex: 999,
-          boxShadow: 'none',
-          borderTop: 'none',
-          transform: isMobileMenuOpen ? 'translateY(0)' : 'translateY(-10px)',
-          opacity: isMobileMenuOpen ? 1 : 0,
-          pointerEvents: isMobileMenuOpen ? 'auto' : 'none',
-          transition: 'transform 0.25s ease, opacity 0.25s ease'
-        }}
+        className={cn(
+          styles.mobileMenu,
+          isMobileMenuOpen && styles.mobileMenuOpen,
+          isScrolled && styles.mobileMenuWithSticky
+        )}
       >
             <div style={{ padding: '2rem 1.5rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center', textAlign: 'center' }}>
               {status !== "authenticated" && (
                 <Link
                   href="/login"
                   onClick={closeMobileMenu}
-                  style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem', fontWeight: 500, padding: '0.5rem 0' }}
+                  style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem', fontWeight: 500, padding: '0.5rem 0', textDecoration: 'none', color: '#2d2d32' }}
                 >
                   <User size={20} />
                   {tCommon('login')}
@@ -306,7 +297,7 @@ export function Header() {
                 <Link
                   href={isAdmin ? "/admin" : "/account"}
                   onClick={closeMobileMenu}
-                  style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem', fontWeight: 500, padding: '0.5rem 0' }}
+                  style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem', fontWeight: 500, padding: '0.5rem 0', textDecoration: 'none', color: '#2d2d32' }}
                 >
                   <User size={20} />
                   <span>{userName}</span>
@@ -325,9 +316,7 @@ export function Header() {
                       fontSize: '1rem',
                       fontWeight: locale === language.code ? 600 : 400,
                       color: '#1a1a1a',
-                      cursor: 'pointer',
-                      textDecoration: locale === language.code ? 'underline' : 'none',
-                      textUnderlineOffset: '2px'
+                      cursor: 'pointer'
                     }}
                   >
                     {language.label}
@@ -338,31 +327,18 @@ export function Header() {
               <Link
                 href="/apply"
                 onClick={closeMobileMenu}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.75rem',
-                  background: '#1a1a1a',
-                  border: '1px solid #fff',
-                  color: 'white',
-                  padding: '1rem 2rem',
-                  fontSize: '0.9rem',
-                  fontWeight: 500,
-                  letterSpacing: '0.02em',
-                  cursor: 'pointer'
-                }}
+                className={styles.mobileApplyButton}
               >
+                <UserPlus size={16} />
                 {tCommon('requestAppointment')}
-                <ArrowRight size={16} />
               </Link>
 
               {/* Footer links */}
-              <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.05em', padding: '0.5rem 0' }}>The Agency</div>
-                <Link href="/financial-assistance" onClick={closeMobileMenu} style={{ fontSize: '1rem', color: '#1a1a1a', textDecoration: 'underline', padding: '0.5rem 0' }}>{tFooter('financialAssistance')}</Link>
-                <Link href="/privacy-policy" onClick={closeMobileMenu} style={{ fontSize: '1rem', color: '#1a1a1a', textDecoration: 'underline', padding: '0.5rem 0' }}>{tFooter('privacyPolicy')}</Link>
-                <Link href="/legal-notice" onClick={closeMobileMenu} style={{ fontSize: '1rem', color: '#1a1a1a', textDecoration: 'underline', padding: '0.5rem 0' }}>{tFooter('impressum')}</Link>
+              <div className={styles.mobileFooterLinks}>
+                <div className={styles.mobileFooterTitle}>{tFooter("theAgency")}</div>
+                <Link href="/financial-assistance" onClick={closeMobileMenu} className={styles.mobileFooterLink}>{tFooter('financialAssistance')}</Link>
+                <Link href="/privacy-policy" onClick={closeMobileMenu} className={styles.mobileFooterLink}>{tFooter('privacyPolicy')}</Link>
+                <Link href="/legal-notice" onClick={closeMobileMenu} className={styles.mobileFooterLink}>{tFooter('impressum')}</Link>
               </div>
 
               {status === "authenticated" && (

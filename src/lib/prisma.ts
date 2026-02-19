@@ -5,13 +5,7 @@ const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
 };
 
-function createPrismaClient() {
-  const connectionString = process.env.POSTGRES_PRISMA_URL || process.env.DATABASE_URL;
-
-  if (!connectionString) {
-    throw new Error("Database connection string not found");
-  }
-
+function createPrismaClient(connectionString: string) {
   const adapter = new PrismaNeon({ connectionString });
 
   return new PrismaClient({
@@ -20,8 +14,28 @@ function createPrismaClient() {
   });
 }
 
-export const prisma = globalForPrisma.prisma ?? createPrismaClient();
+const connectionString = process.env.POSTGRES_PRISMA_URL || process.env.DATABASE_URL;
+
+const prismaFallback = new Proxy({} as PrismaClient, {
+  get() {
+    throw new Error(
+      "Database connection string not found. Set POSTGRES_PRISMA_URL or DATABASE_URL in your environment.",
+    );
+  },
+});
+
+if (!connectionString && process.env.NODE_ENV === "development") {
+  console.warn(
+    "[DB] POSTGRES_PRISMA_URL/DATABASE_URL is missing. Database-backed routes will fail until env is configured.",
+  );
+}
+
+export const prisma =
+  globalForPrisma.prisma ??
+  (connectionString ? createPrismaClient(connectionString) : prismaFallback);
 
 if (process.env.NODE_ENV !== "production") {
-  globalForPrisma.prisma = prisma;
+  if (connectionString) {
+    globalForPrisma.prisma = prisma;
+  }
 }

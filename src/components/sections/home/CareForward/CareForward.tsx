@@ -1,103 +1,100 @@
 "use client";
 
-import { memo } from "react";
+import { memo, type CSSProperties } from "react";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Building2, Stethoscope, Activity, Headphones, Video } from "lucide-react";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./CareForward.module.scss";
 
-// Static arrays moved outside component to prevent recreation on each render
-const SERVICES = [
-  { icon: Building2, key: 'clinic', style: { '--hover-color': '#E5D5A8' } as React.CSSProperties },
-  { icon: Stethoscope, key: 'organization', style: { '--hover-color': '#A8D5E5' } as React.CSSProperties },
-  { icon: Activity, key: 'coordination', style: { '--hover-color': '#B5E5B0' } as React.CSSProperties },
+const PRIMARY_SERVICES = [
+  { icon: Building2, key: "clinic", style: { "--tone": "#D8C39B" } as CSSProperties },
+  { icon: Stethoscope, key: "organization", style: { "--tone": "#9FCBD8" } as CSSProperties },
+  { icon: Activity, key: "coordination", style: { "--tone": "#A8D0AE" } as CSSProperties },
 ];
 
 const SUPPORT_SERVICES = [
-  { icon: Headphones, key: 'support' },
-  { icon: Video, key: 'consultations' },
+  { icon: Headphones, key: "support" },
+  { icon: Video, key: "consultations" },
 ];
 
-const SUPPORT_BLOCK_STYLE = { '--hover-color': '#D5A8E5' } as React.CSSProperties;
+const SUPPORT_BLOCK_STYLE = { "--tone": "#C7A6D4" } as CSSProperties;
 
 export const CareForward = memo(function CareForward() {
-  const t = useTranslations('home.careForward');
-  const tCta = useTranslations('home.cta');
+  const t = useTranslations("home.careForward");
+  const tCta = useTranslations("home.cta");
 
   return (
     <section className={styles.section}>
       <div className={sectionStyles.container}>
-        <motion.h2
-          className={styles.title}
+        <motion.div
+          className={styles.shell}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          {t('title')}
-        </motion.h2>
+          <div className={styles.header}>
+            <span className={styles.headerLine} />
+            <h2 className={styles.title}>{t("title")}</h2>
+          </div>
 
-        <div className={styles.servicesGrid}>
-          {SERVICES.map((service, index) => (
+          <div className={styles.layout}>
+            <div className={styles.flow}>
+              {PRIMARY_SERVICES.map((service, index) => (
+                <motion.article
+                  key={service.key}
+                  className={styles.flowCard}
+                  style={service.style}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.08 }}
+                >
+                  <div className={styles.flowIcon}>
+                    <service.icon />
+                  </div>
+                  <div className={styles.cardText}>
+                    <h3 className={styles.serviceTitle}>{t(`services.${service.key}.title`)}</h3>
+                    <p className={styles.serviceDesc}>{t(`services.${service.key}.desc`)}</p>
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+
             <motion.div
-              key={service.key}
-              className={styles.serviceItem}
-              style={service.style}
+              className={styles.supportPanel}
+              style={SUPPORT_BLOCK_STYLE}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
-              {/* Front - icon + title */}
-              <div className={styles.serviceFront}>
-                <div className={styles.serviceIcon}>
-                  <service.icon />
+              <div className={styles.supportHead}>
+                <div className={styles.supportIcon}>
+                  <Headphones />
                 </div>
-                <h3 className={styles.serviceTitle}>
-                  {t(`services.${service.key}.title`)}
-                </h3>
+                <h3 className={styles.supportTitle}>{tCta("title")}</h3>
               </div>
-              {/* Back - description on hover */}
-              <div className={styles.serviceBack}>
-                <p className={styles.serviceDesc}>
-                  {t(`services.${service.key}.desc`)}
-                </p>
+
+              <div className={styles.supportGrid}>
+                {SUPPORT_SERVICES.map((subService) => (
+                  <div key={subService.key} className={styles.supportItem}>
+                    <subService.icon className={styles.subServiceIcon} />
+                    <div>
+                      <h4 className={styles.subServiceTitle}>
+                        {tCta(`services.${subService.key}.title`)}
+                      </h4>
+                      <p className={styles.subServiceDesc}>
+                        {tCta(`services.${subService.key}.desc`)}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </motion.div>
-          ))}
-
-          {/* 4th block - Сопровождение with hover sub-services */}
-          <motion.div
-            className={styles.serviceItem}
-            style={SUPPORT_BLOCK_STYLE}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            {/* Front - icon + title */}
-            <div className={styles.serviceFront}>
-              <div className={styles.serviceIcon}>
-                <Headphones />
-              </div>
-              <h3 className={styles.serviceTitle}>
-                {tCta('title')}
-              </h3>
-            </div>
-            {/* Back - sub-services on hover */}
-            <div className={styles.serviceBack}>
-              {SUPPORT_SERVICES.map((subService) => (
-                <div key={subService.key} className={styles.subServiceItem}>
-                  <subService.icon className={styles.subServiceIcon} />
-                  <span className={styles.subServiceTitle}>
-                    {tCta(`services.${subService.key}.title`)}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
