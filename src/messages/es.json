@@ -1,4 +1,9 @@
 {
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La página que busca no existe o ha sido movida.",
+    "backHome": "Volver al inicio"
+  },
   "cookies": {
     "message": "Utilizamos cookies para mejorar su experiencia en nuestro sitio web. Al continuar navegando, acepta el uso de cookies.",
     "accept": "Aceptar",
@@ -91,13 +96,13 @@
           "phone": "+49 30 123-4567"
         },
         "hamburg": {
-          "name": "Fráncfort",
-          "address": "Kaiserstraße 50, 60329 Hamburg",
+          "name": "Hamburgo",
+          "address": "Jungfernstieg 1, 20095 Hamburg",
           "phone": "+49 40 123-4567"
         },
         "cologne": {
-          "name": "Núremberg",
-          "address": "Königstraße 25, 90402 Köln",
+          "name": "Colonia",
+          "address": "Schildergasse 120, 50667 Köln",
           "phone": "+49 221 123-4567"
         },
         "munich": {
@@ -220,11 +225,20 @@
         "wrapUp": "Completar"
       },
       "progressSteps": {
-        "travelReady": "Travel Readiness",
-        "patientInfo": "Patient Information",
-        "primaryConcern": "Primary Concern",
-        "insuranceDetails": "Insurance Details",
-        "wrapUp": "Wrap Up"
+        "travelReady": "Preparación para el viaje",
+        "patientInfo": "Información del miembro",
+        "primaryConcern": "Motivo principal",
+        "insuranceDetails": "Datos del seguro",
+        "wrapUp": "Finalizar"
+      },
+      "euProgress": {
+        "part1": "Parte 1",
+        "part2": "Parte 2",
+        "part2Note": "Estos pasos aparecerán una vez completada la Parte 1.",
+        "patientInfo": "Información del miembro",
+        "medicalConcerns": "Cuestiones médicas",
+        "insuranceDetails": "Datos del seguro",
+        "preferences": "Preferencias"
       },
       "back": "Atrás",
       "location": {
@@ -240,6 +254,17 @@
         "yesDesc": "Soy el miembro",
         "no": "No",
         "noDesc": "Estoy solicitando para otra persona"
+      },
+      "medicalDiagnosis": {
+        "title": "¿Tiene un diagnóstico en alguna de las siguientes áreas?",
+        "description": "",
+        "options": {
+          "cardiology": "Cardiología",
+          "neurology": "Neurología",
+          "oncology": "Oncología",
+          "otherDiagnosis": "Tengo un diagnóstico en otra área",
+          "noDiagnosis": "No tengo un diagnóstico"
+        }
       },
       "primaryConcern": {
         "title": "¿Cuál es su principal preocupación?",
@@ -336,6 +361,24 @@
         "yes": "Sí, necesito ayuda",
         "no": "No, ya tengo visa"
       },
+      "euCompanionInfo": {
+        "title": "Cuéntenos sobre usted.",
+        "subtitle": "",
+        "relationship": "Relación con el miembro",
+        "selectPlaceholder": "Seleccionar",
+        "relationships": {
+          "child": "Hijo/a",
+          "grandchild": "Nieto/a",
+          "grandparent": "Abuelo/a",
+          "guardian": "Tutor/a",
+          "inLaw": "Pariente político",
+          "lifePartner": "Pareja",
+          "other": "Otro",
+          "parent": "Padre/Madre",
+          "sibling": "Hermano/a",
+          "spouse": "Cónyuge"
+        }
+      },
       "euPatientName": {
         "title": "¿Cuál es el nombre legal del miembro?",
         "subtitle": "",
@@ -376,6 +419,14 @@
         "yes": "Sí",
         "no": "No",
         "primaryLanguage": "¿Cuál es su idioma principal?"
+      },
+      "euAddress": {
+        "title": "¿Cuál es su dirección?",
+        "streetAddress": "Dirección",
+        "city": "Ciudad",
+        "state": "",
+        "statePlaceholder": "Seleccionar",
+        "zipCode": "Código postal"
       },
       "patientInfo": {
         "introTitle": "Proporcione sus datos de contacto",

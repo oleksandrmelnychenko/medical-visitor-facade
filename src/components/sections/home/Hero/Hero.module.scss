@@ -7,19 +7,18 @@
   width: 100%;
   background: #f5f5f7;
 
-  // 56.25vw = 16:9 ratio from viewport width, capped at 88vh
-  // This ensures the video bottom isn't cropped on desktop
+  // Desktop: 16:9 ratio from viewport width, capped at 88vh
   height: min(56.25vw, 88vh);
 
   // Tablet
   @media (max-width: 768px) {
-    height: auto;
-    min-height: 56vh;
+    height: 50vh;
   }
 
-  // Small mobile
+  // Mobile
   @media (max-width: 480px) {
-    min-height: clamp(340px, 60svh, 460px);
+    height: 44vh;
+    min-height: 260px;
   }
 }
 
@@ -37,9 +36,33 @@
   object-fit: cover;
   object-position: center;
   z-index: 1;
+}
 
-  // Mobile: zoom into the center where the drawing action is
+// Desktop video: hide on mobile
+.desktopVideo {
   @media (max-width: 768px) {
-    object-position: 55% center;
+    display: none;
+  }
+}
+
+// Visually hidden but accessible to screen readers & crawlers
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Mobile video: hide on desktop, show on mobile
+.mobileVideo {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
   }
 }

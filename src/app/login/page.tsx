@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
@@ -150,7 +150,6 @@ export default function LoginPage() {
             titleAs="h1"
             theme="beige"
           />
-          <div className={styles.headerDivider} />
         </div>
       </section>
 
@@ -209,6 +208,7 @@ export default function LoginPage() {
 
               <button type="submit" className={formStyles.submitButton} disabled={isSubmitting}>
                 {isSubmitting ? t('signingIn') : t('signIn')}
+                {!isSubmitting && <ArrowRight size={16} />}
               </button>
 
               <p className={formStyles.confidentialityNotice}>

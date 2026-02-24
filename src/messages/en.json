@@ -1,4 +1,9 @@
 {
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "backHome": "Back to Home"
+  },
   "cookies": {
     "message": "We use cookies to improve your experience on our website. By continuing to browse, you agree to our use of cookies.",
     "accept": "Accept",
@@ -92,12 +97,12 @@
         },
         "hamburg": {
           "name": "Hamburg",
-          "address": "Kaiserstraße 50, 60329 Hamburg",
+          "address": "Jungfernstieg 1, 20095 Hamburg",
           "phone": "+49 40 123-4567"
         },
         "cologne": {
-          "name": "Nuremberg",
-          "address": "Königstraße 25, 90402 Köln",
+          "name": "Cologne",
+          "address": "Schildergasse 120, 50667 Köln",
           "phone": "+49 221 123-4567"
         },
         "munich": {

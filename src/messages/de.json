@@ -1,4 +1,9 @@
 {
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die angeforderte Seite existiert nicht oder wurde verschoben.",
+    "backHome": "Zur Startseite"
+  },
   "cookies": {
     "message": "Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Durch die weitere Nutzung stimmen Sie der Verwendung von Cookies zu.",
     "accept": "Akzeptieren",
@@ -21,21 +26,21 @@
   },
   "header": {
     "care": "Betreuung",
-    "patientResources": "Für Mitglieden",
+    "patientResources": "Für Mitglieder",
     "trustSafety": "Vertrauen und Sicherheit",
-    "patientCenteredCare": "Mitgliedenorientierte Betreuung",
+    "patientCenteredCare": "Mitgliederorientierte Betreuung",
     "aboutGmed": "Über Gmed",
     "requestAppointment": "Kunde werden",
     "findDoctor": "Arzt finden",
     "locations": "Standorte",
-    "patientServices": "Mitgliedenservice",
+    "patientServices": "Mitgliederservice",
     "medicalRecords": "Medizinische Unterlagen",
     "insuranceBilling": "Versicherung und Abrechnung",
-    "patientPortal": "Mitgliedenportal",
+    "patientPortal": "Mitgliederportal",
     "privacyPolicy": "Datenschutz",
     "dataSecurity": "Datensicherheit",
     "hipaaCompliance": "HIPAA-Konformität",
-    "patientRights": "Mitgliedenrechte"
+    "patientRights": "Mitgliederrechte"
   },
   "footer": {
     "impressum": "Rechtliche Hinweise",
@@ -92,12 +97,12 @@
         },
         "hamburg": {
           "name": "Hamburg",
-          "address": "Kaiserstraße 50, 60329 Hamburg",
+          "address": "Jungfernstieg 1, 20095 Hamburg",
           "phone": "+49 40 123-4567"
         },
         "cologne": {
           "name": "Köln",
-          "address": "Königstraße 25, 90402 Köln",
+          "address": "Schildergasse 120, 50667 Köln",
           "phone": "+49 221 123-4567"
         },
         "munich": {
@@ -204,10 +209,10 @@
     },
     "freeService": {
       "title": "Benötigen Sie finanzielle Unterstützung?",
-      "description1": "Wir wissen, dass medizinische Versorgung finanziell belastend sein kann. Die Agentur für Mitgliedenbetreuung bietet ein begrenztes Programm für Mitglieden, die Hilfe bei medizinischen Kosten benötigen.",
+      "description1": "Wir wissen, dass medizinische Versorgung finanziell belastend sein kann. Die Agentur für Mitgliederbetreuung bietet ein begrenztes Programm für Mitglieder, die Hilfe bei medizinischen Kosten benötigen.",
       "description2": "Unser Team prüft jede Anfrage sorgfältig und unterstützt, sofern Ressourcen verfügbar sind.",
       "priority": "Priorisierte Fälle:",
-      "priorityText": "Wir priorisieren Fälle mit Kindern, dringliche medizinische Situationen und Mitglieden in besonderen Umständen.",
+      "priorityText": "Wir priorisieren Fälle mit Kindern, dringliche medizinische Situationen und Mitglieder in besonderen Umständen.",
       "note": "Hinweis: Anträge auf kostenfreie Leistungen werden individuell geprüft, abhängig von verfügbaren Kapazitäten und medizinischer Notwendigkeit. Wir melden uns innerhalb von 5-7 Werktagen zum Status Ihrer Anfrage.",
       "applyButton": "Kostenfreie Betreuung beantragen"
     },
@@ -220,11 +225,20 @@
         "wrapUp": "Abschluss"
       },
       "progressSteps": {
-        "travelReady": "Travel Readiness",
-        "patientInfo": "Mitglied Information",
-        "primaryConcern": "Primary Concern",
-        "insuranceDetails": "Insurance Details",
-        "wrapUp": "Wrap Up"
+        "travelReady": "Reisebereitschaft",
+        "patientInfo": "Mitgliederinformationen",
+        "primaryConcern": "Hauptanliegen",
+        "insuranceDetails": "Versicherungsdaten",
+        "wrapUp": "Abschluss"
+      },
+      "euProgress": {
+        "part1": "Teil 1",
+        "part2": "Teil 2",
+        "part2Note": "Diese Schritte erscheinen nach Abschluss von Teil 1.",
+        "patientInfo": "Mitgliederinformationen",
+        "medicalConcerns": "Medizinische Anliegen",
+        "insuranceDetails": "Versicherungsdaten",
+        "preferences": "Präferenzen"
       },
       "back": "Zurück",
       "location": {
@@ -235,11 +249,22 @@
         "outsideEUDesc": "Ich befinde mich derzeit außerhalb der Europäischen Union"
       },
       "patientRole": {
-        "title": "Sind Sie der Mitglied?",
+        "title": "Sind Sie das Mitglied?",
         "yes": "Ja",
-        "yesDesc": "Ich bin der Mitglied",
+        "yesDesc": "Ich bin das Mitglied",
         "no": "Nein",
         "noDesc": "Ich stelle eine Anfrage für jemand anderen"
+      },
+      "medicalDiagnosis": {
+        "title": "Haben Sie eine Diagnose in einem der folgenden Bereiche?",
+        "description": "",
+        "options": {
+          "cardiology": "Kardiologie",
+          "neurology": "Neurologie",
+          "oncology": "Onkologie",
+          "otherDiagnosis": "Ich habe eine Diagnose in einem anderen Bereich",
+          "noDiagnosis": "Ich habe keine Diagnose"
+        }
       },
       "primaryConcern": {
         "title": "Was ist Ihr Hauptanliegen?",
@@ -259,7 +284,7 @@
       },
       "continue": "Weiter",
       "travelCompanion": {
-        "title": "Ist dieser Mitglied in der Lage und bereit, zur Behandlung nach Deutschland zu reisen?",
+        "title": "Ist dieses Mitglied in der Lage und bereit, zur Behandlung nach Deutschland zu reisen?",
         "yes": "Ja",
         "no": "Nein"
       },
@@ -269,10 +294,10 @@
         "no": "Nein"
       },
       "recordsCompanion": {
-        "title": "Kann dieser Mitglied seine medizinischen Unterlagen einreichen?",
+        "title": "Kann dieses Mitglied seine medizinischen Unterlagen einreichen?",
         "yes": "Ja",
         "no": "Nein",
-        "none": "Dieser Mitglied hat keine medizinischen Unterlagen"
+        "none": "Dieses Mitglied hat keine medizinischen Unterlagen"
       },
       "recordsPatient": {
         "title": "Können Sie Ihre medizinischen Unterlagen einreichen?",
@@ -281,7 +306,7 @@
         "none": "Ich habe keine medizinischen Unterlagen"
       },
       "documentsCompanion": {
-        "title": "Hat dieser Mitglied die erforderlichen Dokumente für die Reise nach Deutschland?",
+        "title": "Hat dieses Mitglied die erforderlichen Dokumente für die Reise nach Deutschland?",
         "needList": "Er/Sie benötigt:",
         "passport": "Einen gültigen Reisepass.",
         "visa": "Ein gültiges Visum, es sei denn, Sie sind Staatsbürger eines EU-Landes oder eines Landes, das am",
@@ -305,28 +330,28 @@
         "no": "Nein"
       },
       "exitNoTravelCompanion": {
-        "title": "Vielen Dank. Wir nehmen derzeit nur Mitglieden an, die nach Deutschland reisen können.",
-        "description": "Wenn dieser Mitglied in Zukunft nach Deutschland reisen kann, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
+        "title": "Vielen Dank. Wir nehmen derzeit nur Mitglieder an, die nach Deutschland reisen können.",
+        "description": "Wenn dieses Mitglied in Zukunft nach Deutschland reisen kann, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
         "button": "Anfrage beenden"
       },
       "exitNoTravelPatient": {
-        "title": "Vielen Dank. Wir nehmen derzeit nur Mitglieden an, die nach Deutschland reisen können.",
+        "title": "Vielen Dank. Wir nehmen derzeit nur Mitglieder an, die nach Deutschland reisen können.",
         "description": "Wenn Sie in Zukunft nach Deutschland reisen können, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
         "button": "Anfrage beenden"
       },
       "exitNoRecordsCompanion": {
-        "title": "Vielen Dank. Wir nehmen derzeit nur Mitglieden an, die ihre medizinischen Unterlagen einreichen können.",
-        "description": "Wenn dieser Mitglied in Zukunft seine Unterlagen einreichen kann, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
+        "title": "Vielen Dank. Wir nehmen derzeit nur Mitglieder an, die ihre medizinischen Unterlagen einreichen können.",
+        "description": "Wenn dieses Mitglied in Zukunft seine Unterlagen einreichen kann, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
         "button": "Anfrage beenden"
       },
       "exitNoRecordsPatient": {
-        "title": "Vielen Dank. Wir nehmen derzeit nur Mitglieden an, die ihre medizinischen Unterlagen einreichen können.",
+        "title": "Vielen Dank. Wir nehmen derzeit nur Mitglieder an, die ihre medizinischen Unterlagen einreichen können.",
         "description": "Wenn Sie in Zukunft Ihre Unterlagen einreichen können, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
         "button": "Anfrage beenden"
       },
       "visaHelpCompanion": {
-        "title": "Benötigt der Mitglied Hilfe bei der Visumbeantragung?",
-        "description": "Wir können bei der Visumunterstützung für Mitglieden helfen, die nach Deutschland reisen müssen.",
+        "title": "Benötigt das Mitglied Hilfe bei der Visumbeantragung?",
+        "description": "Wir können bei der Visumunterstützung für Mitglieder helfen, die nach Deutschland reisen müssen.",
         "yes": "Ja, Hilfe benötigt",
         "no": "Nein, Visum vorhanden"
       },
@@ -336,8 +361,26 @@
         "yes": "Ja, Hilfe benötigt",
         "no": "Nein, Visum vorhanden"
       },
+      "euCompanionInfo": {
+        "title": "Erzählen Sie uns von sich.",
+        "subtitle": "",
+        "relationship": "Beziehung zum Mitglied",
+        "selectPlaceholder": "Auswählen",
+        "relationships": {
+          "child": "Kind",
+          "grandchild": "Enkelkind",
+          "grandparent": "Großelternteil",
+          "guardian": "Vormund",
+          "inLaw": "Schwiegerangehörige/r",
+          "lifePartner": "Lebenspartner/in",
+          "other": "Andere",
+          "parent": "Elternteil",
+          "sibling": "Geschwister",
+          "spouse": "Ehepartner/in"
+        }
+      },
       "euPatientName": {
-        "title": "Wie lautet der rechtliche Name des Mitglieden?",
+        "title": "Wie lautet der rechtliche Name des Mitglieds?",
         "subtitle": "",
         "middleName": "Zweiter Vorname (optional)",
         "addSuffix": "Suffix hinzufügen",
@@ -345,7 +388,7 @@
         "preferredName": "Bevorzugter Name (optional)"
       },
       "euPatientDob": {
-        "title": "Welches Geschlecht und Geburtsdatum hat der Mitglied?",
+        "title": "Welches Geschlecht und Geburtsdatum hat das Mitglied?",
         "legalSex": "Rechtliches Geschlecht",
         "legalSexNote": "Muss mit dem Ausweis übereinstimmen",
         "selectSex": "Auswählen",
@@ -377,13 +420,21 @@
         "no": "Nein",
         "primaryLanguage": "Was ist Ihre Hauptsprache?"
       },
+      "euAddress": {
+        "title": "Wie lautet Ihre Adresse?",
+        "streetAddress": "Straße und Hausnummer",
+        "city": "Stadt",
+        "state": "",
+        "statePlaceholder": "Auswählen",
+        "zipCode": "Postleitzahl"
+      },
       "patientInfo": {
         "introTitle": "Geben Sie Ihre Kontaktdaten an",
         "introTitleBold": "",
         "introDescription1": "",
         "introDescription2": "",
         "start": "Start",
-        "formTitle": "Mitgliedeninformationen",
+        "formTitle": "Mitgliederinformationen",
         "contactTitle": "Kontaktinformationen",
         "personalInfo": "Persönliche Angaben",
         "firstName": "Vorname",
@@ -443,7 +494,7 @@
       }
     },
     "returningPatient": {
-      "title": "Wiederkehrender Mitglied",
+      "title": "Wiederkehrendes Mitglied",
       "formPending": "Formular in Entwicklung...",
       "back": "Zurück"
     },
@@ -454,7 +505,7 @@
     }
   },
   "patientCenteredCare": {
-    "title": "Mitgliedenorientierte Betreuung",
+    "title": "Mitgliederorientierte Betreuung",
     "subtitle": "Ihre Gesundheit, Bedürfnisse und Präferenzen stehen im Mittelpunkt unseres Handelns",
     "approach": {
       "title": "Unser Ansatz",
@@ -465,7 +516,7 @@
       "title": "Grundprinzipien",
       "compassionate": {
         "title": "Einfühlsame Betreuung",
-        "description": "Wir begegnen jedem Mitglieden mit Empathie, Respekt und Würde, damit Sie sich gehört und wertgeschätzt fühlen."
+        "description": "Wir begegnen jedem Mitglied mit Empathie, Respekt und Würde, damit Sie sich gehört und wertgeschätzt fühlen."
       },
       "collaborative": {
         "title": "Gemeinsame Partnerschaft",
@@ -473,7 +524,7 @@
       },
       "personalized": {
         "title": "Individuelle Betreuung",
-        "description": "Jeder Mitglied ist einzigartig, und wir passen unseren Ansatz an Ihre Ziele und Präferenzen an."
+        "description": "Jedes Mitglied ist einzigartig, und wir passen unseren Ansatz an Ihre Ziele und Präferenzen an."
       }
     },
     "benefits": {
@@ -490,15 +541,15 @@
   },
   "aboutGmed": {
     "title": "Über Gmed",
-    "subtitle": "Eine Tradition der Exzellenz im Gesundheitswesen über Jahrzehnte von Innovation und Mitgliedenbetreuung",
+    "subtitle": "Eine Tradition der Exzellenz im Gesundheitswesen über Jahrzehnte von Innovation und Mitgliederbetreuung",
     "mission": {
       "title": "Unsere Mission",
-      "description1": "Gmed setzt sich dafür ein, Hoffnung zu vermitteln und Gesundheit und Wohlbefinden zu fördern, indem wir jedem Mitglieden die bestmögliche Versorgung bieten - durch integrierte klinische Praxis, Bildung und Forschung.",
+      "description1": "Gmed setzt sich dafür ein, Hoffnung zu vermitteln und Gesundheit und Wohlbefinden zu fördern, indem wir jedem Mitglied die bestmögliche Versorgung bieten - durch integrierte klinische Praxis, Bildung und Forschung.",
       "description2": "Wir möchten allen, die Heilung suchen, eine herausragende Erfahrung und echte Zuwendung bieten und so durch unser Engagement für Exzellenz positiv wirken."
     },
     "stats": {
       "years": "Jahre Exzellenz",
-      "patients": "Behandelte Mitglieden",
+      "patients": "Behandelte Mitglieder",
       "specialists": "Medizinische Fachkräfte",
       "centers": "Spezialisierte Zentren"
     },
@@ -510,7 +561,7 @@
       },
       "respect": {
         "title": "Respekt",
-        "description": "Wir achten die Würde jedes Menschen und behandeln Mitglieden, Familien und Kollegen mit Mitgefühl."
+        "description": "Wir achten die Würde jedes Menschen und behandeln Mitglieder, Familien und Kollegen mit Mitgefühl."
       },
       "integrity": {
         "title": "Integrität",
@@ -523,7 +574,7 @@
     },
     "history": {
       "title": "Unsere Geschichte",
-      "description1": "Gmed wurde vor mehr als einem halben Jahrhundert gegründet und entwickelte sich von einem kleinen Gemeindekrankenhaus zu einem weltweit angesehenen medizinischen Zentrum. Unser Weg war geprägt von wegweisender Forschung, innovativen Therapien und einem konstanten Fokus auf Mitgliedenbetreuung.",
+      "description1": "Gmed wurde vor mehr als einem halben Jahrhundert gegründet und entwickelte sich von einem kleinen Gemeindekrankenhaus zu einem weltweit angesehenen medizinischen Zentrum. Unser Weg war geprägt von wegweisender Forschung, innovativen Therapien und einem konstanten Fokus auf Mitgliederbetreuung.",
       "description2": "Heute bauen wir dieses Erbe weiter aus und verbinden moderne Technologien mit persönlicher, zugewandter Betreuung."
     }
   },
@@ -554,8 +605,8 @@
         "description": "Alle unsere Ärzte sind in ihren Fachgebieten zertifiziert und bilden sich regelmäßig fort."
       },
       "patientFocused": {
-        "title": "Mitgliedenorientierung",
-        "description": "Unsere Ärzte stellen den Mitglieden in den Mittelpunkt und nehmen sich Zeit für Anliegen."
+        "title": "Mitgliederorientierung",
+        "description": "Unsere Ärzte stellen das Mitglied in den Mittelpunkt und nehmen sich Zeit für Anliegen."
       },
       "advancedTraining": {
         "title": "Fortgeschrittene Weiterbildung",
@@ -600,11 +651,11 @@
     }
   },
   "patientServices": {
-    "title": "Mitgliedenservice",
+    "title": "Mitgliederservice",
     "subtitle": "Umfassende Unterstützungsleistungen, die Ihre Versorgung so angenehm wie möglich machen",
     "commitment": {
       "title": "Unser Versprechen an Sie",
-      "description1": "Bei Gmed wissen wir, dass die Navigation im Gesundheitswesen komplex sein kann. Deshalb bieten wir umfassende Mitgliedenservices, die Sie in jeder Phase unterstützen.",
+      "description1": "Bei Gmed wissen wir, dass die Navigation im Gesundheitswesen komplex sein kann. Deshalb bieten wir umfassende Mitgliederservices, die Sie in jeder Phase unterstützen.",
       "description2": "Von der Terminvereinbarung bis zur laufenden Betreuung ist unser Team für Sie da."
     },
     "services": {
@@ -630,14 +681,14 @@
         "description": "Professionelle Dolmetscher in mehreren Sprachen."
       },
       "transport": {
-        "title": "Mitgliedentransport",
+        "title": "Mitgliedertransport",
         "description": "Rollstuhlservice und Transport in unseren Einrichtungen."
       }
     },
     "help": {
       "title": "Brauchen Sie Hilfe?",
-      "description": "Unser Mitgliedenservice unterstützt Sie bei Fragen und Anliegen.",
-      "contactServices": "Mitgliedenservice kontaktieren",
+      "description": "Unser Mitgliederservice unterstützt Sie bei Fragen und Anliegen.",
+      "contactServices": "Mitgliederservice kontaktieren",
       "faq": "FAQ ansehen"
     }
   },
@@ -728,7 +779,7 @@
     }
   },
   "patientPortal": {
-    "title": "Mitgliedenportal",
+    "title": "Mitgliederportal",
     "subtitle": "Ihr persönliches Gesundheitsportal zur Verwaltung Ihrer Versorgung",
     "login": {
       "title": "Im Portal anmelden",
@@ -782,7 +833,7 @@
     "gettingStarted": {
       "title": "So starten Sie",
       "steps": {
-        "step1": "Erstellen Sie ein Konto mit Ihrer E-Mail und Ihrer Mitglieden-ID",
+        "step1": "Erstellen Sie ein Konto mit Ihrer E-Mail und Ihrer Mitglieder-ID",
         "step2": "Bestätigen Sie Ihre Identität über einen sicheren Prozess",
         "step3": "Richten Sie Profil und Präferenzen ein",
         "step4": "Verwalten Sie Ihre Gesundheit online"
@@ -859,7 +910,7 @@
       "title": "Fragen oder Beschwerden?",
       "description": "Wenn Sie Fragen zu diesem Hinweis haben oder eine Beschwerde einreichen möchten, kontaktieren Sie bitte:",
       "privacyOfficer": "Datenschutzbeauftragter",
-      "organization": "Gmed Agentur für Mitgliedenbetreuung",
+      "organization": "Gmed Agentur für Mitgliederbetreuung",
       "contact": "Kontakt aufnehmen"
     }
   },
@@ -927,7 +978,7 @@
       "items": {
         "annual": "Jährliche HIPAA- und Sicherheitsschulungen für alle Mitarbeiter",
         "updates": "Regelmäßige Updates zu neuen Sicherheitsbedrohungen",
-        "policies": "Strenge Richtlinien zum Umgang mit Mitgliedendaten",
+        "policies": "Strenge Richtlinien zum Umgang mit Mitgliederdaten",
         "background": "Hintergrundprüfungen für alle Mitarbeiter"
       }
     },
@@ -949,7 +1000,7 @@
       "title": "HIPAA-Regeln, die wir einhalten",
       "privacy": {
         "title": "Datenschutzregel",
-        "description": "Legt nationale Standards zum Schutz medizinischer Informationen fest und gibt Mitglieden Rechte an ihren Unterlagen.",
+        "description": "Legt nationale Standards zum Schutz medizinischer Informationen fest und gibt Mitgliedern Rechte an ihren Unterlagen.",
         "items": {
           "access": "Recht auf Zugang zu Ihren medizinischen Unterlagen",
           "corrections": "Recht auf Korrekturanträge",
@@ -1039,7 +1090,7 @@
     }
   },
   "patientRights": {
-    "title": "Mitgliedenrechte",
+    "title": "Mitgliederrechte",
     "subtitle": "Verständnis Ihrer Rechte als Mitglied und unseres Engagements, sie zu wahren",
     "intro": {
       "title": "Ihre Rechte sind wichtig",
@@ -1075,7 +1126,7 @@
           "consent": "Informierte Einwilligung zu allen Verfahren",
           "secondOpinion": "Möglichkeit, eine Zweitmeinung einzuholen",
           "refuse": "Recht, Behandlung abzulehnen",
-          "advanceDirective": "Anerkennung von Mitgliedenverfügungen"
+          "advanceDirective": "Anerkennung von Mitgliederverfügungen"
         }
       },
       "communication": {
@@ -1085,19 +1136,19 @@
           "questions": "Fragen stellen und Antworten erhalten",
           "concerns": "Anliegen äußern und Beschwerden einreichen",
           "family": "Familienmitglieder für Kommunikation benennen",
-          "advocates": "Zugang zu Mitgliedenfürsprechern"
+          "advocates": "Zugang zu Mitgliederfürsprechern"
         }
       }
     },
     "additionalRights": {
-      "title": "Weitere Mitgliedenrechte",
+      "title": "Weitere Mitgliederrechte",
       "items": {
         "safeQuality": "Recht auf sichere und hochwertige medizinische Versorgung",
         "privacy": "Recht auf Privatsphäre während Untersuchung und Behandlung",
         "painManagement": "Recht auf Schmerzbewertung und -behandlung",
         "continuity": "Recht auf Kontinuität und Koordination der Versorgung",
         "policies": "Recht auf Information über Einrichtungsrichtlinien",
-        "advanceDirectives": "Recht, Mitgliedenverfügungen zu erstellen",
+        "advanceDirectives": "Recht, Mitgliederverfügungen zu erstellen",
         "visitors": "Recht auf Besuch von Familie und Freunden",
         "protective": "Recht auf Zugang zu Schutzdiensten",
         "emergency": "Recht auf Notfallversorgung",
@@ -1108,7 +1159,7 @@
     },
     "responsibilities": {
       "title": "Ihre Pflichten",
-      "description": "Neben Rechten haben Mitglieden Pflichten, die eine bestmögliche Versorgung unterstützen.",
+      "description": "Neben Rechten haben Mitglieder Pflichten, die eine bestmögliche Versorgung unterstützen.",
       "items": {
         "accurate": "Genaue und vollständige Angaben zur Gesundheit machen",
         "followPlan": "Den vereinbarten Behandlungsplan einhalten",
@@ -1123,7 +1174,7 @@
       "description1": "Wenn Sie glauben, dass Ihre Rechte verletzt wurden oder Bedenken zu Ihrer Versorgung haben, können Sie eine Beschwerde ohne Angst vor Konsequenzen einreichen.",
       "description2": "Wir nehmen alle Beschwerden ernst und führen eine sorgfältige Prüfung durch. Sie können sich auch an staatliche oder bundesweite Stellen wenden.",
       "fileComplaint": "Beschwerde einreichen",
-      "contactAdvocate": "Mitgliedenfürsprecher kontaktieren"
+      "contactAdvocate": "Mitgliederfürsprecher kontaktieren"
     }
   },
   "auth": {

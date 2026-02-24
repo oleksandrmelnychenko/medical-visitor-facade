@@ -1,4 +1,9 @@
 {
+  "notFound": {
+    "title": "Страница не найдена",
+    "description": "Запрашиваемая страница не существует или была перемещена.",
+    "backHome": "На главную"
+  },
   "cookies": {
     "message": "Мы используем файлы cookie для улучшения вашего опыта на нашем сайте. Продолжая просмотр, вы соглашаетесь с использованием файлов cookie.",
     "accept": "Принять",
@@ -96,7 +101,7 @@
           "phone": "+49 40 123-4567"
         },
         "cologne": {
-          "name": "Кьольн",
+          "name": "Кёльн",
           "address": "Schildergasse 120, 50667 Köln",
           "phone": "+49 221 123-4567"
         },
@@ -220,11 +225,11 @@
         "wrapUp": "Завершение"
       },
       "progressSteps": {
-        "travelReady": "Travel Readiness",
-        "patientInfo": "Patient Information",
-        "primaryConcern": "Primary Concern",
-        "insuranceDetails": "Insurance Details",
-        "wrapUp": "Wrap Up"
+        "travelReady": "Готовность к поездке",
+        "patientInfo": "Информация об участнике",
+        "primaryConcern": "Основная проблема",
+        "insuranceDetails": "Данные страховки",
+        "wrapUp": "Завершение"
       },
       "euProgress": {
         "part1": "Часть 1",
@@ -250,6 +255,17 @@
         "yesDesc": "Я участник",
         "no": "Нет",
         "noDesc": "Я подаю заявку за другого человека"
+      },
+      "medicalDiagnosis": {
+        "title": "Есть ли у вас диагноз в одной из следующих областей?",
+        "description": "",
+        "options": {
+          "cardiology": "Кардиология",
+          "neurology": "Неврология",
+          "oncology": "Онкология",
+          "otherDiagnosis": "У меня есть диагноз в другой области",
+          "noDiagnosis": "У меня нет диагноза"
+        }
       },
       "primaryConcern": {
         "title": "Какова ваша основная проблема?",
@@ -404,6 +420,14 @@
         "yes": "Да",
         "no": "Нет",
         "primaryLanguage": "Какой ваш основной язык?"
+      },
+      "euAddress": {
+        "title": "Какой у вас адрес?",
+        "streetAddress": "Улица и номер дома",
+        "city": "Город",
+        "state": "",
+        "statePlaceholder": "Выбрать",
+        "zipCode": "Почтовый индекс"
       },
       "patientInfo": {
         "introTitle": "Укажите контактные данные",

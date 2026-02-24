@@ -33,7 +33,7 @@
   height: 78px;
 
   @media (max-width: 768px) {
-    height: 66px;
+    height: 56px;
   }
 }
 
@@ -79,6 +79,13 @@
     opacity: 1;
     filter: blur(0) saturate(1);
   }
+
+  @media (max-width: 768px) {
+    top: 0.35rem;
+    left: 0.35rem;
+    right: 0.35rem;
+    border-radius: 10px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -101,7 +108,7 @@
   height: 78px;
 
   @media (max-width: 768px) {
-    height: 66px;
+    height: 50px;
   }
 }
 
@@ -123,7 +130,7 @@
   object-fit: contain;
 
   @media (max-width: 768px) {
-    height: 30px;
+    height: 24px;
   }
 }
 
@@ -136,6 +143,10 @@
   text-transform: uppercase;
   line-height: 1;
   padding-left: 20px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .stickyActions {
@@ -340,6 +351,10 @@
   width: auto;
   max-height: 2.6rem;
   object-fit: contain;
+
+  @media (max-width: 768px) {
+    max-height: 2rem;
+  }
 }
 
 .logoTagline {
@@ -352,6 +367,10 @@
   line-height: 1;
   margin-top: 0.25rem;
   padding-left: 20px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .languageSelector {
@@ -395,7 +414,8 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   color: var(--foreground);
   padding: 0.75rem 1rem;
   text-align: left;
@@ -406,16 +426,12 @@
   }
 
   &.active {
-    font-weight: 500;
-    text-decoration: underline;
-    text-underline-offset: 2px;
+    font-weight: 600;
   }
 }
 
 .langSeparator {
-  height: 1px;
-  background-color: #e5e5e5;
-  margin: 0;
+  display: none;
 }
 
 .userMenu {
@@ -611,6 +627,10 @@
 
 .mobileMenuWithSticky {
   padding-top: 74px;
+
+  @media (max-width: 768px) {
+    padding-top: 60px;
+  }
 }
 
 // ========================================
@@ -620,10 +640,6 @@
 @media (max-width: 768px) {
   .mobileMenuButton {
     display: flex !important;
-  }
-
-  .logo {
-    max-height: 4rem;
   }
 }
 
@@ -801,10 +817,6 @@
   .container {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-  }
-
-  .logo {
-    max-height: 3.4rem;
   }
 
   .mobileMenu {
