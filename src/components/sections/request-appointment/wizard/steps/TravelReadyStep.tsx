@@ -3,7 +3,7 @@
 import React, { useCallback, useRef, useMemo } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../WizardContext';
 import { YesNoType } from '../types';
 import { WizardStepLayout } from '../components/WizardStepLayout';

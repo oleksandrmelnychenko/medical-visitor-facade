@@ -1,5 +1,8 @@
 import { Metadata } from "next";
 import { getAlternateLanguages } from "@/lib/seo";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://gmed.agency';
 
 export const metadata: Metadata = {
   title: "Financial Assistance",
@@ -12,5 +15,13 @@ export default function FinancialAssistanceLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[
+        { name: "Home", url: `${baseUrl}/de` },
+        { name: "Financial Assistance", url: `${baseUrl}/de/financial-assistance` },
+      ]} />
+      {children}
+    </>
+  );
 }

@@ -3,7 +3,7 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/navigation';
 import { WizardStepLayout } from '../components/WizardStepLayout';
 import styles from '../../RequestAppointment/RequestAppointment.module.scss';
 

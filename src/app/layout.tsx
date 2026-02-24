@@ -1,14 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
-import { cookies } from "next/headers";
-import { cache, Suspense } from "react";
+import { getLocale } from "next-intl/server";
 import "../styles/globals.scss";
-import { Header } from "@/components/layout/Header";
-import { Footer } from '@/components/layout/Footer';
-import { MobileLoginFab } from "@/components/layout/MobileLoginFab";
-import { CookieConsent } from "@/components/ui/CookieConsent";
-import { LanguageProvider } from "@/providers/LanguageProvider";
-import { AuthProvider } from "@/providers/AuthProvider";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/seo/JsonLd";
 
 const montserrat = Montserrat({
@@ -46,13 +39,13 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: baseUrl,
+    canonical: `${baseUrl}/de`,
     languages: {
-      'de-DE': `${baseUrl}?lang=de`,
-      'en-US': `${baseUrl}?lang=en`,
-      'ru-RU': `${baseUrl}?lang=ru`,
-      'es-ES': `${baseUrl}?lang=es`,
-      'x-default': baseUrl,
+      'de-DE': `${baseUrl}/de`,
+      'en-US': `${baseUrl}/en`,
+      'ru-RU': `${baseUrl}/ru`,
+      'es-ES': `${baseUrl}/es`,
+      'x-default': `${baseUrl}/de`,
     },
   },
   openGraph: {
@@ -93,37 +86,12 @@ export const metadata: Metadata = {
   verification: {},
 };
 
-const getLocale = cache(async () => {
-  const cookieStore = await cookies();
-  return (cookieStore.get('locale')?.value || 'de') as 'de' | 'en' | 'ru';
-});
-
-const getMessages = cache(async () => {
-  const locale = await getLocale();
-  try {
-    const messages = await import(`@/messages/${locale}.json`);
-    return messages.default;
-  } catch {
-    const fallback = await import('@/messages/de.json');
-    return fallback.default;
-  }
-});
-
-function HeaderSkeleton() {
-  return <div style={{ height: '120px', background: 'white' }} />;
-}
-
-function FooterSkeleton() {
-  return <div style={{ height: '200px', background: '#f5f5f5' }} />;
-}
-
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
-  const messages = await getMessages();
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -134,20 +102,8 @@ export default async function RootLayout({
         <OrganizationJsonLd />
         <WebsiteJsonLd />
       </head>
-      <body className={`${montserrat.variable}`}>
-        <AuthProvider>
-          <LanguageProvider initialLocale={locale} initialMessages={messages}>
-            <Suspense fallback={<HeaderSkeleton />}>
-              <Header />
-            </Suspense>
-            {children}
-            <Suspense fallback={<FooterSkeleton />}>
-              <Footer />
-            </Suspense>
-            <MobileLoginFab />
-            <CookieConsent />
-          </LanguageProvider>
-        </AuthProvider>
+      <body className={montserrat.variable}>
+        {children}
       </body>
     </html>
   );

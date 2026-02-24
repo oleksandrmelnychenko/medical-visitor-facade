@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Plus } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
 import { WizardStepLayout } from '../../components/WizardStepLayout';
 import formStyles from '@/components/auth/Auth.module.scss';

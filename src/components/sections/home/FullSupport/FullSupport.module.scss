@@ -3,14 +3,50 @@
 .fullSupport {
   width: 100%;
   padding: clamp(4rem, 9vw, 7rem) 0;
-  background-color: transparent !important;
+  background: radial-gradient(120% 80% at 12% 18%, rgba(216, 195, 155, 0.11) 0%, transparent 56%),
+    radial-gradient(90% 80% at 88% 22%, rgba(159, 203, 216, 0.1) 0%, transparent 58%);
   color: var(--foreground);
   position: relative;
   z-index: 1;
+  overflow: hidden;
 
   @media (max-width: 639px) {
     padding: clamp(3rem, 7vw, 5rem) 0;
   }
+}
+
+.fullSupport::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: clamp(56px, 8vw, 96px);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.55) 48%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.fullSupport::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: clamp(44px, 7vw, 72px);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.22) 58%,
+    rgba(255, 255, 255, 0.52) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
 .layout {

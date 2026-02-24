@@ -7,20 +7,20 @@ export type Language = (typeof languages)[number];
 
 /**
  * Generate alternate language URLs for a given path
- * Includes x-default for proper hreflang implementation
+ * Uses path-based locale segments (/de/, /en/, etc.)
  */
 export function getAlternateLanguages(path: string = '') {
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
   const cleanPath = normalizedPath === '/' ? '' : normalizedPath;
 
   return {
-    canonical: `${baseUrl}${cleanPath}`,
+    canonical: `${baseUrl}/de${cleanPath}`,
     languages: {
-      'de-DE': `${baseUrl}${cleanPath}?lang=de`,
-      'en-US': `${baseUrl}${cleanPath}?lang=en`,
-      'ru-RU': `${baseUrl}${cleanPath}?lang=ru`,
-      'es-ES': `${baseUrl}${cleanPath}?lang=es`,
-      'x-default': `${baseUrl}${cleanPath}`,
+      'de-DE': `${baseUrl}/de${cleanPath}`,
+      'en-US': `${baseUrl}/en${cleanPath}`,
+      'ru-RU': `${baseUrl}/ru${cleanPath}`,
+      'es-ES': `${baseUrl}/es${cleanPath}`,
+      'x-default': `${baseUrl}/de${cleanPath}`,
     },
   };
 }

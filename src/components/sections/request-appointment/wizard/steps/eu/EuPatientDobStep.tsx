@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
 import { LegalSexType } from '../../types';
 import { WizardStepLayout } from '../../components/WizardStepLayout';

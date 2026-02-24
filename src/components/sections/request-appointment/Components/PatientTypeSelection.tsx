@@ -4,7 +4,7 @@ import React, { useState, useCallback, useRef } from 'react';
 import { motion } from 'motion/react';
 import { ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/navigation';
 import styles from '../RequestAppointment/RequestAppointment.module.scss';
 import { PatientType } from '../RequestAppointment';
 

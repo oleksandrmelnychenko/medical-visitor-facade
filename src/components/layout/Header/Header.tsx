@@ -1,14 +1,12 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { User, UserPlus, LogOut, Menu, X, ArrowRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useSession, signOut } from "next-auth/react";
 import { cn } from "@/lib/utils";
-import { useLanguage } from "@/providers/LanguageProvider";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import styles from "./Header.module.scss";
 
 export function Header() {
@@ -16,7 +14,8 @@ export function Header() {
   const tAdmin = useTranslations('admin');
   const tFooter = useTranslations('footer');
   const tAccount = useTranslations('account');
-  const { locale, setLocale } = useLanguage();
+  const locale = useLocale();
+  const router = useRouter();
   const pathname = usePathname();
   const { data: session, status } = useSession();
 
@@ -96,13 +95,10 @@ export function Header() {
     [languages, locale]
   );
 
-  const isHomePath = useMemo(() => {
-    const cleanPath = (pathname ?? "/").replace(/\/$/, "") || "/";
-    return cleanPath === "/" || ["/de", "/en", "/ru", "/es"].includes(cleanPath);
-  }, [pathname]);
+  const isHomePath = pathname === "/";
 
   const handleLanguageSelect = (code: 'de' | 'en' | 'ru' | 'es') => {
-    setLocale(code);
+    router.replace(pathname, { locale: code });
     setIsLangOpen(false);
   };
 
@@ -126,7 +122,7 @@ export function Header() {
 
   // Close mobile menu on language select
   const handleMobileLanguageSelect = (code: 'de' | 'en' | 'ru' | 'es') => {
-    setLocale(code);
+    router.replace(pathname, { locale: code });
     setIsLangOpen(false);
     closeMobileMenu();
   };

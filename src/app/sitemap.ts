@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://gmed.agency';
   const lastModified = new Date();
-  const languages = ['de', 'en', 'ru', 'es'] as const;
+  const locales = ['de', 'en', 'ru', 'es'] as const;
 
   const routes = [
     { path: '', priority: 1, changeFrequency: 'weekly' as const },
@@ -16,29 +16,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const sitemapEntries: MetadataRoute.Sitemap = [];
 
   routes.forEach(({ path, priority, changeFrequency }) => {
-    // Add default URL (x-default)
-    sitemapEntries.push({
-      url: `${baseUrl}${path}`,
-      lastModified,
-      changeFrequency,
-      priority,
-      alternates: {
-        languages: {
-          de: `${baseUrl}${path}?lang=de`,
-          en: `${baseUrl}${path}?lang=en`,
-          ru: `${baseUrl}${path}?lang=ru`,
-          es: `${baseUrl}${path}?lang=es`,
-        },
-      },
-    });
-
-    // Add language-specific URLs
-    languages.forEach((lang) => {
+    locales.forEach((locale) => {
       sitemapEntries.push({
-        url: `${baseUrl}${path}?lang=${lang}`,
+        url: `${baseUrl}/${locale}${path}`,
         lastModified,
         changeFrequency,
-        priority: priority - 0.1, // Slightly lower priority for language variants
+        priority: locale === 'de' ? priority : priority - 0.1,
+        alternates: {
+          languages: Object.fromEntries(
+            locales.map((l) => [l, `${baseUrl}/${l}${path}`])
+          ),
+        },
       });
     });
   });
