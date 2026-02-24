@@ -144,6 +144,7 @@ export function Header() {
               height={32}
               className={styles.stickyLogo}
             />
+            <span className={styles.stickyLogoTagline}>{tFooter('companyName')}</span>
           </Link>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
