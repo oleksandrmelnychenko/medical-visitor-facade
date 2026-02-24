@@ -211,7 +211,7 @@ export function Header() {
           {/* Left: empty for grid balance */}
           <div className={styles.headerLeft} />
 
-          {/* Center: logo */}
+          {/* Center: logo + tagline */}
           <Link href="/" className={styles.logoLink}>
             <Image
               src="/assets/logo.png"
@@ -221,6 +221,7 @@ export function Header() {
               className={styles.logo}
               priority
             />
+            <span className={styles.logoTagline}>{tFooter('companyName')}</span>
           </Link>
 
           {/* Right: actions + lang (like sticky header) */}

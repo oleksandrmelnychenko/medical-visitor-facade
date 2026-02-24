@@ -12,7 +12,6 @@ export default function Home() {
   return (
     <main style={{ position: 'relative' }}>
       <Hero />
-      <Tagline />
       <FullSupport />
       <CareForward />
       <Office />
