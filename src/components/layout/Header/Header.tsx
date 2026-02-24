@@ -3,8 +3,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { User, UserPlus, LogOut, ArrowRight } from "lucide-react";
+import { User, UserPlus, LogOut, Menu, X, ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useSession, signOut } from "next-auth/react";
 import { cn } from "@/lib/utils";
@@ -204,107 +203,105 @@ export function Header() {
         </div>
       </div>
 
-      {/* Main Header */}
-      <header
-        ref={headerRef}
-        className={cn(styles.header, isHomePath && styles.headerHome)}
-      >
-        <div className={styles.container}>
-          {/* Mobile hamburger button */}
-          <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-          className={cn(styles.mobileMenuButton, isMobileMenuOpen && styles.menuButtonOpen, isScrolled && styles.mobileMenuButtonHidden)}
-        >
-          <span
-            className={cn(styles.hamburgerIcon, isMobileMenuOpen && styles.hamburgerIconOpen)}
-            aria-hidden="true"
-          >
-            <span />
-            <span />
-            <span />
-          </span>
-        </button>
+      {/* Main Header — single row: [left] [logo] [right] */}
+      <header ref={headerRef} className={styles.header} style={{ position: 'relative' }}>
+        <div className={styles.headerRow}>
+          {/* Left: empty for grid balance */}
+          <div className={styles.headerLeft} />
 
-          {/* Desktop navigation - hidden via CSS on mobile */}
-          <div className={styles.utilityRow}>
-            {status === "authenticated" && (
-              <Link href="/account" className={styles.adminTitle}>{tAccount("tabs.account")}</Link>
+          {/* Center: logo */}
+          <Link href="/" className={styles.logoLink}>
+            <Image
+              src="/assets/logo.png"
+              alt="Agency for Patient Care"
+              width={200}
+              height={54}
+              className={styles.logo}
+              priority
+            />
+          </Link>
+
+          {/* Right: actions + lang (like sticky header) */}
+          <div className={styles.headerRight}>
+            <Link href="/apply" className={styles.headerButton}>
+              <UserPlus size={16} />
+              {tCommon('requestAppointment')}
+            </Link>
+            {status !== "authenticated" && (
+              <Link href="/login" className={styles.headerLoginLink}>
+                <User size={16} />
+                {tCommon('login')}
+              </Link>
             )}
-
-            <div className={styles.utilityItems}>
-              <div className={styles.languageSelector} ref={langRef}>
+            {status === "authenticated" && (
+              <div className={styles.userMenu} ref={userMenuRef}>
                 <button
-                  className={styles.langToggle}
-                  onClick={() => setIsLangOpen(!isLangOpen)}
-                  aria-label={tCommon('selectLanguage')}
-                  aria-expanded={isLangOpen}
+                  className={styles.userMenuToggle}
+                  onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                  aria-label={tCommon('userMenu')}
+                  aria-expanded={isUserMenuOpen}
                 >
-                  {currentLanguage?.label}
+                  <User size={16} aria-hidden="true" />
+                  {userName}
                 </button>
-                {isLangOpen && !isScrolled && (
-                  <div className={styles.langDropdown}>
-                    {languages.map((language, index) => (
-                      <React.Fragment key={language.code}>
-                        <button
-                          onClick={() => handleLanguageSelect(language.code)}
-                          className={cn(styles.langOption, locale === language.code && styles.active)}
-                        >
-                          {language.fullName}
-                        </button>
-                        {index < languages.length - 1 && <div className={styles.langSeparator} />}
-                      </React.Fragment>
-                    ))}
+                {isUserMenuOpen && (
+                  <div className={styles.userMenuDropdown}>
+                    {isAdmin ? (
+                      <Link href="/admin" className={styles.userMenuLink} onClick={() => setIsUserMenuOpen(false)}>
+                        {tAdmin("adminPanel")}
+                      </Link>
+                    ) : (
+                      <Link href="/account" className={styles.userMenuLink} onClick={() => setIsUserMenuOpen(false)}>
+                        {tAccount("tabs.account")}
+                      </Link>
+                    )}
+                    {userPhone && <div className={styles.userMenuInfo}>{userPhone}</div>}
+                    {userEmail && <div className={styles.userMenuInfo}>{userEmail}</div>}
+                    <div className={styles.userMenuSeparator} />
+                    <button onClick={handleLogout} className={styles.userMenuLogout}>
+                      <LogOut size={16} aria-hidden="true" />
+                      {tAdmin("logout")}
+                    </button>
                   </div>
                 )}
               </div>
-
-              {status === "authenticated" && (
-                <div className={styles.userMenu} ref={userMenuRef}>
-                  <button
-                    className={styles.userMenuToggle}
-                    onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                    aria-label={tCommon('userMenu')}
-                    aria-expanded={isUserMenuOpen}
-                  >
-                    <User size={18} aria-hidden="true" />
-                    {userName}
-                  </button>
-                  {isUserMenuOpen && (
-                    <div className={styles.userMenuDropdown}>
-                      {userPhone && (
-                        <div className={styles.userMenuInfo}>{userPhone}</div>
-                      )}
-                      {userEmail && (
-                        <div className={styles.userMenuInfo}>{userEmail}</div>
-                      )}
-                      <div className={styles.userMenuSeparator} />
-                      <button onClick={handleLogout} className={styles.userMenuLogout}>
-                        <LogOut size={16} aria-hidden="true" />
-                        {tAdmin("logout")}
+            )}
+            <div className={styles.languageSelector} ref={langRef}>
+              <button
+                className={styles.langToggle}
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                aria-label={tCommon('selectLanguage')}
+                aria-expanded={isLangOpen}
+              >
+                {currentLanguage?.label}
+              </button>
+              {isLangOpen && (
+                <div className={styles.langDropdown}>
+                  {languages.map((language, index) => (
+                    <React.Fragment key={language.code}>
+                      <button
+                        onClick={() => handleLanguageSelect(language.code)}
+                        className={cn(styles.langOption, locale === language.code && styles.active)}
+                      >
+                        {language.fullName}
                       </button>
-                    </div>
-                  )}
+                      {index < languages.length - 1 && <div className={styles.langSeparator} />}
+                    </React.Fragment>
+                  ))}
                 </div>
               )}
             </div>
           </div>
 
-        {!isHomePath && (
-          <div className={styles.logoRow}>
-            <Link href="/" className={styles.logoLink}>
-              <Image
-                src="/assets/logo.png"
-                alt="Agency for Patient Care"
-                width={200}
-                height={54}
-                className={styles.logo}
-                priority
-              />
-            </Link>
-          </div>
-        )}
-      </div>
+          {/* Mobile: hamburger */}
+          <button
+            className={styles.mobileMenuButton}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
 
       {/* Mobile Dropdown Menu - appears below hamburger */}
       {/* Invisible backdrop to close menu on outside click */}

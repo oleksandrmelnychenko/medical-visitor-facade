@@ -1,0 +1,35 @@
+@use "../../../../styles/variables" as *;
+
+.tagline {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background: #fff;
+
+  @media (max-width: 768px) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #2d2d32;
+  white-space: nowrap;
+}
+
+.accent {
+  background: linear-gradient(90deg, #3b82f6 0%, #1d4ed8 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

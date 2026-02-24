@@ -118,6 +118,11 @@ export default function LoginPage() {
 
       // Get session to check role
       const sessionRes = await fetch("/api/auth/session");
+      if (!sessionRes.ok || !sessionRes.headers.get("content-type")?.includes("application/json")) {
+        router.push("/account");
+        router.refresh();
+        return;
+      }
       const session = await sessionRes.json();
       const userRole = session?.user?.role;
 

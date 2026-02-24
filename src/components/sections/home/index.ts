@@ -1,4 +1,5 @@
 export { Hero } from "./Hero";
+export { Tagline } from "./Tagline";
 export { FullSupport } from "./FullSupport";
 export { CareForward } from "./CareForward";
 export { Office } from "./Office";

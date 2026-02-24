@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Hero, FullSupport, CareForward, Office } from "@/components/sections/home";
+import { Hero, Tagline, FullSupport, CareForward, Office } from "@/components/sections/home";
 import { getAlternateLanguages } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -12,6 +12,7 @@ export default function Home() {
   return (
     <main style={{ position: 'relative' }}>
       <Hero />
+      <Tagline />
       <FullSupport />
       <CareForward />
       <Office />
