@@ -1,24 +1,30 @@
 "use client";
 
 import { memo, type CSSProperties } from "react";
+import Image from "next/image";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { Building2, Stethoscope, Activity, Headphones, Video } from "lucide-react";
+import {
+  Building2,
+  Stethoscope,
+  Activity,
+  ShieldCheck,
+  Headphones,
+  Video,
+} from "lucide-react";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./CareForward.module.scss";
 
-const PRIMARY_SERVICES = [
-  { icon: Building2, key: "clinic", style: { "--tone": "#D8C39B" } as CSSProperties },
-  { icon: Stethoscope, key: "organization", style: { "--tone": "#9FCBD8" } as CSSProperties },
-  { icon: Activity, key: "coordination", style: { "--tone": "#A8D0AE" } as CSSProperties },
+const STEPS = [
+  { icon: Building2, key: "clinic", ns: "careForward" as const, style: { "--tone": "#D8C39B" } as CSSProperties },
+  { icon: Stethoscope, key: "organization", ns: "careForward" as const, style: { "--tone": "#9FCBD8" } as CSSProperties },
+  { icon: Activity, key: "coordination", ns: "careForward" as const, style: { "--tone": "#A8D0AE" } as CSSProperties },
 ];
 
-const SUPPORT_SERVICES = [
-  { icon: Headphones, key: "support" },
-  { icon: Video, key: "consultations" },
+const SUPPORT_CHILDREN = [
+  { icon: Headphones, key: "support", style: { "--tone": "#C7A6D4" } as CSSProperties },
+  { icon: Video, key: "consultations", style: { "--tone": "#B8A6D4" } as CSSProperties },
 ];
-
-const SUPPORT_BLOCK_STYLE = { "--tone": "#C7A6D4" } as CSSProperties;
 
 export const CareForward = memo(function CareForward() {
   const t = useTranslations("home.careForward");
@@ -26,6 +32,17 @@ export const CareForward = memo(function CareForward() {
 
   return (
     <section className={styles.section}>
+      <div className={styles.bgImageWrap} aria-hidden="true">
+        <Image
+          src="/assets/frauenkirche-watercolor.png"
+          alt=""
+          width={600}
+          height={740}
+          className={styles.bgImage}
+          priority={false}
+        />
+      </div>
+
       <div className={sectionStyles.container}>
         <motion.div
           className={styles.shell}
@@ -38,57 +55,91 @@ export const CareForward = memo(function CareForward() {
             <h2 className={styles.title}>{t("title")}</h2>
           </div>
 
-          <div className={styles.layout}>
-            <div className={styles.flow}>
-              {PRIMARY_SERVICES.map((service, index) => (
-                <motion.article
-                  key={service.key}
-                  className={styles.flowCard}
-                  style={service.style}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.08 }}
-                >
-                  <div className={styles.flowIcon}>
-                    <service.icon />
+          <div className={styles.timeline}>
+            {/* Main steps 01–03 */}
+            {STEPS.map((step, index) => (
+              <motion.div
+                key={step.key}
+                className={styles.step}
+                style={step.style}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+              >
+                <div className={styles.rail}>
+                  <div className={styles.dot}>
+                    <step.icon />
                   </div>
-                  <div className={styles.cardText}>
-                    <h3 className={styles.serviceTitle}>{t(`services.${service.key}.title`)}</h3>
-                    <p className={styles.serviceDesc}>{t(`services.${service.key}.desc`)}</p>
-                  </div>
-                </motion.article>
-              ))}
-            </div>
-
-            <motion.div
-              className={styles.supportPanel}
-              style={SUPPORT_BLOCK_STYLE}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <div className={styles.supportHead}>
-                <div className={styles.supportIcon}>
-                  <Headphones />
+                  <div className={styles.connector} />
                 </div>
-                <h3 className={styles.supportTitle}>{tCta("title")}</h3>
+                <div className={styles.stepContent}>
+                  <span className={styles.stepNumber}>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className={styles.stepTitle}>
+                    {t(`services.${step.key}.title`)}
+                  </h3>
+                  <p className={styles.stepDesc}>
+                    {t(`services.${step.key}.desc`)}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+
+            {/* 04 Сопровождение — parent with nested children */}
+            <motion.div
+              className={styles.stepGroup}
+              style={{ "--tone": "#C7A6D4" } as CSSProperties}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: STEPS.length * 0.08 }}
+            >
+              {/* Parent row */}
+              <div className={styles.step}>
+                <div className={styles.rail}>
+                  <div className={`${styles.dot} ${styles.dotParent}`}>
+                    <ShieldCheck />
+                  </div>
+                </div>
+                <div className={styles.stepContent}>
+                  <span className={styles.stepNumber}>
+                    {String(STEPS.length + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className={styles.stepTitle}>{tCta("title")}</h3>
+                </div>
               </div>
 
-              <div className={styles.supportGrid}>
-                {SUPPORT_SERVICES.map((subService) => (
-                  <div key={subService.key} className={styles.supportItem}>
-                    <subService.icon className={styles.subServiceIcon} />
-                    <div>
-                      <h4 className={styles.subServiceTitle}>
-                        {tCta(`services.${subService.key}.title`)}
-                      </h4>
-                      <p className={styles.subServiceDesc}>
-                        {tCta(`services.${subService.key}.desc`)}
-                      </p>
-                    </div>
-                  </div>
+              {/* Children */}
+              <div className={styles.children}>
+                {SUPPORT_CHILDREN.map((child, index) => (
+                    <motion.div
+                      key={child.key}
+                      className={styles.childStep}
+                      style={child.style}
+                      initial={{ opacity: 0, x: -12 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.35,
+                        delay: (STEPS.length + 1 + index) * 0.08,
+                      }}
+                    >
+                      <div className={styles.childRail}>
+                        <div className={styles.childDot}>
+                          <child.icon />
+                        </div>
+                      </div>
+                      <div className={styles.childContent}>
+                        <h3 className={styles.childTitle}>
+                          {tCta(`services.${child.key}.title`)}
+                        </h3>
+                        <p className={styles.childDesc}>
+                          {tCta(`services.${child.key}.desc`)}
+                        </p>
+                      </div>
+                    </motion.div>
                 ))}
               </div>
             </motion.div>

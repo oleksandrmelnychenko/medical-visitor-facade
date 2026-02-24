@@ -44,14 +44,8 @@
 }
 
 .shell {
-  max-width: 1140px;
+  max-width: 950px;
   margin: 0 auto;
-  padding: clamp(1.5rem, 4vw, 2rem);
-  border: 1px solid rgba(45, 45, 50, 0.09);
-  border-radius: 1.5rem;
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: 0 30px 70px rgba(30, 30, 40, 0.08);
-  backdrop-filter: blur(8px);
   position: relative;
   z-index: 1;
 }
@@ -61,7 +55,7 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: clamp(2rem, 5vw, 3rem);
   text-align: center;
 }
 
@@ -75,184 +69,309 @@
   margin: 0;
 }
 
-.layout {
-  display: grid;
-  gap: 1rem;
+// Background image
+.bgImageWrap {
+  display: none;
 
   @include up(md) {
-    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 40vw;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.7;
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.3) 8%,
+      rgba(0, 0, 0, 1) 30%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.3) 8%,
+      rgba(0, 0, 0, 1) 30%,
+      rgba(0, 0, 0, 1) 100%
+    );
   }
 }
 
-.flow {
+.bgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+// ── Timeline ──
+.timeline {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-}
-
-.flowCard {
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  min-height: 128px;
-  padding: 1.1rem 1.25rem;
-  border-radius: 1rem;
-  background: linear-gradient(130deg, color-mix(in srgb, var(--tone) 15%, #ffffff) 0%, #ffffff 60%);
-  border: 1px solid color-mix(in srgb, var(--tone) 55%, #d7d7de);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  z-index: 1;
+  max-width: 540px;
+}
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 26px color-mix(in srgb, var(--tone) 28%, transparent);
+// ── Regular step ──
+.step {
+  display: flex;
+  gap: 1.25rem;
+
+  @include up(md) {
+    gap: 1.75rem;
   }
 }
 
-.flowIcon {
-  width: 3rem;
-  height: 3rem;
+.rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+
+  @include up(md) {
+    width: 3.25rem;
+  }
+}
+
+.dot {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.875rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #26262d;
-  background: color-mix(in srgb, var(--tone) 22%, #ffffff);
-  border: 1px solid color-mix(in srgb, var(--tone) 45%, #d8d8df);
-  border-radius: 0.875rem;
+  background: color-mix(in srgb, var(--tone) 18%, #ffffff);
+  border: 1.5px solid color-mix(in srgb, var(--tone) 50%, #d7d7de);
+  flex-shrink: 0;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 
-  svg {
-    width: 1.35rem;
-    height: 1.35rem;
-    stroke-width: 1.5;
+  @include up(md) {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 1rem;
   }
-}
-
-.cardText {
-  flex: 1;
-}
-
-.serviceTitle {
-  margin: 0;
-  font-size: 0.98rem;
-  font-weight: 600;
-  color: #24242b;
-  letter-spacing: -0.008em;
-  line-height: 1.3;
-}
-
-.serviceDesc {
-  margin: 0.4rem 0 0;
-  max-width: 34ch;
-  font-size: 0.92rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  line-height: 1.58;
-  color: #5a5a6c;
-}
-
-.supportPanel {
-  --tone: #c7a6d4;
-  padding: 1.35rem;
-  border-radius: 1rem;
-  border: 1px solid color-mix(in srgb, var(--tone) 45%, #d7d7de);
-  background: linear-gradient(150deg, color-mix(in srgb, var(--tone) 22%, #ffffff) 0%, #ffffff 55%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.2s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    border-color: color-mix(in srgb, var(--tone) 60%, #cfcfd8);
-    box-shadow:
-      0 14px 26px color-mix(in srgb, var(--tone) 24%, transparent),
-      inset 0 1px 0 rgba(255, 255, 255, 0.55);
-    background: linear-gradient(150deg, color-mix(in srgb, var(--tone) 26%, #ffffff) 0%, #ffffff 56%);
-  }
-}
-
-.supportHead {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-.supportIcon {
-  width: 2.8rem;
-  height: 2.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.875rem;
-  border: 1px solid color-mix(in srgb, var(--tone) 45%, #d8d8df);
-  background: color-mix(in srgb, var(--tone) 20%, #ffffff);
-  color: #27272e;
 
   svg {
     width: 1.25rem;
     height: 1.25rem;
-    stroke-width: 1.7;
+    color: #26262d;
+    stroke-width: 1.5;
+
+    @include up(md) {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+
+  .step:hover & {
+    background: color-mix(in srgb, var(--tone) 30%, #ffffff);
+    border-color: color-mix(in srgb, var(--tone) 65%, #c0c0c8);
+    transform: scale(1.08);
   }
 }
 
-.supportTitle {
-  margin: 0;
-  font-size: 0.98rem;
+.connector {
+  width: 1.5px;
+  flex: 1;
+  min-height: 1.5rem;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--tone) 40%, #d4d4dc) 0%,
+    color-mix(in srgb, var(--tone) 15%, #e4e4ea) 100%
+  );
+}
+
+.stepContent {
+  padding-bottom: 2rem;
+  flex: 1;
+  padding-top: 0.15rem;
+
+  .step:last-child & {
+    padding-bottom: 0;
+  }
+}
+
+.stepNumber {
+  display: block;
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: #999aaa;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.25rem;
+}
+
+.stepTitle {
+  margin: 0 0 0.4rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: #24242b;
-  letter-spacing: -0.008em;
+  letter-spacing: 0.01em;
   line-height: 1.3;
+  transition: color 0.2s ease;
+
+  @include up(md) {
+    font-size: 1.02rem;
+  }
+
+  .step:hover & {
+    color: #111118;
+  }
 }
 
-.supportGrid {
-  display: grid;
-  gap: 0.75rem;
-}
-
-.supportItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.7rem;
-  padding: 0.85rem 0.9rem;
-  border-radius: 0.75rem;
-  background: rgba(255, 255, 255, 0.68);
-  border: 1px solid rgba(255, 255, 255, 0.75);
-}
-
-.subServiceIcon {
-  margin-top: 0.08rem;
-  width: 1.05rem;
-  height: 1.05rem;
-  color: #2f2f36;
-  stroke-width: 2.15;
-  flex-shrink: 0;
-}
-
-.subServiceTitle {
+.stepDesc {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.58;
+  color: #5c5e72;
+
+  @include up(md) {
+    font-size: 0.92rem;
+  }
+}
+
+// ── Parent group (Сопровождение + children) ──
+.stepGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.dotParent {
+  width: 3rem;
+  height: 3rem;
+
+  @include up(md) {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+// ── Children container — indented with branch line ──
+.children {
+  display: flex;
+  flex-direction: column;
+  // Indent: rail width (2.75rem) + gap (1.25rem) + a bit of branch offset
+  margin-left: calc(1.375rem + 1.25rem + 1.25rem);
+  margin-top: 0.25rem;
+
+  @include up(md) {
+    margin-left: calc(1.625rem + 1.75rem + 1.5rem);
+  }
+}
+
+.childStep {
+  display: flex;
+  gap: 1rem;
+
+  @include up(md) {
+    gap: 1.25rem;
+  }
+}
+
+.childRail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 2.25rem;
+  position: relative;
+
+  @include up(md) {
+    width: 2.5rem;
+  }
+
+}
+
+.childDot {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--tone) 14%, #ffffff);
+  border: 1.5px dashed color-mix(in srgb, var(--tone) 45%, #d7d7de);
+  flex-shrink: 0;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+
+  @include up(md) {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+  }
+
+  svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    color: #26262d;
+    stroke-width: 1.5;
+
+    @include up(md) {
+      width: 1.15rem;
+      height: 1.15rem;
+    }
+  }
+
+  .childStep:hover & {
+    background: color-mix(in srgb, var(--tone) 28%, #ffffff);
+    border-color: color-mix(in srgb, var(--tone) 60%, #c0c0c8);
+    transform: scale(1.08);
+  }
+}
+
+.childContent {
+  padding-bottom: 1.5rem;
+  flex: 1;
+  padding-top: 0.1rem;
+
+  .childStep:last-child & {
+    padding-bottom: 0;
+  }
+}
+
+.childTitle {
+  margin: 0 0 0.3rem;
+  font-size: 0.86rem;
   font-weight: 600;
-  color: #282830;
-  line-height: 1.35;
+  color: #34343e;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  transition: color 0.2s ease;
+
+  @include up(md) {
+    font-size: 0.92rem;
+  }
+
+  .childStep:hover & {
+    color: #111118;
+  }
 }
 
-.subServiceDesc {
-  margin: 0.25rem 0 0;
-  font-size: 0.84rem;
-  line-height: 1.5;
-  color: #616172;
+.childDesc {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.55;
+  color: #6a6c80;
+
+  @include up(md) {
+    font-size: 0.86rem;
+  }
 }
 
+// ── Mobile ──
 @media (max-width: 640px) {
   .section {
     padding: clamp(3rem, 7vw, 5rem) 0;
     overflow: visible;
-  }
-
-  .shell {
-    padding: 1.25rem;
-    border-radius: 1.25rem;
-    box-shadow:
-      0 12px 26px rgba(30, 30, 40, 0.06),
-      0 2px 8px rgba(30, 30, 40, 0.04);
   }
 
   .section::after {
@@ -270,71 +389,27 @@
   }
 
   .header {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
   }
 
-  .flowCard {
-    align-items: flex-start;
-    min-height: 100px;
-    padding: 1rem;
-    border-radius: 0.875rem;
+  .stepContent {
+    padding-bottom: 1.5rem;
   }
 
-  .flowIcon {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 0.75rem;
-
-    svg {
-      width: 1.15rem;
-      height: 1.15rem;
-    }
+  .stepDesc {
+    font-size: 0.82rem;
   }
 
-  .serviceTitle {
-    font-size: 0.9rem;
+  .children {
+    margin-left: calc(1.375rem + 0.75rem);
+    padding-left: 1rem;
   }
 
-  .serviceDesc {
-    font-size: 0.84rem;
-    margin-top: 0.25rem;
+  .childContent {
+    padding-bottom: 1rem;
   }
 
-  .supportPanel {
-    padding: 1.1rem;
-    border-radius: 0.875rem;
-  }
-
-  .supportHead {
-    margin-bottom: 0.75rem;
-    gap: 0.7rem;
-  }
-
-  .supportIcon {
-    width: 2.4rem;
-    height: 2.4rem;
-    border-radius: 0.75rem;
-
-    svg {
-      width: 1.1rem;
-      height: 1.1rem;
-    }
-  }
-
-  .supportTitle {
-    font-size: 0.9rem;
-  }
-
-  .supportItem {
-    padding: 0.7rem;
-    border-radius: 0.625rem;
-  }
-
-  .subServiceTitle {
-    font-size: 0.84rem;
-  }
-
-  .subServiceDesc {
+  .childDesc {
     font-size: 0.78rem;
   }
 }

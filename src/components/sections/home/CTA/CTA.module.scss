@@ -7,192 +7,108 @@
   z-index: 1;
 }
 
-.ctaWrapper {
-  overflow: hidden;
-}
-
-.ctaContent {
-  padding-bottom: 2.5rem;
+.card {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(45, 45, 50, 0.09);
+  border-radius: 1.5rem;
+  backdrop-filter: blur(8px);
+
+  @media (max-width: 639px) {
+    padding: 2rem 1.5rem;
+    border-radius: 1.25rem;
+  }
 }
 
-.ctaOverline {
-  color: #666;
+.overline {
+  color: #777889;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 1rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.ctaTitle {
-  color: #2d2d32;
+  letter-spacing: 0.13em;
+  font-size: 0.72rem;
+  font-weight: 600;
   margin-bottom: 1.25rem;
-  max-width: 42rem;
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+
+  @media (max-width: 639px) {
+    margin-bottom: 1rem;
+  }
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 500;
+  color: #17171c;
+  letter-spacing: -0.018em;
   line-height: 1.2;
+  margin-bottom: 1rem;
+  max-width: 32rem;
+
+  @media (max-width: 639px) {
+    font-size: clamp(1.35rem, 5vw, 1.75rem);
+  }
+}
+
+.subtitle {
+  font-size: 0.98rem;
   font-weight: 500;
-  letter-spacing: -0.02em;
-}
-
-.ctaSubtitle {
-  color: #4a4a4a;
-  margin-bottom: 0;
-  max-width: 36rem;
-  font-size: clamp(1rem, 1.5vw, 1.125rem);
-  line-height: 1.7;
-}
-
-.servicesGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem 1.5rem;
-  margin-bottom: 2.5rem;
-  margin-top: 1rem;
-  width: 100%;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-
-  @include up(sm) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include up(lg) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.serviceCard {
-  position: relative;
-  background-color: #fff;
-  border: 1px solid #d5d2cf;
-  padding: 2rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  min-height: 180px;
-  cursor: pointer;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border: 1px solid var(--hover-color);
-    pointer-events: none;
-    clip-path: inset(0 100% 0 0);
-    transition: clip-path 0.15s ease-out;
-  }
-
-  &:hover::before {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-.serviceIcon {
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #2d2d32;
-  margin-bottom: 0.5rem;
-
-  svg {
-    width: 2.5rem;
-    height: 2.5rem;
-    stroke-width: 1;
-  }
-}
-
-.serviceTitle {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #2d2d32;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  line-height: 1.4;
-}
-
-.serviceDesc {
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 1.4;
-  color: var(--muted-foreground);
-  max-width: 220px;
-}
-
-.ctaButtons {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  letter-spacing: 0.01em;
+  color: #666779;
+  line-height: 1.62;
+  max-width: 30rem;
   margin-bottom: 2rem;
-  width: 100%;
 
-  @include up(sm) {
-    flex-direction: row;
-    justify-content: center;
-    width: auto;
+  @media (max-width: 639px) {
+    font-size: 0.92rem;
+    margin-bottom: 1.5rem;
   }
 }
 
-.primaryButton {
-  display: flex;
+.button {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  background-color: #4a4a52;
+  gap: 0.6rem;
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, #2d2d36 0%, #3a3a45 100%);
   color: #fff;
-  padding: 1rem 2.25rem;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: opacity 0.2s;
-  width: 100%;
+  letter-spacing: 0.02em;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 
   &:hover {
-    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(45, 45, 54, 0.25);
   }
 
-  @include up(sm) {
-    width: auto;
+  @media (max-width: 639px) {
+    padding: 0.85rem 1.75rem;
+    font-size: 0.88rem;
   }
 }
 
-.secondaryButton {
-  border: 1px solid #d5d2cf;
-  background: transparent;
-  color: #2d2d32;
-  padding: 1rem 2.25rem;
-  font-size: 0.95rem;
+.buttonIcon {
+  width: 1rem;
+  height: 1rem;
+  stroke-width: 2;
+  transition: transform 0.2s ease;
+
+  .button:hover & {
+    transform: translateX(2px);
+  }
+}
+
+.availability {
+  margin-top: 1.25rem;
+  color: #8a8a9b;
+  font-size: 0.82rem;
   font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  width: 100%;
-
-  &:hover {
-    background-color: #f0eeeb;
-  }
-
-  @include up(sm) {
-    width: auto;
-  }
-}
-
-.ctaFooter {
-  text-align: center;
-
-  p {
-    color: #666;
-    font-size: 0.8125rem;
-  }
+  letter-spacing: 0.01em;
 }

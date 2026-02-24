@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { User, UserPlus, LogOut, Menu, X, ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useSession, signOut } from "next-auth/react";
@@ -119,6 +120,7 @@ export function Header() {
     'User';
   const userEmail = session?.user?.email;
   const userPhone = (session?.user as { phone?: string })?.phone;
+  const isAdmin = (session?.user as { role?: string })?.role === "admin";
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
