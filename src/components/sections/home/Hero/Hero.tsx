@@ -13,6 +13,7 @@ export function Hero() {
         </video>
         <div className={styles.videoOverlay} />
       </div>
+      <div className={styles.bottomFade} />
     </section>
   );
 }

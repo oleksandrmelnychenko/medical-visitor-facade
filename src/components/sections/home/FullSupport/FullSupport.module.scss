@@ -69,14 +69,14 @@
   justify-content: center;
   text-align: center;
   padding: 1.5rem;
-  background-color: color-mix(in srgb, var(--hover-color) 8%, #fff);
-  border: 1px solid color-mix(in srgb, var(--hover-color) 62%, #c8ccd6);
+  background-color: color-mix(in srgb, var(--hover-color) 1.5%, #fff);
+  border: 1px solid color-mix(in srgb, var(--hover-color) 30%, #d8dce4);
   border-radius: 1rem;
   min-height: 160px;
   cursor: pointer;
   overflow: hidden;
   isolation: isolate;
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--hover-color) 18%, transparent);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--hover-color) 8%, transparent);
   transition: box-shadow 0.3s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 
   &::before {
@@ -85,37 +85,15 @@
     inset: -10%;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.42;
+    opacity: 0.25;
     transform: scale(1);
     transition: opacity 0.35s ease, transform 0.35s ease;
     background: radial-gradient(
       circle at 18% 16%,
-      color-mix(in srgb, var(--hover-color) 20%, #ffffff) 0%,
-      color-mix(in srgb, var(--hover-color) 10%, transparent) 30%,
+      color-mix(in srgb, var(--hover-color) 12%, #ffffff) 0%,
+      color-mix(in srgb, var(--hover-color) 6%, transparent) 30%,
       transparent 58%
     );
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    inset: -42% -80%;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.34;
-    transform: translateX(-56%) rotate(2deg);
-    mix-blend-mode: normal;
-    filter: blur(1px);
-    will-change: transform;
-    background: linear-gradient(
-      112deg,
-      transparent 32%,
-      color-mix(in srgb, var(--hover-color) 21%, #ffffff) 45%,
-      rgba(255, 255, 255, 0.82) 50%,
-      color-mix(in srgb, var(--hover-color) 18%, #ffffff) 55%,
-      transparent 68%
-    );
-    animation: tileSheenDrift 6.6s linear infinite;
   }
 
   @media (max-width: 639px) {
@@ -130,8 +108,8 @@
   }
 
   &:hover {
-    box-shadow: 0 6px 16px color-mix(in srgb, var(--hover-color) 24%, transparent);
-    border-color: color-mix(in srgb, var(--hover-color) 70%, #c1c7d3);
+    box-shadow: 0 10px 32px color-mix(in srgb, var(--hover-color) 42%, transparent), 0 4px 12px rgba(0, 0, 0, 0.06);
+    border-color: color-mix(in srgb, var(--hover-color) 40%, #d0d4dc);
     transform: translateY(-1px);
 
     .serviceFront {
@@ -215,8 +193,8 @@
   justify-content: center;
   color: #0d121a;
   margin-bottom: 0.75rem;
-  background: color-mix(in srgb, var(--hover-color) 32%, #ffffff 68%);
-  border: 1px solid color-mix(in srgb, var(--hover-color) 58%, #d7dde8 42%);
+  background: color-mix(in srgb, var(--hover-color) 20%, #ffffff 80%);
+  border: none;
   border-radius: 0.85rem;
   transition: background 0.3s ease, transform 0.3s ease;
 
@@ -228,8 +206,7 @@
   }
 
   .serviceItem:hover & {
-    background: color-mix(in srgb, var(--hover-color) 40%, #ffffff 60%);
-    border-color: color-mix(in srgb, var(--hover-color) 66%, #cfd7e4 34%);
+    background: color-mix(in srgb, var(--hover-color) 28%, #ffffff 72%);
     transform: scale(1.1);
   }
 
@@ -426,20 +403,3 @@
   }
 }
 
-@keyframes tileSheenDrift {
-  0%,
-  100% {
-    transform: translateX(-56%) rotate(2deg);
-  }
-
-  50% {
-    transform: translateX(56%) rotate(2deg);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .serviceItem::after {
-    animation: none;
-    opacity: 0.2;
-  }
-}
