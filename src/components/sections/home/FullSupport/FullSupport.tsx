@@ -25,11 +25,14 @@ const CITIES = [
   { key: 'munich',  x: 67,  y: 83 },
 ];
 
-// Line colors: red, yellow, purple, orange, violet
-const LINE_COLORS = ['#e8453c', '#f0b732', '#8b5cf6', '#f97316', '#a855f7'];
+// Line colors: unified violet
+const LINE_COLORS = ['#a855f7', '#a855f7', '#a855f7', '#a855f7', '#a855f7'];
 
 // Ball animation durations (staggered for organic feel)
 const BALL_DURS = ['3.5s', '4.2s', '3.8s', '4.5s', '3.2s'];
+
+// Per-tile orbit radius (indices 0,2,4 closer to center)
+const TILE_RADII = [34, 40, 34, 40, 34];
 
 /** Compute endpoint on circle */
 function endPoint(index: number, total: number, radiusPct: number, startAngle = -54) {
@@ -101,12 +104,12 @@ export const FullSupport = memo(function FullSupport() {
             aria-hidden="true"
             viewBox="0 0 100 100"
             preserveAspectRatio="xMidYMid meet"
-            overflow="visible"
+            overflow="hidden"
             style={{ animationPlayState: isInView ? 'running' : 'paused' }}
           >
             <defs>
               {SERVICES.map((_, i) => {
-                const ep = endPoint(i, SERVICES.length, 40);
+                const ep = endPoint(i, SERVICES.length, TILE_RADII[i]);
                 const color = LINE_COLORS[i];
                 return (
                   <g key={`defs-${i}`}>
@@ -124,31 +127,33 @@ export const FullSupport = memo(function FullSupport() {
               })}
             </defs>
 
-            {/* Germany silhouette watermark */}
-            <path
-              d="M6,10 L7,19 L10,20 L8,30 L3,34 L8,39 L3,46 L-10,46 L-8,54 L-10,64 L-8,70 L-5,75 L0,85 L5,91 L22,92 L14,107 L14,115 L28,112 L43,115 L50,119 L56,114 L67,115 L79,114 L89,113 L104,108 L97,102 L93,95 L84,78 L78,77 L78,71 L84,73 L90,71 L103,64 L109,61 L119,59 L115,58 L114,43 L115,27 L107,12 L102,6 L92,6 L77,8 L71,5 L62,5 L49,-2 L33,-4 Z"
-              fill="#e0e0e0"
-              opacity="0.18"
-              stroke="none"
-            />
+            {/* Germany silhouette + cities — scaled to fit within viewBox */}
+            <g transform="translate(12, 10) scale(0.7)">
+              <path
+                d="M6,10 L7,19 L10,20 L8,30 L3,34 L8,39 L3,46 L-10,46 L-8,54 L-10,64 L-8,70 L-5,75 L0,85 L5,91 L22,92 L14,107 L14,115 L28,112 L43,115 L50,119 L56,114 L67,115 L79,114 L89,113 L104,108 L97,102 L93,95 L84,78 L78,77 L78,71 L84,73 L90,71 L103,64 L109,61 L119,59 L115,58 L114,43 L115,27 L107,12 L102,6 L92,6 L77,8 L71,5 L62,5 L49,-2 L33,-4 Z"
+                fill="#e0e0e0"
+                opacity="0.18"
+                stroke="none"
+              />
 
-            {/* City markers on Germany map */}
-            {CITIES.map((city) => (
-              <g key={city.key} opacity="0.35">
-                <circle cx={city.x} cy={city.y} r="1.1" fill="#c0c0c0" />
-                <circle cx={city.x} cy={city.y} r="0.45" fill="#999" />
-                <text
-                  x={city.x + 2}
-                  y={city.y + 0.5}
-                  fontSize="2.8"
-                  fill="#b0b0b0"
-                  fontFamily="'Inter', sans-serif"
-                  fontWeight="500"
-                >
-                  {t(`cities.${city.key}`)}
-                </text>
-              </g>
-            ))}
+              {/* City markers on Germany map */}
+              {CITIES.map((city) => (
+                <g key={city.key} opacity="0.35">
+                  <circle cx={city.x} cy={city.y} r="1.5" fill="#c0c0c0" />
+                  <circle cx={city.x} cy={city.y} r="0.6" fill="#999" />
+                  <text
+                    x={city.x + 2.5}
+                    y={city.y + 0.7}
+                    fontSize="3.8"
+                    fill="#b0b0b0"
+                    fontFamily="'Inter', sans-serif"
+                    fontWeight="500"
+                  >
+                    {t(`cities.${city.key}`)}
+                  </text>
+                </g>
+              ))}
+            </g>
 
             {/* Dashed orbit circles */}
             <circle
@@ -172,8 +177,46 @@ export const FullSupport = memo(function FullSupport() {
               opacity="0.3"
             />
 
+            {/* Traveling dots along orbit circles */}
+            {isInView && (
+              <>
+                {/* Outer orbit dot */}
+                <circle r="0.7" fill="#a855f7" opacity="0.5">
+                  <animateMotion
+                    dur="24s"
+                    repeatCount="indefinite"
+                    path="M90,50 A40,40 0 1,1 89.99,50"
+                  />
+                </circle>
+                <circle r="0.55" fill="#a855f7" opacity="0.35">
+                  <animateMotion
+                    dur="24s"
+                    repeatCount="indefinite"
+                    begin="-12s"
+                    path="M90,50 A40,40 0 1,1 89.99,50"
+                  />
+                </circle>
+                {/* Inner orbit dot */}
+                <circle r="0.6" fill="#a855f7" opacity="0.4">
+                  <animateMotion
+                    dur="18s"
+                    repeatCount="indefinite"
+                    path="M78,50 A28,28 0 1,0 77.99,50"
+                  />
+                </circle>
+                <circle r="0.5" fill="#a855f7" opacity="0.3">
+                  <animateMotion
+                    dur="18s"
+                    repeatCount="indefinite"
+                    begin="-9s"
+                    path="M78,50 A28,28 0 1,0 77.99,50"
+                  />
+                </circle>
+              </>
+            )}
+
             {SERVICES.map((_, i) => {
-              const path = cablePath(i, SERVICES.length, 40);
+              const path = cablePath(i, SERVICES.length, TILE_RADII[i]);
               const color = LINE_COLORS[i];
               const dur = BALL_DURS[i];
               const isActive = hoveredIdx === null || hoveredIdx === i;
@@ -227,7 +270,7 @@ export const FullSupport = memo(function FullSupport() {
               key={svc.key}
               className={styles.svcNode}
               style={{
-                ...orbitPosition(i, SERVICES.length, 40),
+                ...orbitPosition(i, SERVICES.length, TILE_RADII[i]),
                 '--line-color': LINE_COLORS[i],
               } as React.CSSProperties}
               onMouseEnter={() => handleEnter(i)}

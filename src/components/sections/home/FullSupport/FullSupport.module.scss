@@ -19,7 +19,7 @@
 .orbit {
   display: none;
   position: relative;
-  width: min(780px, 86vw);
+  width: min(1090px, 92vw);
   aspect-ratio: 1;
   margin: 0 auto;
   contain: layout style;
@@ -29,7 +29,7 @@
   }
 
   @include up(lg) {
-    width: min(860px, 80vw);
+    width: min(1200px, 88vw);
   }
 }
 
@@ -55,7 +55,7 @@
   border: 1px solid color-mix(in srgb, #999 18%, white);
   border-radius: 0.75rem;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
-  padding: 2rem 1.8rem;
+  padding: 2.8rem 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,7 +63,7 @@
 
 .title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 3.2vw, 2.55rem);
+  font-size: clamp(2.1rem, 3.8vw, 3rem);
   font-weight: 500;
   color: #111;
   letter-spacing: -0.018em;
@@ -85,8 +85,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: clamp(130px, 15vw, 160px);
-  padding: 1.2rem 0.9rem 1rem;
+  width: clamp(170px, 19vw, 220px);
+  padding: 1.5rem 1.1rem 1.2rem;
   background: #fff;
   border: 1px solid color-mix(in srgb, var(--line-color, #ccc) 18%, white);
   border-radius: 0.75rem;
@@ -136,11 +136,20 @@
   border-radius: 0.75rem;
   opacity: 0;
   transition: opacity 0.3s ease;
+
+  .serviceTitle {
+    font-size: 1.1rem;
+  }
+
+  .serviceDesc {
+    font-size: 0.92rem;
+    max-width: 220px;
+  }
 }
 
 // Number badge
 .serviceNum {
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--line-color, #888);
   letter-spacing: 0.06em;
@@ -149,14 +158,14 @@
 
 // Icon in colored circle
 .serviceIcon {
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 3.8rem;
+  height: 3.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1.5px solid var(--line-color, #ccc);
   border-radius: 50%;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.8rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   .serviceItem:hover &,
@@ -166,8 +175,8 @@
   }
 
   svg {
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 1.9rem;
+    height: 1.9rem;
     color: #333;
     stroke: currentColor;
     stroke-width: 1.4;
@@ -176,7 +185,7 @@
 
 // Title
 .serviceTitle {
-  font-size: 0.78rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #111;
   letter-spacing: 0.04em;
@@ -187,12 +196,12 @@
 
 // Description
 .serviceDesc {
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 400;
   letter-spacing: 0.01em;
   line-height: 1.5;
   color: #111;
-  max-width: 170px;
+  max-width: 200px;
 }
 
 // ━━━ Mobile ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -283,4 +292,12 @@
   padding: 1.25rem;
   opacity: 0;
   transition: opacity 0.3s ease;
+
+  .serviceTitle {
+    font-size: 1.1rem;
+  }
+
+  .serviceDesc {
+    font-size: 0.92rem;
+  }
 }

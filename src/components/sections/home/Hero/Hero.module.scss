@@ -20,6 +20,19 @@
     height: 44vh;
     min-height: 260px;
   }
+
+  // Bottom fade to next section (white)
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 10%, rgba(255, 255, 255, 0.5) 50%, transparent 90%);
+    z-index: 1;
+    pointer-events: none;
+  }
 }
 
 .videoContainer {
