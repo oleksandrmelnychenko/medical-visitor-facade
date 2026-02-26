@@ -51,25 +51,7 @@
   border: 0;
 }
 
-// Breathing glow animation
-@keyframes breathe {
-  0%, 100% {
-    box-shadow:
-      0 0 40px 16px rgba(255, 255, 255, 0.45),
-      0 0 80px 32px rgba(255, 255, 255, 0.18),
-      0 1px 3px rgba(0, 0, 0, 0.05),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.55);
-  }
-  50% {
-    box-shadow:
-      0 0 52px 22px rgba(255, 255, 255, 0.55),
-      0 0 100px 44px rgba(255, 255, 255, 0.25),
-      0 1px 3px rgba(0, 0, 0, 0.05),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.65);
-  }
-}
-
-// CTA — large centered button in glass card
+// CTA + Login — single centered glass panel
 .heroActions {
   position: absolute;
   bottom: 12%;
@@ -78,6 +60,9 @@
   width: fit-content;
   margin: 0 auto;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
   padding: 0.5rem;
   border-radius: 0.75rem;
   background: rgba(255, 255, 255, 0.12);
@@ -89,6 +74,7 @@
     inset 0 0 0 0.5px rgba(255, 255, 255, 0.25);
 }
 
+// CTA button — solid dark
 .heroButton {
   display: inline-flex;
   align-items: center;
@@ -123,32 +109,7 @@
   }
 }
 
-// Login — separate glass card to the right
-.heroLogin {
-  position: absolute;
-  bottom: 12%;
-  left: calc(50% + 128px);
-  z-index: 2;
-  padding: 0.5rem;
-  border-radius: 0.75rem;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px) saturate(1.4);
-  -webkit-backdrop-filter: blur(12px) saturate(1.4);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.08),
-    inset 0 0 0 0.5px rgba(255, 255, 255, 0.25);
-
-  @media (max-width: 768px) {
-    left: auto;
-    right: 1.5rem;
-  }
-
-  @media (max-width: 480px) {
-    right: 1rem;
-  }
-}
-
+// Login button — glass style
 .heroLoginLink {
   display: inline-flex;
   align-items: center;
@@ -159,20 +120,25 @@
   letter-spacing: 0.01em;
   border: none;
   border-radius: 0.5rem;
-  background: linear-gradient(135deg, #4a4a4a 0%, #2d2d32 50%, #1a1a1a 100%);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #1a1a1a;
+  cursor: pointer;
   text-decoration: none;
-  transition: opacity 0.2s, transform 0.2s;
+  transition: background 0.2s, transform 0.2s;
   white-space: nowrap;
 
   svg {
     width: 1.1rem;
     height: 1.1rem;
     stroke-width: 2;
+    color: #1a1a1a;
   }
 
   &:hover {
-    opacity: 0.9;
+    background: rgba(255, 255, 255, 0.35);
     transform: translateY(-1px);
   }
 

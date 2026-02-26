@@ -44,7 +44,7 @@ export function Hero() {
         </video>
       </div>
 
-      {/* CTA — large centered button */}
+      {/* CTA + Login — single centered glass panel */}
       <motion.div
         className={styles.heroActions}
         initial={{ opacity: 0, y: 20, scale: 0.96 }}
@@ -55,22 +55,13 @@ export function Hero() {
           <UserPlus size={18} />
           {tCommon("requestAppointment")}
         </Link>
-      </motion.div>
-
-      {/* Login — separate glass pill */}
-      {status !== "authenticated" && (
-        <motion.div
-          className={styles.heroLogin}
-          initial={{ opacity: 0, y: 16, scale: 0.96 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ delay: 1.0, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        >
+        {status !== "authenticated" && (
           <Link href="/login" className={styles.heroLoginLink}>
             <User size={16} />
             {tCommon("login")}
           </Link>
-        </motion.div>
-      )}
+        )}
+      </motion.div>
     </section>
   );
 }
