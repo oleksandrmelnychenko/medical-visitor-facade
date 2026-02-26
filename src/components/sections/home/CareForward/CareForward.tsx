@@ -1,7 +1,6 @@
 "use client";
 
 import { memo, type CSSProperties } from "react";
-import Image from "next/image";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import {
@@ -16,33 +15,21 @@ import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./CareForward.module.scss";
 
 const STEPS = [
-  { icon: Building2, key: "clinic", ns: "careForward" as const, style: { "--tone": "#D8C39B" } as CSSProperties },
-  { icon: Stethoscope, key: "organization", ns: "careForward" as const, style: { "--tone": "#9FCBD8" } as CSSProperties },
-  { icon: Activity, key: "coordination", ns: "careForward" as const, style: { "--tone": "#A8D0AE" } as CSSProperties },
+  { icon: Building2, key: "clinic", ns: "careForward" as const, style: { "--tone": "#e8a832" } as CSSProperties },
+  { icon: Stethoscope, key: "organization", ns: "careForward" as const, style: { "--tone": "#3ba5c4" } as CSSProperties },
+  { icon: Activity, key: "coordination", ns: "careForward" as const, style: { "--tone": "#4dab5c" } as CSSProperties },
 ];
 
 const SUPPORT_CHILDREN = [
-  { icon: Headphones, key: "support", style: { "--tone": "#C7A6D4" } as CSSProperties },
-  { icon: Video, key: "consultations", style: { "--tone": "#B8A6D4" } as CSSProperties },
+  { icon: Headphones, key: "support", style: { "--tone": "#9b5cc6" } as CSSProperties },
+  { icon: Video, key: "consultations", style: { "--tone": "#8b5cf6" } as CSSProperties },
 ];
 
 export const CareForward = memo(function CareForward() {
   const t = useTranslations("home.careForward");
   const tCta = useTranslations("home.cta");
-
   return (
     <section className={styles.section}>
-      <div className={styles.bgImageWrap} aria-hidden="true">
-        <Image
-          src="/assets/frauenkirche-watercolor.png"
-          alt=""
-          width={600}
-          height={740}
-          className={styles.bgImage}
-          priority={false}
-        />
-      </div>
-
       <div className={sectionStyles.container}>
         <motion.div
           className={styles.shell}
@@ -69,14 +56,14 @@ export const CareForward = memo(function CareForward() {
               >
                 <div className={styles.rail}>
                   <div className={styles.dot}>
+                    <span className={styles.stepNumber}>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                     <step.icon />
                   </div>
                   <div className={styles.connector} />
                 </div>
                 <div className={styles.stepContent}>
-                  <span className={styles.stepNumber}>
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
                   <h3 className={styles.stepTitle}>
                     {t(`services.${step.key}.title`)}
                   </h3>
@@ -100,13 +87,13 @@ export const CareForward = memo(function CareForward() {
               <div className={styles.step}>
                 <div className={styles.rail}>
                   <div className={`${styles.dot} ${styles.dotParent}`}>
+                    <span className={styles.stepNumber}>
+                      {String(STEPS.length + 1).padStart(2, "0")}
+                    </span>
                     <ShieldCheck />
                   </div>
                 </div>
                 <div className={styles.stepContent}>
-                  <span className={styles.stepNumber}>
-                    {String(STEPS.length + 1).padStart(2, "0")}
-                  </span>
                   <h3 className={styles.stepTitle}>{tCta("title")}</h3>
                 </div>
               </div>

@@ -115,6 +115,12 @@
     "fullSupport": {
       "overline": "",
       "title": "Concepto de la Agencia",
+      "cities": {
+        "berlin": "Berlín",
+        "hamburg": "Hamburgo",
+        "cologne": "Colonia",
+        "munich": "Múnich"
+      },
       "subtitle": "",
       "services": {
         "promptness": {

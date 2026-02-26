@@ -113,9 +113,15 @@
 .brushPaint {
   clip-path: inset(0 100% 100% 0);
   opacity: 0;
+  will-change: clip-path, opacity;
 }
 
 .brushPaintActive {
+  animation: brushReveal 1s ease-out forwards;
+}
+
+// Remove will-change after animation completes to free GPU memory
+.brushPaintActive[style] {
   animation: brushReveal 1s ease-out forwards;
 }
 

@@ -33,32 +33,13 @@
   margin: 0;
 }
 
-// Background image
-.bgImageWrap {
-  display: none;
-
-  @include up(md) {
-    display: block;
-    position: absolute;
-    right: clamp(1.5rem, 3vw, 3rem);
-    top: clamp(2rem, 4vw, 4rem);
-    bottom: clamp(2rem, 4vw, 4rem);
-    width: 38vw;
-    max-width: 520px;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.6;
-    border-radius: 1.5rem;
-    overflow: hidden;
-  }
-}
-
-.bgImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  border-radius: 1.5rem;
+// ── Traveling dot on each connector ──
+@keyframes connectorDot {
+  0%   { top: -3px; opacity: 0; }
+  8%   { opacity: 0.7; }
+  25%  { opacity: 0.7; }
+  33%  { top: calc(100% - 3px); opacity: 0; }
+  100% { top: calc(100% - 3px); opacity: 0; }
 }
 
 // ── Timeline ──
@@ -68,6 +49,7 @@
   position: relative;
   z-index: 1;
   max-width: 540px;
+  margin: 0 auto;
 }
 
 // ── Regular step ──
@@ -86,6 +68,7 @@
   align-items: center;
   flex-shrink: 0;
   width: 2.75rem;
+  position: relative;
 
   @include up(md) {
     width: 3.25rem;
@@ -93,28 +76,28 @@
 }
 
 .dot {
+  position: relative;
   width: 2.75rem;
   height: 2.75rem;
-  border-radius: 0.875rem;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: color-mix(in srgb, var(--tone) 18%, #ffffff);
-  border: 1.5px solid color-mix(in srgb, var(--tone) 50%, #d7d7de);
+  background: transparent;
+  border: 1.5px solid var(--tone, #ccc);
   flex-shrink: 0;
-  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   @include up(md) {
     width: 3.25rem;
     height: 3.25rem;
-    border-radius: 1rem;
   }
 
   svg {
     width: 1.25rem;
     height: 1.25rem;
-    color: #26262d;
-    stroke-width: 1.5;
+    color: #333;
+    stroke-width: 1.4;
 
     @include up(md) {
       width: 1.5rem;
@@ -123,9 +106,8 @@
   }
 
   .step:hover & {
-    background: color-mix(in srgb, var(--tone) 30%, #ffffff);
-    border-color: color-mix(in srgb, var(--tone) 65%, #c0c0c8);
     transform: scale(1.08);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
   }
 }
 
@@ -133,17 +115,47 @@
   width: 1.5px;
   flex: 1;
   min-height: 1.5rem;
+  position: relative;
   background: linear-gradient(
     180deg,
     color-mix(in srgb, var(--tone) 40%, #d4d4dc) 0%,
     color-mix(in srgb, var(--tone) 15%, #e4e4ea) 100%
   );
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--tone, #ccc);
+    box-shadow: 0 0 6px var(--tone, #ccc);
+    pointer-events: none;
+    animation: connectorDot 12s ease-in-out infinite;
+    opacity: 0;
+
+    @include up(md) {
+      width: 7px;
+      height: 7px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      display: none;
+    }
+  }
 }
+
+// Stagger: each connector fires sequentially (12s / 3 = 4s apart)
+.step:nth-child(1) .connector::after { animation-delay: 0s; }
+.step:nth-child(2) .connector::after { animation-delay: 4s; }
+.step:nth-child(3) .connector::after { animation-delay: 8s; }
 
 .stepContent {
   padding-bottom: 2rem;
   flex: 1;
-  padding-top: 0.15rem;
+  padding-top: 0.65rem;
 
   .step:last-child & {
     padding-bottom: 0;
@@ -151,19 +163,23 @@
 }
 
 .stepNumber {
-  display: block;
+  position: absolute;
+  right: calc(100% + 0.4rem);
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 0.625rem;
-  font-weight: 600;
-  color: #999aaa;
-  letter-spacing: 0.12em;
-  margin-bottom: 0.25rem;
+  font-weight: 700;
+  color: var(--tone, #999aaa);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .stepTitle {
   margin: 0 0 0.4rem;
   font-size: 0.84rem;
-  font-weight: 600;
-  color: #24242b;
+  font-weight: 700;
+  color: #111;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   line-height: 1.3;
@@ -246,26 +262,25 @@
 .childDot {
   width: 2.25rem;
   height: 2.25rem;
-  border-radius: 0.625rem;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: color-mix(in srgb, var(--tone) 14%, #ffffff);
-  border: 1.5px dashed color-mix(in srgb, var(--tone) 45%, #d7d7de);
+  background: transparent;
+  border: 1.5px dashed var(--tone, #ccc);
   flex-shrink: 0;
-  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   @include up(md) {
     width: 2.5rem;
     height: 2.5rem;
-    border-radius: 0.75rem;
   }
 
   svg {
     width: 1.05rem;
     height: 1.05rem;
-    color: #26262d;
-    stroke-width: 1.5;
+    color: #333;
+    stroke-width: 1.4;
 
     @include up(md) {
       width: 1.15rem;
@@ -293,8 +308,8 @@
 .childTitle {
   margin: 0 0 0.3rem;
   font-size: 0.78rem;
-  font-weight: 600;
-  color: #34343e;
+  font-weight: 700;
+  color: #111;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   line-height: 1.3;

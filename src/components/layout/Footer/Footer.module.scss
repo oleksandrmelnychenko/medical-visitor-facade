@@ -10,18 +10,6 @@
   margin-top: -56px;
   border: 1px solid color-mix(in srgb, #f6f7f9 76%, #e5e9ef 24%);
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 28px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 48px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #c9a84c, transparent);
-    border-radius: 1px;
-    opacity: 0.5;
-  }
 }
 
 .container {

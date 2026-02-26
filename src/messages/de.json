@@ -115,6 +115,12 @@
     "fullSupport": {
       "overline": "",
       "title": "Agenturkonzept",
+      "cities": {
+        "berlin": "Berlin",
+        "hamburg": "Hamburg",
+        "cologne": "Köln",
+        "munich": "München"
+      },
       "subtitle": "",
       "services": {
         "promptness": {

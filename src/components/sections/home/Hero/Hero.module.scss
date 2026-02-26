@@ -38,13 +38,6 @@
   z-index: 1;
 }
 
-// Desktop video: hide on mobile
-.desktopVideo {
-  @media (max-width: 768px) {
-    display: none;
-  }
-}
-
 // Visually hidden but accessible to screen readers & crawlers
 .srOnly {
   position: absolute;
@@ -58,11 +51,133 @@
   border: 0;
 }
 
-// Mobile video: hide on desktop, show on mobile
-.mobileVideo {
-  display: none;
+// Breathing glow animation
+@keyframes breathe {
+  0%, 100% {
+    box-shadow:
+      0 0 40px 16px rgba(255, 255, 255, 0.45),
+      0 0 80px 32px rgba(255, 255, 255, 0.18),
+      0 1px 3px rgba(0, 0, 0, 0.05),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+  }
+  50% {
+    box-shadow:
+      0 0 52px 22px rgba(255, 255, 255, 0.55),
+      0 0 100px 44px rgba(255, 255, 255, 0.25),
+      0 1px 3px rgba(0, 0, 0, 0.05),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.65);
+  }
+}
+
+// CTA — large centered button in glass card
+.heroActions {
+  position: absolute;
+  bottom: 12%;
+  left: 0;
+  right: 0;
+  width: fit-content;
+  margin: 0 auto;
+  z-index: 2;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px) saturate(1.4);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.25);
+}
+
+.heroButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border: none;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, #4a4a4a 0%, #2d2d32 50%, #1a1a1a 100%);
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+  white-space: nowrap;
+
+  svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    stroke-width: 2;
+  }
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+// Login — separate glass card to the right
+.heroLogin {
+  position: absolute;
+  bottom: 12%;
+  left: calc(50% + 128px);
+  z-index: 2;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px) saturate(1.4);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.25);
 
   @media (max-width: 768px) {
-    display: block;
+    left: auto;
+    right: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    right: 1rem;
+  }
+}
+
+.heroLoginLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border: none;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, #4a4a4a 0%, #2d2d32 50%, #1a1a1a 100%);
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+  white-space: nowrap;
+
+  svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    stroke-width: 2;
+  }
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
   }
 }

@@ -221,18 +221,8 @@ export function Header() {
             <span className={styles.logoTagline}>{tFooter('companyName')}</span>
           </Link>
 
-          {/* Right: actions + lang (like sticky header) */}
+          {/* Right: actions + lang */}
           <div className={styles.headerRight}>
-            <Link href="/apply" className={styles.headerButton}>
-              <UserPlus size={16} />
-              {tCommon('requestAppointment')}
-            </Link>
-            {status !== "authenticated" && (
-              <Link href="/login" className={styles.headerLoginLink}>
-                <User size={16} />
-                {tCommon('login')}
-              </Link>
-            )}
             {status === "authenticated" && (
               <div className={styles.userMenu} ref={userMenuRef}>
                 <button

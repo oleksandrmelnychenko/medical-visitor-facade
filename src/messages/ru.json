@@ -115,6 +115,12 @@
     "fullSupport": {
       "overline": "",
       "title": "Концепт агентства",
+      "cities": {
+        "berlin": "Берлін",
+        "hamburg": "Гамбург",
+        "cologne": "Кельн",
+        "munich": "Мюнхен"
+      },
       "subtitle": "",
       "services": {
         "promptness": {
