@@ -15,14 +15,14 @@ import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./CareForward.module.scss";
 
 const STEPS = [
-  { icon: Building2, key: "clinic", ns: "careForward" as const, style: { "--tone": "#e8a832" } as CSSProperties },
-  { icon: Stethoscope, key: "organization", ns: "careForward" as const, style: { "--tone": "#3ba5c4" } as CSSProperties },
-  { icon: Activity, key: "coordination", ns: "careForward" as const, style: { "--tone": "#4dab5c" } as CSSProperties },
+  { icon: Building2, key: "clinic", ns: "careForward" as const, style: { "--tone": "#9bb3c9" } as CSSProperties },
+  { icon: Stethoscope, key: "organization", ns: "careForward" as const, style: { "--tone": "#d4b5a5" } as CSSProperties },
+  { icon: Activity, key: "coordination", ns: "careForward" as const, style: { "--tone": "#c9c0a0" } as CSSProperties },
 ];
 
 const SUPPORT_CHILDREN = [
-  { icon: Headphones, key: "support", style: { "--tone": "#9b5cc6" } as CSSProperties },
-  { icon: Video, key: "consultations", style: { "--tone": "#8b5cf6" } as CSSProperties },
+  { icon: Headphones, key: "support", style: { "--tone": "#b8a0cc" } as CSSProperties },
+  { icon: Video, key: "consultations", style: { "--tone": "#a890c0" } as CSSProperties },
 ];
 
 export const CareForward = memo(function CareForward() {
@@ -77,7 +77,7 @@ export const CareForward = memo(function CareForward() {
             {/* 04 Сопровождение — parent with nested children */}
             <motion.div
               className={styles.stepGroup}
-              style={{ "--tone": "#C7A6D4" } as CSSProperties}
+              style={{ "--tone": "#c4afd4" } as CSSProperties}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}

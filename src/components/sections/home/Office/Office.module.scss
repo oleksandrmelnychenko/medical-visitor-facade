@@ -6,6 +6,16 @@
   position: relative;
   z-index: 1;
 
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e3e9f1 30%, #e3e9f1 70%, transparent);
+  }
+
   @media (max-width: 767px) {
     padding: clamp(3rem, 7vw, 5rem) 0;
   }
