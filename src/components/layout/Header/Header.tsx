@@ -140,7 +140,7 @@ export function Header() {
               height={32}
               className={styles.stickyLogo}
             />
-            <span className={styles.stickyLogoTagline}>{tFooter('companyName')}</span>
+            <span className={styles.stickyLogoTagline}>{tFooter.rich('companyName', { accent: (chunks) => <span className={styles.logoAccent}>{chunks}</span> })}</span>
           </Link>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -218,7 +218,7 @@ export function Header() {
               className={styles.logo}
               priority
             />
-            <span className={styles.logoTagline}>{tFooter('companyName')}</span>
+            <span className={styles.logoTagline}>{tFooter.rich('companyName', { accent: (chunks) => <span className={styles.logoAccent}>{chunks}</span> })}</span>
           </Link>
 
           {/* Right: actions + lang */}

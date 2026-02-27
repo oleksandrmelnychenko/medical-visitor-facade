@@ -187,16 +187,14 @@
 
 .stepTitle {
   margin: 0 0 0.4rem;
-  font-size: 0.84rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: #111;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  color: #1a1a22;
   line-height: 1.3;
   transition: color 0.2s ease;
 
   @include up(md) {
-    font-size: 0.88rem;
+    font-size: 1.15rem;
   }
 
   .step:hover & {
@@ -206,14 +204,14 @@
 
 .stepDesc {
   margin: 0;
-  font-size: 0.88rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  line-height: 1.58;
-  color: #5c5e72;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 1.4;
+  color: #1a1a22;
 
   @include up(md) {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -317,16 +315,14 @@
 
 .childTitle {
   margin: 0 0 0.3rem;
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  color: #111;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  color: #1a1a22;
   line-height: 1.3;
   transition: color 0.2s ease;
 
   @include up(md) {
-    font-size: 0.82rem;
+    font-size: 1.05rem;
   }
 
   .childStep:hover & {
@@ -337,13 +333,13 @@
 .childDesc {
   margin: 0;
   font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  line-height: 1.55;
-  color: #6a6c80;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 1.4;
+  color: #1a1a22;
 
   @include up(md) {
-    font-size: 0.86rem;
+    font-size: 0.88rem;
   }
 }
 
@@ -377,7 +373,7 @@
   }
 
   .stepDesc {
-    font-size: 0.82rem;
+    font-size: 0.84rem;
   }
 
   .children {
