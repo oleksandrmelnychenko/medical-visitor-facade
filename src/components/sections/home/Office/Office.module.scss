@@ -5,6 +5,9 @@
   background-color: transparent;
   position: relative;
   z-index: 1;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
 
   &::before {
     content: '';
@@ -16,7 +19,8 @@
     background: linear-gradient(90deg, transparent, #e3e9f1 30%, #e3e9f1 70%, transparent);
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
+    min-height: auto;
     padding: clamp(3rem, 7vw, 5rem) 0;
   }
 }

@@ -6,19 +6,12 @@
   z-index: 1;
   width: 100%;
   background: #f5f5f7;
-
-  // Desktop: 16:9 ratio from viewport width, capped at 88vh
-  height: min(56.25vw, 88vh);
-
-  // Tablet
-  @media (max-width: 768px) {
-    height: 50vh;
-  }
+  height: 100svh;
 
   // Mobile
-  @media (max-width: 480px) {
-    height: 44vh;
-    min-height: 260px;
+  @media (max-width: 768px) {
+    height: auto;
+    min-height: 50vh;
   }
 
   // Bottom shadow transition to next section
