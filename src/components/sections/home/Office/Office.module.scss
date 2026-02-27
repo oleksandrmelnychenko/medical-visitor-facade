@@ -85,14 +85,14 @@
   overflow: hidden;
   padding: 1.5rem 2rem;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 
   &:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border-color: #c8c8d4;
 
     .cityImageMunich {
-      transform: scale(1.08);
+      transform: scale(1.06);
     }
   }
 }
@@ -188,14 +188,14 @@
   padding: 1.5rem;
   gap: 1rem;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 
   &:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border-color: #c8c8d4;
 
     .cityImage {
-      transform: scale(1.12);
+      transform: scale(1.06);
     }
   }
 }
