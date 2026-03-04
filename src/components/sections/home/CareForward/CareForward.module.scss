@@ -2,7 +2,10 @@
 
 .section {
   padding: clamp(4rem, 9vw, 7rem) 0;
-  background-color: transparent;
+  background:
+    radial-gradient(120% 80% at 12% 10%, rgba(155, 179, 201, 0.12), transparent 56%),
+    radial-gradient(120% 90% at 88% 14%, rgba(196, 175, 212, 0.12), transparent 58%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.56) 0%, rgba(255, 255, 255, 0.18) 100%);
   position: relative;
   z-index: 1;
   min-height: 100svh;
@@ -47,307 +50,265 @@
   margin: 0;
 }
 
-// ── Traveling dot on each connector ──
-@keyframes connectorDot {
-  0%   { top: -3px; opacity: 0; }
-  8%   { opacity: 0.7; }
-  25%  { opacity: 0.7; }
-  33%  { top: calc(100% - 3px); opacity: 0; }
-  100% { top: calc(100% - 3px); opacity: 0; }
-}
-
-// ── Timeline ──
-.timeline {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  z-index: 1;
-  max-width: 540px;
+.flowGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 860px;
   margin: 0 auto;
-}
-
-// ── Regular step ──
-.step {
-  display: flex;
-  gap: 1.25rem;
 
   @include up(md) {
-    gap: 1.75rem;
-  }
-}
-
-.rail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-  width: 2.75rem;
-  position: relative;
-
-  @include up(md) {
-    width: 3.25rem;
-  }
-}
-
-.dot {
-  position: relative;
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: 1.5px solid var(--tone, #ccc);
-  flex-shrink: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  @include up(md) {
-    width: 3.25rem;
-    height: 3.25rem;
-  }
-
-  svg {
-    width: 1.25rem;
-    height: 1.25rem;
-    color: #333;
-    stroke-width: 1.4;
-
-    @include up(md) {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-  }
-
-  .step:hover & {
-    transform: scale(1.08);
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
-  }
-}
-
-.connector {
-  width: 1.5px;
-  flex: 1;
-  min-height: 1.5rem;
-  position: relative;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--tone) 40%, #d4d4dc) 0%,
-    color-mix(in srgb, var(--tone) 15%, #e4e4ea) 100%
-  );
-
-  &::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--tone, #ccc);
-    box-shadow: 0 0 6px var(--tone, #ccc);
-    pointer-events: none;
-    animation: connectorDot 12s ease-in-out infinite;
-    opacity: 0;
-
-    @include up(md) {
-      width: 7px;
-      height: 7px;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      display: none;
-    }
-  }
-}
-
-// Stagger: each connector fires sequentially (12s / 3 = 4s apart)
-.step:nth-child(1) .connector::after { animation-delay: 0s; }
-.step:nth-child(2) .connector::after { animation-delay: 4s; }
-.step:nth-child(3) .connector::after { animation-delay: 8s; }
-
-.stepContent {
-  padding-bottom: 2rem;
-  flex: 1;
-  padding-top: 0.65rem;
-
-  .step:last-child & {
-    padding-bottom: 0;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1.1rem;
   }
 }
 
 .stepNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.15rem;
+  height: 2.15rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--tone, #c4c4d4) 12%, #fff);
+  border: 1px solid color-mix(in srgb, var(--tone, #c4c4d4) 55%, #d6d6e2);
   position: absolute;
-  right: calc(100% + 0.4rem);
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.625rem;
+  top: 0.95rem;
+  left: 1rem;
+  font-size: 0.66rem;
   font-weight: 700;
-  color: var(--tone, #999aaa);
-  letter-spacing: 0.06em;
+  color: color-mix(in srgb, var(--tone, #898aa0) 66%, #87879b);
+  letter-spacing: 0.08em;
   line-height: 1;
   white-space: nowrap;
 }
 
-.stepTitle {
-  margin: 0 0 0.4rem;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #1a1a22;
-  line-height: 1.3;
-  transition: color 0.2s ease;
-
-  @include up(md) {
-    font-size: 1.15rem;
-  }
-
-  .step:hover & {
-    color: #111118;
-  }
-}
-
-.stepDesc {
-  margin: 0;
-  font-size: 0.85rem;
-  font-weight: 400;
-  letter-spacing: 0.005em;
-  line-height: 1.4;
-  color: #1a1a22;
-
-  @include up(md) {
-    font-size: 0.9rem;
-  }
-}
-
-// ── Parent group (Сопровождение + children) ──
-.stepGroup {
-  display: flex;
-  flex-direction: column;
-}
-
-.dotParent {
-  width: 3rem;
-  height: 3rem;
-
-  @include up(md) {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-}
-
-// ── Children container — indented with branch line ──
-.children {
-  display: flex;
-  flex-direction: column;
-  // Indent: rail width (2.75rem) + gap (1.25rem) + a bit of branch offset
-  margin-left: calc(1.375rem + 1.25rem + 1.25rem);
-  margin-top: 0.25rem;
-
-  @include up(md) {
-    margin-left: calc(1.625rem + 1.75rem + 1.5rem);
-  }
-}
-
-.childStep {
-  display: flex;
-  gap: 1rem;
-
-  @include up(md) {
-    gap: 1.25rem;
-  }
-}
-
-.childRail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-  width: 2.25rem;
+.flowCard {
+  --tone: #bcc5d4;
+  --surface-a: color-mix(in srgb, var(--tone) 12%, #ffffff);
+  --surface-b: color-mix(in srgb, var(--tone) 4%, #ffffff);
   position: relative;
+  border: 1px solid color-mix(in srgb, var(--tone) 48%, #dcdce7);
+  background: linear-gradient(140deg, var(--surface-a) 0%, var(--surface-b) 72%);
+  border-radius: 1.25rem 1.5rem 1.2rem 1.2rem;
+  padding: 1rem 1rem 1rem 4rem;
+  box-shadow: 0 10px 24px rgba(22, 22, 34, 0.04);
+  overflow: hidden;
+  transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease;
 
   @include up(md) {
-    width: 2.5rem;
+    grid-column: span 3;
+    padding: 1.1rem 1.15rem 1.1rem 4.15rem;
   }
 
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(18, 18, 30, 0.1);
+    border-color: color-mix(in srgb, var(--tone) 70%, #cbcbd9);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -48px;
+    right: -44px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--tone) 25%, transparent);
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0.75rem;
+    top: 0.75rem;
+    width: 19px;
+    height: 19px;
+    border-top: 1px solid color-mix(in srgb, var(--tone) 65%, #cfcfdb);
+    border-right: 1px solid color-mix(in srgb, var(--tone) 65%, #cfcfdb);
+    border-top-right-radius: 9px;
+    opacity: 0.65;
+    pointer-events: none;
+  }
 }
 
-.childDot {
+.flowCard:nth-child(2) {
+  --surface-a: color-mix(in srgb, var(--tone) 15%, #ffffff);
+  --surface-b: color-mix(in srgb, var(--tone) 6%, #ffffff);
+  @include up(md) {
+    grid-column: 4 / span 3;
+    transform: translateY(16px);
+  }
+}
+
+.flowCard:nth-child(3) {
+  --surface-a: color-mix(in srgb, var(--tone) 13%, #ffffff);
+  --surface-b: color-mix(in srgb, var(--tone) 5%, #ffffff);
+  @include up(md) {
+    grid-column: 2 / span 4;
+    transform: translateY(-4px);
+  }
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.cardIcon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.8rem;
+  border: 1.5px solid color-mix(in srgb, var(--tone, #c4c4d4) 65%, #d6d6e2);
+  background: color-mix(in srgb, var(--tone, #c4c4d4) 18%, #ffffff);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #35353d;
+    stroke-width: 1.5;
+  }
+}
+
+.cardContent {
+  padding-right: 0.6rem;
+}
+
+.cardTitle {
+  margin: 0 0 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #1a1a22;
+  line-height: 1.32;
+}
+
+.cardDesc {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #575868;
+  line-height: 1.45;
+}
+
+.supportCard {
+  --tone: #c4afd4;
+  --support-surface-a: color-mix(in srgb, var(--tone) 15%, #ffffff);
+  --support-surface-b: color-mix(in srgb, var(--tone) 7%, #ffffff);
+  position: relative;
+  border: 1px solid color-mix(in srgb, var(--tone) 55%, #d8d3e2);
+  border-radius: 1.4rem;
+  background: linear-gradient(132deg, var(--support-surface-a) 0%, var(--support-surface-b) 78%);
+  padding: 1rem 1rem 1.1rem 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(22, 22, 34, 0.05);
+
+  @include up(md) {
+    grid-column: 2 / span 5;
+    padding: 1.15rem 1.2rem 1.25rem;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -52px;
+    top: -56px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--tone) 30%, transparent);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+}
+
+.supportTop {
+  position: relative;
+  padding-left: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.95rem;
+}
+
+.supportHeading {
+  flex: 1;
+}
+
+.supportChildren {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+
+  @include up(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.childCard {
+  --tone: #bca9cf;
+  --child-surface-a: color-mix(in srgb, var(--tone) 14%, #ffffff);
+  --child-surface-b: color-mix(in srgb, var(--tone) 7%, #ffffff);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  border: 1px dashed color-mix(in srgb, var(--tone) 62%, #d8d3e2);
+  border-radius: 1rem 1.2rem 1rem 1rem;
+  background: linear-gradient(140deg, var(--child-surface-a) 0%, var(--child-surface-b) 78%);
+  padding: 0.7rem 0.75rem 0.72rem;
+}
+
+.childIcon {
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 50%;
-  display: flex;
+  border: 1.5px solid color-mix(in srgb, var(--tone) 68%, #d8d3e2);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
-  border: 1.5px dashed var(--tone, #ccc);
   flex-shrink: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  @include up(md) {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
 
   svg {
-    width: 1.05rem;
-    height: 1.05rem;
-    color: #333;
-    stroke-width: 1.4;
-
-    @include up(md) {
-      width: 1.15rem;
-      height: 1.15rem;
-    }
-  }
-
-  .childStep:hover & {
-    background: color-mix(in srgb, var(--tone) 28%, #ffffff);
-    border-color: color-mix(in srgb, var(--tone) 60%, #c0c0c8);
-    transform: scale(1.08);
+    width: 1.02rem;
+    height: 1.02rem;
+    color: #393944;
+    stroke-width: 1.45;
   }
 }
 
 .childContent {
-  padding-bottom: 1.5rem;
   flex: 1;
-  padding-top: 0.1rem;
-
-  .childStep:last-child & {
-    padding-bottom: 0;
-  }
+  min-width: 0;
 }
 
 .childTitle {
-  margin: 0 0 0.3rem;
-  font-size: 0.95rem;
-  font-weight: 700;
+  margin: 0 0 0.22rem;
+  font-size: 0.8rem;
+  font-weight: 650;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
   color: #1a1a22;
-  line-height: 1.3;
-  transition: color 0.2s ease;
-
-  @include up(md) {
-    font-size: 1.05rem;
-  }
-
-  .childStep:hover & {
-    color: #111118;
-  }
+  line-height: 1.32;
 }
 
 .childDesc {
   margin: 0;
-  font-size: 0.82rem;
-  font-weight: 400;
-  letter-spacing: 0.005em;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: #5f6070;
   line-height: 1.4;
-  color: #1a1a22;
-
-  @include up(md) {
-    font-size: 0.88rem;
-  }
 }
 
-// ── Mobile ──
 @media (max-width: 768px) {
   .section {
     padding: clamp(3rem, 7vw, 5rem) 0;
@@ -362,24 +323,27 @@
     margin-bottom: 1.5rem;
   }
 
-  .stepContent {
-    padding-bottom: 1.5rem;
+  .flowCard {
+    padding-left: 3.8rem;
   }
 
-  .stepDesc {
-    font-size: 0.84rem;
+  .supportTop {
+    padding-left: 3.85rem;
   }
 
-  .children {
-    margin-left: calc(1.375rem + 0.75rem);
-    padding-left: 1rem;
+  .stepNumber {
+    left: 0.85rem;
   }
 
-  .childContent {
-    padding-bottom: 1rem;
+  .cardDesc {
+    font-size: 0.87rem;
+  }
+
+  .childCard {
+    padding: 0.65rem 0.7rem;
   }
 
   .childDesc {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
   }
 }

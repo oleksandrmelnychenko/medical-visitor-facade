@@ -2,7 +2,10 @@
 
 .fullSupport {
   width: 100%;
-  background-color: transparent !important;
+  background:
+    radial-gradient(120% 85% at 14% 14%, rgba(190, 205, 220, 0.12), transparent 58%),
+    radial-gradient(120% 95% at 86% 22%, rgba(220, 205, 190, 0.11), transparent 58%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.16) 100%) !important;
   color: var(--foreground);
   position: relative;
   z-index: 1;
@@ -36,7 +39,6 @@
   margin-bottom: 0;
   letter-spacing: -0.018em;
   line-height: 1.16;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
 
   @media (max-width: 639px) {
     font-size: clamp(1.5rem, 5vw, 2rem);
@@ -47,20 +49,19 @@
 // Bento grid layout
 .bentoGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
-  max-width: 900px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  max-width: 980px;
   margin: 0 auto;
 
   @include up(sm) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     grid-template-rows: auto auto auto;
-    gap: 1rem;
+    gap: 1.1rem;
   }
 
   @include up(md) {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto auto;
+    gap: 1.2rem;
   }
 }
 
@@ -70,11 +71,17 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  position: relative;
+  overflow: hidden;
   padding: 1.75rem;
   background: color-mix(in srgb, var(--icon-bg, #f5f5f8) 35%, #ffffff);
   border: 1px solid #e8e8ee;
-  border-radius: 1rem;
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  border-radius: 1rem 1.4rem 1rem 1.25rem;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+
+  @include up(sm) {
+    grid-column: span 3;
+  }
 
   @media (max-width: 639px) {
     padding: 1.35rem;
@@ -86,15 +93,81 @@
   }
 
   &:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(20, 20, 32, 0.08);
     border-color: #c8c8d4;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -42px;
+    right: -38px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--icon-border, #d8d8e2) 42%, transparent);
+    opacity: 0.28;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 10px 10px auto auto;
+    width: 26px;
+    height: 26px;
+    border-top: 1px solid color-mix(in srgb, var(--icon-border, #d8d8e2) 72%, #d3d3dc);
+    border-right: 1px solid color-mix(in srgb, var(--icon-border, #d8d8e2) 72%, #d3d3dc);
+    border-top-right-radius: 10px;
+    opacity: 0.7;
+    pointer-events: none;
   }
 }
 
 // Large tile spans 2 rows
 .serviceItemLarge {
   @include up(sm) {
-    grid-row: span 2;
+    grid-column: 3 / span 2;
+    grid-row: 1 / span 2;
+    border-radius: 1.4rem 1rem 1.5rem 1rem;
+    transform: translateY(12px);
+  }
+}
+
+.serviceItem:nth-child(1) {
+  --icon-bg: #f4f8fc;
+  --icon-border: #d9e5f2;
+  @include up(sm) {
+    grid-column: 1 / span 2;
+  }
+}
+
+.serviceItem:nth-child(3) {
+  --icon-bg: #fdf8f5;
+  --icon-border: #efdcd2;
+  @include up(sm) {
+    grid-column: 5 / span 2;
+    border-radius: 1rem 1.4rem 1rem 1.6rem;
+  }
+}
+
+.serviceItem:nth-child(4) {
+  --icon-bg: #fcfaf4;
+  --icon-border: #e7dfc8;
+  @include up(sm) {
+    grid-column: 1 / span 3;
+    border-radius: 1.25rem 1rem 1.45rem 1rem;
+  }
+}
+
+.serviceItem:nth-child(5) {
+  --icon-bg: #faf6fc;
+  --icon-border: #decee9;
+  @include up(sm) {
+    grid-column: 4 / span 3;
+    transform: translateY(-8px);
+    border-radius: 1.15rem 1.55rem 1rem 1.2rem;
   }
 }
 
@@ -134,14 +207,16 @@
 
 // Title — bold, dark
 .serviceTitle {
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: #1a1a22;
-  line-height: 1.3;
+  line-height: 1.32;
   margin-bottom: 0.6rem;
 
   @media (max-width: 639px) {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }
 

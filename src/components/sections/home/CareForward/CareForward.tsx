@@ -43,91 +43,78 @@ export const CareForward = memo(function CareForward() {
             <h2 className={styles.title}>{t("title")}</h2>
           </div>
 
-          <div className={styles.timeline}>
-            {/* Main steps 01–03 */}
+          <div className={styles.flowGrid}>
             {STEPS.map((step, index) => (
               <motion.div
                 key={step.key}
-                className={styles.step}
+                className={styles.flowCard}
                 style={step.style}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.08 }}
+                transition={{ duration: 0.45, delay: index * 0.1 }}
               >
-                <div className={styles.rail}>
-                  <div className={styles.dot}>
-                    <span className={styles.stepNumber}>
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
+                <div className={styles.cardTop}>
+                  <span className={styles.stepNumber}>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div className={styles.cardIcon}>
                     <step.icon />
                   </div>
-                  <div className={styles.connector} />
                 </div>
-                <div className={styles.stepContent}>
-                  <h3 className={styles.stepTitle}>
-                    {t(`services.${step.key}.title`)}
-                  </h3>
-                  <p className={styles.stepDesc}>
-                    {t(`services.${step.key}.desc`)}
-                  </p>
+                <div className={styles.cardContent}>
+                  <h3 className={styles.cardTitle}>{t(`services.${step.key}.title`)}</h3>
+                  <p className={styles.cardDesc}>{t(`services.${step.key}.desc`)}</p>
                 </div>
               </motion.div>
             ))}
 
-            {/* 04 Сопровождение — parent with nested children */}
             <motion.div
-              className={styles.stepGroup}
+              className={styles.supportCard}
               style={{ "--tone": "#c4afd4" } as CSSProperties}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: STEPS.length * 0.08 }}
+              transition={{ duration: 0.45, delay: STEPS.length * 0.1 }}
             >
-              {/* Parent row */}
-              <div className={styles.step}>
-                <div className={styles.rail}>
-                  <div className={`${styles.dot} ${styles.dotParent}`}>
-                    <span className={styles.stepNumber}>
-                      {String(STEPS.length + 1).padStart(2, "0")}
-                    </span>
-                    <ShieldCheck />
-                  </div>
+              <div className={styles.supportTop}>
+                <span className={styles.stepNumber}>
+                  {String(STEPS.length + 1).padStart(2, "0")}
+                </span>
+                <div className={styles.cardIcon}>
+                  <ShieldCheck />
                 </div>
-                <div className={styles.stepContent}>
-                  <h3 className={styles.stepTitle}>{tCta("title")}</h3>
+                <div className={styles.supportHeading}>
+                  <h3 className={styles.cardTitle}>{tCta("title")}</h3>
                 </div>
               </div>
 
-              {/* Children */}
-              <div className={styles.children}>
+              <div className={styles.supportChildren}>
                 {SUPPORT_CHILDREN.map((child, index) => (
-                    <motion.div
-                      key={child.key}
-                      className={styles.childStep}
-                      style={child.style}
-                      initial={{ opacity: 0, x: -12 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{
-                        duration: 0.35,
-                        delay: (STEPS.length + 1 + index) * 0.08,
-                      }}
-                    >
-                      <div className={styles.childRail}>
-                        <div className={styles.childDot}>
-                          <child.icon />
-                        </div>
-                      </div>
-                      <div className={styles.childContent}>
-                        <h3 className={styles.childTitle}>
-                          {tCta(`services.${child.key}.title`)}
-                        </h3>
-                        <p className={styles.childDesc}>
-                          {tCta(`services.${child.key}.desc`)}
-                        </p>
-                      </div>
-                    </motion.div>
+                  <motion.div
+                    key={child.key}
+                    className={styles.childCard}
+                    style={child.style}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.35,
+                      delay: (STEPS.length + 1 + index) * 0.1,
+                    }}
+                  >
+                    <div className={styles.childIcon}>
+                      <child.icon />
+                    </div>
+                    <div className={styles.childContent}>
+                      <h3 className={styles.childTitle}>
+                        {tCta(`services.${child.key}.title`)}
+                      </h3>
+                      <p className={styles.childDesc}>
+                        {tCta(`services.${child.key}.desc`)}
+                      </p>
+                    </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>

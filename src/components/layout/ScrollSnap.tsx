@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import styles from "./ScrollSnap.module.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,6 +51,8 @@ function getHeaderHeight(): number {
 
 export function ScrollSnap({ children }: { children: ReactNode }) {
   const mainRef = useRef<HTMLElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [railItems, setRailItems] = useState<Array<{ id: string; label: string }>>([]);
 
   useEffect(() => {
     const main = mainRef.current;
@@ -134,6 +137,79 @@ export function ScrollSnap({ children }: { children: ReactNode }) {
       });
     }, main);
 
+    const panels = Array.from(
+      main.querySelectorAll<HTMLElement>(":scope > section")
+    );
+
+    const nextRailItems = panels.map((panel, index) => {
+      if (!panel.id) {
+        panel.id = `home-section-${index + 1}`;
+      }
+      const headingText =
+        panel.querySelector<HTMLElement>("h1, h2")?.textContent?.trim() ?? "";
+      return {
+        id: panel.id,
+        label: headingText || `Section ${index + 1}`,
+      };
+    });
+    setRailItems(nextRailItems);
+
+    const getPanelTargetByIndex = (panelIndex: number): number => {
+      const panel = panels[panelIndex];
+      if (!panel) return 0;
+
+      const totalScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
+      if (totalScroll <= 0) return 0;
+
+      const viewportH = window.innerHeight;
+      const headerH = getHeaderHeight();
+      const anchor = getSnapAnchor(panel);
+      const anchorTop = getDocTop(anchor);
+      const anchorH = anchor.offsetHeight || panel.offsetHeight;
+
+      let target =
+        panelIndex === 0
+          ? 0
+          : getCenteredBlockTarget(anchorTop, anchorH, viewportH);
+
+      if (panelIndex !== 0) {
+        const minTarget = anchorTop - headerH - 12;
+        target = Math.max(target, minTarget);
+      }
+
+      return Math.max(0, Math.min(target, totalScroll));
+    };
+
+    const updateActiveFromScroll = () => {
+      const currentY = window.scrollY;
+      let nextActive = 0;
+      let minDist = Infinity;
+
+      for (let i = 0; i < panels.length; i++) {
+        const target = getPanelTargetByIndex(i);
+        const dist = Math.abs(currentY - target);
+        if (dist < minDist) {
+          minDist = dist;
+          nextActive = i;
+        }
+      }
+
+      setActiveIndex(nextActive);
+    };
+
+    updateActiveFromScroll();
+
+    let rafId = 0;
+    const onScroll = () => {
+      if (rafId) return;
+      rafId = window.requestAnimationFrame(() => {
+        updateActiveFromScroll();
+        rafId = 0;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
     // Refresh snap targets after resize or font load
     let resizeTimer: ReturnType<typeof setTimeout>;
     const onResize = () => {
@@ -146,13 +222,77 @@ export function ScrollSnap({ children }: { children: ReactNode }) {
     return () => {
       ctx.revert();
       window.removeEventListener("resize", onResize);
+      window.removeEventListener("scroll", onScroll);
       clearTimeout(resizeTimer);
+      if (rafId) {
+        window.cancelAnimationFrame(rafId);
+      }
     };
   }, []);
+
+  const scrollToPanel = (panelIndex: number) => {
+    const main = mainRef.current;
+    if (!main) return;
+    const panels = Array.from(main.querySelectorAll<HTMLElement>(":scope > section"));
+    const panel = panels[panelIndex];
+    if (!panel) return;
+
+    const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+    if (totalScroll <= 0) return;
+
+    const viewportH = window.innerHeight;
+    const headerH = getHeaderHeight();
+    const anchor = getSnapAnchor(panel);
+    const anchorTop = getDocTop(anchor);
+    const anchorH = anchor.offsetHeight || panel.offsetHeight;
+
+    let target = panelIndex === 0
+      ? 0
+      : getCenteredBlockTarget(anchorTop, anchorH, viewportH);
+
+    if (panelIndex !== 0) {
+      const minTarget = anchorTop - headerH - 12;
+      target = Math.max(target, minTarget);
+    }
+
+    target = Math.max(0, Math.min(target, totalScroll));
+
+    window.scrollTo({
+      top: target,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <main ref={mainRef} style={{ position: "relative" }}>
       {children}
+      {railItems.length > 1 && (
+        <nav
+          className={`${styles.progressRail} ${activeIndex === 0 ? styles.progressRailHidden : ""}`}
+          aria-label="Home section progress"
+        >
+          {railItems.map((item, index) => {
+            const isActive = index === activeIndex;
+            return (
+              <div key={item.id} className={styles.railItem}>
+                <button
+                  type="button"
+                  className={`${styles.railDot} ${isActive ? styles.railDotActive : ""}`}
+                  onClick={() => scrollToPanel(index)}
+                  aria-label={item.label}
+                  aria-current={isActive ? "true" : undefined}
+                  title={item.label}
+                >
+                  <span className={styles.railLabel}>{item.label}</span>
+                </button>
+                {index < railItems.length - 1 && (
+                  <span className={styles.railSegment} aria-hidden="true" />
+                )}
+              </div>
+            );
+          })}
+        </nav>
+      )}
     </main>
   );
 }
