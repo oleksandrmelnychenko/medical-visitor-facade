@@ -27,7 +27,9 @@ function getCenteredBlockTarget(
   viewportH: number
 ): number {
   const anchorCenter = anchorTop + anchorH / 2;
-  const viewportCenter = viewportH / 2;
+  // Slight upward bias so the block feels visually centered after snap.
+  const upwardBias = Math.min(56, viewportH * 0.065);
+  const viewportCenter = viewportH / 2 - upwardBias;
   return anchorCenter - viewportCenter;
 }
 
