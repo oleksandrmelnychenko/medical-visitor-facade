@@ -34,6 +34,37 @@ function getCenteredBlockTarget(
   return anchorCenter - viewportCenter;
 }
 
+function getSnapShift(panel: HTMLElement, anchor: HTMLElement): number {
+  const rawShift = anchor.dataset.snapShift ?? panel.dataset.snapShift;
+  const parsed = rawShift ? Number(rawShift) : 0;
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function computePanelTarget(
+  panel: HTMLElement,
+  panelIndex: number,
+  viewportH: number,
+  headerH: number,
+  totalScroll: number
+): number {
+  const anchor = getSnapAnchor(panel);
+  const anchorTop = getDocTop(anchor);
+  const anchorH = anchor.offsetHeight || panel.offsetHeight;
+  const snapShift = getSnapShift(panel, anchor);
+
+  let target =
+    panelIndex === 0
+      ? 0
+      : getCenteredBlockTarget(anchorTop, anchorH, viewportH) + snapShift;
+
+  if (panelIndex !== 0) {
+    const minTarget = anchorTop - headerH - 12;
+    target = Math.max(target, minTarget);
+  }
+
+  return Math.max(0, Math.min(target, totalScroll));
+}
+
 /** Compute effective sticky-header height (bar + responsive top margin + border) */
 function getHeaderHeight(): number {
   const container = document.querySelector<HTMLElement>(
@@ -91,24 +122,13 @@ export function ScrollSnap({ children }: { children: ReactNode }) {
 
                 for (let i = 0; i < panels.length; i++) {
                   const panel = panels[i];
-                  const anchor = getSnapAnchor(panel);
-                  const anchorTop = getDocTop(anchor);
-                  const anchorH = anchor.offsetHeight || panel.offsetHeight;
-
-                  let target: number;
-                  if (i === 0) {
-                    // Hero — always snap to page top
-                    target = 0;
-                  } else {
-                    // Main behavior: place block center into viewport center
-                    target = getCenteredBlockTarget(anchorTop, anchorH, viewportH);
-
-                    // Safety guard for very short blocks right below sticky header
-                    const minTarget = anchorTop - headerH - 12;
-                    target = Math.max(target, minTarget);
-                  }
-
-                  target = Math.max(0, Math.min(target, totalScroll));
+                  const target = computePanelTarget(
+                    panel,
+                    i,
+                    viewportH,
+                    headerH,
+                    totalScroll
+                  );
                   const normalized = target / totalScroll;
                   const dist = Math.abs(value - normalized);
 
@@ -164,21 +184,7 @@ export function ScrollSnap({ children }: { children: ReactNode }) {
 
       const viewportH = window.innerHeight;
       const headerH = getHeaderHeight();
-      const anchor = getSnapAnchor(panel);
-      const anchorTop = getDocTop(anchor);
-      const anchorH = anchor.offsetHeight || panel.offsetHeight;
-
-      let target =
-        panelIndex === 0
-          ? 0
-          : getCenteredBlockTarget(anchorTop, anchorH, viewportH);
-
-      if (panelIndex !== 0) {
-        const minTarget = anchorTop - headerH - 12;
-        target = Math.max(target, minTarget);
-      }
-
-      return Math.max(0, Math.min(target, totalScroll));
+      return computePanelTarget(panel, panelIndex, viewportH, headerH, totalScroll);
     };
 
     const updateActiveFromScroll = () => {
@@ -242,20 +248,7 @@ export function ScrollSnap({ children }: { children: ReactNode }) {
 
     const viewportH = window.innerHeight;
     const headerH = getHeaderHeight();
-    const anchor = getSnapAnchor(panel);
-    const anchorTop = getDocTop(anchor);
-    const anchorH = anchor.offsetHeight || panel.offsetHeight;
-
-    let target = panelIndex === 0
-      ? 0
-      : getCenteredBlockTarget(anchorTop, anchorH, viewportH);
-
-    if (panelIndex !== 0) {
-      const minTarget = anchorTop - headerH - 12;
-      target = Math.max(target, minTarget);
-    }
-
-    target = Math.max(0, Math.min(target, totalScroll));
+    const target = computePanelTarget(panel, panelIndex, viewportH, headerH, totalScroll);
 
     window.scrollTo({
       top: target,

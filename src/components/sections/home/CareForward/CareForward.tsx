@@ -34,6 +34,7 @@ export const CareForward = memo(function CareForward() {
         <motion.div
           className={styles.shell}
           data-snap-anchor
+          data-snap-shift="24"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
