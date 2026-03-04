@@ -6,12 +6,9 @@
   position: relative;
   z-index: 1;
   min-height: 100svh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
-
-  @media (max-width: 768px) {
-    min-height: auto;
-  }
 
   &::before {
     content: '';
@@ -351,20 +348,10 @@
 }
 
 // ── Mobile ──
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .section {
     padding: clamp(3rem, 7vw, 5rem) 0;
     overflow: visible;
-  }
-
-  .section::after {
-    height: clamp(22px, 4vw, 32px);
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.08) 58%,
-      rgba(255, 255, 255, 0.18) 100%
-    );
   }
 
   .title {

@@ -31,7 +31,7 @@ export const FullSupport = memo(function FullSupport() {
   return (
     <section className={cn(sectionStyles.section, styles.fullSupport)}>
       <div className={sectionStyles.container}>
-        <div className={styles.layout}>
+        <div className={styles.layout} data-snap-anchor>
           <motion.div
             className={styles.header}
             initial={{ opacity: 0, y: 18 }}

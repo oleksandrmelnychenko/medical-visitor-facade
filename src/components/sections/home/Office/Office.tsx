@@ -40,7 +40,7 @@ export const Office = memo(function Office() {
     <section className={cn(sectionStyles.section, styles.office)}>
       <div className={sectionStyles.container}>
         {/* Header */}
-        <div className={styles.header}>
+        <div className={styles.header} data-snap-anchor>
           <p className={styles.overline}>{t('overline')}</p>
           <h2 className={styles.title}>{t('title')}</h2>
           <p className={styles.subtitle}>{t('subtitle')}</p>
