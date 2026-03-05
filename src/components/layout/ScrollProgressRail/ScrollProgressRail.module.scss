@@ -75,16 +75,16 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: rgba(30, 30, 36, 0.2);
+  background: #b0b0b8;
+  box-shadow: 0 0 0 3px #fafafe;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: none;
 }
 
 .dotActive .dotInner {
   width: 9px;
   height: 9px;
   background: #1e1e24;
-  box-shadow: 0 0 0 3px rgba(30, 30, 36, 0.08);
+  box-shadow: 0 0 0 4px #fafafe;
 }
 
 @media (max-width: 767px) {

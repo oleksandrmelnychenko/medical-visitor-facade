@@ -58,26 +58,16 @@ export const FullSupport = memo(function FullSupport() {
                 stroke="rgba(184, 164, 204, 0.12)"
                 strokeWidth="1"
               />
-              <g>
-                <circle r="10" fill="rgba(184, 164, 204, 0.12)" />
-                <circle r="6" fill="rgba(184, 164, 204, 0.55)">
-                  <animate attributeName="r" values="5;7;5" dur="2.5s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.55;0.85;0.55" dur="2.5s" repeatCount="indefinite" />
-                </circle>
-                <animateMotion dur="14s" repeatCount="indefinite">
+              <circle r="3.5" fill="rgba(160, 144, 184, 0.6)">
+                <animateMotion dur="16s" repeatCount="indefinite">
                   <mpath href="#orbitPath" />
                 </animateMotion>
-              </g>
-              <g>
-                <circle r="10" fill="rgba(184, 164, 204, 0.12)" />
-                <circle r="6" fill="rgba(184, 164, 204, 0.55)">
-                  <animate attributeName="r" values="5;7;5" dur="2.5s" repeatCount="indefinite" begin="-1.25s" />
-                  <animate attributeName="opacity" values="0.55;0.85;0.55" dur="2.5s" repeatCount="indefinite" begin="-1.25s" />
-                </circle>
-                <animateMotion dur="14s" repeatCount="indefinite" begin="-7s">
+              </circle>
+              <circle r="3.5" fill="rgba(160, 144, 184, 0.6)">
+                <animateMotion dur="16s" repeatCount="indefinite" begin="-8s">
                   <mpath href="#orbitPath" />
                 </animateMotion>
-              </g>
+              </circle>
             </svg>
 
             <div className={styles.bentoGrid}>
