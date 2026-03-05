@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { MobileLoginFab } from '@/components/layout/MobileLoginFab';
+import { ScrollProgressRail } from '@/components/layout/ScrollProgressRail';
 import { CookieConsent } from '@/components/ui/CookieConsent';
 import { AuthProvider } from '@/providers/AuthProvider';
 
@@ -42,6 +43,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <Footer />
         </Suspense>
         <MobileLoginFab />
+        <ScrollProgressRail />
         <CookieConsent />
       </NextIntlClientProvider>
     </AuthProvider>

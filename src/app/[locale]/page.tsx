@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import { Hero, Tagline, FullSupport, CareForward, Office } from "@/components/sections/home";
-import { ScrollSnap } from "@/components/layout/ScrollSnap";
+import { Hero, FullSupport, CareForward, Office } from "@/components/sections/home";
 import { getAlternateLanguages } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -11,11 +10,11 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <ScrollSnap>
+    <>
       <Hero />
       <FullSupport />
       <CareForward />
       <Office />
-    </ScrollSnap>
+    </>
   );
 }

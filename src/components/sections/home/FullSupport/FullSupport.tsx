@@ -8,13 +8,12 @@ import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./FullSupport.module.scss";
 
-// City color palette on icons: Berlin → Hamburg → Munich → Cologne
 const SERVICES = [
-  { icon: CarTaxiFront, key: 'support', size: 'normal' as const, style: { '--icon-bg': '#f7f9fb', '--icon-border': '#e3e9f1' } as React.CSSProperties },
-  { icon: Clock, key: 'promptness', size: 'large' as const, style: { '--icon-bg': '#fcf8f6', '--icon-border': '#eee3dd' } as React.CSSProperties },
-  { icon: Stamp, key: 'confidentiality', size: 'normal' as const, style: { '--icon-bg': '#fcfbf7', '--icon-border': '#ece9df' } as React.CSSProperties },
-  { icon: Plane, key: 'noFees', size: 'normal' as const, style: { '--icon-bg': '#faf8f9', '--icon-border': '#ebe5e7' } as React.CSSProperties },
-  { icon: MessageCircle, key: 'concierge', size: 'normal' as const, style: { '--icon-bg': '#f9f7fb', '--icon-border': '#e8e2ef' } as React.CSSProperties },
+  { icon: CarTaxiFront, key: 'support', size: 'normal' as const },
+  { icon: Clock, key: 'promptness', size: 'large' as const },
+  { icon: Stamp, key: 'confidentiality', size: 'normal' as const },
+  { icon: Plane, key: 'noFees', size: 'normal' as const },
+  { icon: MessageCircle, key: 'concierge', size: 'normal' as const },
 ];
 
 const JOURNEY_STEPS = [
@@ -44,27 +43,64 @@ export const FullSupport = memo(function FullSupport() {
             <p className={styles.subtitle}>{t('subtitle')}</p>
           </motion.div>
 
-          <div className={styles.bentoGrid}>
-            {SERVICES.map((service, index) => (
-              <motion.div
-                key={service.key}
-                className={cn(
-                  styles.serviceItem,
-                  service.size === 'large' && styles.serviceItemLarge
-                )}
-                style={service.style}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.45, delay: index * 0.06, ease: "easeOut" }}
-              >
-                <div className={styles.serviceIcon}>
-                  <service.icon />
-                </div>
-                <h3 className={styles.serviceTitle}>{t(`services.${service.key}.title`)}</h3>
-                <p className={styles.serviceDesc}>{t(`services.${service.key}.desc`)}</p>
-              </motion.div>
-            ))}
+          <div className={styles.orbitWrapper}>
+            {/* Orbital ellipse with 2 dots */}
+            <svg
+              className={styles.orbitEllipse}
+              viewBox="0 0 1000 600"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path
+                id="orbitPath"
+                d="M500,10 A490,290 0 1,1 499.9,10 Z"
+                fill="none"
+                stroke="rgba(184, 164, 204, 0.12)"
+                strokeWidth="1"
+              />
+              <g>
+                <circle r="10" fill="rgba(184, 164, 204, 0.12)" />
+                <circle r="6" fill="rgba(184, 164, 204, 0.55)">
+                  <animate attributeName="r" values="5;7;5" dur="2.5s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.55;0.85;0.55" dur="2.5s" repeatCount="indefinite" />
+                </circle>
+                <animateMotion dur="14s" repeatCount="indefinite">
+                  <mpath href="#orbitPath" />
+                </animateMotion>
+              </g>
+              <g>
+                <circle r="10" fill="rgba(184, 164, 204, 0.12)" />
+                <circle r="6" fill="rgba(184, 164, 204, 0.55)">
+                  <animate attributeName="r" values="5;7;5" dur="2.5s" repeatCount="indefinite" begin="-1.25s" />
+                  <animate attributeName="opacity" values="0.55;0.85;0.55" dur="2.5s" repeatCount="indefinite" begin="-1.25s" />
+                </circle>
+                <animateMotion dur="14s" repeatCount="indefinite" begin="-7s">
+                  <mpath href="#orbitPath" />
+                </animateMotion>
+              </g>
+            </svg>
+
+            <div className={styles.bentoGrid}>
+              {SERVICES.map((service, index) => (
+                <motion.div
+                  key={service.key}
+                  className={cn(
+                    styles.serviceItem,
+                    service.size === 'large' && styles.serviceItemLarge
+                  )}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{ duration: 0.45, delay: index * 0.06, ease: "easeOut" }}
+                >
+                  <div className={styles.serviceIcon}>
+                    <service.icon />
+                  </div>
+                  <h3 className={styles.serviceTitle}>{t(`services.${service.key}.title`)}</h3>
+                  <p className={styles.serviceDesc}>{t(`services.${service.key}.desc`)}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           <div className={styles.closingSpacer} aria-hidden="true" />

@@ -10,24 +10,33 @@ import styles from "./Office.module.scss";
 
 // Static styles moved outside component to prevent recreation on each render
 const MUNICH_STYLE = {
-  backgroundColor: "#fcfbf7",
-  borderColor: "#ece9df",
+  backgroundColor: "color-mix(in srgb, var(--tone-sand) 6%, #fff)",
+  borderColor: "color-mix(in srgb, var(--tone-sand) 25%, var(--border-card))",
 };
 const OTHER_CITIES = [
   {
     key: "berlin",
     image: "/assets/1_city-berlin.png",
-    style: { backgroundColor: "#f7f9fb", borderColor: "#e3e9f1" },
+    style: {
+      backgroundColor: "color-mix(in srgb, var(--tone-blue) 6%, #fff)",
+      borderColor: "color-mix(in srgb, var(--tone-blue) 25%, var(--border-card))",
+    },
   },
   {
     key: "hamburg",
     image: "/assets/1_city-hamburg.png",
-    style: { backgroundColor: "#fcf8f6", borderColor: "#eee3dd" },
+    style: {
+      backgroundColor: "color-mix(in srgb, var(--tone-sand) 8%, #fff)",
+      borderColor: "color-mix(in srgb, var(--tone-sand) 25%, var(--border-card))",
+    },
   },
   {
     key: "cologne",
     image: "/assets/1_city-cologne.png",
-    style: { backgroundColor: "#f9f7fb", borderColor: "#e8e2ef" },
+    style: {
+      backgroundColor: "color-mix(in srgb, var(--tone-lavender) 6%, #fff)",
+      borderColor: "color-mix(in srgb, var(--tone-lavender) 25%, var(--border-card))",
+    },
   },
 ];
 

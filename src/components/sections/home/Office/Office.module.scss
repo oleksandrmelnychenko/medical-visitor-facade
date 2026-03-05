@@ -16,7 +16,7 @@
     left: 10%;
     right: 10%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #e3e9f1 30%, #e3e9f1 70%, transparent);
+    background: linear-gradient(90deg, transparent, var(--border-card) 30%, var(--border-card) 70%, transparent);
   }
 
   @media (max-width: 767px) {
@@ -45,7 +45,7 @@
   font-family: 'Playfair Display', serif;
   font-size: clamp(1.8rem, 3.2vw, 2.55rem);
   font-weight: 500;
-  color: #1a1a22;
+  color: var(--text-heading);
   margin-bottom: 0;
   letter-spacing: -0.018em;
   line-height: 1.16;
@@ -89,7 +89,7 @@
 
   &:hover {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-    border-color: #c8c8d4;
+    border-color: color-mix(in srgb, var(--border-card) 80%, #999);
 
     .cityImageMunich {
       transform: scale(1.06);
@@ -192,7 +192,7 @@
 
   &:hover {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-    border-color: #c8c8d4;
+    border-color: color-mix(in srgb, var(--border-card) 80%, #999);
 
     .cityImage {
       transform: scale(1.06);
