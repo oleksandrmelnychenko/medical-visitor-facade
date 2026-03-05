@@ -18,8 +18,8 @@ const SERVICES = [
   { icon: Route, key: 'support', size: 'normal' as const },
   { icon: CalendarClock, key: 'promptness', size: 'large' as const },
   { icon: FileCheck2, key: 'confidentiality', size: 'normal' as const },
-  { icon: PlaneTakeoff, key: 'noFees', size: 'normal' as const },
-  { icon: Headset, key: 'concierge', size: 'normal' as const },
+  { icon: PlaneTakeoff, key: 'noFees', size: 'normal' as const, premiumLabel: 'PRIVATE' },
+  { icon: Headset, key: 'concierge', size: 'normal' as const, premiumLabel: 'PRIORITY' },
 ];
 
 const JOURNEY_STEPS = [
@@ -82,6 +82,7 @@ export const FullSupport = memo(function FullSupport() {
                   key={service.key}
                   className={cn(
                     styles.serviceItem,
+                    service.premiumLabel && styles.serviceItemPremium,
                     service.size === 'large' && styles.serviceItemLarge
                   )}
                   initial={{ opacity: 0, y: 16 }}
@@ -92,7 +93,12 @@ export const FullSupport = memo(function FullSupport() {
                   <div className={styles.serviceIcon}>
                     <service.icon />
                   </div>
-                  <h3 className={styles.serviceTitle}>{t(`services.${service.key}.title`)}</h3>
+                  <div className={styles.serviceTitleRow}>
+                    <h3 className={styles.serviceTitle}>{t(`services.${service.key}.title`)}</h3>
+                    {service.premiumLabel && (
+                      <span className={styles.premiumBadge}>{service.premiumLabel}</span>
+                    )}
+                  </div>
                   <p className={styles.serviceDesc}>{t(`services.${service.key}.desc`)}</p>
                 </motion.div>
               ))}

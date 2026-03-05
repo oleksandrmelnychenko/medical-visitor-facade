@@ -2,7 +2,14 @@
 
 .fullSupport {
   width: 100%;
-  background-color: #fafafe;
+  background:
+    radial-gradient(
+      120% 72% at 50% -14%,
+      rgba(124, 150, 191, 0.14) 0%,
+      rgba(124, 150, 191, 0.05) 34%,
+      rgba(124, 150, 191, 0) 64%
+    ),
+    linear-gradient(180deg, #fcfdff 0%, #f8f9fd 52%, #f6f7fb 100%);
   color: var(--foreground);
   position: relative;
   isolation: isolate;
@@ -15,25 +22,40 @@
   border-bottom: none;
   overflow: hidden;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.86) inset,
-    0 26px 48px rgba(16, 20, 36, 0.08) inset;
+    0 1px 0 rgba(255, 255, 255, 0.88) inset,
+    0 14px 30px rgba(16, 20, 36, 0.055) inset;
 
   &::before {
     content: "";
     position: absolute;
-    top: -40px;
+    top: -34px;
     left: 50%;
     transform: translateX(-50%);
-    width: min(82vw, 840px);
-    height: 104px;
+    width: min(92vw, 980px);
+    height: 88px;
     border-radius: 999px;
     background: radial-gradient(
       ellipse at center,
-      rgba(114, 142, 184, 0.12) 0%,
-      rgba(114, 142, 184, 0.05) 42%,
+      rgba(114, 142, 184, 0.09) 0%,
+      rgba(114, 142, 184, 0.035) 42%,
       rgba(114, 142, 184, 0) 72%
     );
-    filter: blur(8px);
+    filter: blur(7px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      180deg,
+      rgba(14, 18, 30, 0.11) 0%,
+      rgba(14, 18, 30, 0.045) 10%,
+      rgba(14, 18, 30, 0) 24%
+    );
     pointer-events: none;
     z-index: 0;
   }
@@ -43,10 +65,19 @@
     margin-top: -32px;
 
     &::before {
-      top: -32px;
-      width: 112%;
-      height: 84px;
-      filter: blur(7px);
+      top: -26px;
+      width: 124%;
+      height: 72px;
+      filter: blur(6px);
+    }
+
+    &::after {
+      background: linear-gradient(
+        180deg,
+        rgba(14, 18, 30, 0.1) 0%,
+        rgba(14, 18, 30, 0.04) 12%,
+        rgba(14, 18, 30, 0) 26%
+      );
     }
   }
 }
@@ -149,6 +180,7 @@
   @media (max-width: 639px) {
     padding: 1.35rem;
     border-radius: 0.875rem;
+    min-height: 182px;
   }
 
   @include up(md) {
@@ -156,9 +188,9 @@
   }
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(20, 20, 32, 0.08), 0 0 40px color-mix(in srgb, var(--tone-lavender) 10%, transparent);
-    border-color: color-mix(in srgb, var(--border-card) 80%, #999);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(20, 20, 32, 0.07);
+    border-color: color-mix(in srgb, var(--icon-border, #d8d8e2) 56%, #b6b6c4);
   }
 
   &::after {
@@ -172,6 +204,44 @@
     border-top-right-radius: 10px;
     opacity: 0.7;
     pointer-events: none;
+  }
+}
+
+.serviceItemPremium {
+  border-color: color-mix(in srgb, #b6bdcc 65%, var(--border-card));
+  box-shadow:
+    0 8px 20px rgba(20, 20, 32, 0.06),
+    0 1px 0 rgba(255, 255, 255, 0.7) inset;
+}
+
+.premiumBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.1rem;
+  padding: 0 0.42rem;
+  border-radius: 999px;
+  border: 1px solid rgba(178, 152, 92, 0.42);
+  background: linear-gradient(180deg, rgba(255, 251, 238, 0.95) 0%, rgba(237, 225, 192, 0.9) 100%);
+  color: #6f5831;
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(82, 66, 31, 0.16);
+  flex-shrink: 0;
+}
+
+.serviceTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.6rem;
+
+  @media (max-width: 639px) {
+    gap: 0.4rem;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -255,7 +325,7 @@
   text-transform: uppercase;
   color: var(--text-heading);
   line-height: 1.32;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0;
 
   @media (max-width: 639px) {
     font-size: 0.8rem;
@@ -265,10 +335,10 @@
 // Description
 .serviceDesc {
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.005em;
   line-height: 1.4;
-  color: var(--text-heading);
+  color: color-mix(in srgb, var(--text-body) 92%, #4b4f62);
 }
 
 .rightColumn {
