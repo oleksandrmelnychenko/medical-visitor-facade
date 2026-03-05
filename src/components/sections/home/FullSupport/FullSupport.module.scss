@@ -2,14 +2,7 @@
 
 .fullSupport {
   width: 100%;
-  background:
-    radial-gradient(
-      120% 72% at 50% -14%,
-      rgba(124, 150, 191, 0.14) 0%,
-      rgba(124, 150, 191, 0.05) 34%,
-      rgba(124, 150, 191, 0) 64%
-    ),
-    linear-gradient(180deg, #fcfdff 0%, #f8f9fd 52%, #f6f7fb 100%);
+  background: linear-gradient(180deg, #fcfdff 0%, #f9fafc 100%);
   color: var(--foreground);
   position: relative;
   isolation: isolate;
@@ -23,7 +16,7 @@
   overflow: hidden;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.88) inset,
-    0 14px 30px rgba(16, 20, 36, 0.055) inset;
+    0 7px 16px rgba(16, 20, 36, 0.024) inset;
 
   &::before {
     content: "";
@@ -34,12 +27,7 @@
     width: min(92vw, 980px);
     height: 88px;
     border-radius: 999px;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(114, 142, 184, 0.09) 0%,
-      rgba(114, 142, 184, 0.035) 42%,
-      rgba(114, 142, 184, 0) 72%
-    );
+    background: radial-gradient(ellipse at center, rgba(114, 142, 184, 0.025) 0%, rgba(114, 142, 184, 0.01) 42%, rgba(114, 142, 184, 0) 72%);
     filter: blur(7px);
     pointer-events: none;
     z-index: 0;
@@ -52,8 +40,8 @@
     border-radius: inherit;
     background: linear-gradient(
       180deg,
-      rgba(14, 18, 30, 0.11) 0%,
-      rgba(14, 18, 30, 0.045) 10%,
+      rgba(14, 18, 30, 0.048) 0%,
+      rgba(14, 18, 30, 0.018) 10%,
       rgba(14, 18, 30, 0) 24%
     );
     pointer-events: none;
@@ -74,8 +62,8 @@
     &::after {
       background: linear-gradient(
         180deg,
-        rgba(14, 18, 30, 0.1) 0%,
-        rgba(14, 18, 30, 0.04) 12%,
+        rgba(14, 18, 30, 0.07) 0%,
+        rgba(14, 18, 30, 0.028) 12%,
         rgba(14, 18, 30, 0) 26%
       );
     }
@@ -115,27 +103,10 @@
   }
 }
 
-// Orbit wrapper — ellipse around bento grid
 .orbitWrapper {
   position: relative;
   max-width: 980px;
   margin: 0 auto;
-}
-
-.orbitEllipse {
-  position: absolute;
-  inset: -48px -60px;
-  width: calc(100% + 120px);
-  height: calc(100% + 96px);
-  pointer-events: none;
-  z-index: 0;
-  overflow: visible;
-
-  @media (max-width: 639px) {
-    inset: -24px -20px;
-    width: calc(100% + 40px);
-    height: calc(100% + 48px);
-  }
 }
 
 // Bento grid layout
@@ -166,9 +137,12 @@
   position: relative;
   overflow: hidden;
   padding: 1.75rem;
-  --icon-bg: color-mix(in srgb, var(--tone-lavender) 10%, #fff);
-  --icon-border: color-mix(in srgb, var(--tone-lavender) 35%, var(--border-card));
-  background: color-mix(in srgb, var(--icon-bg) 35%, #ffffff);
+  --card-tint: #f7f8fb;
+  --icon-bg: color-mix(in srgb, var(--card-tint) 32%, #fff);
+  --icon-border: color-mix(in srgb, var(--card-tint) 28%, var(--border-card));
+  --divider-start: color-mix(in srgb, var(--icon-border, #d8d8e2) 45%, transparent);
+  --divider-end: color-mix(in srgb, var(--icon-border, #d8d8e2) 16%, transparent);
+  background: color-mix(in srgb, var(--card-tint) 10%, #ffffff);
   border: 1px solid var(--border-card);
   border-radius: 1rem 1.4rem 1rem 1.25rem;
   transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
@@ -189,7 +163,7 @@
 
   &:hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(20, 20, 32, 0.07);
+    box-shadow: 0 4px 10px rgba(20, 20, 32, 0.05);
     border-color: color-mix(in srgb, var(--icon-border, #d8d8e2) 56%, #b6b6c4);
   }
 
@@ -208,10 +182,8 @@
 }
 
 .serviceItemPremium {
-  border-color: color-mix(in srgb, #b6bdcc 65%, var(--border-card));
-  box-shadow:
-    0 8px 20px rgba(20, 20, 32, 0.06),
-    0 1px 0 rgba(255, 255, 255, 0.7) inset;
+  border-color: color-mix(in srgb, #c8cdd8 55%, var(--border-card));
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.62) inset;
 }
 
 .premiumBadge {
@@ -220,16 +192,16 @@
   justify-content: center;
   height: 1.1rem;
   padding: 0 0.42rem;
-  border-radius: 999px;
-  border: 1px solid rgba(178, 152, 92, 0.42);
-  background: linear-gradient(180deg, rgba(255, 251, 238, 0.95) 0%, rgba(237, 225, 192, 0.9) 100%);
-  color: #6f5831;
+  border-radius: 0.38rem;
+  border: 1px solid rgba(156, 136, 93, 0.34);
+  background: rgba(242, 235, 217, 0.62);
+  color: #675432;
   font-size: 0.52rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-weight: 650;
+  letter-spacing: 0.08em;
   line-height: 1;
   text-transform: uppercase;
-  box-shadow: 0 2px 8px rgba(82, 66, 31, 0.16);
+  box-shadow: none;
   flex-shrink: 0;
 }
 
@@ -256,12 +228,23 @@
 }
 
 .serviceItem:nth-child(1) {
+  --divider-start: rgba(138, 149, 169, 0.42);
+  --divider-end: rgba(138, 149, 169, 0.14);
+
   @include up(sm) {
     grid-column: 1 / span 2;
   }
 }
 
+.serviceItem:nth-child(2) {
+  --divider-start: rgba(138, 149, 169, 0.42);
+  --divider-end: rgba(138, 149, 169, 0.14);
+}
+
 .serviceItem:nth-child(3) {
+  --divider-start: rgba(138, 149, 169, 0.42);
+  --divider-end: rgba(138, 149, 169, 0.14);
+
   @include up(sm) {
     grid-column: 5 / span 2;
     border-radius: 1rem 1.4rem 1rem 1.6rem;
@@ -320,8 +303,8 @@
 // Title — bold, dark
 .serviceTitle {
   font-size: 0.9rem;
-  font-weight: 650;
-  letter-spacing: 0.14em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-heading);
   line-height: 1.32;
@@ -329,7 +312,35 @@
 
   @media (max-width: 639px) {
     font-size: 0.8rem;
+    letter-spacing: 0.07em;
   }
+}
+
+.premiumDivider {
+  display: block;
+  width: 2rem;
+  height: 1px;
+  margin: 0 0 0.55rem;
+  background: linear-gradient(
+    90deg,
+    var(--divider-start) 0%,
+    var(--divider-end) 100%
+  );
+  opacity: 0.5;
+
+  @media (max-width: 639px) {
+    margin-bottom: 0.45rem;
+    width: 1.75rem;
+  }
+}
+
+.premiumDividerPremium {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, #9ca3b5 50%, transparent) 0%,
+    color-mix(in srgb, #9ca3b5 20%, transparent) 100%
+  );
+  opacity: 0.54;
 }
 
 // Description

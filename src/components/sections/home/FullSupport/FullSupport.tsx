@@ -50,32 +50,6 @@ export const FullSupport = memo(function FullSupport() {
           </motion.div>
 
           <div className={styles.orbitWrapper}>
-            {/* Orbital ellipse with 2 dots */}
-            <svg
-              className={styles.orbitEllipse}
-              viewBox="0 0 1000 700"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <path
-                id="orbitPath"
-                d="M500,5 A495,345 0 1,1 499.9,5 Z"
-                fill="none"
-                stroke="rgba(184, 164, 204, 0.12)"
-                strokeWidth="1"
-              />
-              <circle r="3.5" fill="rgba(160, 144, 184, 0.6)">
-                <animateMotion dur="16s" repeatCount="indefinite">
-                  <mpath href="#orbitPath" />
-                </animateMotion>
-              </circle>
-              <circle r="3.5" fill="rgba(160, 144, 184, 0.6)">
-                <animateMotion dur="16s" repeatCount="indefinite" begin="-8s">
-                  <mpath href="#orbitPath" />
-                </animateMotion>
-              </circle>
-            </svg>
-
             <div className={styles.bentoGrid}>
               {SERVICES.map((service, index) => (
                 <motion.div
@@ -99,6 +73,13 @@ export const FullSupport = memo(function FullSupport() {
                       <span className={styles.premiumBadge}>{service.premiumLabel}</span>
                     )}
                   </div>
+                  <span
+                    className={cn(
+                      styles.premiumDivider,
+                      service.premiumLabel && styles.premiumDividerPremium
+                    )}
+                    aria-hidden
+                  />
                   <p className={styles.serviceDesc}>{t(`services.${service.key}.desc`)}</p>
                 </motion.div>
               ))}
