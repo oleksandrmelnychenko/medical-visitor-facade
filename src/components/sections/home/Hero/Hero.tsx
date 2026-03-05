@@ -1,44 +1,29 @@
-"use client";
-
 import { useTranslations } from "next-intl";
-import { useSession } from "next-auth/react";
-import { UserPlus, User } from "lucide-react";
-import { motion } from "motion/react";
+import { UserPlus } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { HeroAuthActions } from "./HeroAuthActions";
 import styles from "./Hero.module.scss";
 
 export function Hero() {
   const t = useTranslations("home.hero");
   const tCommon = useTranslations("common");
-  const { status } = useSession();
 
   return (
     <section className={styles.hero}>
       <h1 className={styles.srOnly}>{t("title")}</h1>
       <div className={styles.videoContainer}>
-        <video className={styles.heroVideo} autoPlay muted loop playsInline preload="auto">
+        <video className={styles.heroVideo} autoPlay muted loop playsInline preload="metadata">
           <source src="/assets/hero_hd.mp4" type="video/mp4" />
         </video>
       </div>
 
-      {/* CTA + Login — single centered glass panel */}
-      <motion.div
-        className={styles.heroActions}
-        initial={{ opacity: 0, y: 20, scale: 0.96 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ delay: 0.8, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      >
+      <div className={styles.heroActions}>
         <Link href="/apply" className={styles.heroButton}>
           <UserPlus size={18} />
           {tCommon("requestAppointment")}
         </Link>
-        {status !== "authenticated" && (
-          <Link href="/login" className={styles.heroLoginLink}>
-            <User size={16} />
-            {tCommon("login")}
-          </Link>
-        )}
-      </motion.div>
+        <HeroAuthActions loginLabel={tCommon("login")} />
+      </div>
     </section>
   );
 }
