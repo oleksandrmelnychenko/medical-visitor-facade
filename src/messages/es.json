@@ -142,11 +142,13 @@
         },
         "noFees": {
           "title": "Aviación",
-          "desc": "Jets privados y vuelos médicos"
+          "desc": "Jets privados y vuelos médicos",
+          "badge": "Premium"
         },
         "concierge": {
           "title": "Servicio de Conserjería",
-          "desc": "Soporte 24/7"
+          "desc": "Soporte 24/7",
+          "badge": "Prioridad"
         }
       },
       "journey": {

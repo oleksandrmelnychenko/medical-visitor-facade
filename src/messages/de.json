@@ -142,11 +142,13 @@
         },
         "noFees": {
           "title": "Luftfahrt",
-          "desc": "Business-Jets und Medizincharter"
+          "desc": "Business-Jets und Medizincharter",
+          "badge": "Premium"
         },
         "concierge": {
           "title": "Concierge-Service",
-          "desc": "24/7 Unterstützung"
+          "desc": "24/7 Unterstützung",
+          "badge": "Priorität"
         }
       },
       "journey": {

@@ -142,11 +142,13 @@
         },
         "noFees": {
           "title": "Aviation",
-          "desc": "Business jets and medical charters"
+          "desc": "Business jets and medical charters",
+          "badge": "Premium"
         },
         "concierge": {
           "title": "Concierge Service",
-          "desc": "24/7 Support"
+          "desc": "24/7 Support",
+          "badge": "Priority"
         }
       },
       "journey": {

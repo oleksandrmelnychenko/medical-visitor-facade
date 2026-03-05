@@ -61,8 +61,8 @@
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.9) 100%);
   border: 1px solid rgba(26, 26, 26, 0.1);
-  border-radius: 14px;
-  box-shadow: 0 12px 30px rgba(20, 20, 26, 0.08);
+  border-radius: 12px 12px 18px 18px;
+  box-shadow: 0 10px 24px rgba(20, 20, 26, 0.07);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -83,7 +83,7 @@
     top: 0.35rem;
     left: 0.35rem;
     right: 0.35rem;
-    border-radius: 10px;
+    border-radius: 9px 9px 14px 14px;
   }
 }
 
@@ -150,6 +150,10 @@
   display: flex;
   align-items: center;
   gap: 2rem;
+
+  @media (max-width: 1100px) {
+    gap: 1.4rem;
+  }
 
   @media (max-width: 768px) {
     gap: 1rem;
@@ -218,8 +222,8 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--foreground);
+  font-weight: 520;
+  color: #161a23;
   transition: opacity 0.2s;
 
   svg {
@@ -228,7 +232,7 @@
   }
 
   &:hover {
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
   @media (max-width: 768px) {

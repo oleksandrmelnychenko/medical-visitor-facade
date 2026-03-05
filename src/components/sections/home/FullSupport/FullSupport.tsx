@@ -18,8 +18,8 @@ const SERVICES = [
   { icon: Route, key: 'support', size: 'normal' as const },
   { icon: CalendarClock, key: 'promptness', size: 'large' as const },
   { icon: FileCheck2, key: 'confidentiality', size: 'normal' as const },
-  { icon: PlaneTakeoff, key: 'noFees', size: 'normal' as const, premiumLabel: 'PRIVATE' },
-  { icon: Headset, key: 'concierge', size: 'normal' as const, premiumLabel: 'PRIORITY' },
+  { icon: PlaneTakeoff, key: 'noFees', size: 'normal' as const, premium: true },
+  { icon: Headset, key: 'concierge', size: 'normal' as const, premium: true },
 ];
 
 const JOURNEY_STEPS = [
@@ -56,7 +56,7 @@ export const FullSupport = memo(function FullSupport() {
                   key={service.key}
                   className={cn(
                     styles.serviceItem,
-                    service.premiumLabel && styles.serviceItemPremium,
+                    service.premium && styles.serviceItemPremium,
                     service.size === 'large' && styles.serviceItemLarge
                   )}
                   initial={{ opacity: 0, y: 16 }}
@@ -69,14 +69,14 @@ export const FullSupport = memo(function FullSupport() {
                   </div>
                   <div className={styles.serviceTitleRow}>
                     <h3 className={styles.serviceTitle}>{t(`services.${service.key}.title`)}</h3>
-                    {service.premiumLabel && (
-                      <span className={styles.premiumBadge}>{service.premiumLabel}</span>
+                    {service.premium && (
+                      <span className={styles.premiumBadge}>{t(`services.${service.key}.badge`)}</span>
                     )}
                   </div>
                   <span
                     className={cn(
                       styles.premiumDivider,
-                      service.premiumLabel && styles.premiumDividerPremium
+                      service.premium && styles.premiumDividerPremium
                     )}
                     aria-hidden
                   />
