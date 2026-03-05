@@ -70,6 +70,7 @@
     },
     "careForward": {
       "title": "What we do",
+      "subtitle": "From clinic selection to full recovery — end-to-end coordination",
       "services": {
         "clinic": {
           "title": "Clinic",
@@ -82,6 +83,10 @@
         "coordination": {
           "title": "Treatment",
           "desc": "Organization of diagnostics and procedures"
+        },
+        "support": {
+          "title": "Support",
+          "desc": "Personal coordinator throughout the process"
         }
       }
     },

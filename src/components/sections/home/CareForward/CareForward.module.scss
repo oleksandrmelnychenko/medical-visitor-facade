@@ -2,30 +2,20 @@
 
 .section {
   padding: clamp(4rem, 9vw, 7rem) 0;
-  background:
-    radial-gradient(120% 80% at 12% 10%, color-mix(in srgb, var(--tone-blue) 12%, transparent), transparent 56%),
-    radial-gradient(120% 90% at 88% 14%, color-mix(in srgb, var(--tone-lavender) 12%, transparent), transparent 58%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.56) 0%, rgba(255, 255, 255, 0.18) 100%);
+  background: linear-gradient(180deg, #2e2e36 0%, #26262e 100%);
   position: relative;
   z-index: 1;
-  min-height: 100svh;
-  min-height: 100dvh;
   display: flex;
   align-items: center;
+  border-radius: 0 0 40px 40px;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 10%;
-    right: 10%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-card) 30%, var(--border-card) 70%, transparent);
+  @media (max-width: 767px) {
+    border-radius: 0 0 24px 24px;
   }
 }
 
 .shell {
-  max-width: 950px;
+  max-width: 1000px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -36,7 +26,7 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: clamp(2rem, 5vw, 3rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
   text-align: center;
 }
 
@@ -44,245 +34,169 @@
   font-family: "Playfair Display", serif;
   font-size: clamp(1.8rem, 3.2vw, 2.55rem);
   font-weight: 500;
-  color: var(--text-heading);
+  color: #f0f0f4;
   letter-spacing: -0.018em;
   line-height: 1.16;
   margin: 0;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #a0a0b0;
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto clamp(2.5rem, 5vw, 3.5rem);
 }
 
 .flowGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  max-width: 860px;
-  margin: 0 auto;
 
   @include up(md) {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1.1rem;
   }
 }
 
-.stepNumber {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 2.15rem;
-  height: 2.15rem;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--tone, #c4c4d4) 12%, #fff);
-  border: 1px solid color-mix(in srgb, var(--tone, #c4c4d4) 55%, #d6d6e2);
-  position: absolute;
-  top: 0.95rem;
-  left: 1rem;
-  font-size: 0.66rem;
-  font-weight: 700;
-  color: color-mix(in srgb, var(--tone, #898aa0) 66%, #87879b);
-  letter-spacing: 0.08em;
-  line-height: 1;
-  white-space: nowrap;
-}
-
 .flowCard {
-  --tone: #bcc5d4;
-  --surface-a: color-mix(in srgb, var(--tone) 12%, #ffffff);
-  --surface-b: color-mix(in srgb, var(--tone) 4%, #ffffff);
+  --tone: #9bb5cc;
   position: relative;
-  border: 1px solid color-mix(in srgb, var(--tone) 48%, #dcdce7);
-  background: linear-gradient(140deg, var(--surface-a) 0%, var(--surface-b) 72%);
-  border-radius: 1.25rem 1.5rem 1.2rem 1.2rem;
-  padding: 1rem 1rem 1rem 4rem;
-  box-shadow: 0 10px 24px rgba(22, 22, 34, 0.04);
-  overflow: hidden;
-  transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease;
-
-  @include up(md) {
-    grid-column: span 3;
-    padding: 1.1rem 1.15rem 1.1rem 4.15rem;
-  }
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 1rem;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  transition: border-color 0.26s ease, background 0.26s ease;
 
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 14px 28px rgba(18, 18, 30, 0.1);
-    border-color: color-mix(in srgb, var(--tone) 70%, #cbcbd9);
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: -48px;
-    right: -44px;
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    background: color-mix(in srgb, var(--tone) 25%, transparent);
-    opacity: 0.45;
-    pointer-events: none;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    right: 0.75rem;
-    top: 0.75rem;
-    width: 19px;
-    height: 19px;
-    border-top: 1px solid color-mix(in srgb, var(--tone) 65%, #cfcfdb);
-    border-right: 1px solid color-mix(in srgb, var(--tone) 65%, #cfcfdb);
-    border-top-right-radius: 9px;
-    opacity: 0.65;
-    pointer-events: none;
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.05);
   }
 }
 
-.flowCard:nth-child(2) {
-  --surface-a: color-mix(in srgb, var(--tone) 15%, #ffffff);
-  --surface-b: color-mix(in srgb, var(--tone) 6%, #ffffff);
-  @include up(md) {
-    grid-column: 4 / span 3;
-    transform: translateY(16px);
-  }
+.stepNumber {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--tone) 80%, #aaa);
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
 }
 
-.flowCard:nth-child(3) {
-  --surface-a: color-mix(in srgb, var(--tone) 13%, #ffffff);
-  --surface-b: color-mix(in srgb, var(--tone) 5%, #ffffff);
-  @include up(md) {
-    grid-column: 2 / span 4;
-    transform: translateY(-4px);
+.cardIcon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--tone) 30%, rgba(255, 255, 255, 0.1));
+  background: color-mix(in srgb, var(--tone) 12%, rgba(255, 255, 255, 0.06));
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 32px color-mix(in srgb, var(--tone) 25%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+
+  svg {
+    width: 1.35rem;
+    height: 1.35rem;
+    color: #e8e8f0;
+    stroke-width: 1.5;
   }
 }
 
 .cardTop {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.8rem;
-}
-
-.cardIcon {
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 0.8rem;
-  border: 1.5px solid color-mix(in srgb, var(--tone, #c4c4d4) 65%, #d6d6e2);
-  background: color-mix(in srgb, var(--tone, #c4c4d4) 18%, #ffffff);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-
-  svg {
-    width: 1.25rem;
-    height: 1.25rem;
-    color: var(--text-heading);
-    stroke-width: 1.5;
-  }
 }
 
 .cardContent {
-  padding-right: 0.6rem;
+  // centered by parent text-align
 }
 
 .cardTitle {
-  margin: 0 0 0.4rem;
-  font-size: 0.88rem;
+  margin: 0 0 0.5rem;
+  font-size: 0.92rem;
   font-weight: 650;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-heading);
+  letter-spacing: 0.01em;
+  color: #f0f0f4;
   line-height: 1.32;
 }
 
 .cardDesc {
   margin: 0;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 500;
-  color: var(--text-body);
-  line-height: 1.45;
+  color: #d0d0d8;
+  line-height: 1.5;
 }
 
+// Support card — same style as flow cards
 .supportCard {
-  --tone: #c4afd4;
-  --support-surface-a: color-mix(in srgb, var(--tone) 15%, #ffffff);
-  --support-surface-b: color-mix(in srgb, var(--tone) 7%, #ffffff);
+  --tone: #b8a4cc;
   position: relative;
-  border: 1px solid color-mix(in srgb, var(--tone) 55%, #d8d3e2);
-  border-radius: 1.4rem;
-  background: linear-gradient(132deg, var(--support-surface-a) 0%, var(--support-surface-b) 78%);
-  padding: 1rem 1rem 1.1rem 1rem;
-  overflow: hidden;
-  box-shadow: 0 10px 24px rgba(22, 22, 34, 0.05);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 1rem;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  transition: border-color 0.26s ease, background 0.26s ease;
 
   @include up(md) {
-    grid-column: 2 / span 5;
-    padding: 1.15rem 1.2rem 1.25rem;
+    grid-column: span 1;
   }
 
-  &::before {
-    content: "";
-    position: absolute;
-    left: -52px;
-    top: -56px;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: color-mix(in srgb, var(--tone) 30%, transparent);
-    opacity: 0.35;
-    pointer-events: none;
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.05);
   }
 }
 
 .supportTop {
-  position: relative;
-  padding-left: 4rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.9rem;
-  margin-bottom: 0.95rem;
 }
 
 .supportHeading {
-  flex: 1;
+  // inherits text-align center
 }
 
 .supportChildren {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.75rem;
-
-  @include up(md) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  margin-top: 0.75rem;
 }
 
 .childCard {
-  --tone: #bca9cf;
-  --child-surface-a: color-mix(in srgb, var(--tone) 14%, #ffffff);
-  --child-surface-b: color-mix(in srgb, var(--tone) 7%, #ffffff);
+  --tone: #b8a4cc;
   display: flex;
   align-items: flex-start;
   gap: 0.7rem;
-  border: 1px dashed color-mix(in srgb, var(--tone) 62%, #d8d3e2);
-  border-radius: 1rem 1.2rem 1rem 1rem;
-  background: linear-gradient(140deg, var(--child-surface-a) 0%, var(--child-surface-b) 78%);
-  padding: 0.7rem 0.75rem 0.72rem;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.7rem;
 }
 
 .childIcon {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
-  border: 1.5px solid color-mix(in srgb, var(--tone) 68%, #d8d3e2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 
   svg {
-    width: 1.02rem;
-    height: 1.02rem;
-    color: var(--text-heading);
-    stroke-width: 1.45;
+    width: 0.95rem;
+    height: 0.95rem;
+    color: #d4d4dc;
+    stroke-width: 1.5;
   }
 }
 
@@ -292,27 +206,25 @@
 }
 
 .childTitle {
-  margin: 0 0 0.22rem;
-  font-size: 0.8rem;
+  margin: 0 0 0.2rem;
+  font-size: 0.78rem;
   font-weight: 650;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: var(--text-heading);
+  letter-spacing: 0.01em;
+  color: #f0f0f4;
   line-height: 1.32;
 }
 
 .childDesc {
   margin: 0;
-  font-size: 0.86rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  color: var(--text-body);
+  color: #a0a0b0;
   line-height: 1.4;
 }
 
 @media (max-width: 768px) {
   .section {
     padding: clamp(3rem, 7vw, 5rem) 0;
-    overflow: visible;
   }
 
   .title {
@@ -320,30 +232,35 @@
   }
 
   .header {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
   }
 
-  .flowCard {
-    padding-left: 3.8rem;
+  .subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
   }
 
-  .supportTop {
-    padding-left: 3.85rem;
+  .flowGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
 
-  .stepNumber {
-    left: 0.85rem;
+  .flowCard,
+  .supportCard {
+    padding: 1.25rem 1rem;
+  }
+
+  .cardIcon {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .cardTitle {
+    font-size: 0.85rem;
   }
 
   .cardDesc {
-    font-size: 0.87rem;
-  }
-
-  .childCard {
-    padding: 0.65rem 0.7rem;
-  }
-
-  .childDesc {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
   }
 }

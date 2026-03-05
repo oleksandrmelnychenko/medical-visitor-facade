@@ -70,6 +70,7 @@
     },
     "careForward": {
       "title": "Lo que hacemos",
+      "subtitle": "Desde la selección de clínica hasta la recuperación completa — coordinación integral",
       "services": {
         "clinic": {
           "title": "Clínica",
@@ -82,6 +83,10 @@
         "coordination": {
           "title": "Tratamiento",
           "desc": "Organización de diagnósticos y procedimientos"
+        },
+        "support": {
+          "title": "Apoyo",
+          "desc": "Coordinador personal durante todo el proceso"
         }
       }
     },

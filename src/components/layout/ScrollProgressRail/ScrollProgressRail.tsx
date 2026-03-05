@@ -9,6 +9,7 @@ const SECTIONS = ["hero", "fullSupport", "careForward", "office"] as const;
 export const ScrollProgressRail = memo(function ScrollProgressRail() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [visible, setVisible] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   const handleScroll = useCallback(() => {
     const scrollY = window.scrollY;
@@ -40,6 +41,16 @@ export const ScrollProgressRail = memo(function ScrollProgressRail() {
     }
 
     setActiveIndex(closest);
+
+    // Check if rail overlaps a dark section
+    const railY = viewportH * 0.5;
+    const darkSections = document.querySelectorAll("[data-dark-section]");
+    let onDark = false;
+    darkSections.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < railY && rect.bottom > railY) onDark = true;
+    });
+    setDarkMode(onDark);
   }, []);
 
   useEffect(() => {
@@ -62,7 +73,7 @@ export const ScrollProgressRail = memo(function ScrollProgressRail() {
 
   return (
     <nav
-      className={cn(styles.rail, visible && styles.railVisible)}
+      className={cn(styles.rail, visible && styles.railVisible, darkMode && styles.railDark)}
       aria-label="Page sections"
     >
       <div className={styles.track}>

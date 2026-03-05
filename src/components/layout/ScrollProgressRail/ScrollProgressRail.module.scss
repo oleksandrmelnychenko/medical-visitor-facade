@@ -87,6 +87,27 @@
   box-shadow: 0 0 0 4px #fafafe;
 }
 
+// Inverted colors on dark sections
+.railDark {
+  .trackLine {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .progressFill {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .dotInner {
+    background: #888890;
+    box-shadow: 0 0 0 3px #2e2e36;
+  }
+
+  .dotActive .dotInner {
+    background: #f0f0f4;
+    box-shadow: 0 0 0 4px #2e2e36;
+  }
+}
+
 @media (max-width: 767px) {
   .rail {
     display: none;
