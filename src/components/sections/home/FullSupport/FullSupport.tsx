@@ -2,18 +2,24 @@
 
 import { memo } from "react";
 import { motion } from "motion/react";
-import { Plane, CarTaxiFront, Clock, MessageCircle, Stamp } from "lucide-react";
+import {
+  PlaneTakeoff,
+  Route,
+  CalendarClock,
+  Headset,
+  FileCheck2,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./FullSupport.module.scss";
 
 const SERVICES = [
-  { icon: CarTaxiFront, key: 'support', size: 'normal' as const },
-  { icon: Clock, key: 'promptness', size: 'large' as const },
-  { icon: Stamp, key: 'confidentiality', size: 'normal' as const },
-  { icon: Plane, key: 'noFees', size: 'normal' as const },
-  { icon: MessageCircle, key: 'concierge', size: 'normal' as const },
+  { icon: Route, key: 'support', size: 'normal' as const },
+  { icon: CalendarClock, key: 'promptness', size: 'large' as const },
+  { icon: FileCheck2, key: 'confidentiality', size: 'normal' as const },
+  { icon: PlaneTakeoff, key: 'noFees', size: 'normal' as const },
+  { icon: Headset, key: 'concierge', size: 'normal' as const },
 ];
 
 const JOURNEY_STEPS = [
@@ -47,13 +53,13 @@ export const FullSupport = memo(function FullSupport() {
             {/* Orbital ellipse with 2 dots */}
             <svg
               className={styles.orbitEllipse}
-              viewBox="0 0 1000 600"
+              viewBox="0 0 1000 700"
               preserveAspectRatio="none"
               aria-hidden="true"
             >
               <path
                 id="orbitPath"
-                d="M500,10 A490,290 0 1,1 499.9,10 Z"
+                d="M500,5 A495,345 0 1,1 499.9,5 Z"
                 fill="none"
                 stroke="rgba(184, 164, 204, 0.12)"
                 strokeWidth="1"

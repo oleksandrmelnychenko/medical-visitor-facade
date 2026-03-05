@@ -8,6 +8,9 @@ import {
   Stethoscope,
   Activity,
   ShieldCheck,
+  Headphones,
+  UserCheck,
+  Video,
 } from "lucide-react";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./CareForward.module.scss";
@@ -19,11 +22,21 @@ const STEPS = [
   { icon: ShieldCheck, key: "support", tone: "var(--tone-lavender)" },
 ];
 
+const SUPPORT_ITEMS = [
+  { icon: Headphones, key: "support" },
+  { icon: UserCheck, key: "monitoring" },
+  { icon: Video, key: "consultations" },
+];
+
 export const CareForward = memo(function CareForward() {
   const t = useTranslations("home.careForward");
+  const tCta = useTranslations("home.cta");
 
   return (
     <section className={styles.section} data-dark-section>
+      <span className={styles.geoTopRight} aria-hidden />
+      <span className={styles.geoBottomLeft} aria-hidden />
+      <span className={styles.bottomGlow} aria-hidden />
       <div className={sectionStyles.container}>
         <motion.div
           className={styles.shell}
@@ -63,6 +76,30 @@ export const CareForward = memo(function CareForward() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            className={styles.supportStrip}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0.4 }}
+          >
+            {SUPPORT_ITEMS.map((item) => (
+              <div key={item.key} className={styles.supportItem}>
+                <div className={styles.supportItemIcon}>
+                  <item.icon />
+                </div>
+                <div className={styles.supportItemText}>
+                  <h4 className={styles.supportItemTitle}>
+                    {tCta(`services.${item.key}.title`)}
+                  </h4>
+                  <p className={styles.supportItemDesc}>
+                    {tCta(`services.${item.key}.desc`)}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>
