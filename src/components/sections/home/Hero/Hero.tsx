@@ -16,16 +16,7 @@ export function Hero() {
     <section className={styles.hero}>
       <h1 className={styles.srOnly}>{t("title")}</h1>
       <div className={styles.videoContainer}>
-        <video
-          className={styles.heroVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-        >
-          <source src="/assets/hero_mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
-          <source src="/assets/hero_hd.mp4" type="video/mp4" media="(min-width: 769px)" />
+        <video className={styles.heroVideo} autoPlay muted loop playsInline preload="auto">
           <source src="/assets/hero_hd.mp4" type="video/mp4" />
         </video>
       </div>

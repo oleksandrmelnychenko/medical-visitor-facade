@@ -84,16 +84,14 @@
   }
 
   @media (max-width: 768px) {
-    bottom: max(1.1rem, env(safe-area-inset-bottom));
+    bottom: max(10.5rem, calc(env(safe-area-inset-bottom) + 8rem));
     max-width: calc(100% - 0.8rem);
   }
 
   @media (max-width: 560px) {
-    width: calc(100% - 0.8rem);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.4rem;
-    padding: 0.4rem;
+    bottom: max(11.5rem, calc(env(safe-area-inset-bottom) + 8.8rem));
+    width: fit-content;
+    max-width: calc(100% - 0.8rem);
   }
 }
 
@@ -132,10 +130,15 @@
   }
 
   @media (max-width: 480px) {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.85rem;
+    padding: 1.02rem 2.1rem;
+    font-size: 1rem;
     width: 100%;
-    min-height: 2.75rem;
+    min-height: 3.45rem;
+
+    svg {
+      width: 1.24rem;
+      height: 1.24rem;
+    }
   }
 }
 
@@ -178,5 +181,9 @@
     font-size: 0.85rem;
     width: 100%;
     min-height: 2.75rem;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 }
