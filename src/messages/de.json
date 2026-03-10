@@ -179,6 +179,10 @@
       "promise": {
         "title": "Begleitung in jeder Phase",
         "text": "Vom ersten Anruf bis zur Rückkehr — wir begleiten Sie bei der Organisation."
+      },
+      "digitalProfile": {
+        "title": "DIGITALES MEDIZINISCHES PROFIL",
+        "description": "Befunde und Analysen übersetzt, strukturiert und jederzeit für Ärzte verfügbar."
       }
     },
     "cta": {

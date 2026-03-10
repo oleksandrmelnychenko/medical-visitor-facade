@@ -179,6 +179,10 @@
       "promise": {
         "title": "Acompañamiento en cada etapa",
         "text": "Desde la primera consulta hasta su regreso a casa — estamos aquí para asistir en la organización."
+      },
+      "digitalProfile": {
+        "title": "PERFIL MÉDICO DIGITAL",
+        "description": "Informes y análisis traducidos, organizados y siempre accesibles para los médicos."
       }
     },
     "cta": {

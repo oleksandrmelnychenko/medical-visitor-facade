@@ -179,6 +179,10 @@
       "promise": {
         "title": "Support at every stage",
         "text": "From the initial inquiry to your return home — we are here to assist with arrangements."
+      },
+      "digitalProfile": {
+        "title": "DIGITAL MEDICAL PROFILE",
+        "description": "Records and test results translated, organized, and always accessible to doctors."
       }
     },
     "cta": {
