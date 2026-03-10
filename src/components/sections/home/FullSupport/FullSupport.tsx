@@ -143,6 +143,7 @@ export const FullSupport = memo(function FullSupport() {
           </div>
         </div>
       </div>
+      <span className={styles.bottomSeam} aria-hidden />
     </section>
   );
 });

@@ -34,6 +34,7 @@ export const CareForward = memo(function CareForward() {
 
   return (
     <section className={styles.section} data-dark-section>
+      <span className={styles.topSeam} aria-hidden />
       <div className={sectionStyles.container}>
         <motion.div
           className={styles.shell}

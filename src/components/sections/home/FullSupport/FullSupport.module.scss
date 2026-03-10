@@ -13,7 +13,7 @@
   margin-top: -56px;
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-bottom: none;
-  overflow: hidden;
+  overflow: visible;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.88) inset,
     0 7px 16px rgba(16, 20, 36, 0.024) inset,
@@ -68,6 +68,79 @@
         rgba(14, 18, 30, 0.028) 12%,
         rgba(14, 18, 30, 0) 26%
       );
+    }
+  }
+}
+
+.bottomSeam {
+  position: absolute;
+  left: 50%;
+  bottom: -56px;
+  width: min(92vw, 980px);
+  height: 64px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 2;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 16%;
+    right: 16%;
+    height: 9px;
+    border-radius: 0 0 999px 999px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.74) 0%,
+      rgba(255, 255, 255, 0.34) 48%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.42) inset,
+      0 10px 16px -12px rgba(17, 22, 34, 0.28);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 18%;
+    right: 18%;
+    height: 24px;
+    border-radius: 999px;
+    background: radial-gradient(
+      ellipse at center top,
+      rgba(18, 22, 34, 0.12) 0%,
+      rgba(18, 22, 34, 0.06) 44%,
+      rgba(18, 22, 34, 0.02) 66%,
+      rgba(18, 22, 34, 0) 82%
+    );
+    filter: blur(8px);
+    opacity: 0.72;
+  }
+
+  @media (max-width: 767px) {
+    bottom: -38px;
+    width: 124%;
+    height: 44px;
+
+    &::before {
+      left: 12%;
+      right: 12%;
+      height: 7px;
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.36) inset,
+        0 8px 14px -12px rgba(17, 22, 34, 0.22);
+    }
+
+    &::after {
+      top: 6px;
+      left: 14%;
+      right: 14%;
+      height: 16px;
+      filter: blur(6px);
+      opacity: 0.62;
     }
   }
 }

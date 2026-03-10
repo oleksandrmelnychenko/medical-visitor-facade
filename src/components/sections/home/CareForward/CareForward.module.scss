@@ -75,6 +75,63 @@
   }
 }
 
+.topSeam {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(90vw, 980px);
+  height: 86px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at center top,
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0.075) 34%,
+      rgba(255, 255, 255, 0) 72%
+    );
+    filter: blur(12px);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    border-radius: 999px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.24) 18%,
+      rgba(255, 255, 255, 0.42) 50%,
+      rgba(255, 255, 255, 0.24) 82%,
+      transparent 100%
+    );
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.06);
+  }
+
+  @media (max-width: 767px) {
+    width: 124%;
+    height: 64px;
+
+    &::before {
+      filter: blur(9px);
+    }
+
+    &::after {
+      left: 10%;
+      right: 10%;
+    }
+  }
+}
+
 .bottomGlow {
   position: absolute;
   left: 50%;
