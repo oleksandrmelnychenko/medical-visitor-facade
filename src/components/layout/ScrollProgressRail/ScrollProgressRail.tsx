@@ -82,6 +82,12 @@ export const ScrollProgressRail = memo(function ScrollProgressRail() {
       closest = 0;
     }
 
+    // If near bottom of page, activate last dot
+    const docHeight = document.documentElement.scrollHeight;
+    if (scrollY + viewportH >= docHeight - 100) {
+      closest = SECTIONS.length - 1;
+    }
+
     if (closest !== activeIndexRef.current) {
       activeIndexRef.current = closest;
       setActiveIndex(closest);
