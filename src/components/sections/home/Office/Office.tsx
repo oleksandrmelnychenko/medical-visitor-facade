@@ -41,61 +41,58 @@ const OTHER_CITIES = [
 ];
 
 export const Office = memo(function Office() {
-  const t = useTranslations('home.office');
+  const t = useTranslations("home.office");
   const gridRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(gridRef, { once: true, margin: "-50px" });
+  const overline = t("overline");
+  const subtitle = t("subtitle");
 
   return (
     <section className={cn(sectionStyles.section, styles.office)}>
       <div className={sectionStyles.container}>
-        {/* Header */}
         <div className={styles.header} data-snap-anchor>
-          <p className={styles.overline}>{t('overline')}</p>
-          <h2 className={styles.title}>{t('title')}</h2>
-          <p className={styles.subtitle}>{t('subtitle')}</p>
+          {overline ? <p className={styles.overline}>{overline}</p> : null}
+          <h2 className={styles.title}>{t("title")}</h2>
+          {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
         </div>
 
-        {/* Cities Grid */}
-        <div className={styles.citiesGrid} ref={gridRef}>
-          {/* Munich - Main City */}
-          <div className={styles.mainCity} style={MUNICH_STYLE}>
-            <div className={styles.mainCityContent}>
-              <h3 className={styles.mainCityName}>{t('cities.munich.name')}</h3>
-            </div>
-            <div className={styles.mainCityImageWrapper}>
-              <Image
-                src="/assets/1_city-munich.png"
-                alt="Munich"
-                width={400}
-                height={300}
-                sizes="(max-width: 767px) 40vw, 50vw"
-                className={styles.cityImageMunich}
-                priority={false}
-              />
-            </div>
-          </div>
-
-          {/* Other Cities */}
-          {OTHER_CITIES.map((city, index) => (
-            <div key={city.key} className={styles.cityCard} style={city.style}>
-              <div className={styles.cityImageWrapper}>
+        <div className={styles.stage}>
+          <div className={styles.citiesGrid} ref={gridRef}>
+            <div className={styles.mainCity} style={MUNICH_STYLE}>
+              <div className={styles.mainCityContent}>
+                <h3 className={styles.mainCityName}>{t("cities.munich.name")}</h3>
+              </div>
+              <div className={styles.mainCityImageWrapper}>
                 <Image
-                  src={city.image}
-                  alt={t(`cities.${city.key}.name`)}
-                  width={300}
-                  height={220}
-                  sizes="(max-width: 767px) 45vw, 25vw"
-                  className={cn(styles.cityImage, styles.brushPaint, isInView && styles.brushPaintActive)}
-                  style={{ animationDelay: `${0.2 + index * 0.2}s` }}
+                  src="/assets/1_city-munich.png"
+                  alt={t("cities.munich.name")}
+                  width={400}
+                  height={300}
+                  sizes="(max-width: 767px) 40vw, 50vw"
+                  className={styles.cityImageMunich}
+                  priority={false}
                 />
               </div>
-              <h3 className={styles.cityName}>{t(`cities.${city.key}.name`)}</h3>
             </div>
-          ))}
+
+            {OTHER_CITIES.map((city, index) => (
+              <div key={city.key} className={styles.cityCard} style={city.style}>
+                <div className={styles.cityImageWrapper}>
+                  <Image
+                    src={city.image}
+                    alt={t(`cities.${city.key}.name`)}
+                    width={300}
+                    height={220}
+                    sizes="(max-width: 767px) 45vw, 25vw"
+                    className={cn(styles.cityImage, styles.brushPaint, isInView && styles.brushPaintActive)}
+                    style={{ animationDelay: `${0.2 + index * 0.2}s` }}
+                  />
+                </div>
+                <h3 className={styles.cityName}>{t(`cities.${city.key}.name`)}</h3>
+              </div>
+            ))}
+          </div>
         </div>
-
-        <div className={styles.closingSpacer} aria-hidden="true" />
-
       </div>
     </section>
   );

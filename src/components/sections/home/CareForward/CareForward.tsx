@@ -34,9 +34,6 @@ export const CareForward = memo(function CareForward() {
 
   return (
     <section className={styles.section} data-dark-section>
-      <span className={styles.geoTopRight} aria-hidden />
-      <span className={styles.geoBottomLeft} aria-hidden />
-      <span className={styles.bottomGlow} aria-hidden />
       <div className={sectionStyles.container}>
         <motion.div
           className={styles.shell}

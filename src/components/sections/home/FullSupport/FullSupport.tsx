@@ -8,6 +8,7 @@ import {
   CalendarClock,
   Headset,
   FileCheck2,
+  FolderArchive,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
@@ -31,7 +32,9 @@ const JOURNEY_STEPS = [
 ];
 
 export const FullSupport = memo(function FullSupport() {
-  const t = useTranslations('home.fullSupport');
+  const t = useTranslations("home.fullSupport");
+  const overline = t("overline");
+  const subtitle = t("subtitle");
 
   return (
     <section className={cn(sectionStyles.section, styles.fullSupport)}>
@@ -44,9 +47,9 @@ export const FullSupport = memo(function FullSupport() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <p className={styles.overline}>{t('overline')}</p>
-            <h2 className={styles.title}>{t('title')}</h2>
-            <p className={styles.subtitle}>{t('subtitle')}</p>
+            {overline ? <p className={styles.overline}>{overline}</p> : null}
+            <h2 className={styles.title}>{t("title")}</h2>
+            {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
           </motion.div>
 
           <div className={styles.orbitWrapper}>
@@ -84,6 +87,23 @@ export const FullSupport = memo(function FullSupport() {
                 </motion.div>
               ))}
             </div>
+
+            <motion.div
+              className={styles.digitalProfileCard}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.12, ease: "easeOut" }}
+            >
+              <div className={cn(styles.serviceIcon, styles.digitalProfileIcon)}>
+                <FolderArchive />
+              </div>
+              <div className={styles.digitalProfileBody}>
+                <h3 className={styles.digitalProfileTitle}>{t("digitalProfile.title")}</h3>
+                <span className={styles.digitalProfileDivider} aria-hidden />
+                <p className={styles.digitalProfileDesc}>{t("digitalProfile.description")}</p>
+              </div>
+            </motion.div>
           </div>
 
           <div className={styles.closingSpacer} aria-hidden="true" />
