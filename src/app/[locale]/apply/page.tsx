@@ -1,23 +1,43 @@
 import { Metadata } from "next";
 import { RequestAppointment } from "@/components/sections/request-appointment/RequestAppointment";
-import { getAlternateLanguages } from "@/lib/seo";
+import {
+  getAlternateLanguages,
+  getBreadcrumbItems,
+  getLocalizedMessage,
+  normalizeLanguage,
+} from "@/lib/seo";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
-
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://gmed.agency';
-
-export const metadata: Metadata = {
-  title: "Apply for Membership",
-  description: "Apply to become a GMED Agency member. Get personalized medical concierge services, clinic selection, and patient support in Germany.",
-  alternates: getAlternateLanguages("/apply"),
+type ApplyPageProps = {
+  params: Promise<{ locale: string }>;
 };
 
-export default function AppointmentPage() {
+export async function generateMetadata({ params }: ApplyPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const safeLocale = normalizeLanguage(locale);
+  const title = await getLocalizedMessage(safeLocale, "appointment.title");
+  const description = await getLocalizedMessage(safeLocale, "appointment.subtitle");
+
+  return {
+    title,
+    description,
+    alternates: getAlternateLanguages("/apply", safeLocale),
+  };
+}
+
+export default async function AppointmentPage({ params }: ApplyPageProps) {
+  const { locale } = await params;
+  const safeLocale = normalizeLanguage(locale);
+  const homeLabel = await getLocalizedMessage(safeLocale, "common.home");
+  const pageTitle = await getLocalizedMessage(safeLocale, "appointment.title");
+
   return (
     <main>
-      <BreadcrumbJsonLd items={[
-        { name: "Home", url: `${baseUrl}/de` },
-        { name: "Apply", url: `${baseUrl}/de/apply` },
-      ]} />
+      <BreadcrumbJsonLd
+        items={getBreadcrumbItems(safeLocale, [
+          { name: homeLabel, path: "" },
+          { name: pageTitle, path: "/apply" },
+        ])}
+      />
       <RequestAppointment />
     </main>
   );

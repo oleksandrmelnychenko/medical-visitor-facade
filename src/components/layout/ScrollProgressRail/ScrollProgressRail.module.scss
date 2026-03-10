@@ -77,7 +77,11 @@
   border-radius: 50%;
   background: #b0b0b8;
   box-shadow: 0 0 0 3px #fafafe;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dotActive .dotInner {

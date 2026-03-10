@@ -1,14 +1,15 @@
 "use client";
 
-import React, { useState } from 'react';
-import { motion } from 'motion/react';
-import { useTranslations } from 'next-intl';
-import { useRouter } from '@/i18n/navigation';
-import { useWizard } from '../WizardContext';
-import { WizardStepLayout } from '../components/WizardStepLayout';
-import formStyles from '@/components/auth/Auth.module.scss';
-import styles from '../../RequestAppointment/RequestAppointment.module.scss';
-import { LegalSexType } from '../types';
+import React, { useState } from "react";
+import { motion } from "motion/react";
+import { useLocale, useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
+import { useWizard } from "../WizardContext";
+import { WizardStepLayout } from "../components/WizardStepLayout";
+import formStyles from "@/components/auth/Auth.module.scss";
+import styles from "../../RequestAppointment/RequestAppointment.module.scss";
+import { LegalSexType, type WizardData } from "../types";
+import { buildSalesforceBundle, downloadSalesforceBundle } from "../salesforce-bundle";
 
 const COUNTRY_CODES = [
   { code: '+49', country: 'Germany' },
@@ -36,29 +37,34 @@ const COUNTRY_CODES = [
 type Step = 'form' | 'contact' | 'whatsapp' | 'whatsapp-number' | 'interpreter' | 'primary-language' | 'legal-sex' | 'address';
 
 export function OutsideEuPatientForm() {
-  const t = useTranslations('appointment.newPatient');
+  const t = useTranslations("appointment.newPatient");
+  const locale = useLocale();
   const router = useRouter();
-  const { data, updateData } = useWizard();
+  const { data, updateData, resetData } = useWizard();
 
-  const [step, setStep] = useState<Step>('form');
-  const [firstName, setFirstName] = useState(data.firstName || '');
-  const [middleName, setMiddleName] = useState(data.middleName || '');
-  const [lastName, setLastName] = useState(data.lastName || '');
-  const [suffix, setSuffix] = useState(data.suffix || '');
-  const [email, setEmail] = useState(data.email || '');
-  const [phone, setPhone] = useState(data.phones?.[0]?.number || '');
-  const [phoneCountryCode, setPhoneCountryCode] = useState('+49');
-  const [whatsappConsent, setWhatsappConsent] = useState<'yes' | 'no' | ''>('');
-  const [whatsappNumber, setWhatsappNumber] = useState('');
-  const [countryCode, setCountryCode] = useState('+49');
-  const [interpreterNeeded, setInterpreterNeeded] = useState<'yes' | 'no' | ''>('');
-  const [primaryLanguage, setPrimaryLanguage] = useState(data.primaryLanguage || '');
+  const [step, setStep] = useState<Step>("form");
+  const [firstName, setFirstName] = useState(data.firstName || "");
+  const [middleName, setMiddleName] = useState(data.middleName || "");
+  const [lastName, setLastName] = useState(data.lastName || "");
+  const [suffix, setSuffix] = useState(data.suffix || "");
+  const [email, setEmail] = useState(data.email || "");
+  const [phone, setPhone] = useState(data.phones?.[0]?.number || "");
+  const [phoneCountryCode, setPhoneCountryCode] = useState("+49");
+  const [whatsappConsent, setWhatsappConsent] = useState<"yes" | "no" | "">(
+    data.whatsappConsent === null ? "" : data.whatsappConsent ? "yes" : "no"
+  );
+  const [whatsappNumber, setWhatsappNumber] = useState(data.whatsappNumber || "");
+  const [countryCode, setCountryCode] = useState("+49");
+  const [interpreterNeeded, setInterpreterNeeded] = useState<"yes" | "no" | "">(
+    data.needsInterpreter ?? ""
+  );
+  const [primaryLanguage, setPrimaryLanguage] = useState(data.primaryLanguage || "");
   const [legalSex, setLegalSex] = useState<LegalSexType>(data.legalSex);
-  const [country, setCountry] = useState(data.country || '');
-  const [streetAddress, setStreetAddress] = useState(data.streetAddress || '');
-  const [city, setCity] = useState(data.city || '');
-  const [stateProvince, setStateProvince] = useState(data.state || '');
-  const [postalCode, setPostalCode] = useState(data.zipCode || '');
+  const [country, setCountry] = useState(data.country || "");
+  const [streetAddress, setStreetAddress] = useState(data.streetAddress || "");
+  const [city, setCity] = useState(data.city || "");
+  const [stateProvince, setStateProvince] = useState(data.state || "");
+  const [postalCode, setPostalCode] = useState(data.zipCode || "");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -92,71 +98,94 @@ export function OutsideEuPatientForm() {
 
   const handleFormNext = () => {
     if (firstName && lastName) {
-      setStep('contact');
+      updateData({ firstName, middleName, lastName, suffix });
+      setStep("contact");
     }
   };
 
   const handleContactNext = () => {
     if (email && phone) {
-      setStep('whatsapp');
+      updateData({
+        email,
+        phones: [{ number: `${phoneCountryCode}${phone}`, type: "mobile" }],
+      });
+      setStep("whatsapp");
     }
   };
 
   const handleWhatsappNext = () => {
-    if (whatsappConsent === 'yes') {
-      setStep('whatsapp-number');
-    } else if (whatsappConsent === 'no') {
-      setStep('interpreter');
+    updateData({ whatsappConsent: whatsappConsent === "" ? null : whatsappConsent === "yes" });
+
+    if (whatsappConsent === "yes") {
+      setStep("whatsapp-number");
+    } else if (whatsappConsent === "no") {
+      setStep("interpreter");
     }
   };
 
   const handleWhatsappNumberNext = () => {
-    setStep('interpreter');
+    updateData({ whatsappNumber: `${countryCode}${whatsappNumber}` });
+    setStep("interpreter");
   };
 
   const handleInterpreterNext = () => {
-    if (interpreterNeeded === 'yes') {
-      setStep('primary-language');
-    } else if (interpreterNeeded === 'no') {
-      setStep('legal-sex');
+    updateData({ needsInterpreter: interpreterNeeded === "" ? null : interpreterNeeded });
+
+    if (interpreterNeeded === "yes") {
+      setStep("primary-language");
+    } else if (interpreterNeeded === "no") {
+      setStep("legal-sex");
     }
   };
 
   const handlePrimaryLanguageNext = () => {
     if (primaryLanguage) {
-      setStep('legal-sex');
+      updateData({ primaryLanguage });
+      setStep("legal-sex");
     }
   };
 
   const handleLegalSexNext = () => {
     if (legalSex) {
-      setStep('address');
+      updateData({ legalSex });
+      setStep("address");
     }
   };
 
   const handleAddressSubmit = async () => {
     setIsSubmitting(true);
 
-    updateData({
+    const nextData: WizardData = {
+      ...data,
       firstName,
       middleName,
       lastName,
       suffix,
       email,
-      phones: [{ number: `${phoneCountryCode}${phone}`, type: 'mobile' }],
-      whatsappConsent: whatsappConsent === 'yes',
-      whatsappNumber: whatsappConsent === 'yes' ? `${countryCode}${whatsappNumber}` : '',
-      needsInterpreter: interpreterNeeded === 'yes' ? 'yes' : 'no',
-      primaryLanguage: interpreterNeeded === 'yes' ? primaryLanguage : '',
+      phones: [{ number: `${phoneCountryCode}${phone}`, type: "mobile" as const }],
+      whatsappConsent: whatsappConsent === "yes",
+      whatsappNumber: whatsappConsent === "yes" ? `${countryCode}${whatsappNumber}` : "",
+      needsInterpreter: interpreterNeeded === "yes" ? "yes" : "no",
+      primaryLanguage: interpreterNeeded === "yes" ? primaryLanguage : "",
       legalSex,
       country,
       streetAddress,
       city,
       state: stateProvince,
       zipCode: postalCode,
-    });
+    };
+
+    updateData(nextData);
 
     await new Promise(resolve => setTimeout(resolve, 1000));
+
+    const bundle = buildSalesforceBundle(nextData, {
+      flow: "outside-eu",
+      locale,
+    });
+
+    downloadSalesforceBundle(bundle);
+    resetData();
 
     setIsSubmitting(false);
     setIsSubmitted(true);
@@ -183,6 +212,16 @@ export function OutsideEuPatientForm() {
             type="button"
           >
             {t('patientInfo.backToHome')}
+          </button>
+          <button
+            onClick={() => {
+              resetData();
+              router.push("/apply");
+            }}
+            className={formStyles.submitButton}
+            type="button"
+          >
+            {t("patientInfo.startOver")}
           </button>
         </motion.div>
       </WizardStepLayout>

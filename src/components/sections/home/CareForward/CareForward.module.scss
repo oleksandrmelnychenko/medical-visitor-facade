@@ -209,28 +209,72 @@
 .flowCard {
   --tone: #9bb5cc;
   position: relative;
-  border: 1px dashed rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.03);
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.025) 18%, rgba(18, 21, 31, 0.82) 100%),
+    linear-gradient(160deg, color-mix(in srgb, var(--tone) 8%, rgba(255, 255, 255, 0.025)) 0%, rgba(255, 255, 255, 0.018) 48%, rgba(15, 18, 27, 0.92) 100%);
   border-radius: 1rem;
   padding: 1.5rem 1.25rem;
   text-align: center;
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.22),
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 -14px 22px rgba(4, 7, 14, 0.24) inset;
   transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--tone) 54%, white) 18%, color-mix(in srgb, var(--tone) 34%, white) 82%, transparent 100%);
+    opacity: 0.55;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -20% auto auto -10%;
+    width: 76%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--tone) 16%, transparent) 0%, transparent 68%);
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: -1;
+  }
+
   &:hover {
-    border-color: color-mix(in srgb, var(--tone) 30%, rgba(255, 255, 255, 0.2));
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 40px color-mix(in srgb, var(--tone) 12%, transparent);
-    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--tone) 30%, rgba(255, 255, 255, 0.16));
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.035) 18%, rgba(14, 17, 26, 0.88) 100%),
+      linear-gradient(160deg, color-mix(in srgb, var(--tone) 12%, rgba(255, 255, 255, 0.03)) 0%, rgba(255, 255, 255, 0.022) 48%, rgba(13, 16, 24, 0.95) 100%);
+    box-shadow:
+      0 16px 32px rgba(0, 0, 0, 0.25),
+      0 1px 0 rgba(255, 255, 255, 0.1) inset,
+      0 -14px 22px rgba(4, 7, 14, 0.26) inset,
+      0 0 28px color-mix(in srgb, var(--tone) 10%, transparent);
+    transform: translateY(-2px);
   }
 }
 
 .stepNumber {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.1rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--tone) 18%, rgba(255, 255, 255, 0.1));
+  background: color-mix(in srgb, var(--tone) 8%, rgba(255, 255, 255, 0.03));
   font-size: 0.68rem;
   font-weight: 600;
-  color: color-mix(in srgb, var(--tone) 80%, #aaa);
+  color: color-mix(in srgb, var(--tone) 72%, #cacad5);
   letter-spacing: 0.08em;
   margin-bottom: 1rem;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
 }
 
 .cardIcon {
@@ -268,7 +312,7 @@
   font-size: 0.92rem;
   font-weight: 650;
   letter-spacing: 0.01em;
-  color: #f0f0f4;
+  color: #f2f2f7;
   line-height: 1.32;
 }
 
@@ -276,7 +320,7 @@
   margin: 0;
   font-size: 0.88rem;
   font-weight: 500;
-  color: #d0d0d8;
+  color: #d6d6df;
   line-height: 1.5;
 }
 

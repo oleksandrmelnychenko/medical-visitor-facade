@@ -460,7 +460,8 @@
         "submitting": "Submitting...",
         "successTitle": "Thank you!",
         "successMessage": "Your application has been submitted. Our team will contact you shortly.",
-        "backToHome": "Back to Home"
+        "backToHome": "Back to Home",
+        "startOver": "Start over"
       },
       "optional": "Optional",
       "yes": "Yes",

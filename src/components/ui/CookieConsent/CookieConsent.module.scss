@@ -59,6 +59,11 @@
     color: #1a1a1a;
   }
 
+  &:focus-visible {
+    outline: 2px solid rgba(26, 26, 26, 0.25);
+    outline-offset: 2px;
+  }
+
   @media (min-width: 768px) {
     display: none;
   }
@@ -95,6 +100,11 @@
   &:hover {
     text-decoration: none;
   }
+
+  &:focus-visible {
+    outline: 2px solid rgba(26, 26, 26, 0.25);
+    outline-offset: 2px;
+  }
 }
 
 .actions {
@@ -112,8 +122,13 @@
   letter-spacing: -0.02em;
   border-radius: 0;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   white-space: nowrap;
+
+  &:focus-visible {
+    outline: 2px solid rgba(26, 26, 26, 0.25);
+    outline-offset: 2px;
+  }
 }
 
 .acceptButton {

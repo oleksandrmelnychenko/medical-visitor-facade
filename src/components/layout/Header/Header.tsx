@@ -1,36 +1,30 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import { User, UserPlus, LogOut, Menu, X, ArrowRight } from "lucide-react";
+import { UserPlus, Menu, X, ArrowRight } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
-import { useSession, signOut } from "next-auth/react";
 import { cn } from "@/lib/utils";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import styles from "./Header.module.scss";
 
 export function Header() {
-  const tCommon = useTranslations('common');
-  const tAdmin = useTranslations('admin');
-  const tFooter = useTranslations('footer');
-  const tAccount = useTranslations('account');
+  const tCommon = useTranslations("common");
+  const tFooter = useTranslations("footer");
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const { data: session, status } = useSession();
+  const searchParams = useSearchParams();
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
-  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
   const langRef = useRef<HTMLDivElement>(null);
   const stickyLangRef = useRef<HTMLDivElement>(null);
-  const userMenuRef = useRef<HTMLDivElement>(null);
 
-  // Combined event listeners for better performance
   useEffect(() => {
-    // Scroll detection with RAF throttling
     let ticking = false;
     const handleScroll = () => {
       if (!ticking) {
@@ -42,16 +36,12 @@ export function Header() {
       }
     };
 
-    // Click outside detection for dropdowns
     const handleClickOutside = (event: MouseEvent) => {
       const clickedOutsideDesktopLang = langRef.current && !langRef.current.contains(event.target as Node);
       const clickedOutsideStickyLang = stickyLangRef.current && !stickyLangRef.current.contains(event.target as Node);
 
       if (clickedOutsideDesktopLang && clickedOutsideStickyLang) {
         setIsLangOpen(false);
-      }
-      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
-        setIsUserMenuOpen(false);
       }
     };
 
@@ -95,41 +85,25 @@ export function Header() {
     [languages, locale]
   );
 
-  const isHomePath = pathname === "/";
+  const currentPathWithSearch = searchParams.size
+    ? `${pathname}?${searchParams.toString()}`
+    : pathname;
 
   const handleLanguageSelect = (code: 'de' | 'en' | 'ru' | 'es') => {
-    router.replace(pathname, { locale: code });
+    router.replace(currentPathWithSearch, { locale: code });
     setIsLangOpen(false);
   };
 
-  const handleLogout = async () => {
-    setIsUserMenuOpen(false);
-    await signOut({ callbackUrl: "/" });
-  };
-
-  const userName = session?.user?.name ||
-    ((session?.user as { firstName?: string; lastName?: string })?.firstName &&
-     (session?.user as { firstName?: string; lastName?: string })?.lastName
-      ? `${(session?.user as { firstName?: string })?.firstName} ${(session?.user as { lastName?: string })?.lastName}`
-      : null) ||
-    session?.user?.email?.split('@')[0] ||
-    'User';
-  const userEmail = session?.user?.email;
-  const userPhone = (session?.user as { phone?: string })?.phone;
-  const isAdmin = (session?.user as { role?: string })?.role === "admin";
-
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
-  // Close mobile menu on language select
   const handleMobileLanguageSelect = (code: 'de' | 'en' | 'ru' | 'es') => {
-    router.replace(pathname, { locale: code });
+    router.replace(currentPathWithSearch, { locale: code });
     setIsLangOpen(false);
     closeMobileMenu();
   };
 
   return (
     <>
-      {/* Sticky Header - appears on scroll */}
       <div className={cn(styles.stickyHeader, isScrolled && styles.visible, isMobileMenuOpen && styles.noShadow)}>
         <div className={styles.stickyContainer}>
           <Link href="/" className={styles.stickyLogoLink}>
@@ -161,18 +135,6 @@ export function Header() {
               {tCommon('requestAppointment')}
               <ArrowRight size={16} />
             </Link>
-            {status !== "authenticated" && (
-              <Link href="/login" className={styles.stickyLoginLink}>
-                <User size={18} aria-hidden="true" />
-                {tCommon('login')}
-              </Link>
-            )}
-            {status === "authenticated" && (
-              <Link href="/account" className={styles.stickyLoginLink}>
-                <User size={18} aria-hidden="true" />
-                {userName}
-              </Link>
-            )}
             <div className={styles.languageSelector} ref={stickyLangRef}>
               <button
                 className={styles.stickyLangToggle}
@@ -202,13 +164,10 @@ export function Header() {
         </div>
       </div>
 
-      {/* Main Header — single row: [left] [logo] [right] */}
       <header ref={headerRef} className={styles.header} style={{ position: 'relative' }}>
         <div className={styles.headerRow}>
-          {/* Left: empty for grid balance */}
           <div className={styles.headerLeft} />
 
-          {/* Center: logo + tagline */}
           <Link href="/" className={styles.logoLink}>
             <Image
               src="/assets/logo.png"
@@ -221,41 +180,7 @@ export function Header() {
             <span className={styles.logoTagline}>{tFooter.rich('companyName', { accent: (chunks) => <span className={styles.logoAccent}>{chunks}</span> })}</span>
           </Link>
 
-          {/* Right: actions + lang */}
           <div className={styles.headerRight}>
-            {status === "authenticated" && (
-              <div className={styles.userMenu} ref={userMenuRef}>
-                <button
-                  className={styles.userMenuToggle}
-                  onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                  aria-label={tCommon('userMenu')}
-                  aria-expanded={isUserMenuOpen}
-                >
-                  <User size={16} aria-hidden="true" />
-                  {userName}
-                </button>
-                {isUserMenuOpen && (
-                  <div className={styles.userMenuDropdown}>
-                    {isAdmin ? (
-                      <Link href="/admin" className={styles.userMenuLink} onClick={() => setIsUserMenuOpen(false)}>
-                        {tAdmin("adminPanel")}
-                      </Link>
-                    ) : (
-                      <Link href="/account" className={styles.userMenuLink} onClick={() => setIsUserMenuOpen(false)}>
-                        {tAccount("tabs.account")}
-                      </Link>
-                    )}
-                    {userPhone && <div className={styles.userMenuInfo}>{userPhone}</div>}
-                    {userEmail && <div className={styles.userMenuInfo}>{userEmail}</div>}
-                    <div className={styles.userMenuSeparator} />
-                    <button onClick={handleLogout} className={styles.userMenuLogout}>
-                      <LogOut size={16} aria-hidden="true" />
-                      {tAdmin("logout")}
-                    </button>
-                  </div>
-                )}
-              </div>
-            )}
             <div className={styles.languageSelector} ref={langRef}>
               <button
                 className={styles.langToggle}
@@ -283,7 +208,6 @@ export function Header() {
             </div>
           </div>
 
-          {/* Mobile: hamburger */}
           <button
             className={styles.mobileMenuButton}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -293,15 +217,12 @@ export function Header() {
           </button>
         </div>
 
-      {/* Mobile Dropdown Menu - appears below hamburger */}
-      {/* Invisible backdrop to close menu on outside click */}
       <div
         className={cn(styles.mobileMenuBackdrop, isMobileMenuOpen && styles.mobileMenuBackdropOpen)}
         onClick={closeMobileMenu}
         aria-hidden="true"
       />
 
-      {/* Dropdown panel */}
       <div
         className={cn(
           styles.mobileMenu,
@@ -309,88 +230,44 @@ export function Header() {
           isScrolled && styles.mobileMenuWithSticky
         )}
       >
-            <div style={{ padding: '2rem 1.5rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center', textAlign: 'center' }}>
-              {status !== "authenticated" && (
-                <Link
-                  href="/login"
-                  onClick={closeMobileMenu}
-                  style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem', fontWeight: 500, padding: '0.5rem 0', textDecoration: 'none', color: '#2d2d32' }}
-                >
-                  <User size={20} />
-                  {tCommon('login')}
-                </Link>
-              )}
-
-              {status === "authenticated" && (
-                <Link
-                  href="/account"
-                  onClick={closeMobileMenu}
-                  style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1rem', fontWeight: 500, padding: '0.5rem 0', textDecoration: 'none', color: '#2d2d32' }}
-                >
-                  <User size={20} />
-                  <span>{userName}</span>
-                </Link>
-              )}
-
-              <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
-                {languages.map((language) => (
-                  <button
-                    key={language.code}
-                    onClick={() => handleMobileLanguageSelect(language.code)}
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      padding: '0.5rem',
-                      fontSize: '1rem',
-                      fontWeight: locale === language.code ? 600 : 400,
-                      color: '#1a1a1a',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    {language.label}
-                  </button>
-                ))}
-              </div>
-
-              <Link
-                href="/apply"
-                onClick={closeMobileMenu}
-                className={styles.mobileApplyButton}
+        <div style={{ padding: "2rem 1.5rem", display: "flex", flexDirection: "column", gap: "1.5rem", alignItems: "center", textAlign: "center" }}>
+          <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center" }}>
+            {languages.map((language) => (
+              <button
+                key={language.code}
+                onClick={() => handleMobileLanguageSelect(language.code)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  padding: "0.5rem",
+                  fontSize: "1rem",
+                  fontWeight: locale === language.code ? 600 : 400,
+                  color: "#1a1a1a",
+                  cursor: "pointer"
+                }}
               >
-                <UserPlus size={16} />
-                {tCommon('requestAppointment')}
-              </Link>
-
-              {/* Footer links */}
-              <div className={styles.mobileFooterLinks}>
-                <div className={styles.mobileFooterTitle}>{tFooter("theAgency")}</div>
-                <Link href="/financial-assistance" onClick={closeMobileMenu} className={styles.mobileFooterLink}>{tFooter('financialAssistance')}</Link>
-                <Link href="/privacy-policy" onClick={closeMobileMenu} className={styles.mobileFooterLink}>{tFooter('privacyPolicy')}</Link>
-                <Link href="/legal-notice" onClick={closeMobileMenu} className={styles.mobileFooterLink}>{tFooter('impressum')}</Link>
-              </div>
-
-              {status === "authenticated" && (
-                <button
-                  onClick={handleLogout}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.5rem',
-                    background: 'none',
-                    border: '1px solid rgba(0,0,0,0.1)',
-                    borderRadius: '0.5rem',
-                    padding: '0.75rem 1rem',
-                    fontSize: '0.875rem',
-                    cursor: 'pointer'
-                  }}
-                >
-                  <LogOut size={18} />
-                  {tAdmin("logout")}
-                </button>
-              )}
-            </div>
+                {language.label}
+              </button>
+            ))}
           </div>
+
+          <Link
+            href="/apply"
+            onClick={closeMobileMenu}
+            className={styles.mobileApplyButton}
+          >
+            <UserPlus size={16} />
+            {tCommon('requestAppointment')}
+          </Link>
+
+          <div className={styles.mobileFooterLinks}>
+            <div className={styles.mobileFooterTitle}>{tFooter("theAgency")}</div>
+            <Link href="/financial-assistance" onClick={closeMobileMenu} className={styles.mobileFooterLink}>{tFooter('financialAssistance')}</Link>
+            <Link href="/privacy-policy" onClick={closeMobileMenu} className={styles.mobileFooterLink}>{tFooter('privacyPolicy')}</Link>
+            <Link href="/legal-notice" onClick={closeMobileMenu} className={styles.mobileFooterLink}>{tFooter('impressum')}</Link>
+          </div>
+        </div>
+      </div>
       </header>
     </>
   );

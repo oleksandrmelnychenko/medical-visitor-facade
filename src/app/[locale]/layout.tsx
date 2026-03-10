@@ -1,13 +1,11 @@
-import { NextIntlClientProvider, hasLocale } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import { MobileLoginFab } from '@/components/layout/MobileLoginFab';
-import { ScrollProgressRail } from '@/components/layout/ScrollProgressRail';
-import { CookieConsent } from '@/components/ui/CookieConsent';
-import { AuthProvider } from '@/providers/AuthProvider';
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { getMessages, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { ScrollProgressRail } from "@/components/layout/ScrollProgressRail";
+import { CookieConsent } from "@/components/ui/CookieConsent";
 
 type Props = {
   children: React.ReactNode;
@@ -21,18 +19,20 @@ export default async function LocaleLayout({ children, params }: Props) {
     notFound();
   }
 
+  setRequestLocale(locale);
   const messages = await getMessages();
 
   return (
-    <AuthProvider>
-      <NextIntlClientProvider locale={locale} messages={messages}>
-        <Header />
-        {children}
-        <Footer />
-        <MobileLoginFab />
-        <ScrollProgressRail />
-        <CookieConsent />
-      </NextIntlClientProvider>
-    </AuthProvider>
+    <NextIntlClientProvider locale={locale} messages={messages}>
+      <Header />
+      {children}
+      <Footer />
+      <ScrollProgressRail />
+      <CookieConsent />
+    </NextIntlClientProvider>
   );
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }

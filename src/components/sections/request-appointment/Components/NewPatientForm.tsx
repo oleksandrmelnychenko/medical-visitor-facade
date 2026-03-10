@@ -4,6 +4,11 @@ import React, { useState, useCallback, useEffect, memo } from 'react';
 import { ChevronRight, ChevronUp, ChevronDown, ArrowLeft } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
+import {
+  readEncryptedJson,
+  removeEncryptedJson,
+  saveEncryptedJson,
+} from '@/lib/client-encryption';
 import pageStyles from '@/styles/page.module.scss';
 import styles from '../RequestAppointment/RequestAppointment.module.scss';
 
@@ -44,18 +49,22 @@ interface WizardData {
 }
 
 const DRAFT_STORAGE_KEY = "gmed.apply.new-patient.draft.v1";
-const SUBMISSIONS_STORAGE_KEY = "gmed.apply.new-patient.submissions.v1";
-
-function getInitialDraft(): { step?: WizardStep; data?: WizardData } | null {
-  if (typeof window === "undefined") return null;
-  try {
-    const rawDraft = localStorage.getItem(DRAFT_STORAGE_KEY);
-    if (!rawDraft) return null;
-    return JSON.parse(rawDraft) as { step?: WizardStep; data?: WizardData };
-  } catch {
-    return null;
-  }
-}
+const INITIAL_WIZARD_DATA: WizardData = {
+  primaryConcern: null,
+  seekingCareDescription: '',
+  location: null,
+  patientRole: null,
+  canTravel: null,
+  hasMedicalRecords: null,
+  hasTravelDocuments: null,
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  dateOfBirth: '',
+  country: '',
+  message: '',
+};
 
 const PROGRESS_STEPS = [
   { key: 'primaryConcern', label: 'Primary Concern' },
@@ -103,42 +112,54 @@ IntroSidebar.displayName = 'IntroSidebar';
 
 export function NewPatientForm() {
   const t = useTranslations('appointment.newPatient');
-  const [step, setStep] = useState<WizardStep>(() => getInitialDraft()?.step || 'primaryConcern');
+  const [step, setStep] = useState<WizardStep>('primaryConcern');
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [data, setData] = useState<WizardData>(
-    () =>
-      getInitialDraft()?.data || {
-        primaryConcern: null,
-        seekingCareDescription: '',
-        location: null,
-        patientRole: null,
-        canTravel: null,
-        hasMedicalRecords: null,
-        hasTravelDocuments: null,
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        dateOfBirth: '',
-        country: '',
-        message: '',
-      }
-  );
+  const [data, setData] = useState<WizardData>(INITIAL_WIZARD_DATA);
+  const [isDraftHydrated, setIsDraftHydrated] = useState(false);
 
   useEffect(() => {
-    try {
-      localStorage.setItem(
-        DRAFT_STORAGE_KEY,
-        JSON.stringify({
-          step,
-          data,
-          updatedAt: new Date().toISOString(),
-        }),
+    let isCancelled = false;
+
+    const loadDraft = async () => {
+      const draft = await readEncryptedJson<{ step?: WizardStep; data?: WizardData }>(
+        DRAFT_STORAGE_KEY
       );
-    } catch {
-      // Ignore storage quota errors
+
+      if (isCancelled) {
+        return;
+      }
+
+      if (draft?.step) {
+        setStep(draft.step);
+      }
+
+      if (draft?.data) {
+        setData({ ...INITIAL_WIZARD_DATA, ...draft.data });
+      }
+
+      setIsDraftHydrated(true);
+    };
+
+    void loadDraft();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isDraftHydrated) {
+      return;
     }
-  }, [step, data]);
+
+    void saveEncryptedJson(DRAFT_STORAGE_KEY, {
+      step,
+      data,
+      updatedAt: new Date().toISOString(),
+    }).catch(() => {
+      // Ignore storage or crypto errors to avoid blocking the questionnaire flow.
+    });
+  }, [data, isDraftHydrated, step]);
 
   // Get translation key suffix based on patient role
   const getRoleSuffix = useCallback(
@@ -682,15 +703,7 @@ export function NewPatientForm() {
         source: "apply-form",
       };
 
-      try {
-        const current = localStorage.getItem(SUBMISSIONS_STORAGE_KEY);
-        const submissions = current ? (JSON.parse(current) as unknown[]) : [];
-        submissions.push(payload);
-        localStorage.setItem(SUBMISSIONS_STORAGE_KEY, JSON.stringify(submissions));
-        localStorage.removeItem(DRAFT_STORAGE_KEY);
-      } catch {
-        // Ignore storage errors; continue to email draft
-      }
+      removeEncryptedJson(DRAFT_STORAGE_KEY);
 
       const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@gmed-health.com";
       const subject = encodeURIComponent("New membership application");

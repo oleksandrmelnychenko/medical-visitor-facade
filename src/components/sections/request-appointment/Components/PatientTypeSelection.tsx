@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState, useCallback, useRef } from 'react';
-import { motion } from 'motion/react';
-import { ChevronRight } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useRouter } from '@/i18n/navigation';
-import styles from '../RequestAppointment/RequestAppointment.module.scss';
-import { PatientType } from '../RequestAppointment';
+import React from "react";
+import { motion } from "motion/react";
+import { ChevronRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+import styles from "../RequestAppointment/RequestAppointment.module.scss";
+import { PatientType } from "../RequestAppointment";
 
 // Static style objects to prevent recreation on each render
 const CARD_STYLES = {
@@ -19,21 +18,7 @@ interface PatientTypeSelectionProps {
 }
 
 export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
-  const t = useTranslations('appointment');
-  const router = useRouter();
-  const [isExiting, setIsExiting] = useState(false);
-  const isNavigatingRef = useRef(false);
-
-  const handleNavigate = useCallback((path: string) => {
-    // Prevent double-clicks
-    if (isNavigatingRef.current || isExiting) return;
-    isNavigatingRef.current = true;
-
-    setIsExiting(true);
-    setTimeout(() => {
-      router.push(path);
-    }, 300);
-  }, [router, isExiting]);
+  const t = useTranslations("appointment");
 
   return (
     <div className={styles.applyStack}>
@@ -41,44 +26,41 @@ export function PatientTypeSelection({ onSelect }: PatientTypeSelectionProps) {
         key="selection"
         className={styles.clientCardsGrid}
         initial={{ opacity: 0, y: 20 }}
-        animate={isExiting ? { opacity: 0, y: -20 } : { opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.3 }}
       >
-        {/* New Client Card - redirects to register */}
         <div
-          onClick={() => handleNavigate('/register')}
+          onClick={() => onSelect("new")}
           className={styles.clientCard}
           style={CARD_STYLES.new}
         >
           <div className={styles.clientCardContent}>
             <h3 className={styles.clientCardTitle}>
-              {t('clientTypes.new.title')}
+              {t("clientTypes.new.title")}
             </h3>
             <p className={styles.clientCardDesc}>
-              {t('clientTypes.new.description')}
+              {t("clientTypes.new.description")}
             </p>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
         </div>
 
-        {/* Returning Client Card - redirects to login */}
         <div
-          onClick={() => handleNavigate('/login')}
+          onClick={() => onSelect("returning")}
           className={styles.clientCard}
           style={CARD_STYLES.returning}
         >
           <div className={styles.clientCardContent}>
             <h3 className={styles.clientCardTitle}>
-              {t('clientTypes.returning.title')}
+              {t("clientTypes.returning.title")}
             </h3>
             <p className={styles.clientCardDesc}>
-              {t('clientTypes.returning.description')}
+              {t("clientTypes.returning.description")}
             </p>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
         </div>
-
       </motion.div>
     </div>
   );

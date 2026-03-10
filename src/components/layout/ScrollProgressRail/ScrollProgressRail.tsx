@@ -14,6 +14,8 @@ export const ScrollProgressRail = memo(function ScrollProgressRail() {
   const [darkMode, setDarkMode] = useState(false);
   const anchorsRef = useRef<Element[]>([]);
   const darkSectionsRef = useRef<Element[]>([]);
+  const anchorCentersRef = useRef<number[]>([]);
+  const darkRangesRef = useRef<Array<{ top: number; bottom: number }>>([]);
   const activeIndexRef = useRef(0);
   const visibleRef = useRef(false);
   const darkModeRef = useRef(false);
@@ -24,12 +26,26 @@ export const ScrollProgressRail = memo(function ScrollProgressRail() {
     darkSectionsRef.current = Array.from(document.querySelectorAll("[data-dark-section]"));
   }, []);
 
+  const refreshMetrics = useCallback(() => {
+    anchorCentersRef.current = anchorsRef.current.map((el) => {
+      const rect = el.getBoundingClientRect();
+      const top = window.scrollY + rect.top;
+      return top + rect.height / 2;
+    });
+
+    darkRangesRef.current = darkSectionsRef.current.map((el) => {
+      const rect = el.getBoundingClientRect();
+      const top = window.scrollY + rect.top;
+      return { top, bottom: top + rect.height };
+    });
+  }, []);
+
   const handleScroll = useCallback(() => {
     const scrollY = window.scrollY;
     const viewportH = window.innerHeight;
     const viewportCenter = scrollY + viewportH * 0.45;
-    const anchors = anchorsRef.current;
-    const darkSections = darkSectionsRef.current;
+    const anchorCenters = anchorCentersRef.current;
+    const darkRanges = darkRangesRef.current;
 
     // Hide rail when at top (Hero section)
     const nextVisible = scrollY > viewportH * 0.3;
@@ -38,7 +54,7 @@ export const ScrollProgressRail = memo(function ScrollProgressRail() {
       setVisible(nextVisible);
     }
 
-    if (anchors.length === 0) {
+    if (anchorCenters.length === 0) {
       if (activeIndexRef.current !== 0) {
         activeIndexRef.current = 0;
         setActiveIndex(0);
@@ -53,10 +69,8 @@ export const ScrollProgressRail = memo(function ScrollProgressRail() {
     let closest = 0;
     let closestDist = Infinity;
 
-    anchors.forEach((el, i) => {
-      const rect = el.getBoundingClientRect();
-      const elCenter = scrollY + rect.top + rect.height / 2;
-      const dist = Math.abs(viewportCenter - elCenter);
+    anchorCenters.forEach((anchorCenter, i) => {
+      const dist = Math.abs(viewportCenter - anchorCenter);
       if (dist < closestDist) {
         closestDist = dist;
         closest = i + 1; // +1 because Hero is index 0
@@ -74,11 +88,12 @@ export const ScrollProgressRail = memo(function ScrollProgressRail() {
     }
 
     // Check if rail overlaps a dark section
-    const railY = viewportH * 0.5;
+    const railY = scrollY + viewportH * 0.5;
     let onDark = false;
-    darkSections.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < railY && rect.bottom > railY) onDark = true;
+    darkRanges.forEach((range) => {
+      if (range.top < railY && range.bottom > railY) {
+        onDark = true;
+      }
     });
     if (onDark !== darkModeRef.current) {
       darkModeRef.current = onDark;
@@ -104,13 +119,16 @@ export const ScrollProgressRail = memo(function ScrollProgressRail() {
 
     const onResize = () => {
       refreshTargets();
+      refreshMetrics();
       onScroll();
     };
 
     refreshTargets();
+    refreshMetrics();
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize, { passive: true });
+    window.addEventListener("load", onResize);
 
     return () => {
       if (frameRef.current !== null) {
@@ -119,8 +137,9 @@ export const ScrollProgressRail = memo(function ScrollProgressRail() {
       }
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
+      window.removeEventListener("load", onResize);
     };
-  }, [handleScroll, pathname, refreshTargets]);
+  }, [handleScroll, pathname, refreshMetrics, refreshTargets]);
 
   if (pathname !== "/") {
     return null;

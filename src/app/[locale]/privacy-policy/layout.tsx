@@ -1,26 +1,48 @@
 import { Metadata } from "next";
-import { getAlternateLanguages } from "@/lib/seo";
+import {
+  getAlternateLanguages,
+  getBreadcrumbItems,
+  getLocalizedMessage,
+  normalizeLanguage,
+} from "@/lib/seo";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
-
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://gmed.agency';
-
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "Learn how GMED Agency collects, uses, and protects your personal data. GDPR compliant privacy policy.",
-  alternates: getAlternateLanguages("/privacy-policy"),
+type PrivacyPolicyLayoutProps = {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 };
 
-export default function PrivacyPolicyLayout({
+export async function generateMetadata({
+  params,
+}: PrivacyPolicyLayoutProps): Promise<Metadata> {
+  const { locale } = await params;
+  const safeLocale = normalizeLanguage(locale);
+  const title = await getLocalizedMessage(safeLocale, "privacyPolicy.title");
+  const description = await getLocalizedMessage(safeLocale, "privacyPolicy.intro2");
+
+  return {
+    title,
+    description,
+    alternates: getAlternateLanguages("/privacy-policy", safeLocale),
+  };
+}
+
+export default async function PrivacyPolicyLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+  params,
+}: PrivacyPolicyLayoutProps) {
+  const { locale } = await params;
+  const safeLocale = normalizeLanguage(locale);
+  const homeLabel = await getLocalizedMessage(safeLocale, "common.home");
+  const pageTitle = await getLocalizedMessage(safeLocale, "privacyPolicy.title");
+
   return (
     <>
-      <BreadcrumbJsonLd items={[
-        { name: "Home", url: `${baseUrl}/de` },
-        { name: "Privacy Policy", url: `${baseUrl}/de/privacy-policy` },
-      ]} />
+      <BreadcrumbJsonLd
+        items={getBreadcrumbItems(safeLocale, [
+          { name: homeLabel, path: "" },
+          { name: pageTitle, path: "/privacy-policy" },
+        ])}
+      />
       {children}
     </>
   );

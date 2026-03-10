@@ -1,14 +1,12 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
 import styles from "./financial-assistance.module.scss";
 
-export default function FinancialAssistancePage() {
-  const t = useTranslations("appointment.freeService");
+export default async function FinancialAssistancePage() {
+  const t = await getTranslations("appointment.freeService");
 
   return (
     <div className={cn(pageStyles.page, styles.page)}>

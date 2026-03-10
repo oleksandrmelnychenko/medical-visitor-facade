@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
+const isDevelopment = process.env.NODE_ENV === "development";
 
 const securityHeaders = [
   {
@@ -24,7 +25,7 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval'", // Next.js requires unsafe-eval in dev
+      `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ""}`,
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' https://flagcdn.com data: blob:",
@@ -37,6 +38,56 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/:locale/register",
+        destination: "/:locale/apply",
+        permanent: false,
+      },
+      {
+        source: "/:locale/register/:path*",
+        destination: "/:locale/apply",
+        permanent: false,
+      },
+      {
+        source: "/:locale/login",
+        destination: "/:locale/apply",
+        permanent: false,
+      },
+      {
+        source: "/:locale/account",
+        destination: "/:locale/apply",
+        permanent: false,
+      },
+      {
+        source: "/:locale/forgot-password",
+        destination: "/:locale/apply",
+        permanent: false,
+      },
+      {
+        source: "/:locale/admin/:path*",
+        destination: "/:locale/apply",
+        permanent: false,
+      },
+      {
+        source: "/:locale/admin",
+        destination: "/:locale/apply",
+        permanent: false,
+      },
+      {
+        source: "/:locale/dashboard/:path*",
+        destination: "/:locale/apply",
+        permanent: false,
+      },
+      {
+        source: "/:locale/dashboard",
+        destination: "/:locale/apply",
+        permanent: false,
+      },
+    ];
+  },
+
   // Security headers
   async headers() {
     return [

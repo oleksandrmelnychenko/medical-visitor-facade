@@ -1,13 +1,15 @@
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://gmed.agency";
+
 export function OrganizationJsonLd() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
-    "@id": "https://gmed.agency/#organization",
+    "@id": `${baseUrl}/#organization`,
     name: "GMED Agency",
     description: "Premium medical concierge service in Germany. Treatment organization, clinic selection, and end-to-end patient support.",
-    url: "https://gmed.agency",
-    logo: "https://gmed.agency/assets/logo.png",
-    image: "https://gmed.agency/opengraph-image",
+    url: baseUrl,
+    logo: `${baseUrl}/assets/logo.png`,
+    image: `${baseUrl}/opengraph-image`,
     email: "contact@gmed-health.com",
     address: {
       "@type": "PostalAddress",
@@ -56,12 +58,12 @@ export function WebsiteJsonLd() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://gmed.agency/#website",
-    url: "https://gmed.agency",
+    "@id": `${baseUrl}/#website`,
+    url: baseUrl,
     name: "GMED Agency",
     description: "Premium medical concierge service in Germany",
     publisher: {
-      "@id": "https://gmed.agency/#organization",
+      "@id": `${baseUrl}/#organization`,
     },
     inLanguage: ["de", "en", "ru", "es"],
   };

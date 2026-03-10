@@ -1,14 +1,12 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
 import styles from "./privacy-policy.module.scss";
 
-export default function PrivacyPolicyPage() {
-  const t = useTranslations("privacyPolicy");
+export default async function PrivacyPolicyPage() {
+  const t = await getTranslations("privacyPolicy");
 
   return (
     <div className={cn(pageStyles.page, styles.page)}>

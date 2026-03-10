@@ -1,11 +1,9 @@
-"use client";
-
 import { Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import pageStyles from "@/styles/page.module.scss";
 
-export default function NotFound() {
-  const t = useTranslations("notFound");
+export default async function NotFound() {
+  const t = await getTranslations("notFound");
 
   return (
     <main

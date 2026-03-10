@@ -1,6 +1,5 @@
 import { config } from "dotenv";
 import pg from "pg";
-import bcrypt from "bcryptjs";
 
 config({ path: ".env.local" });
 config({ path: ".env" });
@@ -90,18 +89,6 @@ async function main() {
       );
     }
     console.log("✅ Travel abilities seeded");
-
-    // SUPER ADMIN USER
-    const adminPassword = await bcrypt.hash("Admin123!", 12);
-    const adminId = cuid();
-
-    await client.query(
-      `INSERT INTO "User" (id, email, phone, password, "firstName", "lastName", role, "emailVerified", "phoneVerified", "isActive", "createdAt", "updatedAt")
-       VALUES ($1, $2, $3, $4, $5, $6, 'ADMIN', NOW(), NOW(), true, NOW(), NOW())
-       ON CONFLICT (email) DO UPDATE SET password = $4, role = 'ADMIN', "updatedAt" = NOW()`,
-      [adminId, "admin@gmed.de", "+4917612345678", adminPassword, "Super", "Admin"]
-    );
-    console.log("✅ Super Admin created: admin@gmed.de");
 
     console.log("🎉 Database seeding completed!");
   } finally {

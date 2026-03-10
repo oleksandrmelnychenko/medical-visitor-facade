@@ -33,14 +33,14 @@ export function CookieConsent() {
   if (!isVisible) return null;
 
   return (
-    <div className={styles.cookieBanner}>
+    <div className={styles.cookieBanner} aria-live="polite">
       <div className={styles.container}>
         <button
           className={styles.closeButton}
           onClick={declineCookies}
-          aria-label="Close"
+          aria-label={t("decline")}
         >
-          <X size={18} />
+          <X size={18} aria-hidden="true" />
         </button>
 
         <div className={styles.content}>

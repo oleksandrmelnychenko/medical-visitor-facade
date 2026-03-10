@@ -462,7 +462,8 @@
         "submitting": "Wird gesendet...",
         "successTitle": "Vielen Dank!",
         "successMessage": "Ihr Antrag wurde eingereicht. Unser Team wird sich in Kürze bei Ihnen melden.",
-        "backToHome": "Zurück zur Startseite"
+        "backToHome": "Zurück zur Startseite",
+        "startOver": "Neu beginnen"
       },
       "optional": "Optional",
       "yes": "Ja",

@@ -462,7 +462,8 @@
         "submitting": "Enviando...",
         "successTitle": "¡Gracias!",
         "successMessage": "Su solicitud ha sido enviada. Nuestro equipo se pondrá en contacto con usted pronto.",
-        "backToHome": "Volver al inicio"
+        "backToHome": "Volver al inicio",
+        "startOver": "Empezar de nuevo"
       },
       "optional": "Opcional",
       "yes": "Sí",
