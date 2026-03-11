@@ -1,7 +1,4 @@
-"use client";
-
-import { memo, type CSSProperties } from "react";
-import { motion } from "motion/react";
+import type { CSSProperties } from "react";
 import { useTranslations } from "next-intl";
 import {
   Building2,
@@ -28,7 +25,7 @@ const SUPPORT_ITEMS = [
   { icon: Video, key: "consultations" },
 ];
 
-export const CareForward = memo(function CareForward() {
+export function CareForward() {
   const t = useTranslations("home.careForward");
   const tCta = useTranslations("home.cta");
 
@@ -36,28 +33,20 @@ export const CareForward = memo(function CareForward() {
     <section className={styles.section} data-dark-section>
       <span className={styles.topSeam} aria-hidden />
       <div className={sectionStyles.container}>
-        <motion.div
+        <div
           className={styles.shell}
           data-snap-anchor
           data-snap-shift="24"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
         >
           <div className={styles.header}>
             <h2 className={styles.title}>{t("title")}</h2>
           </div>
           <div className={styles.flowGrid}>
             {STEPS.map((step, index) => (
-              <motion.div
+              <div
                 key={step.key}
                 className={styles.flowCard}
                 style={{ "--tone": step.tone } as CSSProperties}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.1 }}
               >
                 <div className={styles.cardTop}>
                   <span className={styles.stepNumber}>
@@ -71,17 +60,11 @@ export const CareForward = memo(function CareForward() {
                   <h3 className={styles.cardTitle}>{t(`services.${step.key}.title`)}</h3>
                   <p className={styles.cardDesc}>{t(`services.${step.key}.desc`)}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
-          <motion.div
-            className={styles.supportStrip}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, delay: 0.4 }}
-          >
+          <div className={styles.supportStrip}>
             {SUPPORT_ITEMS.map((item) => (
               <div key={item.key} className={styles.supportItem}>
                 <div className={styles.supportItemIcon}>
@@ -97,9 +80,9 @@ export const CareForward = memo(function CareForward() {
                 </div>
               </div>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
-});
+}

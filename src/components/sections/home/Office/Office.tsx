@@ -1,15 +1,12 @@
-"use client";
-
-import { memo, useRef } from "react";
-import Image from "next/image";
-import { useInView } from "motion/react";
+import type { CSSProperties } from "react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
+import { OfficeCitiesGrid } from "./OfficeCitiesGrid";
 import styles from "./Office.module.scss";
 
 // Static styles moved outside component to prevent recreation on each render
-const MUNICH_STYLE = {
+const MUNICH_STYLE: CSSProperties = {
   backgroundColor: "color-mix(in srgb, var(--tone-sand) 6%, #fff)",
   borderColor: "color-mix(in srgb, var(--tone-sand) 25%, var(--border-card))",
 };
@@ -17,6 +14,7 @@ const OTHER_CITIES = [
   {
     key: "berlin",
     image: "/assets/1_city-berlin.png",
+    delayMs: 200,
     style: {
       backgroundColor: "color-mix(in srgb, var(--tone-blue) 6%, #fff)",
       borderColor: "color-mix(in srgb, var(--tone-blue) 25%, var(--border-card))",
@@ -25,6 +23,7 @@ const OTHER_CITIES = [
   {
     key: "hamburg",
     image: "/assets/1_city-hamburg.png",
+    delayMs: 400,
     style: {
       backgroundColor: "color-mix(in srgb, var(--tone-sand) 8%, #fff)",
       borderColor: "color-mix(in srgb, var(--tone-sand) 25%, var(--border-card))",
@@ -33,6 +32,7 @@ const OTHER_CITIES = [
   {
     key: "cologne",
     image: "/assets/1_city-cologne.png",
+    delayMs: 600,
     style: {
       backgroundColor: "color-mix(in srgb, var(--tone-lavender) 6%, #fff)",
       borderColor: "color-mix(in srgb, var(--tone-lavender) 25%, var(--border-card))",
@@ -40,10 +40,8 @@ const OTHER_CITIES = [
   },
 ];
 
-export const Office = memo(function Office() {
+export function Office() {
   const t = useTranslations("home.office");
-  const gridRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(gridRef, { once: true, margin: "-50px" });
   const overline = t("overline");
   const subtitle = t("subtitle");
 
@@ -57,43 +55,16 @@ export const Office = memo(function Office() {
         </div>
 
         <div className={styles.stage}>
-          <div className={styles.citiesGrid} ref={gridRef}>
-            <div className={styles.mainCity} style={MUNICH_STYLE}>
-              <div className={styles.mainCityContent}>
-                <h3 className={styles.mainCityName}>{t("cities.munich.name")}</h3>
-              </div>
-              <div className={styles.mainCityImageWrapper}>
-                <Image
-                  src="/assets/1_city-munich.png"
-                  alt={t("cities.munich.name")}
-                  width={400}
-                  height={300}
-                  sizes="(max-width: 767px) 40vw, 50vw"
-                  className={styles.cityImageMunich}
-                  priority={false}
-                />
-              </div>
-            </div>
-
-            {OTHER_CITIES.map((city, index) => (
-              <div key={city.key} className={styles.cityCard} style={city.style}>
-                <div className={styles.cityImageWrapper}>
-                  <Image
-                    src={city.image}
-                    alt={t(`cities.${city.key}.name`)}
-                    width={300}
-                    height={220}
-                    sizes="(max-width: 767px) 45vw, 25vw"
-                    className={cn(styles.cityImage, styles.brushPaint, isInView && styles.brushPaintActive)}
-                    style={{ animationDelay: `${0.2 + index * 0.2}s` }}
-                  />
-                </div>
-                <h3 className={styles.cityName}>{t(`cities.${city.key}.name`)}</h3>
-              </div>
-            ))}
-          </div>
+          <OfficeCitiesGrid
+            mainCityName={t("cities.munich.name")}
+            mainCityStyle={MUNICH_STYLE}
+            cities={OTHER_CITIES.map((city) => ({
+              ...city,
+              name: t(`cities.${city.key}.name`),
+            }))}
+          />
         </div>
       </div>
     </section>
   );
-});
+}

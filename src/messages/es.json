@@ -242,10 +242,10 @@
         "wrapUp": "Completar"
       },
       "progressSteps": {
-        "travelReady": "Preparación para el viaje",
-        "patientInfo": "Información del miembro",
+        "eligibility": "Elegibilidad",
+        "patientInfo": "Info del paciente",
         "primaryConcern": "Motivo principal",
-        "insuranceDetails": "Datos del seguro",
+        "servicesInsurance": "Servicios y seguro",
         "wrapUp": "Finalizar"
       },
       "euProgress": {
@@ -472,7 +472,6 @@
       "optional": "Opcional",
       "yes": "Sí",
       "no": "No",
-      "continue": "Continuar",
       "whatsapp": {
         "question": "¿Le gustaría que nos comuniquemos con usted a través de WhatsApp?",
         "description": "Si es así, le pediremos su código de país y número de WhatsApp en la siguiente página.",
@@ -509,6 +508,198 @@
         "city": "Ciudad o pueblo",
         "state": "Estado/Territorio/Provincia (ingrese cero si no tiene)",
         "postalCode": "Código postal (ingrese cero si no tiene)"
+      },
+      "welcome": {
+        "title": "Empecemos",
+        "subtitle": "Le haremos una serie de preguntas que orientarán su seguimiento con un coordinador de citas.",
+        "continue": "Continuar",
+        "emergency": "Si esto es una emergencia médica, llame al 112 o al 911.",
+        "privacyPolicy": "Leer nuestra política de privacidad"
+      },
+      "memberCheck": {
+        "title": "¿Es usted miembro?",
+        "isMember": "Soy miembro",
+        "notMember": "Aún no soy miembro"
+      },
+      "location3": {
+        "title": "¿Dónde vive usted?",
+        "germany": "Vivo en Alemania",
+        "euNotGermany": "Vivo en la UE (pero no en Alemania)",
+        "outsideEu": "Vivo fuera de la UE"
+      },
+      "becomeMember": {
+        "title": "¿Desea hacerse miembro?",
+        "yes": "Sí, quiero hacerme miembro",
+        "no": "No, solicito para otra persona"
+      },
+      "healthIntro": {
+        "title": "Comencemos con su información de salud",
+        "subtitle": "En esta sección recopilaremos información básica. Estos detalles también nos ayudarán a comenzar la conversación sobre sus necesidades de atención.",
+        "start": "Comenzar"
+      },
+      "healthTreatment": {
+        "title": "¿Está recibiendo algún tratamiento médico actualmente?",
+        "yes": "Sí",
+        "no": "No"
+      },
+      "healthRisk": {
+        "title": "¿Tiene alguna condición de salud que le impida viajar a Alemania o razones para creer que viajar a Alemania pone en riesgo su salud?",
+        "yes": "Sí",
+        "no": "No",
+        "disclaimer": "Usted es el único responsable de su estado de salud durante el viaje y de los posibles riesgos relacionados con el mismo.",
+        "start": "Comenzar"
+      },
+      "sharedPatientName": {
+        "title": "Comencemos con su nombre",
+        "firstName": "Nombre",
+        "middleName": "Segundo nombre (opcional)",
+        "lastName": "Apellido",
+        "suffix": "Sufijo (opcional)"
+      },
+      "sharedDob": {
+        "title": "¡Gracias! ¿Cuál es su fecha de nacimiento?",
+        "placeholder": "DD.MM.YYYY"
+      },
+      "sharedLegalSex": {
+        "title": "Por favor, indíquenos su sexo legal.",
+        "subtitle": "Seleccione la identificación de sexo que aparece en su documento de identidad.",
+        "female": "femenino",
+        "male": "masculino",
+        "diverse": "diverso",
+        "noEntry": "sin indicar"
+      },
+      "sharedPrimaryLanguage": {
+        "title": "¿Cuál es su idioma principal?",
+        "subtitle": "Este es el idioma que usaremos cuando le devolvamos la llamada sobre esta cita.",
+        "placeholder": ""
+      },
+      "sharedInterpreter": {
+        "title": "¿Le gustaría que hubiera un intérprete en sus citas en Alemania?",
+        "yes": "Sí",
+        "no": "No, hablo alemán con fluidez."
+      },
+      "emailConsent": {
+        "title": "¿Le gustaría que nos comunicáramos con usted por correo electrónico?",
+        "yes": "Sí.",
+        "yesDisclaimer": "Entiendo que las comunicaciones por correo electrónico pueden no ser seguras y están sujetas a las políticas de privacidad de su proveedor de correo electrónico.",
+        "no": "No",
+        "emailLabel": "Correo electrónico"
+      },
+      "whatsappConsentNew": {
+        "title": "¿Le gustaría que nos comunicáramos con usted a través de WhatsApp?",
+        "yes": "Sí.",
+        "yesDisclaimer": "Entiendo que las comunicaciones por WhatsApp pueden no ser seguras y están sujetas a las políticas de privacidad de WhatsApp.",
+        "no": "No",
+        "numberTitle": "¿Cuál es su número de WhatsApp?",
+        "noContactWarning": "No podremos contactarle por correo electrónico ni por WhatsApp. Contáctenos a través de la información de contacto disponible en nuestro sitio web. La información de su encuesta se eliminará en 3 días."
+      },
+      "phoneStep": {
+        "title": "Por favor, introduzca su información de contacto.",
+        "phoneNumber": "Número de teléfono",
+        "emailLabel": "Correo electrónico"
+      },
+      "recordsLanguage": {
+        "title": "¿Sus historiales médicos están en alemán o inglés?",
+        "yes": "Sí",
+        "no": "No"
+      },
+      "noContactExit": {
+        "title": "No podremos contactarle por correo electrónico ni por WhatsApp.",
+        "description": "Contáctenos a través de la información de contacto disponible en nuestro sitio web. La información de su encuesta se eliminará en 3 días.",
+        "button": "Volver al inicio"
+      },
+      "concernIntro": {
+        "title": "A continuación, cuéntenos su preocupación principal",
+        "description": "Le pediremos una descripción del problema médico que motiva su solicitud. También tendrá la oportunidad de informarnos sobre otras preocupaciones.",
+        "start": "Comenzar"
+      },
+      "primaryConcernText": {
+        "title": "¿Cuál es su preocupación principal?",
+        "placeholder": "Describa su preocupación médica principal..."
+      },
+      "additionalConcerns": {
+        "title": "Cuéntenos sobre otras preocupaciones adicionales:",
+        "placeholder": "",
+        "optional": "(Opcional)"
+      },
+      "services": {
+        "title": "¿Necesita alguno de los siguientes servicios durante su estancia en Alemania (se pueden seleccionar varias opciones):",
+        "driver": "Conductor personal y servicios de traslado",
+        "concierge": "Servicios de conserjería",
+        "medicalTransport": "Servicios de transporte médico",
+        "airAmbulance": "Ambulancia aérea",
+        "businessAviation": "Aviación de negocios",
+        "none": "No necesito ninguno de los servicios mencionados",
+        "notSure": "No estoy seguro/a",
+        "learnMoreTransfer": "Más información sobre nuestros servicios de traslado",
+        "learnMoreConcierge": "Más información sobre nuestros servicios de conserjería",
+        "learnMoreMedical": "Más información sobre nuestros servicios de transporte médico",
+        "learnMoreAir": "Más información sobre nuestra aviación médica",
+        "learnMoreBusiness": "Más información sobre nuestra aviación de negocios"
+      },
+      "insuranceIntro": {
+        "title": "Ahora nos gustaría preguntarle sobre su seguro",
+        "subtitle": "Si tiene seguro, aquí puede ingresar esa información. Si no tiene seguro, no se preocupe. Responderemos todas sus preguntas en nuestra llamada.",
+        "start": "Comenzar"
+      },
+      "insuranceStep": {
+        "title": "¿Tiene seguro médico?",
+        "yes": "Sí",
+        "no": "No"
+      },
+      "insuranceCoverage": {
+        "title": "¿Su seguro médico cubre sus gastos médicos en Alemania?",
+        "yes": "Sí",
+        "no": "No",
+        "notSure": "No estoy seguro/a"
+      },
+      "wrapUpIntro": {
+        "title": "Finalizamos con unas preguntas más",
+        "subtitle": "Le preguntaremos sobre su ubicación de atención médica preferida y tendrá la oportunidad de informarnos de cualquier otra cosa. Nos pondremos en contacto en un plazo de 3 días hábiles.",
+        "start": "Comenzar"
+      },
+      "preferredLocation": {
+        "title": "¿Tiene algún centro médico de preferencia?",
+        "subtitle": "Si no, no pasa nada. Podemos hablar sobre estas ubicaciones con más detalle más adelante.",
+        "noPreference": "Sin preferencia",
+        "munich": "Múnich",
+        "berlin": "Berlín",
+        "hamburg": "Hamburgo",
+        "cologne": "Colonia"
+      },
+      "visitTiming": {
+        "title": "¿Cuándo puede visitar Alemania?",
+        "learnMore": "Más información sobre qué considerar al planificar una visita.",
+        "asap": "Lo antes posible",
+        "nextFewMonths": "En los próximos meses",
+        "notSure": "No estoy seguro/a",
+        "note": "Antes de su visita, coordinamos con nuestro equipo de médicos para programar las citas adecuadas para su plan de atención. Siempre nos esforzamos por planificar su estancia de la manera más rápida posible, dentro del horario de cada médico. Podremos darle un cronograma más específico una vez que hayamos discutido sus necesidades de atención."
+      },
+      "anythingElse": {
+        "title": "¿Hay algo más que quiera que sepamos?",
+        "subtitle": "Después de este paso, revisará y enviará su solicitud.",
+        "placeholder": "",
+        "optional": "(opcional)"
+      },
+      "reviewStep": {
+        "title": "Por favor, revise su solicitud antes de enviarla.",
+        "consent1": "Acepto que GMED pueda usar un sistema de marcación telefónica automatizada, mensajes de voz pregrabados o sintéticos, mensajes de texto y correo electrónico para contactarme en los números y direcciones de correo electrónico que proporcione.",
+        "consent2": "Entiendo que me pueden contactar en relación con mi atención médica, incluyendo la programación de citas.",
+        "consent3": "Entiendo que cuando me contacten de esta manera, se me dará la oportunidad de optar por no recibir comunicaciones similares en el futuro.",
+        "consent4": "He leído y confirmo haber recibido el Aviso de Prácticas de Privacidad.",
+        "incompleteError": "Complete todos los pasos obligatorios antes de enviar su solicitud.",
+        "submit": "Enviar",
+        "submitting": "Enviando...",
+        "successTitle": "¡Gracias por su solicitud!",
+        "successMessage": "Nos comunicaremos con usted dentro de los 3 días hábiles. Nuestro coordinador de citas se pondrá en contacto para hablar sobre sus necesidades de atención.",
+        "backToHome": "Volver al inicio",
+        "startOver": "Comenzar de nuevo"
+      },
+      "outsideRecordsSubmit": {
+        "title": "¿Puede enviar sus historiales médicos?",
+        "subtitle": "Aceptamos registros en alemán o inglés.",
+        "yes": "Sí",
+        "no": "No"
       }
     },
     "returningPatient": {
@@ -866,70 +1057,90 @@
   },
   "privacyPolicy": {
     "title": "Política de privacidad",
-    "subtitle": "Su privacidad y la seguridad de su información personal de salud son nuestras principales prioridades",
-    "highlights": {
-      "encrypted": {
-        "title": "Datos encriptados",
-        "description": "Toda la información está asegurada con encriptación"
-      },
-      "limitedAccess": {
-        "title": "Acceso limitado",
-        "description": "Solo el personal autorizado puede ver sus registros"
-      },
-      "yourControl": {
-        "title": "Su control",
-        "description": "Usted decide quién puede acceder a su información"
-      }
+    "lastUpdated": "Última actualización: 01.01.2026",
+    "intro1": "Nos tomamos muy en serio la protección de los datos de los usuarios de nuestro sitio web y nos comprometemos a proteger la información que los usuarios nos proporcionan en relación con el uso de nuestro sitio web o servicios.",
+    "intro2": "Esta Política de Privacidad explica nuestras prácticas con respecto a la recopilación, uso y divulgación de sus datos a través del uso de nuestros servicios cuando accede a los servicios a través de sus dispositivos.",
+    "intro3": "Por favor, lea la Política de Privacidad detenidamente y asegúrese de comprender completamente nuestras prácticas con respecto a sus datos antes de utilizar nuestros servicios. Si ha leído y comprendido completamente esta política y no está de acuerdo con nuestro enfoque, debe dejar de utilizar nuestro sitio web y servicios.",
+    "intro4": "La información detallada sobre la protección de datos se puede encontrar en los puntos que se enumeran a continuación.",
+    "dataCollection": {
+      "title": "Recopilación de datos en este sitio web",
+      "text": "A continuación encontrará un resumen de los datos que podemos recopilar:",
+      "item1": "Información no identificada y no identificable recopilada de nuestro sitio web (\"datos no personales\"). Los datos no personales no permiten sacar conclusiones sobre quién los recopiló. Los datos no personales que recopilamos consisten principalmente en información técnica y de uso agregada.",
+      "item2": "Información identificable individualmente, es decir, cualquier información que pueda identificarle o que razonablemente pueda usarse para identificarle (\"datos personales\"). Los datos personales pueden incluir información como nombres, direcciones de correo electrónico, direcciones, números de teléfono, direcciones IP y más.",
+      "text2": "El procesamiento de datos en este sitio web es realizado por el operador del sitio web. Puede encontrar los datos de contacto del operador del sitio web en la sección \"Contacto\" de esta Política de Privacidad."
     },
-    "notice": {
-      "title": "Aviso de prácticas de privacidad",
-      "effectiveDate": "Fecha efectiva: 1 de enero de 2024",
-      "description": "Este aviso describe cómo la información médica sobre usted puede ser utilizada y divulgada y cómo puede obtener acceso a esta información. Por favor, revíselo cuidadosamente."
+    "howWeCollect": {
+      "title": "¿Cómo recopilamos sus datos?",
+      "text1": "Sus datos se recopilan cuando usted nos los proporciona. Estos pueden ser datos que ingresa en un formulario de contacto o nos proporciona por correo electrónico, como hallazgos preliminares necesarios, resultados de laboratorio, datos de imágenes, documentación médica y más. Otros datos se recopilan automáticamente o con su consentimiento cuando visita el sitio web a través de nuestros sistemas de TI.",
+      "text2": "Nos gustaría señalar que la transmisión de datos a través de Internet (por ejemplo, al comunicarse por correo electrónico) puede tener vulnerabilidades de seguridad. La protección completa de los datos contra el acceso de terceros no es posible y no está dentro de nuestra área de responsabilidad."
     },
-    "usage": {
-      "title": "Cómo usamos y divulgamos su información",
-      "treatment": {
-        "title": "Para tratamiento",
-        "description": "Podemos usar su información de salud para proporcionar, coordinar o gestionar su atención médica y servicios relacionados. Esto incluye compartir información con otros proveedores de atención médica involucrados en su atención."
-      },
-      "payment": {
-        "title": "Para pago",
-        "description": "Podemos usar y divulgar su información de salud para obtener el pago por los servicios que le proporcionamos, incluyendo actividades de facturación y cobro."
-      },
-      "operations": {
-        "title": "Para operaciones de atención médica",
-        "description": "Podemos usar su información para mejora de calidad, capacitación y otras operaciones comerciales necesarias para administrar nuestra práctica y asegurar atención de calidad."
-      }
+    "purpose": {
+      "title": "¿Para qué utilizamos sus datos?",
+      "text": "Podemos utilizar sus datos para los siguientes fines:",
+      "item1": "para garantizar la provisión sin errores del sitio web;",
+      "item2": "para desarrollar, adaptar y mejorar nuestros servicios;",
+      "item3": "para responder a sus comentarios, consultas y solicitudes y ofrecer asistencia;",
+      "item4": "para analizar patrones de requisitos y uso;",
+      "item5": "para otros fines internos, estadísticos y de investigación;",
+      "item6": "para mejorar nuestras capacidades de seguridad de datos;",
+      "item7": "para enviarle actualizaciones, noticias y otra información relacionada con nuestros servicios.",
+      "text2": "Solo utilizamos sus datos personales para los fines establecidos en la Política de Privacidad y solo si estamos convencidos de que:",
+      "legal1": "el uso de sus datos personales es necesario para cumplir o celebrar un contrato;",
+      "legal2": "el uso de sus datos personales es necesario para cumplir con las obligaciones legales o reglamentarias correspondientes;",
+      "legal3": "el uso de sus datos personales es necesario para apoyar nuestros intereses comerciales legítimos."
+    },
+    "sharing": {
+      "title": "¿A quién transmitimos estos datos?",
+      "text1": "Podemos compartir sus datos con nuestros proveedores de servicios para operar nuestros servicios, en la medida en que sea apropiado para fines comerciales. Esta es principalmente información no identificable.",
+      "text2": "Podemos reenviar los documentos que nos proporcione, que pueden contener datos personales e información sobre tratamiento médico completado o en curso, a terceros de confianza si es necesario para la prestación de nuestros servicios. Estos incluyen médicos, intérpretes y traductores, expertos, pagadores y otras instalaciones médicas.",
+      "text3": "También podemos divulgar sus datos en las siguientes circunstancias: para establecer o ejercer nuestros derechos de defensa; para proteger nuestros derechos, propiedad y la seguridad de nuestros usuarios o del público; para recopilar, mantener y/o gestionar sus datos a través de proveedores externos autorizados."
     },
     "rights": {
-      "title": "Sus derechos de privacidad",
-      "items": {
-        "restrictions": "Derecho a solicitar restricciones sobre ciertos usos y divulgaciones de su información",
-        "confidential": "Derecho a recibir comunicaciones confidenciales de su información de salud",
-        "inspect": "Derecho a inspeccionar y copiar su información de salud",
-        "amend": "Derecho a enmendar su información de salud",
-        "accounting": "Derecho a recibir un registro de divulgaciones",
-        "copy": "Derecho a obtener una copia en papel de este aviso"
-      }
+      "title": "¿Qué derechos tiene respecto a sus datos?",
+      "text": "Tiene derecho en cualquier momento a recibir información gratuita sobre el origen, los destinatarios y el propósito de sus datos personales almacenados. También tiene derecho a solicitar la corrección o eliminación de estos datos. Si ha dado su consentimiento para el procesamiento de datos, puede revocar este consentimiento en cualquier momento para el futuro. Puede contactarnos en cualquier momento sobre este y otros asuntos relacionados con la protección de datos."
     },
-    "responsibilities": {
-      "title": "Nuestras responsabilidades",
-      "intro": "Estamos obligados por ley a:",
-      "items": {
-        "maintain": "Mantener la privacidad de su información de salud protegida",
-        "provide": "Proporcionarle este aviso de nuestros deberes legales y prácticas de privacidad",
-        "follow": "Seguir los términos del aviso actualmente en vigor",
-        "notify": "Notificarle si no podemos aceptar una restricción solicitada",
-        "breach": "Notificar a las personas afectadas tras una violación de información de salud no asegurada"
-      }
+    "hosting": {
+      "title": "Alojamiento",
+      "text1": "Alojamos el contenido de nuestro sitio web y los datos registrados en el CRM con proveedores de alojamiento en la nube confiables.",
+      "text2": "Nuestros proveedores de alojamiento tienen servidores en todo el mundo, incluidos Europa y EE.UU., así como servidores de respaldo.",
+      "text3": "Los datos personales recopilados en este sitio web y en nuestro CRM se almacenan en los servidores de estos hosts. Esto puede incluir direcciones IP, solicitudes de contacto, datos de meta y comunicación, datos de contacto, nombres, acceso al sitio web y otros datos generados a través de un sitio web.",
+      "text4": "Nuestros hosts solo procesarán sus datos en la medida necesaria para cumplir con sus obligaciones de rendimiento y seguirán nuestras instrucciones con respecto a estos datos."
     },
-    "lastUpdated": "Última actualización: 1 de enero de 2024 | Este aviso es efectivo a partir de esta fecha",
-    "questions": {
-      "title": "¿Preguntas o quejas?",
-      "description": "Si tiene preguntas sobre este aviso o desea presentar una queja sobre nuestras prácticas de privacidad, por favor contacte:",
-      "privacyOfficer": "Oficial de privacidad",
-      "organization": "Gmed Agencia para la atención al miembro",
-      "contact": "Contactar oficial de privacidad"
+    "cookies": {
+      "title": "Cookies",
+      "text1": "Cuando visita o accede a nuestros servicios, autorizamos a terceros a utilizar balizas web, cookies y otras tecnologías y servicios de análisis. Estas tecnologías de seguimiento pueden permitir que terceros recopilen automáticamente sus datos para mejorar la experiencia de navegación en nuestros activos digitales, optimizar su rendimiento y garantizar una experiencia de usuario personalizada.",
+      "text2": "Sin su consentimiento, no compartiremos su dirección de correo electrónico u otros datos personales con empresas de publicidad o redes publicitarias."
+    },
+    "storage": {
+      "title": "¿Dónde almacenamos los datos?",
+      "text1": "Tenga en cuenta que nuestros socios y proveedores de servicios de confianza están ubicados en todo el mundo. Para los fines explicados en esta Política de Privacidad, almacenamos y procesamos todos los datos no personales que recopilamos en diferentes jurisdicciones.",
+      "text2": "Los datos personales pueden mantenerse, procesarse y almacenarse en Estados Unidos, Irlanda, Corea del Sur, Taiwán, Israel y otras jurisdicciones según sea necesario para la prestación adecuada de nuestros servicios y/o según lo requiera la ley."
+    },
+    "retention": {
+      "title": "Duración del almacenamiento",
+      "text": "A menos que se indique un período de almacenamiento más específico en esta Política de Privacidad, sus datos personales permanecerán con nosotros hasta que ya no se aplique el propósito del procesamiento de datos. Si desea que se eliminen sus datos personales, generalmente es suficiente una carta informal por correo electrónico a contact@gmed-health.com."
+    },
+    "security": {
+      "title": "¿Cómo protegemos sus datos?",
+      "text1": "El servicio de alojamiento nos proporciona la plataforma en línea a través de la cual podemos ofrecerle nuestros servicios. Sus datos pueden almacenarse a través del almacenamiento de datos, bases de datos y aplicaciones generales de nuestro proveedor de alojamiento.",
+      "text2": "A pesar de las medidas y esfuerzos tomados por nosotros y nuestro proveedor de alojamiento, no podemos ni garantizaremos la protección y seguridad absolutas de los datos que carga, publica o comparte de otro modo con nosotros u otros.",
+      "text3": "Por esta razón, le pedimos que establezca contraseñas seguras y que, si es posible, no nos transmita a nosotros ni a otros información confidencial cuya divulgación crea que podría causarle un daño significativo o duradero.",
+      "text4": "Si nos envía documentos con información personal o confidencial por correo electrónico o mensajería instantánea, es su responsabilidad."
+    },
+    "minors": {
+      "title": "¿Cómo tratamos a los menores?",
+      "text1": "Los menores pueden utilizar nuestros servicios.",
+      "text2": "Sin embargo, si desean utilizar nuestros servicios, es posible que deban proporcionar cierta información (particularmente los datos de contacto de los padres). La recopilación de algunos datos puede ocurrir automáticamente. Si recopilamos, usamos o divulgamos conscientemente datos recopilados de un menor, lo indicaremos de acuerdo con la ley aplicable y obtendremos el consentimiento de los padres.",
+      "text3": "También podemos usar la información de contacto de un padre para comunicarnos sobre las actividades de un menor en los servicios. Los padres pueden ver los datos que hemos recopilado de su hijo y solicitar que se eliminen de nuestros registros todos los datos que hayamos recopilado.",
+      "text4": "Por favor, contáctenos para ver, actualizar o eliminar los datos de su hijo."
+    },
+    "updates": {
+      "title": "Actualizaciones o cambios en la Política de Privacidad",
+      "text": "Podemos revisar esta Política de Privacidad a nuestra discreción de vez en cuando; la versión publicada en el sitio web siempre es la actual. Le pedimos que revise esta Política de Privacidad regularmente para ver si hay cambios. En caso de cambios materiales, publicaremos un aviso en nuestro sitio web."
+    },
+    "contact": {
+      "title": "Contacto",
+      "text": "Si tiene preguntas generales sobre los servicios o los datos que recopilamos sobre usted y su uso, contáctenos en:"
     }
   },
   "dataSecurity": {
@@ -1349,94 +1560,6 @@
     "serviceHotel": "Reserva de hotel",
     "tableMessages": "Mensajes",
     "chatWith": "Chat con {name}"
-  },
-  "privacyPolicy": {
-    "title": "Política de privacidad",
-    "lastUpdated": "Última actualización: 01.01.2026",
-    "intro1": "Nos tomamos muy en serio la protección de los datos de los usuarios de nuestro sitio web y nos comprometemos a proteger la información que los usuarios nos proporcionan en relación con el uso de nuestro sitio web o servicios.",
-    "intro2": "Esta Política de Privacidad explica nuestras prácticas con respecto a la recopilación, uso y divulgación de sus datos a través del uso de nuestros servicios cuando accede a los servicios a través de sus dispositivos.",
-    "intro3": "Por favor, lea la Política de Privacidad detenidamente y asegúrese de comprender completamente nuestras prácticas con respecto a sus datos antes de utilizar nuestros servicios. Si ha leído y comprendido completamente esta política y no está de acuerdo con nuestro enfoque, debe dejar de utilizar nuestro sitio web y servicios.",
-    "intro4": "La información detallada sobre la protección de datos se puede encontrar en los puntos que se enumeran a continuación.",
-    "dataCollection": {
-      "title": "Recopilación de datos en este sitio web",
-      "text": "A continuación encontrará un resumen de los datos que podemos recopilar:",
-      "item1": "Información no identificada y no identificable recopilada de nuestro sitio web (\"datos no personales\"). Los datos no personales no permiten sacar conclusiones sobre quién los recopiló. Los datos no personales que recopilamos consisten principalmente en información técnica y de uso agregada.",
-      "item2": "Información identificable individualmente, es decir, cualquier información que pueda identificarle o que razonablemente pueda usarse para identificarle (\"datos personales\"). Los datos personales pueden incluir información como nombres, direcciones de correo electrónico, direcciones, números de teléfono, direcciones IP y más.",
-      "text2": "El procesamiento de datos en este sitio web es realizado por el operador del sitio web. Puede encontrar los datos de contacto del operador del sitio web en la sección \"Contacto\" de esta Política de Privacidad."
-    },
-    "howWeCollect": {
-      "title": "¿Cómo recopilamos sus datos?",
-      "text1": "Sus datos se recopilan cuando usted nos los proporciona. Estos pueden ser datos que ingresa en un formulario de contacto o nos proporciona por correo electrónico, como hallazgos preliminares necesarios, resultados de laboratorio, datos de imágenes, documentación médica y más. Otros datos se recopilan automáticamente o con su consentimiento cuando visita el sitio web a través de nuestros sistemas de TI.",
-      "text2": "Nos gustaría señalar que la transmisión de datos a través de Internet (por ejemplo, al comunicarse por correo electrónico) puede tener vulnerabilidades de seguridad. La protección completa de los datos contra el acceso de terceros no es posible y no está dentro de nuestra área de responsabilidad."
-    },
-    "purpose": {
-      "title": "¿Para qué utilizamos sus datos?",
-      "text": "Podemos utilizar sus datos para los siguientes fines:",
-      "item1": "para garantizar la provisión sin errores del sitio web;",
-      "item2": "para desarrollar, adaptar y mejorar nuestros servicios;",
-      "item3": "para responder a sus comentarios, consultas y solicitudes y ofrecer asistencia;",
-      "item4": "para analizar patrones de requisitos y uso;",
-      "item5": "para otros fines internos, estadísticos y de investigación;",
-      "item6": "para mejorar nuestras capacidades de seguridad de datos;",
-      "item7": "para enviarle actualizaciones, noticias y otra información relacionada con nuestros servicios.",
-      "text2": "Solo utilizamos sus datos personales para los fines establecidos en la Política de Privacidad y solo si estamos convencidos de que:",
-      "legal1": "el uso de sus datos personales es necesario para cumplir o celebrar un contrato;",
-      "legal2": "el uso de sus datos personales es necesario para cumplir con las obligaciones legales o reglamentarias correspondientes;",
-      "legal3": "el uso de sus datos personales es necesario para apoyar nuestros intereses comerciales legítimos."
-    },
-    "sharing": {
-      "title": "¿A quién transmitimos estos datos?",
-      "text1": "Podemos compartir sus datos con nuestros proveedores de servicios para operar nuestros servicios, en la medida en que sea apropiado para fines comerciales. Esta es principalmente información no identificable.",
-      "text2": "Podemos reenviar los documentos que nos proporcione, que pueden contener datos personales e información sobre tratamiento médico completado o en curso, a terceros de confianza si es necesario para la prestación de nuestros servicios. Estos incluyen médicos, intérpretes y traductores, expertos, pagadores y otras instalaciones médicas.",
-      "text3": "También podemos divulgar sus datos en las siguientes circunstancias: para establecer o ejercer nuestros derechos de defensa; para proteger nuestros derechos, propiedad y la seguridad de nuestros usuarios o del público; para recopilar, mantener y/o gestionar sus datos a través de proveedores externos autorizados."
-    },
-    "rights": {
-      "title": "¿Qué derechos tiene respecto a sus datos?",
-      "text": "Tiene derecho en cualquier momento a recibir información gratuita sobre el origen, los destinatarios y el propósito de sus datos personales almacenados. También tiene derecho a solicitar la corrección o eliminación de estos datos. Si ha dado su consentimiento para el procesamiento de datos, puede revocar este consentimiento en cualquier momento para el futuro. Puede contactarnos en cualquier momento sobre este y otros asuntos relacionados con la protección de datos."
-    },
-    "hosting": {
-      "title": "Alojamiento",
-      "text1": "Alojamos el contenido de nuestro sitio web y los datos registrados en el CRM con proveedores de alojamiento en la nube confiables.",
-      "text2": "Nuestros proveedores de alojamiento tienen servidores en todo el mundo, incluidos Europa y EE.UU., así como servidores de respaldo.",
-      "text3": "Los datos personales recopilados en este sitio web y en nuestro CRM se almacenan en los servidores de estos hosts. Esto puede incluir direcciones IP, solicitudes de contacto, datos de meta y comunicación, datos de contacto, nombres, acceso al sitio web y otros datos generados a través de un sitio web.",
-      "text4": "Nuestros hosts solo procesarán sus datos en la medida necesaria para cumplir con sus obligaciones de rendimiento y seguirán nuestras instrucciones con respecto a estos datos."
-    },
-    "cookies": {
-      "title": "Cookies",
-      "text1": "Cuando visita o accede a nuestros servicios, autorizamos a terceros a utilizar balizas web, cookies y otras tecnologías y servicios de análisis. Estas tecnologías de seguimiento pueden permitir que terceros recopilen automáticamente sus datos para mejorar la experiencia de navegación en nuestros activos digitales, optimizar su rendimiento y garantizar una experiencia de usuario personalizada.",
-      "text2": "Sin su consentimiento, no compartiremos su dirección de correo electrónico u otros datos personales con empresas de publicidad o redes publicitarias."
-    },
-    "storage": {
-      "title": "¿Dónde almacenamos los datos?",
-      "text1": "Tenga en cuenta que nuestros socios y proveedores de servicios de confianza están ubicados en todo el mundo. Para los fines explicados en esta Política de Privacidad, almacenamos y procesamos todos los datos no personales que recopilamos en diferentes jurisdicciones.",
-      "text2": "Los datos personales pueden mantenerse, procesarse y almacenarse en Estados Unidos, Irlanda, Corea del Sur, Taiwán, Israel y otras jurisdicciones según sea necesario para la prestación adecuada de nuestros servicios y/o según lo requiera la ley."
-    },
-    "retention": {
-      "title": "Duración del almacenamiento",
-      "text": "A menos que se indique un período de almacenamiento más específico en esta Política de Privacidad, sus datos personales permanecerán con nosotros hasta que ya no se aplique el propósito del procesamiento de datos. Si desea que se eliminen sus datos personales, generalmente es suficiente una carta informal por correo electrónico a contact@gmed-health.com."
-    },
-    "security": {
-      "title": "¿Cómo protegemos sus datos?",
-      "text1": "El servicio de alojamiento nos proporciona la plataforma en línea a través de la cual podemos ofrecerle nuestros servicios. Sus datos pueden almacenarse a través del almacenamiento de datos, bases de datos y aplicaciones generales de nuestro proveedor de alojamiento.",
-      "text2": "A pesar de las medidas y esfuerzos tomados por nosotros y nuestro proveedor de alojamiento, no podemos ni garantizaremos la protección y seguridad absolutas de los datos que carga, publica o comparte de otro modo con nosotros u otros.",
-      "text3": "Por esta razón, le pedimos que establezca contraseñas seguras y que, si es posible, no nos transmita a nosotros ni a otros información confidencial cuya divulgación crea que podría causarle un daño significativo o duradero.",
-      "text4": "Si nos envía documentos con información personal o confidencial por correo electrónico o mensajería instantánea, es su responsabilidad."
-    },
-    "minors": {
-      "title": "¿Cómo tratamos a los menores?",
-      "text1": "Los menores pueden utilizar nuestros servicios.",
-      "text2": "Sin embargo, si desean utilizar nuestros servicios, es posible que deban proporcionar cierta información (particularmente los datos de contacto de los padres). La recopilación de algunos datos puede ocurrir automáticamente. Si recopilamos, usamos o divulgamos conscientemente datos recopilados de un menor, lo indicaremos de acuerdo con la ley aplicable y obtendremos el consentimiento de los padres.",
-      "text3": "También podemos usar la información de contacto de un padre para comunicarnos sobre las actividades de un menor en los servicios. Los padres pueden ver los datos que hemos recopilado de su hijo y solicitar que se eliminen de nuestros registros todos los datos que hayamos recopilado.",
-      "text4": "Por favor, contáctenos para ver, actualizar o eliminar los datos de su hijo."
-    },
-    "updates": {
-      "title": "Actualizaciones o cambios en la Política de Privacidad",
-      "text": "Podemos revisar esta Política de Privacidad a nuestra discreción de vez en cuando; la versión publicada en el sitio web siempre es la actual. Le pedimos que revise esta Política de Privacidad regularmente para ver si hay cambios. En caso de cambios materiales, publicaremos un aviso en nuestro sitio web."
-    },
-    "contact": {
-      "title": "Contacto",
-      "text": "Si tiene preguntas generales sobre los servicios o los datos que recopilamos sobre usted y su uso, contáctenos en:"
-    }
   },
   "impressumPage": {
     "title": "Aviso legal",

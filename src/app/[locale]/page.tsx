@@ -1,21 +1,13 @@
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/home/Hero";
+import { FullSupport } from "@/components/sections/home/FullSupport";
+import { CareForward } from "@/components/sections/home/CareForward";
+import { Office } from "@/components/sections/home/Office";
 import {
   getAlternateLanguages,
   getLocalizedMessage,
   normalizeLanguage,
 } from "@/lib/seo";
-
-const FullSupport = dynamic(
-  () => import("@/components/sections/home/FullSupport").then((mod) => mod.FullSupport)
-);
-const CareForward = dynamic(
-  () => import("@/components/sections/home/CareForward").then((mod) => mod.CareForward)
-);
-const Office = dynamic(
-  () => import("@/components/sections/home/Office").then((mod) => mod.Office)
-);
 
 type HomePageProps = {
   params: Promise<{ locale: string }>;

@@ -38,6 +38,8 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  reactStrictMode: false,
+
   async redirects() {
     return [
       {
@@ -47,11 +49,6 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/:locale/register/:path*",
-        destination: "/:locale/apply",
-        permanent: false,
-      },
-      {
-        source: "/:locale/login",
         destination: "/:locale/apply",
         permanent: false,
       },

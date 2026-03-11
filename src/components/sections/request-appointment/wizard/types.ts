@@ -1,21 +1,49 @@
 export type WizardStep =
+  | 'member-check'
+  | 'welcome'
   | 'location'
-  | 'patientRole'
-  | 'travelReady'
-  | 'medicalRecords'
-  | 'travelDocuments'
-  | 'patientInfoIntro'
-  | 'patientInfoForm'
-  | 'exitNoTravel'
-  | 'exitNoRecords';
+  | 'become-member'
+  | 'outside-travel'
+  | 'outside-records'
+  | 'records-language'
+  | 'outside-documents'
+  | 'outside-exit-travel'
+  | 'outside-exit-records'
+  | 'health-intro'
+  | 'patient-name'
+  | 'patient-dob'
+  | 'phone'
+  | 'whatsapp-consent'
+  | 'email-consent'
+  | 'no-contact-exit'
+  | 'legal-sex'
+  | 'interpreter'
+  | 'primary-language'
+  | 'services'
+  | 'address'
+  | 'concern-intro'
+  | 'primary-concern'
+  | 'health-risk'
+  | 'current-treatment'
+  | 'additional-concerns'
+  | 'insurance-intro'
+  | 'insurance'
+  | 'insurance-coverage'
+  | 'wrap-up-intro'
+  | 'preferred-location'
+  | 'visit-timing'
+  | 'anything-else'
+  | 'review';
 
 export type LocationType = 'eu' | 'outside_eu' | null;
-export type PatientRoleType = 'patient' | 'companion' | null;
+export type LocationDetailedType = 'germany' | 'eu_not_germany' | 'outside_eu' | null;
 export type YesNoType = 'yes' | 'no' | null;
 export type MedicalRecordsType = 'yes' | 'no' | 'none' | null;
-export type LegalSexType = 'female' | 'male' | 'non-binary' | null;
-export type MedicalAreaType = 'cardiology' | 'neurology' | 'oncology' | 'other' | 'none' | null;
+export type LegalSexType = 'female' | 'male' | 'diverse' | 'no_entry' | null;
 export type PhoneType = 'mobile' | 'home' | 'work';
+export type PreferredLocationType = 'no_preference' | 'munich' | 'berlin' | 'hamburg' | 'cologne' | null;
+export type VisitTimingType = 'asap' | 'next_few_months' | 'not_sure' | null;
+export type InsuranceCoverageType = 'yes' | 'no' | 'not_sure' | null;
 
 export interface PhoneEntry {
   number: string;
@@ -23,77 +51,106 @@ export interface PhoneEntry {
 }
 
 export interface WizardData {
+  // Location & path
   location: LocationType;
-  patientRole: PatientRoleType;
-  medicalArea: MedicalAreaType;
+  locationDetailed: LocationDetailedType;
+  // Member
+  wantsMembership: YesNoType;
+  // Outside-EU eligibility
   canTravel: YesNoType;
-  needsVisaHelp: YesNoType;
   hasMedicalRecords: MedicalRecordsType;
+  recordsInAcceptedLanguage: YesNoType;
   hasTravelDocuments: YesNoType;
+  // Health
+  currentlyInTreatment: YesNoType;
+  hasHealthRiskForTravel: YesNoType;
   // Patient info
   firstName: string;
   middleName: string;
   lastName: string;
   suffix: string;
-  preferredName: string;
   legalSex: LegalSexType;
-  email: string;
-  phones: PhoneEntry[];
   dateOfBirth: string;
-  country: string;
-  message: string;
-  needsInterpreter: YesNoType;
+  // Language & interpreter
   primaryLanguage: string;
-  // WhatsApp
+  needsInterpreter: YesNoType;
+  // Contact
+  emailConsent: boolean | null;
+  email: string;
   whatsappConsent: boolean | null;
   whatsappNumber: string;
+  phones: PhoneEntry[];
   // Address
+  country: string;
   streetAddress: string;
   city: string;
   state: string;
   zipCode: string;
-  // Companion info (EU flow)
-  companionFirstName: string;
-  companionLastName: string;
-  relationshipToPatient: string;
+  // Concern
+  primaryConcernText: string;
+  additionalConcerns: string;
+  // Services
+  services: string[];
+  // Insurance
+  hasInsurance: YesNoType;
+  insuranceCoversGermany: InsuranceCoverageType;
+  // Wrap up
+  preferredLocation: PreferredLocationType;
+  visitTiming: VisitTimingType;
+  message: string;
+  // Consent at submit
+  consentAutomatedContact: boolean;
+  consentHealthcare: boolean;
+  consentOptOut: boolean;
+  consentPrivacyPractices: boolean;
 }
 
 export const PROGRESS_STEPS = [
-  { key: 'travelReady', label: 'Travel Readiness' },
+  { key: 'eligibility', label: 'Eligibility' },
   { key: 'patientInfo', label: 'Patient Information' },
   { key: 'primaryConcern', label: 'Primary Concern' },
-  { key: 'insuranceDetails', label: 'Insurance Details' },
+  { key: 'servicesInsurance', label: 'Services & Insurance' },
   { key: 'wrapUp', label: 'Wrap Up' },
 ];
 
 export const initialWizardData: WizardData = {
   location: null,
-  patientRole: null,
-  medicalArea: null,
+  locationDetailed: null,
+  wantsMembership: null,
   canTravel: null,
-  needsVisaHelp: null,
   hasMedicalRecords: null,
+  recordsInAcceptedLanguage: null,
   hasTravelDocuments: null,
+  currentlyInTreatment: null,
+  hasHealthRiskForTravel: null,
   firstName: '',
   middleName: '',
   lastName: '',
   suffix: '',
-  preferredName: '',
   legalSex: null,
-  email: '',
-  phones: [{ number: '', type: 'mobile' }],
   dateOfBirth: '',
-  country: '',
-  message: '',
-  needsInterpreter: null,
   primaryLanguage: '',
+  needsInterpreter: null,
+  emailConsent: null,
+  email: '',
   whatsappConsent: null,
   whatsappNumber: '',
+  phones: [{ number: '', type: 'mobile' }],
+  country: '',
   streetAddress: '',
   city: '',
   state: '',
   zipCode: '',
-  companionFirstName: '',
-  companionLastName: '',
-  relationshipToPatient: '',
+  primaryConcernText: '',
+  additionalConcerns: '',
+  services: [],
+  hasInsurance: null,
+  insuranceCoversGermany: null,
+  preferredLocation: null,
+  visitTiming: null,
+  message: '',
+  consentAutomatedContact: false,
+  consentHealthcare: false,
+  consentOptOut: false,
+  consentPrivacyPractices: false,
 };

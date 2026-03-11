@@ -5,77 +5,58 @@ import { ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
-import { PatientRoleType } from '../../types';
 import { WizardStepLayout } from '../../components/WizardStepLayout';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
 
-// Static style objects to prevent recreation on each render
 const CARD_STYLES = {
-  patient: { '--hover-color': '#E5D5A8' } as React.CSSProperties,
-  companion: { '--hover-color': '#A8D5E5' } as React.CSSProperties,
+  yes: { '--hover-color': '#E5D5A8' } as React.CSSProperties,
+  no: { '--hover-color': '#A8D5E5' } as React.CSSProperties,
 };
 
-export function EuPatientRoleStep() {
+export function BecomeMemberStep() {
   const t = useTranslations('appointment.newPatient');
   const router = useRouter();
   const { updateData } = useWizard();
   const isNavigatingRef = useRef(false);
 
-  const handleSelect = useCallback((role: PatientRoleType) => {
+  const handleSelect = useCallback((value: 'yes' | 'no') => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-
-    updateData({ patientRole: role });
-    if (role === 'patient') {
-      router.push('/register/eu/step/form');
-    } else {
-      router.push('/register/eu/step/companion');
-    }
+    updateData({ wantsMembership: value });
+    router.push('/apply?type=new&step=outside-travel');
   }, [updateData, router]);
 
   const handleBack = useCallback(() => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-    router.push('/register');
+    router.push('/apply?type=new&step=location');
   }, [router]);
 
   return (
     <WizardStepLayout
-      title={t('patientRole.title')}
-      showStepper={true}
-      activeStepIndex={0}
+      title={t('becomeMember.title')}
       onBack={handleBack}
       backLabel={t('back')}
     >
       <div className={styles.clientCardsGrid}>
         <div
-          onClick={() => handleSelect('patient')}
+          onClick={() => handleSelect('yes')}
           className={styles.clientCard}
-          style={CARD_STYLES.patient}
+          style={CARD_STYLES.yes}
         >
           <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>
-              {t('patientRole.yes')}
-            </h3>
-            <p className={styles.clientCardDesc}>
-              {t('patientRole.yesDesc')}
-            </p>
+            <h3 className={styles.clientCardTitle}>{t('becomeMember.yes')}</h3>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
         </div>
 
         <div
-          onClick={() => handleSelect('companion')}
+          onClick={() => handleSelect('no')}
           className={styles.clientCard}
-          style={CARD_STYLES.companion}
+          style={CARD_STYLES.no}
         >
           <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>
-              {t('patientRole.no')}
-            </h3>
-            <p className={styles.clientCardDesc}>
-              {t('patientRole.noDesc')}
-            </p>
+            <h3 className={styles.clientCardTitle}>{t('becomeMember.no')}</h3>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
         </div>

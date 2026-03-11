@@ -2,6 +2,9 @@
 
 const SESSION_KEY_STORAGE = "gmed.client-encryption-key.v1";
 
+// In-memory cache to avoid re-importing the key on every call
+let cachedKey: CryptoKey | null = null;
+
 function toBase64(buffer: ArrayBuffer) {
   return btoa(String.fromCharCode(...new Uint8Array(buffer)));
 }
@@ -15,16 +18,19 @@ async function getOrCreateSessionKey() {
     throw new Error("Client encryption is only available in the browser.");
   }
 
+  if (cachedKey) return cachedKey;
+
   const existingKey = window.sessionStorage.getItem(SESSION_KEY_STORAGE);
 
   if (existingKey) {
-    return crypto.subtle.importKey(
+    cachedKey = await crypto.subtle.importKey(
       "raw",
       fromBase64(existingKey),
       { name: "AES-GCM" },
       false,
       ["encrypt", "decrypt"]
     );
+    return cachedKey;
   }
 
   const key = await crypto.subtle.generateKey(
@@ -34,8 +40,9 @@ async function getOrCreateSessionKey() {
   );
   const rawKey = await crypto.subtle.exportKey("raw", key);
   window.sessionStorage.setItem(SESSION_KEY_STORAGE, toBase64(rawKey));
+  cachedKey = key;
 
-  return key;
+  return cachedKey;
 }
 
 export async function saveEncryptedJson(storageKey: string, value: unknown) {

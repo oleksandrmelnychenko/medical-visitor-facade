@@ -80,7 +80,12 @@ export function WizardStepLayout({
 
       <section className={cn(sectionStyles.section, styles.cardsSection)}>
         <div className={sectionStyles.container}>
-          <div className={styles.locationStepContent}>
+          <motion.div
+            className={styles.locationStepContent}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0.05 }}
+          >
             {children}
 
             {(onBack || onContinue) && (
@@ -106,7 +111,7 @@ export function WizardStepLayout({
                 )}
               </div>
             )}
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>

@@ -242,10 +242,10 @@
         "wrapUp": "Abschluss"
       },
       "progressSteps": {
-        "travelReady": "Reisebereitschaft",
-        "patientInfo": "Mitgliederinformationen",
+        "eligibility": "Eignung",
+        "patientInfo": "Patienteninfo",
         "primaryConcern": "Hauptanliegen",
-        "insuranceDetails": "Versicherungsdaten",
+        "servicesInsurance": "Dienste & Versicherung",
         "wrapUp": "Abschluss"
       },
       "euProgress": {
@@ -472,7 +472,6 @@
       "optional": "Optional",
       "yes": "Ja",
       "no": "Nein",
-      "continue": "Weiter",
       "whatsapp": {
         "question": "Möchten Sie, dass wir Sie über WhatsApp kontaktieren?",
         "description": "Falls ja, werden wir auf der nächsten Seite nach Ihrer WhatsApp-Landesvorwahl und Nummer fragen.",
@@ -509,6 +508,198 @@
         "city": "Stadt oder Ort",
         "state": "Bundesland/Region (0 eingeben, falls nicht zutreffend)",
         "postalCode": "Postleitzahl (0 eingeben, falls nicht zutreffend)"
+      },
+      "welcome": {
+        "title": "Los geht's",
+        "subtitle": "Wir werden Ihnen eine Reihe von Fragen stellen, die Ihr Follow-up mit einem Terminkoordinator leiten werden.",
+        "continue": "Weiter",
+        "emergency": "Bei einem medizinischen Notfall rufen Sie 112 oder 911 an.",
+        "privacyPolicy": "Datenschutzrichtlinie lesen"
+      },
+      "memberCheck": {
+        "title": "Sind Sie Mitglied?",
+        "isMember": "Ich bin Mitglied",
+        "notMember": "Ich bin (noch) kein Mitglied"
+      },
+      "location3": {
+        "title": "Wo wohnen Sie?",
+        "germany": "Ich lebe in Deutschland",
+        "euNotGermany": "Ich lebe in der EU (aber nicht in Deutschland)",
+        "outsideEu": "Ich lebe außerhalb der EU"
+      },
+      "becomeMember": {
+        "title": "Möchten Sie Mitglied werden?",
+        "yes": "Ja, ich möchte Mitglied werden",
+        "no": "Nein, ich beantrage für jemand anderen"
+      },
+      "healthIntro": {
+        "title": "Beginnen wir mit Ihren Gesundheitsinformationen",
+        "subtitle": "In diesem Abschnitt erfassen wir grundlegende Informationen. Diese Details helfen uns auch, unser Gespräch über Ihre Pflegebedürfnisse zu beginnen.",
+        "start": "Start"
+      },
+      "healthTreatment": {
+        "title": "Befinden Sie sich derzeit in medizinischer Behandlung?",
+        "yes": "Ja",
+        "no": "Nein"
+      },
+      "healthRisk": {
+        "title": "Haben Sie eine Erkrankung, die Sie daran hindert, nach Deutschland zu reisen, oder haben Sie Grund zu der Annahme, dass eine Reise nach Deutschland Ihre Gesundheit gefährdet?",
+        "yes": "Ja",
+        "no": "Nein",
+        "disclaimer": "Sie sind allein für Ihren Gesundheitszustand während der Reise und mögliche reisebezogene Risiken verantwortlich.",
+        "start": "Start"
+      },
+      "sharedPatientName": {
+        "title": "Beginnen wir mit Ihrem Namen",
+        "firstName": "Vorname",
+        "middleName": "Zweiter Vorname (optional)",
+        "lastName": "Nachname",
+        "suffix": "Namenszusatz (optional)"
+      },
+      "sharedDob": {
+        "title": "Danke! Was ist Ihr Geburtsdatum?",
+        "placeholder": "DD.MM.YYYY"
+      },
+      "sharedLegalSex": {
+        "title": "Bitte nennen Sie uns Ihr rechtliches Geschlecht.",
+        "subtitle": "Wählen Sie die Geschlechtsangabe, die in Ihrem Ausweis steht.",
+        "female": "Weiblich",
+        "male": "Männlich",
+        "diverse": "divers",
+        "noEntry": "keine Angabe"
+      },
+      "sharedPrimaryLanguage": {
+        "title": "Was ist Ihre Muttersprache?",
+        "subtitle": "In dieser Sprache werden wir Sie wegen dieses Termins zurückrufen.",
+        "placeholder": ""
+      },
+      "sharedInterpreter": {
+        "title": "Möchten Sie bei Ihren Terminen in Deutschland einen Dolmetscher dabei haben?",
+        "yes": "Ja",
+        "no": "Nein, ich spreche fließend Deutsch."
+      },
+      "emailConsent": {
+        "title": "Möchten Sie, dass wir per E-Mail mit Ihnen kommunizieren?",
+        "yes": "Ja.",
+        "yesDisclaimer": "Ich verstehe, dass E-Mail-Kommunikation möglicherweise nicht sicher ist und den Datenschutzrichtlinien Ihres E-Mail-Anbieters unterliegt.",
+        "no": "Nein",
+        "emailLabel": "E-Mail"
+      },
+      "whatsappConsentNew": {
+        "title": "Möchten Sie, dass wir per WhatsApp mit Ihnen kommunizieren?",
+        "yes": "Ja.",
+        "yesDisclaimer": "Ich verstehe, dass WhatsApp-Kommunikation möglicherweise nicht sicher ist und den Datenschutzrichtlinien von WhatsApp unterliegt.",
+        "no": "Nein",
+        "numberTitle": "Wie ist Ihre WhatsApp-Nummer?",
+        "noContactWarning": "Wir können Sie nicht per E-Mail oder WhatsApp kontaktieren. Bitte kontaktieren Sie uns über die auf unserer Website angegebenen Kontaktinformationen. Ihre Umfrageinformationen werden in 3 Tagen gelöscht."
+      },
+      "phoneStep": {
+        "title": "Bitte geben Sie Ihre Kontaktinformationen ein.",
+        "phoneNumber": "Telefonnummer",
+        "emailLabel": "E-Mail"
+      },
+      "recordsLanguage": {
+        "title": "Sind Ihre medizinischen Unterlagen auf Deutsch oder Englisch?",
+        "yes": "Ja",
+        "no": "Nein"
+      },
+      "noContactExit": {
+        "title": "Wir können Sie nicht per E-Mail oder WhatsApp kontaktieren.",
+        "description": "Bitte kontaktieren Sie uns über die auf unserer Website angegebenen Kontaktinformationen. Ihre Umfrageinformationen werden in 3 Tagen gelöscht.",
+        "button": "Zur Startseite"
+      },
+      "concernIntro": {
+        "title": "Als Nächstes teilen Sie uns bitte Ihr Hauptanliegen mit",
+        "description": "Wir werden Sie nach einer Beschreibung des medizinischen Problems bitten, das Ihre Anfrage auslöst. Sie haben auch die Möglichkeit, uns über weitere Anliegen zu informieren.",
+        "start": "Start"
+      },
+      "primaryConcernText": {
+        "title": "Was ist Ihr Hauptanliegen?",
+        "placeholder": "Beschreiben Sie Ihr Hauptanliegen..."
+      },
+      "additionalConcerns": {
+        "title": "Teilen Sie uns weitere Anliegen mit:",
+        "placeholder": "",
+        "optional": "(Optional)"
+      },
+      "services": {
+        "title": "Benötigen Sie einen der folgenden Services während Ihres Aufenthalts in Deutschland (Mehrfachauswahl möglich):",
+        "driver": "Persönlicher Fahrer und Transferdienste",
+        "concierge": "Concierge-Dienste",
+        "medicalTransport": "Medizinischer Transport",
+        "airAmbulance": "Luftrettung",
+        "businessAviation": "Business-Luftfahrt",
+        "none": "Ich benötige keinen der folgenden Services",
+        "notSure": "Ich bin nicht sicher",
+        "learnMoreTransfer": "Mehr über unsere Transferdienste erfahren",
+        "learnMoreConcierge": "Mehr über unsere Concierge-Dienste erfahren",
+        "learnMoreMedical": "Mehr über unsere medizinischen Transportdienste erfahren",
+        "learnMoreAir": "Mehr über unsere medizinische Luftfahrt erfahren",
+        "learnMoreBusiness": "Mehr über unsere Business-Luftfahrt erfahren"
+      },
+      "insuranceIntro": {
+        "title": "Jetzt möchten wir nach Ihren Versicherungsdetails fragen",
+        "subtitle": "Falls Sie eine Versicherung haben, können Sie die Informationen hier eingeben. Falls nicht, keine Sorge. Wir beantworten alle Ihre Fragen in unserem Gespräch.",
+        "start": "Start"
+      },
+      "insuranceStep": {
+        "title": "Haben Sie eine Krankenversicherung?",
+        "yes": "Ja",
+        "no": "Nein"
+      },
+      "insuranceCoverage": {
+        "title": "Deckt Ihre Krankenversicherung Ihre Arztkosten in Deutschland ab?",
+        "yes": "Ja",
+        "no": "Nein",
+        "notSure": "Ich bin nicht sicher"
+      },
+      "wrapUpIntro": {
+        "title": "Lassen Sie uns mit ein paar letzten Fragen abschließen",
+        "subtitle": "Wir fragen Sie nach Ihrem bevorzugten Standort für die Versorgung und geben Ihnen die Möglichkeit, uns noch etwas mitzuteilen, das wir über Ihre Bedürfnisse und Betreuung wissen sollten. Wir melden uns innerhalb von 3 Werktagen bei Ihnen.",
+        "start": "Start"
+      },
+      "preferredLocation": {
+        "title": "Haben Sie einen bevorzugten Standort für die Gesundheitsversorgung?",
+        "subtitle": "Falls nicht, ist das kein Problem. Wir können diese Standorte später genauer besprechen.",
+        "noPreference": "Keine Präferenz",
+        "munich": "München",
+        "berlin": "Berlin",
+        "hamburg": "Hamburg",
+        "cologne": "Köln"
+      },
+      "visitTiming": {
+        "title": "Wann können Sie Deutschland besuchen?",
+        "learnMore": "Erfahren Sie mehr darüber, was Sie bei der Planung eines Besuchs bei uns beachten sollten.",
+        "asap": "So bald wie möglich",
+        "nextFewMonths": "In den nächsten Monaten",
+        "notSure": "Ich bin nicht sicher",
+        "note": "Vor Ihrem Besuch koordinieren wir uns mit unserem Ärzteteam, um die richtigen Termine für Ihren Pflegeplan zu planen."
+      },
+      "anythingElse": {
+        "title": "Gibt es noch etwas, das Sie uns mitteilen möchten?",
+        "subtitle": "Nach diesem Schritt überprüfen und senden Sie Ihre Anfrage ab.",
+        "placeholder": "",
+        "optional": "(optional)"
+      },
+      "reviewStep": {
+        "title": "Bitte überprüfen Sie Ihre Anfrage vor dem Absenden.",
+        "consent1": "Ich stimme zu, dass GMED ein automatisiertes Telefonwahlsystem, voraufgezeichnete oder synthetische Sprachnachrichten, SMS und E-Mail verwenden darf, um mich unter den von mir angegebenen Nummern und E-Mail-Adressen zu kontaktieren.",
+        "consent2": "Ich verstehe, dass ich in Bezug auf meine Gesundheitsversorgung kontaktiert werden kann, einschließlich der Terminvereinbarung.",
+        "consent3": "Ich verstehe, dass ich bei einem solchen Kontakt die Möglichkeit erhalte, ähnliche zukünftige Mitteilungen abzulehnen.",
+        "consent4": "Ich habe die Datenschutzhinweise gelesen und deren Erhalt bestätigt.",
+        "incompleteError": "Bitte füllen Sie alle erforderlichen Schritte aus, bevor Sie Ihre Anfrage absenden.",
+        "submit": "Absenden",
+        "submitting": "Wird gesendet...",
+        "successTitle": "Vielen Dank für Ihre Anfrage!",
+        "successMessage": "Wir werden Sie innerhalb von 3 Werktagen kontaktieren. Unser Terminkoordinator wird sich melden, um Ihre Pflegebedürfnisse zu besprechen.",
+        "backToHome": "Zurück zur Startseite",
+        "startOver": "Neu beginnen"
+      },
+      "outsideRecordsSubmit": {
+        "title": "Können Sie Ihre Krankenunterlagen einreichen?",
+        "subtitle": "Wir akzeptieren Unterlagen auf Deutsch oder Englisch.",
+        "yes": "Ja",
+        "no": "Nein"
       }
     },
     "returningPatient": {
@@ -865,71 +1056,91 @@
     }
   },
   "privacyPolicy": {
-    "title": "Datenschutz",
-    "subtitle": "Ihre Privatsphäre und die Sicherheit Ihrer medizinischen Daten haben für uns höchste Priorität",
-    "highlights": {
-      "encrypted": {
-        "title": "Daten verschlüsselt",
-        "description": "Alle Informationen sind durch Verschlüsselung geschützt"
-      },
-      "limitedAccess": {
-        "title": "Begrenzter Zugriff",
-        "description": "Nur autorisiertes Personal kann Ihre Unterlagen einsehen"
-      },
-      "yourControl": {
-        "title": "Ihre Kontrolle",
-        "description": "Sie entscheiden, wer Zugriff auf Ihre Informationen erhält"
-      }
+    "title": "Datenschutzerklärung",
+    "lastUpdated": "Stand: 01.01.2026",
+    "intro1": "Wir nehmen den Schutz der Daten der Nutzer unserer Website sehr ernst und verpflichten uns, die Informationen, die Nutzer uns in Verbindung mit der Nutzung unserer Website bzw. unserer Dienste zur Verfügung stellen, zu schützen.",
+    "intro2": "Diese Datenschutzrichtlinie erläutert unsere Praktiken in Bezug auf die Erfassung, Verwendung und Offenlegung Ihrer Daten durch die Nutzung unserer Dienste, wenn Sie über Ihre Geräte auf die Dienste zugreifen.",
+    "intro3": "Lesen Sie die Datenschutzrichtlinie bitte sorgfältig durch und stellen Sie sicher, dass Sie unsere Praktiken in Bezug auf Ihre Daten vollumfänglich verstehen, bevor Sie unsere Dienste verwenden. Wenn Sie diese Richtlinie gelesen, vollumfänglich verstanden haben und nicht mit unserer Vorgehensweise einverstanden sind, müssen Sie die Nutzung unserer Website und Dienste einstellen. Mit der Nutzung unserer Website und Dienste erkennen Sie die Bedingungen dieser Datenschutzrichtlinie an.",
+    "intro4": "Ausführliche Informationen zum Thema Datenschutz entnehmen Sie aus den unten aufgeführten Punkten.",
+    "dataCollection": {
+      "title": "Datenerfassung auf dieser Website",
+      "text": "Nachstehend erhalten Sie einen Überblick über die Daten, die wir erfassen können:",
+      "item1": "Nicht identifizierte und nicht identifizierbare Informationen, die von unserer Webseite gesammelt werden (\"nicht personenbezogene Daten\"). Nicht personenbezogene Daten lassen keine Rückschlüsse darauf zu, von wem sie erfasst wurden. Nicht personenbezogene Daten, die wir erfassen, bestehen hauptsächlich aus technischen und zusammengefassten Nutzungsinformationen.",
+      "item2": "Individuell identifizierbare Informationen, d. h. all jene, über die man Sie identifizieren kann oder mit vertretbarem Aufwand identifizieren könnte (\"personenbezogene Daten\"). Zu den personenbezogenen Daten können Informationen gehören, wie Namen, E-Mail-Adressen, Adressen, Telefonnummern, IP-Adressen und mehr.",
+      "text2": "Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Die Kontaktdaten des Websitebetreibers können Sie dem Abschnitt \"Kontakt\" in dieser Datenschutzerklärung entnehmen."
     },
-    "notice": {
-      "title": "Hinweis zu Datenschutzpraktiken",
-      "effectiveDate": "Gültig ab: 1. Januar 2024",
-      "description": "Dieser Hinweis beschreibt, wie medizinische Informationen über Sie verwendet und offengelegt werden können und wie Sie Zugriff auf diese Informationen erhalten. Bitte lesen Sie ihn sorgfältig."
+    "howWeCollect": {
+      "title": "Wie erfassen wir Ihre Daten?",
+      "text1": "Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich um Daten handeln, die Sie in ein Kontaktformular eingeben oder uns per Email zur Verfügung stellen, wie z.B. notwendige Vorbefunde, Laborbefunde, Bilddaten, ärztliche Dokumentation und mehr. Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst.",
+      "text2": "Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich und liegt nicht in unserem Verantwortungsbereich."
     },
-    "usage": {
-      "title": "Wie wir Ihre Informationen verwenden und weitergeben",
-      "treatment": {
-        "title": "Für die Behandlung",
-        "description": "Wir können Ihre medizinischen Informationen verwenden, um Ihre Versorgung zu erbringen, zu koordinieren oder zu verwalten. Dies umfasst die Weitergabe an andere Behandler."
-      },
-      "payment": {
-        "title": "Für die Abrechnung",
-        "description": "Wir können Ihre Informationen verwenden, um Zahlungen für erbrachte Leistungen zu erhalten, einschließlich Abrechnung und Einzug."
-      },
-      "operations": {
-        "title": "Für den Betrieb",
-        "description": "Wir können Ihre Informationen verwenden, um Qualität, Schulung und betriebliche Abläufe zu verbessern."
-      }
+    "purpose": {
+      "title": "Wofür nutzen wir Ihre Daten?",
+      "text": "Wir können Ihre Daten für folgende Zwecke verwenden:",
+      "item1": "um eine fehlerfreie Bereitstellung der Website zu gewährleisten;",
+      "item2": "um unsere Dienste zu entwickeln, anzupassen und zu verbessern;",
+      "item3": "um auf Ihr Feedback, Ihre Anfragen und Wünsche zu reagieren und Hilfe anzubieten;",
+      "item4": "um Anforderungs- und Nutzungsmuster zu analysieren;",
+      "item5": "für sonstige interne, statistische und Recherchezwecke;",
+      "item6": "um unsere Möglichkeiten zur Datensicherheit verbessern zu können;",
+      "item7": "um Ihnen Aktualisierungen, Nachrichten und sonstige Informationen im Zusammenhang mit unseren Diensten zu übermitteln.",
+      "text2": "Wir verwenden Ihre personenbezogenen Daten nur für die in der Datenschutzrichtlinie festgelegten Zwecke und nur, wenn wir davon überzeugt sind, dass:",
+      "legal1": "die Verwendung Ihrer personenbezogenen Daten erforderlich ist, um einen Vertrag zu erfüllen oder zu schließen;",
+      "legal2": "die Verwendung Ihrer personenbezogenen Daten notwendig ist, um entsprechenden rechtlichen oder behördlichen Verpflichtungen nachzukommen;",
+      "legal3": "die Verwendung Ihrer personenbezogenen Daten notwendig ist, um unsere berechtigten geschäftlichen Interessen zu unterstützen."
+    },
+    "sharing": {
+      "title": "An wen geben wir diese Daten weiter?",
+      "text1": "Wir können Ihre Daten an unsere Dienstleister weitergeben, um unsere Dienste zu betreiben, soweit dies für geschäftliche Zwecke angemessen ist. Dabei handelt es sich hauptsächlich um nicht identifizierbare Informationen.",
+      "text2": "Wir können die uns von Ihnen zur Verfügung gestellte Unterlagen, welche ggf. personenbezogene Daten und Informationen zur abgeschlossenen oder andauernden medizinischen Behandlung beinhalten, an vertraute Drittpersonen weiterleiten, falls dies für die Ausübung unserer Dienste notwendig ist. Hierbei handelt es sich um Ärzte, Dolmetscher und Übersetzer, Gutachter, Kostenträger und andere medizinische Einrichtungen.",
+      "text3": "Wir können Ihre Daten auch unter folgenden Umständen offenlegen: um unsere Rechte auf Verteidigung zu begründen oder auszuüben; um unsere Rechte, unser Eigentum sowie die Sicherheit unserer Nutzer oder der Öffentlichkeit zu schützen; um Ihre Daten mittels befugter Drittanbieter zu erfassen, vorzuhalten und/oder zu verwalten."
     },
     "rights": {
-      "title": "Ihre Datenschutzrechte",
-      "items": {
-        "restrictions": "Recht, Einschränkungen für bestimmte Nutzungen und Offenlegungen zu beantragen",
-        "confidential": "Recht auf vertrauliche Kommunikation zu Ihren medizinischen Informationen",
-        "inspect": "Recht auf Einsicht und Kopien Ihrer medizinischen Unterlagen",
-        "amend": "Recht auf Korrektur Ihrer medizinischen Informationen",
-        "accounting": "Recht auf eine Liste der Offenlegungen",
-        "copy": "Recht auf eine Papierkopie dieses Hinweises"
-      }
+      "title": "Welche Rechte haben Sie bezüglich Ihrer Daten?",
+      "text": "Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden."
     },
-    "responsibilities": {
-      "title": "Unsere Pflichten",
-      "intro": "Wir sind gesetzlich verpflichtet:",
-      "items": {
-        "maintain": "die Vertraulichkeit Ihrer geschützten Gesundheitsinformationen zu wahren",
-        "provide": "Ihnen diesen Hinweis zu unseren Pflichten und Datenschutzpraktiken bereitzustellen",
-        "follow": "die Bedingungen des aktuellen Hinweises einzuhalten",
-        "notify": "Sie zu informieren, wenn wir einer angeforderten Einschränkung nicht zustimmen können",
-        "breach": "betroffene Personen nach einem Datenverstoß zu informieren"
-      }
+    "hosting": {
+      "title": "Hosting",
+      "text1": "Wir hosten die Inhalte unserer Website sowie die im CRM erfassten Daten bei zuverlässigen Cloud-Hosting-Anbietern.",
+      "text2": "Unsere Hosting-Anbieter haben Server auf der ganzen Welt, einschließlich Europa und den USA, sowie Backup-Server.",
+      "text3": "Die personenbezogenen Daten, die auf dieser Website sowie in unserem CRM erfasst wurden, werden auf den Servern dieser Hoster gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln.",
+      "text4": "Unsere Hoster werden Ihre Daten nur insoweit verarbeiten, wie dies zur Erfüllung seiner Leistungspflichten erforderlich ist und unsere Weisungen in Bezug auf diese Daten befolgen."
     },
-    "lastUpdated": "Zuletzt aktualisiert: 1. Januar 2024 | Dieser Hinweis gilt ab diesem Datum",
-    "questions": {
-      "title": "Fragen oder Beschwerden?",
-      "description": "Wenn Sie Fragen zu diesem Hinweis haben oder eine Beschwerde einreichen möchten, kontaktieren Sie bitte:",
-      "privacyOfficer": "Datenschutzbeauftragter",
-      "organization": "Gmed Agentur für Mitgliederbetreuung",
-      "contact": "Kontakt aufnehmen"
+    "cookies": {
+      "title": "Cookies",
+      "text1": "Wenn Sie unsere Dienste besuchen oder darauf zugreifen, autorisieren wir Dritte dazu, Webbeacons, Cookies sowie andere Technologien und Analysedienste einzusetzen. Diese Tracking-Technologien können es Dritten ermöglichen, Ihre Daten automatisch zu erfassen, um das Navigationserlebnis auf unseren digitalen Assets zu verbessern, deren Performance zu optimieren und ein maßgeschneidertes Nutzererlebnis zu gewährleisten.",
+      "text2": "Ohne Ihre Zustimmung werden wir Ihre E-Mail-Adresse oder andere personenbezogenen Daten nicht an Werbeunternehmen oder Werbenetzwerke weitergeben."
+    },
+    "storage": {
+      "title": "Wo speichern wir die Daten?",
+      "text1": "Bitte beachten Sie, dass unsere vertrauenswürdigen Partner und Dienstanbieter auf der ganzen Welt ansässig sind. Zu den in dieser Datenschutzrichtlinie erläuterten Zwecke speichern und verarbeiten wir alle nicht personenbezogenen Daten, die wir erfassen, in unterschiedlichen Rechtsordnungen.",
+      "text2": "Personenbezogene Daten können in den Vereinigten Staaten, in Irland, Südkorea, Taiwan, Israel und soweit für die ordnungsgemäße Bereitstellung unserer Dienste und/oder gesetzlich vorgeschrieben in anderen Rechtsordnungen gepflegt, verarbeitet und gespeichert werden."
+    },
+    "retention": {
+      "title": "Speicherdauer",
+      "text": "Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wollen Sie Ihre personenbezogenen Daten löschen lassen, genügt in der Regel ein entsprechendes formloses Schreiben per Email an contact@gmed-health.com."
+    },
+    "security": {
+      "title": "Wie schützen wir Ihre Daten?",
+      "text1": "Der Hosting-Dienst stellt uns die Online-Plattform zur Verfügung, über die wir Ihnen unsere Dienste anbieten können. Ihre Daten können über die Datenspeicherung, Datenbanken und allgemeine Anwendungen unseres Hosting-Anbieters gespeichert werden.",
+      "text2": "Ungeachtet der von uns und unserem Hosting-Anbieter ergriffenen Maßnahmen und Bemühungen können und werden wir keinen absoluten Schutz und keine absolute Sicherheit der Daten garantieren, die Sie hochladen, veröffentlichen oder anderweitig an uns oder andere weitergeben.",
+      "text3": "Aus diesem Grund möchten wir Sie bitten, sichere Passwörter festzulegen und uns oder anderen nach Möglichkeit keine vertraulichen Informationen zu übermitteln, deren Offenlegung Ihnen Ihrer Meinung nach erheblich bzw. nachhaltig schaden könnte.",
+      "text4": "Falls Sie uns Dokumente mit personenbezogenen bzw. vertraulichen Informationen per E-Mail oder Instant Messaging zukommen lassen, liegt es in Ihrem Verantwortungsbereich."
+    },
+    "minors": {
+      "title": "Wie gehen wir mit Minderjährigen um?",
+      "text1": "Minderjährige können unsere Dienste nutzen.",
+      "text2": "Wenn sie jedoch unsere Dienste nutzen möchten, müssen sie ggf. gewisse Angaben machen (insbesondere Kontaktdaten der Eltern). Die Erfassung einiger Daten kann automatisch erfolgen. Wenn wir wissentlich von einem Minderjährigen erfasste Daten sammeln, verwenden oder offenlegen, werden wir in Übereinstimmung mit geltendem Recht darauf hinweisen und die Zustimmung der Eltern einholen.",
+      "text3": "Wir können auch die Kontaktdaten eines Elternteils verwenden, um über die Aktivitäten eines Minderjährigen in den Diensten zu kommunizieren. Eltern können Daten, die wir von ihrem Kind erfasst haben, einsehen und verlangen, dass alle von uns erfassten Daten aus unseren Aufzeichnungen gelöscht werden.",
+      "text4": "Bitte nehmen Sie Kontakt zu uns auf, um die Daten Ihres Kindes einzusehen, zu aktualisieren oder zu löschen."
+    },
+    "updates": {
+      "title": "Aktualisierungen oder Änderungen der Datenschutzrichtlinie",
+      "text": "Wir können diese Datenschutzrichtlinie nach eigenem Ermessen von Zeit zu Zeit überarbeiten, die auf der Website veröffentlichte Version ist immer aktuell. Wir bitten Sie, diese Datenschutzrichtlinie regelmäßig auf Änderungen zu überprüfen. Bei wesentlichen Änderungen werden wir einen Hinweis dazu auf unserer Website veröffentlichen."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "text": "Wenn Sie allgemeine Fragen zu den Diensten oder den von uns über Sie erfassten Daten und deren Verwendung haben, kontaktieren Sie uns bitte unter:"
     }
   },
   "dataSecurity": {
@@ -1349,94 +1560,6 @@
     "serviceHotel": "Hotelbuchung",
     "tableMessages": "Nachrichten",
     "chatWith": "Chat mit {name}"
-  },
-  "privacyPolicy": {
-    "title": "Datenschutzerklärung",
-    "lastUpdated": "Stand: 01.01.2026",
-    "intro1": "Wir nehmen den Schutz der Daten der Nutzer unserer Website sehr ernst und verpflichten uns, die Informationen, die Nutzer uns in Verbindung mit der Nutzung unserer Website bzw. unserer Dienste zur Verfügung stellen, zu schützen.",
-    "intro2": "Diese Datenschutzrichtlinie erläutert unsere Praktiken in Bezug auf die Erfassung, Verwendung und Offenlegung Ihrer Daten durch die Nutzung unserer Dienste, wenn Sie über Ihre Geräte auf die Dienste zugreifen.",
-    "intro3": "Lesen Sie die Datenschutzrichtlinie bitte sorgfältig durch und stellen Sie sicher, dass Sie unsere Praktiken in Bezug auf Ihre Daten vollumfänglich verstehen, bevor Sie unsere Dienste verwenden. Wenn Sie diese Richtlinie gelesen, vollumfänglich verstanden haben und nicht mit unserer Vorgehensweise einverstanden sind, müssen Sie die Nutzung unserer Website und Dienste einstellen. Mit der Nutzung unserer Website und Dienste erkennen Sie die Bedingungen dieser Datenschutzrichtlinie an.",
-    "intro4": "Ausführliche Informationen zum Thema Datenschutz entnehmen Sie aus den unten aufgeführten Punkten.",
-    "dataCollection": {
-      "title": "Datenerfassung auf dieser Website",
-      "text": "Nachstehend erhalten Sie einen Überblick über die Daten, die wir erfassen können:",
-      "item1": "Nicht identifizierte und nicht identifizierbare Informationen, die von unserer Webseite gesammelt werden (\"nicht personenbezogene Daten\"). Nicht personenbezogene Daten lassen keine Rückschlüsse darauf zu, von wem sie erfasst wurden. Nicht personenbezogene Daten, die wir erfassen, bestehen hauptsächlich aus technischen und zusammengefassten Nutzungsinformationen.",
-      "item2": "Individuell identifizierbare Informationen, d. h. all jene, über die man Sie identifizieren kann oder mit vertretbarem Aufwand identifizieren könnte (\"personenbezogene Daten\"). Zu den personenbezogenen Daten können Informationen gehören, wie Namen, E-Mail-Adressen, Adressen, Telefonnummern, IP-Adressen und mehr.",
-      "text2": "Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Die Kontaktdaten des Websitebetreibers können Sie dem Abschnitt \"Kontakt\" in dieser Datenschutzerklärung entnehmen."
-    },
-    "howWeCollect": {
-      "title": "Wie erfassen wir Ihre Daten?",
-      "text1": "Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich um Daten handeln, die Sie in ein Kontaktformular eingeben oder uns per Email zur Verfügung stellen, wie z.B. notwendige Vorbefunde, Laborbefunde, Bilddaten, ärztliche Dokumentation und mehr. Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst.",
-      "text2": "Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich und liegt nicht in unserem Verantwortungsbereich."
-    },
-    "purpose": {
-      "title": "Wofür nutzen wir Ihre Daten?",
-      "text": "Wir können Ihre Daten für folgende Zwecke verwenden:",
-      "item1": "um eine fehlerfreie Bereitstellung der Website zu gewährleisten;",
-      "item2": "um unsere Dienste zu entwickeln, anzupassen und zu verbessern;",
-      "item3": "um auf Ihr Feedback, Ihre Anfragen und Wünsche zu reagieren und Hilfe anzubieten;",
-      "item4": "um Anforderungs- und Nutzungsmuster zu analysieren;",
-      "item5": "für sonstige interne, statistische und Recherchezwecke;",
-      "item6": "um unsere Möglichkeiten zur Datensicherheit verbessern zu können;",
-      "item7": "um Ihnen Aktualisierungen, Nachrichten und sonstige Informationen im Zusammenhang mit unseren Diensten zu übermitteln.",
-      "text2": "Wir verwenden Ihre personenbezogenen Daten nur für die in der Datenschutzrichtlinie festgelegten Zwecke und nur, wenn wir davon überzeugt sind, dass:",
-      "legal1": "die Verwendung Ihrer personenbezogenen Daten erforderlich ist, um einen Vertrag zu erfüllen oder zu schließen;",
-      "legal2": "die Verwendung Ihrer personenbezogenen Daten notwendig ist, um entsprechenden rechtlichen oder behördlichen Verpflichtungen nachzukommen;",
-      "legal3": "die Verwendung Ihrer personenbezogenen Daten notwendig ist, um unsere berechtigten geschäftlichen Interessen zu unterstützen."
-    },
-    "sharing": {
-      "title": "An wen geben wir diese Daten weiter?",
-      "text1": "Wir können Ihre Daten an unsere Dienstleister weitergeben, um unsere Dienste zu betreiben, soweit dies für geschäftliche Zwecke angemessen ist. Dabei handelt es sich hauptsächlich um nicht identifizierbare Informationen.",
-      "text2": "Wir können die uns von Ihnen zur Verfügung gestellte Unterlagen, welche ggf. personenbezogene Daten und Informationen zur abgeschlossenen oder andauernden medizinischen Behandlung beinhalten, an vertraute Drittpersonen weiterleiten, falls dies für die Ausübung unserer Dienste notwendig ist. Hierbei handelt es sich um Ärzte, Dolmetscher und Übersetzer, Gutachter, Kostenträger und andere medizinische Einrichtungen.",
-      "text3": "Wir können Ihre Daten auch unter folgenden Umständen offenlegen: um unsere Rechte auf Verteidigung zu begründen oder auszuüben; um unsere Rechte, unser Eigentum sowie die Sicherheit unserer Nutzer oder der Öffentlichkeit zu schützen; um Ihre Daten mittels befugter Drittanbieter zu erfassen, vorzuhalten und/oder zu verwalten."
-    },
-    "rights": {
-      "title": "Welche Rechte haben Sie bezüglich Ihrer Daten?",
-      "text": "Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden."
-    },
-    "hosting": {
-      "title": "Hosting",
-      "text1": "Wir hosten die Inhalte unserer Website sowie die im CRM erfassten Daten bei zuverlässigen Cloud-Hosting-Anbietern.",
-      "text2": "Unsere Hosting-Anbieter haben Server auf der ganzen Welt, einschließlich Europa und den USA, sowie Backup-Server.",
-      "text3": "Die personenbezogenen Daten, die auf dieser Website sowie in unserem CRM erfasst wurden, werden auf den Servern dieser Hoster gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln.",
-      "text4": "Unsere Hoster werden Ihre Daten nur insoweit verarbeiten, wie dies zur Erfüllung seiner Leistungspflichten erforderlich ist und unsere Weisungen in Bezug auf diese Daten befolgen."
-    },
-    "cookies": {
-      "title": "Cookies",
-      "text1": "Wenn Sie unsere Dienste besuchen oder darauf zugreifen, autorisieren wir Dritte dazu, Webbeacons, Cookies sowie andere Technologien und Analysedienste einzusetzen. Diese Tracking-Technologien können es Dritten ermöglichen, Ihre Daten automatisch zu erfassen, um das Navigationserlebnis auf unseren digitalen Assets zu verbessern, deren Performance zu optimieren und ein maßgeschneidertes Nutzererlebnis zu gewährleisten.",
-      "text2": "Ohne Ihre Zustimmung werden wir Ihre E-Mail-Adresse oder andere personenbezogenen Daten nicht an Werbeunternehmen oder Werbenetzwerke weitergeben."
-    },
-    "storage": {
-      "title": "Wo speichern wir die Daten?",
-      "text1": "Bitte beachten Sie, dass unsere vertrauenswürdigen Partner und Dienstanbieter auf der ganzen Welt ansässig sind. Zu den in dieser Datenschutzrichtlinie erläuterten Zwecke speichern und verarbeiten wir alle nicht personenbezogenen Daten, die wir erfassen, in unterschiedlichen Rechtsordnungen.",
-      "text2": "Personenbezogene Daten können in den Vereinigten Staaten, in Irland, Südkorea, Taiwan, Israel und soweit für die ordnungsgemäße Bereitstellung unserer Dienste und/oder gesetzlich vorgeschrieben in anderen Rechtsordnungen gepflegt, verarbeitet und gespeichert werden."
-    },
-    "retention": {
-      "title": "Speicherdauer",
-      "text": "Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wollen Sie Ihre personenbezogenen Daten löschen lassen, genügt in der Regel ein entsprechendes formloses Schreiben per Email an contact@gmed-health.com."
-    },
-    "security": {
-      "title": "Wie schützen wir Ihre Daten?",
-      "text1": "Der Hosting-Dienst stellt uns die Online-Plattform zur Verfügung, über die wir Ihnen unsere Dienste anbieten können. Ihre Daten können über die Datenspeicherung, Datenbanken und allgemeine Anwendungen unseres Hosting-Anbieters gespeichert werden.",
-      "text2": "Ungeachtet der von uns und unserem Hosting-Anbieter ergriffenen Maßnahmen und Bemühungen können und werden wir keinen absoluten Schutz und keine absolute Sicherheit der Daten garantieren, die Sie hochladen, veröffentlichen oder anderweitig an uns oder andere weitergeben.",
-      "text3": "Aus diesem Grund möchten wir Sie bitten, sichere Passwörter festzulegen und uns oder anderen nach Möglichkeit keine vertraulichen Informationen zu übermitteln, deren Offenlegung Ihnen Ihrer Meinung nach erheblich bzw. nachhaltig schaden könnte.",
-      "text4": "Falls Sie uns Dokumente mit personenbezogenen bzw. vertraulichen Informationen per E-Mail oder Instant Messaging zukommen lassen, liegt es in Ihrem Verantwortungsbereich."
-    },
-    "minors": {
-      "title": "Wie gehen wir mit Minderjährigen um?",
-      "text1": "Minderjährige können unsere Dienste nutzen.",
-      "text2": "Wenn sie jedoch unsere Dienste nutzen möchten, müssen sie ggf. gewisse Angaben machen (insbesondere Kontaktdaten der Eltern). Die Erfassung einiger Daten kann automatisch erfolgen. Wenn wir wissentlich von einem Minderjährigen erfasste Daten sammeln, verwenden oder offenlegen, werden wir in Übereinstimmung mit geltendem Recht darauf hinweisen und die Zustimmung der Eltern einholen.",
-      "text3": "Wir können auch die Kontaktdaten eines Elternteils verwenden, um über die Aktivitäten eines Minderjährigen in den Diensten zu kommunizieren. Eltern können Daten, die wir von ihrem Kind erfasst haben, einsehen und verlangen, dass alle von uns erfassten Daten aus unseren Aufzeichnungen gelöscht werden.",
-      "text4": "Bitte nehmen Sie Kontakt zu uns auf, um die Daten Ihres Kindes einzusehen, zu aktualisieren oder zu löschen."
-    },
-    "updates": {
-      "title": "Aktualisierungen oder Änderungen der Datenschutzrichtlinie",
-      "text": "Wir können diese Datenschutzrichtlinie nach eigenem Ermessen von Zeit zu Zeit überarbeiten, die auf der Website veröffentlichte Version ist immer aktuell. Wir bitten Sie, diese Datenschutzrichtlinie regelmäßig auf Änderungen zu überprüfen. Bei wesentlichen Änderungen werden wir einen Hinweis dazu auf unserer Website veröffentlichen."
-    },
-    "contact": {
-      "title": "Kontakt",
-      "text": "Wenn Sie allgemeine Fragen zu den Diensten oder den von uns über Sie erfassten Daten und deren Verwendung haben, kontaktieren Sie uns bitte unter:"
-    }
   },
   "impressumPage": {
     "title": "Impressum",

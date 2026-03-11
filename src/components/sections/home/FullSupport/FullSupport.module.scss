@@ -14,6 +14,8 @@
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-bottom: none;
   overflow: visible;
+  content-visibility: auto;
+  contain-intrinsic-size: 960px;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.88) inset,
     0 7px 16px rgba(16, 20, 36, 0.024) inset,
@@ -56,7 +58,7 @@
 
     &::before {
       top: -26px;
-      width: 124%;
+      width: calc(100% - 0.75rem);
       height: 72px;
       filter: blur(6px);
     }
@@ -76,7 +78,7 @@
   position: absolute;
   left: 50%;
   bottom: -56px;
-  width: min(92vw, 980px);
+  width: min(calc(100% - 2rem), 980px);
   height: 64px;
   transform: translateX(-50%);
   pointer-events: none;
@@ -121,8 +123,8 @@
   }
 
   @media (max-width: 767px) {
-    bottom: -38px;
-    width: 124%;
+    bottom: -34px;
+    width: calc(100% - 1rem);
     height: 44px;
 
     &::before {
@@ -195,7 +197,7 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.9rem;
 
-  @include up(sm) {
+  @include up(md) {
     grid-template-columns: repeat(6, minmax(0, 1fr));
     grid-template-rows: auto auto auto;
     gap: 1.1rem;
@@ -225,7 +227,7 @@
   border-radius: 1rem 1.4rem 1rem 1.25rem;
   transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 
-  @include up(sm) {
+  @include up(md) {
     grid-column: span 3;
   }
 
@@ -297,7 +299,7 @@
 
 // Large tile spans 2 rows
 .serviceItemLarge {
-  @include up(sm) {
+  @include up(md) {
     grid-column: 3 / span 2;
     grid-row: 1 / span 2;
     border-radius: 1.4rem 1rem 1.5rem 1rem;
@@ -309,7 +311,7 @@
   --divider-start: rgba(138, 149, 169, 0.42);
   --divider-end: rgba(138, 149, 169, 0.14);
 
-  @include up(sm) {
+  @include up(md) {
     grid-column: 1 / span 2;
   }
 }
@@ -323,21 +325,21 @@
   --divider-start: rgba(138, 149, 169, 0.42);
   --divider-end: rgba(138, 149, 169, 0.14);
 
-  @include up(sm) {
+  @include up(md) {
     grid-column: 5 / span 2;
     border-radius: 1rem 1.4rem 1rem 1.6rem;
   }
 }
 
 .serviceItem:nth-child(4) {
-  @include up(sm) {
+  @include up(md) {
     grid-column: 1 / span 3;
     border-radius: 1.25rem 1rem 1.45rem 1rem;
   }
 }
 
 .serviceItem:nth-child(5) {
-  @include up(sm) {
+  @include up(md) {
     grid-column: 4 / span 3;
     transform: translateY(-8px);
     border-radius: 1.15rem 1.55rem 1rem 1.2rem;
@@ -556,7 +558,7 @@
 
 .closingSpacer {
   width: 80px;
-  height: 2px;
+  height: clamp(0.85rem, 1.8vw, 1.3rem);
   margin: 1rem auto 0;
   opacity: 0;
 }

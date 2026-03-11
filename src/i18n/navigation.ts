@@ -4,8 +4,7 @@ import { routing } from "./routing";
 const navigation = createNavigation(routing);
 
 const LEGACY_WIZARD_ROUTE_MAP: Record<string, string> = {
-  "/login": "/apply?type=returning",
-  "/register": "/apply?type=new&step=location",
+  "/register": "/apply?type=new&step=member-check",
   "/register/eu/step/role": "/apply?type=new&step=eu-role",
   "/register/eu/step/companion": "/apply?type=new&step=eu-companion",
   "/register/eu/step/form": "/apply?type=new&step=eu-form",

@@ -1,16 +1,16 @@
 "use client";
 
 import React from 'react';
-import { Check, Plane, User, Stethoscope, Shield, Flag } from 'lucide-react';
+import { Check, ClipboardCheck, User, Stethoscope, Shield, Flag } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import styles from '../../RequestAppointment/RequestAppointment.module.scss';
 
 const PROGRESS_STEPS = [
-  { key: 'travelReady', labelKey: 'travelReady', icon: Plane },
+  { key: 'eligibility', labelKey: 'eligibility', icon: ClipboardCheck },
   { key: 'patientInfo', labelKey: 'patientInfo', icon: User },
   { key: 'primaryConcern', labelKey: 'primaryConcern', icon: Stethoscope },
-  { key: 'insuranceDetails', labelKey: 'insuranceDetails', icon: Shield },
+  { key: 'servicesInsurance', labelKey: 'servicesInsurance', icon: Shield },
   { key: 'wrapUp', labelKey: 'wrapUp', icon: Flag },
 ];
 

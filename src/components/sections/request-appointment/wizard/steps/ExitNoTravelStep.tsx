@@ -4,23 +4,15 @@ import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
-import { useWizard } from '../WizardContext';
 import { WizardStepLayout } from '../components/WizardStepLayout';
 import styles from '../../RequestAppointment/RequestAppointment.module.scss';
 
-interface ExitNoTravelStepProps {
-  wizardPath: 'eu' | 'outside-eu';
-}
-
-export function ExitNoTravelStep({ wizardPath }: ExitNoTravelStepProps) {
+export function ExitNoTravelStep() {
   const t = useTranslations('appointment.newPatient');
   const router = useRouter();
-  const { data } = useWizard();
-
-  const exitKey = data.patientRole === 'patient' ? 'exitNoTravelPatient' : 'exitNoTravelCompanion';
 
   const handleBack = () => {
-    router.push(`/register/${wizardPath}/step/travel`);
+    router.push('/apply?type=new&step=outside-travel');
   };
 
   const handleExit = () => {
@@ -29,8 +21,8 @@ export function ExitNoTravelStep({ wizardPath }: ExitNoTravelStepProps) {
 
   return (
     <WizardStepLayout
-      title={t(`${exitKey}.title`)}
-      showStepper={wizardPath === 'outside-eu'}
+      title={t('exitNoTravelPatient.title')}
+      showStepper
       activeStepIndex={0}
       onBack={handleBack}
       backLabel={t('back')}
@@ -42,9 +34,7 @@ export function ExitNoTravelStep({ wizardPath }: ExitNoTravelStepProps) {
           style={{ '--hover-color': '#E5D5A8' } as React.CSSProperties}
         >
           <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>
-              {t(`${exitKey}.button`)}
-            </h3>
+            <h3 className={styles.clientCardTitle}>{t('exitNoTravelPatient.button')}</h3>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
         </div>

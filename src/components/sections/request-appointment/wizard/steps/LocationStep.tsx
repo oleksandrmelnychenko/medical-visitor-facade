@@ -5,13 +5,13 @@ import { ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../WizardContext';
-import { LocationType } from '../types';
+import { LocationDetailedType } from '../types';
 import { WizardStepLayout } from '../components/WizardStepLayout';
 import styles from '../../RequestAppointment/RequestAppointment.module.scss';
 
-// Static style objects to prevent recreation on each render
 const CARD_STYLES = {
-  eu: { '--hover-color': '#E5D5A8' } as React.CSSProperties,
+  germany: { '--hover-color': '#E5D5A8' } as React.CSSProperties,
+  eu: { '--hover-color': '#D5E8D5' } as React.CSSProperties,
   outside: { '--hover-color': '#A8D5E5' } as React.CSSProperties,
 };
 
@@ -21,44 +21,52 @@ export function LocationStep() {
   const { updateData } = useWizard();
   const isNavigatingRef = useRef(false);
 
-  const handleSelect = useCallback((location: LocationType) => {
-    // Prevent double-clicks
+  const handleSelect = useCallback((locationDetailed: LocationDetailedType) => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
 
-    updateData({ location });
-    if (location === 'eu') {
-      router.push('/register/eu/step/role');
+    updateData({
+      location: locationDetailed === 'outside_eu' ? 'outside_eu' : 'eu',
+      locationDetailed,
+    });
+    if (locationDetailed === 'germany') {
+      router.push('/apply?type=new&step=health-intro');
     } else {
-      router.push('/register/outside-eu/step/role');
+      router.push('/apply?type=new&step=become-member');
     }
   }, [updateData, router]);
 
   const handleBack = useCallback(() => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-    router.push('/apply');
+    router.push('/apply?type=new&step=welcome');
   }, [router]);
 
   return (
     <WizardStepLayout
-      title={t('location.title')}
+      title={t('location3.title')}
       onBack={handleBack}
       backLabel={t('back')}
     >
       <div className={styles.clientCardsGrid}>
         <div
-          onClick={() => handleSelect('eu')}
+          onClick={() => handleSelect('germany')}
+          className={styles.clientCard}
+          style={CARD_STYLES.germany}
+        >
+          <div className={styles.clientCardContent}>
+            <h3 className={styles.clientCardTitle}>{t('location3.germany')}</h3>
+          </div>
+          <ChevronRight size={24} className={styles.clientCardArrow} />
+        </div>
+
+        <div
+          onClick={() => handleSelect('eu_not_germany')}
           className={styles.clientCard}
           style={CARD_STYLES.eu}
         >
           <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>
-              {t('location.insideEU')}
-            </h3>
-            <p className={styles.clientCardDesc}>
-              {t('location.insideEUDesc')}
-            </p>
+            <h3 className={styles.clientCardTitle}>{t('location3.euNotGermany')}</h3>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
         </div>
@@ -69,12 +77,7 @@ export function LocationStep() {
           style={CARD_STYLES.outside}
         >
           <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>
-              {t('location.outsideEU')}
-            </h3>
-            <p className={styles.clientCardDesc}>
-              {t('location.outsideEUDesc')}
-            </p>
+            <h3 className={styles.clientCardTitle}>{t('location3.outsideEu')}</h3>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
         </div>

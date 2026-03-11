@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { UserPlus } from "lucide-react";
+import { UserPlus, User } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import styles from "./Hero.module.scss";
 
@@ -26,9 +26,13 @@ export function Hero() {
       </div>
 
       <div className={styles.heroActions}>
-        <Link href="/apply" className={styles.heroButton}>
+        <Link href="/apply" prefetch={false} className={styles.heroButton}>
           <UserPlus size={18} />
           {tCommon("requestAppointment")}
+        </Link>
+        <Link href="/login" prefetch={false} className={styles.heroLoginLink}>
+          <User size={16} />
+          {tCommon("login")}
         </Link>
       </div>
     </section>

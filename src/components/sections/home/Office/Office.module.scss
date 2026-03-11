@@ -9,6 +9,8 @@
   display: flex;
   align-items: center;
   overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: 820px;
 
   &::before {
     content: "";
@@ -175,9 +177,9 @@
   animation: brushReveal 1s ease-out forwards;
 }
 
-// Remove will-change after animation completes to free GPU memory
-.brushPaintActive[style] {
-  animation: brushReveal 1s ease-out forwards;
+.brushPaintStatic {
+  clip-path: inset(0);
+  opacity: 1;
 }
 
 .mainCityContent {
@@ -272,6 +274,47 @@
   text-align: center;
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  .stage {
+    max-width: 980px;
+  }
+
+  .header {
+    margin-bottom: 1.7rem;
+  }
+
+  .mainCity {
+    min-height: 12rem;
+    gap: 1rem;
+    padding: 1.2rem 1.35rem;
+  }
+
+  .mainCityContent {
+    flex-basis: 42%;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .mainCityName {
+    font-size: 1.25rem;
+    letter-spacing: 0.1em;
+  }
+
+  .mainCityImageWrapper {
+    width: min(44%, 18rem);
+  }
+
+  .cityCard {
+    min-height: 10.4rem;
+    padding: 0.95rem 0.9rem 1rem;
+  }
+
+  .cityName {
+    font-size: 0.75rem;
+    letter-spacing: 0.085em;
+  }
+}
+
 @media (max-width: 767px) {
   .brushPaint {
     clip-path: inset(0);
@@ -312,7 +355,8 @@
   }
 
   .mainCityName {
-    font-size: 0.8rem;
+    font-size: 0.84rem;
+    letter-spacing: 0.09em;
   }
 
   .mainCityImageWrapper {
@@ -359,6 +403,7 @@
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    font-size: 0.7rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
   }
 }

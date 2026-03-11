@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useRef, useMemo } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
@@ -9,77 +9,52 @@ import { YesNoType } from '../types';
 import { WizardStepLayout } from '../components/WizardStepLayout';
 import styles from '../../RequestAppointment/RequestAppointment.module.scss';
 
-// Static style objects to prevent recreation on each render
 const CARD_STYLES = {
   yes: { '--hover-color': '#E5D5A8' } as React.CSSProperties,
   no: { '--hover-color': '#A8D5E5' } as React.CSSProperties,
 };
 
-interface TravelReadyStepProps {
-  wizardPath: 'eu' | 'outside-eu';
-}
-
-export function TravelReadyStep({ wizardPath }: TravelReadyStepProps) {
+export function TravelReadyStep() {
   const t = useTranslations('appointment.newPatient');
   const router = useRouter();
-  const { data, updateData } = useWizard();
+  const { updateData } = useWizard();
   const isNavigatingRef = useRef(false);
-
-  // Use different translation keys based on patient role
-  const travelKey = useMemo(
-    () => data.patientRole === 'patient' ? 'travelPatient' : 'travelCompanion',
-    [data.patientRole]
-  );
 
   const handleSelect = useCallback((value: YesNoType) => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-
     updateData({ canTravel: value });
     if (value === 'yes') {
-      router.push(`/register/${wizardPath}/step/records`);
+      router.push('/apply?type=new&step=outside-records');
     } else {
-      router.push(`/register/${wizardPath}/step/visa`);
+      router.push('/apply?type=new&step=outside-exit-travel');
     }
-  }, [updateData, router, wizardPath]);
+  }, [updateData, router]);
 
   const handleBack = useCallback(() => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-    router.push(`/register/${wizardPath}/step/role`);
-  }, [router, wizardPath]);
+    router.push('/apply?type=new&step=become-member');
+  }, [router]);
 
   return (
     <WizardStepLayout
-      title={t(`${travelKey}.title`)}
-      showStepper={wizardPath === 'outside-eu'}
+      title={t('travelPatient.title')}
+      showStepper
       activeStepIndex={0}
       onBack={handleBack}
       backLabel={t('back')}
     >
       <div className={styles.clientCardsGrid}>
-        <div
-          onClick={() => handleSelect('yes')}
-          className={styles.clientCard}
-          style={CARD_STYLES.yes}
-        >
+        <div onClick={() => handleSelect('yes')} className={styles.clientCard} style={CARD_STYLES.yes}>
           <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>
-              {t(`${travelKey}.yes`)}
-            </h3>
+            <h3 className={styles.clientCardTitle}>{t('travelPatient.yes')}</h3>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
         </div>
-
-        <div
-          onClick={() => handleSelect('no')}
-          className={styles.clientCard}
-          style={CARD_STYLES.no}
-        >
+        <div onClick={() => handleSelect('no')} className={styles.clientCard} style={CARD_STYLES.no}>
           <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>
-              {t(`${travelKey}.no`)}
-            </h3>
+            <h3 className={styles.clientCardTitle}>{t('travelPatient.no')}</h3>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
         </div>

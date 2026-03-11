@@ -4,23 +4,15 @@ import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
-import { useWizard } from '../WizardContext';
 import { WizardStepLayout } from '../components/WizardStepLayout';
 import styles from '../../RequestAppointment/RequestAppointment.module.scss';
 
-interface ExitNoRecordsStepProps {
-  wizardPath: 'eu' | 'outside-eu';
-}
-
-export function ExitNoRecordsStep({ wizardPath }: ExitNoRecordsStepProps) {
+export function ExitNoRecordsStep() {
   const t = useTranslations('appointment.newPatient');
   const router = useRouter();
-  const { data } = useWizard();
-
-  const exitKey = data.patientRole === 'patient' ? 'exitNoRecordsPatient' : 'exitNoRecordsCompanion';
 
   const handleBack = () => {
-    router.push(`/register/${wizardPath}/step/records`);
+    router.push('/apply?type=new&step=outside-records');
   };
 
   const handleExit = () => {
@@ -29,9 +21,9 @@ export function ExitNoRecordsStep({ wizardPath }: ExitNoRecordsStepProps) {
 
   return (
     <WizardStepLayout
-      title={t(`${exitKey}.title`)}
-      subtitle={t(`${exitKey}.description`)}
-      showStepper={wizardPath === 'outside-eu'}
+      title={t('exitNoRecordsPatient.title')}
+      subtitle={t('exitNoRecordsPatient.description')}
+      showStepper
       activeStepIndex={0}
       onBack={handleBack}
       backLabel={t('back')}
@@ -43,9 +35,7 @@ export function ExitNoRecordsStep({ wizardPath }: ExitNoRecordsStepProps) {
           style={{ '--hover-color': '#E5D5A8' } as React.CSSProperties}
         >
           <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>
-              {t(`${exitKey}.button`)}
-            </h3>
+            <h3 className={styles.clientCardTitle}>{t('exitNoRecordsPatient.button')}</h3>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
         </div>

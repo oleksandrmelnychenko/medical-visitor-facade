@@ -2,7 +2,7 @@
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import { UserPlus, Menu, X, ArrowRight } from "lucide-react";
+import { UserPlus, User, Menu, X, ArrowRight } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
@@ -88,6 +88,7 @@ export function Header() {
   const currentPathWithSearch = searchParams.size
     ? `${pathname}?${searchParams.toString()}`
     : pathname;
+  const showHomeLogin = pathname === "/";
 
   const handleLanguageSelect = (code: 'de' | 'en' | 'ru' | 'es') => {
     router.replace(currentPathWithSearch, { locale: code });
@@ -131,7 +132,13 @@ export function Header() {
             </span>
           </button>
           <div className={styles.stickyActions}>
-            <Link href="/apply" className={styles.stickyButton}>
+            {showHomeLogin && (
+              <Link href="/login" prefetch={false} className={styles.stickyLoginLink}>
+                <User size={16} />
+                <span>{tCommon("login")}</span>
+              </Link>
+            )}
+            <Link href="/apply" prefetch={false} className={styles.stickyButton}>
               {tCommon('requestAppointment')}
               <ArrowRight size={16} />
             </Link>
@@ -181,6 +188,12 @@ export function Header() {
           </Link>
 
           <div className={styles.headerRight}>
+            {showHomeLogin && (
+              <Link href="/login" prefetch={false} className={styles.headerLoginLink}>
+                <User size={16} />
+                <span>{tCommon("login")}</span>
+              </Link>
+            )}
             <div className={styles.languageSelector} ref={langRef}>
               <button
                 className={styles.langToggle}
@@ -253,12 +266,24 @@ export function Header() {
 
           <Link
             href="/apply"
+            prefetch={false}
             onClick={closeMobileMenu}
             className={styles.mobileApplyButton}
           >
             <UserPlus size={16} />
             {tCommon('requestAppointment')}
           </Link>
+
+          {showHomeLogin && (
+            <Link
+              href="/login"
+              prefetch={false}
+              onClick={closeMobileMenu}
+              className={styles.mobileFooterLink}
+            >
+              {tCommon("login")}
+            </Link>
+          )}
 
           <div className={styles.mobileFooterLinks}>
             <div className={styles.mobileFooterTitle}>{tFooter("theAgency")}</div>
@@ -268,6 +293,12 @@ export function Header() {
           </div>
         </div>
       </div>
+
+      {showHomeLogin && !isMobileMenuOpen && (
+        <Link href="/login" prefetch={false} className={styles.mobileLoginFab} aria-label={tCommon("login")}>
+          <User size={24} />
+        </Link>
+      )}
       </header>
     </>
   );

@@ -7,12 +7,14 @@ import {
   saveEncryptedJson,
 } from "@/lib/client-encryption";
 import { WizardData, initialWizardData } from "./types";
+import { sanitizeWizardData } from "./flow";
 
 interface WizardContextType {
   data: WizardData;
   updateData: (updates: Partial<WizardData>) => void;
   resetData: () => void;
-  getRoleSuffix: () => "Patient" | "Companion";
+  getRoleSuffix: () => string;
+  isDraftHydrated: boolean;
 }
 
 export const WIZARD_DRAFT_STORAGE_KEY = "gmed.apply.wizard.draft.v2";
@@ -34,7 +36,7 @@ export function WizardProvider({ children }: { children: ReactNode }) {
       }
 
       if (draft) {
-        setData((prev) => ({ ...prev, ...draft }));
+        setData((prev) => sanitizeWizardData({ ...prev, ...draft }));
       }
 
       setIsDraftHydrated(true);
@@ -48,7 +50,7 @@ export function WizardProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const updateData = useCallback((updates: Partial<WizardData>) => {
-    setData((prev) => ({ ...prev, ...updates }));
+    setData((prev) => sanitizeWizardData({ ...prev, ...updates }));
   }, []);
 
   const resetData = useCallback(() => {
@@ -57,26 +59,32 @@ export function WizardProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const getRoleSuffix = useCallback(() => {
-    return data.patientRole === "patient" ? "Patient" : "Companion";
-  }, [data.patientRole]);
+    return "Patient";
+  }, []);
 
   useEffect(() => {
     if (!isDraftHydrated) {
       return;
     }
 
-    if (JSON.stringify(data) === JSON.stringify(initialWizardData)) {
-      removeEncryptedJson(WIZARD_DRAFT_STORAGE_KEY);
-      return;
-    }
+    const timer = setTimeout(() => {
+      if (JSON.stringify(data) === JSON.stringify(initialWizardData)) {
+        removeEncryptedJson(WIZARD_DRAFT_STORAGE_KEY);
+        return;
+      }
 
-    void saveEncryptedJson(WIZARD_DRAFT_STORAGE_KEY, data).catch(() => {
-      // Ignore client-side storage failures so the questionnaire remains usable.
-    });
+      void saveEncryptedJson(WIZARD_DRAFT_STORAGE_KEY, data).catch(() => {
+        // Ignore client-side storage failures so the questionnaire remains usable.
+      });
+    }, 500);
+
+    return () => clearTimeout(timer);
   }, [data, isDraftHydrated]);
 
   return (
-    <WizardContext.Provider value={{ data, updateData, resetData, getRoleSuffix }}>
+    <WizardContext.Provider
+      value={{ data, updateData, resetData, getRoleSuffix, isDraftHydrated }}
+    >
       {children}
     </WizardContext.Provider>
   );
