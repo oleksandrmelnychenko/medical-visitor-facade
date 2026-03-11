@@ -54,7 +54,6 @@ export function WizardSidebar({ activeIndex }: WizardSidebarProps) {
               )}
             >
               <div className={styles.stepperDot}>
-                {isActive && <div className={styles.stepperPulse} />}
                 <div className={styles.stepperDotInner}>
                   {isComplete ? (
                     <Check size={16} strokeWidth={3} />

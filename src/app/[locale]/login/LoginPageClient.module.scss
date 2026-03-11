@@ -1,0 +1,203 @@
+@use "../../../styles/variables" as *;
+
+.page {
+  background-color: #fbfbfb !important;
+  min-height: 100vh;
+}
+
+.heroSection {
+  padding-top: clamp(2.5rem, 6vw, 4rem) !important;
+  padding-bottom: clamp(1.2rem, 3vw, 1.8rem) !important;
+  background-color: #fbfbfb !important;
+}
+
+.headerDivider {
+  width: 100%;
+  height: 1px;
+  background-color: #d5d2cf;
+  margin-top: 1.5rem;
+}
+
+.formSection {
+  padding-top: 0.8rem !important;
+  padding-bottom: clamp(3rem, 7vw, 5rem) !important;
+  background-color: #fbfbfb !important;
+}
+
+.formContainer {
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  font-family: inherit;
+  border: 1px solid #d5d5d5;
+  border-radius: 12px;
+  background: #fff;
+  color: #1a1a1a;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:focus-visible {
+    outline: none;
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 2px rgba(26, 26, 26, 0.08);
+  }
+
+  &::placeholder {
+    color: #999;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+}
+
+.passwordWrapper {
+  position: relative;
+}
+
+.passwordWrapper .input {
+  padding-right: 3rem;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  color: #999;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #1a1a1a;
+  }
+}
+
+.feedback {
+  padding: 0.8rem 1rem;
+  margin: 0.35rem 0 0.5rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.feedbackError {
+  color: #c0122f;
+  background: rgba(212, 24, 61, 0.08);
+  border: 1px solid rgba(212, 24, 61, 0.16);
+}
+
+.feedbackSuccess {
+  color: #0c6b50;
+  background: rgba(5, 150, 105, 0.08);
+  border: 1px solid rgba(5, 150, 105, 0.16);
+}
+
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem 2rem;
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #fff;
+  background: linear-gradient(135deg, #4a4a4a 0%, #2d2d32 50%, #1a1a1a 100%);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.confidentialityNotice {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.5rem;
+  color: var(--muted-foreground);
+  margin: 2rem 0 1.5rem;
+}
+
+.linkRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
+}
+
+.secondaryLink {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.5rem;
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .heroSection {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  .formSection {
+    padding-top: 0.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .formContainer {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .headerDivider {
+    margin-top: 1rem;
+  }
+}

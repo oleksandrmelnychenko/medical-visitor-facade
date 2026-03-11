@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'motion/react';
 import { cn } from '@/lib/utils';
 import sectionStyles from '@/components/sections/shared/Section.module.scss';
 import pageStyles from '@/styles/page.module.scss';
@@ -56,23 +55,13 @@ export function WizardStepLayout({
       <section className={cn(sectionStyles.section, pageStyles.heroSection, styles.applyHeroSection)} id="register">
         <div className={sectionStyles.container}>
           <div className={styles.wizardHeaderWrapper}>
-            <motion.h1
-              className={styles.wizardHeaderTitle}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0 }}
-            >
+            <h1 className={cn(styles.wizardHeaderTitle, styles.wizardHeaderEnter)}>
               {title}
-            </motion.h1>
+            </h1>
             {subtitle && (
-              <motion.p
-                className={styles.wizardHeaderSubtitle}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.05 }}
-              >
+              <p className={cn(styles.wizardHeaderSubtitle, styles.wizardHeaderSubtitleEnter)}>
                 {subtitle}
-              </motion.p>
+              </p>
             )}
           </div>
         </div>
@@ -80,38 +69,35 @@ export function WizardStepLayout({
 
       <section className={cn(sectionStyles.section, styles.cardsSection)}>
         <div className={sectionStyles.container}>
-          <motion.div
-            className={styles.locationStepContent}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.05 }}
-          >
-            {children}
+          <div className={cn(styles.locationStepContent, styles.wizardSurface, styles.wizardSurfaceEnter)}>
+            <div className={styles.wizardSurfaceInner}>
+              {children}
 
-            {(onBack || onContinue) && (
-              <div className={styles.wizardButtonRow}>
-                {onBack && (
-                  <button
-                    onClick={onBack}
-                    className={styles.wizardBackBtnHalf}
-                    type="button"
-                  >
-                    {backLabel}
-                  </button>
-                )}
-                {onContinue && (
-                  <button
-                    onClick={onContinue}
-                    disabled={continueDisabled}
-                    className={styles.wizardContinueBtnHalf}
-                    type="button"
-                  >
-                    {continueLabel}
-                  </button>
-                )}
-              </div>
-            )}
-          </motion.div>
+              {(onBack || onContinue) && (
+                <div className={styles.wizardButtonRow}>
+                  {onBack && (
+                    <button
+                      onClick={onBack}
+                      className={styles.wizardBackBtnHalf}
+                      type="button"
+                    >
+                      {backLabel}
+                    </button>
+                  )}
+                  {onContinue && (
+                    <button
+                      onClick={onContinue}
+                      disabled={continueDisabled}
+                      className={styles.wizardContinueBtnHalf}
+                      type="button"
+                    >
+                      {continueLabel}
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </section>
     </div>

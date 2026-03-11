@@ -1,14 +1,14 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Eye, EyeOff, LockKeyhole, ShieldCheck } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
-import authStyles from "@/components/auth/Auth.module.scss";
 import pageStyles from "@/styles/page.module.scss";
+import styles from "./LoginPageClient.module.scss";
 
 function isValidIdentifier(value: string) {
   const trimmedValue = value.trim();
@@ -20,7 +20,6 @@ function isValidIdentifier(value: string) {
 
 export function LoginPageClient() {
   const tAuth = useTranslations("auth");
-  const tPortal = useTranslations("patientPortal");
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -55,126 +54,90 @@ export function LoginPageClient() {
   };
 
   return (
-    <main className={pageStyles.page}>
-      <section className={cn(sectionStyles.section, pageStyles.heroSection)}>
+    <main className={cn(pageStyles.page, styles.page)}>
+      <section className={cn(sectionStyles.section, pageStyles.heroSection, styles.heroSection)}>
         <div className={sectionStyles.container}>
           <SectionHeader
-            overline={tAuth("overline")}
             title={tAuth("welcomeTitle")}
-            subtitle={tPortal("login.description")}
-            align="left"
+            subtitle={tAuth("welcomeSubtitle")}
             variant="page"
             titleAs="h1"
+            theme="beige"
           />
+          <div className={styles.headerDivider} />
+        </div>
+      </section>
 
-          <div className={pageStyles.gridTwo} style={{ alignItems: "start" }}>
-            <div className={cn(pageStyles.formCard, pageStyles.stackMd)}>
-              <div className={pageStyles.stackMd} style={{ gap: "1.25rem" }}>
-                <div className={pageStyles.cardRow}>
-                  <ShieldCheck size={20} />
-                  <div>
-                    <h2 className={pageStyles.cardTitle}>{tPortal("login.title")}</h2>
-                    <p className={pageStyles.cardText}>{tAuth("welcomeSubtitle")}</p>
-                  </div>
-                </div>
+      <section className={cn(sectionStyles.section, styles.formSection)}>
+        <div className={sectionStyles.container}>
+          <div className={styles.formContainer}>
+            <form className={styles.form} onSubmit={handleSubmit} noValidate>
+              <div className={styles.fieldGroup}>
+                <label className={styles.srOnly} htmlFor="identifier">
+                  {tAuth("phoneOrEmail")}
+                </label>
+                <input
+                  id="identifier"
+                  type="text"
+                  value={identifier}
+                  onChange={(event) => setIdentifier(event.target.value)}
+                  className={styles.input}
+                  placeholder={tAuth("phoneOrEmail")}
+                  autoComplete="username"
+                />
+              </div>
 
-                <div className={pageStyles.checkList}>
-                  <div className={pageStyles.checkItem}>
-                    <span className={pageStyles.checkBullet}>
-                      <span className={pageStyles.checkBulletInner} />
-                    </span>
-                    <p className={pageStyles.cardText}>{tPortal("features.records.description")}</p>
-                  </div>
-                  <div className={pageStyles.checkItem}>
-                    <span className={pageStyles.checkBullet}>
-                      <span className={pageStyles.checkBulletInner} />
-                    </span>
-                    <p className={pageStyles.cardText}>{tPortal("features.messaging.description")}</p>
-                  </div>
-                  <div className={pageStyles.checkItem}>
-                    <span className={pageStyles.checkBullet}>
-                      <span className={pageStyles.checkBulletInner} />
-                    </span>
-                    <p className={pageStyles.cardText}>{tPortal("help.description")}</p>
-                  </div>
+              <div className={styles.fieldGroup}>
+                <label className={styles.srOnly} htmlFor="password">
+                  {tAuth("password")}
+                </label>
+                <div className={styles.passwordWrapper}>
+                  <input
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
+                    className={styles.input}
+                    placeholder={tAuth("passwordPlaceholder")}
+                    autoComplete="current-password"
+                  />
+                  <button
+                    type="button"
+                    className={styles.passwordToggle}
+                    onClick={() => setShowPassword((currentValue) => !currentValue)}
+                    aria-label={showPassword ? tAuth("hidePassword") : tAuth("showPassword")}
+                  >
+                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  </button>
                 </div>
               </div>
 
-              <div className={pageStyles.buttonRow}>
-                <Link href="/apply" className={pageStyles.buttonSolid}>
+              {feedback ? (
+                <p
+                  className={cn(
+                    styles.feedback,
+                    feedback.type === "error" ? styles.feedbackError : styles.feedbackSuccess
+                  )}
+                >
+                  {feedback.message}
+                </p>
+              ) : null}
+
+              <button className={styles.submitButton} type="submit">
+                {tAuth("signIn")}
+              </button>
+
+              <p className={styles.confidentialityNotice}>{tAuth("confidentialityNotice")}</p>
+
+              <div className={styles.linkRow}>
+                <Link href="/apply" className={styles.secondaryLink}>
                   {tAuth("createAccount")}
                 </Link>
-                <Link href="/privacy-policy" className={pageStyles.buttonOutline}>
+                <Link href="/privacy-policy" className={styles.secondaryLink}>
                   {tAuth("privacyPolicyLink")}
                 </Link>
               </div>
-            </div>
-
-            <div className={pageStyles.formCard}>
-              <form className={authStyles.form} onSubmit={handleSubmit} noValidate>
-                <div className={authStyles.simpleFormGroup}>
-                  <label className={authStyles.label} htmlFor="identifier">
-                    {tAuth("phoneOrEmail")}
-                  </label>
-                  <input
-                    id="identifier"
-                    type="text"
-                    value={identifier}
-                    onChange={(event) => setIdentifier(event.target.value)}
-                    className={authStyles.simpleInput}
-                    placeholder={tAuth("phoneOrEmail")}
-                    autoComplete="username"
-                  />
-                </div>
-
-                <div className={authStyles.simpleFormGroup}>
-                  <label className={authStyles.label} htmlFor="password">
-                    {tAuth("password")}
-                  </label>
-                  <div className={authStyles.passwordWrapper}>
-                    <input
-                      id="password"
-                      type={showPassword ? "text" : "password"}
-                      value={password}
-                      onChange={(event) => setPassword(event.target.value)}
-                      className={authStyles.simpleInput}
-                      placeholder={tAuth("passwordPlaceholder")}
-                      autoComplete="current-password"
-                    />
-                    <button
-                      type="button"
-                      className={authStyles.passwordToggle}
-                      onClick={() => setShowPassword((currentValue) => !currentValue)}
-                      aria-label={showPassword ? tAuth("hidePassword") : tAuth("showPassword")}
-                    >
-                      {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-                    </button>
-                  </div>
-                </div>
-
-                {feedback ? (
-                  <p
-                    className={
-                      feedback.type === "error" ? authStyles.formError : authStyles.formSuccess
-                    }
-                  >
-                    {feedback.message}
-                  </p>
-                ) : null}
-
-                <button className={authStyles.submitButton} type="submit">
-                  <LockKeyhole size={16} />
-                  {tAuth("signIn")}
-                </button>
-              </form>
-
-              <p className={authStyles.confidentialityNotice}>{tAuth("confidentialityNotice")}</p>
-              <div className={pageStyles.buttonRow}>
-                <Link href="/apply" className={pageStyles.linkMuted}>
-                  {tPortal("help.contactSupport")}
-                </Link>
-              </div>
-            </div>
+            </form>
           </div>
         </div>
       </section>
