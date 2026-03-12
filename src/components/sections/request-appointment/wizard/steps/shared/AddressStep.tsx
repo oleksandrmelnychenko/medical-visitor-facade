@@ -38,8 +38,6 @@ export function AddressStep() {
   return (
     <WizardStepLayout
       title={t('address.question')}
-      showStepper
-      activeStepIndex={2}
       onBack={handleBack}
       backLabel={t('back')}
     >

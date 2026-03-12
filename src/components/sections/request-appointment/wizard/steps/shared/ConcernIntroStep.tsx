@@ -28,8 +28,6 @@ export function ConcernIntroStep() {
     <WizardStepLayout
       title={t('concernIntro.title')}
       subtitle={t('concernIntro.description')}
-      showStepper
-      activeStepIndex={2}
       onBack={handleBack}
       backLabel={t('back')}
     >

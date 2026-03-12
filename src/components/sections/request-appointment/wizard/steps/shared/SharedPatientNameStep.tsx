@@ -31,8 +31,6 @@ export function SharedPatientNameStep() {
   return (
     <WizardStepLayout
       title={t('sharedPatientName.title')}
-      showStepper
-      activeStepIndex={1}
       onBack={handleBack}
       backLabel={t('back')}
     >

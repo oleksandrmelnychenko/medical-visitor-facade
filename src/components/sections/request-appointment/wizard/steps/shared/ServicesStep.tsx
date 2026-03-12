@@ -52,8 +52,6 @@ export function ServicesStep() {
   return (
     <WizardStepLayout
       title={t('services.title')}
-      showStepper
-      activeStepIndex={2}
       onBack={handleBack}
       backLabel={t('back')}
     >

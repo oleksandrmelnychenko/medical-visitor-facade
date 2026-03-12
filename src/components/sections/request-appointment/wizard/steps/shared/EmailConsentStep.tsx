@@ -46,8 +46,6 @@ export function EmailConsentStep() {
   return (
     <WizardStepLayout
       title={t("emailConsent.title")}
-      showStepper
-      activeStepIndex={1}
       onBack={handleBack}
       backLabel={t("back")}
     >

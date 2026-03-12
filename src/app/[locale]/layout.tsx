@@ -20,13 +20,13 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   setRequestLocale(locale);
-  const messages = await getMessages();
+  const messages = await getMessages({ locale });
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <Header />
       {children}
-      <Footer />
+      <Footer locale={locale} />
       <ScrollProgressRail />
       <CookieConsent />
     </NextIntlClientProvider>

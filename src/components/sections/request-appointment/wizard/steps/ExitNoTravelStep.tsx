@@ -28,8 +28,6 @@ export function ExitNoTravelStep() {
   return (
     <WizardStepLayout
       title={t('exitNoTravelPatient.title')}
-      showStepper
-      activeStepIndex={0}
       onBack={handleBack}
       backLabel={t('back')}
     >

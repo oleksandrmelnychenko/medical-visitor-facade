@@ -15,8 +15,6 @@ export function NoContactExitStep() {
     <WizardStepLayout
       title={t("noContactExit.title")}
       subtitle={t("noContactExit.description")}
-      showStepper
-      activeStepIndex={1}
       onBack={() => router.push("/apply?type=new&step=email-consent")}
       backLabel={t("back")}
     >

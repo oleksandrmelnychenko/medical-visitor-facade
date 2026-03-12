@@ -34,8 +34,6 @@ export function WrapUpIntroStep() {
     <WizardStepLayout
       title={t("wrapUpIntro.title")}
       subtitle={t("wrapUpIntro.subtitle")}
-      showStepper
-      activeStepIndex={4}
       onBack={handleBack}
       backLabel={t("back")}
     >

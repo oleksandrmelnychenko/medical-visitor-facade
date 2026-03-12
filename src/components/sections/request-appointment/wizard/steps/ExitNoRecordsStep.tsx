@@ -23,8 +23,6 @@ export function ExitNoRecordsStep() {
     <WizardStepLayout
       title={t('exitNoRecordsPatient.title')}
       subtitle={t('exitNoRecordsPatient.description')}
-      showStepper
-      activeStepIndex={0}
       onBack={handleBack}
       backLabel={t('back')}
     >

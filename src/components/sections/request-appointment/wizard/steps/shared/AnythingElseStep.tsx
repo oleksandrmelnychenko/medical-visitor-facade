@@ -27,8 +27,6 @@ export function AnythingElseStep() {
     <WizardStepLayout
       title={t('anythingElse.title')}
       subtitle={t('anythingElse.subtitle')}
-      showStepper
-      activeStepIndex={4}
       onBack={handleBack}
       backLabel={t('back')}
     >

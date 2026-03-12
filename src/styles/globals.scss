@@ -141,12 +141,10 @@ body.apply-page-bg {
   }
 }
 
-// Focus states for interactive elements
+// Keep a global visible focus only for button-like controls.
+// Form fields define their own focus treatment locally.
 button,
-[role="button"],
-input,
-select,
-textarea {
+[role="button"] {
   &:focus-visible {
     outline: 2px solid var(--primary);
     outline-offset: 2px;

@@ -39,8 +39,6 @@ export function InsuranceStep() {
   return (
     <WizardStepLayout
       title={t('insuranceStep.title')}
-      showStepper
-      activeStepIndex={3}
       onBack={handleBack}
       backLabel={t('back')}
     >

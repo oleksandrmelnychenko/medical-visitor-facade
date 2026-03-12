@@ -40,8 +40,6 @@ export function PreferredLocationStep() {
     <WizardStepLayout
       title={t('preferredLocation.title')}
       subtitle={t('preferredLocation.subtitle')}
-      showStepper
-      activeStepIndex={4}
       onBack={handleBack}
       backLabel={t('back')}
     >

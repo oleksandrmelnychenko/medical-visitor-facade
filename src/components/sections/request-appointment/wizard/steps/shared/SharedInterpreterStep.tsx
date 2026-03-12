@@ -37,8 +37,6 @@ export function SharedInterpreterStep() {
   return (
     <WizardStepLayout
       title={t('sharedInterpreter.title')}
-      showStepper
-      activeStepIndex={1}
       onBack={handleBack}
       backLabel={t('back')}
     >

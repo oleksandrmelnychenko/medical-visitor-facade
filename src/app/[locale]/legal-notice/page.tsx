@@ -5,8 +5,13 @@ import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
 import styles from "./legal-notice.module.scss";
 
-export default async function LegalNoticePage() {
-  const t = await getTranslations("impressumPage");
+type LegalNoticePageProps = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function LegalNoticePage({ params }: LegalNoticePageProps) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "impressumPage" });
 
   return (
     <div className={cn(pageStyles.page, styles.page)}>

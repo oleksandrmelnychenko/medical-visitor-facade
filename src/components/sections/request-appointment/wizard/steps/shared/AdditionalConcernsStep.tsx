@@ -26,8 +26,6 @@ export function AdditionalConcernsStep() {
   return (
     <WizardStepLayout
       title={t('additionalConcerns.title')}
-      showStepper
-      activeStepIndex={2}
       onBack={handleBack}
       backLabel={t('back')}
     >

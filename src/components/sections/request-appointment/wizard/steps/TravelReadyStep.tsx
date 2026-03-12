@@ -40,8 +40,6 @@ export function TravelReadyStep() {
   return (
     <WizardStepLayout
       title={t('travelPatient.title')}
-      showStepper
-      activeStepIndex={0}
       onBack={handleBack}
       backLabel={t('back')}
     >

@@ -35,8 +35,6 @@ export function CurrentTreatmentStep() {
   return (
     <WizardStepLayout
       title={t('healthTreatment.title')}
-      showStepper
-      activeStepIndex={2}
       onBack={handleBack}
       backLabel={t('back')}
     >

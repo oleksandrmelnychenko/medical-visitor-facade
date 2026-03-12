@@ -5,8 +5,13 @@ import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
 import styles from "./financial-assistance.module.scss";
 
-export default async function FinancialAssistancePage() {
-  const t = await getTranslations("appointment.freeService");
+type FinancialAssistancePageProps = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function FinancialAssistancePage({ params }: FinancialAssistancePageProps) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "appointment.freeService" });
 
   return (
     <div className={cn(pageStyles.page, styles.page)}>

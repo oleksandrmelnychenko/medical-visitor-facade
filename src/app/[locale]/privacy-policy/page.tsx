@@ -5,8 +5,13 @@ import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
 import styles from "./privacy-policy.module.scss";
 
-export default async function PrivacyPolicyPage() {
-  const t = await getTranslations("privacyPolicy");
+type PrivacyPolicyPageProps = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function PrivacyPolicyPage({ params }: PrivacyPolicyPageProps) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "privacyPolicy" });
 
   return (
     <div className={cn(pageStyles.page, styles.page)}>

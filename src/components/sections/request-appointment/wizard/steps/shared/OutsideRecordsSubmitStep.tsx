@@ -37,8 +37,6 @@ export function OutsideRecordsSubmitStep() {
     <WizardStepLayout
       title={t('outsideRecordsSubmit.title')}
       subtitle={t('outsideRecordsSubmit.subtitle')}
-      showStepper
-      activeStepIndex={0}
       onBack={handleBack}
       backLabel={t('back')}
     >

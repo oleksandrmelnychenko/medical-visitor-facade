@@ -35,8 +35,6 @@ export function MedicalRecordsLanguageStep() {
   return (
     <WizardStepLayout
       title={t("recordsLanguage.title")}
-      showStepper
-      activeStepIndex={0}
       onBack={handleBack}
       backLabel={t("back")}
     >

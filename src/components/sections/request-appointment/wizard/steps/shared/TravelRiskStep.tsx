@@ -39,8 +39,6 @@ export function TravelRiskStep() {
   return (
     <WizardStepLayout
       title={t('healthRisk.title')}
-      showStepper
-      activeStepIndex={2}
       onBack={handleBack}
       backLabel={t('back')}
     >

@@ -28,8 +28,6 @@ export function SharedPrimaryLanguageStep() {
     <WizardStepLayout
       title={t('sharedPrimaryLanguage.title')}
       subtitle={t('sharedPrimaryLanguage.subtitle')}
-      showStepper
-      activeStepIndex={1}
       onBack={handleBack}
       backLabel={t('back')}
     >

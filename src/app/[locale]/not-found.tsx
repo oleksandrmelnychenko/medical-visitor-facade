@@ -1,9 +1,12 @@
+"use client";
+
 import { Link } from "@/i18n/navigation";
-import { getTranslations } from "next-intl/server";
+import { useLocale, useTranslations } from "next-intl";
 import pageStyles from "@/styles/page.module.scss";
 
-export default async function NotFound() {
-  const t = await getTranslations("notFound");
+export default function NotFound() {
+  const locale = useLocale();
+  const t = useTranslations("notFound");
 
   return (
     <main
@@ -52,6 +55,7 @@ export default async function NotFound() {
       </p>
       <Link
         href="/"
+        locale={locale}
         className={pageStyles.buttonOutline}
       >
         {t("backHome")}

@@ -87,8 +87,6 @@ export function ReviewSubmitStep() {
   return (
     <WizardStepLayout
       title={t('reviewStep.title')}
-      showStepper
-      activeStepIndex={4}
       onBack={handleBack}
       backLabel={t('back')}
     >

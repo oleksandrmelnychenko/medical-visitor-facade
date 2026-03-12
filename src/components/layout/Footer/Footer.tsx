@@ -2,8 +2,12 @@ import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import styles from "./Footer.module.scss";
 
-export async function Footer() {
-  const t = await getTranslations("footer");
+type FooterProps = {
+  locale: string;
+};
+
+export async function Footer({ locale }: FooterProps) {
+  const t = await getTranslations({ locale, namespace: "footer" });
 
   return (
     <footer className={styles.footer}>
@@ -34,17 +38,17 @@ export async function Footer() {
             <h3 className={styles.sectionTitle}>{t("theAgency")}</h3>
             <ul className={styles.linkList}>
               <li className={styles.linkItem}>
-                <Link href="/financial-assistance">
+                <Link href="/financial-assistance" locale={locale}>
                   {t("financialAssistance")}
                 </Link>
               </li>
               <li className={styles.linkItem}>
-                <Link href="/privacy-policy">
+                <Link href="/privacy-policy" locale={locale}>
                   {t("privacyPolicy")}
                 </Link>
               </li>
               <li className={styles.linkItem}>
-                <Link href="/legal-notice">
+                <Link href="/legal-notice" locale={locale}>
                   {t("impressum")}
                 </Link>
               </li>

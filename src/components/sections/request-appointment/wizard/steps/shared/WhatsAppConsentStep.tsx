@@ -55,31 +55,31 @@ export function WhatsAppConsentStep() {
     return (
       <WizardStepLayout
         title={t('whatsappConsentNew.numberTitle')}
-        showStepper
-        activeStepIndex={1}
         onBack={() => setConsent(null)}
         backLabel={t('back')}
       >
         <div className={styles.wizardFormContainer}>
           <div className={styles.wizardFormGrid}>
             <div className={formStyles.simpleFormGroup}>
-              <div style={{ display: 'flex', gap: 0 }}>
+              <div className={styles.contactPhoneSurface}>
+                <div className={styles.contactPhoneCode}>
                 <select
                   value={countryCode}
                   onChange={e => setCountryCode(e.target.value)}
-                  className={formStyles.simpleInput}
-                  style={{ width: '140px', borderRight: 'none' }}
+                  className={styles.contactPhoneSelect}
                 >
                   {COUNTRY_CODES.map(item => (
-                    <option key={item.code} value={item.code}>{item.code}</option>
+                    <option key={item.code} value={item.code}>{`${item.flag} ${item.code}`}</option>
                   ))}
                 </select>
+                </div>
                 <input
                   type="tel"
+                  inputMode="tel"
+                  autoComplete="tel-national"
                   value={number}
                   onChange={e => setNumber(e.target.value)}
-                  className={formStyles.simpleInput}
-                  style={{ flex: 1 }}
+                  className={styles.contactPhoneInput}
                   autoFocus
                 />
               </div>
@@ -101,8 +101,6 @@ export function WhatsAppConsentStep() {
   return (
     <WizardStepLayout
       title={t('whatsappConsentNew.title')}
-      showStepper
-      activeStepIndex={1}
       onBack={handleBack}
       backLabel={t('back')}
     >

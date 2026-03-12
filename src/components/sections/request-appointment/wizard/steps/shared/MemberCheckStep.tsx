@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useRef } from 'react';
-import { ChevronRight, UserRoundCheck, UserRoundPlus } from 'lucide-react';
+import { UserRoundCheck, UserRoundPlus } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
@@ -41,47 +41,39 @@ export function MemberCheckStep() {
   return (
     <WizardStepLayout
       title={t('memberCheck.title')}
-      contentClassName={styles.selectionSurfacePlain}
-      innerClassName={styles.memberCheckInner}
+      contentClassName={styles.locationConceptSurface}
+      innerClassName={styles.locationConceptInner}
       onBack={handleBack}
       backLabel={t('back')}
     >
-      <div className={styles.clientCardsGrid}>
-        <div
+      <div className={styles.locationConceptGrid}>
+        <button
           onClick={handleMember}
-          className={`${styles.clientCard} ${styles.memberCheckCard}`}
+          className={styles.locationConceptCard}
           style={CARD_STYLES.member}
+          type="button"
         >
-          <div className={styles.clientCardContent}>
-            <div className={styles.memberCheckLead}>
-              <span className={styles.memberCheckIcon} aria-hidden="true">
+          <div className={styles.locationConceptCardHeader}>
+            <span className={styles.locationConceptIcon} aria-hidden="true">
                 <UserRoundCheck />
-              </span>
-              <h3 className={`${styles.clientCardTitle} ${styles.memberCheckCardTitle}`}>
-                {t('memberCheck.isMember')}
-              </h3>
-            </div>
+            </span>
           </div>
-          <ChevronRight size={24} className={styles.clientCardArrow} />
-        </div>
+          <h3 className={styles.locationConceptTitle}>{t('memberCheck.isMember')}</h3>
+        </button>
 
-        <div
+        <button
           onClick={handleNotMember}
-          className={`${styles.clientCard} ${styles.memberCheckCard}`}
+          className={styles.locationConceptCard}
           style={CARD_STYLES.notMember}
+          type="button"
         >
-          <div className={styles.clientCardContent}>
-            <div className={styles.memberCheckLead}>
-              <span className={styles.memberCheckIcon} aria-hidden="true">
+          <div className={styles.locationConceptCardHeader}>
+            <span className={styles.locationConceptIcon} aria-hidden="true">
                 <UserRoundPlus />
-              </span>
-              <h3 className={`${styles.clientCardTitle} ${styles.memberCheckCardTitle}`}>
-                {t('memberCheck.notMember')}
-              </h3>
-            </div>
+            </span>
           </div>
-          <ChevronRight size={24} className={styles.clientCardArrow} />
-        </div>
+          <h3 className={styles.locationConceptTitle}>{t('memberCheck.notMember')}</h3>
+        </button>
       </div>
     </WizardStepLayout>
   );

@@ -12,44 +12,14 @@
   },
   "common": {
     "home": "Startseite",
-    "learnMore": "Mehr erfahren",
-    "contactUs": "Kontakt",
     "requestAppointment": "Kunde werden",
     "login": "Anmelden",
-    "search": "Suche",
-    "submit": "Senden",
-    "cancel": "Abbrechen",
-    "viewAll": "Alle ansehen",
-    "readMore": "Weiterlesen",
-    "selectLanguage": "Sprache auswählen",
-    "userMenu": "Benutzermenü"
-  },
-  "header": {
-    "care": "Betreuung",
-    "patientResources": "Für Mitglieder",
-    "trustSafety": "Vertrauen und Sicherheit",
-    "patientCenteredCare": "Mitgliederorientierte Betreuung",
-    "aboutGmed": "Über Gmed",
-    "requestAppointment": "Kunde werden",
-    "findDoctor": "Arzt finden",
-    "locations": "Standorte",
-    "patientServices": "Mitgliederservice",
-    "medicalRecords": "Medizinische Unterlagen",
-    "insuranceBilling": "Versicherung und Abrechnung",
-    "patientPortal": "Mitgliederportal",
-    "privacyPolicy": "Datenschutz",
-    "dataSecurity": "Datensicherheit",
-    "hipaaCompliance": "HIPAA-Konformität",
-    "patientRights": "Mitgliederrechte"
+    "selectLanguage": "Sprache auswählen"
   },
   "footer": {
     "impressum": "Rechtliche Hinweise",
     "companyName": "Medizinische <accent>Concierge-Agentur</accent>",
     "contact": "Kontakt",
-    "vatTitle": "USt-IdNr.",
-    "vatLegal": "gemäß § 27 a UStG:",
-    "vatNumber": "147/220/51409",
-    "contactPrompt": "Bei Fragen und Anregungen zum Inhalt dieser Website schreiben Sie bitte an:",
     "copyright": "© {year} Medizinische Concierge-Agentur",
     "allRightsReserved": "Alle Rechte vorbehalten",
     "financialAssistance": "Pro bono",
@@ -60,13 +30,11 @@
   },
   "home": {
     "hero": {
-      "overline": "",
       "title": "Medizinische Concierge-Agentur",
       "titlePart1": "Medizinische",
       "titleAccent": "Concierge-",
       "titlePart2": "Agentur",
-      "subtitle": "Exzellenz in der medizinischen Versorgung",
-      "requestAppointment": "Kunde werden"
+      "subtitle": "Exzellenz in der medizinischen Versorgung"
     },
     "careForward": {
       "title": "Was wir tun",
@@ -96,36 +64,22 @@
       "subtitle": "",
       "cities": {
         "berlin": {
-          "name": "Berlin",
-          "address": "Kurfürstendamm 21, 10719 Berlin",
-          "phone": "+49 30 123-4567"
+          "name": "Berlin"
         },
         "hamburg": {
-          "name": "Hamburg",
-          "address": "Jungfernstieg 1, 20095 Hamburg",
-          "phone": "+49 40 123-4567"
+          "name": "Hamburg"
         },
         "cologne": {
-          "name": "Köln",
-          "address": "Schildergasse 120, 50667 Köln",
-          "phone": "+49 221 123-4567"
+          "name": "Köln"
         },
         "munich": {
-          "name": "München",
-          "address": "Maximilianstraße 35, 80539 München",
-          "phone": "+49 89 123-4567"
+          "name": "München"
         }
       }
     },
     "fullSupport": {
       "overline": "",
       "title": "Agenturkonzept",
-      "cities": {
-        "berlin": "Berlin",
-        "hamburg": "Hamburg",
-        "cologne": "Köln",
-        "munich": "München"
-      },
       "subtitle": "",
       "services": {
         "promptness": {
@@ -177,7 +131,6 @@
         }
       },
       "promise": {
-        "title": "Begleitung in jeder Phase",
         "text": "Vom ersten Anruf bis zur Rückkehr — wir begleiten Sie bei der Organisation."
       },
       "digitalProfile": {
@@ -204,50 +157,22 @@
         }
       },
       "bookConsultation": "Kunde werden",
-      "getStarted": "Mehr erfahren",
       "availability": ""
     }
   },
   "appointment": {
-    "overline": "Anfrage",
     "title": "Kunde werden",
     "subtitle": "Senden Sie eine Anfrage, damit wir uns zeitnah bei Ihnen melden können.",
     "backToSelection": "← Zur Auswahl",
-    "selectionLead": "Wählen Sie Ihren Aufnahmeweg",
-    "clientTypes": {
-      "new": {
-        "title": "Neukunde",
-        "description": "Bitte füllen Sie den Fragebogen aus."
-      },
-      "returning": {
-        "title": "Ich bin bereits Kunde",
-        "description": "Melden Sie sich im Kundenbereich an."
-      }
-    },
     "freeService": {
       "title": "Benötigen Sie finanzielle Unterstützung?",
       "description1": "Wir wissen, dass medizinische Versorgung finanziell belastend sein kann. Die Agentur für Mitgliederbetreuung bietet ein begrenztes Programm für Mitglieder, die Hilfe bei medizinischen Kosten benötigen.",
       "description2": "Unser Team prüft jede Anfrage sorgfältig und unterstützt, sofern Ressourcen verfügbar sind.",
       "priority": "Priorisierte Fälle:",
       "priorityText": "Wir priorisieren Fälle mit Kindern, dringliche medizinische Situationen und Mitglieder in besonderen Umständen.",
-      "note": "Hinweis: Anträge auf kostenfreie Leistungen werden individuell geprüft, abhängig von verfügbaren Kapazitäten und medizinischer Notwendigkeit. Wir melden uns innerhalb von 5-7 Werktagen zum Status Ihrer Anfrage.",
-      "applyButton": "Kostenfreie Betreuung beantragen"
+      "note": "Hinweis: Anträge auf kostenfreie Leistungen werden individuell geprüft, abhängig von verfügbaren Kapazitäten und medizinischer Notwendigkeit. Wir melden uns innerhalb von 5-7 Werktagen zum Status Ihrer Anfrage."
     },
     "newPatient": {
-      "progress": {
-        "location": "Standort",
-        "patientRole": "Rolle",
-        "travelReady": "Bereitschaft",
-        "patientInfo": "Informationen",
-        "wrapUp": "Abschluss"
-      },
-      "progressSteps": {
-        "eligibility": "Eignung",
-        "patientInfo": "Patienteninfo",
-        "primaryConcern": "Hauptanliegen",
-        "servicesInsurance": "Dienste & Versicherung",
-        "wrapUp": "Abschluss"
-      },
       "pathTree": {
         "welcome": "Willkommen",
         "member-check": "Mitgliedschaft",
@@ -285,73 +210,12 @@
         "anything-else": "Abschlussnotizen",
         "review": "Überprüfen & Einreichen"
       },
-      "euProgress": {
-        "part1": "Teil 1",
-        "part2": "Teil 2",
-        "part2Note": "Diese Schritte erscheinen nach Abschluss von Teil 1.",
-        "patientInfo": "Mitgliederinformationen",
-        "medicalConcerns": "Medizinische Anliegen",
-        "insuranceDetails": "Versicherungsdaten",
-        "preferences": "Präferenzen"
-      },
       "back": "Zurück",
-      "location": {
-        "title": "Wo befinden Sie sich derzeit?",
-        "insideEU": "Innerhalb der EU",
-        "insideEUDesc": "Ich befinde mich derzeit in einem EU-Land",
-        "outsideEU": "Außerhalb der EU",
-        "outsideEUDesc": "Ich befinde mich derzeit außerhalb der Europäischen Union"
-      },
-      "patientRole": {
-        "title": "Sind Sie das Mitglied?",
-        "yes": "Ja",
-        "yesDesc": "Ich bin das Mitglied",
-        "no": "Nein",
-        "noDesc": "Ich stelle eine Anfrage für jemand anderen"
-      },
-      "medicalDiagnosis": {
-        "title": "Haben Sie eine Diagnose in einem der folgenden Bereiche?",
-        "description": "",
-        "options": {
-          "cardiology": "Kardiologie",
-          "neurology": "Neurologie",
-          "oncology": "Onkologie",
-          "otherDiagnosis": "Ich habe eine Diagnose in einem anderen Bereich",
-          "noDiagnosis": "Ich habe keine Diagnose"
-        }
-      },
-      "primaryConcern": {
-        "title": "Was ist Ihr Hauptanliegen?",
-        "description": "Wählen Sie den Bereich, der Ihre medizinischen Bedürfnisse am besten beschreibt",
-        "options": {
-          "cardiology": "Kardiologie",
-          "neurology": "Neurologie",
-          "oncology": "Onkologie",
-          "otherDiagnosis": "Ich habe eine Diagnose in einem anderen Bereich",
-          "noDiagnosis": "Ich habe keine Diagnose"
-        }
-      },
-      "seekingCareFor": {
-        "title": "Wofür suchen Sie Hilfe?",
-        "description": "Bitte beschreiben Sie Ihre medizinische Situation, Symptome oder Anliegen",
-        "charLimit": "Maximal 300 Zeichen"
-      },
       "continue": "Weiter",
-      "travelCompanion": {
-        "title": "Ist dieses Mitglied in der Lage und bereit, zur Behandlung nach Deutschland zu reisen?",
-        "yes": "Ja",
-        "no": "Nein"
-      },
       "travelPatient": {
         "title": "Sind Sie in der Lage und bereit, zur Behandlung nach Deutschland zu reisen?",
         "yes": "Ja",
         "no": "Nein"
-      },
-      "recordsCompanion": {
-        "title": "Kann dieses Mitglied seine medizinischen Unterlagen einreichen?",
-        "yes": "Ja",
-        "no": "Nein",
-        "none": "Dieses Mitglied hat keine medizinischen Unterlagen"
       },
       "recordsPatient": {
         "title": "Können Sie Ihre medizinischen Unterlagen einreichen?",
@@ -359,43 +223,14 @@
         "no": "Nein",
         "none": "Ich habe keine medizinischen Unterlagen"
       },
-      "documentsCompanion": {
-        "title": "Hat dieses Mitglied die erforderlichen Dokumente für die Reise nach Deutschland?",
-        "needList": "Er/Sie benötigt:",
-        "passport": "Einen gültigen Reisepass.",
-        "visa": "Ein gültiges Visum, es sei denn, Sie sind Staatsbürger eines EU-Landes oder eines Landes, das am",
-        "visaWaiverProgram": "Visa Waiver Program",
-        "note": "Bitte kontaktieren Sie das",
-        "embassy": "deutsche Konsulat / die Botschaft",
-        "noteEnd": "in Ihrem Land, um sich über Bearbeitungszeiten und Anforderungen für Visa zu informieren.",
-        "yes": "Ja",
-        "no": "Nein"
-      },
       "documentsPatient": {
         "title": "Haben Sie die erforderlichen Dokumente für die Reise nach Deutschland?",
-        "needList": "Sie benötigen:",
-        "passport": "Einen gültigen Reisepass.",
-        "visa": "Ein gültiges Visum, es sei denn, Sie sind Staatsbürger eines EU-Landes oder eines Landes, das am",
-        "visaWaiverProgram": "Visa Waiver Program",
-        "note": "Bitte kontaktieren Sie das",
-        "embassy": "deutsche Konsulat / die Botschaft",
-        "noteEnd": "in Ihrem Land, um sich über Bearbeitungszeiten und Anforderungen für Visa zu informieren.",
         "yes": "Ja",
         "no": "Nein"
-      },
-      "exitNoTravelCompanion": {
-        "title": "Vielen Dank. Wir nehmen derzeit nur Patienten an, die nach Deutschland reisen können.",
-        "description": "Wenn der Patient in Zukunft nach Deutschland reisen kann, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
-        "button": "Anfrage beenden"
       },
       "exitNoTravelPatient": {
         "title": "Vielen Dank. Wir nehmen derzeit nur Patienten an, die nach Deutschland reisen können.",
         "description": "Wenn Sie in Zukunft nach Deutschland reisen können, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
-        "button": "Anfrage beenden"
-      },
-      "exitNoRecordsCompanion": {
-        "title": "Vielen Dank. Wir nehmen derzeit nur Patienten an, die ihre medizinischen Unterlagen einreichen können.",
-        "description": "Wenn der Patient in Zukunft seine medizinischen Unterlagen einreichen kann, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
         "button": "Anfrage beenden"
       },
       "exitNoRecordsPatient": {
@@ -403,142 +238,10 @@
         "description": "Wenn Sie in Zukunft Ihre Unterlagen einreichen können, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
         "button": "Anfrage beenden"
       },
-      "visaHelpCompanion": {
-        "title": "Benötigt das Mitglied Hilfe bei der Visumbeantragung?",
-        "description": "Wir können bei der Visumunterstützung für Mitglieder helfen, die nach Deutschland reisen müssen.",
-        "yes": "Ja, Hilfe benötigt",
-        "no": "Nein, Visum vorhanden"
-      },
-      "visaHelpPatient": {
-        "title": "Benötigen Sie Hilfe bei der Visumbeantragung?",
-        "description": "Wir können bei der Visumunterstützung helfen, wenn Sie nach Deutschland reisen müssen.",
-        "yes": "Ja, Hilfe benötigt",
-        "no": "Nein, Visum vorhanden"
-      },
-      "euCompanionInfo": {
-        "title": "Erzählen Sie uns von sich.",
-        "subtitle": "",
-        "relationship": "Beziehung zum Mitglied",
-        "selectPlaceholder": "Auswählen",
-        "relationships": {
-          "child": "Kind",
-          "grandchild": "Enkelkind",
-          "grandparent": "Großelternteil",
-          "guardian": "Vormund",
-          "inLaw": "Schwiegerangehörige/r",
-          "lifePartner": "Lebenspartner/in",
-          "other": "Andere",
-          "parent": "Elternteil",
-          "sibling": "Geschwister",
-          "spouse": "Ehepartner/in"
-        }
-      },
-      "euPatientName": {
-        "title": "Wie lautet der rechtliche Name des Mitglieds?",
-        "subtitle": "",
-        "middleName": "Zweiter Vorname (optional)",
-        "addSuffix": "Suffix hinzufügen",
-        "suffix": "Suffix (optional)",
-        "preferredName": "Bevorzugter Name (optional)"
-      },
-      "euPatientDob": {
-        "title": "Welches Geschlecht und Geburtsdatum hat das Mitglied?",
-        "legalSex": "Rechtliches Geschlecht",
-        "legalSexNote": "Muss mit dem Ausweis übereinstimmen",
-        "selectSex": "Auswählen",
-        "female": "Weiblich",
-        "male": "Männlich",
-        "nonBinary": "Nicht-binär",
-        "dateOfBirth": "Geburtsdatum",
-        "dateFormat": "TT/MM/JJJJ"
-      },
-      "euPatientContact": {
-        "title": "Wie sind die Kontaktdaten des Mitglieds?",
-        "subtitle": "",
-        "email": "E-Mail des Mitglieds",
-        "emailPlaceholder": "name@email.com",
-        "phone": "Telefonnummer des Mitglieds",
-        "phonePlaceholder": "(xxx) xxx-xxxx",
-        "phoneType": "Telefontyp",
-        "mobile": "Mobil",
-        "home": "Privat",
-        "work": "Arbeit",
-        "addPhone": "Weitere Nummer hinzufügen"
-      },
-      "euInterpreter": {
-        "title": "Benötigen Sie einen Dolmetscher?",
-        "subtitle": "",
-        "needInterpreter": "Benötigen Sie einen Dolmetscher?",
-        "select": "Auswählen",
-        "yes": "Ja",
-        "no": "Nein",
-        "primaryLanguage": "Was ist Ihre Hauptsprache?"
-      },
-      "euAddress": {
-        "title": "Wie lautet Ihre Adresse?",
-        "streetAddress": "Straße und Hausnummer",
-        "city": "Stadt",
-        "state": "",
-        "statePlaceholder": "Auswählen",
-        "zipCode": "Postleitzahl"
-      },
-      "patientInfo": {
-        "introTitle": "Geben Sie Ihre Kontaktdaten an",
-        "introTitleBold": "",
-        "introDescription1": "",
-        "introDescription2": "",
-        "start": "Start",
-        "formTitle": "Mitgliederinformationen",
-        "contactTitle": "Kontaktinformationen",
-        "personalInfo": "Persönliche Angaben",
-        "firstName": "Vorname",
-        "lastName": "Nachname",
-        "email": "E-Mail",
-        "phone": "Telefonnummer",
-        "dateOfBirth": "Geburtsdatum",
-        "country": "Land",
-        "message": "Zusätzliche Informationen",
-        "messagePlaceholder": "Erzählen Sie uns von Ihrem Gesundheitszustand, Behandlungszielen oder Fragen...",
-        "submit": "Antrag absenden",
-        "submitting": "Wird gesendet...",
-        "successTitle": "Vielen Dank!",
-        "successMessage": "Ihr Antrag wurde eingereicht. Unser Team wird sich in Kürze bei Ihnen melden.",
-        "backToHome": "Zurück zur Startseite",
-        "startOver": "Neu beginnen"
-      },
-      "optional": "Optional",
       "yes": "Ja",
       "no": "Nein",
-      "whatsapp": {
-        "question": "Möchten Sie, dass wir Sie über WhatsApp kontaktieren?",
-        "description": "Falls ja, werden wir auf der nächsten Seite nach Ihrer WhatsApp-Landesvorwahl und Nummer fragen.",
-        "consent": "WhatsApp-Kommunikation",
-        "yesDisclaimer": "Ich verstehe, dass WhatsApp-Kommunikation möglicherweise nicht sicher ist und den Datenschutzrichtlinien und Nutzungsbedingungen von WhatsApp unterliegt.",
-        "numberQuestion": "Wie lautet Ihre WhatsApp-Nummer?",
-        "numberLabel": "WhatsApp-Nummer"
-      },
-      "interpreter": {
-        "question": "Benötigen Sie einen Dolmetscher?",
-        "description": "Falls ja, werden wir bei Ihrem Termin Dolmetscherdienste bereitstellen.",
-        "learnMore": "Mehr erfahren",
-        "aboutServices": "über Dolmetscherdienste."
-      },
-      "primaryLanguage": {
-        "question": "Was ist Ihre Muttersprache?",
-        "description": "In dieser Sprache werden wir Sie kontaktieren, wenn wir wegen Ihres Termins zurückrufen.",
-        "label": "Sprache"
-      },
-      "legalSex": {
-        "question": "Bitte geben Sie Ihr rechtliches Geschlecht an.",
-        "description": "Wählen Sie das Geschlecht, das auf Ihrem Ausweis steht.",
-        "female": "Weiblich",
-        "male": "Männlich",
-        "nonbinary": "Nicht-binär"
-      },
       "address": {
         "question": "Zum Schluss Ihre Privatadresse.",
-        "learnMore": "Mehr erfahren",
-        "whyAsking": "darüber, warum wir jetzt nach Ihrer Adresse fragen.",
         "country": "Land",
         "selectCountry": "Land auswählen",
         "street": "Straße und Hausnummer",
@@ -561,15 +264,9 @@
       "location3": {
         "title": "Wo wohnen Sie?",
         "subtitle": "Ihr Wohnort bestimmt den Mitgliedschaftsweg, die Reiseprüfung und welche Unterlagen wir zuerst benötigen.",
-        "germanyEyebrow": "Deutschland",
         "germany": "Ich lebe in Deutschland",
-        "germanyDescription": "Sie starten direkt mit dem medizinischen Kernfragebogen und wählen anschließend die gewünschten Unterstützungsleistungen.",
-        "euEyebrow": "Europäische Union",
         "euNotGermany": "Ich lebe in der EU (aber nicht in Deutschland)",
-        "euDescription": "Zuerst klären wir den Mitgliedschaftskontext und anschließend die organisatorischen Details zu Reise und Unterlagen.",
-        "outsideEyebrow": "Außerhalb der EU",
-        "outsideEu": "Ich lebe außerhalb der EU",
-        "outsideDescription": "Dieser Weg enthält zusätzliche Schritte zu Reisebereitschaft, Sprache der Unterlagen und erforderlichen Dokumenten."
+        "outsideEu": "Ich lebe außerhalb der EU"
       },
       "becomeMember": {
         "title": "Möchten Sie Mitglied werden?",
@@ -590,8 +287,7 @@
         "title": "Haben Sie eine Erkrankung, die Sie daran hindert, nach Deutschland zu reisen, oder haben Sie Grund zu der Annahme, dass eine Reise nach Deutschland Ihre Gesundheit gefährdet?",
         "yes": "Ja",
         "no": "Nein",
-        "disclaimer": "Sie sind allein für Ihren Gesundheitszustand während der Reise und mögliche reisebezogene Risiken verantwortlich.",
-        "start": "Start"
+        "disclaimer": "Sie sind allein für Ihren Gesundheitszustand während der Reise und mögliche reisebezogene Risiken verantwortlich."
       },
       "sharedPatientName": {
         "title": "Beginnen wir mit Ihrem Namen",
@@ -602,7 +298,12 @@
       },
       "sharedDob": {
         "title": "Danke! Was ist Ihr Geburtsdatum?",
-        "placeholder": "DD.MM.YYYY"
+        "placeholder": "DD.MM.YYYY",
+        "day": "TT",
+        "month": "MM",
+        "year": "JJJJ",
+        "hint": "Zum Beispiel: 14.09.1987",
+        "invalid": "Bitte geben Sie ein gültiges Geburtsdatum ein."
       },
       "sharedLegalSex": {
         "title": "Bitte nennen Sie uns Ihr rechtliches Geschlecht.",
@@ -614,8 +315,7 @@
       },
       "sharedPrimaryLanguage": {
         "title": "Was ist Ihre Muttersprache?",
-        "subtitle": "In dieser Sprache werden wir Sie wegen dieses Termins zurückrufen.",
-        "placeholder": ""
+        "subtitle": "In dieser Sprache werden wir Sie wegen dieses Termins zurückrufen."
       },
       "sharedInterpreter": {
         "title": "Möchten Sie bei Ihren Terminen in Deutschland einen Dolmetscher dabei haben?",
@@ -626,16 +326,14 @@
         "title": "Möchten Sie, dass wir per E-Mail mit Ihnen kommunizieren?",
         "yes": "Ja.",
         "yesDisclaimer": "Ich verstehe, dass E-Mail-Kommunikation möglicherweise nicht sicher ist und den Datenschutzrichtlinien Ihres E-Mail-Anbieters unterliegt.",
-        "no": "Nein",
-        "emailLabel": "E-Mail"
+        "no": "Nein"
       },
       "whatsappConsentNew": {
         "title": "Möchten Sie, dass wir per WhatsApp mit Ihnen kommunizieren?",
         "yes": "Ja.",
         "yesDisclaimer": "Ich verstehe, dass WhatsApp-Kommunikation möglicherweise nicht sicher ist und den Datenschutzrichtlinien von WhatsApp unterliegt.",
         "no": "Nein",
-        "numberTitle": "Wie ist Ihre WhatsApp-Nummer?",
-        "noContactWarning": "Wir können Sie nicht per E-Mail oder WhatsApp kontaktieren. Bitte kontaktieren Sie uns über die auf unserer Website angegebenen Kontaktinformationen. Ihre Umfrageinformationen werden in 3 Tagen gelöscht."
+        "numberTitle": "Wie ist Ihre WhatsApp-Nummer?"
       },
       "phoneStep": {
         "title": "Bitte geben Sie Ihre Kontaktinformationen ein.",
@@ -674,12 +372,7 @@
         "airAmbulance": "Luftrettung",
         "businessAviation": "Business-Luftfahrt",
         "none": "Ich benötige keinen der folgenden Services",
-        "notSure": "Ich bin nicht sicher",
-        "learnMoreTransfer": "Mehr über unsere Transferdienste erfahren",
-        "learnMoreConcierge": "Mehr über unsere Concierge-Dienste erfahren",
-        "learnMoreMedical": "Mehr über unsere medizinischen Transportdienste erfahren",
-        "learnMoreAir": "Mehr über unsere medizinische Luftfahrt erfahren",
-        "learnMoreBusiness": "Mehr über unsere Business-Luftfahrt erfahren"
+        "notSure": "Ich bin nicht sicher"
       },
       "insuranceIntro": {
         "title": "Jetzt möchten wir nach Ihren Versicherungsdetails fragen",
@@ -713,7 +406,6 @@
       },
       "visitTiming": {
         "title": "Wann können Sie Deutschland besuchen?",
-        "learnMore": "Erfahren Sie mehr darüber, was Sie bei der Planung eines Besuchs bei uns beachten sollten.",
         "asap": "So bald wie möglich",
         "nextFewMonths": "In den nächsten Monaten",
         "notSure": "Ich bin nicht sicher",
@@ -722,7 +414,6 @@
       "anythingElse": {
         "title": "Gibt es noch etwas, das Sie uns mitteilen möchten?",
         "subtitle": "Nach diesem Schritt überprüfen und senden Sie Ihre Anfrage ab.",
-        "placeholder": "",
         "optional": "(optional)"
       },
       "reviewStep": {
@@ -738,12 +429,6 @@
         "successMessage": "Wir werden Sie innerhalb von 3 Werktagen kontaktieren. Unser Terminkoordinator wird sich melden, um Ihre Pflegebedürfnisse zu besprechen.",
         "backToHome": "Zurück zur Startseite",
         "startOver": "Neu beginnen"
-      },
-      "outsideRecordsSubmit": {
-        "title": "Können Sie Ihre Krankenunterlagen einreichen?",
-        "subtitle": "Wir akzeptieren Unterlagen auf Deutsch oder Englisch.",
-        "yes": "Ja",
-        "no": "Nein"
       }
     },
     "returningPatient": {
@@ -755,348 +440,6 @@
       "title": "Überweisung vom Arzt",
       "formPending": "Formular in Entwicklung...",
       "back": "Zurück"
-    }
-  },
-  "patientCenteredCare": {
-    "title": "Mitgliederorientierte Betreuung",
-    "subtitle": "Ihre Gesundheit, Bedürfnisse und Präferenzen stehen im Mittelpunkt unseres Handelns",
-    "approach": {
-      "title": "Unser Ansatz",
-      "description1": "Bei Gmed sind wir überzeugt, dass außergewöhnliche Versorgung über die Behandlung von Symptomen hinausgeht. Wir betrachten Sie als ganzen Menschen und berücksichtigen Ihre körperlichen, emotionalen und sozialen Bedürfnisse.",
-      "description2": "Unser mitgliederorientierter Ansatz stellt sicher, dass Sie aktiv eingebunden sind und Zugang zu Informationen, Unterstützung und Ressourcen haben, um fundierte Entscheidungen zu treffen."
-    },
-    "principles": {
-      "title": "Grundprinzipien",
-      "compassionate": {
-        "title": "Einfühlsame Betreuung",
-        "description": "Wir begegnen jedem Mitglied mit Empathie, Respekt und Würde, damit Sie sich gehört und wertgeschätzt fühlen."
-      },
-      "collaborative": {
-        "title": "Gemeinsame Partnerschaft",
-        "description": "Ihr Behandlungsteam arbeitet mit Ihnen und Ihrer Familie an individuellen Behandlungsplänen."
-      },
-      "personalized": {
-        "title": "Individuelle Betreuung",
-        "description": "Jedes Mitglied ist einzigartig, und wir passen unseren Ansatz an Ihre Ziele und Präferenzen an."
-      }
-    },
-    "benefits": {
-      "title": "Was das für Sie bedeutet",
-      "items": {
-        "dedicatedTeam": "Zugang zu einem engagierten Team, das Sie und Ihre Vorgeschichte kennt",
-        "clearCommunication": "Klare Kommunikation über Ihren Zustand und Behandlungsoptionen",
-        "involvement": "Einbindung in jede Entscheidung zu Ihrer Behandlung",
-        "coordinatedCare": "Koordinierte Betreuung zwischen allen Leistungserbringern",
-        "supportServices": "Unterstützungsangebote für körperliche und emotionale Bedürfnisse",
-        "convenientAccess": "Bequemer Zugriff auf Unterlagen und Untersuchungsergebnisse"
-      }
-    }
-  },
-  "aboutGmed": {
-    "title": "Über Gmed",
-    "subtitle": "Eine Tradition der Exzellenz im Gesundheitswesen über Jahrzehnte von Innovation und Mitgliederbetreuung",
-    "mission": {
-      "title": "Unsere Mission",
-      "description1": "Gmed setzt sich dafür ein, Hoffnung zu vermitteln und Gesundheit und Wohlbefinden zu fördern, indem wir jedem Mitglied die bestmögliche Versorgung bieten - durch integrierte klinische Praxis, Bildung und Forschung.",
-      "description2": "Wir möchten allen, die Heilung suchen, eine herausragende Erfahrung und echte Zuwendung bieten und so durch unser Engagement für Exzellenz positiv wirken."
-    },
-    "stats": {
-      "years": "Jahre Exzellenz",
-      "patients": "Behandelte Mitglieder",
-      "specialists": "Medizinische Fachkräfte",
-      "centers": "Spezialisierte Zentren"
-    },
-    "values": {
-      "title": "Unsere Werte",
-      "excellence": {
-        "title": "Exzellenz",
-        "description": "Wir streben in allem, was wir tun, nach höchstem Standard und verbessern Ergebnisse kontinuierlich."
-      },
-      "respect": {
-        "title": "Respekt",
-        "description": "Wir achten die Würde jedes Menschen und behandeln Mitglieder, Familien und Kollegen mit Mitgefühl."
-      },
-      "integrity": {
-        "title": "Integrität",
-        "description": "Wir halten die höchsten ethischen Standards ein und schaffen Vertrauen durch Transparenz und Verantwortung."
-      },
-      "innovation": {
-        "title": "Innovation",
-        "description": "Wir begrüßen neue Ideen und Technologien, die die Medizin voranbringen und die Versorgung verbessern."
-      }
-    },
-    "history": {
-      "title": "Unsere Geschichte",
-      "description1": "Gmed wurde vor mehr als einem halben Jahrhundert gegründet und entwickelte sich von einem kleinen Gemeindekrankenhaus zu einem weltweit angesehenen medizinischen Zentrum. Unser Weg war geprägt von wegweisender Forschung, innovativen Therapien und einem konstanten Fokus auf Mitgliederbetreuung.",
-      "description2": "Heute bauen wir dieses Erbe weiter aus und verbinden moderne Technologien mit persönlicher, zugewandter Betreuung."
-    }
-  },
-  "findDoctor": {
-    "title": "Arzt finden",
-    "subtitle": "Sprechen Sie mit erfahrenen Fachärzten, die sich Ihrer Gesundheit widmen",
-    "search": {
-      "placeholder": "Suche nach Name oder Erkrankung...",
-      "button": "Ärzte finden"
-    },
-    "specialties": {
-      "all": "Alle Fachrichtungen",
-      "cardiology": "Kardiologie",
-      "oncology": "Onkologie",
-      "orthopedics": "Orthopädie",
-      "neurology": "Neurologie",
-      "pediatrics": "Pädiatrie",
-      "internalMedicine": "Innere Medizin"
-    },
-    "doctors": {
-      "title": "Unsere Fachärzte",
-      "bookAppointment": "Kunde werden"
-    },
-    "whyChoose": {
-      "title": "Warum unsere Ärzte",
-      "boardCertified": {
-        "title": "Zertifizierte Fachärzte",
-        "description": "Alle unsere Ärzte sind in ihren Fachgebieten zertifiziert und bilden sich regelmäßig fort."
-      },
-      "patientFocused": {
-        "title": "Mitgliederorientierung",
-        "description": "Unsere Ärzte stellen das Mitglied in den Mittelpunkt und nehmen sich Zeit für Anliegen."
-      },
-      "advancedTraining": {
-        "title": "Fortgeschrittene Weiterbildung",
-        "description": "Kontinuierliche Weiterbildung hält unsere Ärzte auf dem neuesten Stand der Medizin."
-      }
-    }
-  },
-  "locations": {
-    "title": "Unsere Standorte",
-    "subtitle": "Finden Sie eine Gmed-Einrichtung in Ihrer Nähe für bequemen Zugang zu hochwertiger Versorgung",
-    "mainCampus": {
-      "name": "Hauptcampus",
-      "address": "Medizinisches Zentrum 123",
-      "city": "Gesundheitsstadt, GS 12345",
-      "phone": "(555) 123-4567",
-      "hours": "Rund um die Uhr geöffnet"
-    },
-    "specialtyCenter": {
-      "name": "Spezialzentrum",
-      "address": "Spezialistenstraße 456",
-      "city": "Gesundheitsstadt, GS 12346",
-      "phone": "(555) 234-5678",
-      "hours": "Mo-Fr: 8:00-18:00"
-    },
-    "urgentCare": {
-      "name": "Notfallversorgung",
-      "address": "Schnelle-Hilfe-Straße 789",
-      "city": "Gesundheitsstadt, GS 12347",
-      "phone": "(555) 345-6789",
-      "hours": "Täglich: 7:00-22:00"
-    },
-    "getDirections": "Route planen",
-    "callNow": "Jetzt anrufen",
-    "allLocations": {
-      "title": "Alle Gmed-Standorte",
-      "viewDetails": "Details ansehen"
-    },
-    "facilityTypes": {
-      "hospital": "Krankenhaus",
-      "clinic": "Klinik",
-      "urgentCare": "Notfallversorgung"
-    }
-  },
-  "patientServices": {
-    "title": "Mitgliederservice",
-    "subtitle": "Umfassende Unterstützungsleistungen, die Ihre Versorgung so angenehm wie möglich machen",
-    "commitment": {
-      "title": "Unser Versprechen an Sie",
-      "description1": "Bei Gmed wissen wir, dass die Navigation im Gesundheitswesen komplex sein kann. Deshalb bieten wir umfassende Mitgliederservices, die Sie in jeder Phase unterstützen.",
-      "description2": "Von der Terminvereinbarung bis zur laufenden Betreuung ist unser Team für Sie da."
-    },
-    "services": {
-      "title": "Verfügbare Leistungen",
-      "scheduling": {
-        "title": "Terminplanung",
-        "description": "Einfache Online- und Telefontermine mit flexiblen Zeiten."
-      },
-      "records": {
-        "title": "Medizinische Unterlagen",
-        "description": "Sicherer Zugriff auf Ihre Krankengeschichte, Untersuchungsergebnisse und Behandlungspläne."
-      },
-      "billing": {
-        "title": "Abrechnungsservice",
-        "description": "Transparente Abrechnung, Zahlungspläne und Unterstützung bei Versicherungsfragen."
-      },
-      "pharmacy": {
-        "title": "Apothekendienst",
-        "description": "Apotheke vor Ort mit Rezeptverwaltung und Medikamentenberatung."
-      },
-      "translation": {
-        "title": "Dolmetschdienste",
-        "description": "Professionelle Dolmetscher in mehreren Sprachen."
-      },
-      "transport": {
-        "title": "Mitgliedertransport",
-        "description": "Rollstuhlservice und Transport in unseren Einrichtungen."
-      }
-    },
-    "help": {
-      "title": "Brauchen Sie Hilfe?",
-      "description": "Unser Mitgliederservice unterstützt Sie bei Fragen und Anliegen.",
-      "contactServices": "Mitgliederservice kontaktieren",
-      "faq": "FAQ ansehen"
-    }
-  },
-  "medicalRecords": {
-    "title": "Medizinische Unterlagen",
-    "subtitle": "Sicherer Zugang zu Ihren vollständigen Gesundheitsinformationen",
-    "access": {
-      "title": "Zugriff auf Ihre Unterlagen",
-      "description1": "Ihre medizinischen Unterlagen enthalten wichtige Informationen zu Ihrer Gesundheit, einschließlich Diagnosen, Behandlungen, Medikamenten, Testergebnissen und Behandlungsplänen.",
-      "description2": "Wir bieten Ihnen einfachen und sicheren Zugriff auf Ihre Informationen und halten höchste Datenschutz- und Sicherheitsstandards ein."
-    },
-    "requestTypes": {
-      "title": "Anfragetypen",
-      "personal": {
-        "title": "Persönliche Kopie",
-        "description": "Fordern Sie eine Kopie Ihrer Unterlagen für den eigenen Gebrauch an.",
-        "timeline": "Bearbeitungszeit: 5-7 Werktage"
-      },
-      "transfer": {
-        "title": "Übermittlung an einen Anbieter",
-        "description": "Senden Sie Ihre Unterlagen direkt an eine andere Einrichtung.",
-        "timeline": "Bearbeitungszeit: 3-5 Werktage"
-      },
-      "legal": {
-        "title": "Rechtlich/Versicherung",
-        "description": "Unterlagen für rechtliche Verfahren oder Versicherungszwecke.",
-        "timeline": "Bearbeitungszeit: 7-10 Werktage"
-      }
-    },
-    "howTo": {
-      "title": "So fordern Sie Unterlagen an",
-      "steps": {
-        "step1": "Füllen Sie das Formular für medizinische Unterlagen aus",
-        "step2": "Legen Sie einen gültigen Lichtbildausweis vor",
-        "step3": "Geben Sie die benötigten Unterlagen und den Zeitraum an",
-        "step4": "Reichen Sie die Anfrage online, per Post oder persönlich ein"
-      }
-    },
-    "requestRecords": "Medizinische Unterlagen anfordern",
-    "downloadForm": "Formular herunterladen",
-    "questions": {
-      "title": "Fragen zu Ihren Unterlagen?",
-      "description": "Unser Team für Gesundheitsinformationsmanagement hilft Ihnen bei Fragen zum Zugriff auf Ihre Unterlagen.",
-      "contact": "Kontakt zur Abteilung"
-    }
-  },
-  "insurance": {
-    "title": "Versicherung und Abrechnung",
-    "subtitle": "Verstehen Sie Ihre Deckung und Zahlungsoptionen",
-    "commitment": {
-      "title": "Unser Anspruch",
-      "description1": "Wir sind überzeugt, dass die Kosten Ihrer Versorgung verständlich sein sollten. Unser Abrechnungsteam bietet transparente Preise, erklärt Versicherungsleistungen und ermöglicht flexible Zahlungsoptionen.",
-      "description2": "Wir arbeiten mit den meisten großen Versicherern zusammen und bieten verschiedene Zahlungspläne, damit Sie die benötigte Versorgung erhalten."
-    },
-    "accepted": {
-      "title": "Akzeptierte Versicherungen",
-      "description": "Wir akzeptieren die meisten gängigen Versicherungen. Kontaktieren Sie uns zur Prüfung Ihrer Deckung.",
-      "plans": {
-        "blueCross": "Blue Cross Blue Shield",
-        "aetna": "Aetna",
-        "cigna": "Cigna",
-        "united": "United Healthcare",
-        "medicare": "Medicare",
-        "medicaid": "Medicaid"
-      },
-      "verifyButton": "Versicherung prüfen"
-    },
-    "billing": {
-      "title": "Abrechnungsinformationen",
-      "estimate": {
-        "title": "Kostenschätzung",
-        "description": "Fordern Sie vor dem Termin eine Kostenschätzung an."
-      },
-      "payment": {
-        "title": "Zahlungsoptionen",
-        "description": "Wir akzeptieren Bargeld, Kreditkarten und bieten zinsfreie Zahlungspläne an."
-      },
-      "assistance": {
-        "title": "Finanzielle Hilfe",
-        "description": "Programme sind für Personen verfügbar, die die finanziellen Kriterien erfüllen."
-      }
-    },
-    "questions": {
-      "title": "Fragen zur Abrechnung?",
-      "description": "Unsere Abrechnungsexperten helfen Ihnen bei Rechnungen und Zahlungsoptionen.",
-      "contactBilling": "Abrechnung kontaktieren",
-      "payOnline": "Online bezahlen"
-    }
-  },
-  "patientPortal": {
-    "title": "Mitgliederportal",
-    "subtitle": "Ihr persönliches Gesundheitsportal zur Verwaltung Ihrer Versorgung",
-    "login": {
-      "title": "Im Portal anmelden",
-      "description": "Sicherer Zugriff auf Ihre Gesundheitsinformationen",
-      "email": "E-Mail",
-      "emailPlaceholder": "sie@beispiel.de",
-      "password": "Passwort",
-      "passwordPlaceholder": "Passwort eingeben",
-      "signIn": "Anmelden",
-      "forgotPassword": "Passwort vergessen?",
-      "createAccount": "Konto erstellen"
-    },
-    "features": {
-      "title": "Portal-Funktionen",
-      "scheduling": {
-        "title": "Termine planen",
-        "description": "Termine buchen, verschieben oder absagen."
-      },
-      "records": {
-        "title": "Unterlagen einsehen",
-        "description": "Zugriff auf Krankengeschichte, Untersuchungsergebnisse und Berichte."
-      },
-      "messaging": {
-        "title": "Sichere Nachrichten",
-        "description": "Kommunizieren Sie direkt mit Ihrem Behandlungsteam und erhalten Sie Antworten."
-      },
-      "prescriptions": {
-        "title": "Rezepte verlängern",
-        "description": "Verlängerungen anfordern und Medikamentenverlauf einsehen."
-      },
-      "healthData": {
-        "title": "Gesundheitsdaten",
-        "description": "Messwerte, Untersuchungsergebnisse und Kennzahlen im Zeitverlauf verfolgen."
-      },
-      "profile": {
-        "title": "Profil verwalten",
-        "description": "Kontaktinformationen, Versicherungsdaten und Einstellungen aktualisieren."
-      }
-    },
-    "whyUse": {
-      "title": "Warum das Portal nutzen?",
-      "benefits": {
-        "access": "Rund-um-die-Uhr-Zugriff auf Gesundheitsinformationen von jedem Gerät",
-        "communication": "Weniger Wartezeit am Telefon durch Nachrichten",
-        "reminders": "Automatische Terminerinnerungen",
-        "records": "Alle Unterlagen an einem sicheren Ort",
-        "sharing": "Möglichkeit, Informationen mit Familienmitgliedern zu teilen",
-        "results": "Testergebnisse sofort nach Verfügbarkeit einsehen"
-      }
-    },
-    "gettingStarted": {
-      "title": "So starten Sie",
-      "steps": {
-        "step1": "Erstellen Sie ein Konto mit Ihrer E-Mail und Ihrer Mitglieder-ID",
-        "step2": "Bestätigen Sie Ihre Identität über einen sicheren Prozess",
-        "step3": "Richten Sie Profil und Präferenzen ein",
-        "step4": "Verwalten Sie Ihre Gesundheit online"
-      }
-    },
-    "help": {
-      "title": "Hilfe zum Portal",
-      "description": "Unser Support hilft bei Registrierung, Login-Problemen und Fragen.",
-      "contactSupport": "Support kontaktieren",
-      "viewTutorial": "Anleitung ansehen"
     }
   },
   "privacyPolicy": {
@@ -1181,500 +524,31 @@
     "updates": {
       "title": "Aktualisierungen oder Änderungen der Datenschutzrichtlinie",
       "text": "Wir können diese Datenschutzrichtlinie nach eigenem Ermessen von Zeit zu Zeit überarbeiten, die auf der Website veröffentlichte Version ist immer aktuell. Wir bitten Sie, diese Datenschutzrichtlinie regelmäßig auf Änderungen zu überprüfen. Bei wesentlichen Änderungen werden wir einen Hinweis dazu auf unserer Website veröffentlichen."
-    },
-    "contact": {
-      "title": "Kontakt",
-      "text": "Wenn Sie allgemeine Fragen zu den Diensten oder den von uns über Sie erfassten Daten und deren Verwendung haben, kontaktieren Sie uns bitte unter:"
-    }
-  },
-  "dataSecurity": {
-    "title": "Datensicherheit",
-    "subtitle": "Fortschrittliche Schutzmaßnahmen zum Schutz Ihrer vertraulichsten Informationen",
-    "enterprise": {
-      "title": "Sicherheit auf Unternehmensniveau",
-      "description1": "Wir nutzen mehrstufige Schutzmaßnahmen, um unbefugten Zugriff auf Ihre medizinischen Daten zu verhindern und Vertraulichkeit und Sicherheit jederzeit zu gewährleisten.",
-      "description2": "Unsere Sicherheitsinfrastruktur erfüllt und übertrifft Branchenstandards, einschließlich HIPAA-Konformität, SOC-2-Zertifizierung und regelmäßiger Audits durch Dritte."
-    },
-    "measures": {
-      "title": "Unsere Sicherheitsmaßnahmen",
-      "encryption": {
-        "title": "Ende-zu-Ende-Verschlüsselung",
-        "description": "Alle Daten werden bei Übertragung und Speicherung nach AES-256 verschlüsselt."
-      },
-      "dataCenters": {
-        "title": "Sichere Rechenzentren",
-        "description": "Ihre Informationen werden in SOC-2-zertifizierten Einrichtungen mit 24-Stunden-Sicherheitsdienst gespeichert."
-      },
-      "accessControls": {
-        "title": "Zugriffskontrollen",
-        "description": "Mehrfaktor-Authentifizierung und rollenbasierter Zugriff stellen sicher, dass nur befugtes Personal Daten einsehen kann."
-      },
-      "audits": {
-        "title": "Regelmäßige Audits",
-        "description": "Kontinuierliches Monitoring und vierteljährliche Sicherheitsbewertungen zur Erkennung und Behebung von Risiken."
-      },
-      "threatDetection": {
-        "title": "Bedrohungserkennung",
-        "description": "Moderne Systeme zur Erkennung von Eindringversuchen überwachen verdächtige Aktivitäten rund um die Uhr."
-      },
-      "backup": {
-        "title": "Backups",
-        "description": "Automatisierte tägliche Backups mit Wiederherstellungsverfahren zur Vermeidung von Datenverlust."
-      }
-    },
-    "compliance": {
-      "title": "Compliance und Zertifizierungen",
-      "hipaa": {
-        "title": "HIPAA-Konformität",
-        "description": "Wir erfüllen vollständig die Anforderungen des HIPAA und gewährleisten höchste Standards für Datenschutz und Datensicherheit.",
-        "items": {
-          "privacy": "Einhaltung der Datenschutzregel",
-          "security": "Umsetzung der Sicherheitsregel",
-          "breach": "Meldeverfahren bei Verstößen",
-          "baa": "Vereinbarungen mit Geschäftspartnern"
-        }
-      },
-      "certifications": {
-        "title": "Branchenzertifizierungen",
-        "description": "Unsere Sicherheitspraktiken werden von unabhängigen Prüfern bestätigt und erfüllen strenge Standards.",
-        "items": {
-          "soc2": "SOC 2 Type II Zertifizierung",
-          "iso": "ISO 27001 Konformität",
-          "hitrust": "HITRUST CSF Zertifizierung",
-          "pentest": "Jährliche Penetrationstests"
-        }
-      }
-    },
-    "training": {
-      "title": "Schulung und Sensibilisierung",
-      "description": "Jedes Teammitglied erhält umfassende Sicherheitsschulungen, um seine Rolle beim Schutz Ihrer Informationen zu verstehen.",
-      "items": {
-        "annual": "Jährliche HIPAA- und Sicherheitsschulungen für alle Mitarbeiter",
-        "updates": "Regelmäßige Updates zu neuen Sicherheitsbedrohungen",
-        "policies": "Strenge Richtlinien zum Umgang mit Mitgliederdaten",
-        "background": "Hintergrundprüfungen für alle Mitarbeiter"
-      }
-    },
-    "report": {
-      "title": "Sicherheitsvorfall melden",
-      "description": "Wenn Sie eine Sicherheitslücke vermuten oder Bedenken zur Sicherheit Ihrer Daten haben, kontaktieren Sie uns bitte umgehend.",
-      "contact": "Sicherheitsteam kontaktieren"
-    }
-  },
-  "hipaaCompliance": {
-    "title": "HIPAA-Konformität",
-    "subtitle": "Unser Engagement zum Schutz Ihrer medizinischen Informationen durch umfassende Compliance",
-    "whatIs": {
-      "title": "Was ist HIPAA?",
-      "description1": "Der Health Insurance Portability and Accountability Act (HIPAA) ist ein US-Bundesgesetz, das nationale Standards zum Schutz sensibler medizinischer Informationen festlegt.",
-      "description2": "Bei Gmed nehmen wir die HIPAA-Konformität sehr ernst und haben umfassende Richtlinien und Verfahren implementiert, um die Sicherheit und Vertraulichkeit Ihrer geschützten Gesundheitsdaten (PHI) zu gewährleisten."
-    },
-    "rules": {
-      "title": "HIPAA-Regeln, die wir einhalten",
-      "privacy": {
-        "title": "Datenschutzregel",
-        "description": "Legt nationale Standards zum Schutz medizinischer Informationen fest und gibt Mitgliedern Rechte an ihren Unterlagen.",
-        "items": {
-          "access": "Recht auf Zugang zu Ihren medizinischen Unterlagen",
-          "corrections": "Recht auf Korrekturanträge",
-          "whoAccessed": "Recht zu wissen, wer auf Ihre Informationen zugegriffen hat",
-          "notices": "Recht auf Datenschutzmitteilungen"
-        }
-      },
-      "security": {
-        "title": "Sicherheitsregel",
-        "description": "Definiert Standards zum Schutz elektronischer medizinischer Informationen durch administrative, physische und technische Maßnahmen.",
-        "items": {
-          "encryption": "Verschlüsselung elektronischer Unterlagen",
-          "accessControls": "Sichere Zugriffskontrollen und Authentifizierung",
-          "riskAssessment": "Regelmäßige Sicherheitsbewertungen",
-          "incidentResponse": "Vorfallreaktionsverfahren"
-        }
-      },
-      "breach": {
-        "title": "Melderegel bei Verstößen",
-        "description": "Verpflichtet Organisationen, betroffene Personen bei Verstößen zu informieren.",
-        "items": {
-          "individual": "Individuelle Benachrichtigung innerhalb von 60 Tagen",
-          "media": "Medienbenachrichtigung bei größeren Vorfällen",
-          "hhs": "Meldung an HHS",
-          "documentation": "Dokumentation aller Vorfälle"
-        }
-      },
-      "omnibus": {
-        "title": "Omnibus-Regel",
-        "description": "Stärkt Datenschutz und Sicherheit und erweitert HIPAA-Anforderungen auf Geschäftspartner.",
-        "items": {
-          "businessAssociate": "Einhaltung durch Geschäftspartner",
-          "enhancedPrivacy": "Erweiterte Datenschutzrechte",
-          "penalties": "Strengere Durchsetzung von Strafen",
-          "genetic": "Schutz genetischer Informationen"
-        }
-      }
-    },
-    "howWeEnsure": {
-      "title": "Wie wir die Compliance sicherstellen",
-      "administrative": {
-        "title": "Administrative Maßnahmen",
-        "items": {
-          "officers": "Benannter Datenschutz- und Sicherheitsbeauftragter",
-          "training": "Umfassende Schulungsprogramme",
-          "policies": "Schriftliche Richtlinien und Verfahren",
-          "riskAssessment": "Regelmäßige Risikoanalysen und Audits",
-          "sanctions": "Sanktionsrichtlinie für Mitarbeiter"
-        }
-      },
-      "physical": {
-        "title": "Physische Maßnahmen",
-        "items": {
-          "facilityAccess": "Kontrollierter Zugang zu Einrichtungen",
-          "workstation": "Sichere Richtlinien für Arbeitsplätze und Geräte",
-          "disposal": "Sichere Entsorgung von Materialien mit PHI",
-          "visitor": "Besucherregistrierung und Begleitverfahren",
-          "surveillance": "Überwachungs- und Kontrollsysteme"
-        }
-      },
-      "technical": {
-        "title": "Technische Maßnahmen",
-        "items": {
-          "authentication": "Eindeutige Benutzeridentifikation und Authentifizierung",
-          "autoLogoff": "Automatische Abmeldung bei Inaktivität",
-          "encryption": "Verschlüsselung und Entschlüsselung von ePHI",
-          "auditControls": "Auditkontrollen und Monitoring",
-          "transmission": "Sichere Übertragungsprotokolle"
-        }
-      },
-      "monitoring": {
-        "title": "Kontinuierliches Monitoring",
-        "items": {
-          "continuous": "Fortlaufende Compliance-Überwachung",
-          "updates": "Regelmäßige Sicherheitsupdates und Patches",
-          "incidentResponse": "Vorfallreaktion und Berichterstattung",
-          "annualAudits": "Jährliche Compliance-Audits",
-          "policyUpdates": "Aktualisierung von Richtlinien bei Regulierungsänderungen"
-        }
-      }
-    },
-    "questions": {
-      "title": "Fragen zu HIPAA?",
-      "description": "Unser Datenschutzbeauftragter beantwortet Ihre Fragen zur HIPAA-Compliance und Ihren Datenschutzrechten.",
-      "contactPrivacy": "Datenschutzbeauftragten kontaktieren",
-      "downloadNotice": "Hinweis herunterladen"
-    }
-  },
-  "patientRights": {
-    "title": "Mitgliederrechte",
-    "subtitle": "Verständnis Ihrer Rechte als Mitglied und unseres Engagements, sie zu wahren",
-    "intro": {
-      "title": "Ihre Rechte sind wichtig",
-      "description1": "Als Mitglied bei Gmed haben Sie grundlegende Rechte, die bestimmen, wie wir Ihre Versorgung erbringen. Diese Rechte sichern respektvolle, sichere und hochwertige medizinische Betreuung.",
-      "description2": "Wir setzen uns dafür ein, diese Rechte zu schützen und ihre Bedeutung transparent zu machen, damit Sie aktiv an Entscheidungen beteiligt sind."
-    },
-    "coreRights": {
-      "title": "Ihre grundlegenden Rechte",
-      "respectfulCare": {
-        "title": "Recht auf respektvolle Behandlung",
-        "description": "Sie haben Anspruch auf eine Behandlung, die Ihre Werte, Überzeugungen und Präferenzen respektiert, ohne Diskriminierung.",
-        "items": {
-          "dignified": "Würdevolle und einfühlsame Behandlung",
-          "cultural": "Berücksichtigung kultureller und spiritueller Bedürfnisse",
-          "language": "Sprachliche Unterstützung bei Bedarf",
-          "privacy": "Vertraulichkeit und Privatsphäre"
-        }
-      },
-      "information": {
-        "title": "Recht auf Information",
-        "description": "Sie haben das Recht, vollständige und genaue Informationen zu Diagnose, Behandlung und Prognose zu erhalten.",
-        "items": {
-          "clear": "Klare Erklärungen in verständlicher Sprache",
-          "access": "Zugang zu Ihren medizinischen Unterlagen",
-          "costs": "Informationen zu Kosten und Zahlungsoptionen",
-          "providers": "Informationen über Ihre Behandler"
-        }
-      },
-      "decisions": {
-        "title": "Recht auf Entscheidungen",
-        "description": "Sie haben das Recht, an allen Entscheidungen mitzuwirken und Behandlungen abzulehnen.",
-        "items": {
-          "consent": "Informierte Einwilligung zu allen Verfahren",
-          "secondOpinion": "Möglichkeit, eine Zweitmeinung einzuholen",
-          "refuse": "Recht, Behandlung abzulehnen",
-          "advanceDirective": "Anerkennung von Mitgliederverfügungen"
-        }
-      },
-      "communication": {
-        "title": "Recht auf Kommunikation",
-        "description": "Sie haben das Recht, mit Ihren Behandlern zu sprechen und Antworten auf Ihre Fragen zu erhalten.",
-        "items": {
-          "questions": "Fragen stellen und Antworten erhalten",
-          "concerns": "Anliegen äußern und Beschwerden einreichen",
-          "family": "Familienmitglieder für Kommunikation benennen",
-          "advocates": "Zugang zu Mitgliederfürsprechern"
-        }
-      }
-    },
-    "additionalRights": {
-      "title": "Weitere Mitgliederrechte",
-      "items": {
-        "safeQuality": "Recht auf sichere und hochwertige medizinische Versorgung",
-        "privacy": "Recht auf Privatsphäre während Untersuchung und Behandlung",
-        "painManagement": "Recht auf Schmerzbewertung und -behandlung",
-        "continuity": "Recht auf Kontinuität und Koordination der Versorgung",
-        "policies": "Recht auf Information über Einrichtungsrichtlinien",
-        "advanceDirectives": "Recht, Mitgliederverfügungen zu erstellen",
-        "visitors": "Recht auf Besuch von Familie und Freunden",
-        "protective": "Recht auf Zugang zu Schutzdiensten",
-        "emergency": "Recht auf Notfallversorgung",
-        "transfer": "Recht auf Verlegung in eine andere Einrichtung",
-        "billing": "Recht auf Rechnungsprüfung und Erläuterungen",
-        "representative": "Recht, einen Gesundheitsvertreter zu benennen"
-      }
-    },
-    "responsibilities": {
-      "title": "Ihre Pflichten",
-      "description": "Neben Rechten haben Mitglieder Pflichten, die eine bestmögliche Versorgung unterstützen.",
-      "items": {
-        "accurate": "Genaue und vollständige Angaben zur Gesundheit machen",
-        "followPlan": "Den vereinbarten Behandlungsplan einhalten",
-        "askQuestions": "Fragen stellen, wenn etwas unklar ist",
-        "respect": "Behandler und Personal respektvoll behandeln",
-        "appointments": "Termine einhalten oder rechtzeitig absagen",
-        "financial": "Finanzielle Verpflichtungen erfüllen"
-      }
-    },
-    "grievance": {
-      "title": "Beschwerde einreichen",
-      "description1": "Wenn Sie glauben, dass Ihre Rechte verletzt wurden oder Bedenken zu Ihrer Versorgung haben, können Sie eine Beschwerde ohne Angst vor Konsequenzen einreichen.",
-      "description2": "Wir nehmen alle Beschwerden ernst und führen eine sorgfältige Prüfung durch. Sie können sich auch an staatliche oder bundesweite Stellen wenden.",
-      "fileComplaint": "Beschwerde einreichen",
-      "contactAdvocate": "Mitgliederfürsprecher kontaktieren"
     }
   },
   "auth": {
     "signIn": "Anmelden",
     "createAccount": "Konto erstellen",
-    "email": "E-Mail",
-    "emailPlaceholder": "Ihre E-Mail eingeben",
     "password": "Passwort",
     "passwordPlaceholder": "Passwort eingeben",
-    "confirmPassword": "Passwort bestätigen",
-    "confirmPasswordPlaceholder": "Passwort erneut eingeben",
-    "name": "Vollständiger Name",
-    "namePlaceholder": "Ihren vollständigen Namen eingeben",
-    "phone": "Handynummer",
     "phoneOrEmail": "Handynummer oder E-Mail",
     "identifierRequired": "Bitte geben Sie Ihre Telefonnummer oder E-Mail ein",
-    "invalidEmail": "Ungültige E-Mail-Adresse",
     "invalidPhoneOrEmail": "Ungültiges Format (z.B. +4917612345678 oder email@beispiel.de)",
     "passwordRequired": "Bitte geben Sie Ihr Passwort ein",
     "passwordMinLength": "Passwort muss mindestens 6 Zeichen lang sein",
-    "signingIn": "Anmeldung...",
-    "creatingAccount": "Konto wird erstellt...",
-    "invalidCredentials": "Ungültige Telefonnummer/E-Mail oder Passwort",
     "applicationPending": "Ihre Anfrage wird noch bearbeitet. Die Anmeldung ist nach Abschluss möglich.",
-    "registrationFailed": "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.",
-    "signInAfterRegisterFailed": "Konto erstellt, Anmeldung fehlgeschlagen. Bitte melden Sie sich manuell an.",
-    "dashboard": "Kundenbereich",
-    "forgotPassword": "Passwort vergessen?",
-    "preferredContactMethod": "Bitte geben Sie Ihre bevorzugte Kontaktmethode an",
     "confidentialityNotice": "Ihre Informationen sind vertraulich und werden nicht an Dritte weitergegeben.",
     "privacyPolicyLink": "Richtlinie zur Verarbeitung personenbezogener Daten",
-    "consentData": "Einwilligung zur Verarbeitung personenbezogener Daten",
-    "consentMarketing": "Einwilligung zum Erhalt von Informations- und Werbenachrichten",
     "showPassword": "Passwort anzeigen",
     "hidePassword": "Passwort ausblenden",
     "welcomeTitle": "Willkommen",
-    "welcomeSubtitle": "Melden Sie sich in Ihrem Konto an",
-    "registerTitle": "Mitglied werden",
-    "registerSubtitle": "Füllen Sie Ihre Daten aus, um Mitglied zu werden",
-    "sendMessage": "Nachricht senden",
-    "overline": "Anmeldung",
-    "alreadyHaveAccount": "Haben Sie bereits ein Konto?",
-    "signInLink": "Anmelden"
-  },
-  "register": {
-    "registerTitle": "Mitglied werden",
-    "registerSubtitle": "Füllen Sie Ihre Daten aus, um Mitglied zu werden",
-    "step1Title": "Daten",
-    "step2Title": "Fragebogen",
-    "step3Title": "Dienstleistungen",
-    "firstName": "Vorname *",
-    "lastName": "Nachname *",
-    "email": "E-Mail *",
-    "phone": "Handynummer *",
-    "password": "Passwort *",
-    "confirmPassword": "Passwort bestätigen *",
-    "next": "Weiter",
-    "back": "Zurück",
-    "submit": "Anfrage senden",
-    "submitting": "Wird gesendet...",
-    "whereAreYou": "Wo befinden Sie sich derzeit? *",
-    "germany": "Deutschland",
-    "euNotGermany": "EU (nicht Deutschland)",
-    "otherCountry": "Anderes Land",
-    "hasInsurance": "Haben Sie eine Krankenversicherung in Deutschland?",
-    "yesInsurance": "Ja, ich bin versichert",
-    "noInsurance": "Keine Versicherung",
-    "canComeToGermany": "Können Sie nach Deutschland reisen?",
-    "isEuResident": "Sind Sie in der EU ansässig?",
-    "yes": "Ja",
-    "no": "Nein",
-    "needHelp": "Ich benötige Unterstützung bei der Reiseorganisation",
-    "whatServices": "Welche Dienstleistungen könnten Sie benötigen?",
-    "charterFlight": "Charterflug",
-    "charterFlightDesc": "Privatflug ohne Wartezeiten und Umsteigen",
-    "personalTransport": "Persönlicher Transport",
-    "personalTransportDesc": "Premium-Fahrzeug mit Fahrer",
-    "visaSupport": "Visaunterstützung",
-    "visaSupportDesc": "Visa, Einladungen, Dokumentenbearbeitung",
-    "personalTranslator": "Persönlicher Übersetzer",
-    "personalTranslatorDesc": "Begleitung bei allen Terminen und Beratungen",
-    "hotelBooking": "Hotelbuchung",
-    "hotelBookingDesc": "Wir finden eine Unterkunft in Kliniknähe",
-    "validationFirstName": "Bitte geben Sie Ihren Vornamen ein",
-    "validationFirstNameMin": "Vorname muss mindestens 2 Zeichen haben",
-    "validationFirstNameMax": "Vorname ist zu lang",
-    "validationLastName": "Bitte geben Sie Ihren Nachnamen ein",
-    "validationLastNameMin": "Nachname muss mindestens 2 Zeichen haben",
-    "validationLastNameMax": "Nachname ist zu lang",
-    "validationEmail": "Bitte geben Sie Ihre E-Mail ein",
-    "validationEmailFormat": "Ungültiges E-Mail-Format",
-    "validationPhone": "Bitte geben Sie Ihre Telefonnummer ein",
-    "validationPhoneFormat": "Ungültiges Telefonformat (z.B. +4917612345678)",
-    "validationPassword": "Bitte geben Sie ein Passwort ein",
-    "validationPasswordMin": "Passwort muss mindestens 8 Zeichen haben",
-    "validationPasswordUppercase": "Passwort muss mindestens einen Großbuchstaben enthalten",
-    "validationPasswordNumber": "Passwort muss mindestens eine Zahl enthalten",
-    "validationConfirmPassword": "Bitte bestätigen Sie Ihr Passwort",
-    "validationPasswordMismatch": "Passwörter stimmen nicht überein",
-    "validationLocation": "Bitte wählen Sie Ihren Standort",
-    "validationNotesMax": "Maximal 2000 Zeichen",
-    "submitError": "Bei der Übermittlung ist ein Fehler aufgetreten",
-    "successTitle": "Anfrage erfolgreich gesendet!",
-    "successMessage": "Vielen Dank für Ihre Anfrage. Unser Team wird sich in Kürze bei Ihnen melden.",
-    "redirecting": "Weiterleitung zur Startseite in {seconds} Sekunden...",
-    "notesLabel": "Anmerkungen (optional)",
-    "notesPlaceholder": "Beschreiben Sie Ihre Situation, Wünsche oder Fragen..."
-  },
-  "dashboard": {
-    "title": "Kundenbereich",
-    "welcomeBack": "Willkommen zurück, {name}",
-    "accountInfo": "Kontoinformationen",
-    "name": "Name",
-    "email": "E-Mail",
-    "signOut": "Abmelden",
-    "appointments": "Termine",
-    "appointmentsDescription": "Anstehende Termine anzeigen und verwalten",
-    "medicalRecords": "Medizinische Unterlagen",
-    "medicalRecordsDescription": "Zugriff auf Ihre Krankengeschichte und Dokumente",
-    "messages": "Nachrichten",
-    "messagesDescription": "Kommunikation mit Ihrem Behandlungsteam"
-  },
-  "admin": {
-    "adminPanel": "Admin-Bereich",
-    "logout": "Abmelden",
-    "loading": "Laden...",
-    "applications": "Anträge",
-    "total": "gesamt",
-    "new": "neu",
-    "refresh": "Aktualisieren",
-    "noApplications": "Noch keine Anträge",
-    "applicationNum": "Antrag {num}",
-    "status": "Status",
-    "services": "Dienstleistungen",
-    "clientNotes": "Kundennotizen",
-    "tableNumber": "Nummer",
-    "tableClient": "Kunde",
-    "tablePhone": "Telefon",
-    "tableEmail": "E-Mail",
-    "tableFrom": "Herkunft",
-    "tableCreated": "Erstellt",
-    "prev": "Zurück",
-    "next": "Weiter",
-    "pageInfo": "Seite {page} von {totalPages}",
-    "statusNew": "Neu",
-    "statusInReview": "In Prüfung",
-    "statusContacted": "Kontaktiert",
-    "statusCompleted": "Abgeschlossen",
-    "statusCancelled": "Storniert",
-    "serviceCharter": "Charterflug",
-    "serviceTransport": "Privater Transport",
-    "serviceVisa": "Visa-Unterstützung",
-    "serviceTranslator": "Persönlicher Dolmetscher",
-    "serviceHotel": "Hotelbuchung",
-    "tableMessages": "Nachrichten",
-    "chatWith": "Chat mit {name}"
+    "welcomeSubtitle": "Melden Sie sich in Ihrem Konto an"
   },
   "impressumPage": {
     "title": "Impressum",
-    "owner": "Inhaber",
     "contact": "Kontakt",
     "vatTitle": "Umsatzsteuer-ID",
     "vatLegal": "Umsatzsteueridentifikationsnummer gemäß § 27 a Umsatzsteuergesetz:",
     "contactPrompt": "Bei Fragen und Anregungen zum Inhalt der Website schicken Sie uns bitte eine E-Mail an:"
-  },
-  "account": {
-    "title": "Mein Konto",
-    "subtitle": "Willkommen, {name}",
-    "loading": "Laden...",
-    "name": "Name",
-    "phone": "Handynummer",
-    "email": "E-Mail",
-    "tabs": {
-      "account": "Konto",
-      "history": "Behandlungsverlauf",
-      "messages": "Nachrichten"
-    },
-    "history": {
-      "empty": "Noch kein Behandlungsverlauf"
-    },
-    "messages": {
-      "empty": "Noch keine Nachrichten"
-    }
-  },
-  "messages": {
-    "typeMessage": "Nachricht eingeben...",
-    "send": "Senden",
-    "noMessages": "Noch keine Nachrichten. Starten Sie das Gespräch!",
-    "loading": "Nachrichten laden...",
-    "retry": "Erneut versuchen",
-    "today": "Heute",
-    "yesterday": "Gestern",
-    "client": "Kunde",
-    "support": "Support"
-  },
-  "forgotPassword": {
-    "title": "Passwort wiederherstellen",
-    "subtitle": "Passwort per SMS zurücksetzen",
-    "back": "Zurück",
-    "enterPhone": "Geben Sie Ihre Handynummer ein und wir senden Ihnen einen Bestätigungscode.",
-    "phone": "Handynummer",
-    "phonePlaceholder": "+49...",
-    "sendCode": "Code senden",
-    "sending": "Senden...",
-    "invalidPhone": "Ungültiges Telefonnummernformat",
-    "sendError": "Code konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
-    "enterCode": "Geben Sie den 6-stelligen Code ein, der an {phone} gesendet wurde",
-    "code": "Bestätigungscode",
-    "codePlaceholder": "000000",
-    "verify": "Bestätigen",
-    "verifying": "Bestätigen...",
-    "invalidCode": "Der Code muss 6 Ziffern haben",
-    "verifyError": "Ungültiger Code. Bitte versuchen Sie es erneut.",
-    "resendCode": "Code erneut senden",
-    "enterNewPassword": "Geben Sie Ihr neues Passwort ein.",
-    "newPassword": "Neues Passwort",
-    "newPasswordPlaceholder": "Neues Passwort eingeben",
-    "confirmPassword": "Passwort bestätigen",
-    "confirmPasswordPlaceholder": "Neues Passwort bestätigen",
-    "resetPassword": "Passwort zurücksetzen",
-    "resetting": "Zurücksetzen...",
-    "passwordMinLength": "Das Passwort muss mindestens 6 Zeichen lang sein",
-    "passwordMismatch": "Die Passwörter stimmen nicht überein",
-    "resetError": "Passwort konnte nicht zurückgesetzt werden. Bitte versuchen Sie es erneut.",
-    "successTitle": "Passwort zurückgesetzt!",
-    "successMessage": "Ihr Passwort wurde erfolgreich zurückgesetzt. Sie können sich jetzt mit Ihrem neuen Passwort anmelden.",
-    "goToLogin": "Zur Anmeldung",
-    "backToLogin": "Zurück zur Anmeldung"
   }
 }

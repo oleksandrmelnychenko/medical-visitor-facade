@@ -35,8 +35,6 @@ export function InsuranceIntroStep() {
     <WizardStepLayout
       title={t('insuranceIntro.title')}
       subtitle={t('insuranceIntro.subtitle')}
-      showStepper
-      activeStepIndex={3}
       onBack={handleBack}
       backLabel={t('back')}
     >

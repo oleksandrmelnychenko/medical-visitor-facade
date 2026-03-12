@@ -41,8 +41,6 @@ export function MedicalRecordsStep() {
   return (
     <WizardStepLayout
       title={t('recordsPatient.title')}
-      showStepper
-      activeStepIndex={0}
       onBack={handleBack}
       backLabel={t('back')}
     >

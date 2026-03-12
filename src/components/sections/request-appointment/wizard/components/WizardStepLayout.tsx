@@ -4,8 +4,6 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import sectionStyles from '@/components/sections/shared/Section.module.scss';
 import pageStyles from '@/styles/page.module.scss';
-import { WizardSidebar } from './WizardSidebar';
-import { EuWizardSidebar } from './EuWizardSidebar';
 import { WizardPathTree } from './WizardPathTree';
 import styles from '../../RequestAppointment/RequestAppointment.module.scss';
 
@@ -15,9 +13,6 @@ interface WizardStepLayoutProps {
   subtitleClassName?: string;
   contentClassName?: string;
   innerClassName?: string;
-  showStepper?: boolean;
-  showEuStepper?: boolean;
-  activeStepIndex?: number;
   onBack?: () => void;
   backLabel?: string;
   onContinue?: () => void;
@@ -32,9 +27,6 @@ export function WizardStepLayout({
   subtitleClassName,
   contentClassName,
   innerClassName,
-  showStepper = false,
-  showEuStepper = false,
-  activeStepIndex = 0,
   onBack,
   backLabel = 'Back',
   onContinue,
@@ -44,21 +36,6 @@ export function WizardStepLayout({
 }: WizardStepLayoutProps) {
   return (
     <div className={cn(pageStyles.page, styles.gridBackground)}>
-      {showStepper && (
-        <section className={cn(sectionStyles.section, styles.stepperSection)}>
-          <div className={sectionStyles.container}>
-            <WizardSidebar activeIndex={activeStepIndex} />
-          </div>
-        </section>
-      )}
-      {showEuStepper && (
-        <section className={cn(sectionStyles.section, styles.stepperSection)}>
-          <div className={sectionStyles.container}>
-            <EuWizardSidebar activeStep={activeStepIndex} />
-          </div>
-        </section>
-      )}
-
       <section className={cn(sectionStyles.section, styles.wizardShellSection)} id="register">
         <div className={sectionStyles.container}>
           <div className={styles.wizardOuterRow}>

@@ -37,8 +37,6 @@ export function VisitTimingStep() {
   return (
     <WizardStepLayout
       title={t('visitTiming.title')}
-      showStepper
-      activeStepIndex={4}
       onBack={handleBack}
       backLabel={t('back')}
     >

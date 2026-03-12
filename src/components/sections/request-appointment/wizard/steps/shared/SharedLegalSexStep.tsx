@@ -39,8 +39,6 @@ export function SharedLegalSexStep() {
     <WizardStepLayout
       title={t('sharedLegalSex.title')}
       subtitle={t('sharedLegalSex.subtitle')}
-      showStepper
-      activeStepIndex={1}
       onBack={handleBack}
       backLabel={t('back')}
     >

@@ -34,15 +34,15 @@ export function WelcomeStep() {
     <WizardStepLayout
       title={t('welcome.title')}
       subtitle={t('welcome.subtitle')}
-      subtitleClassName={styles.welcomeSubtitleConcept}
+      subtitleClassName={styles.welcomeSubtitleBody}
       contentClassName={styles.welcomeSurfacePlain}
       onBack={handleBack}
       backLabel={t('back')}
     >
-      <div className={styles.wizardFormContainer}>
+      <div className={`${styles.wizardFormContainer} ${styles.welcomeFormContainer}`}>
         <button
           onClick={handleContinue}
-          className={formStyles.submitButton}
+          className={`${formStyles.submitButton} ${styles.welcomeContinueButton}`}
           type="button"
         >
           {t('welcome.continue')}
