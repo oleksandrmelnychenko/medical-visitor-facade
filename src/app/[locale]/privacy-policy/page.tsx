@@ -64,8 +64,6 @@ export default async function PrivacyPolicyPage({ params }: PrivacyPolicyPagePro
                 <li>{t("purpose.item3")}</li>
                 <li>{t("purpose.item4")}</li>
                 <li>{t("purpose.item5")}</li>
-                <li>{t("purpose.item6")}</li>
-                <li>{t("purpose.item7")}</li>
               </ul>
               <p className={styles.text}>{t("purpose.text2")}</p>
               <ul className={styles.list}>
@@ -95,7 +93,6 @@ export default async function PrivacyPolicyPage({ params }: PrivacyPolicyPagePro
               <p className={styles.text}>{t("hosting.text1")}</p>
               <p className={styles.text}>{t("hosting.text2")}</p>
               <p className={styles.text}>{t("hosting.text3")}</p>
-              <p className={styles.text}>{t("hosting.text4")}</p>
             </div>
 
             {/* Cookies */}
