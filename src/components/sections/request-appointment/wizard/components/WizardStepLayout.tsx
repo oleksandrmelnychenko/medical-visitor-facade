@@ -34,6 +34,8 @@ export function WizardStepLayout({
   continueDisabled = false,
   children,
 }: WizardStepLayoutProps) {
+  const hasManualTitleBreak = title.includes("\n");
+
   return (
     <div className={cn(pageStyles.page, styles.gridBackground)}>
       <section className={cn(sectionStyles.section, styles.wizardShellSection)} id="register">
@@ -42,7 +44,13 @@ export function WizardStepLayout({
             <div className={styles.wizardShell}>
               <div className={styles.wizardShellHeader}>
                 <div className={styles.wizardHeaderWrapper}>
-                  <h1 className={cn(styles.wizardHeaderTitle, styles.wizardHeaderEnter)}>
+                  <h1
+                    className={cn(
+                      styles.wizardHeaderTitle,
+                      hasManualTitleBreak && styles.wizardHeaderTitleManualBreak,
+                      styles.wizardHeaderEnter
+                    )}
+                  >
                     {title}
                   </h1>
                   {subtitle && (

@@ -1,20 +1,14 @@
 "use client";
 
-import React, { useCallback, useRef } from 'react';
-import { ChevronRight } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useRouter } from '@/i18n/navigation';
-import { useWizard } from '../../WizardContext';
-import { WizardStepLayout } from '../../components/WizardStepLayout';
-import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
-
-const CARD_STYLES = {
-  yes: { '--hover-color': '#E5D5A8' } as React.CSSProperties,
-  no: { '--hover-color': '#A8D5E5' } as React.CSSProperties,
-};
+import { useCallback, useRef } from "react";
+import { ShieldCheck, ShieldX } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
+import { useWizard } from "../../WizardContext";
+import { WizardChoiceStep } from "../../components/WizardChoiceStep";
 
 export function InsuranceStep() {
-  const t = useTranslations('appointment.newPatient');
+  const t = useTranslations("appointment.newPatient");
   const router = useRouter();
   const { updateData } = useWizard();
   const isNavigatingRef = useRef(false);
@@ -33,29 +27,30 @@ export function InsuranceStep() {
   const handleBack = useCallback(() => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-    router.push('/apply?type=new&step=insurance-intro');
+    router.push("/apply?type=new&step=insurance-intro");
   }, [router]);
 
   return (
-    <WizardStepLayout
-      title={t('insuranceStep.title')}
+    <WizardChoiceStep
+      title={t("insuranceStep.title")}
       onBack={handleBack}
-      backLabel={t('back')}
-    >
-      <div className={styles.clientCardsGrid}>
-        <div onClick={() => handleSelect('yes')} className={styles.clientCard} style={CARD_STYLES.yes}>
-          <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>{t('insuranceStep.yes')}</h3>
-          </div>
-          <ChevronRight size={24} className={styles.clientCardArrow} />
-        </div>
-        <div onClick={() => handleSelect('no')} className={styles.clientCard} style={CARD_STYLES.no}>
-          <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>{t('insuranceStep.no')}</h3>
-          </div>
-          <ChevronRight size={24} className={styles.clientCardArrow} />
-        </div>
-      </div>
-    </WizardStepLayout>
+      backLabel={t("back")}
+      options={[
+        {
+          key: "yes",
+          title: t("insuranceStep.yes"),
+          icon: ShieldCheck,
+          hoverColor: "#E5D5A8",
+          onSelect: () => handleSelect("yes"),
+        },
+        {
+          key: "no",
+          title: t("insuranceStep.no"),
+          icon: ShieldX,
+          hoverColor: "#A8D5E5",
+          onSelect: () => handleSelect("no"),
+        },
+      ]}
+    />
   );
 }

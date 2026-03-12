@@ -1,17 +1,11 @@
 "use client";
 
-import React, { useCallback, useRef } from "react";
-import { ChevronRight } from "lucide-react";
+import { useCallback, useRef } from "react";
+import { MailCheck, MailX } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useWizard } from "../../WizardContext";
-import { WizardStepLayout } from "../../components/WizardStepLayout";
-import styles from "../../../RequestAppointment/RequestAppointment.module.scss";
-
-const CARD_STYLES = {
-  yes: { "--hover-color": "#E5D5A8" } as React.CSSProperties,
-  no: { "--hover-color": "#A8D5E5" } as React.CSSProperties,
-};
+import { WizardChoiceStep } from "../../components/WizardChoiceStep";
 
 export function EmailConsentStep() {
   const t = useTranslations("appointment.newPatient");
@@ -44,27 +38,27 @@ export function EmailConsentStep() {
   }, [router]);
 
   return (
-    <WizardStepLayout
+    <WizardChoiceStep
       title={t("emailConsent.title")}
       onBack={handleBack}
       backLabel={t("back")}
-    >
-      <div className={styles.clientCardsGrid}>
-        <div onClick={handleYes} className={styles.clientCard} style={CARD_STYLES.yes}>
-          <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>{t("emailConsent.yes")}</h3>
-            <p className={styles.clientCardDesc}>{t("emailConsent.yesDisclaimer")}</p>
-          </div>
-          <ChevronRight size={24} className={styles.clientCardArrow} />
-        </div>
-
-        <div onClick={handleNo} className={styles.clientCard} style={CARD_STYLES.no}>
-          <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>{t("emailConsent.no")}</h3>
-          </div>
-          <ChevronRight size={24} className={styles.clientCardArrow} />
-        </div>
-      </div>
-    </WizardStepLayout>
+      options={[
+        {
+          key: "yes",
+          title: t("emailConsent.yes"),
+          description: t("emailConsent.yesDisclaimer"),
+          icon: MailCheck,
+          hoverColor: "#E5D5A8",
+          onSelect: handleYes,
+        },
+        {
+          key: "no",
+          title: t("emailConsent.no"),
+          icon: MailX,
+          hoverColor: "#A8D5E5",
+          onSelect: handleNo,
+        },
+      ]}
+    />
   );
 }

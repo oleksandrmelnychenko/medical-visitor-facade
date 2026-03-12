@@ -1,21 +1,21 @@
 "use client";
 
-import React, { useCallback, useRef } from 'react';
-import { ChevronRight } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useRouter } from '@/i18n/navigation';
-import { useWizard } from '../WizardContext';
-import { YesNoType } from '../types';
-import { WizardStepLayout } from '../components/WizardStepLayout';
-import styles from '../../RequestAppointment/RequestAppointment.module.scss';
+import React, { useCallback, useRef } from "react";
+import { Ban, Plane } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
+import { useWizard } from "../WizardContext";
+import { YesNoType } from "../types";
+import { WizardStepLayout } from "../components/WizardStepLayout";
+import styles from "../../RequestAppointment/RequestAppointment.module.scss";
 
 const CARD_STYLES = {
-  yes: { '--hover-color': '#E5D5A8' } as React.CSSProperties,
-  no: { '--hover-color': '#A8D5E5' } as React.CSSProperties,
+  yes: { "--hover-color": "#E5D5A8" } as React.CSSProperties,
+  no: { "--hover-color": "#A8D5E5" } as React.CSSProperties,
 };
 
 export function TravelReadyStep() {
-  const t = useTranslations('appointment.newPatient');
+  const t = useTranslations("appointment.newPatient");
   const router = useRouter();
   const { updateData } = useWizard();
   const isNavigatingRef = useRef(false);
@@ -24,38 +24,54 @@ export function TravelReadyStep() {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
     updateData({ canTravel: value });
-    if (value === 'yes') {
-      router.push('/apply?type=new&step=outside-records');
+    if (value === "yes") {
+      router.push("/apply?type=new&step=outside-records");
     } else {
-      router.push('/apply?type=new&step=outside-exit-travel');
+      router.push("/apply?type=new&step=outside-exit-travel");
     }
   }, [updateData, router]);
 
   const handleBack = useCallback(() => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-    router.push('/apply?type=new&step=become-member');
+    router.push("/apply?type=new&step=become-member");
   }, [router]);
 
   return (
     <WizardStepLayout
-      title={t('travelPatient.title')}
+      title={t("travelPatient.title")}
+      contentClassName={styles.locationConceptSurface}
+      innerClassName={styles.locationConceptInner}
       onBack={handleBack}
-      backLabel={t('back')}
+      backLabel={t("back")}
     >
-      <div className={styles.clientCardsGrid}>
-        <div onClick={() => handleSelect('yes')} className={styles.clientCard} style={CARD_STYLES.yes}>
-          <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>{t('travelPatient.yes')}</h3>
+      <div className={styles.locationConceptGrid}>
+        <button
+          onClick={() => handleSelect("yes")}
+          className={styles.locationConceptCard}
+          style={CARD_STYLES.yes}
+          type="button"
+        >
+          <div className={styles.locationConceptCardHeader}>
+            <span className={styles.locationConceptIcon} aria-hidden="true">
+              <Plane />
+            </span>
           </div>
-          <ChevronRight size={24} className={styles.clientCardArrow} />
-        </div>
-        <div onClick={() => handleSelect('no')} className={styles.clientCard} style={CARD_STYLES.no}>
-          <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>{t('travelPatient.no')}</h3>
+          <h3 className={styles.locationConceptTitle}>{t("travelPatient.yes")}</h3>
+        </button>
+        <button
+          onClick={() => handleSelect("no")}
+          className={styles.locationConceptCard}
+          style={CARD_STYLES.no}
+          type="button"
+        >
+          <div className={styles.locationConceptCardHeader}>
+            <span className={styles.locationConceptIcon} aria-hidden="true">
+              <Ban />
+            </span>
           </div>
-          <ChevronRight size={24} className={styles.clientCardArrow} />
-        </div>
+          <h3 className={styles.locationConceptTitle}>{t("travelPatient.no")}</h3>
+        </button>
       </div>
     </WizardStepLayout>
   );

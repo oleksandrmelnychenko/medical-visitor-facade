@@ -1,49 +1,43 @@
 "use client";
 
-import React from 'react';
-import { ChevronRight } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useRouter } from '@/i18n/navigation';
-import { useWizard } from '../WizardContext';
-import { WizardStepLayout } from '../components/WizardStepLayout';
-import styles from '../../RequestAppointment/RequestAppointment.module.scss';
+import { LogOut } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
+import { useWizard } from "../WizardContext";
+import { WizardChoiceStep } from "../components/WizardChoiceStep";
 
 export function ExitNoTravelStep() {
-  const t = useTranslations('appointment.newPatient');
+  const t = useTranslations("appointment.newPatient");
   const router = useRouter();
   const { data } = useWizard();
 
   const handleBack = () => {
     router.push(
-      data.hasTravelDocuments === 'no'
-        ? '/apply?type=new&step=outside-documents'
-        : '/apply?type=new&step=outside-travel'
+      data.hasTravelDocuments === "no"
+        ? "/apply?type=new&step=outside-documents"
+        : "/apply?type=new&step=outside-travel"
     );
   };
 
   const handleExit = () => {
-    router.push('/');
+    router.push("/");
   };
 
   return (
-    <WizardStepLayout
-      title={t('exitNoTravelPatient.title')}
+    <WizardChoiceStep
+      title={t("exitNoTravelPatient.title")}
+      subtitle={t("exitNoTravelPatient.description")}
       onBack={handleBack}
-      backLabel={t('back')}
-    >
-      <div className={styles.clientCardsGrid}>
-        <p className={styles.wizardDescription}>{t('exitNoTravelPatient.description')}</p>
-        <div
-          onClick={handleExit}
-          className={styles.clientCard}
-          style={{ '--hover-color': '#E5D5A8' } as React.CSSProperties}
-        >
-          <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>{t('exitNoTravelPatient.button')}</h3>
-          </div>
-          <ChevronRight size={24} className={styles.clientCardArrow} />
-        </div>
-      </div>
-    </WizardStepLayout>
+      backLabel={t("back")}
+      options={[
+        {
+          key: "exit",
+          title: t("exitNoTravelPatient.button"),
+          icon: LogOut,
+          hoverColor: "#E5D5A8",
+          onSelect: handleExit,
+        },
+      ]}
+    />
   );
 }

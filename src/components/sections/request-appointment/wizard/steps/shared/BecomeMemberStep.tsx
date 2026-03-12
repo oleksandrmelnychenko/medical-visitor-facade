@@ -1,65 +1,73 @@
 "use client";
 
-import React, { useCallback, useRef } from 'react';
-import { ChevronRight } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useRouter } from '@/i18n/navigation';
-import { useWizard } from '../../WizardContext';
-import { WizardStepLayout } from '../../components/WizardStepLayout';
-import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
+import React, { useCallback, useRef } from "react";
+import { UserRoundPlus, Users } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
+import { useWizard } from "../../WizardContext";
+import { WizardStepLayout } from "../../components/WizardStepLayout";
+import styles from "../../../RequestAppointment/RequestAppointment.module.scss";
 
 const CARD_STYLES = {
-  yes: { '--hover-color': '#E5D5A8' } as React.CSSProperties,
-  no: { '--hover-color': '#A8D5E5' } as React.CSSProperties,
+  yes: { "--hover-color": "#E5D5A8" } as React.CSSProperties,
+  no: { "--hover-color": "#A8D5E5" } as React.CSSProperties,
 };
 
 export function BecomeMemberStep() {
-  const t = useTranslations('appointment.newPatient');
+  const t = useTranslations("appointment.newPatient");
   const router = useRouter();
   const { updateData } = useWizard();
   const isNavigatingRef = useRef(false);
 
-  const handleSelect = useCallback((value: 'yes' | 'no') => {
+  const handleSelect = useCallback((value: "yes" | "no") => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
     updateData({ wantsMembership: value });
-    router.push('/apply?type=new&step=outside-travel');
+    router.push("/apply?type=new&step=outside-travel");
   }, [updateData, router]);
 
   const handleBack = useCallback(() => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-    router.push('/apply?type=new&step=location');
+    router.push("/apply?type=new&step=location");
   }, [router]);
 
   return (
     <WizardStepLayout
-      title={t('becomeMember.title')}
+      title={t("becomeMember.title")}
+      contentClassName={styles.locationConceptSurface}
+      innerClassName={styles.locationConceptInner}
       onBack={handleBack}
-      backLabel={t('back')}
+      backLabel={t("back")}
     >
-      <div className={styles.clientCardsGrid}>
-        <div
-          onClick={() => handleSelect('yes')}
-          className={styles.clientCard}
+      <div className={styles.locationConceptGrid}>
+        <button
+          onClick={() => handleSelect("yes")}
+          className={styles.locationConceptCard}
           style={CARD_STYLES.yes}
+          type="button"
         >
-          <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>{t('becomeMember.yes')}</h3>
+          <div className={styles.locationConceptCardHeader}>
+            <span className={styles.locationConceptIcon} aria-hidden="true">
+              <UserRoundPlus />
+            </span>
           </div>
-          <ChevronRight size={24} className={styles.clientCardArrow} />
-        </div>
+          <h3 className={styles.locationConceptTitle}>{t("becomeMember.yes")}</h3>
+        </button>
 
-        <div
-          onClick={() => handleSelect('no')}
-          className={styles.clientCard}
+        <button
+          onClick={() => handleSelect("no")}
+          className={styles.locationConceptCard}
           style={CARD_STYLES.no}
+          type="button"
         >
-          <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>{t('becomeMember.no')}</h3>
+          <div className={styles.locationConceptCardHeader}>
+            <span className={styles.locationConceptIcon} aria-hidden="true">
+              <Users />
+            </span>
           </div>
-          <ChevronRight size={24} className={styles.clientCardArrow} />
-        </div>
+          <h3 className={styles.locationConceptTitle}>{t("becomeMember.no")}</h3>
+        </button>
       </div>
     </WizardStepLayout>
   );

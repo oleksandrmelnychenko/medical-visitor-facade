@@ -1,24 +1,24 @@
 "use client";
 
-import React, { useCallback, useRef } from 'react';
-import { ChevronRight } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useRouter } from '@/i18n/navigation';
-import { useWizard } from '../../WizardContext';
-import { PreferredLocationType } from '../../types';
-import { WizardStepLayout } from '../../components/WizardStepLayout';
-import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
+import { useCallback, useRef } from "react";
+import { Building2, Landmark, MapPin, MapPinHouse, MapPinned } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
+import { useWizard } from "../../WizardContext";
+import { PreferredLocationType } from "../../types";
+import { WizardChoiceStep } from "../../components/WizardChoiceStep";
 
-const LOCATIONS: { value: PreferredLocationType; key: string; color: string }[] = [
-  { value: 'no_preference', key: 'noPreference', color: '#D5D5D5' },
-  { value: 'munich', key: 'munich', color: '#E5D5A8' },
-  { value: 'berlin', key: 'berlin', color: '#A8D5E5' },
-  { value: 'hamburg', key: 'hamburg', color: '#A8E5C4' },
-  { value: 'cologne', key: 'cologne', color: '#D5A8E5' },
+const LOCATIONS: { value: PreferredLocationType; key: string; color: string; icon: LucideIcon }[] = [
+  { value: "no_preference", key: "noPreference", color: "#D5D5D5", icon: MapPinHouse },
+  { value: "munich", key: "munich", color: "#E5D5A8", icon: Landmark },
+  { value: "berlin", key: "berlin", color: "#A8D5E5", icon: Building2 },
+  { value: "hamburg", key: "hamburg", color: "#A8E5C4", icon: MapPinned },
+  { value: "cologne", key: "cologne", color: "#D5A8E5", icon: MapPin },
 ];
 
 export function PreferredLocationStep() {
-  const t = useTranslations('appointment.newPatient');
+  const t = useTranslations("appointment.newPatient");
   const router = useRouter();
   const { updateData } = useWizard();
   const isNavigatingRef = useRef(false);
@@ -27,37 +27,28 @@ export function PreferredLocationStep() {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
     updateData({ preferredLocation: value });
-    router.push('/apply?type=new&step=visit-timing');
+    router.push("/apply?type=new&step=visit-timing");
   }, [updateData, router]);
 
   const handleBack = useCallback(() => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-    router.push('/apply?type=new&step=wrap-up-intro');
+    router.push("/apply?type=new&step=wrap-up-intro");
   }, [router]);
 
   return (
-    <WizardStepLayout
-      title={t('preferredLocation.title')}
-      subtitle={t('preferredLocation.subtitle')}
+    <WizardChoiceStep
+      title={t("preferredLocation.title")}
+      subtitle={t("preferredLocation.subtitle")}
       onBack={handleBack}
-      backLabel={t('back')}
-    >
-      <div className={styles.clientCardsGrid}>
-        {LOCATIONS.map(loc => (
-          <div
-            key={loc.value}
-            onClick={() => handleSelect(loc.value)}
-            className={styles.clientCard}
-            style={{ '--hover-color': loc.color } as React.CSSProperties}
-          >
-            <div className={styles.clientCardContent}>
-              <h3 className={styles.clientCardTitle}>{t(`preferredLocation.${loc.key}`)}</h3>
-            </div>
-            <ChevronRight size={24} className={styles.clientCardArrow} />
-          </div>
-        ))}
-      </div>
-    </WizardStepLayout>
+      backLabel={t("back")}
+      options={LOCATIONS.map((location) => ({
+        key: location.value,
+        title: t(`preferredLocation.${location.key}`),
+        icon: location.icon,
+        hoverColor: location.color,
+        onSelect: () => handleSelect(location.value),
+      }))}
+    />
   );
 }
