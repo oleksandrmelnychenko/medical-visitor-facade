@@ -5,56 +5,56 @@
     "backHome": "Volver al inicio"
   },
   "cookies": {
-    "message": "Utilizamos cookies para mejorar su experiencia en nuestro sitio web. Al continuar navegando, acepta el uso de cookies.",
+    "message": "Utilizamos cookies para optimizar su experiencia en nuestro sitio web. Al continuar navegando, acepta nuestro uso de cookies.",
     "accept": "Aceptar",
     "decline": "Rechazar",
     "learnMore": "Más información"
   },
   "common": {
     "home": "Inicio",
-    "requestAppointment": "Convertirse en cliente",
+    "requestAppointment": "Hacerse miembro",
     "login": "Iniciar sesión",
     "selectLanguage": "Seleccionar idioma"
   },
   "footer": {
-    "impressum": "Información legal",
-    "companyName": "Agencia de <accent>Concierge Médico</accent>",
+    "impressum": "Aviso legal",
+    "companyName": "Medical <accent>Concierge Agency</accent>",
     "contact": "Contacto",
-    "copyright": "© {year} Agencia de Concierge Médico",
+    "copyright": "© {year} Medical Concierge Agency",
     "allRightsReserved": "Todos los derechos reservados",
     "financialAssistance": "Pro bono",
     "privacyPolicy": "Política de privacidad",
-    "headquarters": "Oficina",
+    "headquarters": "Sede central",
     "address": "81735 Múnich, Alemania",
     "theAgency": "La Agencia"
   },
   "home": {
     "hero": {
-      "title": "Agencia de Concierge Médico",
-      "titlePart1": "Agencia de",
+      "title": "Medical Concierge Agency",
+      "titlePart1": "Medical",
       "titleAccent": "Concierge",
-      "titlePart2": "Médico",
-      "subtitle": "Excelencia en atención médica"
+      "titlePart2": "Agency",
+      "subtitle": "Excelencia en la atención médica"
     },
     "careForward": {
-      "title": "Lo que hacemos",
-      "subtitle": "Desde la selección de clínica hasta la recuperación completa — coordinación integral",
+      "title": "Nuestros servicios",
+      "subtitle": "Desde la selección de la clínica hasta la recuperación total: coordinación integral",
       "services": {
         "clinic": {
-          "title": "Clínica",
-          "desc": "Selección de centro médico especializado"
+          "title": "Clínicas",
+          "desc": "Selección de un centro médico altamente especializado"
         },
         "organization": {
           "title": "Especialistas",
-          "desc": "Asignación de médicos líderes en el campo"
+          "desc": "Citas con los médicos líderes en su especialidad"
         },
         "coordination": {
           "title": "Tratamiento",
-          "desc": "Organización de diagnósticos y procedimientos"
+          "desc": "Organización de diagnósticos y procedimientos médicos"
         },
         "support": {
-          "title": "Apoyo",
-          "desc": "Coordinador personal durante todo el proceso"
+          "title": "Asistencia",
+          "desc": "Un coordinador personal le acompaña durante todo el proceso"
         }
       }
     },
@@ -79,63 +79,63 @@
     },
     "fullSupport": {
       "overline": "",
-      "title": "Concepto de la Agencia",
+      "title": "Nuestro concepto",
       "subtitle": "",
       "services": {
         "promptness": {
           "title": "Coordinación",
-          "desc": "Coordinación médica y acompañamiento"
+          "desc": "Coordinación médica y acompañamiento personal"
         },
         "confidentiality": {
-          "title": "Apoyo para Visados",
-          "desc": "Tramitación de documentación de entrada"
+          "title": "Soporte de Visado",
+          "desc": "Asistencia en la tramitación de documentos de entrada"
         },
         "support": {
-          "title": "Traslado",
-          "desc": "Organización de transporte terrestre"
+          "title": "Traslados",
+          "desc": "Organización de todo el transporte terrestre"
         },
         "noFees": {
-          "title": "Aviación",
-          "desc": "Jets privados y vuelos médicos",
+          "title": "Vuelos",
+          "desc": "Jets privados y vuelos chárter médicos",
           "badge": "Premium"
         },
         "concierge": {
-          "title": "Servicio de Conserjería",
-          "desc": "Soporte 24/7",
+          "title": "Servicio de Concierge",
+          "desc": "Asistencia ininterrumpida 24/7",
           "badge": "Prioridad"
         }
       },
       "journey": {
-        "title": "Su camino con nosotros",
+        "title": "Su proceso de tratamiento",
         "steps": {
           "consultation": {
             "title": "Consulta inicial",
-            "desc": "Cuéntenos sus necesidades, planificamos todo"
+            "desc": "Cuéntenos sus necesidades, nosotros planificamos el resto"
           },
           "travel": {
             "title": "Organización del viaje",
-            "desc": "Vuelos, visados y alojamiento reservados"
+            "desc": "Vuelos, visados y alojamiento reservados de forma segura"
           },
           "arrival": {
             "title": "Llegada y recepción",
-            "desc": "Le recibimos en el aeropuerto y le llevamos al hotel"
+            "desc": "Le recibimos en el aeropuerto y le acompañamos a su hotel"
           },
           "treatment": {
             "title": "Tratamiento",
-            "desc": "Apoyo completo durante los procedimientos"
+            "desc": "Asistencia integral durante toda su terapia médica"
           },
           "recovery": {
             "title": "Recuperación y regreso",
-            "desc": "Seguimiento y regreso seguro"
+            "desc": "Cuidados posteriores y un viaje de regreso seguro"
           }
         }
       },
       "promise": {
-        "text": "Desde la primera consulta hasta su regreso a casa — estamos aquí para asistir en la organización."
+        "text": "Desde la primera consulta hasta su regreso a casa: nos encargamos de todos los detalles organizativos."
       },
       "digitalProfile": {
-        "title": "PERFIL MÉDICO DIGITAL",
-        "description": "Todos los documentos médicos digitalizados, traducidos y reunidos en un perfil."
+        "title": "EXPEDIENTE MÉDICO DIGITAL",
+        "description": "Todos sus documentos médicos son digitalizados, traducidos y almacenados de forma segura en su perfil."
       }
     },
     "cta": {
@@ -145,294 +145,294 @@
       "services": {
         "support": {
           "title": "Contacto",
-          "desc": "Coordinador disponible para comunicación"
+          "desc": "Un coordinador personal siempre a su disposición"
         },
         "monitoring": {
           "title": "Médicos",
-          "desc": "Comunicación con médicos tratantes"
+          "desc": "Comunicación directa y continua con sus médicos tratantes"
         },
         "consultations": {
           "title": "Consultas",
-          "desc": "Organización de consultas en línea"
+          "desc": "Organización fluida de consultas médicas en línea"
         }
       },
-      "bookConsultation": "Convertirse en cliente",
+      "bookConsultation": "Hacerse miembro",
       "availability": ""
     }
   },
   "appointment": {
-    "title": "Convertirse en cliente",
-    "subtitle": "Envíe una solicitud para que podamos contactarle en breve.",
+    "title": "Hacerse miembro",
+    "subtitle": "Envíenos una solicitud y nuestro equipo se pondrá en contacto con usted a la brevedad.",
     "backToSelection": "← Volver a la selección",
     "freeService": {
-      "title": "¿Necesita asistencia financiera?",
-      "description1": "Entendemos que la atención médica puede ser un desafío financiero. La Agencia de Atención al Miembro ofrece un programa limitado para miembros que necesitan ayuda con gastos médicos.",
-      "description2": "Nuestro equipo revisa cuidadosamente cada solicitud y brinda apoyo cuando hay recursos disponibles.",
+      "title": "¿Necesita apoyo financiero?",
+      "description1": "Entendemos que una atención médica de excelencia puede suponer un desafío financiero. La Medical Concierge Agency ofrece un programa pro bono limitado para pacientes que necesitan apoyo con los gastos médicos.",
+      "description2": "Nuestro comité médico revisa cuidadosamente cada solicitud y brinda apoyo en función de los recursos disponibles.",
       "priority": "Casos prioritarios:",
-      "priorityText": "Damos prioridad a casos con niños, situaciones médicas urgentes y miembros en circunstancias excepcionales.",
-      "note": "Nota: Las solicitudes de servicios gratuitos se revisan individualmente según la capacidad disponible y la necesidad médica. Nos pondremos en contacto en un plazo de 5-7 días hábiles sobre el estado de su solicitud."
+      "priorityText": "Damos prioridad a casos pediátricos, situaciones médicas agudas y pacientes en circunstancias excepcionales.",
+      "note": "Nota: Las solicitudes de servicios gratuitos se evalúan individualmente según la necesidad médica y la capacidad disponible. Le informaremos sobre el estado de su solicitud en un plazo de 5 a 7 días hábiles."
     },
     "newPatient": {
       "pathTree": {
         "welcome": "Bienvenido",
         "member-check": "Membresía",
-        "location": "Ubicación",
+        "location": "Residencia",
         "become-member": "Hacerse miembro",
         "outside-travel": "Capacidad de viaje",
-        "outside-records": "Historial médico",
-        "records-language": "Idioma de los documentos",
+        "outside-records": "Informes médicos",
+        "records-language": "Idioma de los informes",
         "outside-documents": "Documentos de viaje",
-        "outside-exit-travel": "No puede viajar",
-        "outside-exit-records": "No elegible",
-        "health-intro": "Resumen de salud",
+        "outside-exit-travel": "Viaje no posible",
+        "outside-exit-records": "Sin informes",
+        "health-intro": "Estado de salud",
         "patient-name": "Nombre completo",
         "patient-dob": "Fecha de nacimiento",
-        "phone": "Información de contacto",
+        "phone": "Datos de contacto",
         "whatsapp-consent": "WhatsApp",
-        "email-consent": "Consentimiento de email",
-        "no-contact-exit": "Sin contacto",
-        "legal-sex": "Sexo legal",
+        "email-consent": "Consentimiento de e-mail",
+        "no-contact-exit": "Sin posibilidad de contacto",
+        "legal-sex": "Sexo (según documento)",
         "interpreter": "Intérprete",
         "primary-language": "Idioma",
-        "services": "Servicios de apoyo",
-        "address": "Dirección de casa",
-        "concern-intro": "Preocupación médica",
-        "primary-concern": "Preocupación principal",
-        "health-risk": "Riesgo de salud",
+        "services": "Servicios adicionales",
+        "address": "Dirección",
+        "concern-intro": "Motivo de consulta",
+        "primary-concern": "Diagnóstico principal",
+        "health-risk": "Riesgos de viaje",
         "current-treatment": "Tratamiento actual",
         "additional-concerns": "Información adicional",
-        "insurance-intro": "Seguro",
-        "insurance": "Tiene seguro",
-        "insurance-coverage": "Cobertura",
+        "insurance-intro": "Seguro médico",
+        "insurance": "Estado del seguro",
+        "insurance-coverage": "Cobertura de gastos",
         "wrap-up-intro": "Conclusión",
         "preferred-location": "Ciudad preferida",
-        "visit-timing": "Momento de la visita",
-        "anything-else": "Notas finales",
+        "visit-timing": "Fechas de viaje",
+        "anything-else": "Anotaciones",
         "review": "Revisar y enviar"
       },
       "back": "Atrás",
       "continue": "Continuar",
       "travelPatient": {
-        "title": "¿Puede y está dispuesto a viajar a Alemania para recibir atención?",
+        "title": "¿Tiene la posibilidad de viajar a Alemania para recibir tratamiento?",
         "yes": "Sí",
         "no": "No"
       },
       "recordsPatient": {
-        "title": "¿Puede presentar sus registros médicos?",
+        "title": "¿Puede proporcionarnos sus informes médicos actuales?",
         "yes": "Sí",
         "no": "No",
-        "none": "No tengo registros médicos"
+        "none": "No dispongo de informes médicos"
       },
       "documentsPatient": {
-        "title": "¿Tiene los documentos necesarios para viajar a Alemania?",
+        "title": "¿Cuenta con los documentos necesarios para viajar a Alemania?",
         "yes": "Sí",
-        "no": "No"
+        "no": "No, necesito asistencia con el visado"
       },
       "exitNoTravelPatient": {
-        "title": "Gracias. Solo aceptamos pacientes que pueden viajar a Alemania.",
-        "description": "Si puede viajar a Alemania en el futuro, solicite una cita en ese momento.",
-        "button": "Salir de la solicitud"
+        "title": "Gracias. Actualmente solo organizamos tratamientos en Alemania.",
+        "description": "Si en el futuro tiene la posibilidad de viajar, estaremos encantados de recibir su solicitud.",
+        "button": "Finalizar solicitud"
       },
       "exitNoRecordsPatient": {
-        "title": "Gracias. Solo aceptamos pacientes que pueden presentar sus registros médicos.",
-        "description": "Si puede presentar sus registros médicos en el futuro, solicite una cita en ese momento.",
-        "button": "Salir de la solicitud"
+        "title": "Gracias. Para realizar una evaluación médica profesional, requerimos sus informes médicos.",
+        "description": "Por favor, retome esta solicitud una vez que disponga de los informes o cartas médicas correspondientes.",
+        "button": "Finalizar solicitud"
       },
       "yes": "Sí",
       "no": "No",
       "address": {
-        "question": "Por último, su dirección particular.",
+        "question": "Por último, necesitamos su dirección de residencia.",
         "country": "País",
         "selectCountry": "Seleccionar país",
-        "street": "Dirección postal o calle",
-        "city": "Ciudad o pueblo",
-        "state": "Estado/Territorio/Provincia (ingrese cero si no tiene)",
-        "postalCode": "Código postal (ingrese cero si no tiene)"
+        "street": "Calle y número",
+        "city": "Ciudad",
+        "state": "Estado/Provincia/Región (ingrese 0 si no aplica)",
+        "postalCode": "Código postal (ingrese 0 si no aplica)"
       },
       "welcome": {
-        "title": "Empecemos",
-        "subtitle": "Le haremos una serie de preguntas que orientarán su seguimiento con un coordinador de citas.",
+        "title": "Comencemos",
+        "subtitle": "Le haremos algunas preguntas para preparar de manera óptima la consulta con su coordinador médico.",
         "continue": "Continuar",
-        "emergency": "Si esto es una emergencia médica, llame al 112 o al 911.",
+        "emergency": "En caso de una emergencia médica, llame inmediatamente al 112 o al 911.",
         "privacyPolicy": "Leer nuestra política de privacidad"
       },
       "memberCheck": {
-        "title": "¿Es usted miembro?",
-        "isMember": "Soy miembro",
-        "notMember": "Aún no soy miembro"
+        "title": "¿Ya es miembro de nuestra agencia?",
+        "isMember": "Sí, soy miembro",
+        "notMember": "No, soy nuevo cliente"
       },
       "location3": {
-        "title": "¿Dónde vive usted?",
-        "subtitle": "Su lugar de residencia define la ruta de membresía, la revisión del viaje y los documentos que necesitamos primero.",
-        "germany": "Vivo en Alemania",
-        "euNotGermany": "Vivo en la UE (pero no en Alemania)",
-        "outsideEu": "Vivo fuera de la UE"
+        "title": "¿En qué país reside actualmente?",
+        "subtitle": "Esta información nos ayuda a evaluar los requisitos de visado y la logística del viaje.",
+        "germany": "En Alemania",
+        "euNotGermany": "En la UE (fuera de Alemania)",
+        "outsideEu": "Fuera de la UE"
       },
       "becomeMember": {
-        "title": "¿Desea hacerse miembro?",
-        "yes": "Sí, quiero hacerme miembro",
-        "no": "No, solicito para otra persona"
+        "title": "¿Esta solicitud es para usted?",
+        "yes": "Sí, es para mí",
+        "no": "No, es para otra persona"
       },
       "healthIntro": {
-        "title": "Comencemos con su información de salud",
-        "subtitle": "En esta sección recopilaremos información básica. Estos detalles también nos ayudarán a comenzar la conversación sobre sus necesidades de atención.",
+        "title": "Comencemos con su información médica",
+        "subtitle": "En esta sección recopilaremos datos básicos de salud para comprender mejor sus necesidades de atención.",
         "start": "Comenzar"
       },
       "healthTreatment": {
-        "title": "¿Está recibiendo algún tratamiento médico actualmente?",
+        "title": "¿Se encuentra actualmente bajo algún tratamiento médico?",
         "yes": "Sí",
         "no": "No"
       },
       "healthRisk": {
-        "title": "¿Tiene alguna condición de salud que le impida viajar a Alemania o razones para creer que viajar a Alemania pone en riesgo su salud?",
+        "title": "¿Existe alguna contraindicación médica que le impida viajar en avión a Alemania?",
         "yes": "Sí",
         "no": "No",
-        "disclaimer": "Usted es el único responsable de su estado de salud durante el viaje y de los posibles riesgos relacionados con el mismo."
+        "disclaimer": "Tenga en cuenta: la evaluación de su capacidad para viajar y la responsabilidad por los posibles riesgos de salud relacionados recaen exclusivamente sobre usted."
       },
       "sharedPatientName": {
-        "title": "Comencemos con su nombre",
+        "title": "¿Cuál es su nombre?",
         "firstName": "Nombre",
         "middleName": "Segundo nombre (opcional)",
         "lastName": "Apellido",
         "suffix": "Sufijo (opcional)"
       },
       "sharedDob": {
-        "title": "¡Gracias! ¿Cuál es su fecha de nacimiento?",
-        "placeholder": "DD.MM.YYYY",
+        "title": "¿Cuál es su fecha de nacimiento?",
+        "placeholder": "DD.MM.AAAA",
         "day": "DD",
         "month": "MM",
         "year": "AAAA",
-        "hint": "Por ejemplo: 14.09.1987",
+        "hint": "Ejemplo: 14.09.1987",
         "invalid": "Por favor, introduzca una fecha de nacimiento válida."
       },
       "sharedLegalSex": {
-        "title": "Por favor, indíquenos su sexo legal.",
-        "subtitle": "Seleccione la identificación de sexo que aparece en su documento de identidad.",
-        "female": "femenino",
-        "male": "masculino",
-        "diverse": "diverso",
-        "noEntry": "sin indicar"
+        "title": "Por favor, indique su sexo legal.",
+        "subtitle": "Seleccione el sexo tal como aparece en su documento de identidad oficial.",
+        "female": "Femenino",
+        "male": "Masculino",
+        "diverse": "Diverso",
+        "noEntry": "Prefiero no indicarlo"
       },
       "sharedPrimaryLanguage": {
-        "title": "¿Cuál es su idioma principal?",
-        "subtitle": "Este es el idioma que usaremos cuando le devolvamos la llamada sobre esta cita."
+        "title": "¿Cuál es su idioma principal de comunicación?",
+        "subtitle": "Le asignaremos un coordinador que hable su idioma."
       },
       "sharedInterpreter": {
-        "title": "¿Le gustaría que hubiera un intérprete en sus citas en Alemania?",
+        "title": "¿Necesitará un intérprete médico durante sus citas en Alemania?",
         "yes": "Sí",
-        "no": "No, hablo alemán con fluidez."
+        "no": "No, hablo alemán con fluidez"
       },
       "emailConsent": {
-        "title": "¿Le gustaría que nos comunicáramos con usted por correo electrónico?",
-        "yes": "Sí.",
-        "yesDisclaimer": "Entiendo que las comunicaciones por correo electrónico pueden no ser seguras y están sujetas a las políticas de privacidad de su proveedor de correo electrónico.",
+        "title": "¿Está de acuerdo en comunicarse con nosotros por correo electrónico?",
+        "yes": "Sí",
+        "yesDisclaimer": "Entiendo que el correo electrónico estándar no está cifrado de extremo a extremo y está sujeto a las políticas de privacidad de mi proveedor.",
         "no": "No"
       },
       "whatsappConsentNew": {
-        "title": "¿Le gustaría que nos comunicáramos con usted a través de WhatsApp?",
-        "yes": "Sí.",
-        "yesDisclaimer": "Entiendo que las comunicaciones por WhatsApp pueden no ser seguras y están sujetas a las políticas de privacidad de WhatsApp.",
+        "title": "¿Podemos contactarle a través de WhatsApp?",
+        "yes": "Sí",
+        "yesDisclaimer": "Acepto comunicarme vía WhatsApp y acepto sus políticas de privacidad.",
         "no": "No",
         "numberTitle": "¿Cuál es su número de WhatsApp?"
       },
       "phoneStep": {
-        "title": "Por favor, introduzca su información de contacto.",
+        "title": "Por favor, introduzca sus datos de contacto.",
         "phoneNumber": "Número de teléfono",
         "emailLabel": "Correo electrónico"
       },
       "recordsLanguage": {
-        "title": "¿Sus historiales médicos están en alemán o inglés?",
+        "title": "¿Sus informes médicos ya están traducidos al alemán o al inglés?",
         "yes": "Sí",
         "no": "No"
       },
       "noContactExit": {
-        "title": "No podremos contactarle por correo electrónico ni por WhatsApp.",
-        "description": "Contáctenos a través de la información de contacto disponible en nuestro sitio web. La información de su encuesta se eliminará en 3 días.",
+        "title": "Lamentablemente, no podemos ponernos en contacto con usted.",
+        "description": "Dado que no podemos localizarle por correo electrónico ni por WhatsApp, le rogamos que nos llame a los números indicados en nuestra web. Sus datos actuales se eliminarán en 3 días.",
         "button": "Volver al inicio"
       },
       "concernIntro": {
-        "title": "A continuación, cuéntenos su preocupación principal",
-        "description": "Le pediremos una descripción del problema médico que motiva su solicitud. También tendrá la oportunidad de informarnos sobre otras preocupaciones.",
+        "title": "Háblenos de su motivo de consulta",
+        "description": "Describa brevemente su diagnóstico o síntomas. Esto nos ayudará a encontrar al especialista más adecuado para su caso.",
         "start": "Comenzar"
       },
       "primaryConcernText": {
-        "title": "¿Cuál es su preocupación principal?",
-        "placeholder": "Describa su preocupación médica principal..."
+        "title": "¿Cuál es su diagnóstico o queja principal?",
+        "placeholder": "Describa brevemente su situación..."
       },
       "additionalConcerns": {
-        "title": "Cuéntenos sobre otras preocupaciones adicionales:",
+        "title": "¿Existen enfermedades previas u otros detalles que debamos conocer?",
         "placeholder": "",
         "optional": "(Opcional)"
       },
       "services": {
-        "title": "¿Necesita alguno de los siguientes servicios durante su estancia en Alemania (se pueden seleccionar varias opciones):",
-        "driver": "Conductor personal y servicios de traslado",
-        "concierge": "Servicios de conserjería",
-        "medicalTransport": "Servicios de transporte médico",
-        "airAmbulance": "Ambulancia aérea",
-        "businessAviation": "Aviación de negocios",
-        "none": "No necesito ninguno de los servicios mencionados",
-        "notSure": "No estoy seguro/a"
+        "title": "¿Cuáles de los siguientes servicios premium necesitará durante su estancia? (Puede seleccionar varios):",
+        "driver": "Conductor privado y traslados",
+        "concierge": "Servicios de conserjería (reservas de hotel, ocio)",
+        "medicalTransport": "Transporte médico terrestre",
+        "airAmbulance": "Ambulancia aérea (Air Ambulance)",
+        "businessAviation": "Jet privado / Aviación ejecutiva",
+        "none": "Ninguno de los servicios mencionados",
+        "notSure": "Aún no estoy seguro/a"
       },
       "insuranceIntro": {
-        "title": "Ahora nos gustaría preguntarle sobre su seguro",
-        "subtitle": "Si tiene seguro, aquí puede ingresar esa información. Si no tiene seguro, no se preocupe. Responderemos todas sus preguntas en nuestra llamada.",
-        "start": "Comenzar"
+        "title": "Información sobre su seguro médico",
+        "subtitle": "Si tiene un seguro médico privado o internacional, puede indicarlo aquí. Las opciones de pago privado las discutiremos personalmente.",
+        "start": "Siguiente"
       },
       "insuranceStep": {
-        "title": "¿Tiene seguro médico?",
+        "title": "¿Cuenta con un seguro médico?",
         "yes": "Sí",
         "no": "No"
       },
       "insuranceCoverage": {
-        "title": "¿Su seguro médico cubre sus gastos médicos en Alemania?",
+        "title": "¿Su seguro cubre los gastos de tratamientos médicos en Alemania?",
         "yes": "Sí",
         "no": "No",
         "notSure": "No estoy seguro/a"
       },
       "wrapUpIntro": {
-        "title": "Finalizamos con unas preguntas más",
-        "subtitle": "Le preguntaremos sobre su ubicación de atención médica preferida y tendrá la oportunidad de informarnos de cualquier otra cosa. Nos pondremos en contacto en un plazo de 3 días hábiles.",
-        "start": "Comenzar"
+        "title": "Últimos detalles de su viaje",
+        "subtitle": "Solo necesitamos confirmar sus preferencias de ubicación y fechas. Nuestro equipo se pondrá en contacto con usted en un plazo de 3 días hábiles.",
+        "start": "Finalizar"
       },
       "preferredLocation": {
-        "title": "¿Tiene algún centro médico de preferencia?",
-        "subtitle": "Si no, no pasa nada. Podemos hablar sobre estas ubicaciones con más detalle más adelante.",
-        "noPreference": "Sin preferencia",
+        "title": "¿Tiene alguna preferencia sobre la ciudad donde desea recibir tratamiento?",
+        "subtitle": "Nos guiamos principalmente por la experiencia clínica, pero tendremos en cuenta sus preferencias.",
+        "noPreference": "Sin preferencia (la experiencia médica decide)",
         "munich": "Múnich",
         "berlin": "Berlín",
         "hamburg": "Hamburgo",
         "cologne": "Colonia"
       },
       "visitTiming": {
-        "title": "¿Cuándo puede visitar Alemania?",
-        "asap": "Lo antes posible",
+        "title": "¿Cuándo tiene previsto viajar a Alemania?",
+        "asap": "Lo antes posible (Urgencia)",
         "nextFewMonths": "En los próximos meses",
-        "notSure": "No estoy seguro/a",
-        "note": "Antes de su visita, coordinamos con nuestro equipo de médicos para programar las citas adecuadas para su plan de atención. Siempre nos esforzamos por planificar su estancia de la manera más rápida posible, dentro del horario de cada médico. Podremos darle un cronograma más específico una vez que hayamos discutido sus necesidades de atención."
+        "notSure": "Aún no está decidido",
+        "note": "Las fechas exactas se coordinarán en función de la disponibilidad de los médicos y de su plan de tratamiento."
       },
       "anythingElse": {
-        "title": "¿Hay algo más que quiera que sepamos?",
-        "subtitle": "Después de este paso, revisará y enviará su solicitud.",
-        "optional": "(opcional)"
+        "title": "¿Desea añadir algo más?",
+        "subtitle": "Peticiones especiales sobre el alojamiento, la dieta u otras necesidades.",
+        "optional": "(Opcional)"
       },
       "reviewStep": {
-        "title": "Por favor, revise su solicitud antes de enviarla.",
-        "consent1": "Acepto que GMED pueda usar un sistema de marcación telefónica automatizada, mensajes de voz pregrabados o sintéticos, mensajes de texto y correo electrónico para contactarme en los números y direcciones de correo electrónico que proporcione.",
-        "consent2": "Entiendo que me pueden contactar en relación con mi atención médica, incluyendo la programación de citas.",
-        "consent3": "Entiendo que cuando me contacten de esta manera, se me dará la oportunidad de optar por no recibir comunicaciones similares en el futuro.",
-        "consent4": "He leído y confirmo haber recibido el Aviso de Prácticas de Privacidad.",
-        "incompleteError": "Complete todos los pasos obligatorios antes de enviar su solicitud.",
-        "submit": "Enviar",
+        "title": "Por favor, revise sus datos antes de enviarlos.",
+        "consent1": "Acepto que la Agencia se ponga en contacto conmigo a través de los datos proporcionados (teléfono, SMS, correo electrónico).",
+        "consent2": "Entiendo que esta comunicación está destinada exclusivamente a la organización de mi tratamiento médico.",
+        "consent3": "Reconozco que puedo retirar este consentimiento en cualquier momento.",
+        "consent4": "He leído y acepto la Política de Privacidad.",
+        "incompleteError": "Por favor, complete todos los campos obligatorios antes de enviar la solicitud.",
+        "submit": "Enviar solicitud",
         "submitting": "Enviando...",
         "successTitle": "¡Gracias por su solicitud!",
-        "successMessage": "Nos comunicaremos con usted dentro de los 3 días hábiles. Nuestro coordinador de citas se pondrá en contacto para hablar sobre sus necesidades de atención.",
+        "successMessage": "Sus datos se han transmitido de forma segura. Su coordinador médico personal se pondrá en contacto con usted en un plazo de 3 días hábiles.",
         "backToHome": "Volver al inicio",
-        "startOver": "Comenzar de nuevo"
+        "startOver": "Iniciar nueva solicitud"
       }
     },
     "returningPatient": {
-      "title": "Miembro recurrente",
+      "title": "Miembro existente",
       "formPending": "Formulario en desarrollo...",
       "back": "Atrás"
     },
@@ -443,112 +443,109 @@
     }
   },
   "privacyPolicy": {
-    "title": "Política de privacidad",
+    "title": "Política de Privacidad",
     "lastUpdated": "Última actualización: 01.01.2026",
-    "intro1": "Nos tomamos muy en serio la protección de los datos de los usuarios de nuestro sitio web y nos comprometemos a proteger la información que los usuarios nos proporcionan en relación con el uso de nuestro sitio web o servicios.",
-    "intro2": "Esta Política de Privacidad explica nuestras prácticas con respecto a la recopilación, uso y divulgación de sus datos a través del uso de nuestros servicios cuando accede a los servicios a través de sus dispositivos.",
-    "intro3": "Por favor, lea la Política de Privacidad detenidamente y asegúrese de comprender completamente nuestras prácticas con respecto a sus datos antes de utilizar nuestros servicios. Si ha leído y comprendido completamente esta política y no está de acuerdo con nuestro enfoque, debe dejar de utilizar nuestro sitio web y servicios.",
-    "intro4": "La información detallada sobre la protección de datos se puede encontrar en los puntos que se enumeran a continuación.",
+    "intro1": "La protección de sus datos personales y de salud es nuestra máxima prioridad. Nos comprometemos a mantener en estricta confidencialidad toda la información que nos proporcione en el marco de nuestros servicios.",
+    "intro2": "Esta Política de Privacidad explica de forma transparente cómo recopilamos, utilizamos, protegemos y compartimos sus datos cuando utiliza nuestras plataformas digitales y servicios.",
+    "intro3": "Por favor, lea detenidamente estas disposiciones. Al utilizar nuestro sitio web y nuestros servicios, usted acepta las prácticas aquí descritas.",
+    "intro4": "Encontrará información detallada sobre la protección de datos en las secciones siguientes.",
     "dataCollection": {
-      "title": "Recopilación de datos en este sitio web",
-      "text": "A continuación encontrará un resumen de los datos que podemos recopilar:",
-      "item1": "Información no identificada y no identificable recopilada de nuestro sitio web (\"datos no personales\"). Los datos no personales no permiten sacar conclusiones sobre quién los recopiló. Los datos no personales que recopilamos consisten principalmente en información técnica y de uso agregada.",
-      "item2": "Información identificable individualmente, es decir, cualquier información que pueda identificarle o que razonablemente pueda usarse para identificarle (\"datos personales\"). Los datos personales pueden incluir información como nombres, direcciones de correo electrónico, direcciones, números de teléfono, direcciones IP y más.",
-      "text2": "El procesamiento de datos en este sitio web es realizado por el operador del sitio web. Puede encontrar los datos de contacto del operador del sitio web en la sección \"Contacto\" de esta Política de Privacidad."
+      "title": "Recopilación de datos",
+      "text": "Diferenciamos principalmente dos categorías de datos:",
+      "item1": "Datos técnicos anonimizados (datos no personales). Información general de uso que garantiza el funcionamiento del sitio web y que no permite identificarle.",
+      "item2": "Datos personales y médicos. Información que usted nos proporciona de forma activa y consciente, como su nombre, datos de contacto, informes médicos y cartas de derivación.",
+      "text2": "El responsable del tratamiento de datos es la Medical Concierge Agency mencionada en el Aviso legal."
     },
     "howWeCollect": {
-      "title": "¿Cómo recopilamos sus datos?",
-      "text1": "Sus datos se recopilan cuando usted nos los proporciona. Estos pueden ser datos que ingresa en un formulario de contacto o nos proporciona por correo electrónico, como hallazgos preliminares necesarios, resultados de laboratorio, datos de imágenes, documentación médica y más. Otros datos se recopilan automáticamente o con su consentimiento cuando visita el sitio web a través de nuestros sistemas de TI.",
-      "text2": "Nos gustaría señalar que la transmisión de datos a través de Internet (por ejemplo, al comunicarse por correo electrónico) puede tener vulnerabilidades de seguridad. La protección completa de los datos contra el acceso de terceros no es posible y no está dentro de nuestra área de responsabilidad."
+      "title": "Cómo recopilamos sus datos",
+      "text1": "Los datos personales y de salud se recopilan principalmente cuando usted completa formularios en nuestro sitio web o cuando nos envía documentos por correo electrónico o portales seguros.",
+      "text2": "Le advertimos expresamente que la transmisión de datos sin cifrar por Internet (por ejemplo, mediante un correo electrónico estándar) puede presentar vulnerabilidades de seguridad. Recomendamos utilizar canales cifrados para el envío de documentos médicos sensibles."
     },
     "purpose": {
-      "title": "¿Para qué utilizamos sus datos?",
-      "text": "Podemos utilizar sus datos para los siguientes fines:",
-      "item1": "para garantizar la provisión sin errores del sitio web;",
-      "item2": "para desarrollar, adaptar y mejorar nuestros servicios;",
-      "item3": "para responder a sus comentarios, consultas y solicitudes y ofrecer asistencia;",
-      "item4": "para analizar patrones de requisitos y uso;",
-      "item5": "para otros fines internos, estadísticos y de investigación;",
-      "item6": "para mejorar nuestras capacidades de seguridad de datos;",
-      "item7": "para enviarle actualizaciones, noticias y otra información relacionada con nuestros servicios.",
-      "text2": "Solo utilizamos sus datos personales para los fines establecidos en la Política de Privacidad y solo si estamos convencidos de que:",
-      "legal1": "el uso de sus datos personales es necesario para cumplir o celebrar un contrato;",
-      "legal2": "el uso de sus datos personales es necesario para cumplir con las obligaciones legales o reglamentarias correspondientes;",
-      "legal3": "el uso de sus datos personales es necesario para apoyar nuestros intereses comerciales legítimos."
+      "title": "Finalidad del tratamiento de datos",
+      "text": "Sus datos se utilizan exclusivamente para los siguientes fines:",
+      "item1": "Para garantizar la funcionalidad técnica de nuestro sitio web;",
+      "item2": "Para procesar su solicitud médica y organizar su tratamiento;",
+      "item3": "Para asegurar la calidad y optimizar nuestros servicios;",
+      "item4": "Para auditorías internas y análisis estadísticos;",
+      "item5": "Para enviarle notificaciones importantes relacionadas con el servicio.",
+      "text2": "El tratamiento de sus datos personales solo se lleva a cabo si se cumple al menos una de las siguientes condiciones legales:",
+      "legal1": "El tratamiento es necesario para la ejecución de un contrato (por ejemplo, el contrato de tratamiento);",
+      "legal2": "El tratamiento es necesario para el cumplimiento de una obligación legal;",
+      "legal3": "El tratamiento se basa en nuestros intereses legítimos, siempre que sus derechos fundamentales no prevalezcan."
     },
     "sharing": {
-      "title": "¿A quién transmitimos estos datos?",
-      "text1": "Podemos compartir sus datos con nuestros proveedores de servicios para operar nuestros servicios, en la medida en que sea apropiado para fines comerciales. Esta es principalmente información no identificable.",
-      "text2": "Podemos reenviar los documentos que nos proporcione, que pueden contener datos personales e información sobre tratamiento médico completado o en curso, a terceros de confianza si es necesario para la prestación de nuestros servicios. Estos incluyen médicos, intérpretes y traductores, expertos, pagadores y otras instalaciones médicas.",
-      "text3": "También podemos divulgar sus datos en las siguientes circunstancias: para establecer o ejercer nuestros derechos de defensa; para proteger nuestros derechos, propiedad y la seguridad de nuestros usuarios o del público; para recopilar, mantener y/o gestionar sus datos a través de proveedores externos autorizados."
+      "title": "Transmisión de datos a terceros",
+      "text1": "Los metadatos técnicos pueden ser procesados por nuestros proveedores de servicios de TI certificados (por ejemplo, proveedores de alojamiento), quienes actúan siguiendo estrictamente nuestras instrucciones.",
+      "text2": "Los documentos médicos y los datos de los pacientes se transmiten exclusivamente a terceros verificados que participan de manera indispensable en su proceso de tratamiento (clínicas, médicos especialistas, traductores médicos).",
+      "text3": "La divulgación de datos a las autoridades solo se lleva a cabo en el marco de normativas legales imperativas."
     },
     "rights": {
-      "title": "¿Qué derechos tiene respecto a sus datos?",
-      "text": "Tiene derecho en cualquier momento a recibir información gratuita sobre el origen, los destinatarios y el propósito de sus datos personales almacenados. También tiene derecho a solicitar la corrección o eliminación de estos datos. Si ha dado su consentimiento para el procesamiento de datos, puede revocar este consentimiento en cualquier momento para el futuro. Puede contactarnos en cualquier momento sobre este y otros asuntos relacionados con la protección de datos."
+      "title": "Sus derechos",
+      "text": "Usted tiene derecho a solicitar información gratuita sobre sus datos personales almacenados en cualquier momento. Además, tiene derecho a la rectificación, el bloqueo o la eliminación (\"derecho al olvido\") de estos datos. Para ello, simplemente póngase en contacto con su coordinador personal."
     },
     "hosting": {
-      "title": "Alojamiento",
-      "text1": "Alojamos el contenido de nuestro sitio web y los datos registrados en el CRM con proveedores de alojamiento en la nube confiables.",
-      "text2": "Nuestros proveedores de alojamiento tienen servidores en todo el mundo, incluidos Europa y EE.UU., así como servidores de respaldo.",
-      "text3": "Los datos personales recopilados en este sitio web y en nuestro CRM se almacenan en los servidores de estos hosts. Esto puede incluir direcciones IP, solicitudes de contacto, datos de meta y comunicación, datos de contacto, nombres, acceso al sitio web y otros datos generados a través de un sitio web.",
-      "text4": "Nuestros hosts solo procesarán sus datos en la medida necesaria para cumplir con sus obligaciones de rendimiento y seguirán nuestras instrucciones con respecto a estos datos."
+      "title": "Infraestructura TI y Alojamiento",
+      "text1": "Nuestros sistemas digitales y bases de datos CRM operan en centros de datos de alta seguridad de proveedores en la nube fiables.",
+      "text2": "El almacenamiento de datos primario se realiza en servidores dentro de la Unión Europea, cumpliendo con los estrictos estándares del RGPD.",
+      "text3": "Todos los socios de TI actúan como encargados del tratamiento y están sujetos a los más estrictos acuerdos de confidencialidad y seguridad."
     },
     "cookies": {
-      "title": "Cookies",
-      "text1": "Cuando visita o accede a nuestros servicios, autorizamos a terceros a utilizar balizas web, cookies y otras tecnologías y servicios de análisis. Estas tecnologías de seguimiento pueden permitir que terceros recopilen automáticamente sus datos para mejorar la experiencia de navegación en nuestros activos digitales, optimizar su rendimiento y garantizar una experiencia de usuario personalizada.",
-      "text2": "Sin su consentimiento, no compartiremos su dirección de correo electrónico u otros datos personales con empresas de publicidad o redes publicitarias."
+      "title": "Uso de Cookies",
+      "text1": "Nuestro sitio web utiliza cookies para optimizar la experiencia del usuario y garantizar la correcta prestación de nuestros servicios digitales.",
+      "text2": "Sin su consentimiento expreso, en ningún caso utilizaremos sus datos para fines publicitarios externos ni los venderemos a redes de publicidad."
     },
     "storage": {
-      "title": "¿Dónde almacenamos los datos?",
-      "text1": "Tenga en cuenta que nuestros socios y proveedores de servicios de confianza están ubicados en todo el mundo. Para los fines explicados en esta Política de Privacidad, almacenamos y procesamos todos los datos no personales que recopilamos en diferentes jurisdicciones.",
-      "text2": "Los datos personales pueden mantenerse, procesarse y almacenarse en Estados Unidos, Irlanda, Corea del Sur, Taiwán, Israel y otras jurisdicciones según sea necesario para la prestación adecuada de nuestros servicios y/o según lo requiera la ley."
+      "title": "Almacenamiento de datos",
+      "text1": "Para garantizar nuestros servicios globales, colaboramos con socios internacionales. Nos aseguramos de que el nivel de protección cumpla siempre con los estándares europeos de protección de datos.",
+      "text2": "Los datos médicos sensibles se procesan preferentemente dentro de la UE y están sujetos al secreto médico."
     },
     "retention": {
-      "title": "Duración del almacenamiento",
-      "text": "A menos que se indique un período de almacenamiento más específico en esta Política de Privacidad, sus datos personales permanecerán con nosotros hasta que ya no se aplique el propósito del procesamiento de datos. Si desea que se eliminen sus datos personales, generalmente es suficiente una carta informal por correo electrónico a contact@gmed-health.com."
+      "title": "Plazos de conservación",
+      "text": "Almacenamos sus datos personales únicamente durante el tiempo necesario para la organización de su tratamiento o para cumplir con los plazos legales de conservación. Para solicitar la eliminación anticipada de sus datos, basta con enviar un correo electrónico a contact@gmed-health.com."
     },
     "security": {
-      "title": "¿Cómo protegemos sus datos?",
-      "text1": "El servicio de alojamiento nos proporciona la plataforma en línea a través de la cual podemos ofrecerle nuestros servicios. Sus datos pueden almacenarse a través del almacenamiento de datos, bases de datos y aplicaciones generales de nuestro proveedor de alojamiento.",
-      "text2": "A pesar de las medidas y esfuerzos tomados por nosotros y nuestro proveedor de alojamiento, no podemos ni garantizaremos la protección y seguridad absolutas de los datos que carga, publica o comparte de otro modo con nosotros u otros.",
-      "text3": "Por esta razón, le pedimos que establezca contraseñas seguras y que, si es posible, no nos transmita a nosotros ni a otros información confidencial cuya divulgación crea que podría causarle un daño significativo o duradero.",
-      "text4": "Si nos envía documentos con información personal o confidencial por correo electrónico o mensajería instantánea, es su responsabilidad."
+      "title": "Seguridad de los datos",
+      "text1": "Empleamos tecnologías de cifrado y cortafuegos de última generación para proteger al máximo sus datos en nuestros servidores.",
+      "text2": "No obstante, ninguna transmisión de datos a través de Internet puede garantizar una seguridad del 100%.",
+      "text3": "Por ello, le pedimos que colabore activamente: utilice contraseñas seguras y evite el uso de redes públicas para la transmisión de datos.",
+      "text4": "El envío de datos de salud a través de mensajería instantánea (como WhatsApp) se realiza siempre bajo su propia responsabilidad."
     },
     "minors": {
-      "title": "¿Cómo tratamos a los menores?",
-      "text1": "Los menores pueden utilizar nuestros servicios.",
-      "text2": "Sin embargo, si desean utilizar nuestros servicios, es posible que deban proporcionar cierta información (particularmente los datos de contacto de los padres). La recopilación de algunos datos puede ocurrir automáticamente. Si recopilamos, usamos o divulgamos conscientemente datos recopilados de un menor, lo indicaremos de acuerdo con la ley aplicable y obtendremos el consentimiento de los padres.",
-      "text3": "También podemos usar la información de contacto de un padre para comunicarnos sobre las actividades de un menor en los servicios. Los padres pueden ver los datos que hemos recopilado de su hijo y solicitar que se eliminen de nuestros registros todos los datos que hayamos recopilado.",
-      "text4": "Por favor, contáctenos para ver, actualizar o eliminar los datos de su hijo."
+      "title": "Protección de menores",
+      "text1": "Nuestra agencia coordina tratamientos para pacientes de todas las edades, incluidos niños y adolescentes.",
+      "text2": "Los datos médicos de menores se recopilan y procesan exclusivamente con el consentimiento expreso y por escrito de sus padres o tutores legales.",
+      "text3": "Los padres o tutores tienen acceso total al perfil del menor en cualquier momento y pueden solicitar su eliminación.",
+      "text4": "Si tiene alguna pregunta sobre el perfil de su hijo, póngase en contacto con el coordinador asignado."
     },
     "updates": {
-      "title": "Actualizaciones o cambios en la Política de Privacidad",
-      "text": "Podemos revisar esta Política de Privacidad a nuestra discreción de vez en cuando; la versión publicada en el sitio web siempre es la actual. Le pedimos que revise esta Política de Privacidad regularmente para ver si hay cambios. En caso de cambios materiales, publicaremos un aviso en nuestro sitio web."
+      "title": "Actualizaciones de esta Política de Privacidad",
+      "text": "Debido a desarrollos legales o técnicos, nos reservamos el derecho de adaptar esta Política de Privacidad ocasionalmente. La versión actual en vigor se encuentra siempre disponible en esta página."
     }
   },
   "auth": {
     "signIn": "Iniciar sesión",
     "createAccount": "Crear cuenta",
     "password": "Contraseña",
-    "passwordPlaceholder": "Ingrese su contraseña",
-    "phoneOrEmail": "Número móvil o Correo electrónico",
-    "identifierRequired": "Por favor, ingrese su teléfono o correo electrónico",
-    "invalidPhoneOrEmail": "Formato inválido (ej. +4917612345678 o email@ejemplo.com)",
-    "passwordRequired": "Por favor, ingrese su contraseña",
+    "passwordPlaceholder": "Introduzca su contraseña",
+    "phoneOrEmail": "Número de teléfono o correo electrónico",
+    "identifierRequired": "Por favor, introduzca su teléfono o correo electrónico",
+    "invalidPhoneOrEmail": "Formato no válido (ej. +4917612345678 o nombre@ejemplo.com)",
+    "passwordRequired": "Por favor, introduzca su contraseña",
     "passwordMinLength": "La contraseña debe tener al menos 6 caracteres",
-    "applicationPending": "Su solicitud aún está siendo procesada. El acceso estará disponible una vez completada.",
-    "confidentialityNotice": "Su información es confidencial y no será transferida a terceros.",
+    "applicationPending": "Su perfil está siendo evaluado. El acceso se habilitará en breve.",
+    "confidentialityNotice": "Sus datos se transmiten de forma cifrada y se tratan con estricta confidencialidad.",
     "privacyPolicyLink": "Política de procesamiento de datos personales",
     "showPassword": "Mostrar contraseña",
     "hidePassword": "Ocultar contraseña",
-    "welcomeTitle": "Bienvenido",
-    "welcomeSubtitle": "Inicie sesión en su cuenta"
+    "welcomeTitle": "Portal del cliente",
+    "welcomeSubtitle": "Inicie sesión para gestionar su plan de tratamiento"
   },
   "impressumPage": {
     "title": "Aviso legal",
     "contact": "Contacto",
-    "vatTitle": "NIF",
-    "vatLegal": "Número de identificación fiscal según § 27 a de la Ley alemana del IVA:",
-    "contactPrompt": "Para preguntas y sugerencias sobre el contenido del sitio web, envíenos un correo electrónico a:"
+    "vatTitle": "NIF / IVA",
+    "vatLegal": "Número de identificación a efectos del IVA según el § 27 a de la Ley del IVA alemana:",
+    "contactPrompt": "Para consultas legales o preguntas sobre el sitio web, contáctenos en:"
   }
 }

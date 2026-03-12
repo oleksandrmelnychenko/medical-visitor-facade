@@ -9,7 +9,7 @@ import { useWizard } from "../../WizardContext";
 import { PreferredLocationType } from "../../types";
 import { WizardChoiceStep } from "../../components/WizardChoiceStep";
 
-const LOCATIONS: { value: PreferredLocationType; key: string; color: string; icon: LucideIcon }[] = [
+const LOCATIONS: { value: NonNullable<PreferredLocationType>; key: string; color: string; icon: LucideIcon }[] = [
   { value: "no_preference", key: "noPreference", color: "#D5D5D5", icon: MapPinHouse },
   { value: "munich", key: "munich", color: "#E5D5A8", icon: Landmark },
   { value: "berlin", key: "berlin", color: "#A8D5E5", icon: Building2 },

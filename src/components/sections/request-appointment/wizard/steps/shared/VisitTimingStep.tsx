@@ -10,7 +10,7 @@ import { VisitTimingType } from "../../types";
 import { WizardChoiceStep } from "../../components/WizardChoiceStep";
 import styles from "../../../RequestAppointment/RequestAppointment.module.scss";
 
-const TIMING_OPTIONS: { value: VisitTimingType; key: string; color: string; icon: LucideIcon }[] = [
+const TIMING_OPTIONS: { value: NonNullable<VisitTimingType>; key: string; color: string; icon: LucideIcon }[] = [
   { value: "asap", key: "asap", color: "#E5D5A8", icon: Clock3 },
   { value: "next_few_months", key: "nextFewMonths", color: "#A8D5E5", icon: CalendarDays },
   { value: "not_sure", key: "notSure", color: "#D5D5D5", icon: ClockAlert },

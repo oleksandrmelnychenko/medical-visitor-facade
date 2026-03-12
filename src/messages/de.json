@@ -1,60 +1,60 @@
 {
   "notFound": {
     "title": "Seite nicht gefunden",
-    "description": "Die angeforderte Seite existiert nicht oder wurde verschoben.",
+    "description": "Die angeforderte Seite existiert leider nicht oder wurde verschoben.",
     "backHome": "Zur Startseite"
   },
   "cookies": {
-    "message": "Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern. Durch die weitere Nutzung stimmen Sie der Verwendung von Cookies zu.",
+    "message": "Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu optimieren. Wenn Sie auf der Seite weitersurfen, stimmen Sie der Cookie-Nutzung zu.",
     "accept": "Akzeptieren",
     "decline": "Ablehnen",
     "learnMore": "Mehr erfahren"
   },
   "common": {
     "home": "Startseite",
-    "requestAppointment": "Kunde werden",
+    "requestAppointment": "Mitglied werden",
     "login": "Anmelden",
     "selectLanguage": "Sprache auswählen"
   },
   "footer": {
-    "impressum": "Rechtliche Hinweise",
-    "companyName": "Medizinische <accent>Concierge-Agentur</accent>",
+    "impressum": "Impressum",
+    "companyName": "Medical <accent>Concierge Agency</accent>",
     "contact": "Kontakt",
-    "copyright": "© {year} Medizinische Concierge-Agentur",
+    "copyright": "© {year} Medical Concierge Agency",
     "allRightsReserved": "Alle Rechte vorbehalten",
     "financialAssistance": "Pro bono",
     "privacyPolicy": "Datenschutzerklärung",
-    "headquarters": "Büro",
+    "headquarters": "Hauptsitz",
     "address": "81735 München, Deutschland",
     "theAgency": "Die Agentur"
   },
   "home": {
     "hero": {
-      "title": "Medizinische Concierge-Agentur",
-      "titlePart1": "Medizinische",
-      "titleAccent": "Concierge-",
-      "titlePart2": "Agentur",
-      "subtitle": "Exzellenz in der medizinischen Versorgung"
+      "title": "Medical Concierge Agency",
+      "titlePart1": "Medical",
+      "titleAccent": "Concierge",
+      "titlePart2": "Agency",
+      "subtitle": "Exzellente medizinische Betreuung"
     },
     "careForward": {
-      "title": "Was wir tun",
-      "subtitle": "Von der Klinikwahl bis zur vollständigen Genesung — durchgehende Koordination",
+      "title": "Unsere Leistungen",
+      "subtitle": "Von der Klinikwahl bis zur vollständigen Genesung – lückenlose Koordination",
       "services": {
         "clinic": {
-          "title": "Klinik",
-          "desc": "Auswahl einer spezialisierten medizinischen Einrichtung"
+          "title": "Kliniken",
+          "desc": "Auswahl einer hochspezialisierten medizinischen Einrichtung"
         },
         "organization": {
           "title": "Spezialisten",
-          "desc": "Vermittlung führender Fachärzte"
+          "desc": "Terminvereinbarung bei führenden Fachexperten"
         },
         "coordination": {
           "title": "Behandlung",
-          "desc": "Organisation von Diagnostik und Behandlungen"
+          "desc": "Organisation von Diagnostik und sämtlichen medizinischen Eingriffen"
         },
         "support": {
           "title": "Betreuung",
-          "desc": "Persönlicher Koordinator während des gesamten Prozesses"
+          "desc": "Ein persönlicher Koordinator begleitet Sie während des gesamten Prozesses"
         }
       }
     },
@@ -79,203 +79,203 @@
     },
     "fullSupport": {
       "overline": "",
-      "title": "Agenturkonzept",
+      "title": "Unser Konzept",
       "subtitle": "",
       "services": {
         "promptness": {
           "title": "Koordination",
-          "desc": "Medizinische Koordination und Begleitung"
+          "desc": "Medizinische Koordination und persönliche Begleitung"
         },
         "confidentiality": {
           "title": "Visa-Unterstützung",
-          "desc": "Bearbeitung der Einreisedokumente"
+          "desc": "Hilfe bei der Bearbeitung aller Einreisedokumente"
         },
         "support": {
           "title": "Transfer",
-          "desc": "Organisation des Bodentransports"
+          "desc": "Organisation des gesamten Bodentransports"
         },
         "noFees": {
-          "title": "Luftfahrt",
-          "desc": "Business-Jets und Medizincharter",
+          "title": "Fluglogistik",
+          "desc": "Business-Jets und medizinische Charterflüge",
           "badge": "Premium"
         },
         "concierge": {
           "title": "Concierge-Service",
-          "desc": "24/7 Unterstützung",
+          "desc": "Rund-um-die-Uhr-Betreuung",
           "badge": "Priorität"
         }
       },
       "journey": {
-        "title": "Ihr Weg mit uns",
+        "title": "Ihr Behandlungsablauf",
         "steps": {
           "consultation": {
             "title": "Erstberatung",
-            "desc": "Sie schildern Ihre Bedürfnisse, wir planen alles"
+            "desc": "Sie schildern Ihre Bedürfnisse, wir übernehmen die Planung"
           },
           "travel": {
             "title": "Reiseorganisation",
-            "desc": "Tickets, Visa und Unterkunft sind gebucht"
+            "desc": "Flüge, Visa und Unterkünfte werden zuverlässig gebucht"
           },
           "arrival": {
             "title": "Anreise und Empfang",
-            "desc": "Wir empfangen Sie am Flughafen und bringen Sie zum Hotel"
+            "desc": "Wir empfangen Sie am Flughafen und begleiten Sie zum Hotel"
           },
           "treatment": {
             "title": "Behandlung",
-            "desc": "Volle Begleitung während der Behandlung"
+            "desc": "Lückenlose Unterstützung während der gesamten medizinischen Therapie"
           },
           "recovery": {
             "title": "Erholung und Rückreise",
-            "desc": "Nachsorge und sichere Rückreise"
+            "desc": "Medizinische Nachsorge und eine sichere Rückreise nach Hause"
           }
         }
       },
       "promise": {
-        "text": "Vom ersten Anruf bis zur Rückkehr — wir begleiten Sie bei der Organisation."
+        "text": "Von der ersten Anfrage bis zu Ihrer sicheren Rückkehr – wir kümmern uns um alle organisatorischen Details."
       },
       "digitalProfile": {
-        "title": "DIGITALES MEDIZINISCHES PROFIL",
-        "description": "Alle medizinischen Unterlagen digitalisiert, übersetzt und in einem Profil gebündelt."
+        "title": "DIGITALE GESUNDHEITSAKTE",
+        "description": "Alle medizinischen Dokumente werden digitalisiert, übersetzt und in Ihrem sicheren Profil gebündelt."
       }
     },
     "cta": {
       "overline": "",
-      "title": "Begleitung",
+      "title": "Betreuung",
       "subtitle": "",
       "services": {
         "support": {
           "title": "Kontakt",
-          "desc": "Koordinator für Kommunikation erreichbar"
+          "desc": "Ein persönlicher Koordinator steht Ihnen jederzeit zur Verfügung"
         },
         "monitoring": {
           "title": "Ärzte",
-          "desc": "Kommunikation mit behandelnden Ärzten"
+          "desc": "Direkte und kontinuierliche Kommunikation mit Ihren behandelnden Ärzten"
         },
         "consultations": {
           "title": "Konsultationen",
-          "desc": "Organisation von Online-Konsultationen"
+          "desc": "Reibungslose Organisation von medizinischen Online-Konsultationen"
         }
       },
-      "bookConsultation": "Kunde werden",
+      "bookConsultation": "Mitglied werden",
       "availability": ""
     }
   },
   "appointment": {
-    "title": "Kunde werden",
-    "subtitle": "Senden Sie eine Anfrage, damit wir uns zeitnah bei Ihnen melden können.",
-    "backToSelection": "← Zur Auswahl",
+    "title": "Mitglied werden",
+    "subtitle": "Senden Sie uns eine Anfrage, und unser Team wird sich zeitnah bei Ihnen melden.",
+    "backToSelection": "← Zurück zur Auswahl",
     "freeService": {
       "title": "Benötigen Sie finanzielle Unterstützung?",
-      "description1": "Wir wissen, dass medizinische Versorgung finanziell belastend sein kann. Die Agentur für Mitgliederbetreuung bietet ein begrenztes Programm für Mitglieder, die Hilfe bei medizinischen Kosten benötigen.",
-      "description2": "Unser Team prüft jede Anfrage sorgfältig und unterstützt, sofern Ressourcen verfügbar sind.",
+      "description1": "Wir wissen, dass eine exzellente medizinische Versorgung finanziell herausfordernd sein kann. Die Medical Concierge Agency bietet daher ein begrenztes Pro-bono-Programm für Patienten an, die Unterstützung bei den Behandlungskosten benötigen.",
+      "description2": "Unser medizinisches Gremium prüft jede Anfrage sorgfältig und gewährt Unterstützung im Rahmen der verfügbaren Ressourcen.",
       "priority": "Priorisierte Fälle:",
-      "priorityText": "Wir priorisieren Fälle mit Kindern, dringliche medizinische Situationen und Mitglieder in besonderen Umständen.",
-      "note": "Hinweis: Anträge auf kostenfreie Leistungen werden individuell geprüft, abhängig von verfügbaren Kapazitäten und medizinischer Notwendigkeit. Wir melden uns innerhalb von 5-7 Werktagen zum Status Ihrer Anfrage."
+      "priorityText": "Wir priorisieren pädiatrische Fälle, akute medizinische Notlagen sowie Patienten in besonderen Lebensumständen.",
+      "note": "Hinweis: Anträge auf kostenfreie Leistungen werden individuell nach medizinischer Notwendigkeit und Kapazität geprüft. Sie erhalten innerhalb von 5-7 Werktagen eine Rückmeldung zum Status Ihrer Anfrage."
     },
     "newPatient": {
       "pathTree": {
         "welcome": "Willkommen",
         "member-check": "Mitgliedschaft",
-        "location": "Standort",
+        "location": "Wohnort",
         "become-member": "Mitglied werden",
         "outside-travel": "Reisefähigkeit",
-        "outside-records": "Krankenakten",
-        "records-language": "Aktensprache",
+        "outside-records": "Medizinische Befunde",
+        "records-language": "Sprache der Befunde",
         "outside-documents": "Reisedokumente",
-        "outside-exit-travel": "Kann nicht reisen",
-        "outside-exit-records": "Nicht berechtigt",
-        "health-intro": "Gesundheitsübersicht",
+        "outside-exit-travel": "Reise nicht möglich",
+        "outside-exit-records": "Keine Befunde",
+        "health-intro": "Gesundheitszustand",
         "patient-name": "Vollständiger Name",
         "patient-dob": "Geburtsdatum",
-        "phone": "Kontaktinfo",
+        "phone": "Kontaktdaten",
         "whatsapp-consent": "WhatsApp",
         "email-consent": "E-Mail-Zustimmung",
-        "no-contact-exit": "Kein Kontakt",
-        "legal-sex": "Rechtliches Geschlecht",
+        "no-contact-exit": "Keine Kontaktmöglichkeit",
+        "legal-sex": "Geschlecht (gemäß Ausweis)",
         "interpreter": "Dolmetscher",
         "primary-language": "Sprache",
-        "services": "Unterstützungsleistungen",
-        "address": "Heimatadresse",
-        "concern-intro": "Med. Anliegen",
-        "primary-concern": "Hauptanliegen",
-        "health-risk": "Gesundheitsrisiko",
-        "current-treatment": "Laufende Behandlung",
-        "additional-concerns": "Zusätzliche Info",
+        "services": "Zusätzliche Services",
+        "address": "Wohnadresse",
+        "concern-intro": "Medizinisches Anliegen",
+        "primary-concern": "Hauptdiagnose / Anliegen",
+        "health-risk": "Reiserisiken",
+        "current-treatment": "Aktuelle Behandlung",
+        "additional-concerns": "Zusätzliche Infos",
         "insurance-intro": "Versicherung",
-        "insurance": "Hat Versicherung",
-        "insurance-coverage": "Deckung",
+        "insurance": "Versicherungsstatus",
+        "insurance-coverage": "Kostenübernahme",
         "wrap-up-intro": "Abschluss",
         "preferred-location": "Bevorzugte Stadt",
-        "visit-timing": "Besuchszeitpunkt",
-        "anything-else": "Abschlussnotizen",
-        "review": "Überprüfen & Einreichen"
+        "visit-timing": "Reisezeitraum",
+        "anything-else": "Anmerkungen",
+        "review": "Prüfen & Absenden"
       },
       "back": "Zurück",
       "continue": "Weiter",
       "travelPatient": {
-        "title": "Sind Sie in der Lage und bereit, zur Behandlung nach Deutschland zu reisen?",
+        "title": "Haben Sie die Möglichkeit, für Ihre Behandlung nach Deutschland zu reisen?",
         "yes": "Ja",
         "no": "Nein"
       },
       "recordsPatient": {
-        "title": "Können Sie Ihre medizinischen Unterlagen einreichen?",
+        "title": "Können Sie uns Ihre aktuellen medizinischen Befunde zur Verfügung stellen?",
         "yes": "Ja",
         "no": "Nein",
-        "none": "Ich habe keine medizinischen Unterlagen"
+        "none": "Ich habe noch keine Befunde"
       },
       "documentsPatient": {
-        "title": "Haben Sie die erforderlichen Dokumente für die Reise nach Deutschland?",
+        "title": "Verfügen Sie über die notwendigen Dokumente für die Einreise nach Deutschland?",
         "yes": "Ja",
-        "no": "Nein"
+        "no": "Nein, ich benötige Hilfe bei der Visabeschaffung"
       },
       "exitNoTravelPatient": {
-        "title": "Vielen Dank. Wir nehmen derzeit nur Patienten an, die nach Deutschland reisen können.",
-        "description": "Wenn Sie in Zukunft nach Deutschland reisen können, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
+        "title": "Vielen Dank. Wir organisieren aktuell ausschließlich Behandlungen in Deutschland.",
+        "description": "Sollten Sie in Zukunft nach Deutschland reisen können, freuen wir uns auf Ihre erneute Anfrage.",
         "button": "Anfrage beenden"
       },
       "exitNoRecordsPatient": {
-        "title": "Vielen Dank. Wir nehmen derzeit nur Patienten an, die ihre medizinischen Unterlagen einreichen können.",
-        "description": "Wenn Sie in Zukunft Ihre Unterlagen einreichen können, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
+        "title": "Vielen Dank. Für eine fachgerechte Einschätzung benötigen wir zwingend medizinische Unterlagen.",
+        "description": "Bitte setzen Sie Ihre Anfrage fort, sobald Ihnen entsprechende Arztbriefe oder Befunde vorliegen.",
         "button": "Anfrage beenden"
       },
       "yes": "Ja",
       "no": "Nein",
       "address": {
-        "question": "Zum Schluss Ihre Privatadresse.",
+        "question": "Zuletzt benötigen wir noch Ihre Wohnadresse.",
         "country": "Land",
         "selectCountry": "Land auswählen",
         "street": "Straße und Hausnummer",
-        "city": "Stadt oder Ort",
+        "city": "Stadt",
         "state": "Bundesland/Region (0 eingeben, falls nicht zutreffend)",
         "postalCode": "Postleitzahl (0 eingeben, falls nicht zutreffend)"
       },
       "welcome": {
-        "title": "Los geht's",
-        "subtitle": "Wir werden Ihnen eine Reihe von Fragen stellen, die Ihr Follow-up mit einem Terminkoordinator leiten werden.",
+        "title": "Lassen Sie uns beginnen",
+        "subtitle": "Wir stellen Ihnen nun einige Fragen, um das anstehende Gespräch mit Ihrem medizinischen Koordinator optimal vorzubereiten.",
         "continue": "Weiter",
-        "emergency": "Bei einem medizinischen Notfall rufen Sie 112 oder 911 an.",
-        "privacyPolicy": "Datenschutzrichtlinie lesen"
+        "emergency": "Bei einem lebensbedrohlichen Notfall wählen Sie bitte umgehend die 112 oder 911.",
+        "privacyPolicy": "Datenschutzerklärung lesen"
       },
       "memberCheck": {
-        "title": "Sind Sie Mitglied?",
-        "isMember": "Ich bin Mitglied",
-        "notMember": "Ich bin (noch) kein Mitglied"
+        "title": "Sind Sie bereits Mitglied bei uns?",
+        "isMember": "Ja, ich bin Mitglied",
+        "notMember": "Nein, ich bin Neukunde"
       },
       "location3": {
-        "title": "Wo wohnen Sie?",
-        "subtitle": "Ihr Wohnort bestimmt den Mitgliedschaftsweg, die Reiseprüfung und welche Unterlagen wir zuerst benötigen.",
-        "germany": "Ich lebe in Deutschland",
-        "euNotGermany": "Ich lebe in der EU (aber nicht in Deutschland)",
-        "outsideEu": "Ich lebe außerhalb der EU"
+        "title": "In welchem Land leben Sie aktuell?",
+        "subtitle": "Diese Information hilft uns bei der Einschätzung möglicher Visabestimmungen und der Reiselogistik.",
+        "germany": "In Deutschland",
+        "euNotGermany": "Im EU-Ausland (nicht Deutschland)",
+        "outsideEu": "Außerhalb der EU"
       },
       "becomeMember": {
-        "title": "Möchten Sie Mitglied werden?",
-        "yes": "Ja, ich möchte Mitglied werden",
-        "no": "Nein, ich beantrage für jemand anderen"
+        "title": "Erstellen Sie diese Anfrage für sich selbst?",
+        "yes": "Ja, für mich selbst",
+        "no": "Nein, ich stelle die Anfrage für eine andere Person"
       },
       "healthIntro": {
-        "title": "Beginnen wir mit Ihren Gesundheitsinformationen",
-        "subtitle": "In diesem Abschnitt erfassen wir grundlegende Informationen. Diese Details helfen uns auch, unser Gespräch über Ihre Pflegebedürfnisse zu beginnen.",
+        "title": "Beginnen wir mit Ihren medizinischen Informationen",
+        "subtitle": "In diesem Abschnitt erfassen wir grundlegende Gesundheitsdaten, um Ihren individuellen Pflegebedarf besser zu verstehen.",
         "start": "Start"
       },
       "healthTreatment": {
@@ -284,246 +284,243 @@
         "no": "Nein"
       },
       "healthRisk": {
-        "title": "Haben Sie eine Erkrankung, die Sie daran hindert, nach Deutschland zu reisen, oder haben Sie Grund zu der Annahme, dass eine Reise nach Deutschland Ihre Gesundheit gefährdet?",
+        "title": "Gibt es medizinische Kontraindikationen, die gegen eine Flugreise nach Deutschland sprechen könnten?",
         "yes": "Ja",
         "no": "Nein",
-        "disclaimer": "Sie sind allein für Ihren Gesundheitszustand während der Reise und mögliche reisebezogene Risiken verantwortlich."
+        "disclaimer": "Bitte beachten Sie: Die Einschätzung Ihrer Reisefähigkeit sowie die Verantwortung für mögliche gesundheitliche Reiserisiken obliegen Ihnen."
       },
       "sharedPatientName": {
-        "title": "Beginnen wir mit Ihrem Namen",
+        "title": "Wie lautet Ihr Name?",
         "firstName": "Vorname",
         "middleName": "Zweiter Vorname (optional)",
         "lastName": "Nachname",
         "suffix": "Namenszusatz (optional)"
       },
       "sharedDob": {
-        "title": "Danke! Was ist Ihr Geburtsdatum?",
-        "placeholder": "DD.MM.YYYY",
+        "title": "Wie lautet Ihr Geburtsdatum?",
+        "placeholder": "TT.MM.JJJJ",
         "day": "TT",
         "month": "MM",
         "year": "JJJJ",
-        "hint": "Zum Beispiel: 14.09.1987",
+        "hint": "Beispiel: 14.09.1987",
         "invalid": "Bitte geben Sie ein gültiges Geburtsdatum ein."
       },
       "sharedLegalSex": {
-        "title": "Bitte nennen Sie uns Ihr rechtliches Geschlecht.",
-        "subtitle": "Wählen Sie die Geschlechtsangabe, die in Ihrem Ausweis steht.",
+        "title": "Bitte geben Sie Ihr rechtliches Geschlecht an.",
+        "subtitle": "Diese Angabe (gemäß Ausweisdokument) wird für die formelle Anmeldung in der Klinik benötigt.",
         "female": "Weiblich",
         "male": "Männlich",
-        "diverse": "divers",
-        "noEntry": "keine Angabe"
+        "diverse": "Divers",
+        "noEntry": "Keine Angabe"
       },
       "sharedPrimaryLanguage": {
-        "title": "Was ist Ihre Muttersprache?",
-        "subtitle": "In dieser Sprache werden wir Sie wegen dieses Termins zurückrufen."
+        "title": "Was ist Ihre primäre Kommunikationssprache?",
+        "subtitle": "Wir weisen Ihnen einen Koordinator zu, der Ihre Sprache spricht."
       },
       "sharedInterpreter": {
-        "title": "Möchten Sie bei Ihren Terminen in Deutschland einen Dolmetscher dabei haben?",
+        "title": "Benötigen Sie für Ihre Arzttermine in Deutschland einen medizinischen Dolmetscher?",
         "yes": "Ja",
-        "no": "Nein, ich spreche fließend Deutsch."
+        "no": "Nein, ich spreche fließend Deutsch"
       },
       "emailConsent": {
-        "title": "Möchten Sie, dass wir per E-Mail mit Ihnen kommunizieren?",
-        "yes": "Ja.",
-        "yesDisclaimer": "Ich verstehe, dass E-Mail-Kommunikation möglicherweise nicht sicher ist und den Datenschutzrichtlinien Ihres E-Mail-Anbieters unterliegt.",
+        "title": "Sind Sie mit der Kommunikation per E-Mail einverstanden?",
+        "yes": "Ja",
+        "yesDisclaimer": "Mir ist bewusst, dass die Standard-E-Mail-Kommunikation nicht Ende-zu-Ende verschlüsselt ist und den Richtlinien meines E-Mail-Anbieters unterliegt.",
         "no": "Nein"
       },
       "whatsappConsentNew": {
-        "title": "Möchten Sie, dass wir per WhatsApp mit Ihnen kommunizieren?",
-        "yes": "Ja.",
-        "yesDisclaimer": "Ich verstehe, dass WhatsApp-Kommunikation möglicherweise nicht sicher ist und den Datenschutzrichtlinien von WhatsApp unterliegt.",
+        "title": "Dürfen wir Sie über WhatsApp kontaktieren?",
+        "yes": "Ja",
+        "yesDisclaimer": "Ich stimme der Kommunikation über WhatsApp zu und akzeptiere die Datenschutzrichtlinien von WhatsApp.",
         "no": "Nein",
-        "numberTitle": "Wie ist Ihre WhatsApp-Nummer?"
+        "numberTitle": "Wie lautet Ihre WhatsApp-Nummer?"
       },
       "phoneStep": {
-        "title": "Bitte geben Sie Ihre Kontaktinformationen ein.",
+        "title": "Bitte geben Sie Ihre Kontaktdaten ein.",
         "phoneNumber": "Telefonnummer",
-        "emailLabel": "E-Mail"
+        "emailLabel": "E-Mail-Adresse"
       },
       "recordsLanguage": {
-        "title": "Sind Ihre medizinischen Unterlagen auf Deutsch oder Englisch?",
+        "title": "Liegen Ihre medizinischen Unterlagen bereits in deutscher oder englischer Sprache vor?",
         "yes": "Ja",
         "no": "Nein"
       },
       "noContactExit": {
-        "title": "Wir können Sie nicht per E-Mail oder WhatsApp kontaktieren.",
-        "description": "Bitte kontaktieren Sie uns über die auf unserer Website angegebenen Kontaktinformationen. Ihre Umfrageinformationen werden in 3 Tagen gelöscht.",
+        "title": "Wir können leider keinen Kontakt zu Ihnen aufnehmen.",
+        "description": "Da wir Sie weder per E-Mail noch über WhatsApp erreichen können, bitten wir Sie, uns telefonisch zu kontaktieren. Ihre bisherigen Eingaben werden nach 3 Tagen gelöscht.",
         "button": "Zur Startseite"
       },
       "concernIntro": {
-        "title": "Als Nächstes teilen Sie uns bitte Ihr Hauptanliegen mit",
-        "description": "Wir werden Sie nach einer Beschreibung des medizinischen Problems bitten, das Ihre Anfrage auslöst. Sie haben auch die Möglichkeit, uns über weitere Anliegen zu informieren.",
+        "title": "Kommen wir zu Ihrem medizinischen Anliegen",
+        "description": "Bitte beschreiben Sie kurz Ihre Diagnose oder Ihre Beschwerden. Dies hilft uns, den am besten geeigneten Fachexperten für Sie zu finden.",
         "start": "Start"
       },
       "primaryConcernText": {
-        "title": "Was ist Ihr Hauptanliegen?",
-        "placeholder": "Beschreiben Sie Ihr Hauptanliegen..."
+        "title": "Was ist Ihre primäre Diagnose oder Hauptbeschwerde?",
+        "placeholder": "Bitte beschreiben Sie Ihr Anliegen..."
       },
       "additionalConcerns": {
-        "title": "Teilen Sie uns weitere Anliegen mit:",
+        "title": "Gibt es Vorerkrankungen oder weitere medizinische Details, die wir kennen sollten?",
         "placeholder": "",
         "optional": "(Optional)"
       },
       "services": {
-        "title": "Benötigen Sie einen der folgenden Services während Ihres Aufenthalts in Deutschland (Mehrfachauswahl möglich):",
-        "driver": "Persönlicher Fahrer und Transferdienste",
-        "concierge": "Concierge-Dienste",
-        "medicalTransport": "Medizinischer Transport",
-        "airAmbulance": "Luftrettung",
-        "businessAviation": "Business-Luftfahrt",
-        "none": "Ich benötige keinen der folgenden Services",
-        "notSure": "Ich bin nicht sicher"
+        "title": "Welche der folgenden Premium-Services benötigen Sie während Ihres Aufenthalts? (Mehrfachauswahl möglich):",
+        "driver": "Limousinenservice und privater Fahrer",
+        "concierge": "Concierge-Services (Hotelbuchungen, Freizeitgestaltung)",
+        "medicalTransport": "Bodengebundener medizinischer Transport",
+        "airAmbulance": "Ambulanzflug (Air Ambulance)",
+        "businessAviation": "Business Jet / Privatflugzeug",
+        "none": "Keinen der genannten Services",
+        "notSure": "Ich bin mir noch nicht sicher"
       },
       "insuranceIntro": {
-        "title": "Jetzt möchten wir nach Ihren Versicherungsdetails fragen",
-        "subtitle": "Falls Sie eine Versicherung haben, können Sie die Informationen hier eingeben. Falls nicht, keine Sorge. Wir beantworten alle Ihre Fragen in unserem Gespräch.",
-        "start": "Start"
+        "title": "Angaben zu Ihrer Krankenversicherung",
+        "subtitle": "Falls Sie privat oder international krankenversichert sind, können Sie dies hier angeben. Selbstzahleroptionen besprechen wir gerne persönlich.",
+        "start": "Weiter"
       },
       "insuranceStep": {
-        "title": "Haben Sie eine Krankenversicherung?",
+        "title": "Verfügen Sie über eine Krankenversicherung?",
         "yes": "Ja",
         "no": "Nein"
       },
       "insuranceCoverage": {
-        "title": "Deckt Ihre Krankenversicherung Ihre Arztkosten in Deutschland ab?",
+        "title": "Übernimmt Ihre Versicherung die Kosten für medizinische Behandlungen in Deutschland?",
         "yes": "Ja",
         "no": "Nein",
-        "notSure": "Ich bin nicht sicher"
+        "notSure": "Ich bin mir nicht sicher"
       },
       "wrapUpIntro": {
-        "title": "Lassen Sie uns mit ein paar letzten Fragen abschließen",
-        "subtitle": "Wir fragen Sie nach Ihrem bevorzugten Standort für die Versorgung und geben Ihnen die Möglichkeit, uns noch etwas mitzuteilen, das wir über Ihre Bedürfnisse und Betreuung wissen sollten. Wir melden uns innerhalb von 3 Werktagen bei Ihnen.",
-        "start": "Start"
+        "title": "Letzte Details zu Ihrer Reise",
+        "subtitle": "Wir benötigen noch Ihre Präferenzen bezüglich Ort und Zeit. Unser Team wird sich innerhalb von 3 Werktagen bei Ihnen melden.",
+        "start": "Abschluss"
       },
       "preferredLocation": {
-        "title": "Haben Sie einen bevorzugten Standort für die Gesundheitsversorgung?",
-        "subtitle": "Falls nicht, ist das kein Problem. Wir können diese Standorte später genauer besprechen.",
-        "noPreference": "Keine Präferenz",
+        "title": "Haben Sie eine Präferenz, in welcher Stadt Sie behandelt werden möchten?",
+        "subtitle": "Wir orientieren uns primär an der medizinischen Expertise der Klinik, berücksichtigen aber gerne Ihre Wünsche.",
+        "noPreference": "Keine Präferenz (Fachexpertise entscheidet)",
         "munich": "München",
         "berlin": "Berlin",
         "hamburg": "Hamburg",
         "cologne": "Köln"
       },
       "visitTiming": {
-        "title": "Wann können Sie Deutschland besuchen?",
-        "asap": "So bald wie möglich",
+        "title": "Wann planen Sie, nach Deutschland zu reisen?",
+        "asap": "Schnellstmöglich (Notfall/Akut)",
         "nextFewMonths": "In den nächsten Monaten",
-        "notSure": "Ich bin nicht sicher",
-        "note": "Vor Ihrem Besuch koordinieren wir uns mit unserem Ärzteteam, um die richtigen Termine für Ihren Pflegeplan zu planen."
+        "notSure": "Steht noch nicht fest",
+        "note": "Die genauen Daten werden in Abhängigkeit von den Kapazitäten der Ärzte und Ihrem individuellen Behandlungsplan festgelegt."
       },
       "anythingElse": {
-        "title": "Gibt es noch etwas, das Sie uns mitteilen möchten?",
-        "subtitle": "Nach diesem Schritt überprüfen und senden Sie Ihre Anfrage ab.",
-        "optional": "(optional)"
+        "title": "Möchten Sie uns noch etwas mitteilen?",
+        "subtitle": "Spezielle Wünsche bezüglich Unterkunft, Verpflegung oder sonstige Bedürfnisse.",
+        "optional": "(Optional)"
       },
       "reviewStep": {
-        "title": "Bitte überprüfen Sie Ihre Anfrage vor dem Absenden.",
-        "consent1": "Ich stimme zu, dass GMED ein automatisiertes Telefonwahlsystem, voraufgezeichnete oder synthetische Sprachnachrichten, SMS und E-Mail verwenden darf, um mich unter den von mir angegebenen Nummern und E-Mail-Adressen zu kontaktieren.",
-        "consent2": "Ich verstehe, dass ich in Bezug auf meine Gesundheitsversorgung kontaktiert werden kann, einschließlich der Terminvereinbarung.",
-        "consent3": "Ich verstehe, dass ich bei einem solchen Kontakt die Möglichkeit erhalte, ähnliche zukünftige Mitteilungen abzulehnen.",
-        "consent4": "Ich habe die Datenschutzhinweise gelesen und deren Erhalt bestätigt.",
-        "incompleteError": "Bitte füllen Sie alle erforderlichen Schritte aus, bevor Sie Ihre Anfrage absenden.",
-        "submit": "Absenden",
+        "title": "Bitte prüfen Sie Ihre Angaben vor dem Absenden.",
+        "consent1": "Ich stimme zu, dass die Agentur mich über die angegebenen Kontaktdaten (Telefon, E-Mail, SMS) kontaktieren darf.",
+        "consent2": "Ich verstehe, dass diese Kommunikation ausschließlich der Organisation meiner medizinischen Behandlung dient.",
+        "consent3": "Ich nehme zur Kenntnis, dass ich diese Einwilligung jederzeit widerrufen kann.",
+        "consent4": "Ich habe die Datenschutzerklärung gelesen und akzeptiert.",
+        "incompleteError": "Bitte füllen Sie alle erforderlichen Felder aus, bevor Sie die Anfrage absenden.",
+        "submit": "Anfrage absenden",
         "submitting": "Wird gesendet...",
         "successTitle": "Vielen Dank für Ihre Anfrage!",
-        "successMessage": "Wir werden Sie innerhalb von 3 Werktagen kontaktieren. Unser Terminkoordinator wird sich melden, um Ihre Pflegebedürfnisse zu besprechen.",
-        "backToHome": "Zurück zur Startseite",
-        "startOver": "Neu beginnen"
+        "successMessage": "Ihre Daten wurden sicher übermittelt. Ihr persönlicher medizinischer Koordinator wird sich innerhalb von 3 Werktagen mit Ihnen in Verbindung setzen.",
+        "backToHome": "Zur Startseite",
+        "startOver": "Neue Anfrage starten"
       }
     },
     "returningPatient": {
-      "title": "Wiederkehrendes Mitglied",
+      "title": "Bestehendes Mitglied",
       "formPending": "Formular in Entwicklung...",
       "back": "Zurück"
     },
     "physician": {
-      "title": "Überweisung vom Arzt",
+      "title": "Überweisung durch Arzt",
       "formPending": "Formular in Entwicklung...",
       "back": "Zurück"
     }
   },
   "privacyPolicy": {
     "title": "Datenschutzerklärung",
-    "lastUpdated": "Stand: 01.01.2026",
-    "intro1": "Wir nehmen den Schutz der Daten der Nutzer unserer Website sehr ernst und verpflichten uns, die Informationen, die Nutzer uns in Verbindung mit der Nutzung unserer Website bzw. unserer Dienste zur Verfügung stellen, zu schützen.",
-    "intro2": "Diese Datenschutzrichtlinie erläutert unsere Praktiken in Bezug auf die Erfassung, Verwendung und Offenlegung Ihrer Daten durch die Nutzung unserer Dienste, wenn Sie über Ihre Geräte auf die Dienste zugreifen.",
-    "intro3": "Lesen Sie die Datenschutzrichtlinie bitte sorgfältig durch und stellen Sie sicher, dass Sie unsere Praktiken in Bezug auf Ihre Daten vollumfänglich verstehen, bevor Sie unsere Dienste verwenden. Wenn Sie diese Richtlinie gelesen, vollumfänglich verstanden haben und nicht mit unserer Vorgehensweise einverstanden sind, müssen Sie die Nutzung unserer Website und Dienste einstellen. Mit der Nutzung unserer Website und Dienste erkennen Sie die Bedingungen dieser Datenschutzrichtlinie an.",
-    "intro4": "Ausführliche Informationen zum Thema Datenschutz entnehmen Sie aus den unten aufgeführten Punkten.",
+    "lastUpdated": "Letzte Aktualisierung: 01.01.2026",
+    "intro1": "Der Schutz Ihrer persönlichen und gesundheitsbezogenen Daten hat für uns höchste Priorität. Wir verpflichten uns, alle Informationen, die Sie uns im Rahmen der Nutzung unserer Dienste anvertrauen, streng vertraulich zu behandeln.",
+    "intro2": "Diese Datenschutzerklärung erläutert transparent, wie wir Ihre Daten erfassen, nutzen, schützen und weitergeben, wenn Sie unsere digitalen Plattformen und Services nutzen.",
+    "intro3": "Bitte lesen Sie diese Bestimmungen sorgfältig durch. Mit der Nutzung unserer Website und Inanspruchnahme unserer Dienstleistungen erklären Sie sich mit den hier beschriebenen Verfahrensweisen einverstanden.",
+    "intro4": "Detaillierte Informationen gemäß der Datenschutz-Grundverordnung (DSGVO) finden Sie in den nachfolgenden Abschnitten.",
     "dataCollection": {
-      "title": "Datenerfassung auf dieser Website",
-      "text": "Nachstehend erhalten Sie einen Überblick über die Daten, die wir erfassen können:",
-      "item1": "Nicht identifizierte und nicht identifizierbare Informationen, die von unserer Webseite gesammelt werden (\"nicht personenbezogene Daten\"). Nicht personenbezogene Daten lassen keine Rückschlüsse darauf zu, von wem sie erfasst wurden. Nicht personenbezogene Daten, die wir erfassen, bestehen hauptsächlich aus technischen und zusammengefassten Nutzungsinformationen.",
-      "item2": "Individuell identifizierbare Informationen, d. h. all jene, über die man Sie identifizieren kann oder mit vertretbarem Aufwand identifizieren könnte (\"personenbezogene Daten\"). Zu den personenbezogenen Daten können Informationen gehören, wie Namen, E-Mail-Adressen, Adressen, Telefonnummern, IP-Adressen und mehr.",
-      "text2": "Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Die Kontaktdaten des Websitebetreibers können Sie dem Abschnitt \"Kontakt\" in dieser Datenschutzerklärung entnehmen."
+      "title": "Datenerfassung",
+      "text": "Wir unterscheiden grundsätzlich zwischen zwei Kategorien von Daten:",
+      "item1": "Anonymisierte technische Nutzungsdaten (nicht-personenbezogene Daten), die zur Sicherstellung des Webseitenbetriebs dienen und keine Rückschlüsse auf Ihre Person zulassen.",
+      "item2": "Personenbezogene und medizinische Daten, die Sie uns aktiv übermitteln (z.B. Name, Kontaktdaten, medizinische Befunde und Arztbriefe).",
+      "text2": "Verantwortlicher für die Datenverarbeitung ist die im Impressum genannte Medical Concierge Agency."
     },
     "howWeCollect": {
-      "title": "Wie erfassen wir Ihre Daten?",
-      "text1": "Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich um Daten handeln, die Sie in ein Kontaktformular eingeben oder uns per Email zur Verfügung stellen, wie z.B. notwendige Vorbefunde, Laborbefunde, Bilddaten, ärztliche Dokumentation und mehr. Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst.",
-      "text2": "Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich und liegt nicht in unserem Verantwortungsbereich."
+      "title": "Wie wir Ihre Daten erfassen",
+      "text1": "Gesundheits- und personenbezogene Daten werden primär dann erfasst, wenn Sie Formulare auf unserer Website ausfüllen oder uns Dokumente per E-Mail bzw. über sichere Upload-Portale übermitteln.",
+      "text2": "Wir weisen ausdrücklich darauf hin, dass die unverschlüsselte Datenübertragung im Internet (z. B. via Standard-E-Mail) Sicherheitslücken aufweisen kann. Für den Versand sensibler medizinischer Dokumente empfehlen wir stets verschlüsselte Kanäle."
     },
     "purpose": {
-      "title": "Wofür nutzen wir Ihre Daten?",
-      "text": "Wir können Ihre Daten für folgende Zwecke verwenden:",
-      "item1": "um eine fehlerfreie Bereitstellung der Website zu gewährleisten;",
-      "item2": "um unsere Dienste zu entwickeln, anzupassen und zu verbessern;",
-      "item3": "um auf Ihr Feedback, Ihre Anfragen und Wünsche zu reagieren und Hilfe anzubieten;",
-      "item4": "um Anforderungs- und Nutzungsmuster zu analysieren;",
-      "item5": "für sonstige interne, statistische und Recherchezwecke;",
-      "item6": "um unsere Möglichkeiten zur Datensicherheit verbessern zu können;",
-      "item7": "um Ihnen Aktualisierungen, Nachrichten und sonstige Informationen im Zusammenhang mit unseren Diensten zu übermitteln.",
-      "text2": "Wir verwenden Ihre personenbezogenen Daten nur für die in der Datenschutzrichtlinie festgelegten Zwecke und nur, wenn wir davon überzeugt sind, dass:",
-      "legal1": "die Verwendung Ihrer personenbezogenen Daten erforderlich ist, um einen Vertrag zu erfüllen oder zu schließen;",
-      "legal2": "die Verwendung Ihrer personenbezogenen Daten notwendig ist, um entsprechenden rechtlichen oder behördlichen Verpflichtungen nachzukommen;",
-      "legal3": "die Verwendung Ihrer personenbezogenen Daten notwendig ist, um unsere berechtigten geschäftlichen Interessen zu unterstützen."
+      "title": "Zweck der Datenverarbeitung",
+      "text": "Ihre Daten werden ausschließlich zweckgebunden verwendet:",
+      "item1": "Zur Gewährleistung der technischen Funktionalität unserer Website;",
+      "item2": "Zur Bearbeitung Ihrer medizinischen Anfrage und Organisation Ihrer Behandlung;",
+      "item3": "Zur Qualitätssicherung und Optimierung unserer Serviceleistungen;",
+      "item4": "Für interne Audits und statistische Analysen;",
+      "item5": "Zur Übermittlung wichtiger, behandlungsrelevanter Informationen.",
+      "text2": "Die Verarbeitung Ihrer personenbezogenen Daten erfolgt nur, sofern mindestens eine der folgenden rechtlichen Bedingungen erfüllt ist:",
+      "legal1": "Die Verarbeitung ist für die Erfüllung eines Vertrages (z.B. Behandlungsvertrag) erforderlich;",
+      "legal2": "Die Verarbeitung ist zur Erfüllung rechtlicher Verpflichtungen notwendig;",
+      "legal3": "Die Verarbeitung erfolgt auf Basis unseres berechtigten Interesses, sofern Ihre Grundrechte nicht überwiegen."
     },
     "sharing": {
-      "title": "An wen geben wir diese Daten weiter?",
-      "text1": "Wir können Ihre Daten an unsere Dienstleister weitergeben, um unsere Dienste zu betreiben, soweit dies für geschäftliche Zwecke angemessen ist. Dabei handelt es sich hauptsächlich um nicht identifizierbare Informationen.",
-      "text2": "Wir können die uns von Ihnen zur Verfügung gestellte Unterlagen, welche ggf. personenbezogene Daten und Informationen zur abgeschlossenen oder andauernden medizinischen Behandlung beinhalten, an vertraute Drittpersonen weiterleiten, falls dies für die Ausübung unserer Dienste notwendig ist. Hierbei handelt es sich um Ärzte, Dolmetscher und Übersetzer, Gutachter, Kostenträger und andere medizinische Einrichtungen.",
-      "text3": "Wir können Ihre Daten auch unter folgenden Umständen offenlegen: um unsere Rechte auf Verteidigung zu begründen oder auszuüben; um unsere Rechte, unser Eigentum sowie die Sicherheit unserer Nutzer oder der Öffentlichkeit zu schützen; um Ihre Daten mittels befugter Drittanbieter zu erfassen, vorzuhalten und/oder zu verwalten."
+      "title": "Datenweitergabe an Dritte",
+      "text1": "Technische Metadaten werden ggf. von unseren zertifizierten IT-Dienstleistern (z.B. Hosting-Provider) verarbeitet, die streng weisungsgebunden agieren.",
+      "text2": "Medizinische Dokumente und Patientendaten werden ausnahmslos nur an verifizierte Dritte weitergegeben, die zwingend in Ihren Behandlungsprozess involviert sind (Kliniken, Chefärzte, medizinische Fachübersetzer).",
+      "text3": "Eine Offenlegung von Daten gegenüber Behörden erfolgt ausschließlich im Rahmen zwingender gesetzlicher Vorschriften."
     },
     "rights": {
-      "title": "Welche Rechte haben Sie bezüglich Ihrer Daten?",
-      "text": "Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden."
+      "title": "Ihre Rechte als Betroffener",
+      "text": "Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten. Darüber hinaus steht Ihnen das Recht auf Berichtigung, Sperrung oder Löschung („Recht auf Vergessenwerden“) dieser Daten zu. Kontaktieren Sie hierfür einfach Ihren persönlichen Koordinator oder unseren Datenschutzbeauftragten."
     },
     "hosting": {
-      "title": "Hosting",
-      "text1": "Wir hosten die Inhalte unserer Website sowie die im CRM erfassten Daten bei zuverlässigen Cloud-Hosting-Anbietern.",
-      "text2": "Unsere Hosting-Anbieter haben Server auf der ganzen Welt, einschließlich Europa und den USA, sowie Backup-Server.",
-      "text3": "Die personenbezogenen Daten, die auf dieser Website sowie in unserem CRM erfasst wurden, werden auf den Servern dieser Hoster gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln.",
-      "text4": "Unsere Hoster werden Ihre Daten nur insoweit verarbeiten, wie dies zur Erfüllung seiner Leistungspflichten erforderlich ist und unsere Weisungen in Bezug auf diese Daten befolgen."
+      "title": "IT-Infrastruktur und Hosting",
+      "text1": "Unsere digitalen Systeme und CRM-Datenbanken werden in Hochsicherheits-Rechenzentren zuverlässiger Cloud-Anbieter betrieben.",
+      "text2": "Die primäre Datenhaltung erfolgt auf Servern innerhalb der Europäischen Union unter Einhaltung strenger DSGVO-Standards.",
+      "text3": "Alle IT-Partner fungieren als Auftragsverarbeiter und unterliegen strengsten Vertraulichkeits- und Sicherheitsvereinbarungen."
     },
     "cookies": {
-      "title": "Cookies",
-      "text1": "Wenn Sie unsere Dienste besuchen oder darauf zugreifen, autorisieren wir Dritte dazu, Webbeacons, Cookies sowie andere Technologien und Analysedienste einzusetzen. Diese Tracking-Technologien können es Dritten ermöglichen, Ihre Daten automatisch zu erfassen, um das Navigationserlebnis auf unseren digitalen Assets zu verbessern, deren Performance zu optimieren und ein maßgeschneidertes Nutzererlebnis zu gewährleisten.",
-      "text2": "Ohne Ihre Zustimmung werden wir Ihre E-Mail-Adresse oder andere personenbezogenen Daten nicht an Werbeunternehmen oder Werbenetzwerke weitergeben."
+      "title": "Einsatz von Cookies",
+      "text1": "Unsere Website verwendet Cookies, um die Nutzererfahrung zu optimieren und die fehlerfreie Bereitstellung unserer digitalen Dienste zu gewährleisten.",
+      "text2": "Ohne Ihre ausdrückliche Zustimmung werden wir Ihre Daten keinesfalls für externe Werbezwecke nutzen oder an Werbenetzwerke veräußern."
     },
     "storage": {
-      "title": "Wo speichern wir die Daten?",
-      "text1": "Bitte beachten Sie, dass unsere vertrauenswürdigen Partner und Dienstanbieter auf der ganzen Welt ansässig sind. Zu den in dieser Datenschutzrichtlinie erläuterten Zwecke speichern und verarbeiten wir alle nicht personenbezogenen Daten, die wir erfassen, in unterschiedlichen Rechtsordnungen.",
-      "text2": "Personenbezogene Daten können in den Vereinigten Staaten, in Irland, Südkorea, Taiwan, Israel und soweit für die ordnungsgemäße Bereitstellung unserer Dienste und/oder gesetzlich vorgeschrieben in anderen Rechtsordnungen gepflegt, verarbeitet und gespeichert werden."
+      "title": "Datenspeicherung",
+      "text1": "Zur Sicherstellung unserer globalen Services arbeiten wir mit internationalen Partnern zusammen. Wir stellen dabei sicher, dass das Schutzniveau stets den europäischen Datenschutzstandards entspricht.",
+      "text2": "Sensible medizinische Daten werden bevorzugt innerhalb der EU verarbeitet und unterliegen der ärztlichen Schweigepflicht."
     },
     "retention": {
       "title": "Speicherdauer",
-      "text": "Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wollen Sie Ihre personenbezogenen Daten löschen lassen, genügt in der Regel ein entsprechendes formloses Schreiben per Email an contact@gmed-health.com."
+      "text": "Wir speichern Ihre personenbezogenen Daten nur so lange, wie es für die Organisation Ihrer Behandlung oder zur Erfüllung gesetzlicher Aufbewahrungsfristen erforderlich ist. Zur Beantragung einer vorzeitigen Datenlöschung reicht eine formlose E-Mail an contact@gmed-health.com."
     },
     "security": {
-      "title": "Wie schützen wir Ihre Daten?",
-      "text1": "Der Hosting-Dienst stellt uns die Online-Plattform zur Verfügung, über die wir Ihnen unsere Dienste anbieten können. Ihre Daten können über die Datenspeicherung, Datenbanken und allgemeine Anwendungen unseres Hosting-Anbieters gespeichert werden.",
-      "text2": "Ungeachtet der von uns und unserem Hosting-Anbieter ergriffenen Maßnahmen und Bemühungen können und werden wir keinen absoluten Schutz und keine absolute Sicherheit der Daten garantieren, die Sie hochladen, veröffentlichen oder anderweitig an uns oder andere weitergeben.",
-      "text3": "Aus diesem Grund möchten wir Sie bitten, sichere Passwörter festzulegen und uns oder anderen nach Möglichkeit keine vertraulichen Informationen zu übermitteln, deren Offenlegung Ihnen Ihrer Meinung nach erheblich bzw. nachhaltig schaden könnte.",
-      "text4": "Falls Sie uns Dokumente mit personenbezogenen bzw. vertraulichen Informationen per E-Mail oder Instant Messaging zukommen lassen, liegt es in Ihrem Verantwortungsbereich."
+      "title": "Datensicherheit",
+      "text1": "Wir setzen modernste Verschlüsselungstechnologien und Firewalls ein, um Ihre Daten auf unseren Servern bestmöglich zu schützen.",
+      "text2": "Dennoch kann keine internetbasierte Datenübertragung eine 100%ige Sicherheit garantieren.",
+      "text3": "Wir bitten Sie daher aktiv mitzuwirken: Nutzen Sie sichere Passwörter und vermeiden Sie öffentliche Netzwerke bei der Datenübermittlung.",
+      "text4": "Der Versand von Gesundheitsdaten via Instant Messenger (wie WhatsApp) erfolgt stets auf Ihr eigenes Risiko."
     },
     "minors": {
-      "title": "Wie gehen wir mit Minderjährigen um?",
-      "text1": "Minderjährige können unsere Dienste nutzen.",
-      "text2": "Wenn sie jedoch unsere Dienste nutzen möchten, müssen sie ggf. gewisse Angaben machen (insbesondere Kontaktdaten der Eltern). Die Erfassung einiger Daten kann automatisch erfolgen. Wenn wir wissentlich von einem Minderjährigen erfasste Daten sammeln, verwenden oder offenlegen, werden wir in Übereinstimmung mit geltendem Recht darauf hinweisen und die Zustimmung der Eltern einholen.",
-      "text3": "Wir können auch die Kontaktdaten eines Elternteils verwenden, um über die Aktivitäten eines Minderjährigen in den Diensten zu kommunizieren. Eltern können Daten, die wir von ihrem Kind erfasst haben, einsehen und verlangen, dass alle von uns erfassten Daten aus unseren Aufzeichnungen gelöscht werden.",
-      "text4": "Bitte nehmen Sie Kontakt zu uns auf, um die Daten Ihres Kindes einzusehen, zu aktualisieren oder zu löschen."
+      "title": "Schutz von Minderjährigen",
+      "text1": "Unsere Agentur koordiniert Behandlungen für Patienten jeder Altersgruppe, einschließlich Kindern und Jugendlichen.",
+      "text2": "Medizinische Daten von Minderjährigen werden ausnahmslos nur mit dem ausdrücklichen, schriftlichen Einverständnis der Erziehungsberechtigten erhoben und verarbeitet.",
+      "text3": "Eltern oder Vormünder haben jederzeit vollen Zugriff auf das Profil des Kindes und können die Löschung veranlassen.",
+      "text4": "Bei Rückfragen zum Profil Ihres Kindes wenden Sie sich bitte an Ihren zuständigen Betreuer."
     },
     "updates": {
-      "title": "Aktualisierungen oder Änderungen der Datenschutzrichtlinie",
-      "text": "Wir können diese Datenschutzrichtlinie nach eigenem Ermessen von Zeit zu Zeit überarbeiten, die auf der Website veröffentlichte Version ist immer aktuell. Wir bitten Sie, diese Datenschutzrichtlinie regelmäßig auf Änderungen zu überprüfen. Bei wesentlichen Änderungen werden wir einen Hinweis dazu auf unserer Website veröffentlichen."
+      "title": "Änderungen dieser Datenschutzerklärung",
+      "text": "Aufgrund rechtlicher oder technischer Entwicklungen behalten wir uns vor, diese Datenschutzerklärung gelegentlich anzupassen. Die jeweils aktuell gültige Version finden Sie stets auf dieser Seite."
     }
   },
   "auth": {
@@ -531,24 +528,24 @@
     "createAccount": "Konto erstellen",
     "password": "Passwort",
     "passwordPlaceholder": "Passwort eingeben",
-    "phoneOrEmail": "Handynummer oder E-Mail",
-    "identifierRequired": "Bitte geben Sie Ihre Telefonnummer oder E-Mail ein",
-    "invalidPhoneOrEmail": "Ungültiges Format (z.B. +4917612345678 oder email@beispiel.de)",
+    "phoneOrEmail": "Telefonnummer oder E-Mail-Adresse",
+    "identifierRequired": "Bitte geben Sie Ihre Telefonnummer oder E-Mail-Adresse ein",
+    "invalidPhoneOrEmail": "Ungültiges Format (z.B. +4917612345678 oder max@beispiel.de)",
     "passwordRequired": "Bitte geben Sie Ihr Passwort ein",
-    "passwordMinLength": "Passwort muss mindestens 6 Zeichen lang sein",
-    "applicationPending": "Ihre Anfrage wird noch bearbeitet. Die Anmeldung ist nach Abschluss möglich.",
-    "confidentialityNotice": "Ihre Informationen sind vertraulich und werden nicht an Dritte weitergegeben.",
+    "passwordMinLength": "Das Passwort muss mindestens 6 Zeichen lang sein",
+    "applicationPending": "Ihr Profil wird derzeit geprüft. Der Zugang wird in Kürze freigeschaltet.",
+    "confidentialityNotice": "Ihre Daten werden verschlüsselt übertragen und streng vertraulich behandelt.",
     "privacyPolicyLink": "Richtlinie zur Verarbeitung personenbezogener Daten",
     "showPassword": "Passwort anzeigen",
     "hidePassword": "Passwort ausblenden",
-    "welcomeTitle": "Willkommen",
-    "welcomeSubtitle": "Melden Sie sich in Ihrem Konto an"
+    "welcomeTitle": "Kundenportal",
+    "welcomeSubtitle": "Melden Sie sich an, um Ihren Behandlungsplan zu verwalten"
   },
   "impressumPage": {
     "title": "Impressum",
     "contact": "Kontakt",
     "vatTitle": "Umsatzsteuer-ID",
-    "vatLegal": "Umsatzsteueridentifikationsnummer gemäß § 27 a Umsatzsteuergesetz:",
-    "contactPrompt": "Bei Fragen und Anregungen zum Inhalt der Website schicken Sie uns bitte eine E-Mail an:"
+    "vatLegal": "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:",
+    "contactPrompt": "Für rechtliche Anfragen oder Fragen zur Website kontaktieren Sie uns bitte unter:"
   }
 }
