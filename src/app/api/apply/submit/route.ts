@@ -7,7 +7,9 @@ import {
   generateCsv,
 } from "@/components/sections/request-appointment/wizard/salesforce-bundle";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 export async function POST(request: Request) {
   try {
@@ -47,7 +49,7 @@ export async function POST(request: Request) {
       .replace("Z", "");
     const filename = `salesforce-lead-${bundle.flow}-${timestamp}.csv`;
 
-    const { error } = await resend.emails.send({
+    const { error } = await getResend().emails.send({
       from: process.env.EMAIL_FROM || "noreply@gmed-health.com",
       to: salesforceEmail,
       subject: `New Patient Lead - ${bundle.flow} - ${bundle.summary.fullName}`,
