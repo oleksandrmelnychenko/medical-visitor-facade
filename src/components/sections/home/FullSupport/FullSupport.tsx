@@ -12,11 +12,11 @@ import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./FullSupport.module.scss";
 
 const SERVICES = [
-  { icon: Route, key: "support", size: "normal" as const },
-  { icon: CalendarClock, key: "promptness", size: "normal" as const },
-  { icon: FileCheck2, key: "confidentiality", size: "normal" as const },
-  { icon: PlaneTakeoff, key: "noFees", size: "normal" as const, premium: true },
-  { icon: Headset, key: "concierge", size: "normal" as const, premium: true },
+  { icon: Route, key: "support" },
+  { icon: CalendarClock, key: "promptness" },
+  { icon: FileCheck2, key: "confidentiality" },
+  { icon: PlaneTakeoff, key: "noFees", premium: true },
+  { icon: Headset, key: "concierge", premium: true },
 ];
 
 const JOURNEY_STEPS = [
@@ -49,8 +49,7 @@ export function FullSupport() {
                   key={service.key}
                   className={cn(
                     styles.serviceItem,
-                    service.premium && styles.serviceItemPremium,
-                    service.size === "large" && styles.serviceItemLarge
+                    service.premium && styles.serviceItemPremium
                   )}
                 >
                   <div className={styles.serviceIcon}>
