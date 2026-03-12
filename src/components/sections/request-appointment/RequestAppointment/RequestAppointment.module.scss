@@ -173,7 +173,32 @@
   width: min(100%, 18.5rem);
   min-height: 3.3rem;
   margin-top: 0.2rem;
-  border-radius: 1rem 1.18rem 1rem 1.1rem;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  color: #fff !important;
+  background: linear-gradient(135deg, #3f434c 0%, #282c34 56%, #191c22 100%) !important;
+  box-shadow: none !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+
+  svg {
+    width: 1.1rem !important;
+    height: 1.1rem !important;
+    color: #fff !important;
+    stroke: currentColor !important;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.28));
+  }
+
+  &:hover {
+    opacity: 0.94;
+    transform: translateY(-1px);
+    background: linear-gradient(135deg, #3f434c 0%, #282c34 56%, #191c22 100%) !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+
+    svg {
+      transform: translateX(3px);
+    }
+  }
 }
 
 .wizardFormGrid {

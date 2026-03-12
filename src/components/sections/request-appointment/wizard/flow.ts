@@ -112,20 +112,12 @@ function getNonGermanyEligibilityFallback(data: WizardData): WizardStep | null {
     return "outside-records";
   }
 
-  if (data.hasMedicalRecords !== "yes") {
-    return "outside-exit-records";
-  }
-
-  if (data.recordsInAcceptedLanguage === null) {
+  if (data.hasMedicalRecords === "yes" && data.recordsInAcceptedLanguage === null) {
     return "records-language";
   }
 
   if (data.hasTravelDocuments === null) {
     return "outside-documents";
-  }
-
-  if (data.hasTravelDocuments === "no") {
-    return "outside-exit-travel";
   }
 
   return null;
@@ -284,9 +276,11 @@ export function sanitizeWizardData(data: WizardData): WizardData {
       next.hasMedicalRecords = null;
       next.recordsInAcceptedLanguage = null;
       next.hasTravelDocuments = null;
-    } else if (next.hasMedicalRecords !== "yes") {
+    } else if (next.hasMedicalRecords === null) {
       next.recordsInAcceptedLanguage = null;
       next.hasTravelDocuments = null;
+    } else if (next.hasMedicalRecords !== "yes") {
+      next.recordsInAcceptedLanguage = null;
     } else if (next.recordsInAcceptedLanguage === null) {
       next.hasTravelDocuments = null;
     }
@@ -390,7 +384,7 @@ export function getAccessibleWizardStep(step: WizardStep, data: WizardData): Wiz
         return "outside-records";
       }
 
-      return cleanData.hasMedicalRecords === "yes" ? "records-language" : "outside-exit-records";
+      return cleanData.hasMedicalRecords === "yes" ? "records-language" : "outside-documents";
 
     case "outside-documents":
       if (getLocationFallback(cleanData)) {
@@ -417,11 +411,7 @@ export function getAccessibleWizardStep(step: WizardStep, data: WizardData): Wiz
         return "outside-records";
       }
 
-      if (cleanData.hasMedicalRecords !== "yes") {
-        return "outside-exit-records";
-      }
-
-      if (cleanData.recordsInAcceptedLanguage === null) {
+      if (cleanData.hasMedicalRecords === "yes" && cleanData.recordsInAcceptedLanguage === null) {
         return "records-language";
       }
 
@@ -452,15 +442,15 @@ export function getAccessibleWizardStep(step: WizardStep, data: WizardData): Wiz
         return "outside-records";
       }
 
-      if (cleanData.hasMedicalRecords !== "yes") {
-        return "outside-exit-records";
-      }
-
-      if (cleanData.recordsInAcceptedLanguage === null) {
+      if (cleanData.hasMedicalRecords === "yes" && cleanData.recordsInAcceptedLanguage === null) {
         return "records-language";
       }
 
-      return cleanData.hasTravelDocuments === "no" ? "outside-exit-travel" : "outside-documents";
+      if (cleanData.hasTravelDocuments === null) {
+        return "outside-documents";
+      }
+
+      return "health-intro";
 
     case "outside-exit-records":
       if (getLocationFallback(cleanData)) {
@@ -487,7 +477,7 @@ export function getAccessibleWizardStep(step: WizardStep, data: WizardData): Wiz
         return "outside-records";
       }
 
-      return cleanData.hasMedicalRecords === "yes" ? "outside-records" : "outside-exit-records";
+      return cleanData.hasMedicalRecords === "yes" ? "outside-records" : "outside-documents";
 
     case "health-intro":
       return getHealthIntroFallback(cleanData) ?? "health-intro";

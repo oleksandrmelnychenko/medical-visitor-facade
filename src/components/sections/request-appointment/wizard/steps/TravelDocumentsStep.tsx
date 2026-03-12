@@ -11,25 +11,25 @@ import { WizardChoiceStep } from "../components/WizardChoiceStep";
 export function TravelDocumentsStep() {
   const t = useTranslations("appointment.newPatient");
   const router = useRouter();
-  const { updateData } = useWizard();
+  const { data, updateData } = useWizard();
   const isNavigatingRef = useRef(false);
 
   const handleSelect = useCallback((value: YesNoType) => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
     updateData({ hasTravelDocuments: value });
-    router.push(
-      value === "yes"
-        ? "/apply?type=new&step=health-intro"
-        : "/apply?type=new&step=outside-exit-travel"
-    );
+    router.push("/apply?type=new&step=health-intro");
   }, [updateData, router]);
 
   const handleBack = useCallback(() => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-    router.push("/apply?type=new&step=records-language");
-  }, [router]);
+    router.push(
+      data.hasMedicalRecords === "yes"
+        ? "/apply?type=new&step=records-language"
+        : "/apply?type=new&step=outside-records"
+    );
+  }, [data.hasMedicalRecords, router]);
 
   return (
     <WizardChoiceStep

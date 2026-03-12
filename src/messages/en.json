@@ -41,20 +41,20 @@
       "subtitle": "From clinic selection to full recovery — end-to-end coordination",
       "services": {
         "clinic": {
-          "title": "Clinic",
-          "desc": "Selection of a specialized medical facility"
+          "title": "Clinic and specialists",
+          "desc": "We continuously monitor leading medical centers and maintain an up-to-date expert network to give you access to advanced medicine."
         },
         "organization": {
-          "title": "Specialists",
-          "desc": "Appointments with leading physicians in the field"
+          "title": "Appointments and documents",
+          "desc": "We arrange appointments with relevant specialists, prepare medical documents, and coordinate the key stages of treatment."
         },
         "coordination": {
-          "title": "Treatment",
-          "desc": "Organization of diagnostics and procedures"
+          "title": "Treatment and coordination",
+          "desc": "We synchronize diagnostics, procedures, and the treatment schedule so the process moves forward in a clear sequence."
         },
         "support": {
           "title": "Support",
-          "desc": "A dedicated coordinator throughout the process"
+          "desc": "Your coordinator supports you at every stage: transfers, accommodation, translations, and communication with the clinic."
         }
       }
     },

@@ -41,20 +41,20 @@
       "subtitle": "Desde la selección de la clínica hasta la recuperación total: coordinación integral",
       "services": {
         "clinic": {
-          "title": "Clínicas",
-          "desc": "Selección de un centro médico altamente especializado"
+          "title": "Clínica y especialistas",
+          "desc": "Supervisamos continuamente los principales centros médicos y mantenemos una red actualizada de expertos para darle acceso a medicina avanzada."
         },
         "organization": {
-          "title": "Especialistas",
-          "desc": "Citas con los médicos líderes en su especialidad"
+          "title": "Citas y documentos",
+          "desc": "Organizamos citas con los especialistas adecuados, preparamos la documentación médica y coordinamos las etapas clave del tratamiento."
         },
         "coordination": {
-          "title": "Tratamiento",
-          "desc": "Organización de diagnósticos y procedimientos médicos"
+          "title": "Tratamiento y coordinación",
+          "desc": "Sincronizamos diagnósticos, procedimientos y el calendario terapéutico para que todo el proceso avance en una secuencia clara."
         },
         "support": {
           "title": "Asistencia",
-          "desc": "Un coordinador personal le acompaña durante todo el proceso"
+          "desc": "Su coordinador le acompaña en cada etapa: traslados, alojamiento, traducciones y comunicación con la clínica."
         }
       }
     },

@@ -21,16 +21,11 @@ function buildPath(data: WizardData): string[] {
     }
 
     steps.push('outside-records');
-    if (data.hasMedicalRecords && data.hasMedicalRecords !== 'yes') {
-      steps.push('outside-exit-records');
-      return steps;
+    if (data.hasMedicalRecords === 'yes') {
+      steps.push('records-language');
     }
 
-    steps.push('records-language', 'outside-documents');
-    if (data.hasTravelDocuments === 'no') {
-      steps.push('outside-exit-travel');
-      return steps;
-    }
+    steps.push('outside-documents');
   }
 
   steps.push('health-intro', 'patient-name', 'patient-dob', 'phone', 'whatsapp-consent', 'email-consent');

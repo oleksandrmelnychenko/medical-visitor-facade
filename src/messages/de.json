@@ -41,20 +41,20 @@
       "subtitle": "Von der Klinikwahl bis zur vollständigen Genesung – lückenlose Koordination",
       "services": {
         "clinic": {
-          "title": "Kliniken",
-          "desc": "Auswahl einer hochspezialisierten medizinischen Einrichtung"
+          "title": "Klinik und Spezialisten",
+          "desc": "Wir beobachten fortlaufend führende medizinische Zentren und pflegen ein aktuelles Expertennetzwerk, damit Sie Zugang zu fortschrittlicher Medizin erhalten."
         },
         "organization": {
-          "title": "Spezialisten",
-          "desc": "Terminvereinbarung bei führenden Fachexperten"
+          "title": "Termine und Unterlagen",
+          "desc": "Wir organisieren Termine bei passenden Fachärzten, bereiten medizinische Unterlagen vor und stimmen die entscheidenden Behandlungsschritte ab."
         },
         "coordination": {
-          "title": "Behandlung",
-          "desc": "Organisation von Diagnostik und sämtlichen medizinischen Eingriffen"
+          "title": "Behandlung und Koordination",
+          "desc": "Wir synchronisieren Diagnostik, Eingriffe und den Behandlungsplan, damit der gesamte Prozess in einer klaren Reihenfolge verläuft."
         },
         "support": {
           "title": "Betreuung",
-          "desc": "Ein persönlicher Koordinator begleitet Sie während des gesamten Prozesses"
+          "desc": "Ihr Koordinator begleitet Sie in jeder Phase: Transfer, Unterkunft, Übersetzungen und die Kommunikation mit der Klinik."
         }
       }
     },

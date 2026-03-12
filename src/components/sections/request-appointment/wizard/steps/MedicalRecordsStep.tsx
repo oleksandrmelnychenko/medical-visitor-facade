@@ -28,7 +28,7 @@ export function MedicalRecordsStep() {
     if (value === "yes") {
       router.push("/apply?type=new&step=records-language");
     } else {
-      router.push("/apply?type=new&step=outside-exit-records");
+      router.push("/apply?type=new&step=outside-documents");
     }
   }, [updateData, router]);
 
