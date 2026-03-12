@@ -507,17 +507,21 @@
 
 .mobileMenuButton {
   display: none;
+  width: 2.35rem;
+  height: 2.35rem;
   background: transparent;
   border: none;
-  padding: 0.5rem;
+  border-radius: 12px;
+  padding: 0;
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  justify-self: end;
+  color: #111;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
 
   &:hover {
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    background: transparent;
+    transform: translateY(-1px);
   }
 }
 
