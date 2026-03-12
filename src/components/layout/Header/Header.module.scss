@@ -292,6 +292,9 @@
   border-radius: 6px;
   background: linear-gradient(135deg, #4a4a4a 0%, #2d2d32 50%, #1a1a1a 100%);
   color: #fff;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-decoration: none;
   transition: opacity 0.2s;
 
   svg {

@@ -113,9 +113,11 @@ export function Header() {
   const currentPathWithSearch = currentSearch
     ? `${pathname}?${currentSearch}`
     : pathname;
-  const showHomeLogin = pathname === "/";
-  const showStickyLogin = pathname !== "/login";
-  const hideHeader = pathname === "/login";
+  const isLoginPage = pathname === "/login";
+  const isApplyPage = pathname === "/apply";
+  const showLogin = !isLoginPage;
+  const showApplyCta = !isApplyPage;
+  const hideHeader = isLoginPage;
 
   if (hideHeader) {
     return null;
@@ -169,11 +171,13 @@ export function Header() {
             </span>
           </button>
           <div className={styles.stickyActions}>
-            <Link href="/apply" prefetch={false} className={styles.stickyButton}>
-              {tCommon('requestAppointment')}
-              <ArrowRight size={16} />
-            </Link>
-            {showStickyLogin && (
+            {showApplyCta && (
+              <Link href="/apply" prefetch={false} className={styles.stickyButton}>
+                {tCommon('requestAppointment')}
+                <ArrowRight size={16} />
+              </Link>
+            )}
+            {showLogin && (
               <Link href="/login" prefetch={false} className={styles.stickyLoginLink}>
                 <User size={16} />
                 <span>{tCommon("login")}</span>
@@ -228,7 +232,13 @@ export function Header() {
           </Link>
 
           <div className={styles.headerRight}>
-            {showHomeLogin && (
+            {showApplyCta && (
+              <Link href="/apply" prefetch={false} className={styles.headerButton}>
+                {tCommon("requestAppointment")}
+                <ArrowRight size={16} />
+              </Link>
+            )}
+            {showLogin && (
               <Link href="/login" prefetch={false} className={styles.headerLoginLink}>
                 <User size={16} />
                 <span>{tCommon("login")}</span>
@@ -323,17 +333,19 @@ export function Header() {
               ))}
             </div>
 
-            <Link
-              href="/apply"
-              prefetch={false}
-              onClick={closeMobileMenu}
-              className={styles.mobileApplyButton}
-            >
-              <UserPlus size={16} />
-              {tCommon("requestAppointment")}
-            </Link>
+            {showApplyCta && (
+              <Link
+                href="/apply"
+                prefetch={false}
+                onClick={closeMobileMenu}
+                className={styles.mobileApplyButton}
+              >
+                <UserPlus size={16} />
+                {tCommon("requestAppointment")}
+              </Link>
+            )}
 
-            {showHomeLogin && (
+            {showLogin && (
               <Link
                 href="/login"
                 prefetch={false}
@@ -371,7 +383,7 @@ export function Header() {
           </div>
         </div>
 
-        {showHomeLogin && !isMobileMenuOpen && (
+        {showLogin && !isMobileMenuOpen && (
           <Link
             href="/login"
             prefetch={false}

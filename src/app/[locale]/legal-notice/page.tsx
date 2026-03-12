@@ -30,7 +30,7 @@ export default async function LegalNoticePage({ params }: LegalNoticePageProps) 
         <div className={sectionStyles.container}>
           <div className={styles.content}>
             <div className={styles.infoBlock}>
-              <p className={styles.companyName}>Medical Concierge Agency</p>
+              <p className={styles.companyName}>{t("companyName")}</p>
               <p className={styles.text}>Albert-Schweitzer-Straße 56</p>
               <p className={styles.text}>81735 München</p>
             </div>
