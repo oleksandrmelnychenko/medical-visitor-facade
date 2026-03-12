@@ -1,11 +1,11 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
+import Image from "next/image";
+import { Eye, EyeOff, LogIn } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
-import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
 import styles from "./LoginPageClient.module.scss";
@@ -20,6 +20,8 @@ function isValidIdentifier(value: string) {
 
 export function LoginPageClient() {
   const tAuth = useTranslations("auth");
+  const tCommon = useTranslations("common");
+  const tFooter = useTranslations("footer");
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -55,89 +57,102 @@ export function LoginPageClient() {
 
   return (
     <main className={cn(pageStyles.page, styles.page)}>
-      <section className={cn(sectionStyles.section, pageStyles.heroSection, styles.heroSection)}>
+      <section className={cn(sectionStyles.section, styles.shellSection)}>
         <div className={sectionStyles.container}>
-          <SectionHeader
-            title={tAuth("welcomeTitle")}
-            subtitle={tAuth("welcomeSubtitle")}
-            variant="page"
-            titleAs="h1"
-            theme="beige"
-          />
-          <div className={styles.headerDivider} />
-        </div>
-      </section>
+          <div className={styles.shell}>
+            <Link href="/" className={styles.brandLink} aria-label="GMED home">
+              <Image
+                src="/assets/logo.png"
+                alt="Medical Concierge Agency"
+                width={220}
+                height={60}
+                className={styles.logo}
+                priority
+              />
+            </Link>
+            <p className={styles.brandTagline}>
+              {tFooter.rich("companyName", {
+                accent: (chunks) => <span className={styles.brandAccent}>{chunks}</span>,
+              })}
+            </p>
 
-      <section className={cn(sectionStyles.section, styles.formSection)}>
-        <div className={sectionStyles.container}>
-          <div className={styles.formContainer}>
-            <form className={styles.form} onSubmit={handleSubmit} noValidate>
-              <div className={styles.fieldGroup}>
-                <label className={styles.srOnly} htmlFor="identifier">
-                  {tAuth("phoneOrEmail")}
-                </label>
-                <input
-                  id="identifier"
-                  type="text"
-                  value={identifier}
-                  onChange={(event) => setIdentifier(event.target.value)}
-                  className={styles.input}
-                  placeholder={tAuth("phoneOrEmail")}
-                  autoComplete="username"
-                />
-              </div>
+            <div className={styles.formIsland}>
+              <form className={styles.form} onSubmit={handleSubmit} noValidate>
+                <div className={styles.formHeading}>
+                  <h1 className={styles.formTitle}>{tAuth("welcomeTitle")}</h1>
+                  <p className={styles.formSubtitle}>{tAuth("welcomeSubtitle")}</p>
+                </div>
 
-              <div className={styles.fieldGroup}>
-                <label className={styles.srOnly} htmlFor="password">
-                  {tAuth("password")}
-                </label>
-                <div className={styles.passwordWrapper}>
+                <div className={styles.fieldGroup}>
+                  <label className={styles.srOnly} htmlFor="identifier">
+                    {tAuth("phoneOrEmail")}
+                  </label>
                   <input
-                    id="password"
-                    type={showPassword ? "text" : "password"}
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
+                    id="identifier"
+                    type="text"
+                    value={identifier}
+                    onChange={(event) => setIdentifier(event.target.value)}
                     className={styles.input}
-                    placeholder={tAuth("passwordPlaceholder")}
-                    autoComplete="current-password"
+                    placeholder={tAuth("phoneOrEmail")}
+                    autoComplete="username"
                   />
-                  <button
-                    type="button"
-                    className={styles.passwordToggle}
-                    onClick={() => setShowPassword((currentValue) => !currentValue)}
-                    aria-label={showPassword ? tAuth("hidePassword") : tAuth("showPassword")}
+                </div>
+
+                <div className={styles.fieldGroup}>
+                  <label className={styles.srOnly} htmlFor="password">
+                    {tAuth("password")}
+                  </label>
+                  <div className={styles.passwordWrapper}>
+                    <input
+                      id="password"
+                      type={showPassword ? "text" : "password"}
+                      value={password}
+                      onChange={(event) => setPassword(event.target.value)}
+                      className={styles.input}
+                      placeholder={tAuth("passwordPlaceholder")}
+                      autoComplete="current-password"
+                    />
+                    <button
+                      type="button"
+                      className={styles.passwordToggle}
+                      onClick={() => setShowPassword((currentValue) => !currentValue)}
+                      aria-label={showPassword ? tAuth("hidePassword") : tAuth("showPassword")}
+                    >
+                      {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                    </button>
+                  </div>
+                </div>
+
+                {feedback ? (
+                  <p
+                    className={cn(
+                      styles.feedback,
+                      feedback.type === "error" ? styles.feedbackError : styles.feedbackSuccess
+                    )}
                   >
-                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                    {feedback.message}
+                  </p>
+                ) : null}
+
+                <div className={styles.submitButtonFrame}>
+                  <button className={styles.submitButton} type="submit">
+                    <LogIn size={18} />
+                    {tAuth("signIn")}
                   </button>
                 </div>
-              </div>
 
-              {feedback ? (
-                <p
-                  className={cn(
-                    styles.feedback,
-                    feedback.type === "error" ? styles.feedbackError : styles.feedbackSuccess
-                  )}
-                >
-                  {feedback.message}
-                </p>
-              ) : null}
+                <p className={styles.confidentialityNotice}>{tAuth("confidentialityNotice")}</p>
 
-              <button className={styles.submitButton} type="submit">
-                {tAuth("signIn")}
-              </button>
-
-              <p className={styles.confidentialityNotice}>{tAuth("confidentialityNotice")}</p>
-
-              <div className={styles.linkRow}>
-                <Link href="/apply" className={styles.secondaryLink}>
-                  {tAuth("createAccount")}
-                </Link>
-                <Link href="/privacy-policy" className={styles.secondaryLink}>
-                  {tAuth("privacyPolicyLink")}
-                </Link>
-              </div>
-            </form>
+                <div className={styles.linkRow}>
+                  <Link href="/apply" className={styles.secondaryLink}>
+                    {tCommon("requestAppointment")}
+                  </Link>
+                  <Link href="/privacy-policy" className={styles.secondaryLink}>
+                    {tAuth("privacyPolicyLink")}
+                  </Link>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </section>

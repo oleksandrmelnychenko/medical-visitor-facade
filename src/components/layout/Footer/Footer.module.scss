@@ -11,6 +11,28 @@
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+.authFooter {
+  background: transparent;
+  color: #6b7280;
+  margin-top: 0;
+}
+
+.authFooterInner {
+  @include container-base;
+  padding-top: 0.65rem;
+  padding-bottom: clamp(1.9rem, 4vw, 2.4rem);
+  display: flex;
+  justify-content: center;
+}
+
+.authFooterText {
+  margin: 0;
+  text-align: center;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+  color: #7a808d;
+}
+
 .container {
   @include container-base;
   padding-top: clamp(3.75rem, 7vw, 5rem);
@@ -88,6 +110,15 @@
 }
 
 @media (max-width: 767px) {
+  .authFooterInner {
+    padding-top: 0.35rem;
+    padding-bottom: 1.45rem;
+  }
+
+  .authFooterText {
+    font-size: 0.76rem;
+  }
+
   .footer {
     border-radius: 32px 32px 0 0;
     margin-top: -32px;

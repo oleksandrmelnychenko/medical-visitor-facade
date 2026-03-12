@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { startTransition, useEffect, useEffectEvent, useRef, useState } from "react";
 import Image from "next/image";
 import { UserPlus, User, ArrowRight } from "lucide-react";
 import { useSearchParams } from "next/navigation";
@@ -8,6 +8,15 @@ import { useTranslations, useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import styles from "./Header.module.scss";
+
+const LANGUAGES = [
+  { code: "de", label: "DE", fullName: "Deutsch" },
+  { code: "en", label: "EN", fullName: "English" },
+  { code: "ru", label: "RU", fullName: "Русский" },
+  { code: "es", label: "ES", fullName: "Español" },
+] as const;
+
+type SupportedLocale = (typeof LANGUAGES)[number]["code"];
 
 export function Header() {
   const tCommon = useTranslations("common");
@@ -20,45 +29,62 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const headerRef = useRef<HTMLDivElement>(null);
   const langRef = useRef<HTMLDivElement>(null);
   const stickyLangRef = useRef<HTMLDivElement>(null);
 
+  const handleScroll = useEffectEvent(() => {
+    setIsScrolled(window.scrollY > 150);
+  });
+
+  const handleClickOutside = useEffectEvent((event: MouseEvent) => {
+    const clickedOutsideDesktopLang =
+      langRef.current && !langRef.current.contains(event.target as Node);
+    const clickedOutsideStickyLang =
+      stickyLangRef.current && !stickyLangRef.current.contains(event.target as Node);
+
+    if (clickedOutsideDesktopLang && clickedOutsideStickyLang) {
+      setIsLangOpen(false);
+    }
+  });
+
+  const handleResize = useEffectEvent(() => {
+    if (window.innerWidth > 768) {
+      setIsMobileMenuOpen(false);
+    }
+  });
+
   useEffect(() => {
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 150);
-          ticking = false;
-        });
-        ticking = true;
+    let frameId: number | null = null;
+    const onScroll = () => {
+      if (frameId !== null) {
+        return;
       }
+
+      frameId = window.requestAnimationFrame(() => {
+        frameId = null;
+        handleScroll();
+      });
     };
 
-    const handleClickOutside = (event: MouseEvent) => {
-      const clickedOutsideDesktopLang = langRef.current && !langRef.current.contains(event.target as Node);
-      const clickedOutsideStickyLang = stickyLangRef.current && !stickyLangRef.current.contains(event.target as Node);
-
-      if (clickedOutsideDesktopLang && clickedOutsideStickyLang) {
-        setIsLangOpen(false);
-      }
+    const onResize = () => {
+      handleResize();
     };
 
-    const handleResize = () => {
-      if (window.innerWidth > 768) {
-        setIsMobileMenuOpen(false);
-      }
+    const onMouseDown = (event: MouseEvent) => {
+      handleClickOutside(event);
     };
 
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    document.addEventListener('mousedown', handleClickOutside);
+    window.addEventListener("resize", onResize);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    document.addEventListener("mousedown", onMouseDown);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('mousedown', handleClickOutside);
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId);
+      }
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("mousedown", onMouseDown);
     };
   }, []);
 
@@ -73,32 +99,33 @@ export function Header() {
     };
   }, [isMobileMenuOpen]);
 
-  const languages = useMemo(() => [
-    { code: 'de' as const, label: 'DE', fullName: 'Deutsch' },
-    { code: 'en' as const, label: 'EN', fullName: 'English' },
-    { code: 'ru' as const, label: 'RU', fullName: 'Русский' },
-    { code: 'es' as const, label: 'ES', fullName: 'Español' },
-  ], []);
+  const currentLanguage = LANGUAGES.find((language) => language.code === locale) ?? LANGUAGES[1];
 
-  const currentLanguage = useMemo(
-    () => languages.find(lang => lang.code === locale),
-    [languages, locale]
-  );
-
-  const currentPathWithSearch = searchParams.size
-    ? `${pathname}?${searchParams.toString()}`
+  const currentSearch = searchParams.toString();
+  const currentPathWithSearch = currentSearch
+    ? `${pathname}?${currentSearch}`
     : pathname;
   const showHomeLogin = pathname === "/";
+  const showStickyLogin = pathname !== "/login";
+  const hideHeader = pathname === "/login";
 
-  const handleLanguageSelect = (code: 'de' | 'en' | 'ru' | 'es') => {
-    router.replace(currentPathWithSearch, { locale: code });
+  if (hideHeader) {
+    return null;
+  }
+
+  const handleLanguageSelect = (code: SupportedLocale) => {
+    startTransition(() => {
+      router.replace(currentPathWithSearch, { locale: code });
+    });
     setIsLangOpen(false);
   };
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
-  const handleMobileLanguageSelect = (code: 'de' | 'en' | 'ru' | 'es') => {
-    router.replace(currentPathWithSearch, { locale: code });
+  const handleMobileLanguageSelect = (code: SupportedLocale) => {
+    startTransition(() => {
+      router.replace(currentPathWithSearch, { locale: code });
+    });
     setIsLangOpen(false);
     closeMobileMenu();
   };
@@ -118,7 +145,7 @@ export function Header() {
             <span className={styles.stickyLogoTagline}>{tFooter.rich('companyName', { accent: (chunks) => <span className={styles.logoAccent}>{chunks}</span> })}</span>
           </Link>
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             className={cn(styles.stickyMobileMenuButton, isMobileMenuOpen && styles.menuButtonOpen)}
           >
@@ -132,20 +159,20 @@ export function Header() {
             </span>
           </button>
           <div className={styles.stickyActions}>
-            {showHomeLogin && (
+            <Link href="/apply" prefetch={false} className={styles.stickyButton}>
+              {tCommon('requestAppointment')}
+              <ArrowRight size={16} />
+            </Link>
+            {showStickyLogin && (
               <Link href="/login" prefetch={false} className={styles.stickyLoginLink}>
                 <User size={16} />
                 <span>{tCommon("login")}</span>
               </Link>
             )}
-            <Link href="/apply" prefetch={false} className={styles.stickyButton}>
-              {tCommon('requestAppointment')}
-              <ArrowRight size={16} />
-            </Link>
             <div className={styles.languageSelector} ref={stickyLangRef}>
               <button
                 className={styles.stickyLangToggle}
-                onClick={() => setIsLangOpen(!isLangOpen)}
+                onClick={() => setIsLangOpen((open) => !open)}
                 aria-label={tCommon('selectLanguage')}
                 aria-expanded={isLangOpen}
               >
@@ -153,7 +180,7 @@ export function Header() {
               </button>
               {isLangOpen && isScrolled && (
                 <div className={styles.langDropdown}>
-                  {languages.map((language, index) => (
+                  {LANGUAGES.map((language, index) => (
                     <React.Fragment key={language.code}>
                       <button
                         onClick={() => handleLanguageSelect(language.code)}
@@ -161,7 +188,7 @@ export function Header() {
                       >
                         {language.fullName}
                       </button>
-                      {index < languages.length - 1 && <div className={styles.langSeparator} />}
+                      {index < LANGUAGES.length - 1 && <div className={styles.langSeparator} />}
                     </React.Fragment>
                   ))}
                 </div>
@@ -171,7 +198,7 @@ export function Header() {
         </div>
       </div>
 
-      <header ref={headerRef} className={styles.header} style={{ position: 'relative' }}>
+      <header className={styles.header} style={{ position: 'relative' }}>
         <div className={styles.headerRow}>
           <div className={styles.headerLeft} />
 
@@ -197,7 +224,7 @@ export function Header() {
             <div className={styles.languageSelector} ref={langRef}>
               <button
                 className={styles.langToggle}
-                onClick={() => setIsLangOpen(!isLangOpen)}
+                onClick={() => setIsLangOpen((open) => !open)}
                 aria-label={tCommon('selectLanguage')}
                 aria-expanded={isLangOpen}
               >
@@ -205,7 +232,7 @@ export function Header() {
               </button>
               {isLangOpen && (
                 <div className={styles.langDropdown}>
-                  {languages.map((language, index) => (
+                  {LANGUAGES.map((language, index) => (
                     <React.Fragment key={language.code}>
                       <button
                         onClick={() => handleLanguageSelect(language.code)}
@@ -213,7 +240,7 @@ export function Header() {
                       >
                         {language.fullName}
                       </button>
-                      {index < languages.length - 1 && <div className={styles.langSeparator} />}
+                      {index < LANGUAGES.length - 1 && <div className={styles.langSeparator} />}
                     </React.Fragment>
                   ))}
                 </div>
@@ -222,7 +249,7 @@ export function Header() {
           </div>
 
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             className={cn(styles.mobileMenuButton, isMobileMenuOpen && styles.menuButtonOpen)}
           >
@@ -237,75 +264,107 @@ export function Header() {
           </button>
         </div>
 
-      <div
-        className={cn(styles.mobileMenuBackdrop, isMobileMenuOpen && styles.mobileMenuBackdropOpen)}
-        onClick={closeMobileMenu}
-        aria-hidden="true"
-      />
+        <div
+          className={cn(styles.mobileMenuBackdrop, isMobileMenuOpen && styles.mobileMenuBackdropOpen)}
+          onClick={closeMobileMenu}
+          aria-hidden="true"
+        />
 
-      <div
-        className={cn(
-          styles.mobileMenu,
-          isMobileMenuOpen && styles.mobileMenuOpen,
-          isScrolled && styles.mobileMenuWithSticky
-        )}
-      >
-        <div style={{ padding: "2rem 1.5rem", display: "flex", flexDirection: "column", gap: "1.5rem", alignItems: "center", textAlign: "center" }}>
-          <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center" }}>
-            {languages.map((language) => (
-              <button
-                key={language.code}
-                onClick={() => handleMobileLanguageSelect(language.code)}
-                style={{
-                  background: "none",
-                  border: "none",
-                  padding: "0.5rem",
-                  fontSize: "1rem",
-                  fontWeight: locale === language.code ? 600 : 400,
-                  color: "#1a1a1a",
-                  cursor: "pointer"
-                }}
-              >
-                {language.label}
-              </button>
-            ))}
-          </div>
-
-          <Link
-            href="/apply"
-            prefetch={false}
-            onClick={closeMobileMenu}
-            className={styles.mobileApplyButton}
+        <div
+          className={cn(
+            styles.mobileMenu,
+            isMobileMenuOpen && styles.mobileMenuOpen,
+            isScrolled && styles.mobileMenuWithSticky
+          )}
+        >
+          <div
+            style={{
+              padding: "2rem 1.5rem",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1.5rem",
+              alignItems: "center",
+              textAlign: "center",
+            }}
           >
-            <UserPlus size={16} />
-            {tCommon('requestAppointment')}
-          </Link>
+            <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center" }}>
+              {LANGUAGES.map((language) => (
+                <button
+                  key={language.code}
+                  onClick={() => handleMobileLanguageSelect(language.code)}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    padding: "0.5rem",
+                    fontSize: "1rem",
+                    fontWeight: locale === language.code ? 600 : 400,
+                    color: "#1a1a1a",
+                    cursor: "pointer",
+                  }}
+                >
+                  {language.label}
+                </button>
+              ))}
+            </div>
 
-          {showHomeLogin && (
             <Link
-              href="/login"
+              href="/apply"
               prefetch={false}
               onClick={closeMobileMenu}
-              className={styles.mobileFooterLink}
+              className={styles.mobileApplyButton}
             >
-              {tCommon("login")}
+              <UserPlus size={16} />
+              {tCommon("requestAppointment")}
             </Link>
-          )}
 
-          <div className={styles.mobileFooterLinks}>
-            <div className={styles.mobileFooterTitle}>{tFooter("theAgency")}</div>
-            <Link href="/financial-assistance" onClick={closeMobileMenu} className={styles.mobileFooterLink}>{tFooter('financialAssistance')}</Link>
-            <Link href="/privacy-policy" onClick={closeMobileMenu} className={styles.mobileFooterLink}>{tFooter('privacyPolicy')}</Link>
-            <Link href="/legal-notice" onClick={closeMobileMenu} className={styles.mobileFooterLink}>{tFooter('impressum')}</Link>
+            {showHomeLogin && (
+              <Link
+                href="/login"
+                prefetch={false}
+                onClick={closeMobileMenu}
+                className={styles.mobileFooterLink}
+              >
+                {tCommon("login")}
+              </Link>
+            )}
+
+            <div className={styles.mobileFooterLinks}>
+              <div className={styles.mobileFooterTitle}>{tFooter("theAgency")}</div>
+              <Link
+                href="/financial-assistance"
+                onClick={closeMobileMenu}
+                className={styles.mobileFooterLink}
+              >
+                {tFooter("financialAssistance")}
+              </Link>
+              <Link
+                href="/privacy-policy"
+                onClick={closeMobileMenu}
+                className={styles.mobileFooterLink}
+              >
+                {tFooter("privacyPolicy")}
+              </Link>
+              <Link
+                href="/legal-notice"
+                onClick={closeMobileMenu}
+                className={styles.mobileFooterLink}
+              >
+                {tFooter("impressum")}
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
 
-      {showHomeLogin && !isMobileMenuOpen && (
-        <Link href="/login" prefetch={false} className={styles.mobileLoginFab} aria-label={tCommon("login")}>
-          <User size={24} />
-        </Link>
-      )}
+        {showHomeLogin && !isMobileMenuOpen && (
+          <Link
+            href="/login"
+            prefetch={false}
+            className={styles.mobileLoginFab}
+            aria-label={tCommon("login")}
+          >
+            <User size={24} />
+          </Link>
+        )}
       </header>
     </>
   );

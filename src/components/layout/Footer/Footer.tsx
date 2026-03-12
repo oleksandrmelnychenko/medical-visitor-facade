@@ -1,13 +1,29 @@
-import { Link } from "@/i18n/navigation";
-import { getTranslations } from "next-intl/server";
+"use client";
+
+import { Link, usePathname } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import styles from "./Footer.module.scss";
 
 type FooterProps = {
   locale: string;
 };
 
-export async function Footer({ locale }: FooterProps) {
-  const t = await getTranslations({ locale, namespace: "footer" });
+export function Footer({ locale }: FooterProps) {
+  const t = useTranslations("footer");
+  const pathname = usePathname();
+  const isAuthPage = pathname === "/login";
+
+  if (isAuthPage) {
+    return (
+      <footer className={styles.authFooter}>
+        <div className={styles.authFooterInner}>
+          <p className={styles.authFooterText}>
+            {t("copyright", { year: 2026 })}. {t("allRightsReserved")}
+          </p>
+        </div>
+      </footer>
+    );
+  }
 
   return (
     <footer className={styles.footer}>
