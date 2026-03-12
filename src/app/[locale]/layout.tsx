@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { ScrollProgressRail } from "@/components/layout/ScrollProgressRail";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 
 type Props = {
@@ -27,7 +26,6 @@ export default async function LocaleLayout({ children, params }: Props) {
       <Header />
       {children}
       <Footer locale={locale} />
-      <ScrollProgressRail />
       <CookieConsent />
     </NextIntlClientProvider>
   );

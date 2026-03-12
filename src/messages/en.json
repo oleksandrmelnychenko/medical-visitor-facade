@@ -269,8 +269,8 @@
         "outsideEu": "I live outside the EU"
       },
       "becomeMember": {
-        "title": "Is this request for yourself?",
-        "yes": "Yes, I am requesting for myself",
+        "title": "Do you want to become a member?",
+        "yes": "Yes, I want to become a member",
         "no": "No, I am requesting for someone else"
       },
       "healthIntro": {
@@ -367,12 +367,23 @@
       "services": {
         "title": "Will you need any of the following services during your stay in Germany? (Select all that apply):",
         "driver": "Personal driver and transfer services",
+        "driverLearnMore": "Learn more about our transfer services",
+        "driverDetails": "Private airport, clinic, and hotel transfers with coordinated timing and a dedicated driver throughout your care journey.",
         "concierge": "Concierge services (bookings, leisure)",
+        "conciergeLearnMore": "Learn more about our concierge services",
+        "conciergeDetails": "Hands-on support with accommodation, bookings, day-to-day arrangements, and practical coordination during your stay.",
         "medicalTransport": "Ground medical transport",
+        "medicalTransportLearnMore": "Learn more about our medical transport services",
+        "medicalTransportDetails": "Medically supervised ground transport for patients who require more support than a standard transfer can provide.",
         "airAmbulance": "Air Ambulance",
+        "airAmbulanceLearnMore": "Learn more about our medical aviation services",
+        "airAmbulanceDetails": "Air ambulance coordination for higher-acuity cases that require medical staff and equipment during transport.",
         "businessAviation": "Business Aviation / Private Jet",
+        "businessAviationLearnMore": "Learn more about our business aviation services",
+        "businessAviationDetails": "Private aviation support for time-sensitive travel that requires flexibility, privacy, and tailored logistics.",
         "none": "None of the above",
-        "notSure": "I'm not sure yet"
+        "notSure": "I'm not sure yet",
+        "showLess": "Show less"
       },
       "insuranceIntro": {
         "title": "Next, we'd like to ask about your insurance",
@@ -429,6 +440,42 @@
         "successMessage": "Our coordination team will review your details and contact you within 3 business days.",
         "backToHome": "Back to Home",
         "startOver": "Start new request"
+      },
+      "reviewSummary": {
+        "title": "Request summary",
+        "eligibility": "Eligibility",
+        "patient": "Patient",
+        "contact": "Contact",
+        "request": "Request details",
+        "membership": "Membership",
+        "location": "Location",
+        "travel": "Travel to Germany",
+        "records": "Medical records",
+        "recordsLanguage": "Records in German or English",
+        "travelDocuments": "Travel documents",
+        "name": "Name",
+        "dateOfBirth": "Date of birth",
+        "legalSex": "Legal sex",
+        "interpreter": "Interpreter",
+        "primaryLanguage": "Primary language",
+        "phone": "Phone",
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "services": "Support services",
+        "address": "Home address",
+        "primaryConcern": "Primary concern",
+        "healthRisk": "Travel health risk",
+        "currentTreatment": "Current treatment",
+        "additionalConcerns": "Additional concerns",
+        "insurance": "Health insurance",
+        "insuranceCoverage": "Coverage in Germany",
+        "preferredLocation": "Preferred location",
+        "visitTiming": "Visit timing",
+        "message": "Additional notes",
+        "yes": "Yes",
+        "no": "No",
+        "notProvided": "Not provided",
+        "notSure": "Not sure"
       }
     },
     "returningPatient": {

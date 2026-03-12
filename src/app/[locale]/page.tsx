@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/home/Hero";
 import { FullSupport } from "@/components/sections/home/FullSupport";
 import { CareForward } from "@/components/sections/home/CareForward";
 import { Office } from "@/components/sections/home/Office";
+import { ScrollProgressRail } from "@/components/layout/ScrollProgressRail";
 import {
   getAlternateLanguages,
   getLocalizedMessage,
@@ -16,9 +17,11 @@ type HomePageProps = {
 export async function generateMetadata({ params }: HomePageProps): Promise<Metadata> {
   const { locale } = await params;
   const safeLocale = normalizeLanguage(locale);
-  const title = await getLocalizedMessage(safeLocale, "home.hero.title");
-  const heroSubtitle = await getLocalizedMessage(safeLocale, "home.hero.subtitle");
-  const careSubtitle = await getLocalizedMessage(safeLocale, "home.careForward.subtitle");
+  const [title, heroSubtitle, careSubtitle] = await Promise.all([
+    getLocalizedMessage(safeLocale, "home.hero.title"),
+    getLocalizedMessage(safeLocale, "home.hero.subtitle"),
+    getLocalizedMessage(safeLocale, "home.careForward.subtitle"),
+  ]);
 
   return {
     title,
@@ -34,6 +37,7 @@ export default function Home() {
       <FullSupport />
       <CareForward />
       <Office />
+      <ScrollProgressRail />
     </>
   );
 }

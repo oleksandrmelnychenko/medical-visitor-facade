@@ -181,12 +181,15 @@
 }
 
 .orbitWrapper {
+  --tile-gap: 0.9rem;
   position: relative;
   max-width: 980px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.15rem;
+  display: block;
+
+  @include up(md) {
+    --tile-gap: 1.2rem;
+  }
 }
 
 // Bento grid layout
@@ -195,16 +198,12 @@
   z-index: 1;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.9rem;
+  gap: var(--tile-gap);
 
   @include up(md) {
     grid-template-columns: repeat(6, minmax(0, 1fr));
     grid-template-rows: auto auto auto;
-    gap: 1.1rem;
-  }
-
-  @include up(md) {
-    gap: 1.2rem;
+    align-items: stretch;
   }
 }
 
@@ -226,6 +225,7 @@
   border: 1px solid var(--border-card);
   border-radius: 1rem 1.4rem 1rem 1.25rem;
   transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  min-height: clamp(13.75rem, 20vw, 15.25rem);
 
   @include up(md) {
     grid-column: span 3;
@@ -297,16 +297,6 @@
   }
 }
 
-// Large tile spans 2 rows
-.serviceItemLarge {
-  @include up(md) {
-    grid-column: 3 / span 2;
-    grid-row: 1 / span 2;
-    border-radius: 1.4rem 1rem 1.5rem 1rem;
-    transform: translateY(12px);
-  }
-}
-
 .serviceItem:nth-child(1) {
   --divider-start: rgba(138, 149, 169, 0.42);
   --divider-end: rgba(138, 149, 169, 0.14);
@@ -319,6 +309,11 @@
 .serviceItem:nth-child(2) {
   --divider-start: rgba(138, 149, 169, 0.42);
   --divider-end: rgba(138, 149, 169, 0.14);
+
+  @include up(md) {
+    grid-column: 3 / span 2;
+    border-radius: 1.4rem 1rem 1.5rem 1rem;
+  }
 }
 
 .serviceItem:nth-child(3) {
@@ -341,7 +336,6 @@
 .serviceItem:nth-child(5) {
   @include up(md) {
     grid-column: 4 / span 3;
-    transform: translateY(-8px);
     border-radius: 1.15rem 1.55rem 1rem 1.2rem;
   }
 }
@@ -434,11 +428,11 @@
 
 .digitalProfileCard {
   position: relative;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 1rem;
-  align-items: start;
-  padding: clamp(1.15rem, 1.8vw, 1.55rem) clamp(1.2rem, 2.1vw, 1.65rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding: clamp(1.5rem, 2vw, 1.9rem);
   --card-tint: #f7f8fb;
   border-radius: 1.05rem 1.45rem 1rem 1.3rem;
   border: 1px solid var(--border-card);
@@ -467,15 +461,17 @@
   }
 
   @media (max-width: 639px) {
-    grid-template-columns: 1fr;
-    gap: 0.85rem;
-    padding: 1.1rem;
+    padding: 1.35rem;
     border-radius: 1rem;
+  }
+
+  @include up(md) {
+    grid-column: 1 / -1;
   }
 }
 
 .digitalProfileIcon {
-  margin-bottom: 0;
+  margin-bottom: 1.25rem;
   width: 3.1rem;
   height: 3.1rem;
   border-radius: 0.75rem;
@@ -501,7 +497,7 @@
 
 .digitalProfileBody {
   position: relative;
-  max-width: 38rem;
+  max-width: 52rem;
 }
 
 .digitalProfileTitle {

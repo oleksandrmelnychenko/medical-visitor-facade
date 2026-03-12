@@ -16,11 +16,10 @@ export async function generateMetadata({
 }: FinancialAssistanceLayoutProps): Promise<Metadata> {
   const { locale } = await params;
   const safeLocale = normalizeLanguage(locale);
-  const title = await getLocalizedMessage(safeLocale, "appointment.freeService.title");
-  const description = await getLocalizedMessage(
-    safeLocale,
-    "appointment.freeService.description1"
-  );
+  const [title, description] = await Promise.all([
+    getLocalizedMessage(safeLocale, "appointment.freeService.title"),
+    getLocalizedMessage(safeLocale, "appointment.freeService.description1"),
+  ]);
 
   return {
     title,
@@ -35,8 +34,10 @@ export default async function FinancialAssistanceLayout({
 }: FinancialAssistanceLayoutProps) {
   const { locale } = await params;
   const safeLocale = normalizeLanguage(locale);
-  const homeLabel = await getLocalizedMessage(safeLocale, "common.home");
-  const pageTitle = await getLocalizedMessage(safeLocale, "appointment.freeService.title");
+  const [homeLabel, pageTitle] = await Promise.all([
+    getLocalizedMessage(safeLocale, "common.home"),
+    getLocalizedMessage(safeLocale, "appointment.freeService.title"),
+  ]);
 
   return (
     <>

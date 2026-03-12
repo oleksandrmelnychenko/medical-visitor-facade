@@ -6,6 +6,7 @@ import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
 import { sanitizeWizardData, validateWizardSubmission } from '../../flow';
 import { WizardStepLayout } from '../../components/WizardStepLayout';
+import { WizardReviewSummary } from '../../components/WizardReviewSummary';
 import { buildSalesforceBundle, submitSalesforceBundle } from '../../salesforce-bundle';
 import formStyles from '@/components/auth/Auth.module.scss';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
@@ -90,7 +91,9 @@ export function ReviewSubmitStep() {
       onBack={handleBack}
       backLabel={t('back')}
     >
-      <div className={styles.wizardFormContainer}>
+      <div className={`${styles.wizardFormContainer} ${styles.wizardReviewFormContainer}`}>
+        <WizardReviewSummary data={data} />
+
         <div className={styles.wizardConsentList}>
           <label className={formStyles.checkboxLabel}>
             <input

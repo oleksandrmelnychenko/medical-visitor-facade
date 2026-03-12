@@ -14,8 +14,10 @@ type ApplyPageProps = {
 export async function generateMetadata({ params }: ApplyPageProps): Promise<Metadata> {
   const { locale } = await params;
   const safeLocale = normalizeLanguage(locale);
-  const title = await getLocalizedMessage(safeLocale, "appointment.title");
-  const description = await getLocalizedMessage(safeLocale, "appointment.subtitle");
+  const [title, description] = await Promise.all([
+    getLocalizedMessage(safeLocale, "appointment.title"),
+    getLocalizedMessage(safeLocale, "appointment.subtitle"),
+  ]);
 
   return {
     title,
@@ -27,8 +29,10 @@ export async function generateMetadata({ params }: ApplyPageProps): Promise<Meta
 export default async function AppointmentPage({ params }: ApplyPageProps) {
   const { locale } = await params;
   const safeLocale = normalizeLanguage(locale);
-  const homeLabel = await getLocalizedMessage(safeLocale, "common.home");
-  const pageTitle = await getLocalizedMessage(safeLocale, "appointment.title");
+  const [homeLabel, pageTitle] = await Promise.all([
+    getLocalizedMessage(safeLocale, "common.home"),
+    getLocalizedMessage(safeLocale, "appointment.title"),
+  ]);
 
   return (
     <main>

@@ -10,7 +10,7 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://gmed.agency';
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://gmed.agency";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     default: "GMED Agency - Medical Concierge Service",
     template: "%s | GMED Agency",
   },
-  description: "Premium medical concierge service in Germany. Treatment organization, clinic selection, and end-to-end patient support in DE, EN, RU.",
+  description: "Premium medical concierge service in Germany. Treatment organization, clinic selection, and end-to-end patient support in DE, EN, RU, ES.",
   keywords: ["medical tourism", "healthcare Germany", "medical concierge", "patient care", "clinic selection", "medical travel"],
   authors: [{ name: "GMED Agency" }],
   creator: "GMED Agency",
@@ -39,19 +39,19 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: `${baseUrl}/de`,
+    canonical: `${baseUrl}/en`,
     languages: {
-      'de-DE': `${baseUrl}/de`,
-      'en-US': `${baseUrl}/en`,
-      'ru-RU': `${baseUrl}/ru`,
-      'es-ES': `${baseUrl}/es`,
-      'x-default': `${baseUrl}/de`,
+      "de-DE": `${baseUrl}/de`,
+      "en-US": `${baseUrl}/en`,
+      "ru-RU": `${baseUrl}/ru`,
+      "es-ES": `${baseUrl}/es`,
+      "x-default": `${baseUrl}/en`,
     },
   },
   openGraph: {
     type: "website",
-    locale: "de_DE",
-    alternateLocale: ["en_US", "ru_RU", "es_ES"],
+    locale: "en_US",
+    alternateLocale: ["de_DE", "ru_RU", "es_ES"],
     url: baseUrl,
     siteName: "GMED Agency",
     title: "GMED Agency - Medical Concierge Service",

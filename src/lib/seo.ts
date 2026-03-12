@@ -1,4 +1,5 @@
 // SEO helper functions for consistent metadata across pages
+import { cache } from "react";
 
 export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://gmed.agency";
 
@@ -18,7 +19,7 @@ function normalizePath(path: string = "") {
 }
 
 export function normalizeLanguage(locale: string): Language {
-  return languages.includes(locale as Language) ? (locale as Language) : "de";
+  return languages.includes(locale as Language) ? (locale as Language) : "en";
 }
 
 export function getLocalizedPath(locale: Language, path: string = "") {
@@ -29,7 +30,7 @@ export function getLocalizedPath(locale: Language, path: string = "") {
  * Generate alternate language URLs for a given path
  * Uses path-based locale segments (/de/, /en/, etc.)
  */
-export function getAlternateLanguages(path: string = "", currentLocale: Language = "de") {
+export function getAlternateLanguages(path: string = "", currentLocale: Language = "en") {
   const localizedEntries = Object.fromEntries(
     languages.map((locale) => [hreflangMap[locale], getLocalizedPath(locale, path)])
   );
@@ -38,16 +39,16 @@ export function getAlternateLanguages(path: string = "", currentLocale: Language
     canonical: getLocalizedPath(currentLocale, path),
     languages: {
       ...localizedEntries,
-      "x-default": getLocalizedPath("de", path),
+      "x-default": getLocalizedPath("en", path),
     },
   };
 }
 
 type MessageRecord = Record<string, unknown>;
 
-export async function getLocaleMessages(locale: Language): Promise<MessageRecord> {
+export const getLocaleMessages = cache(async (locale: Language): Promise<MessageRecord> => {
   return (await import(`../messages/${locale}.json`)).default as MessageRecord;
-}
+});
 
 function getNestedMessage(messages: MessageRecord, path: string): unknown {
   return path.split(".").reduce<unknown>((value, segment) => {

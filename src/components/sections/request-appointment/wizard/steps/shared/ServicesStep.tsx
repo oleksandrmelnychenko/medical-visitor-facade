@@ -23,6 +23,7 @@ export function ServicesStep() {
   const router = useRouter();
   const { data, updateData } = useWizard();
   const [selected, setSelected] = useState<string[]>(data.services || []);
+  const [expandedInfo, setExpandedInfo] = useState<string | null>(null);
 
   const toggle = useCallback((value: string) => {
     setSelected(prev => {
@@ -49,6 +50,12 @@ export function ServicesStep() {
     );
   }, [data.needsInterpreter, router]);
 
+  const handleToggleDetails = useCallback((event: React.MouseEvent<HTMLButtonElement>, value: string) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setExpandedInfo(prev => (prev === value ? null : value));
+  }, []);
+
   return (
     <WizardStepLayout
       title={t('services.title')}
@@ -57,18 +64,35 @@ export function ServicesStep() {
     >
       <div className={styles.wizardFormContainer}>
         <div className={styles.wizardCheckboxList}>
-          {SERVICE_OPTIONS.map(opt => (
-            <label key={opt.value} className={formStyles.checkboxLabel}>
-              <input
-                type="checkbox"
-                checked={selected.includes(opt.value)}
-                onChange={() => toggle(opt.value)}
-                className={formStyles.checkboxInput}
-              />
-              <span className={formStyles.checkboxCustom} />
-              <span className={formStyles.checkboxText}>{t(`services.${opt.key}`)}</span>
-            </label>
-          ))}
+          {SERVICE_OPTIONS.map(opt => {
+            const isExpanded = expandedInfo === opt.value;
+
+            return (
+              <label key={opt.value} className={formStyles.checkboxLabel}>
+                <input
+                  type="checkbox"
+                  checked={selected.includes(opt.value)}
+                  onChange={() => toggle(opt.value)}
+                  className={formStyles.checkboxInput}
+                />
+                <span className={formStyles.checkboxCustom} />
+                <span className={formStyles.checkboxContent}>
+                  <span className={formStyles.checkboxTitle}>{t(`services.${opt.key}`)}</span>
+                  <button
+                    type="button"
+                    onClick={(event) => handleToggleDetails(event, opt.value)}
+                    className={styles.serviceLearnMoreButton}
+                    aria-expanded={isExpanded}
+                  >
+                    {isExpanded ? t('services.showLess') : t(`services.${opt.key}LearnMore`)}
+                  </button>
+                  {isExpanded ? (
+                    <span className={styles.serviceLearnMoreText}>{t(`services.${opt.key}Details`)}</span>
+                  ) : null}
+                </span>
+              </label>
+            );
+          })}
           <label className={formStyles.checkboxLabel}>
             <input
               type="checkbox"

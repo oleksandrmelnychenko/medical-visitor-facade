@@ -13,7 +13,7 @@ import styles from "./FullSupport.module.scss";
 
 const SERVICES = [
   { icon: Route, key: "support", size: "normal" as const },
-  { icon: CalendarClock, key: "promptness", size: "large" as const },
+  { icon: CalendarClock, key: "promptness", size: "normal" as const },
   { icon: FileCheck2, key: "confidentiality", size: "normal" as const },
   { icon: PlaneTakeoff, key: "noFees", size: "normal" as const, premium: true },
   { icon: Headset, key: "concierge", size: "normal" as const, premium: true },
@@ -72,16 +72,16 @@ export function FullSupport() {
                   <p className={styles.serviceDesc}>{t(`services.${service.key}.desc`)}</p>
                 </div>
               ))}
-            </div>
 
-            <div className={styles.digitalProfileCard}>
-              <div className={cn(styles.serviceIcon, styles.digitalProfileIcon)}>
-                <FolderArchive />
-              </div>
-              <div className={styles.digitalProfileBody}>
-                <h3 className={styles.digitalProfileTitle}>{t("digitalProfile.title")}</h3>
-                <span className={styles.digitalProfileDivider} aria-hidden />
-                <p className={styles.digitalProfileDesc}>{t("digitalProfile.description")}</p>
+              <div className={styles.digitalProfileCard}>
+                <div className={cn(styles.serviceIcon, styles.digitalProfileIcon)}>
+                  <FolderArchive />
+                </div>
+                <div className={styles.digitalProfileBody}>
+                  <h3 className={styles.digitalProfileTitle}>{t("digitalProfile.title")}</h3>
+                  <span className={styles.digitalProfileDivider} aria-hidden />
+                  <p className={styles.digitalProfileDesc}>{t("digitalProfile.description")}</p>
+                </div>
               </div>
             </div>
           </div>

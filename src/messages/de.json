@@ -269,8 +269,8 @@
         "outsideEu": "Außerhalb der EU"
       },
       "becomeMember": {
-        "title": "Erstellen Sie diese Anfrage für sich selbst?",
-        "yes": "Ja, für mich selbst",
+        "title": "Möchten Sie Mitglied werden?",
+        "yes": "Ja, ich möchte Mitglied werden",
         "no": "Nein, ich stelle die Anfrage für eine andere Person"
       },
       "healthIntro": {
@@ -367,12 +367,23 @@
       "services": {
         "title": "Welche der folgenden Premium-Services benötigen Sie während Ihres Aufenthalts? (Mehrfachauswahl möglich):",
         "driver": "Limousinenservice und privater Fahrer",
+        "driverLearnMore": "Mehr über unseren Transfer-Service",
+        "driverDetails": "Individuelle Transfers zwischen Flughafen, Klinik und Unterkunft mit abgestimmten Fahrzeiten und festem Fahrer.",
         "concierge": "Concierge-Services (Hotelbuchungen, Freizeitgestaltung)",
+        "conciergeLearnMore": "Mehr über unseren Concierge-Service",
+        "conciergeDetails": "Unterstützung bei Unterkunft, Buchungen, Alltagsorganisation und der Koordination vor Ort während Ihres Aufenthalts.",
         "medicalTransport": "Bodengebundener medizinischer Transport",
+        "medicalTransportLearnMore": "Mehr über unseren medizinischen Transport",
+        "medicalTransportDetails": "Medizinisch begleiteter Bodentransport, wenn ein regulärer Transfer für den Zustand des Patienten nicht ausreicht.",
         "airAmbulance": "Ambulanzflug (Air Ambulance)",
+        "airAmbulanceLearnMore": "Mehr über unsere medizinische Luftfahrt",
+        "airAmbulanceDetails": "Koordination von Ambulanzflügen für komplexere Fälle mit medizinischem Personal und entsprechender Ausrüstung an Bord.",
         "businessAviation": "Business Jet / Privatflugzeug",
+        "businessAviationLearnMore": "Mehr über unsere Business-Aviation",
+        "businessAviationDetails": "Organisation privater Flüge für zeitkritische Reisen mit hoher Flexibilität, Diskretion und individueller Logistik.",
         "none": "Keinen der genannten Services",
-        "notSure": "Ich bin mir noch nicht sicher"
+        "notSure": "Ich bin mir noch nicht sicher",
+        "showLess": "Weniger anzeigen"
       },
       "insuranceIntro": {
         "title": "Angaben zu Ihrer Krankenversicherung",
@@ -429,6 +440,42 @@
         "successMessage": "Ihre Daten wurden sicher übermittelt. Ihr persönlicher medizinischer Koordinator wird sich innerhalb von 3 Werktagen mit Ihnen in Verbindung setzen.",
         "backToHome": "Zur Startseite",
         "startOver": "Neue Anfrage starten"
+      },
+      "reviewSummary": {
+        "title": "Zusammenfassung Ihrer Anfrage",
+        "eligibility": "Voraussetzungen",
+        "patient": "Patient",
+        "contact": "Kontakt",
+        "request": "Anfragedetails",
+        "membership": "Mitgliedschaft",
+        "location": "Wohnort",
+        "travel": "Reise nach Deutschland",
+        "records": "Medizinische Unterlagen",
+        "recordsLanguage": "Unterlagen auf Deutsch oder Englisch",
+        "travelDocuments": "Reisedokumente",
+        "name": "Name",
+        "dateOfBirth": "Geburtsdatum",
+        "legalSex": "Rechtliches Geschlecht",
+        "interpreter": "Dolmetscher",
+        "primaryLanguage": "Primäre Sprache",
+        "phone": "Telefon",
+        "email": "E-Mail",
+        "whatsapp": "WhatsApp",
+        "services": "Zusatzleistungen",
+        "address": "Wohnadresse",
+        "primaryConcern": "Hauptanliegen",
+        "healthRisk": "Reiserisiko",
+        "currentTreatment": "Aktuelle Behandlung",
+        "additionalConcerns": "Weitere Hinweise",
+        "insurance": "Krankenversicherung",
+        "insuranceCoverage": "Kostenübernahme in Deutschland",
+        "preferredLocation": "Bevorzugter Ort",
+        "visitTiming": "Geplanter Zeitraum",
+        "message": "Zusätzliche Notizen",
+        "yes": "Ja",
+        "no": "Nein",
+        "notProvided": "Nicht angegeben",
+        "notSure": "Nicht sicher"
       }
     },
     "returningPatient": {

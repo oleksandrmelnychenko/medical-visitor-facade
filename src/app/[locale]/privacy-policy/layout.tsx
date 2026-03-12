@@ -16,8 +16,10 @@ export async function generateMetadata({
 }: PrivacyPolicyLayoutProps): Promise<Metadata> {
   const { locale } = await params;
   const safeLocale = normalizeLanguage(locale);
-  const title = await getLocalizedMessage(safeLocale, "privacyPolicy.title");
-  const description = await getLocalizedMessage(safeLocale, "privacyPolicy.intro2");
+  const [title, description] = await Promise.all([
+    getLocalizedMessage(safeLocale, "privacyPolicy.title"),
+    getLocalizedMessage(safeLocale, "privacyPolicy.intro2"),
+  ]);
 
   return {
     title,
@@ -32,8 +34,10 @@ export default async function PrivacyPolicyLayout({
 }: PrivacyPolicyLayoutProps) {
   const { locale } = await params;
   const safeLocale = normalizeLanguage(locale);
-  const homeLabel = await getLocalizedMessage(safeLocale, "common.home");
-  const pageTitle = await getLocalizedMessage(safeLocale, "privacyPolicy.title");
+  const [homeLabel, pageTitle] = await Promise.all([
+    getLocalizedMessage(safeLocale, "common.home"),
+    getLocalizedMessage(safeLocale, "privacyPolicy.title"),
+  ]);
 
   return (
     <>

@@ -2,13 +2,11 @@
 
 import { memo, useEffect, useState, useCallback, useRef } from "react";
 import { cn } from "@/lib/utils";
-import { usePathname } from "@/i18n/navigation";
 import styles from "./ScrollProgressRail.module.scss";
 
 const SECTIONS = ["hero", "fullSupport", "careForward", "office"] as const;
 
 export const ScrollProgressRail = memo(function ScrollProgressRail() {
-  const pathname = usePathname();
   const [activeIndex, setActiveIndex] = useState(0);
   const [visible, setVisible] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -108,10 +106,6 @@ export const ScrollProgressRail = memo(function ScrollProgressRail() {
   }, []);
 
   useEffect(() => {
-    if (pathname !== "/") {
-      return undefined;
-    }
-
     const onScroll = () => {
       if (frameRef.current !== null) {
         return;
@@ -145,11 +139,7 @@ export const ScrollProgressRail = memo(function ScrollProgressRail() {
       window.removeEventListener("resize", onResize);
       window.removeEventListener("load", onResize);
     };
-  }, [handleScroll, pathname, refreshMetrics, refreshTargets]);
-
-  if (pathname !== "/") {
-    return null;
-  }
+  }, [handleScroll, refreshMetrics, refreshTargets]);
 
   const scrollToSection = (index: number) => {
     if (index === 0) {

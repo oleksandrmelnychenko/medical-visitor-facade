@@ -269,8 +269,8 @@
         "outsideEu": "Fuera de la UE"
       },
       "becomeMember": {
-        "title": "¿Esta solicitud es para usted?",
-        "yes": "Sí, es para mí",
+        "title": "¿Desea hacerse miembro?",
+        "yes": "Sí, quiero hacerme miembro",
         "no": "No, es para otra persona"
       },
       "healthIntro": {
@@ -367,12 +367,23 @@
       "services": {
         "title": "¿Cuáles de los siguientes servicios premium necesitará durante su estancia? (Puede seleccionar varios):",
         "driver": "Conductor privado y traslados",
+        "driverLearnMore": "Más información sobre nuestros traslados",
+        "driverDetails": "Traslados privados entre aeropuerto, clínica y alojamiento con horarios coordinados y conductor dedicado.",
         "concierge": "Servicios de conserjería (reservas de hotel, ocio)",
+        "conciergeLearnMore": "Más información sobre nuestro servicio de conserjería",
+        "conciergeDetails": "Apoyo con alojamiento, reservas, necesidades cotidianas y coordinación práctica durante su estancia.",
         "medicalTransport": "Transporte médico terrestre",
+        "medicalTransportLearnMore": "Más información sobre nuestro transporte médico",
+        "medicalTransportDetails": "Transporte terrestre con supervisión médica cuando un traslado estándar no es adecuado para el estado del paciente.",
         "airAmbulance": "Ambulancia aérea (Air Ambulance)",
+        "airAmbulanceLearnMore": "Más información sobre nuestra aviación médica",
+        "airAmbulanceDetails": "Coordinación de ambulancia aérea para casos de mayor complejidad que requieren personal y equipo médico durante el traslado.",
         "businessAviation": "Jet privado / Aviación ejecutiva",
+        "businessAviationLearnMore": "Más información sobre nuestra aviación ejecutiva",
+        "businessAviationDetails": "Organización de vuelos privados para viajes urgentes que requieren flexibilidad, privacidad y logística a medida.",
         "none": "Ninguno de los servicios mencionados",
-        "notSure": "Aún no estoy seguro/a"
+        "notSure": "Aún no estoy seguro/a",
+        "showLess": "Mostrar menos"
       },
       "insuranceIntro": {
         "title": "Información sobre su seguro médico",
@@ -429,6 +440,42 @@
         "successMessage": "Sus datos se han transmitido de forma segura. Su coordinador médico personal se pondrá en contacto con usted en un plazo de 3 días hábiles.",
         "backToHome": "Volver al inicio",
         "startOver": "Iniciar nueva solicitud"
+      },
+      "reviewSummary": {
+        "title": "Resumen de la solicitud",
+        "eligibility": "Elegibilidad",
+        "patient": "Paciente",
+        "contact": "Contacto",
+        "request": "Detalles de la solicitud",
+        "membership": "Membresía",
+        "location": "Lugar de residencia",
+        "travel": "Viaje a Alemania",
+        "records": "Informes médicos",
+        "recordsLanguage": "Informes en alemán o inglés",
+        "travelDocuments": "Documentos de viaje",
+        "name": "Nombre",
+        "dateOfBirth": "Fecha de nacimiento",
+        "legalSex": "Sexo legal",
+        "interpreter": "Intérprete",
+        "primaryLanguage": "Idioma principal",
+        "phone": "Teléfono",
+        "email": "Correo electrónico",
+        "whatsapp": "WhatsApp",
+        "services": "Servicios adicionales",
+        "address": "Dirección",
+        "primaryConcern": "Motivo principal",
+        "healthRisk": "Riesgo para viajar",
+        "currentTreatment": "Tratamiento actual",
+        "additionalConcerns": "Detalles adicionales",
+        "insurance": "Seguro médico",
+        "insuranceCoverage": "Cobertura en Alemania",
+        "preferredLocation": "Ubicación preferida",
+        "visitTiming": "Plazo previsto",
+        "message": "Notas adicionales",
+        "yes": "Sí",
+        "no": "No",
+        "notProvided": "No indicado",
+        "notSure": "No estoy seguro/a"
       }
     },
     "returningPatient": {
