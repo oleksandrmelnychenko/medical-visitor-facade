@@ -27,13 +27,20 @@ export function Header() {
   const searchParams = useSearchParams();
 
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isDesktopLangOpen, setIsDesktopLangOpen] = useState(false);
+  const [isStickyLangOpen, setIsStickyLangOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
   const stickyLangRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = useEffectEvent(() => {
-    setIsScrolled(window.scrollY > 150);
+    const nextScrolled = window.scrollY > 150;
+
+    if (nextScrolled !== isScrolled) {
+      setIsDesktopLangOpen(false);
+      setIsStickyLangOpen(false);
+      setIsScrolled(nextScrolled);
+    }
   });
 
   const handleClickOutside = useEffectEvent((event: MouseEvent) => {
@@ -43,7 +50,8 @@ export function Header() {
       stickyLangRef.current && !stickyLangRef.current.contains(event.target as Node);
 
     if (clickedOutsideDesktopLang && clickedOutsideStickyLang) {
-      setIsLangOpen(false);
+      setIsDesktopLangOpen(false);
+      setIsStickyLangOpen(false);
     }
   });
 
@@ -117,7 +125,8 @@ export function Header() {
     startTransition(() => {
       router.replace(currentPathWithSearch, { locale: code });
     });
-    setIsLangOpen(false);
+    setIsDesktopLangOpen(false);
+    setIsStickyLangOpen(false);
   };
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
@@ -126,7 +135,8 @@ export function Header() {
     startTransition(() => {
       router.replace(currentPathWithSearch, { locale: code });
     });
-    setIsLangOpen(false);
+    setIsDesktopLangOpen(false);
+    setIsStickyLangOpen(false);
     closeMobileMenu();
   };
 
@@ -172,13 +182,16 @@ export function Header() {
             <div className={styles.languageSelector} ref={stickyLangRef}>
               <button
                 className={styles.stickyLangToggle}
-                onClick={() => setIsLangOpen((open) => !open)}
+                onClick={() => {
+                  setIsStickyLangOpen((open) => !open);
+                  setIsDesktopLangOpen(false);
+                }}
                 aria-label={tCommon('selectLanguage')}
-                aria-expanded={isLangOpen}
+                aria-expanded={isStickyLangOpen}
               >
                 {currentLanguage?.label}
               </button>
-              {isLangOpen && isScrolled && (
+              {isStickyLangOpen && isScrolled && (
                 <div className={styles.langDropdown}>
                   {LANGUAGES.map((language, index) => (
                     <React.Fragment key={language.code}>
@@ -224,13 +237,16 @@ export function Header() {
             <div className={styles.languageSelector} ref={langRef}>
               <button
                 className={styles.langToggle}
-                onClick={() => setIsLangOpen((open) => !open)}
+                onClick={() => {
+                  setIsDesktopLangOpen((open) => !open);
+                  setIsStickyLangOpen(false);
+                }}
                 aria-label={tCommon('selectLanguage')}
-                aria-expanded={isLangOpen}
+                aria-expanded={isDesktopLangOpen}
               >
                 {currentLanguage?.label}
               </button>
-              {isLangOpen && (
+              {isDesktopLangOpen && !isScrolled && (
                 <div className={styles.langDropdown}>
                   {LANGUAGES.map((language, index) => (
                     <React.Fragment key={language.code}>
