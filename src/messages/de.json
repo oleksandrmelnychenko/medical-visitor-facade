@@ -248,6 +248,43 @@
         "servicesInsurance": "Dienste & Versicherung",
         "wrapUp": "Abschluss"
       },
+      "pathTree": {
+        "welcome": "Willkommen",
+        "member-check": "Mitgliedschaft",
+        "location": "Standort",
+        "become-member": "Mitglied werden",
+        "outside-travel": "Reisefähigkeit",
+        "outside-records": "Krankenakten",
+        "records-language": "Aktensprache",
+        "outside-documents": "Reisedokumente",
+        "outside-exit-travel": "Kann nicht reisen",
+        "outside-exit-records": "Nicht berechtigt",
+        "health-intro": "Gesundheitsübersicht",
+        "patient-name": "Vollständiger Name",
+        "patient-dob": "Geburtsdatum",
+        "phone": "Kontaktinfo",
+        "whatsapp-consent": "WhatsApp",
+        "email-consent": "E-Mail-Zustimmung",
+        "no-contact-exit": "Kein Kontakt",
+        "legal-sex": "Rechtliches Geschlecht",
+        "interpreter": "Dolmetscher",
+        "primary-language": "Sprache",
+        "services": "Unterstützungsleistungen",
+        "address": "Heimatadresse",
+        "concern-intro": "Med. Anliegen",
+        "primary-concern": "Hauptanliegen",
+        "health-risk": "Gesundheitsrisiko",
+        "current-treatment": "Laufende Behandlung",
+        "additional-concerns": "Zusätzliche Info",
+        "insurance-intro": "Versicherung",
+        "insurance": "Hat Versicherung",
+        "insurance-coverage": "Deckung",
+        "wrap-up-intro": "Abschluss",
+        "preferred-location": "Bevorzugte Stadt",
+        "visit-timing": "Besuchszeitpunkt",
+        "anything-else": "Abschlussnotizen",
+        "review": "Überprüfen & Einreichen"
+      },
       "euProgress": {
         "part1": "Teil 1",
         "part2": "Teil 2",
@@ -347,22 +384,22 @@
         "no": "Nein"
       },
       "exitNoTravelCompanion": {
-        "title": "Vielen Dank. Wir nehmen derzeit nur Mitglieder an, die nach Deutschland reisen können.",
-        "description": "Wenn dieses Mitglied in Zukunft nach Deutschland reisen kann, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
+        "title": "Vielen Dank. Wir nehmen derzeit nur Patienten an, die nach Deutschland reisen können.",
+        "description": "Wenn der Patient in Zukunft nach Deutschland reisen kann, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
         "button": "Anfrage beenden"
       },
       "exitNoTravelPatient": {
-        "title": "Vielen Dank. Wir nehmen derzeit nur Mitglieder an, die nach Deutschland reisen können.",
+        "title": "Vielen Dank. Wir nehmen derzeit nur Patienten an, die nach Deutschland reisen können.",
         "description": "Wenn Sie in Zukunft nach Deutschland reisen können, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
         "button": "Anfrage beenden"
       },
       "exitNoRecordsCompanion": {
-        "title": "Vielen Dank. Wir nehmen derzeit nur Mitglieder an, die ihre medizinischen Unterlagen einreichen können.",
-        "description": "Wenn dieses Mitglied in Zukunft seine Unterlagen einreichen kann, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
+        "title": "Vielen Dank. Wir nehmen derzeit nur Patienten an, die ihre medizinischen Unterlagen einreichen können.",
+        "description": "Wenn der Patient in Zukunft seine medizinischen Unterlagen einreichen kann, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
         "button": "Anfrage beenden"
       },
       "exitNoRecordsPatient": {
-        "title": "Vielen Dank. Wir nehmen derzeit nur Mitglieder an, die ihre medizinischen Unterlagen einreichen können.",
+        "title": "Vielen Dank. Wir nehmen derzeit nur Patienten an, die ihre medizinischen Unterlagen einreichen können.",
         "description": "Wenn Sie in Zukunft Ihre Unterlagen einreichen können, stellen Sie bitte zu diesem Zeitpunkt einen Terminantrag.",
         "button": "Anfrage beenden"
       },
@@ -523,9 +560,16 @@
       },
       "location3": {
         "title": "Wo wohnen Sie?",
+        "subtitle": "Ihr Wohnort bestimmt den Mitgliedschaftsweg, die Reiseprüfung und welche Unterlagen wir zuerst benötigen.",
+        "germanyEyebrow": "Deutschland",
         "germany": "Ich lebe in Deutschland",
+        "germanyDescription": "Sie starten direkt mit dem medizinischen Kernfragebogen und wählen anschließend die gewünschten Unterstützungsleistungen.",
+        "euEyebrow": "Europäische Union",
         "euNotGermany": "Ich lebe in der EU (aber nicht in Deutschland)",
-        "outsideEu": "Ich lebe außerhalb der EU"
+        "euDescription": "Zuerst klären wir den Mitgliedschaftskontext und anschließend die organisatorischen Details zu Reise und Unterlagen.",
+        "outsideEyebrow": "Außerhalb der EU",
+        "outsideEu": "Ich lebe außerhalb der EU",
+        "outsideDescription": "Dieser Weg enthält zusätzliche Schritte zu Reisebereitschaft, Sprache der Unterlagen und erforderlichen Dokumenten."
       },
       "becomeMember": {
         "title": "Möchten Sie Mitglied werden?",

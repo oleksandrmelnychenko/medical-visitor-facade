@@ -248,6 +248,43 @@
         "servicesInsurance": "Servicios y seguro",
         "wrapUp": "Finalizar"
       },
+      "pathTree": {
+        "welcome": "Bienvenido",
+        "member-check": "Membresía",
+        "location": "Ubicación",
+        "become-member": "Hacerse miembro",
+        "outside-travel": "Capacidad de viaje",
+        "outside-records": "Historial médico",
+        "records-language": "Idioma de los documentos",
+        "outside-documents": "Documentos de viaje",
+        "outside-exit-travel": "No puede viajar",
+        "outside-exit-records": "No elegible",
+        "health-intro": "Resumen de salud",
+        "patient-name": "Nombre completo",
+        "patient-dob": "Fecha de nacimiento",
+        "phone": "Información de contacto",
+        "whatsapp-consent": "WhatsApp",
+        "email-consent": "Consentimiento de email",
+        "no-contact-exit": "Sin contacto",
+        "legal-sex": "Sexo legal",
+        "interpreter": "Intérprete",
+        "primary-language": "Idioma",
+        "services": "Servicios de apoyo",
+        "address": "Dirección de casa",
+        "concern-intro": "Preocupación médica",
+        "primary-concern": "Preocupación principal",
+        "health-risk": "Riesgo de salud",
+        "current-treatment": "Tratamiento actual",
+        "additional-concerns": "Información adicional",
+        "insurance-intro": "Seguro",
+        "insurance": "Tiene seguro",
+        "insurance-coverage": "Cobertura",
+        "wrap-up-intro": "Conclusión",
+        "preferred-location": "Ciudad preferida",
+        "visit-timing": "Momento de la visita",
+        "anything-else": "Notas finales",
+        "review": "Revisar y enviar"
+      },
       "euProgress": {
         "part1": "Parte 1",
         "part2": "Parte 2",
@@ -347,23 +384,23 @@
         "no": "No"
       },
       "exitNoTravelCompanion": {
-        "title": "Gracias. Solo aceptamos miembros que pueden viajar a Alemania.",
-        "description": "Si este miembro puede viajar a Alemania en el futuro, solicite una cita en ese momento.",
+        "title": "Gracias. Solo aceptamos pacientes que pueden viajar a Alemania.",
+        "description": "Si el paciente puede viajar a Alemania en el futuro, solicite una cita en ese momento.",
         "button": "Salir de la solicitud"
       },
       "exitNoTravelPatient": {
-        "title": "Gracias. Solo aceptamos miembros que pueden viajar a Alemania.",
+        "title": "Gracias. Solo aceptamos pacientes que pueden viajar a Alemania.",
         "description": "Si puede viajar a Alemania en el futuro, solicite una cita en ese momento.",
         "button": "Salir de la solicitud"
       },
       "exitNoRecordsCompanion": {
-        "title": "Gracias. Solo aceptamos miembros que pueden presentar sus registros médicos.",
-        "description": "Si este miembro puede presentar sus registros en el futuro, solicite una cita en ese momento.",
+        "title": "Gracias. Solo aceptamos pacientes que pueden presentar sus registros médicos.",
+        "description": "Si el paciente puede presentar sus registros médicos en el futuro, solicite una cita en ese momento.",
         "button": "Salir de la solicitud"
       },
       "exitNoRecordsPatient": {
-        "title": "Gracias. Solo aceptamos miembros que pueden presentar sus registros médicos.",
-        "description": "Si puede presentar sus registros en el futuro, solicite una cita en ese momento.",
+        "title": "Gracias. Solo aceptamos pacientes que pueden presentar sus registros médicos.",
+        "description": "Si puede presentar sus registros médicos en el futuro, solicite una cita en ese momento.",
         "button": "Salir de la solicitud"
       },
       "visaHelpCompanion": {
@@ -523,9 +560,16 @@
       },
       "location3": {
         "title": "¿Dónde vive usted?",
+        "subtitle": "Su lugar de residencia define la ruta de membresía, la revisión del viaje y los documentos que necesitamos primero.",
+        "germanyEyebrow": "Alemania",
         "germany": "Vivo en Alemania",
+        "germanyDescription": "Pasará directamente al cuestionario médico principal y luego podrá seleccionar los servicios de apoyo necesarios.",
+        "euEyebrow": "Unión Europea",
         "euNotGermany": "Vivo en la UE (pero no en Alemania)",
-        "outsideEu": "Vivo fuera de la UE"
+        "euDescription": "Primero aclararemos el contexto de la membresía y luego los detalles prácticos del viaje y de los documentos médicos.",
+        "outsideEyebrow": "Fuera de la UE",
+        "outsideEu": "Vivo fuera de la UE",
+        "outsideDescription": "Esta ruta incluye pasos adicionales sobre la preparación para viajar, el idioma de los documentos médicos y los documentos requeridos."
       },
       "becomeMember": {
         "title": "¿Desea hacerse miembro?",

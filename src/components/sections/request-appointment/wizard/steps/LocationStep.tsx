@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useRef } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { Globe2, Landmark, Map } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../WizardContext';
@@ -9,11 +9,26 @@ import { LocationDetailedType } from '../types';
 import { WizardStepLayout } from '../components/WizardStepLayout';
 import styles from '../../RequestAppointment/RequestAppointment.module.scss';
 
-const CARD_STYLES = {
-  germany: { '--hover-color': '#E5D5A8' } as React.CSSProperties,
-  eu: { '--hover-color': '#D5E8D5' } as React.CSSProperties,
-  outside: { '--hover-color': '#A8D5E5' } as React.CSSProperties,
-};
+const LOCATION_OPTIONS = [
+  {
+    value: 'germany' as const,
+    color: '#E5D5A8',
+    icon: Landmark,
+    titleKey: 'germany',
+  },
+  {
+    value: 'eu_not_germany' as const,
+    color: '#D5E8D5',
+    icon: Map,
+    titleKey: 'euNotGermany',
+  },
+  {
+    value: 'outside_eu' as const,
+    color: '#A8D5E5',
+    icon: Globe2,
+    titleKey: 'outsideEu',
+  },
+];
 
 export function LocationStep() {
   const t = useTranslations('appointment.newPatient');
@@ -45,42 +60,34 @@ export function LocationStep() {
   return (
     <WizardStepLayout
       title={t('location3.title')}
+      subtitle={t('location3.subtitle')}
+      contentClassName={styles.locationConceptSurface}
+      innerClassName={styles.locationConceptInner}
       onBack={handleBack}
       backLabel={t('back')}
     >
-      <div className={styles.clientCardsGrid}>
-        <div
-          onClick={() => handleSelect('germany')}
-          className={styles.clientCard}
-          style={CARD_STYLES.germany}
-        >
-          <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>{t('location3.germany')}</h3>
-          </div>
-          <ChevronRight size={24} className={styles.clientCardArrow} />
-        </div>
+      <div className={styles.locationConceptGrid}>
+        {LOCATION_OPTIONS.map((option) => {
+          const Icon = option.icon;
 
-        <div
-          onClick={() => handleSelect('eu_not_germany')}
-          className={styles.clientCard}
-          style={CARD_STYLES.eu}
-        >
-          <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>{t('location3.euNotGermany')}</h3>
-          </div>
-          <ChevronRight size={24} className={styles.clientCardArrow} />
-        </div>
+          return (
+            <button
+              key={option.value}
+              onClick={() => handleSelect(option.value)}
+              className={styles.locationConceptCard}
+              style={{ '--hover-color': option.color } as React.CSSProperties}
+              type="button"
+            >
+              <div className={styles.locationConceptCardHeader}>
+                <div className={styles.locationConceptIcon}>
+                  <Icon />
+                </div>
+              </div>
 
-        <div
-          onClick={() => handleSelect('outside_eu')}
-          className={styles.clientCard}
-          style={CARD_STYLES.outside}
-        >
-          <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>{t('location3.outsideEu')}</h3>
-          </div>
-          <ChevronRight size={24} className={styles.clientCardArrow} />
-        </div>
+              <h3 className={styles.locationConceptTitle}>{t(`location3.${option.titleKey}`)}</h3>
+            </button>
+          );
+        })}
       </div>
     </WizardStepLayout>
   );

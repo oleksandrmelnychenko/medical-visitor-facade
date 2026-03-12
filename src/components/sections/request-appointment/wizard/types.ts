@@ -54,6 +54,8 @@ export interface WizardData {
   // Location & path
   location: LocationType;
   locationDetailed: LocationDetailedType;
+  memberCheckCompleted: boolean;
+  welcomeCompleted: boolean;
   // Member
   wantsMembership: YesNoType;
   // Outside-EU eligibility
@@ -116,6 +118,8 @@ export const PROGRESS_STEPS = [
 export const initialWizardData: WizardData = {
   location: null,
   locationDetailed: null,
+  memberCheckCompleted: false,
+  welcomeCompleted: false,
   wantsMembership: null,
   canTravel: null,
   hasMedicalRecords: null,

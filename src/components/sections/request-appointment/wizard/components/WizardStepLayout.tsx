@@ -6,11 +6,15 @@ import sectionStyles from '@/components/sections/shared/Section.module.scss';
 import pageStyles from '@/styles/page.module.scss';
 import { WizardSidebar } from './WizardSidebar';
 import { EuWizardSidebar } from './EuWizardSidebar';
+import { WizardPathTree } from './WizardPathTree';
 import styles from '../../RequestAppointment/RequestAppointment.module.scss';
 
 interface WizardStepLayoutProps {
   title: string;
   subtitle?: string;
+  subtitleClassName?: string;
+  contentClassName?: string;
+  innerClassName?: string;
   showStepper?: boolean;
   showEuStepper?: boolean;
   activeStepIndex?: number;
@@ -25,6 +29,9 @@ interface WizardStepLayoutProps {
 export function WizardStepLayout({
   title,
   subtitle,
+  subtitleClassName,
+  contentClassName,
+  innerClassName,
   showStepper = false,
   showEuStepper = false,
   activeStepIndex = 0,
@@ -59,7 +66,7 @@ export function WizardStepLayout({
               {title}
             </h1>
             {subtitle && (
-              <p className={cn(styles.wizardHeaderSubtitle, styles.wizardHeaderSubtitleEnter)}>
+              <p className={cn(styles.wizardHeaderSubtitle, styles.wizardHeaderSubtitleEnter, subtitleClassName)}>
                 {subtitle}
               </p>
             )}
@@ -69,33 +76,39 @@ export function WizardStepLayout({
 
       <section className={cn(sectionStyles.section, styles.cardsSection)}>
         <div className={sectionStyles.container}>
-          <div className={cn(styles.locationStepContent, styles.wizardSurface, styles.wizardSurfaceEnter)}>
-            <div className={styles.wizardSurfaceInner}>
-              {children}
+          <div className={styles.wizardPageRow}>
+            <div className={cn(styles.locationStepContent, styles.wizardSurface, styles.wizardSurfaceEnter, contentClassName)}>
+              <div className={cn(styles.wizardSurfaceInner, innerClassName)}>
+                {children}
 
-              {(onBack || onContinue) && (
-                <div className={styles.wizardButtonRow}>
-                  {onBack && (
-                    <button
-                      onClick={onBack}
-                      className={styles.wizardBackBtnHalf}
-                      type="button"
-                    >
-                      {backLabel}
-                    </button>
-                  )}
-                  {onContinue && (
-                    <button
-                      onClick={onContinue}
-                      disabled={continueDisabled}
-                      className={styles.wizardContinueBtnHalf}
-                      type="button"
-                    >
-                      {continueLabel}
-                    </button>
-                  )}
-                </div>
-              )}
+                {(onBack || onContinue) && (
+                  <div className={styles.wizardButtonRow}>
+                    {onBack && (
+                      <button
+                        onClick={onBack}
+                        className={styles.wizardBackBtnHalf}
+                        type="button"
+                      >
+                        {backLabel}
+                      </button>
+                    )}
+                    {onContinue && (
+                      <button
+                        onClick={onContinue}
+                        disabled={continueDisabled}
+                        className={styles.wizardContinueBtnHalf}
+                        type="button"
+                      >
+                        {continueLabel}
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className={styles.wizardTreeCol}>
+              <WizardPathTree />
             </div>
           </div>
         </div>

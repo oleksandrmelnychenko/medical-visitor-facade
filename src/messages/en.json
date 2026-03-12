@@ -248,6 +248,43 @@
         "servicesInsurance": "Services & Insurance",
         "wrapUp": "Wrap Up"
       },
+      "pathTree": {
+        "welcome": "Welcome",
+        "member-check": "Membership",
+        "location": "Location",
+        "become-member": "Join as Member",
+        "outside-travel": "Able to Travel",
+        "outside-records": "Medical Records",
+        "records-language": "Records Language",
+        "outside-documents": "Travel Documents",
+        "outside-exit-travel": "Cannot Travel",
+        "outside-exit-records": "Ineligible",
+        "health-intro": "Health Overview",
+        "patient-name": "Full Name",
+        "patient-dob": "Date of Birth",
+        "phone": "Contact Info",
+        "whatsapp-consent": "WhatsApp",
+        "email-consent": "Email Consent",
+        "no-contact-exit": "No Contact",
+        "legal-sex": "Legal Sex",
+        "interpreter": "Interpreter",
+        "primary-language": "Language",
+        "services": "Support Services",
+        "address": "Home Address",
+        "concern-intro": "Medical Concern",
+        "primary-concern": "Primary Concern",
+        "health-risk": "Health Risk",
+        "current-treatment": "Current Treatment",
+        "additional-concerns": "Additional Info",
+        "insurance-intro": "Insurance",
+        "insurance": "Has Insurance",
+        "insurance-coverage": "Coverage",
+        "wrap-up-intro": "Wrap Up",
+        "preferred-location": "Preferred City",
+        "visit-timing": "Visit Timing",
+        "anything-else": "Final Notes",
+        "review": "Review & Submit"
+      },
       "euProgress": {
         "part1": "Part 1",
         "part2": "Part 2",
@@ -347,21 +384,23 @@
         "no": "No"
       },
       "exitNoTravelCompanion": {
-        "title": "Thank you. We are only accepting members who are able to travel to Germany.",
+        "title": "Thank you. We are only accepting patients who are able to travel to Germany.",
+        "description": "If the patient is able to travel to Germany in the future please request an appointment at that time.",
         "button": "Exit the request"
       },
       "exitNoTravelPatient": {
-        "title": "Thank you. We are only accepting members who are able to travel to Germany.",
+        "title": "Thank you. We are only accepting patients who are able to travel to Germany.",
+        "description": "If you are able to travel to Germany in the future please request an appointment at that time.",
         "button": "Exit the request"
       },
       "exitNoRecordsCompanion": {
-        "title": "Thank you. We are only accepting members who are able to submit their medical records.",
-        "description": "Medical records help our specialists provide the best possible care for the member's needs.",
+        "title": "Thank you. We are only accepting patients who are able to submit their medical records.",
+        "description": "If the patient is able to submit medical records in the future please request an appointment at that time.",
         "button": "Exit the request"
       },
       "exitNoRecordsPatient": {
-        "title": "Thank you. We are only accepting members who are able to submit their medical records.",
-        "description": "Medical records help our specialists provide the best possible care for your needs.",
+        "title": "Thank you. We are only accepting patients who are able to submit their medical records.",
+        "description": "If you are able to submit medical records in the future please request an appointment at that time.",
         "button": "Exit the request"
       },
       "visaHelpCompanion": {
@@ -520,9 +559,16 @@
       },
       "location3": {
         "title": "Where do you live?",
+        "subtitle": "Your location defines the membership path, travel review, and supporting documents we need first.",
+        "germanyEyebrow": "Germany",
         "germany": "I live in Germany",
+        "germanyDescription": "Start directly with the core health questionnaire and choose the support services you may need.",
+        "euEyebrow": "European Union",
         "euNotGermany": "I live in the EU (but not in Germany)",
-        "outsideEu": "I live outside of the EU"
+        "euDescription": "We will first confirm membership context and the practical details for travel and medical records.",
+        "outsideEyebrow": "Outside the EU",
+        "outsideEu": "I live outside of the EU",
+        "outsideDescription": "This route includes extra checks for travel readiness, records language, and required documents."
       },
       "becomeMember": {
         "title": "Do you want to become a member?",

@@ -5,36 +5,18 @@ import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
 import { WizardStepLayout } from '../../components/WizardStepLayout';
+import { COUNTRY_CODES, splitInternationalPhoneNumber } from '../../contact-phone';
 import formStyles from '@/components/auth/Auth.module.scss';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
-
-const COUNTRY_CODES = [
-  { code: '+49', country: 'Germany' },
-  { code: '+1', country: 'United States' },
-  { code: '+44', country: 'United Kingdom' },
-  { code: '+33', country: 'France' },
-  { code: '+39', country: 'Italy' },
-  { code: '+34', country: 'Spain' },
-  { code: '+31', country: 'Netherlands' },
-  { code: '+41', country: 'Switzerland' },
-  { code: '+43', country: 'Austria' },
-  { code: '+48', country: 'Poland' },
-  { code: '+380', country: 'Ukraine' },
-  { code: '+7', country: 'Russia' },
-  { code: '+86', country: 'China' },
-  { code: '+81', country: 'Japan' },
-  { code: '+91', country: 'India' },
-  { code: '+55', country: 'Brazil' },
-  { code: '+61', country: 'Australia' },
-];
 
 export function PhoneStep() {
   const t = useTranslations('appointment.newPatient');
   const router = useRouter();
   const { data, updateData } = useWizard();
-  const [phone, setPhone] = useState(data.phones[0]?.number ?? '');
+  const initialPhone = splitInternationalPhoneNumber(data.phones[0]?.number);
+  const [phone, setPhone] = useState(initialPhone.nationalNumber);
   const [email, setEmail] = useState(data.email || '');
-  const [countryCode, setCountryCode] = useState('+49');
+  const [countryCode, setCountryCode] = useState(initialPhone.countryCode);
 
   const handleContinue = useCallback(() => {
     if (!phone || !email) return;

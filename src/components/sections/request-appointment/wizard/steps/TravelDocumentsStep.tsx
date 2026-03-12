@@ -24,7 +24,11 @@ export function TravelDocumentsStep() {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
     updateData({ hasTravelDocuments: value });
-    router.push('/apply?type=new&step=health-intro');
+    router.push(
+      value === 'yes'
+        ? '/apply?type=new&step=health-intro'
+        : '/apply?type=new&step=outside-exit-travel'
+    );
   }, [updateData, router]);
 
   const handleBack = useCallback(() => {

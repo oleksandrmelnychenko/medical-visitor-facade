@@ -20,7 +20,7 @@ export function AdditionalConcernsStep() {
   }, [additional, updateData, router]);
 
   const handleBack = useCallback(() => {
-    router.push('/apply?type=new&step=primary-concern');
+    router.push('/apply?type=new&step=current-treatment');
   }, [router]);
 
   return (

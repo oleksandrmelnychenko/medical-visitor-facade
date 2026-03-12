@@ -25,7 +25,7 @@ export function MedicalRecordsStep() {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
     updateData({ hasMedicalRecords: value });
-    if (value === 'yes' || value === 'none') {
+    if (value === 'yes') {
       router.push('/apply?type=new&step=records-language');
     } else {
       router.push('/apply?type=new&step=outside-exit-records');

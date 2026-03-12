@@ -17,8 +17,7 @@ export function Hero() {
           muted
           loop
           playsInline
-          preload="metadata"
-          poster="/assets/hero-sketch-temple.png"
+          preload="auto"
           aria-hidden="true"
         >
           <source src="/assets/hero_hd.mp4" type="video/mp4" />

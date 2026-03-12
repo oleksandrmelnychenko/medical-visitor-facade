@@ -4,15 +4,21 @@ import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
+import { useWizard } from '../WizardContext';
 import { WizardStepLayout } from '../components/WizardStepLayout';
 import styles from '../../RequestAppointment/RequestAppointment.module.scss';
 
 export function ExitNoTravelStep() {
   const t = useTranslations('appointment.newPatient');
   const router = useRouter();
+  const { data } = useWizard();
 
   const handleBack = () => {
-    router.push('/apply?type=new&step=outside-travel');
+    router.push(
+      data.hasTravelDocuments === 'no'
+        ? '/apply?type=new&step=outside-documents'
+        : '/apply?type=new&step=outside-travel'
+    );
   };
 
   const handleExit = () => {
@@ -28,6 +34,7 @@ export function ExitNoTravelStep() {
       backLabel={t('back')}
     >
       <div className={styles.clientCardsGrid}>
+        <p className={styles.wizardDescription}>{t('exitNoTravelPatient.description')}</p>
         <div
           onClick={handleExit}
           className={styles.clientCard}

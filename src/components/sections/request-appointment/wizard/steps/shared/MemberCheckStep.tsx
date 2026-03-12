@@ -4,6 +4,7 @@ import React, { useCallback, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
+import { useWizard } from '../../WizardContext';
 import { WizardStepLayout } from '../../components/WizardStepLayout';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
 
@@ -15,6 +16,7 @@ const CARD_STYLES = {
 export function MemberCheckStep() {
   const t = useTranslations('appointment.newPatient');
   const router = useRouter();
+  const { updateData } = useWizard();
   const isNavigatingRef = useRef(false);
 
   const handleMember = useCallback(() => {
@@ -26,8 +28,9 @@ export function MemberCheckStep() {
   const handleNotMember = useCallback(() => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
+    updateData({ memberCheckCompleted: true });
     router.push('/apply?type=new&step=welcome');
-  }, [router]);
+  }, [router, updateData]);
 
   const handleBack = useCallback(() => {
     if (isNavigatingRef.current) return;

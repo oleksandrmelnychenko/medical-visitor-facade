@@ -6,28 +6,9 @@ import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
 import { WizardStepLayout } from '../../components/WizardStepLayout';
+import { COUNTRY_CODES, splitInternationalPhoneNumber } from '../../contact-phone';
 import formStyles from '@/components/auth/Auth.module.scss';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
-
-const COUNTRY_CODES = [
-  { code: '+49', country: 'Germany' },
-  { code: '+1', country: 'United States' },
-  { code: '+44', country: 'United Kingdom' },
-  { code: '+33', country: 'France' },
-  { code: '+39', country: 'Italy' },
-  { code: '+34', country: 'Spain' },
-  { code: '+31', country: 'Netherlands' },
-  { code: '+41', country: 'Switzerland' },
-  { code: '+43', country: 'Austria' },
-  { code: '+48', country: 'Poland' },
-  { code: '+380', country: 'Ukraine' },
-  { code: '+7', country: 'Russia' },
-  { code: '+86', country: 'China' },
-  { code: '+81', country: 'Japan' },
-  { code: '+91', country: 'India' },
-  { code: '+55', country: 'Brazil' },
-  { code: '+61', country: 'Australia' },
-];
 
 const CARD_STYLES = {
   yes: { '--hover-color': '#E5D5A8' } as React.CSSProperties,
@@ -38,11 +19,12 @@ export function WhatsAppConsentStep() {
   const t = useTranslations('appointment.newPatient');
   const router = useRouter();
   const { data, updateData } = useWizard();
+  const initialWhatsApp = splitInternationalPhoneNumber(data.whatsappNumber);
   const [consent, setConsent] = useState<'yes' | 'no' | null>(
     data.whatsappConsent === null ? null : data.whatsappConsent ? 'yes' : 'no'
   );
-  const [number, setNumber] = useState('');
-  const [countryCode, setCountryCode] = useState('+49');
+  const [number, setNumber] = useState(initialWhatsApp.nationalNumber);
+  const [countryCode, setCountryCode] = useState(initialWhatsApp.countryCode);
   const isNavigatingRef = useRef(false);
 
   const handleYes = useCallback(() => {
