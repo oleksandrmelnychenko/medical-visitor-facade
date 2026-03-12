@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useRef } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, UserRoundCheck, UserRoundPlus } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
@@ -41,28 +41,44 @@ export function MemberCheckStep() {
   return (
     <WizardStepLayout
       title={t('memberCheck.title')}
+      contentClassName={styles.selectionSurfacePlain}
+      innerClassName={styles.memberCheckInner}
       onBack={handleBack}
       backLabel={t('back')}
     >
       <div className={styles.clientCardsGrid}>
         <div
           onClick={handleMember}
-          className={styles.clientCard}
+          className={`${styles.clientCard} ${styles.memberCheckCard}`}
           style={CARD_STYLES.member}
         >
           <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>{t('memberCheck.isMember')}</h3>
+            <div className={styles.memberCheckLead}>
+              <span className={styles.memberCheckIcon} aria-hidden="true">
+                <UserRoundCheck />
+              </span>
+              <h3 className={`${styles.clientCardTitle} ${styles.memberCheckCardTitle}`}>
+                {t('memberCheck.isMember')}
+              </h3>
+            </div>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
         </div>
 
         <div
           onClick={handleNotMember}
-          className={styles.clientCard}
+          className={`${styles.clientCard} ${styles.memberCheckCard}`}
           style={CARD_STYLES.notMember}
         >
           <div className={styles.clientCardContent}>
-            <h3 className={styles.clientCardTitle}>{t('memberCheck.notMember')}</h3>
+            <div className={styles.memberCheckLead}>
+              <span className={styles.memberCheckIcon} aria-hidden="true">
+                <UserRoundPlus />
+              </span>
+              <h3 className={`${styles.clientCardTitle} ${styles.memberCheckCardTitle}`}>
+                {t('memberCheck.notMember')}
+              </h3>
+            </div>
           </div>
           <ChevronRight size={24} className={styles.clientCardArrow} />
         </div>

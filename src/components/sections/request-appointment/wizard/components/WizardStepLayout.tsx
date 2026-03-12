@@ -59,56 +59,62 @@ export function WizardStepLayout({
         </section>
       )}
 
-      <section className={cn(sectionStyles.section, pageStyles.heroSection, styles.applyHeroSection)} id="register">
+      <section className={cn(sectionStyles.section, styles.wizardShellSection)} id="register">
         <div className={sectionStyles.container}>
-          <div className={styles.wizardHeaderWrapper}>
-            <h1 className={cn(styles.wizardHeaderTitle, styles.wizardHeaderEnter)}>
-              {title}
-            </h1>
-            {subtitle && (
-              <p className={cn(styles.wizardHeaderSubtitle, styles.wizardHeaderSubtitleEnter, subtitleClassName)}>
-                {subtitle}
-              </p>
-            )}
-          </div>
-        </div>
-      </section>
+          <div className={styles.wizardOuterRow}>
+            <div className={styles.wizardShell}>
+              <div className={styles.wizardShellHeader}>
+                <div className={styles.wizardHeaderWrapper}>
+                  <h1 className={cn(styles.wizardHeaderTitle, styles.wizardHeaderEnter)}>
+                    {title}
+                  </h1>
+                  {subtitle && (
+                    <p className={cn(styles.wizardHeaderSubtitle, styles.wizardHeaderSubtitleEnter, subtitleClassName)}>
+                      {subtitle}
+                    </p>
+                  )}
+                </div>
+              </div>
 
-      <section className={cn(sectionStyles.section, styles.cardsSection)}>
-        <div className={sectionStyles.container}>
-          <div className={styles.wizardPageRow}>
-            <div className={cn(styles.locationStepContent, styles.wizardSurface, styles.wizardSurfaceEnter, contentClassName)}>
-              <div className={cn(styles.wizardSurfaceInner, innerClassName)}>
-                {children}
+              <div className={styles.wizardPageRow}>
+                <div className={styles.wizardMainCol}>
+                  <div className={cn(styles.locationStepContent, styles.wizardSurface, styles.wizardSurfaceEnter, contentClassName)}>
+                    <div className={cn(styles.wizardSurfaceInner, innerClassName)}>
+                      {children}
 
-                {(onBack || onContinue) && (
-                  <div className={styles.wizardButtonRow}>
-                    {onBack && (
-                      <button
-                        onClick={onBack}
-                        className={styles.wizardBackBtnHalf}
-                        type="button"
-                      >
-                        {backLabel}
-                      </button>
-                    )}
-                    {onContinue && (
-                      <button
-                        onClick={onContinue}
-                        disabled={continueDisabled}
-                        className={styles.wizardContinueBtnHalf}
-                        type="button"
-                      >
-                        {continueLabel}
-                      </button>
-                    )}
+                      {(onBack || onContinue) && (
+                        <div className={styles.wizardButtonRow}>
+                          {onContinue && (
+                            <button
+                              onClick={onContinue}
+                              disabled={continueDisabled}
+                              className={styles.wizardContinueBtnHalf}
+                              type="button"
+                            >
+                              {continueLabel}
+                            </button>
+                          )}
+                          {onBack && (
+                            <button
+                              onClick={onBack}
+                              className={styles.wizardBackText}
+                              type="button"
+                            >
+                              {backLabel}
+                            </button>
+                          )}
+                        </div>
+                      )}
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
             </div>
 
             <div className={styles.wizardTreeCol}>
-              <WizardPathTree />
+              <div className={styles.wizardTimelinePanel}>
+                <WizardPathTree />
+              </div>
             </div>
           </div>
         </div>

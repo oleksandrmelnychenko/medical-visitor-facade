@@ -3,7 +3,6 @@
 import React, { useMemo, useRef, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useWizard } from '../WizardContext';
 import { WizardData } from '../types';
@@ -69,12 +68,23 @@ function WizardPathTreeInner() {
 
   const containerRef = useRef<HTMLDivElement>(null);
   const activeRef = useRef<HTMLLIElement>(null);
+  const progressFillRef = useRef<HTMLDivElement>(null);
   const isFirstRender = useRef(true);
 
   useEffect(() => {
     const container = containerRef.current;
     const activeEl = activeRef.current;
-    if (!container || !activeEl) return;
+    const progressFillEl = progressFillRef.current;
+    if (!container || !activeEl) {
+      if (progressFillEl) {
+        progressFillEl.style.height = '0px';
+      }
+      return;
+    }
+
+    if (progressFillEl) {
+      progressFillEl.style.height = `${activeEl.offsetTop}px`;
+    }
 
     const inset = 36;
     const visibleTop = container.scrollTop + inset;
@@ -94,21 +104,15 @@ function WizardPathTreeInner() {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.surface}>
-        <div className={styles.metaRow}>
-          <span className={styles.progressBadge}>
-            {resolvedCurrentIndex + 1} / {steps.length}
-          </span>
-        </div>
+      <div ref={containerRef} className={styles.scroll}>
+        <div className={styles.track}>
+          <div className={styles.trackLine} />
+          <div ref={progressFillRef} className={styles.progressFill} />
 
-        <div ref={containerRef} className={styles.scroll}>
           <ul className={styles.list}>
-            <li className={styles.spacer} aria-hidden />
-
             {steps.map((key, index) => {
               const isDone = index < resolvedCurrentIndex;
               const isActive = index === resolvedCurrentIndex;
-              const isLast = index === steps.length - 1;
 
               return (
                 <li
@@ -122,20 +126,13 @@ function WizardPathTreeInner() {
                   )}
                   aria-current={isActive ? 'step' : undefined}
                 >
-                  <div className={styles.timeline}>
-                    <div className={styles.dot}>
-                      {isDone && <Check size={10} strokeWidth={3.25} />}
-                    </div>
-                    {!isLast && (
-                      <div className={cn(styles.connector, isDone && styles.connectorFilled)} />
-                    )}
+                  <div className={styles.dot}>
+                    <span className={styles.dotInner} />
                   </div>
                   <span className={styles.label}>{(t as (k: string) => string)(key)}</span>
                 </li>
               );
             })}
-
-            <li className={styles.spacer} aria-hidden />
           </ul>
         </div>
       </div>
