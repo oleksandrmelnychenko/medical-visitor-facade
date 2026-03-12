@@ -29,8 +29,10 @@ export default async function FinancialAssistancePage({ params }: FinancialAssis
       <section className={cn(sectionStyles.section, styles.contentSection)}>
         <div className={sectionStyles.container}>
           <div className={styles.content}>
-            <p className={styles.text}>{t("description1")}</p>
-            <p className={styles.text}>{t("description2")}</p>
+            <div className={styles.introCard}>
+              <p className={styles.text}>{t("description1")}</p>
+              <p className={styles.text}>{t("description2")}</p>
+            </div>
 
             <div className={styles.section}>
               <h2 className={styles.sectionTitle}>{t("priority")}</h2>

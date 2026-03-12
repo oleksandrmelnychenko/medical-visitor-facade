@@ -1,80 +1,127 @@
 @use "@/styles/variables" as *;
+@use "@/styles/legal-documents" as legal;
 
 .page {
-  background-color: #fff !important;
+  background:
+    linear-gradient(180deg, #f8f8f6 0%, #f4f5f7 100%) !important;
   min-height: 100vh;
 }
 
 .heroSection {
-  padding-top: clamp(2.5rem, 6vw, 4rem) !important;
-  padding-bottom: clamp(1.5rem, 3vw, 2rem) !important;
-  background-color: #fff !important;
+  padding-top: clamp(2.7rem, 6vw, 4.4rem) !important;
+  padding-bottom: clamp(1.35rem, 3vw, 1.9rem) !important;
+  background: transparent !important;
 }
 
 .contentSection {
-  padding-top: 1rem !important;
-  padding-bottom: clamp(3rem, 6vw, 5rem) !important;
-  background-color: #fff !important;
+  padding-top: 0.4rem !important;
+  padding-bottom: clamp(3.5rem, 6vw, 5.8rem) !important;
+  background: transparent !important;
 }
 
 .content {
-  max-width: 600px;
+  max-width: 980px;
   margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+
+  @media (min-width: 900px) {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: stretch;
+  }
 }
 
 .infoBlock {
-  margin-bottom: 2.5rem;
+  @include legal.legal-surface;
+
+  @media (min-width: 900px) {
+    grid-column: span 6;
+  }
+
+  &:first-of-type {
+    @media (min-width: 900px) {
+      grid-column: 1 / span 7;
+    }
+  }
+
+  &:nth-of-type(2) {
+    @media (min-width: 900px) {
+      grid-column: 8 / span 5;
+    }
+  }
+
+  &:nth-of-type(3) {
+    @media (min-width: 900px) {
+      grid-column: 1 / span 5;
+    }
+  }
 
   &:last-of-type {
-    margin-bottom: 0;
+    @media (min-width: 900px) {
+      grid-column: 6 / span 7;
+    }
   }
 }
 
 .companyName {
-  font-family: 'Gmed Display', var(--font-montserrat), sans-serif;
-  font-size: 1.25rem;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  color: #1a1a1a;
-  margin-bottom: 1rem;
-  line-height: 1.4;
+  @include legal.legal-tile-title;
+  margin-bottom: 0.75rem;
 }
 
 .sectionTitle {
-  font-family: 'Gmed Display', var(--font-montserrat), sans-serif;
-  font-size: 1.125rem;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  color: #1a1a1a;
+  @include legal.legal-tile-title;
   margin-bottom: 0.75rem;
-  line-height: 1.4;
 }
 
 .text {
-  font-family: 'Gmed Display', var(--font-montserrat), sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.7;
-  color: #4a4a4a;
-  margin-bottom: 0.25rem;
+  @include legal.legal-body-text;
+  margin-bottom: 0.18rem;
 
   a {
-    color: #1a1a1a;
-    text-decoration: none;
-    transition: color 0.2s ease;
+    color: #181b23;
+    text-decoration: underline;
+    text-decoration-color: rgba(24, 27, 35, 0.22);
+    text-underline-offset: 0.18rem;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
 
     &:hover {
-      color: #666;
+      color: #0d1016;
+      text-decoration-color: rgba(24, 27, 35, 0.5);
     }
   }
 }
 
 .vatNumber {
-  font-family: 'Gmed Display', var(--font-montserrat), sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: #1a1a1a;
-  margin-top: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.4rem;
+  padding: 0.5rem 0.78rem;
+  margin-top: 0.45rem;
+  border-radius: 0.72rem;
+  border: 1px solid rgba(169, 150, 112, 0.3);
+  background: rgba(246, 241, 229, 0.72);
+  font-family: "Raleway", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #4b412d;
+  text-transform: uppercase;
+}
+
+@media (max-width: 639px) {
+  .content {
+    gap: 0.85rem;
+  }
+
+  .infoBlock {
+    @include legal.legal-surface-mobile;
+  }
+
+  .companyName {
+    font-size: 0.8rem;
+  }
+
+  .text {
+    @include legal.legal-body-text-mobile;
+  }
 }

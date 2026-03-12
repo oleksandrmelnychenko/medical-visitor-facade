@@ -48,7 +48,7 @@ export default async function LegalNoticePage({ params }: LegalNoticePageProps) 
             <div className={styles.infoBlock}>
               <h2 className={styles.sectionTitle}>{t("vatTitle")}</h2>
               <p className={styles.text}>{t("vatLegal")}</p>
-              <p className={styles.vatNumber}>147/220/51409</p>
+              <p className={styles.vatNumber}>DE407675242</p>
             </div>
 
             <div className={styles.infoBlock}>
