@@ -54,10 +54,10 @@
 
   @media (max-width: 767px) {
     border-radius: 32px 32px 0 0;
-    margin-top: -6px;
+    margin-top: -26px;
 
     &::before {
-      top: -16px;
+      top: -26px;
       width: calc(100% - 0.75rem);
       height: 60px;
       filter: blur(6px);

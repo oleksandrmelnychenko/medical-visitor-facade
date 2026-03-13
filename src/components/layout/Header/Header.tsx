@@ -384,39 +384,13 @@ export function Header() {
         </div>
 
         {showLogin && !isMobileMenuOpen && (
-          <>
-            {showApplyCta && (
-              <Link
-                href="/apply"
-                prefetch={false}
-                className={styles.mobileApplyFab}
-                aria-label={tCommon("requestAppointment")}
-              >
-                <UserPlus size={18} />
-                <span>{tCommon("requestAppointment")}</span>
-              </Link>
-            )}
-
-            <Link
-              href="/login"
-              prefetch={false}
-              className={styles.mobileLoginFab}
-              aria-label={tCommon("login")}
-            >
-              <User size={24} />
-            </Link>
-          </>
-        )}
-
-        {!showLogin && showApplyCta && !isMobileMenuOpen && (
           <Link
-            href="/apply"
+            href="/login"
             prefetch={false}
-            className={styles.mobileApplyFab}
-            aria-label={tCommon("requestAppointment")}
+            className={styles.mobileLoginFab}
+            aria-label={tCommon("login")}
           >
-            <UserPlus size={18} />
-            <span>{tCommon("requestAppointment")}</span>
+            <User size={24} />
           </Link>
         )}
       </header>

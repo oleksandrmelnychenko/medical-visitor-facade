@@ -21,12 +21,12 @@
   }
 
   @media (max-width: 768px) {
-    height: clamp(12rem, 47vw, 15.5rem);
+    height: clamp(17rem, 35vh, 20.5rem);
     min-height: 0;
   }
 
   @media (max-width: 480px) {
-    height: clamp(11rem, 46vw, 13.5rem);
+    height: clamp(15.75rem, 33vh, 18.5rem);
   }
 
   @media (max-height: 760px) {
@@ -48,6 +48,19 @@
   @media (max-width: 768px) {
     background-image: url("/assets/hero-poster-mobile.jpg");
     background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  @media (max-width: 480px) {
+    background-position: center top;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+  .videoContainer {
+    background-image: url("/assets/hero-poster-mobile.jpg");
   }
 }
 
@@ -62,7 +75,15 @@
   filter: saturate(0.86) brightness(0.84) contrast(0.95);
 
   @media (max-width: 768px) {
+    object-fit: cover;
     object-position: center top;
+    transform: none;
+  }
+
+  @media (max-width: 480px) {
+    object-fit: cover;
+    object-position: center top;
+    transform: none;
   }
 }
 
