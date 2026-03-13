@@ -215,7 +215,7 @@ export function Header() {
         </div>
       </div>
 
-      <header className={styles.header} style={{ position: 'relative' }}>
+      <header className={cn(styles.header, isApplyPage && styles.headerTransparent)}>
         <div className={styles.headerRow}>
           <div className={styles.headerLeft} />
 

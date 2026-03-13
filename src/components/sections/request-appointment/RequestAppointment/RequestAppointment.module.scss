@@ -9,6 +9,45 @@
   }
 }
 
+.applyPageChrome {
+  position: relative;
+  min-height: 100vh;
+  margin-top: -78px;
+  padding-top: 78px;
+  isolation: isolate;
+
+  &::before,
+  &::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &::before {
+    z-index: 0;
+    background-image: url("/images/bg.png");
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+  }
+
+  &::after {
+    z-index: 0;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: -56px;
+    padding-top: 56px;
+  }
+}
+
 
 .headerDivider {
   width: 100%;
@@ -1515,7 +1554,7 @@
   min-height: calc(100vh - 80px);
   overflow: hidden;
   isolation: isolate;
-  background: #fff;
+  background: transparent !important;
 
   &::before {
     display: none;

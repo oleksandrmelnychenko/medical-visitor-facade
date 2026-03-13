@@ -35,6 +35,16 @@
   position: absolute;
   inset: 0;
   z-index: 0;
+  background-color: #d7d6d2;
+  background-image: url("/assets/hero-poster-desktop.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media (max-width: 768px) {
+    background-image: url("/assets/hero-poster-mobile.jpg");
+    background-position: center 36%;
+  }
 }
 
 .heroVideo {
@@ -46,6 +56,16 @@
   object-position: center;
   z-index: 0;
   filter: saturate(0.86) brightness(0.84) contrast(0.95);
+
+  @media (max-width: 768px) {
+    object-position: center 36%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroVideo {
+    display: none;
+  }
 }
 
 // Visually hidden but accessible to screen readers & crawlers

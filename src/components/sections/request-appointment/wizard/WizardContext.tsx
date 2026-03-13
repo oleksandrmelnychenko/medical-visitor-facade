@@ -1,6 +1,14 @@
 "use client";
 
-import React, { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import {
   readEncryptedJson,
   removeEncryptedJson,
@@ -18,12 +26,24 @@ interface WizardContextType {
 }
 
 export const WIZARD_DRAFT_STORAGE_KEY = "gmed.apply.wizard.draft.v2";
+const INITIAL_WIZARD_SERIALIZED = JSON.stringify(initialWizardData);
 
 const WizardContext = createContext<WizardContextType | null>(null);
+
+function hasWizardDataChanged(previous: WizardData, next: WizardData) {
+  for (const key of Object.keys(next) as Array<keyof WizardData>) {
+    if (previous[key] !== next[key]) {
+      return true;
+    }
+  }
+
+  return false;
+}
 
 export function WizardProvider({ children }: { children: ReactNode }) {
   const [data, setData] = useState<WizardData>(initialWizardData);
   const [isDraftHydrated, setIsDraftHydrated] = useState(false);
+  const lastPersistedSerializedRef = useRef(INITIAL_WIZARD_SERIALIZED);
 
   useEffect(() => {
     let isCancelled = false;
@@ -36,7 +56,11 @@ export function WizardProvider({ children }: { children: ReactNode }) {
       }
 
       if (draft) {
-        setData((prev) => sanitizeWizardData({ ...prev, ...draft }));
+        const nextData = sanitizeWizardData({ ...initialWizardData, ...draft });
+        lastPersistedSerializedRef.current = JSON.stringify(nextData);
+        setData(nextData);
+      } else {
+        lastPersistedSerializedRef.current = INITIAL_WIZARD_SERIALIZED;
       }
 
       setIsDraftHydrated(true);
@@ -50,10 +74,14 @@ export function WizardProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const updateData = useCallback((updates: Partial<WizardData>) => {
-    setData((prev) => sanitizeWizardData({ ...prev, ...updates }));
+    setData((prev) => {
+      const next = sanitizeWizardData({ ...prev, ...updates });
+      return hasWizardDataChanged(prev, next) ? next : prev;
+    });
   }, []);
 
   const resetData = useCallback(() => {
+    lastPersistedSerializedRef.current = INITIAL_WIZARD_SERIALIZED;
     setData(initialWizardData);
     removeEncryptedJson(WIZARD_DRAFT_STORAGE_KEY);
   }, []);
@@ -68,14 +96,27 @@ export function WizardProvider({ children }: { children: ReactNode }) {
     }
 
     const timer = setTimeout(() => {
-      if (JSON.stringify(data) === JSON.stringify(initialWizardData)) {
-        removeEncryptedJson(WIZARD_DRAFT_STORAGE_KEY);
+      const serialized = JSON.stringify(data);
+
+      if (serialized === INITIAL_WIZARD_SERIALIZED) {
+        if (lastPersistedSerializedRef.current !== INITIAL_WIZARD_SERIALIZED) {
+          lastPersistedSerializedRef.current = INITIAL_WIZARD_SERIALIZED;
+          removeEncryptedJson(WIZARD_DRAFT_STORAGE_KEY);
+        }
         return;
       }
 
-      void saveEncryptedJson(WIZARD_DRAFT_STORAGE_KEY, data).catch(() => {
-        // Ignore client-side storage failures so the questionnaire remains usable.
-      });
+      if (serialized === lastPersistedSerializedRef.current) {
+        return;
+      }
+
+      void saveEncryptedJson(WIZARD_DRAFT_STORAGE_KEY, data)
+        .then(() => {
+          lastPersistedSerializedRef.current = serialized;
+        })
+        .catch(() => {
+          // Ignore client-side storage failures so the questionnaire remains usable.
+        });
     }, 500);
 
     return () => clearTimeout(timer);

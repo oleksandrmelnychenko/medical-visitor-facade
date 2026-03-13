@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "@/i18n/navigation";
@@ -12,38 +13,84 @@ import { TravelDocumentsStep } from "./steps/TravelDocumentsStep";
 import { ExitNoTravelStep } from "./steps/ExitNoTravelStep";
 import { ExitNoRecordsStep } from "./steps/ExitNoRecordsStep";
 import { MedicalRecordsLanguageStep } from "./steps/shared/MedicalRecordsLanguageStep";
-import { NoContactExitStep } from "./steps/shared/NoContactExitStep";
-import { WrapUpIntroStep } from "./steps/shared/WrapUpIntroStep";
 
 // Shared new steps
 import { WelcomeStep } from "./steps/shared/WelcomeStep";
 import { MemberCheckStep } from "./steps/shared/MemberCheckStep";
 import { BecomeMemberStep } from "./steps/shared/BecomeMemberStep";
-import { HealthCareIntroStep } from "./steps/shared/HealthCareIntroStep";
-import { CurrentTreatmentStep } from "./steps/shared/CurrentTreatmentStep";
-import { TravelRiskStep } from "./steps/shared/TravelRiskStep";
-import { SharedPatientNameStep } from "./steps/shared/SharedPatientNameStep";
-import { SharedDateOfBirthStep } from "./steps/shared/SharedDateOfBirthStep";
-import { SharedLegalSexStep } from "./steps/shared/SharedLegalSexStep";
-import { SharedPrimaryLanguageStep } from "./steps/shared/SharedPrimaryLanguageStep";
-import { SharedInterpreterStep } from "./steps/shared/SharedInterpreterStep";
-import { EmailConsentStep } from "./steps/shared/EmailConsentStep";
-import { WhatsAppConsentStep } from "./steps/shared/WhatsAppConsentStep";
-import { PhoneStep } from "./steps/shared/PhoneStep";
-import { ConcernIntroStep } from "./steps/shared/ConcernIntroStep";
-import { PrimaryConcernStep } from "./steps/shared/PrimaryConcernStep";
-import { AdditionalConcernsStep } from "./steps/shared/AdditionalConcernsStep";
-import { AddressStep } from "./steps/shared/AddressStep";
-import { ServicesStep } from "./steps/shared/ServicesStep";
-import { InsuranceIntroStep } from "./steps/shared/InsuranceIntroStep";
-import { InsuranceStep } from "./steps/shared/InsuranceStep";
-import { InsuranceCoverageStep } from "./steps/shared/InsuranceCoverageStep";
-import { PreferredLocationStep } from "./steps/shared/PreferredLocationStep";
-import { VisitTimingStep } from "./steps/shared/VisitTimingStep";
-import { AnythingElseStep } from "./steps/shared/AnythingElseStep";
-import { ReviewSubmitStep } from "./steps/shared/ReviewSubmitStep";
 import { useWizard } from "./WizardContext";
 import type { WizardStep } from "./types";
+
+const PatientFlowStepView = dynamic(
+  () => import("./PatientFlowStepView").then((module) => module.PatientFlowStepView),
+  { loading: () => null }
+);
+
+const LateFlowStepView = dynamic(
+  () => import("./LateFlowStepView").then((module) => module.LateFlowStepView),
+  { loading: () => null }
+);
+
+const PATIENT_FLOW_STEPS = [
+  "health-intro",
+  "patient-name",
+  "patient-dob",
+  "phone",
+  "whatsapp-consent",
+  "email-consent",
+  "no-contact-exit",
+  "legal-sex",
+  "interpreter",
+  "primary-language",
+ ] as const satisfies readonly WizardStep[];
+
+const LATE_FLOW_STEPS = [
+  "services",
+  "address",
+  "concern-intro",
+  "primary-concern",
+  "health-risk",
+  "current-treatment",
+  "additional-concerns",
+  "insurance-intro",
+  "insurance",
+  "insurance-coverage",
+  "wrap-up-intro",
+  "preferred-location",
+  "visit-timing",
+  "anything-else",
+  "review",
+ ] as const satisfies readonly WizardStep[];
+
+type PatientFlowStep = (typeof PATIENT_FLOW_STEPS)[number];
+type LateFlowStep = (typeof LATE_FLOW_STEPS)[number];
+
+function isPatientFlowStep(step: WizardStep): step is PatientFlowStep {
+  return (PATIENT_FLOW_STEPS as readonly WizardStep[]).includes(step);
+}
+
+function isLateFlowStep(step: WizardStep): step is LateFlowStep {
+  return (LATE_FLOW_STEPS as readonly WizardStep[]).includes(step);
+}
+
+let patientFlowPrefetchPromise: Promise<unknown> | null = null;
+let lateFlowPrefetchPromise: Promise<unknown> | null = null;
+
+function preloadPatientFlow() {
+  if (!patientFlowPrefetchPromise) {
+    patientFlowPrefetchPromise = import("./PatientFlowStepView");
+  }
+
+  return patientFlowPrefetchPromise;
+}
+
+function preloadLateFlow() {
+  if (!lateFlowPrefetchPromise) {
+    lateFlowPrefetchPromise = import("./LateFlowStepView");
+  }
+
+  return lateFlowPrefetchPromise;
+}
 
 function WizardStepView() {
   const router = useRouter();
@@ -62,9 +109,42 @@ function WizardStepView() {
     router.replace(`/apply?type=new&step=${step}`);
   }, [isDraftHydrated, requestedStep, router, step]);
 
-  if (!isDraftHydrated) {
-    return null;
-  }
+  useEffect(() => {
+    const preload = () => {
+      void preloadPatientFlow();
+      void preloadLateFlow();
+    };
+
+    const browser = globalThis.window;
+
+    if (!browser) {
+      return;
+    }
+
+    if ("requestIdleCallback" in browser) {
+      const idleId = browser.requestIdleCallback(preload, { timeout: 1500 });
+      return () => browser.cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = setTimeout(preload, 250);
+    return () => clearTimeout(timeoutId);
+  }, []);
+
+  useEffect(() => {
+    if (isPatientFlowStep(step) || step === "welcome" || step === "location" || step === "outside-documents") {
+      void preloadPatientFlow();
+    }
+
+    if (
+      isLateFlowStep(step) ||
+      step === "legal-sex" ||
+      step === "interpreter" ||
+      step === "primary-language" ||
+      step === "phone"
+    ) {
+      void preloadLateFlow();
+    }
+  }, [step]);
 
   switch (step) {
     // Shared start
@@ -91,59 +171,15 @@ function WizardStepView() {
     case "outside-exit-records":
       return <ExitNoRecordsStep />;
 
-    // Shared form steps
-    case "health-intro":
-      return <HealthCareIntroStep />;
-    case "patient-name":
-      return <SharedPatientNameStep />;
-    case "patient-dob":
-      return <SharedDateOfBirthStep />;
-    case "phone":
-      return <PhoneStep />;
-    case "whatsapp-consent":
-      return <WhatsAppConsentStep />;
-    case "email-consent":
-      return <EmailConsentStep />;
-    case "no-contact-exit":
-      return <NoContactExitStep />;
-    case "legal-sex":
-      return <SharedLegalSexStep />;
-    case "interpreter":
-      return <SharedInterpreterStep />;
-    case "primary-language":
-      return <SharedPrimaryLanguageStep />;
-    case "services":
-      return <ServicesStep />;
-    case "address":
-      return <AddressStep />;
-    case "concern-intro":
-      return <ConcernIntroStep />;
-    case "primary-concern":
-      return <PrimaryConcernStep />;
-    case "health-risk":
-      return <TravelRiskStep />;
-    case "current-treatment":
-      return <CurrentTreatmentStep />;
-    case "additional-concerns":
-      return <AdditionalConcernsStep />;
-    case "insurance-intro":
-      return <InsuranceIntroStep />;
-    case "insurance":
-      return <InsuranceStep />;
-    case "insurance-coverage":
-      return <InsuranceCoverageStep />;
-    case "wrap-up-intro":
-      return <WrapUpIntroStep />;
-    case "preferred-location":
-      return <PreferredLocationStep />;
-    case "visit-timing":
-      return <VisitTimingStep />;
-    case "anything-else":
-      return <AnythingElseStep />;
-    case "review":
-      return <ReviewSubmitStep />;
-
     default:
+      if (isPatientFlowStep(step)) {
+        return <PatientFlowStepView step={step} />;
+      }
+
+      if (isLateFlowStep(step)) {
+        return <LateFlowStepView step={step} />;
+      }
+
       return <MemberCheckStep />;
   }
 }

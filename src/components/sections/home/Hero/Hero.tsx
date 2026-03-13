@@ -17,10 +17,20 @@ export function Hero() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
+          poster="/assets/hero-poster-desktop.jpg"
           aria-hidden="true"
         >
-          <source src="/assets/hero_hd.mp4" type="video/mp4" />
+          <source
+            src="/assets/hero_mobile.mp4"
+            type="video/mp4"
+            media="(max-width: 768px) and (prefers-reduced-motion: no-preference)"
+          />
+          <source
+            src="/assets/hero_hd.mp4"
+            type="video/mp4"
+            media="(min-width: 769px) and (prefers-reduced-motion: no-preference)"
+          />
         </video>
       </div>
 
