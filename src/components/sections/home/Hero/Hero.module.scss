@@ -73,6 +73,7 @@
   object-position: center;
   z-index: 0;
   filter: saturate(0.86) brightness(0.84) contrast(0.95);
+  transition: opacity 0.24s ease;
 
   @media (max-width: 768px) {
     object-fit: cover;
@@ -85,6 +86,10 @@
     object-position: center top;
     transform: none;
   }
+}
+
+.heroVideoHidden {
+  opacity: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
