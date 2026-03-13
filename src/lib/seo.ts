@@ -1,10 +1,19 @@
 // SEO helper functions for consistent metadata across pages
 import { cache } from "react";
+import { routing } from "@/i18n/routing";
 
-export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://gmed.agency";
+const fallbackBaseUrl = "https://www.gmed-health.com";
 
-export const languages = ["de", "en", "ru", "es"] as const;
+function normalizeSiteUrl(url: string) {
+  return url.replace(/\/+$/, "");
+}
+
+export const baseUrl = normalizeSiteUrl(process.env.NEXT_PUBLIC_BASE_URL || fallbackBaseUrl);
+
+export const languages = routing.locales;
 export type Language = (typeof languages)[number];
+export const defaultLanguage = "de" as Language;
+export const runtimeDefaultLanguage = routing.defaultLocale as Language;
 
 const hreflangMap: Record<Language, string> = {
   de: "de-DE",
@@ -19,7 +28,7 @@ function normalizePath(path: string = "") {
 }
 
 export function normalizeLanguage(locale: string): Language {
-  return languages.includes(locale as Language) ? (locale as Language) : "en";
+  return languages.includes(locale as Language) ? (locale as Language) : runtimeDefaultLanguage;
 }
 
 export function getLocalizedPath(locale: Language, path: string = "") {
@@ -39,7 +48,7 @@ export function getAlternateLanguages(path: string = "", currentLocale: Language
     canonical: getLocalizedPath(currentLocale, path),
     languages: {
       ...localizedEntries,
-      "x-default": getLocalizedPath("en", path),
+      "x-default": getLocalizedPath(defaultLanguage, path),
     },
   };
 }

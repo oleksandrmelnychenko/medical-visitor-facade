@@ -1,4 +1,4 @@
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://gmed.agency";
+import { baseUrl } from "@/lib/seo";
 
 export function OrganizationJsonLd() {
   const jsonLd = {

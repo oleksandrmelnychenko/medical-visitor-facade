@@ -1,16 +1,27 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from "next";
+import { baseUrl, languages } from "@/lib/seo";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://gmed.agency';
+  const disallowRoutes = [
+    "/api/",
+    ...languages.flatMap((locale) => [
+      `/${locale}/apply`,
+      `/${locale}/login`,
+      `/${locale}/account/`,
+      `/${locale}/admin/`,
+      `/${locale}/dashboard/`,
+    ]),
+  ];
 
   return {
     rules: [
       {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/api/', '/*/admin/', '/*/dashboard/'],
+        userAgent: "*",
+        allow: "/",
+        disallow: disallowRoutes,
       },
     ],
+    host: baseUrl,
     sitemap: `${baseUrl}/sitemap.xml`,
   };
 }

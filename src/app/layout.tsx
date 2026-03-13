@@ -3,14 +3,13 @@ import { Montserrat } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import "../styles/globals.scss";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/seo/JsonLd";
+import { baseUrl } from "@/lib/seo";
 
 const montserrat = Montserrat({
   subsets: ["latin", "cyrillic", "latin-ext"],
   variable: "--font-montserrat",
   display: "swap",
 });
-
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://gmed.agency";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -39,19 +38,19 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: `${baseUrl}/en`,
+    canonical: `${baseUrl}/de`,
     languages: {
       "de-DE": `${baseUrl}/de`,
       "en-US": `${baseUrl}/en`,
       "ru-RU": `${baseUrl}/ru`,
       "es-ES": `${baseUrl}/es`,
-      "x-default": `${baseUrl}/en`,
+      "x-default": `${baseUrl}/de`,
     },
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
-    alternateLocale: ["de_DE", "ru_RU", "es_ES"],
+    locale: "de_DE",
+    alternateLocale: ["en_US", "ru_RU", "es_ES"],
     url: baseUrl,
     siteName: "GMED Agency",
     title: "GMED Agency - Medical Concierge Service",
