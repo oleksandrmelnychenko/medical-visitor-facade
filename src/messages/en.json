@@ -324,13 +324,13 @@
       "emailConsent": {
         "title": "Would you like us to communicate with you via Email?",
         "yes": "Yes",
-        "yesDisclaimer": "I understand that standard email communication may not be fully secure and is subject to the privacy policies of my email provider.",
+        "yesDisclaimer": "I understand that Email communications may not be secure and are subject to the privacy policies and terms of use of my Email provider.",
         "no": "No"
       },
       "whatsappConsentNew": {
         "title": "Would you like us to communicate with you via WhatsApp?",
         "yes": "Yes",
-        "yesDisclaimer": "I agree to receive communications via WhatsApp and understand it is subject to WhatsApp's privacy policies.",
+        "yesDisclaimer": "I understand that WhatsApp communications may not be secure and are subject to WhatsApp's privacy policies and terms of use.",
         "no": "No",
         "numberTitle": "What is your WhatsApp number?"
       },
@@ -355,8 +355,17 @@
         "start": "Start"
       },
       "primaryConcernText": {
-        "title": "What is your primary medical concern?",
-        "placeholder": "Briefly describe your condition or diagnosis..."
+        "title": "What main concern or question are you reaching out about?",
+        "placeholder": "Briefly describe your condition or diagnosis...",
+        "attachmentsLabel": "Files (optional)",
+        "attachmentsHint": "If you already have documents, you can attach them here.",
+        "attachmentsAction": "Add files",
+        "attachmentsFormats": "ZIP, PDF, and images are supported. Up to 6 files, up to 10 MB each.",
+        "removeFile": "Remove file",
+        "invalidFileType": "Only ZIP, PDF, or image files can be uploaded.",
+        "fileTooLarge": "One of the files exceeds the 10 MB limit.",
+        "totalFilesTooLarge": "The total file size is too large. Please reduce the overall upload size.",
+        "tooManyFiles": "You can add up to 6 files."
       },
       "additionalConcerns": {
         "title": "Are there any additional concerns or conditions we should know about?",
@@ -381,6 +390,7 @@
         "businessAviationDetails": "Private aviation support for time-sensitive travel that requires flexibility, privacy, and tailored logistics.",
         "none": "None of the above",
         "notSure": "I'm not sure yet",
+        "close": "Close",
         "showLess": "Show less"
       },
       "insuranceIntro": {
@@ -427,10 +437,10 @@
       },
       "reviewStep": {
         "title": "Please review your request before submitting.",
-        "consent1": "I agree that the Agency may contact me via phone, text message, or email using the contact details provided.",
-        "consent2": "I understand that this communication will be related to organizing my medical care.",
-        "consent3": "I acknowledge that I can withdraw my consent at any time.",
-        "consent4": "I have read and accept the Privacy Policy.",
+        "consent1": "I agree that GMED may use an automated phone dialing system, pre-recorded or synthetic voice messages, texting, and email to contact me at the numbers and email address I provide.",
+        "consent2": "I understand that I may be contacted regarding my health care, including to schedule an appointment.",
+        "consent3": "I understand that when contacted in this manner, I will be given the opportunity to opt out of similar future communications.",
+        "consent4": "I have read and confirmed receipt of the Notice of Privacy Practices.",
         "incompleteError": "Please complete all required fields before submitting.",
         "submit": "Submit Request",
         "submitting": "Submitting...",
@@ -465,6 +475,7 @@
         "healthRisk": "Travel health risk",
         "currentTreatment": "Current treatment",
         "additionalConcerns": "Additional concerns",
+        "attachments": "Attached files",
         "insurance": "Health insurance",
         "insuranceCoverage": "Coverage in Germany",
         "preferredLocation": "Preferred location",

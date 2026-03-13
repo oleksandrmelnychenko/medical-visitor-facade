@@ -17,7 +17,7 @@ export function EmailConsentStep() {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
     updateData({ emailConsent: true });
-    router.push("/apply?type=new&step=legal-sex");
+    router.push("/apply?type=new&step=primary-language");
   }, [updateData, router]);
 
   const handleNo = useCallback(() => {
@@ -26,7 +26,7 @@ export function EmailConsentStep() {
     updateData({ emailConsent: false });
     router.push(
       data.whatsappConsent
-        ? "/apply?type=new&step=legal-sex"
+        ? "/apply?type=new&step=primary-language"
         : "/apply?type=new&step=no-contact-exit"
     );
   }, [data.whatsappConsent, updateData, router]);

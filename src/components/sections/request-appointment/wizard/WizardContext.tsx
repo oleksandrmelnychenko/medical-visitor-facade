@@ -7,7 +7,9 @@ import React, {
   useEffect,
   useRef,
   useState,
+  type Dispatch,
   type ReactNode,
+  type SetStateAction,
 } from "react";
 import {
   readEncryptedJson,
@@ -28,6 +30,8 @@ interface WizardContextType {
   resetData: () => void;
   getRoleSuffix: () => string;
   isDraftHydrated: boolean;
+  uploadedMedicalFiles: File[];
+  setUploadedMedicalFiles: Dispatch<SetStateAction<File[]>>;
 }
 
 export const WIZARD_DRAFT_STORAGE_KEY = "gmed.apply.wizard.draft.v2";
@@ -48,6 +52,8 @@ function hasWizardDataChanged(previous: WizardData, next: WizardData) {
 export function WizardProvider({ children }: { children: ReactNode }) {
   const [data, setData] = useState<WizardData>(initialWizardData);
   const [isDraftHydrated, setIsDraftHydrated] = useState(false);
+  const [uploadedMedicalFiles, setUploadedMedicalFiles] = useState<File[]>([]);
+  const dataRef = useRef(initialWizardData);
   const lastPersistedSerializedRef = useRef(INITIAL_WIZARD_SERIALIZED);
   const lastProgressSnapshotRef = useRef<string>("");
 
@@ -65,11 +71,13 @@ export function WizardProvider({ children }: { children: ReactNode }) {
         const nextData = sanitizeWizardData({ ...initialWizardData, ...draft });
         const progressSnapshot = createWizardProgressSnapshot(nextData);
 
+        dataRef.current = nextData;
         lastPersistedSerializedRef.current = JSON.stringify(nextData);
         lastProgressSnapshotRef.current = serializeWizardProgressSnapshot(progressSnapshot);
         persistWizardProgressCookie(progressSnapshot);
         setData(nextData);
       } else {
+        dataRef.current = initialWizardData;
         lastPersistedSerializedRef.current = INITIAL_WIZARD_SERIALIZED;
         lastProgressSnapshotRef.current = "";
         persistWizardProgressCookie(null);
@@ -86,16 +94,26 @@ export function WizardProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const updateData = useCallback((updates: Partial<WizardData>) => {
-    setData((prev) => {
-      const next = sanitizeWizardData({ ...prev, ...updates });
-      return hasWizardDataChanged(prev, next) ? next : prev;
-    });
+    const previous = dataRef.current;
+    const next = sanitizeWizardData({ ...previous, ...updates });
+
+    if (!hasWizardDataChanged(previous, next)) {
+      return;
+    }
+
+    dataRef.current = next;
+    const progressSnapshot = createWizardProgressSnapshot(next);
+    lastProgressSnapshotRef.current = serializeWizardProgressSnapshot(progressSnapshot);
+    persistWizardProgressCookie(progressSnapshot);
+    setData(next);
   }, []);
 
   const resetData = useCallback(() => {
+    dataRef.current = initialWizardData;
     lastPersistedSerializedRef.current = INITIAL_WIZARD_SERIALIZED;
     lastProgressSnapshotRef.current = "";
     setData(initialWizardData);
+    setUploadedMedicalFiles([]);
     removeEncryptedJson(WIZARD_DRAFT_STORAGE_KEY);
     persistWizardProgressCookie(null);
   }, []);
@@ -150,7 +168,15 @@ export function WizardProvider({ children }: { children: ReactNode }) {
 
   return (
     <WizardContext.Provider
-      value={{ data, updateData, resetData, getRoleSuffix, isDraftHydrated }}
+      value={{
+        data,
+        updateData,
+        resetData,
+        getRoleSuffix,
+        isDraftHydrated,
+        uploadedMedicalFiles,
+        setUploadedMedicalFiles,
+      }}
     >
       {children}
     </WizardContext.Provider>

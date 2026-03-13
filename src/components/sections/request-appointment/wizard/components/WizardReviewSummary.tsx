@@ -1,12 +1,15 @@
 "use client";
 
 import { useMemo } from "react";
+import type { LucideIcon } from "lucide-react";
+import { ClipboardList, Phone, Route, UserRound } from "lucide-react";
 import { useTranslations } from "next-intl";
 import type { WizardData } from "../types";
 import styles from "../../RequestAppointment/RequestAppointment.module.scss";
 
 interface WizardReviewSummaryProps {
   data: WizardData;
+  uploadedMedicalFiles?: File[];
 }
 
 interface SummaryRow {
@@ -15,6 +18,7 @@ interface SummaryRow {
 }
 
 interface SummarySection {
+  icon: LucideIcon;
   key: string;
   title: string;
   rows: SummaryRow[];
@@ -61,7 +65,7 @@ function hasText(value: string | null | undefined) {
   return Boolean(value?.trim());
 }
 
-export function WizardReviewSummary({ data }: WizardReviewSummaryProps) {
+export function WizardReviewSummary({ data, uploadedMedicalFiles = [] }: WizardReviewSummaryProps) {
   const t = useTranslations("appointment.newPatient");
 
   const sections = useMemo<SummarySection[]>(() => {
@@ -226,6 +230,13 @@ export function WizardReviewSummary({ data }: WizardReviewSummaryProps) {
       });
     }
 
+    if (uploadedMedicalFiles.length > 0) {
+      requestRows.push({
+        label: t("reviewSummary.attachments"),
+        value: uploadedMedicalFiles.map((file) => file.name).join("\n"),
+      });
+    }
+
     requestRows.push({
       label: t("reviewSummary.insurance"),
       value: yesNo(data.hasInsurance),
@@ -268,12 +279,12 @@ export function WizardReviewSummary({ data }: WizardReviewSummaryProps) {
     }
 
     return [
-      { key: "eligibility", title: t("reviewSummary.eligibility"), rows: eligibilityRows },
-      { key: "patient", title: t("reviewSummary.patient"), rows: patientRows },
-      { key: "contact", title: t("reviewSummary.contact"), rows: contactRows },
-      { key: "request", title: t("reviewSummary.request"), rows: requestRows },
+      { key: "eligibility", title: t("reviewSummary.eligibility"), icon: Route, rows: eligibilityRows },
+      { key: "patient", title: t("reviewSummary.patient"), icon: UserRound, rows: patientRows },
+      { key: "contact", title: t("reviewSummary.contact"), icon: Phone, rows: contactRows },
+      { key: "request", title: t("reviewSummary.request"), icon: ClipboardList, rows: requestRows },
     ];
-  }, [data, t]);
+  }, [data, t, uploadedMedicalFiles]);
 
   return (
     <section className={styles.wizardReviewCard} aria-label={t("reviewSummary.title")}>
@@ -284,7 +295,10 @@ export function WizardReviewSummary({ data }: WizardReviewSummaryProps) {
       <div className={styles.wizardReviewGrid}>
         {sections.map((section) => (
           <section key={section.key} className={styles.wizardReviewSection}>
-            <h4 className={styles.wizardReviewSectionTitle}>{section.title}</h4>
+            <div className={styles.wizardReviewSectionHeading}>
+              <section.icon className={styles.wizardReviewSectionIcon} aria-hidden="true" />
+              <h4 className={styles.wizardReviewSectionTitle}>{section.title}</h4>
+            </div>
             <dl className={styles.wizardReviewList}>
               {section.rows.map((row) => (
                 <div key={`${section.key}-${row.label}`} className={styles.wizardReviewRow}>

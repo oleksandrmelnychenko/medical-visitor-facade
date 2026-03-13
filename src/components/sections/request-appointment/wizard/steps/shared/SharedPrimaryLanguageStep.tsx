@@ -17,11 +17,11 @@ export function SharedPrimaryLanguageStep() {
   const handleContinue = useCallback(() => {
     if (!language) return;
     updateData({ primaryLanguage: language });
-    router.push('/apply?type=new&step=services');
+    router.push('/apply?type=new&step=legal-sex');
   }, [language, updateData, router]);
 
   const handleBack = useCallback(() => {
-    router.push('/apply?type=new&step=interpreter');
+    router.push('/apply?type=new&step=email-consent');
   }, [router]);
 
   return (
@@ -46,7 +46,7 @@ export function SharedPrimaryLanguageStep() {
         <button
           onClick={handleContinue}
           disabled={!language}
-          className={formStyles.submitButton}
+          className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
           type="button"
         >
           {t('continue')}

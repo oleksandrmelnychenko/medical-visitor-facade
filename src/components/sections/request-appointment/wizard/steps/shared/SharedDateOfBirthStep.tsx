@@ -293,7 +293,7 @@ export function SharedDateOfBirthStep() {
         <button
           onClick={handleContinue}
           disabled={!isDobValid}
-          className={formStyles.submitButton}
+          className={`${formStyles.submitButton} ${styles.welcomeContinueButton}`}
           type="button"
         >
           {t("continue")}

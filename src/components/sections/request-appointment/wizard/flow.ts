@@ -167,16 +167,16 @@ function getPatientInfoFallback(data: WizardData): WizardStep | null {
     return "no-contact-exit";
   }
 
+  if (!hasText(data.primaryLanguage)) {
+    return "primary-language";
+  }
+
   if (data.legalSex === null) {
     return "legal-sex";
   }
 
   if (data.needsInterpreter === null) {
     return "interpreter";
-  }
-
-  if (data.needsInterpreter === "yes" && !hasText(data.primaryLanguage)) {
-    return "primary-language";
   }
 
   return null;
@@ -201,12 +201,16 @@ function getConcernFallback(data: WizardData): WizardStep | null {
     return "primary-concern";
   }
 
+  if (data.currentlyInTreatment === null) {
+    return "current-treatment";
+  }
+
   if (data.hasHealthRiskForTravel === null) {
     return "health-risk";
   }
 
-  if (data.hasHealthRiskForTravel === "no" && data.currentlyInTreatment === null) {
-    return "current-treatment";
+  if (!data.additionalConcernsCompleted) {
+    return "additional-concerns";
   }
 
   return null;
@@ -286,19 +290,22 @@ export function sanitizeWizardData(data: WizardData): WizardData {
     }
   }
 
-  if (next.needsInterpreter !== "yes") {
-    next.primaryLanguage = "";
-  }
-
   if (next.whatsappConsent !== true) {
     next.whatsappNumber = "";
   }
 
-  if (next.hasHealthRiskForTravel !== "no") {
+  if (!hasText(next.primaryConcernText)) {
     next.currentlyInTreatment = null;
+    next.hasHealthRiskForTravel = null;
     next.additionalConcerns = "";
+    next.additionalConcernsCompleted = false;
   } else if (next.currentlyInTreatment === null) {
+    next.hasHealthRiskForTravel = null;
     next.additionalConcerns = "";
+    next.additionalConcernsCompleted = false;
+  } else if (next.hasHealthRiskForTravel === null) {
+    next.additionalConcerns = "";
+    next.additionalConcernsCompleted = false;
   }
 
   if (next.hasInsurance !== "yes") {
@@ -567,28 +574,48 @@ export function getAccessibleWizardStep(step: WizardStep, data: WizardData): Wiz
 
     case "interpreter": {
       const fallback = getPatientInfoFallback(cleanData);
-      if (fallback && fallback !== "interpreter" && fallback !== "primary-language") {
+      if (fallback && fallback !== "interpreter") {
         return fallback;
+      }
+
+      if (!hasText(cleanData.primaryLanguage)) {
+        return "primary-language";
       }
 
       return cleanData.legalSex === null ? "legal-sex" : "interpreter";
     }
 
     case "primary-language": {
-      const fallback = getPatientInfoFallback(cleanData);
-      if (fallback && fallback !== "primary-language") {
+      const fallback = getHealthIntroFallback(cleanData);
+      if (fallback) {
         return fallback;
       }
 
-      if (cleanData.legalSex === null) {
-        return "legal-sex";
+      if (!hasText(cleanData.firstName) || !hasText(cleanData.lastName)) {
+        return "patient-name";
       }
 
-      if (cleanData.needsInterpreter === null) {
-        return "interpreter";
+      if (!hasText(cleanData.dateOfBirth)) {
+        return "patient-dob";
       }
 
-      return cleanData.needsInterpreter === "yes" ? "primary-language" : "services";
+      if (!hasPhoneAndEmail(cleanData)) {
+        return "phone";
+      }
+
+      if (!hasWhatsAppChoice(cleanData)) {
+        return "whatsapp-consent";
+      }
+
+      if (cleanData.emailConsent === null) {
+        return "email-consent";
+      }
+
+      if (!hasContactPermission(cleanData)) {
+        return "no-contact-exit";
+      }
+
+      return "primary-language";
     }
 
     case "services": {
@@ -636,20 +663,16 @@ export function getAccessibleWizardStep(step: WizardStep, data: WizardData): Wiz
     }
 
     case "health-risk": {
-      const fallback = getPatientInfoFallback(cleanData);
-      if (fallback) {
+      const fallback = getConcernFallback(cleanData);
+      if (fallback && fallback !== "health-risk" && fallback !== "additional-concerns") {
         return fallback;
       }
 
-      if (!cleanData.services.length) {
-        return "services";
+      if (!hasText(cleanData.primaryConcernText)) {
+        return "primary-concern";
       }
 
-      if (!hasRequiredAddress(cleanData)) {
-        return "address";
-      }
-
-      return hasText(cleanData.primaryConcernText) ? "health-risk" : "primary-concern";
+      return cleanData.currentlyInTreatment === null ? "current-treatment" : "health-risk";
     }
 
     case "current-treatment": {
@@ -658,11 +681,7 @@ export function getAccessibleWizardStep(step: WizardStep, data: WizardData): Wiz
         return fallback;
       }
 
-      if (cleanData.hasHealthRiskForTravel === null) {
-        return "health-risk";
-      }
-
-      return cleanData.hasHealthRiskForTravel === "no" ? "current-treatment" : "insurance-intro";
+      return hasText(cleanData.primaryConcernText) ? "current-treatment" : "primary-concern";
     }
 
     case "additional-concerns": {
@@ -671,11 +690,15 @@ export function getAccessibleWizardStep(step: WizardStep, data: WizardData): Wiz
         return fallback;
       }
 
-      if (cleanData.hasHealthRiskForTravel === "yes") {
-        return "insurance-intro";
+      if (!hasText(cleanData.primaryConcernText)) {
+        return "primary-concern";
       }
 
-      return cleanData.currentlyInTreatment === null ? "current-treatment" : "additional-concerns";
+      if (cleanData.currentlyInTreatment === null) {
+        return "current-treatment";
+      }
+
+      return cleanData.hasHealthRiskForTravel === null ? "health-risk" : "additional-concerns";
     }
 
     case "insurance-intro":

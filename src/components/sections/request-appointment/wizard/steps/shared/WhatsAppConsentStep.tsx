@@ -84,7 +84,7 @@ export function WhatsAppConsentStep() {
           <button
             onClick={handleNumberContinue}
             disabled={!number}
-            className={formStyles.submitButton}
+            className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
             type="button"
           >
             {t("continue")}

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useCallback, useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { Link } from '@/i18n/navigation';
@@ -46,7 +45,6 @@ export function WelcomeStep() {
           type="button"
         >
           {t('welcome.continue')}
-          <ArrowRight aria-hidden="true" />
         </button>
         <p className={styles.wizardEmergencyNote}>
           {t('welcome.emergency')}

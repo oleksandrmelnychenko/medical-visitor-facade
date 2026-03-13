@@ -90,6 +90,7 @@ type WizardProgressSnapshot = {
   primaryPhoneCompleted: boolean;
   addressCompleted: boolean;
   primaryConcernCompleted: boolean;
+  additionalConcernsCompleted: boolean;
   servicesSelected: boolean;
   hasInsurance: YesNoType;
   insuranceCoversGermany: InsuranceCoverageType;
@@ -176,6 +177,7 @@ export function createWizardProgressSnapshot(data: WizardData): WizardProgressSn
       hasText(cleanData.city) &&
       hasText(cleanData.zipCode),
     primaryConcernCompleted: hasText(cleanData.primaryConcernText),
+    additionalConcernsCompleted: cleanData.additionalConcernsCompleted,
     servicesSelected: cleanData.services.length > 0,
     hasInsurance: cleanData.hasInsurance,
     insuranceCoversGermany: cleanData.insuranceCoversGermany,
@@ -222,6 +224,7 @@ export function parseWizardProgressSnapshot(
       primaryPhoneCompleted: parsed.primaryPhoneCompleted === true,
       addressCompleted: parsed.addressCompleted === true,
       primaryConcernCompleted: parsed.primaryConcernCompleted === true,
+      additionalConcernsCompleted: parsed.additionalConcernsCompleted === true,
       servicesSelected: parsed.servicesSelected === true,
       hasInsurance: normalizeYesNo(parsed.hasInsurance),
       insuranceCoversGermany: normalizeInsuranceCoverage(parsed.insuranceCoversGermany),
@@ -263,6 +266,7 @@ export function snapshotToWizardData(snapshot: WizardProgressSnapshot): WizardDa
     city: snapshot.addressCompleted ? "done" : "",
     zipCode: snapshot.addressCompleted ? "done" : "",
     primaryConcernText: snapshot.primaryConcernCompleted ? "done" : "",
+    additionalConcernsCompleted: snapshot.additionalConcernsCompleted,
     services: snapshot.servicesSelected ? ["selected"] : [],
     hasInsurance: snapshot.hasInsurance,
     insuranceCoversGermany: snapshot.insuranceCoversGermany,

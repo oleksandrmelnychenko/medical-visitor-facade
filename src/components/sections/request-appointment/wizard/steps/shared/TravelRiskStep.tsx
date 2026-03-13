@@ -17,17 +17,13 @@ export function TravelRiskStep() {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
     updateData({ hasHealthRiskForTravel: value });
-    router.push(
-      value === "yes"
-        ? "/apply?type=new&step=insurance-intro"
-        : "/apply?type=new&step=current-treatment"
-    );
+    router.push("/apply?type=new&step=additional-concerns");
   }, [updateData, router]);
 
   const handleBack = useCallback(() => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-    router.push("/apply?type=new&step=primary-concern");
+    router.push("/apply?type=new&step=current-treatment");
   }, [router]);
 
   return (

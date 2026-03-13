@@ -39,9 +39,9 @@ const PATIENT_FLOW_STEPS = [
   "whatsapp-consent",
   "email-consent",
   "no-contact-exit",
+  "primary-language",
   "legal-sex",
   "interpreter",
-  "primary-language",
  ] as const satisfies readonly WizardStep[];
 
 const LATE_FLOW_STEPS = [
@@ -49,8 +49,8 @@ const LATE_FLOW_STEPS = [
   "address",
   "concern-intro",
   "primary-concern",
-  "health-risk",
   "current-treatment",
+  "health-risk",
   "additional-concerns",
   "insurance-intro",
   "insurance",

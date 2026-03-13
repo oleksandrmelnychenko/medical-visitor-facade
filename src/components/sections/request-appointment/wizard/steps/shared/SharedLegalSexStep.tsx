@@ -1,60 +1,83 @@
 "use client";
 
-import React, { useCallback, useRef } from 'react';
-import { useTranslations } from 'next-intl';
-import { useRouter } from '@/i18n/navigation';
-import { useWizard } from '../../WizardContext';
-import { LegalSexType } from '../../types';
-import { WizardStepLayout } from '../../components/WizardStepLayout';
-import formStyles from '@/components/auth/Auth.module.scss';
-import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
+import React, { useCallback, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
+import { useWizard } from "../../WizardContext";
+import { LegalSexType } from "../../types";
+import { WizardStepLayout } from "../../components/WizardStepLayout";
+import formStyles from "@/components/auth/Auth.module.scss";
+import styles from "../../../RequestAppointment/RequestAppointment.module.scss";
 
-const SEX_OPTIONS: { value: LegalSexType; key: string }[] = [
-  { value: 'female', key: 'female' },
-  { value: 'male', key: 'male' },
-  { value: 'diverse', key: 'diverse' },
-  { value: 'no_entry', key: 'noEntry' },
+const SEX_OPTIONS: { value: NonNullable<LegalSexType>; key: string }[] = [
+  { value: "female", key: "female" },
+  { value: "male", key: "male" },
+  { value: "diverse", key: "diverse" },
+  { value: "no_entry", key: "noEntry" },
 ];
 
 export function SharedLegalSexStep() {
-  const t = useTranslations('appointment.newPatient');
+  const t = useTranslations("appointment.newPatient");
   const router = useRouter();
-  const { updateData } = useWizard();
+  const { data, updateData } = useWizard();
   const isNavigatingRef = useRef(false);
+  const [legalSex, setLegalSex] = useState<LegalSexType>(data.legalSex);
 
-  const handleSelect = useCallback((value: LegalSexType) => {
+  const handleContinue = useCallback(() => {
+    if (!legalSex || isNavigatingRef.current) return;
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-    updateData({ legalSex: value });
-    router.push('/apply?type=new&step=interpreter');
-  }, [updateData, router]);
+    updateData({ legalSex });
+    router.push("/apply?type=new&step=interpreter");
+  }, [legalSex, updateData, router]);
 
   const handleBack = useCallback(() => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-    router.push('/apply?type=new&step=email-consent');
+    router.push("/apply?type=new&step=primary-language");
   }, [router]);
 
   return (
     <WizardStepLayout
-      title={t('sharedLegalSex.title')}
-      subtitle={t('sharedLegalSex.subtitle')}
+      title={t("sharedLegalSex.title")}
+      subtitle={t("sharedLegalSex.subtitle")}
       onBack={handleBack}
-      backLabel={t('back')}
+      backLabel={t("back")}
     >
       <div className={styles.wizardFormContainer}>
-        <div className={styles.wizardSexButtonGrid}>
-          {SEX_OPTIONS.map(opt => (
-            <button
-              key={opt.value}
-              onClick={() => handleSelect(opt.value)}
-              className={formStyles.sexButton}
-              type="button"
-            >
-              {t(`sharedLegalSex.${opt.key}`)}
-            </button>
-          ))}
+        <div className={`${formStyles.radioGroup} ${styles.legalSexRadioGroup}`}>
+          {SEX_OPTIONS.map(opt => {
+            const inputId = `legal-sex-${opt.value}`;
+
+            return (
+              <label
+                key={opt.value}
+                htmlFor={inputId}
+                className={`${formStyles.radioLabel} ${styles.legalSexRadioLabel}`}
+              >
+                <input
+                  id={inputId}
+                  type="radio"
+                  name="legal-sex"
+                  value={opt.value}
+                  checked={legalSex === opt.value}
+                  onChange={() => setLegalSex(opt.value)}
+                  className={formStyles.radioInput}
+                />
+                <span className={formStyles.radioCustom} />
+                <span className={styles.legalSexRadioText}>{t(`sharedLegalSex.${opt.key}`)}</span>
+              </label>
+            );
+          })}
         </div>
+        <button
+          onClick={handleContinue}
+          disabled={!legalSex}
+          className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
+          type="button"
+        >
+          {t("continue")}
+        </button>
       </div>
     </WizardStepLayout>
   );

@@ -17,13 +17,13 @@ export function CurrentTreatmentStep() {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
     updateData({ currentlyInTreatment: value });
-    router.push('/apply?type=new&step=additional-concerns');
+    router.push('/apply?type=new&step=health-risk');
   }, [updateData, router]);
 
   const handleBack = useCallback(() => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-    router.push("/apply?type=new&step=health-risk");
+    router.push("/apply?type=new&step=primary-concern");
   }, [router]);
 
   return (

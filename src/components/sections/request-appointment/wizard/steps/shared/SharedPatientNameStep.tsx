@@ -77,7 +77,7 @@ export function SharedPatientNameStep() {
         <button
           onClick={handleContinue}
           disabled={!firstName || !lastName}
-          className={formStyles.submitButton}
+          className={`${formStyles.submitButton} ${styles.welcomeContinueButton}`}
           type="button"
         >
           {t('continue')}

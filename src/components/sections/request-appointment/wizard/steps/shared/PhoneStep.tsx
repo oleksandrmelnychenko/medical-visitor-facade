@@ -81,7 +81,7 @@ export function PhoneStep() {
         <button
           onClick={handleContinue}
           disabled={!phone || !email}
-          className={formStyles.submitButton}
+          className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
           type="button"
         >
           {t("continue")}

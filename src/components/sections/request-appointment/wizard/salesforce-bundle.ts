@@ -175,12 +175,19 @@ export function generateCsv(row: Record<string, string>): string {
 }
 
 export async function submitSalesforceBundle(
-  bundle: SalesforceBundle
+  bundle: SalesforceBundle,
+  uploadedFiles: File[] = []
 ): Promise<{ success: boolean; error?: string }> {
+  const formData = new FormData();
+  formData.append("bundle", JSON.stringify(bundle));
+
+  for (const file of uploadedFiles) {
+    formData.append("files", file);
+  }
+
   const res = await fetch("/api/apply/submit", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(bundle),
+    body: formData,
   });
 
   if (!res.ok) {

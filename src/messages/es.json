@@ -324,13 +324,13 @@
       "emailConsent": {
         "title": "¿Está de acuerdo en comunicarse con nosotros por correo electrónico?",
         "yes": "Sí",
-        "yesDisclaimer": "Entiendo que el correo electrónico estándar no está cifrado de extremo a extremo y está sujeto a las políticas de privacidad de mi proveedor.",
+        "yesDisclaimer": "Entiendo que las comunicaciones por correo electrónico pueden no ser seguras y están sujetas a las políticas de privacidad y a las condiciones de uso de mi proveedor de correo.",
         "no": "No"
       },
       "whatsappConsentNew": {
         "title": "¿Podemos contactarle a través de WhatsApp?",
         "yes": "Sí",
-        "yesDisclaimer": "Acepto comunicarme vía WhatsApp y acepto sus políticas de privacidad.",
+        "yesDisclaimer": "Entiendo que las comunicaciones por WhatsApp pueden no ser seguras y están sujetas a las políticas de privacidad y a las condiciones de uso de WhatsApp.",
         "no": "No",
         "numberTitle": "¿Cuál es su número de WhatsApp?"
       },
@@ -355,8 +355,17 @@
         "start": "Comenzar"
       },
       "primaryConcernText": {
-        "title": "¿Cuál es su diagnóstico o queja principal?",
-        "placeholder": "Describa brevemente su situación..."
+        "title": "¿Cuál es su principal motivo de consulta o pregunta?",
+        "placeholder": "Describa brevemente su situación...",
+        "attachmentsLabel": "Archivos (opcional)",
+        "attachmentsHint": "Si ya dispone de documentos, puede adjuntarlos aquí.",
+        "attachmentsAction": "Agregar archivos",
+        "attachmentsFormats": "Se admiten ZIP, PDF e imágenes. Hasta 6 archivos, de hasta 10 MB cada uno.",
+        "removeFile": "Eliminar archivo",
+        "invalidFileType": "Solo se pueden cargar archivos ZIP, PDF o imágenes.",
+        "fileTooLarge": "Uno de los archivos supera el límite de 10 MB.",
+        "totalFilesTooLarge": "El tamaño total de los archivos es demasiado grande. Reduzca el volumen total de la carga.",
+        "tooManyFiles": "Puede agregar hasta 6 archivos."
       },
       "additionalConcerns": {
         "title": "¿Existen enfermedades previas u otros detalles que debamos conocer?",
@@ -381,6 +390,7 @@
         "businessAviationDetails": "Organización de vuelos privados para viajes urgentes que requieren flexibilidad, privacidad y logística a medida.",
         "none": "Ninguno de los servicios mencionados",
         "notSure": "Aún no estoy seguro/a",
+        "close": "Cerrar",
         "showLess": "Mostrar menos"
       },
       "insuranceIntro": {
@@ -427,10 +437,10 @@
       },
       "reviewStep": {
         "title": "Por favor, revise sus datos antes de enviarlos.",
-        "consent1": "Acepto que la Agencia se ponga en contacto conmigo a través de los datos proporcionados (teléfono, SMS, correo electrónico).",
-        "consent2": "Entiendo que esta comunicación está destinada exclusivamente a la organización de mi tratamiento médico.",
-        "consent3": "Reconozco que puedo retirar este consentimiento en cualquier momento.",
-        "consent4": "He leído y acepto la Política de Privacidad.",
+        "consent1": "Acepto que GMED pueda utilizar un sistema automatizado de marcación telefónica, mensajes de voz pregrabados o sintéticos, mensajes de texto y correo electrónico para contactarme en los números y la dirección de correo electrónico que he proporcionado.",
+        "consent2": "Entiendo que puedo ser contactado en relación con mi atención médica, incluso para programar una cita.",
+        "consent3": "Entiendo que, cuando se me contacte de esta manera, se me dará la oportunidad de rechazar comunicaciones futuras similares.",
+        "consent4": "He leído y confirmado la recepción del Aviso sobre las prácticas de privacidad.",
         "incompleteError": "Por favor, complete todos los campos obligatorios antes de enviar la solicitud.",
         "submit": "Enviar solicitud",
         "submitting": "Enviando...",
@@ -465,6 +475,7 @@
         "healthRisk": "Riesgo para viajar",
         "currentTreatment": "Tratamiento actual",
         "additionalConcerns": "Detalles adicionales",
+        "attachments": "Archivos adjuntos",
         "insurance": "Seguro médico",
         "insuranceCoverage": "Cobertura en Alemania",
         "preferredLocation": "Ubicación preferida",

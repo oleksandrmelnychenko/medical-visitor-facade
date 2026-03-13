@@ -40,7 +40,7 @@ export function WrapUpIntroStep() {
       <div className={styles.wizardFormContainer}>
         <button
           onClick={handleContinue}
-          className={formStyles.submitButton}
+          className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
           type="button"
         >
           {t("wrapUpIntro.start")}

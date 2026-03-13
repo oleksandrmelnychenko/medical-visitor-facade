@@ -15,12 +15,12 @@ export function AdditionalConcernsStep() {
   const [additional, setAdditional] = useState(data.additionalConcerns || '');
 
   const handleContinue = useCallback(() => {
-    updateData({ additionalConcerns: additional });
+    updateData({ additionalConcerns: additional, additionalConcernsCompleted: true });
     router.push('/apply?type=new&step=insurance-intro');
   }, [additional, updateData, router]);
 
   const handleBack = useCallback(() => {
-    router.push('/apply?type=new&step=current-treatment');
+    router.push('/apply?type=new&step=health-risk');
   }, [router]);
 
   return (
@@ -41,7 +41,7 @@ export function AdditionalConcernsStep() {
         </div>
         <button
           onClick={handleContinue}
-          className={formStyles.submitButton}
+          className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
           type="button"
         >
           {t('continue')}

@@ -17,9 +17,7 @@ export function SharedInterpreterStep() {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
     updateData({ needsInterpreter: value });
-    router.push(value === "yes"
-      ? "/apply?type=new&step=primary-language"
-      : "/apply?type=new&step=services");
+    router.push("/apply?type=new&step=services");
   }, [updateData, router]);
 
   const handleBack = useCallback(() => {

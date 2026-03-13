@@ -35,14 +35,9 @@ function buildPath(data: WizardData): string[] {
     return steps;
   }
 
-  steps.push('legal-sex', 'interpreter');
-  if (data.needsInterpreter === 'yes') steps.push('primary-language');
+  steps.push('primary-language', 'legal-sex', 'interpreter');
 
-  steps.push('services', 'address', 'concern-intro', 'primary-concern', 'health-risk');
-
-  if (data.hasHealthRiskForTravel === 'no') {
-    steps.push('current-treatment', 'additional-concerns');
-  }
+  steps.push('services', 'address', 'concern-intro', 'primary-concern', 'current-treatment', 'health-risk', 'additional-concerns');
 
   steps.push('insurance-intro', 'insurance');
   if (data.hasInsurance === 'yes') steps.push('insurance-coverage');

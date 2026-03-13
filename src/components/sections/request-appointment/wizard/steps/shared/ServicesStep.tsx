@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
@@ -23,7 +24,13 @@ export function ServicesStep() {
   const router = useRouter();
   const { data, updateData } = useWizard();
   const [selected, setSelected] = useState<string[]>(data.services || []);
-  const [expandedInfo, setExpandedInfo] = useState<string | null>(null);
+  const [activeInfo, setActiveInfo] = useState<string | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
+  const activeOption = SERVICE_OPTIONS.find(opt => opt.value === activeInfo) ?? null;
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const toggle = useCallback((value: string) => {
     setSelected(prev => {
@@ -50,11 +57,35 @@ export function ServicesStep() {
     );
   }, [data.needsInterpreter, router]);
 
-  const handleToggleDetails = useCallback((event: React.MouseEvent<HTMLButtonElement>, value: string) => {
+  const handleOpenDetails = useCallback((event: React.MouseEvent<HTMLButtonElement>, value: string) => {
     event.preventDefault();
     event.stopPropagation();
-    setExpandedInfo(prev => (prev === value ? null : value));
+    setActiveInfo(value);
   }, []);
+
+  const handleCloseDetails = useCallback(() => {
+    setActiveInfo(null);
+  }, []);
+
+  useEffect(() => {
+    if (!activeInfo) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setActiveInfo(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [activeInfo]);
 
   return (
     <WizardStepLayout
@@ -64,65 +95,107 @@ export function ServicesStep() {
     >
       <div className={styles.wizardFormContainer}>
         <div className={styles.wizardCheckboxList}>
-          {SERVICE_OPTIONS.map(opt => {
-            const isExpanded = expandedInfo === opt.value;
+          <div className={styles.serviceGroup}>
+            {SERVICE_OPTIONS.map(opt => {
+              return (
+                <label key={opt.value} className={`${formStyles.checkboxLabel} ${styles.serviceOptionRow}`}>
+                  <input
+                    type="checkbox"
+                    checked={selected.includes(opt.value)}
+                    onChange={() => toggle(opt.value)}
+                    className={formStyles.checkboxInput}
+                  />
+                  <span className={`${formStyles.checkboxCustom} ${styles.serviceOptionCheck}`} />
+                  <span className={`${formStyles.checkboxContent} ${styles.serviceOptionContent}`}>
+                    <span className={`${formStyles.checkboxTitle} ${styles.serviceOptionTitle}`}>{t(`services.${opt.key}`)}</span>
+                    <button
+                      type="button"
+                      onClick={(event) => handleOpenDetails(event, opt.value)}
+                      className={styles.serviceLearnMoreButton}
+                      aria-haspopup="dialog"
+                    >
+                      {t(`services.${opt.key}LearnMore`)}
+                    </button>
+                  </span>
+                </label>
+              );
+            })}
+          </div>
 
-            return (
-              <label key={opt.value} className={formStyles.checkboxLabel}>
-                <input
-                  type="checkbox"
-                  checked={selected.includes(opt.value)}
-                  onChange={() => toggle(opt.value)}
-                  className={formStyles.checkboxInput}
-                />
-                <span className={formStyles.checkboxCustom} />
-                <span className={formStyles.checkboxContent}>
-                  <span className={formStyles.checkboxTitle}>{t(`services.${opt.key}`)}</span>
-                  <button
-                    type="button"
-                    onClick={(event) => handleToggleDetails(event, opt.value)}
-                    className={styles.serviceLearnMoreButton}
-                    aria-expanded={isExpanded}
-                  >
-                    {isExpanded ? t('services.showLess') : t(`services.${opt.key}LearnMore`)}
-                  </button>
-                  {isExpanded ? (
-                    <span className={styles.serviceLearnMoreText}>{t(`services.${opt.key}Details`)}</span>
-                  ) : null}
-                </span>
-              </label>
-            );
-          })}
-          <label className={formStyles.checkboxLabel}>
-            <input
-              type="checkbox"
-              checked={selected.includes('none')}
-              onChange={() => toggle('none')}
-              className={formStyles.checkboxInput}
-            />
-            <span className={formStyles.checkboxCustom} />
-            <span className={formStyles.checkboxText}>{t('services.none')}</span>
-          </label>
-          <label className={formStyles.checkboxLabel}>
-            <input
-              type="checkbox"
-              checked={selected.includes('not-sure')}
-              onChange={() => toggle('not-sure')}
-              className={formStyles.checkboxInput}
-            />
-            <span className={formStyles.checkboxCustom} />
-            <span className={formStyles.checkboxText}>{t('services.notSure')}</span>
-          </label>
+          <div className={styles.serviceExclusiveGroup}>
+            <label className={`${formStyles.checkboxLabel} ${styles.serviceOptionRow} ${styles.serviceOptionSecondary}`}>
+              <input
+                type="checkbox"
+                checked={selected.includes('none')}
+                onChange={() => toggle('none')}
+                className={formStyles.checkboxInput}
+              />
+              <span className={`${formStyles.checkboxCustom} ${styles.serviceOptionCheck}`} />
+              <span className={`${formStyles.checkboxText} ${styles.serviceOptionTitle}`}>{t('services.none')}</span>
+            </label>
+            <label className={`${formStyles.checkboxLabel} ${styles.serviceOptionRow} ${styles.serviceOptionSecondary}`}>
+              <input
+                type="checkbox"
+                checked={selected.includes('not-sure')}
+                onChange={() => toggle('not-sure')}
+                className={formStyles.checkboxInput}
+              />
+              <span className={`${formStyles.checkboxCustom} ${styles.serviceOptionCheck}`} />
+              <span className={`${formStyles.checkboxText} ${styles.serviceOptionTitle}`}>{t('services.notSure')}</span>
+            </label>
+          </div>
         </div>
         <button
           onClick={handleContinue}
           disabled={selected.length === 0}
-          className={formStyles.submitButton}
+          className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
           type="button"
         >
           {t('continue')}
         </button>
       </div>
+
+      {isMounted && activeOption
+        ? createPortal(
+          <div className={styles.serviceModalBackdrop} role="presentation" onClick={handleCloseDetails}>
+            <div
+              className={styles.serviceModal}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="service-modal-title"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className={styles.serviceModalHeader}>
+                <h3 id="service-modal-title" className={styles.serviceModalTitle}>
+                  {t(`services.${activeOption.key}`)}
+                </h3>
+                <button
+                  type="button"
+                  className={styles.serviceModalClose}
+                  aria-label={t('services.close')}
+                  onClick={handleCloseDetails}
+                >
+                  ×
+                </button>
+              </div>
+              <p className={styles.serviceModalBody}>
+                {t(`services.${activeOption.key}Details`)}
+              </p>
+              <div className={styles.serviceModalFooter}>
+                <button
+                  type="button"
+                  className={styles.serviceModalCloseButton}
+                  onClick={handleCloseDetails}
+                >
+                  {t('services.close')}
+                </button>
+              </div>
+            </div>
+          </div>
+          ,
+          document.body
+        )
+        : null}
     </WizardStepLayout>
   );
 }

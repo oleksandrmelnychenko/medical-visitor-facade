@@ -91,6 +91,7 @@ export interface WizardData {
   // Concern
   primaryConcernText: string;
   additionalConcerns: string;
+  additionalConcernsCompleted: boolean;
   // Services
   services: string[];
   // Insurance
@@ -147,6 +148,7 @@ export const initialWizardData: WizardData = {
   zipCode: '',
   primaryConcernText: '',
   additionalConcerns: '',
+  additionalConcernsCompleted: false,
   services: [],
   hasInsurance: null,
   insuranceCoversGermany: null,

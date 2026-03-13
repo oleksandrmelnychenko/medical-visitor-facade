@@ -324,13 +324,13 @@
       "emailConsent": {
         "title": "Sind Sie mit der Kommunikation per E-Mail einverstanden?",
         "yes": "Ja",
-        "yesDisclaimer": "Mir ist bewusst, dass die Standard-E-Mail-Kommunikation nicht Ende-zu-Ende verschlüsselt ist und den Richtlinien meines E-Mail-Anbieters unterliegt.",
+        "yesDisclaimer": "Mir ist bewusst, dass die Kommunikation per E-Mail möglicherweise nicht sicher ist und den Datenschutzrichtlinien sowie Nutzungsbedingungen meines E-Mail-Anbieters unterliegt.",
         "no": "Nein"
       },
       "whatsappConsentNew": {
         "title": "Dürfen wir Sie über WhatsApp kontaktieren?",
         "yes": "Ja",
-        "yesDisclaimer": "Ich stimme der Kommunikation über WhatsApp zu und akzeptiere die Datenschutzrichtlinien von WhatsApp.",
+        "yesDisclaimer": "Mir ist bewusst, dass die Kommunikation über WhatsApp möglicherweise nicht sicher ist und den Datenschutzrichtlinien sowie Nutzungsbedingungen von WhatsApp unterliegt.",
         "no": "Nein",
         "numberTitle": "Wie lautet Ihre WhatsApp-Nummer?"
       },
@@ -355,8 +355,17 @@
         "start": "Start"
       },
       "primaryConcernText": {
-        "title": "Was ist Ihre primäre Diagnose oder Hauptbeschwerde?",
-        "placeholder": "Bitte beschreiben Sie Ihr Anliegen..."
+        "title": "Mit welchem Hauptanliegen oder welcher Frage wenden Sie sich an uns?",
+        "placeholder": "Bitte beschreiben Sie Ihr Anliegen...",
+        "attachmentsLabel": "Dateien (optional)",
+        "attachmentsHint": "Falls Sie bereits Unterlagen haben, können Sie diese hier direkt anhängen.",
+        "attachmentsAction": "Dateien hinzufügen",
+        "attachmentsFormats": "ZIP, PDF und Bilder werden unterstützt. Bis zu 6 Dateien, jeweils bis 10 MB.",
+        "removeFile": "Datei entfernen",
+        "invalidFileType": "Es können nur ZIP-, PDF- oder Bilddateien hochgeladen werden.",
+        "fileTooLarge": "Eine der Dateien überschreitet die zulässige Größe von 10 MB.",
+        "totalFilesTooLarge": "Die Gesamtgröße der Dateien ist zu hoch. Bitte reduzieren Sie den Umfang der Anhänge.",
+        "tooManyFiles": "Sie können maximal 6 Dateien hinzufügen."
       },
       "additionalConcerns": {
         "title": "Gibt es Vorerkrankungen oder weitere medizinische Details, die wir kennen sollten?",
@@ -381,6 +390,7 @@
         "businessAviationDetails": "Organisation privater Flüge für zeitkritische Reisen mit hoher Flexibilität, Diskretion und individueller Logistik.",
         "none": "Keinen der genannten Services",
         "notSure": "Ich bin mir noch nicht sicher",
+        "close": "Schließen",
         "showLess": "Weniger anzeigen"
       },
       "insuranceIntro": {
@@ -427,10 +437,10 @@
       },
       "reviewStep": {
         "title": "Bitte prüfen Sie Ihre Angaben vor dem Absenden.",
-        "consent1": "Ich stimme zu, dass die Agentur mich über die angegebenen Kontaktdaten (Telefon, E-Mail, SMS) kontaktieren darf.",
-        "consent2": "Ich verstehe, dass diese Kommunikation ausschließlich der Organisation meiner medizinischen Behandlung dient.",
-        "consent3": "Ich nehme zur Kenntnis, dass ich diese Einwilligung jederzeit widerrufen kann.",
-        "consent4": "Ich habe die Datenschutzerklärung gelesen und akzeptiert.",
+        "consent1": "Ich stimme zu, dass GMED ein automatisiertes Telefonwahlsystem, vorab aufgezeichnete oder synthetische Sprachnachrichten, Textnachrichten und E-Mails verwenden darf, um mich unter den von mir angegebenen Telefonnummern und der E-Mail-Adresse zu kontaktieren.",
+        "consent2": "Ich verstehe, dass ich in Bezug auf meine Gesundheitsversorgung kontaktiert werden kann, einschließlich zur Terminvereinbarung.",
+        "consent3": "Ich verstehe, dass mir bei einer solchen Kontaktaufnahme die Möglichkeit gegeben wird, zukünftige ähnliche Mitteilungen abzulehnen.",
+        "consent4": "Ich habe die Hinweise zu den Datenschutzpraktiken gelesen und deren Erhalt bestätigt.",
         "incompleteError": "Bitte füllen Sie alle erforderlichen Felder aus, bevor Sie die Anfrage absenden.",
         "submit": "Anfrage absenden",
         "submitting": "Wird gesendet...",
@@ -465,6 +475,7 @@
         "healthRisk": "Reiserisiko",
         "currentTreatment": "Aktuelle Behandlung",
         "additionalConcerns": "Weitere Hinweise",
+        "attachments": "Angehängte Dateien",
         "insurance": "Krankenversicherung",
         "insuranceCoverage": "Kostenübernahme in Deutschland",
         "preferredLocation": "Bevorzugter Ort",

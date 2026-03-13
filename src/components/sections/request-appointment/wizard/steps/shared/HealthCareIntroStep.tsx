@@ -40,7 +40,7 @@ export function HealthCareIntroStep() {
       <div className={styles.wizardFormContainer}>
         <button
           onClick={handleStart}
-          className={formStyles.submitButton}
+          className={`${formStyles.submitButton} ${styles.welcomeContinueButton}`}
           type="button"
         >
           {t('healthIntro.start')}

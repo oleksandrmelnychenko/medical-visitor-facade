@@ -13,7 +13,28 @@ function getResend() {
 
 export async function POST(request: Request) {
   try {
-    const bundle: SalesforceBundle = await request.json();
+    const contentType = request.headers.get("content-type") ?? "";
+    let bundle: SalesforceBundle;
+    let uploadedFiles: File[] = [];
+
+    if (contentType.includes("multipart/form-data")) {
+      const formData = await request.formData();
+      const rawBundle = formData.get("bundle");
+
+      if (typeof rawBundle !== "string") {
+        return NextResponse.json(
+          { error: "Invalid bundle format" },
+          { status: 400 }
+        );
+      }
+
+      bundle = JSON.parse(rawBundle) as SalesforceBundle;
+      uploadedFiles = formData
+        .getAll("files")
+        .filter((entry): entry is File => entry instanceof File && entry.size > 0);
+    } else {
+      bundle = await request.json();
+    }
 
     if (!bundle.payload || !bundle.summary) {
       return NextResponse.json(
@@ -49,6 +70,14 @@ export async function POST(request: Request) {
       .replace("Z", "");
     const filename = `salesforce-lead-${bundle.flow}-${timestamp}.csv`;
 
+    const uploadedAttachments = await Promise.all(
+      uploadedFiles.map(async (file) => ({
+        filename: file.name,
+        content: Buffer.from(await file.arrayBuffer()),
+        contentType: file.type || "application/octet-stream",
+      }))
+    );
+
     const { error } = await getResend().emails.send({
       from: process.env.EMAIL_FROM || "noreply@gmed-health.com",
       to: salesforceEmail,
@@ -62,6 +91,9 @@ export async function POST(request: Request) {
         `Location: ${bundle.summary.locationDetailed || "not specified"}`,
         `Flow: ${bundle.flow}`,
         `Submitted: ${bundle.submittedAt}`,
+        uploadedAttachments.length
+          ? `Uploaded files: ${uploadedAttachments.map((file) => file.filename).join(", ")}`
+          : `Uploaded files: none`,
         ``,
         `CSV file attached for Salesforce import.`,
       ].join("\n"),
@@ -71,6 +103,7 @@ export async function POST(request: Request) {
           content: csvBuffer,
           contentType: "text/csv",
         },
+        ...uploadedAttachments,
       ],
     });
 

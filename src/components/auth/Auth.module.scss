@@ -77,7 +77,9 @@
   border: 1px solid var(--border-card);
   border-radius: 16px;
   background: #fff;
-  color: var(--text-heading);
+  color: #14161b;
+  caret-color: #14161b;
+  -webkit-text-fill-color: #14161b;
   outline: none;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
   transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
@@ -93,7 +95,7 @@
   }
 
   &::placeholder {
-    color: var(--text-muted);
+    color: #6d7481;
     font-weight: 400;
     letter-spacing: -0.02em;
   }
@@ -101,6 +103,14 @@
   &.error {
     border-color: #d4183d;
   }
+}
+
+select.simpleInput {
+  appearance: none;
+  padding-right: 2.85rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236d7481' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
 }
 
 .formGroup {
@@ -118,7 +128,9 @@
   border: 1px solid #d5d5d5;
   border-radius: 12px;
   background: #fff;
-  color: var(--foreground);
+  color: #14161b;
+  caret-color: #14161b;
+  -webkit-text-fill-color: #14161b;
   outline: none;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
@@ -130,7 +142,7 @@
   }
 
   &::placeholder {
-    color: #999;
+    color: #6d7481;
   }
 
   &.error {
@@ -176,7 +188,9 @@
   border: none;
   border-bottom: 1px solid #ccc;
   background: transparent;
-  color: var(--foreground);
+  color: #14161b;
+  caret-color: #14161b;
+  -webkit-text-fill-color: #14161b;
   transition: border-color 0.3s ease;
   letter-spacing: 0.05em;
 
@@ -185,7 +199,7 @@
   }
 
   &::placeholder {
-    color: #bbb;
+    color: #7a808b;
   }
 
   &.error {
@@ -609,8 +623,10 @@
   font-size: 0.95rem;
   font-family: inherit;
   line-height: 1.6;
-  color: var(--text-heading);
-  background: #fcfdff;
+  color: #14161b;
+  caret-color: #14161b;
+  -webkit-text-fill-color: #14161b;
+  background: #fff;
   border: 1px solid var(--border-card);
   border-radius: 18px;
   resize: vertical;
@@ -627,7 +643,7 @@
   }
 
   &::placeholder {
-    color: var(--text-muted);
+    color: #6d7481;
   }
 }
 
