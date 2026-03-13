@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import { getAlternateLanguages } from "@/lib/seo";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import {
   getBreadcrumbItems,
+  getLocalizedMetadata,
   getLocalizedMessage,
   normalizeLanguage,
 } from "@/lib/seo";
@@ -21,11 +21,12 @@ export async function generateMetadata({
     getLocalizedMessage(safeLocale, "appointment.freeService.description1"),
   ]);
 
-  return {
+  return getLocalizedMetadata({
+    locale: safeLocale,
+    path: "/financial-assistance",
     title,
     description,
-    alternates: getAlternateLanguages("/financial-assistance", safeLocale),
-  };
+  });
 }
 
 export default async function FinancialAssistanceLayout({

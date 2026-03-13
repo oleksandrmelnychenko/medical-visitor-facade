@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import {
-  getAlternateLanguages,
   getBreadcrumbItems,
+  getLocalizedMetadata,
   getLocalizedMessage,
   normalizeLanguage,
 } from "@/lib/seo";
@@ -21,11 +21,12 @@ export async function generateMetadata({
     getLocalizedMessage(safeLocale, "privacyPolicy.intro2"),
   ]);
 
-  return {
+  return getLocalizedMetadata({
+    locale: safeLocale,
+    path: "/privacy-policy",
     title,
     description,
-    alternates: getAlternateLanguages("/privacy-policy", safeLocale),
-  };
+  });
 }
 
 export default async function PrivacyPolicyLayout({

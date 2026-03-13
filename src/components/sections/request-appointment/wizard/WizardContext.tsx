@@ -15,6 +15,11 @@ import {
   saveEncryptedJson,
 } from "@/lib/client-encryption";
 import { WizardData, initialWizardData } from "./types";
+import {
+  createWizardProgressSnapshot,
+  persistWizardProgressCookie,
+  serializeWizardProgressSnapshot,
+} from "./progress-cookie";
 import { sanitizeWizardData } from "./flow";
 
 interface WizardContextType {
@@ -44,6 +49,7 @@ export function WizardProvider({ children }: { children: ReactNode }) {
   const [data, setData] = useState<WizardData>(initialWizardData);
   const [isDraftHydrated, setIsDraftHydrated] = useState(false);
   const lastPersistedSerializedRef = useRef(INITIAL_WIZARD_SERIALIZED);
+  const lastProgressSnapshotRef = useRef<string>("");
 
   useEffect(() => {
     let isCancelled = false;
@@ -57,10 +63,16 @@ export function WizardProvider({ children }: { children: ReactNode }) {
 
       if (draft) {
         const nextData = sanitizeWizardData({ ...initialWizardData, ...draft });
+        const progressSnapshot = createWizardProgressSnapshot(nextData);
+
         lastPersistedSerializedRef.current = JSON.stringify(nextData);
+        lastProgressSnapshotRef.current = serializeWizardProgressSnapshot(progressSnapshot);
+        persistWizardProgressCookie(progressSnapshot);
         setData(nextData);
       } else {
         lastPersistedSerializedRef.current = INITIAL_WIZARD_SERIALIZED;
+        lastProgressSnapshotRef.current = "";
+        persistWizardProgressCookie(null);
       }
 
       setIsDraftHydrated(true);
@@ -82,8 +94,10 @@ export function WizardProvider({ children }: { children: ReactNode }) {
 
   const resetData = useCallback(() => {
     lastPersistedSerializedRef.current = INITIAL_WIZARD_SERIALIZED;
+    lastProgressSnapshotRef.current = "";
     setData(initialWizardData);
     removeEncryptedJson(WIZARD_DRAFT_STORAGE_KEY);
+    persistWizardProgressCookie(null);
   }, []);
 
   const getRoleSuffix = useCallback(() => {
@@ -103,7 +117,19 @@ export function WizardProvider({ children }: { children: ReactNode }) {
           lastPersistedSerializedRef.current = INITIAL_WIZARD_SERIALIZED;
           removeEncryptedJson(WIZARD_DRAFT_STORAGE_KEY);
         }
+        if (lastProgressSnapshotRef.current) {
+          lastProgressSnapshotRef.current = "";
+          persistWizardProgressCookie(null);
+        }
         return;
+      }
+
+      const progressSnapshot = createWizardProgressSnapshot(data);
+      const serializedProgressSnapshot = serializeWizardProgressSnapshot(progressSnapshot);
+
+      if (serializedProgressSnapshot !== lastProgressSnapshotRef.current) {
+        lastProgressSnapshotRef.current = serializedProgressSnapshot;
+        persistWizardProgressCookie(progressSnapshot);
       }
 
       if (serialized === lastPersistedSerializedRef.current) {

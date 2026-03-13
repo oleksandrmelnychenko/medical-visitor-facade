@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import {
-  getAlternateLanguages,
   getBreadcrumbItems,
+  getLocalizedMetadata,
   getLocalizedMessage,
   normalizeLanguage,
 } from "@/lib/seo";
@@ -21,11 +21,12 @@ export async function generateMetadata({
     getLocalizedMessage(safeLocale, "footer.address"),
   ]);
 
-  return {
+  return getLocalizedMetadata({
+    locale: safeLocale,
+    path: "/legal-notice",
     title,
     description: `${title}. GMED Agency, ${address}.`,
-    alternates: getAlternateLanguages("/legal-notice", safeLocale),
-  };
+  });
 }
 
 export default async function LegalNoticeLayout({

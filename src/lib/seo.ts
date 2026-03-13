@@ -1,4 +1,5 @@
 // SEO helper functions for consistent metadata across pages
+import type { Metadata } from "next";
 import { cache } from "react";
 import { routing } from "@/i18n/routing";
 
@@ -20,6 +21,13 @@ const hreflangMap: Record<Language, string> = {
   en: "en-US",
   ru: "ru-RU",
   es: "es-ES",
+};
+
+const openGraphLocaleMap: Record<Language, string> = {
+  de: "de_DE",
+  en: "en_US",
+  ru: "ru_RU",
+  es: "es_ES",
 };
 
 function normalizePath(path: string = "") {
@@ -50,6 +58,57 @@ export function getAlternateLanguages(path: string = "", currentLocale: Language
       ...localizedEntries,
       "x-default": getLocalizedPath(defaultLanguage, path),
     },
+  };
+}
+
+type LocalizedMetadataOptions = {
+  locale: Language;
+  path?: string;
+  title: string;
+  description: string;
+  noIndex?: boolean;
+};
+
+export function getLocalizedMetadata({
+  locale,
+  path = "",
+  title,
+  description,
+  noIndex = false,
+}: LocalizedMetadataOptions): Metadata {
+  const robots = noIndex ? getNoIndexMetadata().robots : undefined;
+
+  return {
+    title,
+    description,
+    alternates: getAlternateLanguages(path, locale),
+    openGraph: {
+      type: "website",
+      locale: openGraphLocaleMap[locale],
+      alternateLocale: languages
+        .filter((language) => language !== locale)
+        .map((language) => openGraphLocaleMap[language]),
+      url: getLocalizedPath(locale, path),
+      siteName: "GMED Agency",
+      title,
+      description,
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: "GMED Agency - Medical Concierge Service",
+          type: "image/png",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/opengraph-image"],
+    },
+    robots,
   };
 }
 

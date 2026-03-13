@@ -5,7 +5,7 @@ import { CareForward } from "@/components/sections/home/CareForward";
 import { Office } from "@/components/sections/home/Office";
 import { ScrollProgressRail } from "@/components/layout/ScrollProgressRail";
 import {
-  getAlternateLanguages,
+  getLocalizedMetadata,
   getLocalizedMessage,
   normalizeLanguage,
 } from "@/lib/seo";
@@ -23,11 +23,12 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
     getLocalizedMessage(safeLocale, "home.careForward.subtitle"),
   ]);
 
-  return {
+  return getLocalizedMetadata({
+    locale: safeLocale,
+    path: "/",
     title,
     description: `${heroSubtitle}. ${careSubtitle}`,
-    alternates: getAlternateLanguages("/", safeLocale),
-  };
+  });
 }
 
 export default function Home() {
