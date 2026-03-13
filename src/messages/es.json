@@ -298,7 +298,6 @@
       },
       "sharedDob": {
         "title": "¿Cuál es su fecha de nacimiento?",
-        "placeholder": "DD.MM.AAAA",
         "day": "DD",
         "month": "MM",
         "year": "AAAA",
@@ -361,7 +360,6 @@
       },
       "additionalConcerns": {
         "title": "¿Existen enfermedades previas u otros detalles que debamos conocer?",
-        "placeholder": "",
         "optional": "(Opcional)"
       },
       "services": {
@@ -572,7 +570,6 @@
   },
   "auth": {
     "signIn": "Iniciar sesión",
-    "createAccount": "Crear cuenta",
     "password": "Contraseña",
     "passwordPlaceholder": "Introduzca su contraseña",
     "phoneOrEmail": "Número de teléfono o correo electrónico",

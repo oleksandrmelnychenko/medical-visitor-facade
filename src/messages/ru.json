@@ -290,7 +290,6 @@
       },
       "sharedDob": {
         "title": "Укажите вашу\nдату рождения",
-        "placeholder": "ДД.ММ.ГГГГ",
         "day": "ДД",
         "month": "ММ",
         "year": "ГГГГ",
@@ -353,7 +352,6 @@
       },
       "additionalConcerns": {
         "title": "Сопутствующие заболевания или детали:",
-        "placeholder": "",
         "optional": "(опционально)"
       },
       "services": {
@@ -564,7 +562,6 @@
   },
   "auth": {
     "signIn": "Войти",
-    "createAccount": "Создать аккаунт",
     "password": "Пароль",
     "passwordPlaceholder": "Введите пароль",
     "phoneOrEmail": "Телефон или Email",

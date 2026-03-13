@@ -298,7 +298,6 @@
       },
       "sharedDob": {
         "title": "Wie lautet Ihr Geburtsdatum?",
-        "placeholder": "TT.MM.JJJJ",
         "day": "TT",
         "month": "MM",
         "year": "JJJJ",
@@ -361,7 +360,6 @@
       },
       "additionalConcerns": {
         "title": "Gibt es Vorerkrankungen oder weitere medizinische Details, die wir kennen sollten?",
-        "placeholder": "",
         "optional": "(Optional)"
       },
       "services": {
@@ -572,7 +570,6 @@
   },
   "auth": {
     "signIn": "Anmelden",
-    "createAccount": "Konto erstellen",
     "password": "Passwort",
     "passwordPlaceholder": "Passwort eingeben",
     "phoneOrEmail": "Telefonnummer oder E-Mail-Adresse",

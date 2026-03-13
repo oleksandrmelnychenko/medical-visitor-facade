@@ -298,7 +298,6 @@
       },
       "sharedDob": {
         "title": "What is your date of birth?",
-        "placeholder": "DD.MM.YYYY",
         "day": "DD",
         "month": "MM",
         "year": "YYYY",
@@ -361,7 +360,6 @@
       },
       "additionalConcerns": {
         "title": "Are there any additional concerns or conditions we should know about?",
-        "placeholder": "",
         "optional": "(Optional)"
       },
       "services": {
@@ -572,7 +570,6 @@
   },
   "auth": {
     "signIn": "Sign in",
-    "createAccount": "Create account",
     "password": "Password",
     "passwordPlaceholder": "Enter your password",
     "phoneOrEmail": "Phone number or Email",
