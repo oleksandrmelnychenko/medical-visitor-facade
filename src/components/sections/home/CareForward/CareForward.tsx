@@ -1,33 +1,30 @@
 import type { CSSProperties } from "react";
 import { useTranslations } from "next-intl";
 import {
-  Building2,
   Stethoscope,
-  Activity,
-  ShieldCheck,
+  CalendarClock,
+  FileText,
+  Languages,
+  PlaneTakeoff,
   Headphones,
-  UserCheck,
-  Video,
+  HeartPulse,
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./CareForward.module.scss";
 
 const STEPS = [
-  { icon: Building2, key: "clinic", tone: "var(--tone-blue)" },
-  { icon: Stethoscope, key: "organization", tone: "var(--tone-sand)" },
-  { icon: Activity, key: "coordination", tone: "var(--tone-sage)" },
-  { icon: ShieldCheck, key: "support", tone: "var(--tone-lavender)" },
-];
-
-const SUPPORT_ITEMS = [
-  { icon: Headphones, key: "support" },
-  { icon: UserCheck, key: "monitoring" },
-  { icon: Video, key: "consultations" },
+  { icon: Stethoscope, key: "consultation", tone: "var(--tone-blue)" },
+  { icon: CalendarClock, key: "coordination", tone: "var(--tone-sand)" },
+  { icon: FileText, key: "documentation", tone: "var(--tone-sage)" },
+  { icon: Languages, key: "languageDigital", tone: "var(--tone-lavender)" },
+  { icon: PlaneTakeoff, key: "travelTransfer", tone: "var(--tone-blue)" },
+  { icon: Headphones, key: "personalSupport", tone: "var(--tone-sand)" },
+  { icon: HeartPulse, key: "aftercare", tone: "var(--tone-sage)" },
 ];
 
 export function CareForward() {
   const t = useTranslations("home.careForward");
-  const tCta = useTranslations("home.cta");
 
   return (
     <section className={styles.section} data-dark-section>
@@ -43,9 +40,12 @@ export function CareForward() {
           </div>
           <div className={styles.flowGrid}>
             {STEPS.map((step, index) => (
-              <div
+              <article
                 key={step.key}
-                className={styles.flowCard}
+                className={cn(
+                  styles.flowCard,
+                  step.key === "aftercare" && styles.flowCardWide
+                )}
                 style={{ "--tone": step.tone } as CSSProperties}
               >
                 <div className={styles.cardTop}>
@@ -58,27 +58,15 @@ export function CareForward() {
                 </div>
                 <div className={styles.cardContent}>
                   <h3 className={styles.cardTitle}>{t(`services.${step.key}.title`)}</h3>
-                  <p className={styles.cardDesc}>{t(`services.${step.key}.desc`)}</p>
+                  <ul className={styles.cardList}>
+                    {(["point1", "point2", "point3"] as const).map((pointKey) => (
+                      <li key={pointKey} className={styles.cardPoint}>
+                        {t(`services.${step.key}.${pointKey}`)}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          <div className={styles.supportStrip}>
-            {SUPPORT_ITEMS.map((item) => (
-              <div key={item.key} className={styles.supportItem}>
-                <div className={styles.supportItemIcon}>
-                  <item.icon />
-                </div>
-                <div className={styles.supportItemText}>
-                  <h4 className={styles.supportItemTitle}>
-                    {tCta(`services.${item.key}.title`)}
-                  </h4>
-                  <p className={styles.supportItemDesc}>
-                    {tCta(`services.${item.key}.desc`)}
-                  </p>
-                </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>

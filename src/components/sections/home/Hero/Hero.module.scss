@@ -21,8 +21,12 @@
   }
 
   @media (max-width: 768px) {
-    height: clamp(13.75rem, 56vw, 18rem);
+    height: clamp(10.75rem, 42vw, 14rem);
     min-height: 0;
+  }
+
+  @media (max-width: 480px) {
+    height: clamp(9.75rem, 40vw, 12.5rem);
   }
 
   @media (max-height: 760px) {

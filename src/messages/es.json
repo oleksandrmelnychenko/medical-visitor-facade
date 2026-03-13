@@ -37,24 +37,50 @@
       "subtitle": "Excelencia en la atención médica"
     },
     "careForward": {
-      "title": "Nuestros servicios",
-      "subtitle": "Desde la selección de la clínica hasta la recuperación total: coordinación integral",
+      "title": "Lo que hacemos",
+      "subtitle": "",
       "services": {
-        "clinic": {
-          "title": "Clínica y especialistas",
-          "desc": "Supervisamos continuamente los principales centros médicos y mantenemos una red actualizada de expertos para darle acceso a medicina avanzada."
-        },
-        "organization": {
-          "title": "Citas y documentos",
-          "desc": "Organizamos citas con los especialistas adecuados, preparamos la documentación médica y coordinamos las etapas clave del tratamiento."
+        "consultation": {
+          "title": "Consultas individuales",
+          "point1": "sobre opciones de tratamiento",
+          "point2": "sobre clínicas especializadas y especialistas médicos",
+          "point3": "basadas en necesidades y prioridades personales"
         },
         "coordination": {
-          "title": "Tratamiento y coordinación",
-          "desc": "Sincronizamos diagnósticos, procedimientos y el calendario terapéutico para que todo el proceso avance en una secuencia clara."
+          "title": "Coordinación de los procesos médicos",
+          "point1": "desde la programación de citas hasta la alineación de cada etapa",
+          "point2": "garantizando la colaboración interdisciplinaria",
+          "point3": "con un claro enfoque en la eficiencia y la claridad"
         },
-        "support": {
-          "title": "Asistencia",
-          "desc": "Su coordinador le acompaña en cada etapa: traslados, alojamiento, traducciones y comunicación con la clínica."
+        "documentation": {
+          "title": "Organización de documentación y comunicación",
+          "point1": "para informes médicos, altas y expedientes",
+          "point2": "mediante la transferencia estructurada de información médica",
+          "point3": "para asegurar una comunicación fluida entre todas las partes implicadas"
+        },
+        "languageDigital": {
+          "title": "Apoyo lingüístico y digital",
+          "point1": "mediante servicios de traducción e interpretación",
+          "point2": "para la traducción de documentación médica",
+          "point3": "para consultas digitales y acceso a plataformas"
+        },
+        "travelTransfer": {
+          "title": "Servicios de viaje y traslado al más alto nivel",
+          "point1": "servicio personal de chófer y traslados",
+          "point2": "aviación ejecutiva y aviación médica",
+          "point3": "transporte sanitario coordinado profesionalmente"
+        },
+        "personalSupport": {
+          "title": "Acompañamiento personal durante toda la estancia",
+          "point1": "con servicios de concierge y lifestyle cuidadosamente seleccionados",
+          "point2": "con asistencia individual en el lugar",
+          "point3": "con apoyo discreto adaptado a las preferencias personales"
+        },
+        "aftercare": {
+          "title": "Acompañamiento continuo más allá del tratamiento",
+          "point1": "mediante la coordinación del seguimiento y la rehabilitación",
+          "point2": "mediante consultas de seguimiento",
+          "point3": "mediante una planificación y control transparente de los gastos"
         }
       }
     },
@@ -81,61 +107,15 @@
       "overline": "",
       "title": "Nuestro concepto",
       "subtitle": "",
-      "services": {
-        "promptness": {
-          "title": "Coordinación",
-          "desc": "Coordinación médica y acompañamiento personal"
-        },
-        "confidentiality": {
-          "title": "Soporte de Visado",
-          "desc": "Asistencia en la tramitación de documentos de entrada"
-        },
-        "support": {
-          "title": "Traslados",
-          "desc": "Organización de todo el transporte terrestre"
-        },
-        "noFees": {
-          "title": "Vuelos",
-          "desc": "Jets privados y vuelos chárter médicos",
-          "badge": "Premium"
-        },
-        "concierge": {
-          "title": "Servicio de Concierge",
-          "desc": "Asistencia ininterrumpida 24/7",
-          "badge": "Prioridad"
-        }
-      },
-      "journey": {
-        "title": "Su proceso de tratamiento",
-        "steps": {
-          "consultation": {
-            "title": "Consulta inicial",
-            "desc": "Cuéntenos sus necesidades, nosotros planificamos el resto"
-          },
-          "travel": {
-            "title": "Organización del viaje",
-            "desc": "Vuelos, visados y alojamiento reservados de forma segura"
-          },
-          "arrival": {
-            "title": "Llegada y recepción",
-            "desc": "Le recibimos en el aeropuerto y le acompañamos a su hotel"
-          },
-          "treatment": {
-            "title": "Tratamiento",
-            "desc": "Asistencia integral durante toda su terapia médica"
-          },
-          "recovery": {
-            "title": "Recuperación y regreso",
-            "desc": "Cuidados posteriores y un viaje de regreso seguro"
-          }
-        }
-      },
-      "promise": {
-        "text": "Desde la primera consulta hasta su regreso a casa: nos encargamos de todos los detalles organizativos."
-      },
-      "digitalProfile": {
-        "title": "EXPEDIENTE MÉDICO DIGITAL",
-        "description": "Todos sus documentos médicos son digitalizados, traducidos y almacenados de forma segura en su perfil."
+      "principles": {
+        "individualSupport": "Acompañamiento individual y atención personalizada",
+        "expertise": "Competencia médica y organizativa",
+        "confidentiality": "Confidencialidad y fiabilidad",
+        "digitalPortal": "Portal digital para clientes",
+        "security": "Altos estándares de seguridad informática",
+        "concierge": "Servicios de concierge y lifestyle",
+        "coordination": "Coordinación eficiente",
+        "international": "Acompañamiento internacional desde una sola fuente"
       }
     },
     "cta": {

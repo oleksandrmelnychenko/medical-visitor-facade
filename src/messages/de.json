@@ -37,24 +37,50 @@
       "subtitle": "Exzellente medizinische Betreuung"
     },
     "careForward": {
-      "title": "Unsere Leistungen",
-      "subtitle": "Von der Klinikwahl bis zur vollständigen Genesung – lückenlose Koordination",
+      "title": "Was wir tun",
+      "subtitle": "",
       "services": {
-        "clinic": {
-          "title": "Klinik und Spezialisten",
-          "desc": "Wir beobachten fortlaufend führende medizinische Zentren und pflegen ein aktuelles Expertennetzwerk, damit Sie Zugang zu fortschrittlicher Medizin erhalten."
-        },
-        "organization": {
-          "title": "Termine und Unterlagen",
-          "desc": "Wir organisieren Termine bei passenden Fachärzten, bereiten medizinische Unterlagen vor und stimmen die entscheidenden Behandlungsschritte ab."
+        "consultation": {
+          "title": "Individuelle Beratung",
+          "point1": "zu Behandlungsoptionen",
+          "point2": "zu spezialisierten Kliniken und Fachärzten",
+          "point3": "auf Grundlage persönlicher Bedürfnisse"
         },
         "coordination": {
-          "title": "Behandlung und Koordination",
-          "desc": "Wir synchronisieren Diagnostik, Eingriffe und den Behandlungsplan, damit der gesamte Prozess in einer klaren Reihenfolge verläuft."
+          "title": "Koordination medizinischer Abläufe",
+          "point1": "von der Terminplanung bis zur Abstimmung aller Schritte",
+          "point2": "unter Gewährleistung interdisziplinärer Zusammenarbeit",
+          "point3": "mit Fokus auf Effizienz und Klarheit"
         },
-        "support": {
-          "title": "Betreuung",
-          "desc": "Ihr Koordinator begleitet Sie in jeder Phase: Transfer, Unterkunft, Übersetzungen und die Kommunikation mit der Klinik."
+        "documentation": {
+          "title": "Organisation von Unterlagen und Kommunikation",
+          "point1": "bei Befunden, Arztbriefen und Dokumenten",
+          "point2": "bei der strukturierten Übermittlung medizinischer Informationen",
+          "point3": "für einen reibungslosen Austausch aller Beteiligten"
+        },
+        "languageDigital": {
+          "title": "Sprachliche und digitale Unterstützung",
+          "point1": "durch Übersetzungs- und Dolmetscherdienste",
+          "point2": "bei der Übersetzung medizinischer Unterlagen",
+          "point3": "bei digitalen Sprechstunden und Plattformzugängen"
+        },
+        "travelTransfer": {
+          "title": "Reise- und Transferleistungen auf höchstem Niveau",
+          "point1": "persönlicher Chauffeur- und Transferservice",
+          "point2": "Business Aviation und Medical Aviation",
+          "point3": "professionell koordinierter Krankentransport"
+        },
+        "personalSupport": {
+          "title": "Persönliche Begleitung während des Aufenthalts",
+          "point1": "mit ausgewählten Concierge- und Lifestyle-Services",
+          "point2": "mit individueller Unterstützung vor Ort",
+          "point3": "mit diskreter Betreuung nach persönlichen Anforderungen"
+        },
+        "aftercare": {
+          "title": "Nachsorge und Begleitung über die Behandlung hinaus",
+          "point1": "durch Koordination von Nachsorge und Rehabilitation",
+          "point2": "durch Follow-up-Beratungen",
+          "point3": "durch transparente Kostenkontrolle und Planung"
         }
       }
     },
@@ -81,61 +107,15 @@
       "overline": "",
       "title": "Unser Konzept",
       "subtitle": "",
-      "services": {
-        "promptness": {
-          "title": "Koordination",
-          "desc": "Medizinische Koordination und persönliche Begleitung"
-        },
-        "confidentiality": {
-          "title": "Visa-Unterstützung",
-          "desc": "Hilfe bei der Bearbeitung aller Einreisedokumente"
-        },
-        "support": {
-          "title": "Transfer",
-          "desc": "Organisation des gesamten Bodentransports"
-        },
-        "noFees": {
-          "title": "Fluglogistik",
-          "desc": "Business-Jets und medizinische Charterflüge",
-          "badge": "Premium"
-        },
-        "concierge": {
-          "title": "Concierge-Service",
-          "desc": "Rund-um-die-Uhr-Betreuung",
-          "badge": "Priorität"
-        }
-      },
-      "journey": {
-        "title": "Ihr Behandlungsablauf",
-        "steps": {
-          "consultation": {
-            "title": "Erstberatung",
-            "desc": "Sie schildern Ihre Bedürfnisse, wir übernehmen die Planung"
-          },
-          "travel": {
-            "title": "Reiseorganisation",
-            "desc": "Flüge, Visa und Unterkünfte werden zuverlässig gebucht"
-          },
-          "arrival": {
-            "title": "Anreise und Empfang",
-            "desc": "Wir empfangen Sie am Flughafen und begleiten Sie zum Hotel"
-          },
-          "treatment": {
-            "title": "Behandlung",
-            "desc": "Lückenlose Unterstützung während der gesamten medizinischen Therapie"
-          },
-          "recovery": {
-            "title": "Erholung und Rückreise",
-            "desc": "Medizinische Nachsorge und eine sichere Rückreise nach Hause"
-          }
-        }
-      },
-      "promise": {
-        "text": "Von der ersten Anfrage bis zu Ihrer sicheren Rückkehr – wir kümmern uns um alle organisatorischen Details."
-      },
-      "digitalProfile": {
-        "title": "DIGITALE GESUNDHEITSAKTE",
-        "description": "Alle medizinischen Dokumente werden digitalisiert, übersetzt und in Ihrem sicheren Profil gebündelt."
+      "principles": {
+        "individualSupport": "Individuelle Betreuung und persönliche Beratung",
+        "expertise": "Medizinische und organisatorische Kompetenz",
+        "confidentiality": "Sicherheit (Verlässlichkeit) und Diskretion",
+        "digitalPortal": "Digitales Kundenportal",
+        "security": "Hohe IT-Sicherheitsstandards",
+        "concierge": "Concierge- und Lifestyle-Services",
+        "coordination": "Effiziente Koordination",
+        "international": "Internationale Begleitung aus einer Hand"
       }
     },
     "cta": {

@@ -38,23 +38,49 @@
     },
     "careForward": {
       "title": "What we do",
-      "subtitle": "From clinic selection to full recovery — end-to-end coordination",
+      "subtitle": "",
       "services": {
-        "clinic": {
-          "title": "Clinic and specialists",
-          "desc": "We continuously monitor leading medical centers and maintain an up-to-date expert network to give you access to advanced medicine."
-        },
-        "organization": {
-          "title": "Appointments and documents",
-          "desc": "We arrange appointments with relevant specialists, prepare medical documents, and coordinate the key stages of treatment."
+        "consultation": {
+          "title": "Individual guidance",
+          "point1": "on treatment options",
+          "point2": "on specialized clinics and medical experts",
+          "point3": "based on personal needs and priorities"
         },
         "coordination": {
-          "title": "Treatment and coordination",
-          "desc": "We synchronize diagnostics, procedures, and the treatment schedule so the process moves forward in a clear sequence."
+          "title": "Coordination of medical processes",
+          "point1": "from appointment scheduling to the alignment of every step",
+          "point2": "with the assurance of interdisciplinary collaboration",
+          "point3": "with a clear focus on efficiency and clarity"
         },
-        "support": {
-          "title": "Support",
-          "desc": "Your coordinator supports you at every stage: transfers, accommodation, translations, and communication with the clinic."
+        "documentation": {
+          "title": "Organization of documentation and communication",
+          "point1": "for medical reports, discharge letters, and records",
+          "point2": "through the structured transfer of medical information",
+          "point3": "to ensure smooth communication between all parties involved"
+        },
+        "languageDigital": {
+          "title": "Linguistic and digital support",
+          "point1": "through translation and interpreting services",
+          "point2": "for the translation of medical documentation",
+          "point3": "for digital consultations and platform access"
+        },
+        "travelTransfer": {
+          "title": "Travel and transfer services to the highest standard",
+          "point1": "personal chauffeur and transfer services",
+          "point2": "business aviation and medical aviation",
+          "point3": "professionally coordinated medical transport"
+        },
+        "personalSupport": {
+          "title": "Personal support throughout each stay",
+          "point1": "with carefully selected concierge and lifestyle services",
+          "point2": "with individual assistance on site",
+          "point3": "with discreet support tailored to personal preferences"
+        },
+        "aftercare": {
+          "title": "Ongoing support beyond treatment",
+          "point1": "through aftercare and rehabilitation coordination",
+          "point2": "through follow-up consultations",
+          "point3": "through transparent cost control and planning"
         }
       }
     },
@@ -79,63 +105,17 @@
     },
     "fullSupport": {
       "overline": "",
-      "title": "Agency Concept",
+      "title": "Our concept",
       "subtitle": "",
-      "services": {
-        "promptness": {
-          "title": "Coordination",
-          "desc": "Medical coordination and accompaniment"
-        },
-        "confidentiality": {
-          "title": "Visa Support",
-          "desc": "Assistance with entry documentation"
-        },
-        "support": {
-          "title": "Transfer",
-          "desc": "Organization of ground transportation"
-        },
-        "noFees": {
-          "title": "Aviation",
-          "desc": "Business jets and medical charters",
-          "badge": "Premium"
-        },
-        "concierge": {
-          "title": "Concierge Service",
-          "desc": "24/7 Support",
-          "badge": "Priority"
-        }
-      },
-      "journey": {
-        "title": "Your journey with us",
-        "steps": {
-          "consultation": {
-            "title": "Initial consultation",
-            "desc": "Share your needs, and we will plan everything"
-          },
-          "travel": {
-            "title": "Travel arrangements",
-            "desc": "Tickets, visas, and accommodations are booked"
-          },
-          "arrival": {
-            "title": "Arrival and reception",
-            "desc": "We meet you at the airport and transfer you to your hotel"
-          },
-          "treatment": {
-            "title": "Treatment",
-            "desc": "Full support during medical procedures"
-          },
-          "recovery": {
-            "title": "Recovery and return",
-            "desc": "Aftercare and a safe journey home"
-          }
-        }
-      },
-      "promise": {
-        "text": "From your initial inquiry to your return home — we are here to assist with all arrangements."
-      },
-      "digitalProfile": {
-        "title": "DIGITAL MEDICAL PROFILE",
-        "description": "All your medical documents are digitized, translated, and securely stored in one profile."
+      "principles": {
+        "individualSupport": "Individual support and personalized consultation",
+        "expertise": "Medical and organizational expertise",
+        "confidentiality": "Security, discretion, and reliability",
+        "digitalPortal": "Digital client portal",
+        "security": "High IT security standards for the protection of sensitive data",
+        "concierge": "Concierge and lifestyle services",
+        "coordination": "Efficient coordination",
+        "international": "International support from a single source"
       }
     },
     "cta": {
