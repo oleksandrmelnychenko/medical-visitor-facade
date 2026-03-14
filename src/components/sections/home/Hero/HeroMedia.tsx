@@ -6,7 +6,7 @@ import styles from "./Hero.module.scss";
 
 export function HeroMedia() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -23,30 +23,16 @@ export function HeroMedia() {
 
       try {
         await video.play();
-
-        if (isMounted) {
-          setIsPlaying(!video.paused && !video.ended);
-        }
       } catch {
-        if (isMounted) {
-          setIsPlaying(false);
-        }
-      }
-    };
-
-    const handlePlaying = () => {
-      if (isMounted) {
-        setIsPlaying(true);
-      }
-    };
-
-    const handlePause = () => {
-      if (isMounted) {
-        setIsPlaying(false);
+        // Safari on iPhone may reject autoplay until it considers the element visible enough.
       }
     };
 
     const handleLoadedData = () => {
+      if (isMounted) {
+        setIsReady(true);
+      }
+
       void tryPlay();
     };
 
@@ -62,12 +48,10 @@ export function HeroMedia() {
           void tryPlay();
         }
       },
-      { threshold: 0.35 }
+      { threshold: 0.1 }
     );
 
     observer.observe(video);
-    video.addEventListener("playing", handlePlaying);
-    video.addEventListener("pause", handlePause);
     video.addEventListener("loadeddata", handleLoadedData);
     document.addEventListener("visibilitychange", handleVisibility);
     window.addEventListener("pageshow", handleVisibility);
@@ -77,8 +61,6 @@ export function HeroMedia() {
     return () => {
       isMounted = false;
       observer.disconnect();
-      video.removeEventListener("playing", handlePlaying);
-      video.removeEventListener("pause", handlePause);
       video.removeEventListener("loadeddata", handleLoadedData);
       document.removeEventListener("visibilitychange", handleVisibility);
       window.removeEventListener("pageshow", handleVisibility);
@@ -88,7 +70,7 @@ export function HeroMedia() {
   return (
     <video
       ref={videoRef}
-      className={cn(styles.heroVideo, !isPlaying && styles.heroVideoHidden)}
+      className={cn(styles.heroVideo, !isReady && styles.heroVideoHidden)}
       autoPlay
       muted
       loop
