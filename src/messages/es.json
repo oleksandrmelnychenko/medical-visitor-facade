@@ -31,9 +31,6 @@
   "home": {
     "hero": {
       "title": "Medical Concierge Agency",
-      "titlePart1": "Medical",
-      "titleAccent": "Concierge",
-      "titlePart2": "Agency",
       "subtitle": "Excelencia en la atención médica"
     },
     "careForward": {
@@ -117,27 +114,6 @@
         "coordination": "Coordinación eficiente",
         "international": "Acompañamiento internacional desde una sola fuente"
       }
-    },
-    "cta": {
-      "overline": "",
-      "title": "Acompañamiento",
-      "subtitle": "",
-      "services": {
-        "support": {
-          "title": "Contacto",
-          "desc": "Un coordinador personal siempre a su disposición"
-        },
-        "monitoring": {
-          "title": "Médicos",
-          "desc": "Comunicación directa y continua con sus médicos tratantes"
-        },
-        "consultations": {
-          "title": "Consultas",
-          "desc": "Organización fluida de consultas médicas en línea"
-        }
-      },
-      "bookConsultation": "Hacerse miembro",
-      "availability": ""
     }
   },
   "appointment": {
@@ -163,7 +139,6 @@
         "records-language": "Idioma de los informes",
         "outside-documents": "Documentos de viaje",
         "outside-exit-travel": "Viaje no posible",
-        "outside-exit-records": "Sin informes",
         "health-intro": "Estado de salud",
         "patient-name": "Nombre completo",
         "patient-dob": "Fecha de nacimiento",
@@ -218,8 +193,6 @@
         "description": "Por favor, retome esta solicitud una vez que disponga de los informes o cartas médicas correspondientes.",
         "button": "Finalizar solicitud"
       },
-      "yes": "Sí",
-      "no": "No",
       "address": {
         "question": "Por último, necesitamos su dirección de residencia.",
         "country": "País",
@@ -370,8 +343,7 @@
         "businessAviationDetails": "Organización de vuelos privados para viajes urgentes que requieren flexibilidad, privacidad y logística a medida.",
         "none": "Ninguno de los servicios mencionados",
         "notSure": "Aún no estoy seguro/a",
-        "close": "Cerrar",
-        "showLess": "Mostrar menos"
+        "close": "Cerrar"
       },
       "insuranceIntro": {
         "title": "Información sobre su seguro médico",
@@ -583,5 +555,10 @@
     "vatTitle": "NIF / IVA",
     "vatLegal": "Número de identificación a efectos del IVA según el § 27 a de la Ley del IVA alemana:",
     "contactPrompt": "Para consultas legales o preguntas sobre el sitio web, contáctenos en:"
+  },
+  "error": {
+    "title": "Algo salió mal",
+    "description": "Se produjo un error inesperado. Por favor, inténtelo de nuevo o vuelva a la página principal.",
+    "tryAgain": "Intentar de nuevo"
   }
 }

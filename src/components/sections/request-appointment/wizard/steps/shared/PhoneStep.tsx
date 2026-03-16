@@ -41,13 +41,14 @@ export function PhoneStep() {
       <div className={styles.wizardFormContainer}>
         <div className={styles.wizardFormGrid}>
           <div className={formStyles.simpleFormGroup}>
-            <label className={formStyles.label}>{t("phoneStep.phoneNumber")}</label>
+            <label htmlFor="phone-number" className={formStyles.label}>{t("phoneStep.phoneNumber")}</label>
             <div className={styles.contactPhoneSurface}>
               <div className={styles.contactPhoneCode}>
                 <select
                   value={countryCode}
                   onChange={e => setCountryCode(e.target.value)}
                   className={styles.contactPhoneSelect}
+                  aria-label={t("phoneStep.phoneNumber")}
                 >
                   {COUNTRY_CODES.map((item) => (
                     <option key={item.code} value={item.code}>
@@ -57,22 +58,26 @@ export function PhoneStep() {
                 </select>
               </div>
               <input
+                id="phone-number"
                 type="tel"
                 inputMode="tel"
                 autoComplete="tel-national"
                 value={phone}
                 onChange={e => setPhone(e.target.value)}
+                aria-required="true"
                 className={styles.contactPhoneInput}
                 autoFocus
               />
             </div>
           </div>
           <div className={formStyles.simpleFormGroup}>
-            <label className={formStyles.label}>{t("phoneStep.emailLabel")}</label>
+            <label htmlFor="email-address" className={formStyles.label}>{t("phoneStep.emailLabel")}</label>
             <input
+              id="email-address"
               type="email"
               value={email}
               onChange={e => setEmail(e.target.value)}
+              aria-required="true"
               className={formStyles.simpleInput}
               autoComplete="email"
             />

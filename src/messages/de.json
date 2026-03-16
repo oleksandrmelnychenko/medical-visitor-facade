@@ -31,9 +31,6 @@
   "home": {
     "hero": {
       "title": "Medical Concierge Agency",
-      "titlePart1": "Medical",
-      "titleAccent": "Concierge",
-      "titlePart2": "Agency",
       "subtitle": "Exzellente medizinische Betreuung"
     },
     "careForward": {
@@ -117,27 +114,6 @@
         "coordination": "Effiziente Koordination",
         "international": "Internationale Begleitung aus einer Hand"
       }
-    },
-    "cta": {
-      "overline": "",
-      "title": "Betreuung",
-      "subtitle": "",
-      "services": {
-        "support": {
-          "title": "Kontakt",
-          "desc": "Ein persönlicher Koordinator steht Ihnen jederzeit zur Verfügung"
-        },
-        "monitoring": {
-          "title": "Ärzte",
-          "desc": "Direkte und kontinuierliche Kommunikation mit Ihren behandelnden Ärzten"
-        },
-        "consultations": {
-          "title": "Konsultationen",
-          "desc": "Reibungslose Organisation von medizinischen Online-Konsultationen"
-        }
-      },
-      "bookConsultation": "Mitglied werden",
-      "availability": ""
     }
   },
   "appointment": {
@@ -163,7 +139,6 @@
         "records-language": "Sprache der Befunde",
         "outside-documents": "Reisedokumente",
         "outside-exit-travel": "Reise nicht möglich",
-        "outside-exit-records": "Keine Befunde",
         "health-intro": "Gesundheitszustand",
         "patient-name": "Vollständiger Name",
         "patient-dob": "Geburtsdatum",
@@ -218,8 +193,6 @@
         "description": "Bitte setzen Sie Ihre Anfrage fort, sobald Ihnen entsprechende Arztbriefe oder Befunde vorliegen.",
         "button": "Anfrage beenden"
       },
-      "yes": "Ja",
-      "no": "Nein",
       "address": {
         "question": "Zuletzt benötigen wir noch Ihre Wohnadresse.",
         "country": "Land",
@@ -370,8 +343,7 @@
         "businessAviationDetails": "Organisation privater Flüge für zeitkritische Reisen mit hoher Flexibilität, Diskretion und individueller Logistik.",
         "none": "Keinen der genannten Services",
         "notSure": "Ich bin mir noch nicht sicher",
-        "close": "Schließen",
-        "showLess": "Weniger anzeigen"
+        "close": "Schließen"
       },
       "insuranceIntro": {
         "title": "Angaben zu Ihrer Krankenversicherung",
@@ -583,5 +555,10 @@
     "vatTitle": "Umsatzsteuer-ID",
     "vatLegal": "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:",
     "contactPrompt": "Für rechtliche Anfragen oder Fragen zur Website kontaktieren Sie uns bitte unter:"
+  },
+  "error": {
+    "title": "Etwas ist schiefgelaufen",
+    "description": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut oder kehren Sie zur Startseite zurück.",
+    "tryAgain": "Erneut versuchen"
   }
 }

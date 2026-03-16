@@ -130,6 +130,8 @@ export function PrimaryConcernStep() {
             value={concern}
             onChange={e => setConcern(e.target.value)}
             placeholder={t('primaryConcernText.placeholder')}
+            aria-label={t('primaryConcernText.placeholder')}
+            aria-required="true"
             className={formStyles.textarea}
             rows={5}
             autoFocus
@@ -150,6 +152,7 @@ export function PrimaryConcernStep() {
               multiple
               accept={ACCEPTED_UPLOAD_TYPES}
               onChange={handleFileChange}
+              aria-label={t('primaryConcernText.attachmentsAction')}
               className={styles.fileUploadInput}
             />
 
@@ -186,7 +189,7 @@ export function PrimaryConcernStep() {
             ) : null}
 
             {uploadError ? (
-              <p className={formStyles.formError}>{uploadError}</p>
+              <p role="alert" aria-live="assertive" className={formStyles.formError}>{uploadError}</p>
             ) : null}
           </div>
         </div>

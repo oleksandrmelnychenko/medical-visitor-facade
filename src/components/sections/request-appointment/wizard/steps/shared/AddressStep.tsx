@@ -60,6 +60,8 @@ export function AddressStep() {
   const [postal, setPostal] = useState(data.zipCode || '');
   const [isCountryOpen, setIsCountryOpen] = useState(false);
   const countryDropdownRef = useRef<HTMLDivElement>(null);
+  const countryLabelId = "address-country-label";
+  const countryValueId = "address-country-value";
   const countryListId = "address-country-listbox";
 
   const selectedCountry = useMemo(
@@ -115,7 +117,9 @@ export function AddressStep() {
       <div className={styles.wizardFormContainer}>
         <div className={styles.wizardFormGrid}>
           <div className={formStyles.simpleFormGroup}>
-            <label className={formStyles.label}>{t('address.country')}</label>
+            <span id={countryLabelId} className={formStyles.label}>
+              {t('address.country')}
+            </span>
             <div ref={countryDropdownRef} className={styles.countryDropdown}>
               <button
                 type="button"
@@ -124,8 +128,9 @@ export function AddressStep() {
                 aria-haspopup="listbox"
                 aria-expanded={isCountryOpen}
                 aria-controls={countryListId}
+                aria-labelledby={`${countryLabelId} ${countryValueId}`}
               >
-                <span className={styles.countryDropdownValue}>
+                <span id={countryValueId} className={styles.countryDropdownValue}>
                   {selectedCountry ? (
                     <>
                       <span className={styles.countryDropdownFlag} aria-hidden="true">{selectedCountry.flag}</span>
@@ -172,26 +177,31 @@ export function AddressStep() {
             </div>
           </div>
           <div className={formStyles.simpleFormGroup}>
-            <label className={formStyles.label}>{t('address.street')}</label>
+            <label htmlFor="address-street" className={formStyles.label}>{t('address.street')}</label>
             <input
+              id="address-street"
               type="text"
               value={street}
               onChange={e => setStreet(e.target.value)}
+              aria-required="true"
               className={formStyles.simpleInput}
             />
           </div>
           <div className={formStyles.simpleFormGroup}>
-            <label className={formStyles.label}>{t('address.city')}</label>
+            <label htmlFor="address-city" className={formStyles.label}>{t('address.city')}</label>
             <input
+              id="address-city"
               type="text"
               value={city}
               onChange={e => setCity(e.target.value)}
+              aria-required="true"
               className={formStyles.simpleInput}
             />
           </div>
           <div className={formStyles.simpleFormGroup}>
-            <label className={formStyles.label}>{t('address.state')}</label>
+            <label htmlFor="address-state" className={formStyles.label}>{t('address.state')}</label>
             <input
+              id="address-state"
               type="text"
               value={state}
               onChange={e => setState(e.target.value)}
@@ -199,11 +209,13 @@ export function AddressStep() {
             />
           </div>
           <div className={formStyles.simpleFormGroup}>
-            <label className={formStyles.label}>{t('address.postalCode')}</label>
+            <label htmlFor="address-postal" className={formStyles.label}>{t('address.postalCode')}</label>
             <input
+              id="address-postal"
               type="text"
               value={postal}
               onChange={e => setPostal(e.target.value)}
+              aria-required="true"
               className={formStyles.simpleInput}
             />
           </div>

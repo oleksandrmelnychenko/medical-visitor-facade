@@ -244,6 +244,7 @@ export function SharedDateOfBirthStep() {
                   onFocus={e => e.currentTarget.select()}
                   placeholder={t("sharedDob.day")}
                   aria-label={t("sharedDob.day")}
+                  aria-required="true"
                   className={styles.dobSegmentInput}
                   maxLength={2}
                   autoFocus
@@ -263,6 +264,7 @@ export function SharedDateOfBirthStep() {
                   onFocus={e => e.currentTarget.select()}
                   placeholder={t("sharedDob.month")}
                   aria-label={t("sharedDob.month")}
+                  aria-required="true"
                   className={styles.dobSegmentInput}
                   maxLength={2}
                 />
@@ -280,6 +282,7 @@ export function SharedDateOfBirthStep() {
                   onFocus={e => e.currentTarget.select()}
                   placeholder={t("sharedDob.year")}
                   aria-label={t("sharedDob.year")}
+                  aria-required="true"
                   className={styles.dobSegmentInput}
                   maxLength={4}
                 />

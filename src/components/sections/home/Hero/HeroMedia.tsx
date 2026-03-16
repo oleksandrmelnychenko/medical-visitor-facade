@@ -6,8 +6,9 @@ import styles from "./Hero.module.scss";
 
 export function HeroMedia() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isReady, setIsReady] = useState(false);
   const [videoSrc, setVideoSrc] = useState<string | null>(null);
+  const [readySrc, setReadySrc] = useState<string | null>(null);
+  const isReady = readySrc === videoSrc;
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -43,11 +44,10 @@ export function HeroMedia() {
     }
 
     let isMounted = true;
-    setIsReady(false);
 
     const syncReadyState = () => {
       if (isMounted && video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
-        setIsReady(true);
+        setReadySrc(videoSrc);
       }
     };
 

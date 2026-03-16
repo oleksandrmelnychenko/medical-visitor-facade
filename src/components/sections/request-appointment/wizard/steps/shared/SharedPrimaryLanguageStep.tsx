@@ -38,6 +38,8 @@ export function SharedPrimaryLanguageStep() {
               type="text"
               value={language}
               onChange={e => setLanguage(e.target.value)}
+              aria-label={t('sharedPrimaryLanguage.title')}
+              aria-required="true"
               className={formStyles.simpleInput}
               autoFocus
             />

@@ -1,31 +1,26 @@
-"use client";
-
-import { Link, usePathname } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import { FooterSwitch } from "./FooterSwitch";
 import styles from "./Footer.module.scss";
 
 type FooterProps = {
   locale: string;
 };
 
-export function Footer({ locale }: FooterProps) {
-  const t = useTranslations("footer");
-  const pathname = usePathname();
-  const isAuthPage = pathname === "/login";
+export async function Footer({ locale }: FooterProps) {
+  const t = await getTranslations("footer");
 
-  if (isAuthPage) {
-    return (
-      <footer className={styles.authFooter}>
-        <div className={styles.authFooterInner}>
-          <p className={styles.authFooterText}>
-            {t("copyright", { year: 2026 })}. {t("allRightsReserved")}
-          </p>
-        </div>
-      </footer>
-    );
-  }
+  const authFooter = (
+    <footer className={styles.authFooter}>
+      <div className={styles.authFooterInner}>
+        <p className={styles.authFooterText}>
+          {t("copyright", { year: 2026 })}. {t("allRightsReserved")}
+        </p>
+      </div>
+    </footer>
+  );
 
-  return (
+  const mainFooter = (
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.grid}>
@@ -79,4 +74,6 @@ export function Footer({ locale }: FooterProps) {
       </div>
     </footer>
   );
+
+  return <FooterSwitch main={mainFooter} auth={authFooter} />;
 }

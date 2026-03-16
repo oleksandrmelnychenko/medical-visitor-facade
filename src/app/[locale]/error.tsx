@@ -1,10 +1,20 @@
-import { Link } from "@/i18n/navigation";
-import { getLocale, getTranslations } from "next-intl/server";
+"use client";
+
+import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 import pageStyles from "@/styles/page.module.scss";
 
-export default async function NotFound() {
-  const locale = await getLocale();
-  const t = await getTranslations({ locale, namespace: "notFound" });
+type ErrorProps = {
+  error: Error & { digest?: string };
+  reset: () => void;
+};
+
+export default function Error({ error, reset }: ErrorProps) {
+  const t = useTranslations("error");
+
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
 
   return (
     <main
@@ -28,7 +38,7 @@ export default async function NotFound() {
           marginBottom: "1rem",
         }}
       >
-        404
+        500
       </h1>
       <p
         style={{
@@ -51,13 +61,13 @@ export default async function NotFound() {
       >
         {t("description")}
       </p>
-      <Link
-        href="/"
-        locale={locale}
+      <button
+        onClick={reset}
         className={pageStyles.buttonOutline}
+        type="button"
       >
-        {t("backHome")}
-      </Link>
+        {t("tryAgain")}
+      </button>
     </main>
   );
 }

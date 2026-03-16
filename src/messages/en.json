@@ -31,9 +31,6 @@
   "home": {
     "hero": {
       "title": "Medical Concierge Agency",
-      "titlePart1": "Medical",
-      "titleAccent": "Concierge",
-      "titlePart2": "Agency",
       "subtitle": "Excellence in medical care"
     },
     "careForward": {
@@ -117,27 +114,6 @@
         "coordination": "Efficient coordination",
         "international": "International support from a single source"
       }
-    },
-    "cta": {
-      "overline": "",
-      "title": "Support",
-      "subtitle": "",
-      "services": {
-        "support": {
-          "title": "Contact",
-          "desc": "A dedicated coordinator available for communication"
-        },
-        "monitoring": {
-          "title": "Physicians",
-          "desc": "Direct communication with your treating doctors"
-        },
-        "consultations": {
-          "title": "Consultations",
-          "desc": "Organization of remote online consultations"
-        }
-      },
-      "bookConsultation": "Become a Member",
-      "availability": ""
     }
   },
   "appointment": {
@@ -163,7 +139,6 @@
         "records-language": "Records Language",
         "outside-documents": "Travel Documents",
         "outside-exit-travel": "Cannot Travel",
-        "outside-exit-records": "Ineligible",
         "health-intro": "Health Overview",
         "patient-name": "Full Name",
         "patient-dob": "Date of Birth",
@@ -218,8 +193,6 @@
         "description": "Please return to submit a request once you have obtained your medical records.",
         "button": "Exit application"
       },
-      "yes": "Yes",
-      "no": "No",
       "address": {
         "question": "Finally, your home address.",
         "country": "Country",
@@ -370,8 +343,7 @@
         "businessAviationDetails": "Private aviation support for time-sensitive travel that requires flexibility, privacy, and tailored logistics.",
         "none": "None of the above",
         "notSure": "I'm not sure yet",
-        "close": "Close",
-        "showLess": "Show less"
+        "close": "Close"
       },
       "insuranceIntro": {
         "title": "Next, we'd like to ask about your insurance",
@@ -583,5 +555,10 @@
     "vatTitle": "VAT ID",
     "vatLegal": "VAT identification number according to § 27 a of the German VAT Act:",
     "contactPrompt": "For inquiries or questions regarding our website, please email us at:"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. Please try again or return to the home page.",
+    "tryAgain": "Try again"
   }
 }

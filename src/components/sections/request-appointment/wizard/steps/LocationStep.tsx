@@ -84,7 +84,7 @@ export function LocationStep() {
                 </div>
               </div>
 
-              <h3 className={styles.locationConceptTitle}>{t(`location3.${option.titleKey}`)}</h3>
+              <span className={styles.locationConceptTitle}>{t(`location3.${option.titleKey}`)}</span>
             </button>
           );
         })}

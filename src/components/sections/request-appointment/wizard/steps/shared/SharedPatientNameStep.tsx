@@ -37,18 +37,21 @@ export function SharedPatientNameStep() {
       <div className={styles.wizardFormContainer}>
         <div className={styles.wizardFormGrid}>
           <div className={formStyles.simpleFormGroup}>
-            <label className={formStyles.label}>{t('sharedPatientName.firstName')}</label>
+            <label htmlFor="patient-first-name" className={formStyles.label}>{t('sharedPatientName.firstName')}</label>
             <input
+              id="patient-first-name"
               type="text"
               value={firstName}
               onChange={e => setFirstName(e.target.value)}
+              aria-required="true"
               className={formStyles.simpleInput}
               autoFocus
             />
           </div>
           <div className={formStyles.simpleFormGroup}>
-            <label className={formStyles.label}>{t('sharedPatientName.middleName')}</label>
+            <label htmlFor="patient-middle-name" className={formStyles.label}>{t('sharedPatientName.middleName')}</label>
             <input
+              id="patient-middle-name"
               type="text"
               value={middleName}
               onChange={e => setMiddleName(e.target.value)}
@@ -56,17 +59,20 @@ export function SharedPatientNameStep() {
             />
           </div>
           <div className={formStyles.simpleFormGroup}>
-            <label className={formStyles.label}>{t('sharedPatientName.lastName')}</label>
+            <label htmlFor="patient-last-name" className={formStyles.label}>{t('sharedPatientName.lastName')}</label>
             <input
+              id="patient-last-name"
               type="text"
               value={lastName}
               onChange={e => setLastName(e.target.value)}
+              aria-required="true"
               className={formStyles.simpleInput}
             />
           </div>
           <div className={formStyles.simpleFormGroup}>
-            <label className={formStyles.label}>{t('sharedPatientName.suffix')}</label>
+            <label htmlFor="patient-suffix" className={formStyles.label}>{t('sharedPatientName.suffix')}</label>
             <input
+              id="patient-suffix"
               type="text"
               value={suffix}
               onChange={e => setSuffix(e.target.value)}

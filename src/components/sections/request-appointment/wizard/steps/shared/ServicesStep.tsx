@@ -25,12 +25,8 @@ export function ServicesStep() {
   const { data, updateData } = useWizard();
   const [selected, setSelected] = useState<string[]>(data.services || []);
   const [activeInfo, setActiveInfo] = useState<string | null>(null);
-  const [isMounted, setIsMounted] = useState(false);
   const activeOption = SERVICE_OPTIONS.find(opt => opt.value === activeInfo) ?? null;
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const canRenderPortal = typeof document !== 'undefined';
 
   const toggle = useCallback((value: string) => {
     setSelected(prev => {
@@ -155,7 +151,7 @@ export function ServicesStep() {
         </button>
       </div>
 
-      {isMounted && activeOption
+      {canRenderPortal && activeOption
         ? createPortal(
           <div className={styles.serviceModalBackdrop} role="presentation" onClick={handleCloseDetails}>
             <div
@@ -166,9 +162,9 @@ export function ServicesStep() {
               onClick={(event) => event.stopPropagation()}
             >
               <div className={styles.serviceModalHeader}>
-                <h3 id="service-modal-title" className={styles.serviceModalTitle}>
+                <h2 id="service-modal-title" className={styles.serviceModalTitle}>
                   {t(`services.${activeOption.key}`)}
-                </h3>
+                </h2>
                 <button
                   type="button"
                   className={styles.serviceModalClose}
