@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useWizard } from "../../WizardContext";
 import { WizardChoiceStep } from "../../components/WizardChoiceStep";
+import styles from "../../../RequestAppointment/RequestAppointment.module.scss";
 
 export function TravelRiskStep() {
   const t = useTranslations("appointment.newPatient");
@@ -17,7 +18,7 @@ export function TravelRiskStep() {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
     updateData({ hasHealthRiskForTravel: value });
-    router.push("/apply?type=new&step=additional-concerns");
+    router.push("/apply?type=new&step=insurance-intro");
   }, [updateData, router]);
 
   const handleBack = useCallback(() => {
@@ -42,12 +43,12 @@ export function TravelRiskStep() {
         {
           key: "no",
           title: t("healthRisk.no"),
-          description: t("healthRisk.disclaimer"),
           icon: ShieldCheck,
           hoverColor: "#A8D5E5",
           onSelect: () => handleSelect("no"),
         },
       ]}
+      footer={<p className={styles.locationConceptFootnote}>{t("healthRisk.disclaimer")}</p>}
     />
   );
 }

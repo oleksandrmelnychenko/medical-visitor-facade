@@ -35,8 +35,7 @@ export function PrimaryConcernStep() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleContinue = useCallback(() => {
-    if (!concern) return;
-    updateData({ primaryConcernText: concern });
+    updateData({ primaryConcernText: concern.trim() });
     router.push('/apply?type=new&step=current-treatment');
   }, [concern, updateData, router]);
 
@@ -131,7 +130,6 @@ export function PrimaryConcernStep() {
             onChange={e => setConcern(e.target.value)}
             placeholder={t('primaryConcernText.placeholder')}
             aria-label={t('primaryConcernText.placeholder')}
-            aria-required="true"
             className={formStyles.textarea}
             rows={5}
             autoFocus
@@ -195,7 +193,6 @@ export function PrimaryConcernStep() {
         </div>
         <button
           onClick={handleContinue}
-          disabled={!concern}
           className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
           type="button"
         >

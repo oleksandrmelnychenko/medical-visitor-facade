@@ -175,7 +175,9 @@ export function ServicesStep() {
                 </button>
               </div>
               <p className={styles.serviceModalBody}>
-                {t(`services.${activeOption.key}Details`)}
+                {t.rich(`services.${activeOption.key}Details`, {
+                  strong: (chunks) => <strong>{chunks}</strong>,
+                })}
               </p>
               <div className={styles.serviceModalFooter}>
                 <button

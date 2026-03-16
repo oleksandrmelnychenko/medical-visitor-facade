@@ -1,13 +1,33 @@
 "use client";
 
 import React, { useCallback, useRef } from 'react';
-import { Globe2, Landmark, Map } from 'lucide-react';
+import { Globe2, Landmark } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../WizardContext';
 import { LocationDetailedType } from '../types';
 import { WizardStepLayout } from '../components/WizardStepLayout';
 import styles from '../../RequestAppointment/RequestAppointment.module.scss';
+
+function EuropeanUnionFlagIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" {...props}>
+      <rect x="3" y="3" width="18" height="18" rx="4" fill="#1F4AA8" />
+      <circle cx="12" cy="7" r="0.8" fill="#F7C948" />
+      <circle cx="14.5" cy="7.67" r="0.8" fill="#F7C948" />
+      <circle cx="16.33" cy="9.5" r="0.8" fill="#F7C948" />
+      <circle cx="17" cy="12" r="0.8" fill="#F7C948" />
+      <circle cx="16.33" cy="14.5" r="0.8" fill="#F7C948" />
+      <circle cx="14.5" cy="16.33" r="0.8" fill="#F7C948" />
+      <circle cx="12" cy="17" r="0.8" fill="#F7C948" />
+      <circle cx="9.5" cy="16.33" r="0.8" fill="#F7C948" />
+      <circle cx="7.67" cy="14.5" r="0.8" fill="#F7C948" />
+      <circle cx="7" cy="12" r="0.8" fill="#F7C948" />
+      <circle cx="7.67" cy="9.5" r="0.8" fill="#F7C948" />
+      <circle cx="9.5" cy="7.67" r="0.8" fill="#F7C948" />
+    </svg>
+  );
+}
 
 const LOCATION_OPTIONS = [
   {
@@ -19,7 +39,7 @@ const LOCATION_OPTIONS = [
   {
     value: 'eu_not_germany' as const,
     color: '#D5E8D5',
-    icon: Map,
+    icon: EuropeanUnionFlagIcon,
     titleKey: 'euNotGermany',
   },
   {
@@ -79,7 +99,13 @@ export function LocationStep() {
               type="button"
             >
               <div className={styles.locationConceptCardHeader}>
-                <div className={styles.locationConceptIcon}>
+                <div
+                  className={
+                    option.value === 'eu_not_germany'
+                      ? `${styles.locationConceptIcon} ${styles.locationConceptIconEu}`
+                      : styles.locationConceptIcon
+                  }
+                >
                   <Icon />
                 </div>
               </div>

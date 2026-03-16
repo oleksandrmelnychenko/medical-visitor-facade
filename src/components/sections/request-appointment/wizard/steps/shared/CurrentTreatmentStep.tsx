@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useRef } from "react";
-import { CircleOff, Stethoscope } from "lucide-react";
+import { ClipboardMinus, ClipboardPlus } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useWizard } from "../../WizardContext";
@@ -35,14 +35,14 @@ export function CurrentTreatmentStep() {
         {
           key: "yes",
           title: t("healthTreatment.yes"),
-          icon: Stethoscope,
+          icon: ClipboardPlus,
           hoverColor: "#E5D5A8",
           onSelect: () => handleSelect("yes"),
         },
         {
           key: "no",
           title: t("healthTreatment.no"),
-          icon: CircleOff,
+          icon: ClipboardMinus,
           hoverColor: "#A8D5E5",
           onSelect: () => handleSelect("no"),
         },

@@ -51,7 +51,6 @@ const LATE_FLOW_STEPS = [
   "primary-concern",
   "current-treatment",
   "health-risk",
-  "additional-concerns",
   "insurance-intro",
   "insurance",
   "insurance-coverage",

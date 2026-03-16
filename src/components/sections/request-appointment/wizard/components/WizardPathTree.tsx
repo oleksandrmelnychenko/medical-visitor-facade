@@ -37,7 +37,7 @@ function buildPath(data: WizardData): string[] {
 
   steps.push('primary-language', 'legal-sex', 'interpreter');
 
-  steps.push('services', 'address', 'concern-intro', 'primary-concern', 'current-treatment', 'health-risk', 'additional-concerns');
+  steps.push('services', 'address', 'concern-intro', 'primary-concern', 'current-treatment', 'health-risk');
 
   steps.push('insurance-intro', 'insurance');
   if (data.hasInsurance === 'yes') steps.push('insurance-coverage');

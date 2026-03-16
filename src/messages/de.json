@@ -107,7 +107,7 @@
       "principles": {
         "individualSupport": "Individuelle Betreuung und persönliche Beratung",
         "expertise": "Medizinische und organisatorische Kompetenz",
-        "confidentiality": "Sicherheit (Verlässlichkeit) und Diskretion",
+        "confidentiality": "Sicherheit und Diskretion",
         "digitalPortal": "Digitales Kundenportal",
         "security": "Hohe IT-Sicherheitsstandards",
         "concierge": "Concierge- und Lifestyle-Services",
@@ -377,7 +377,7 @@
       },
       "visitTiming": {
         "title": "Wann planen Sie, nach Deutschland zu reisen?",
-        "asap": "Schnellstmöglich (Notfall/Akut)",
+        "asap": "Schnellstmöglich",
         "nextFewMonths": "In den nächsten Monaten",
         "notSure": "Steht noch nicht fest",
         "note": "Die genauen Daten werden in Abhängigkeit von den Kapazitäten der Ärzte und Ihrem individuellen Behandlungsplan festgelegt."
@@ -546,7 +546,7 @@
     "showPassword": "Passwort anzeigen",
     "hidePassword": "Passwort ausblenden",
     "welcomeTitle": "Kundenportal",
-    "welcomeSubtitle": "Melden Sie sich an, um Ihren Behandlungsplan zu verwalten"
+    "welcomeSubtitle": "Bitte melden Sie sich an"
   },
   "impressumPage": {
     "title": "Impressum",

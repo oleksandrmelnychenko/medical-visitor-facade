@@ -56,7 +56,6 @@ const WIZARD_STEPS = [
   "primary-concern",
   "health-risk",
   "current-treatment",
-  "additional-concerns",
   "insurance-intro",
   "insurance",
   "insurance-coverage",

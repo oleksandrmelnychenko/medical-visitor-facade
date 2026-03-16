@@ -3,7 +3,6 @@
 import React, { useCallback, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
-import { useWizard } from '../../WizardContext';
 import { WizardStepLayout } from '../../components/WizardStepLayout';
 import formStyles from '@/components/auth/Auth.module.scss';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
@@ -11,8 +10,6 @@ import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
 export function InsuranceIntroStep() {
   const t = useTranslations('appointment.newPatient');
   const router = useRouter();
-  const { data } = useWizard();
-  const hasHealthRiskForTravel = data.hasHealthRiskForTravel;
   const isNavigatingRef = useRef(false);
 
   const handleContinue = useCallback(() => {
@@ -24,12 +21,8 @@ export function InsuranceIntroStep() {
   const handleBack = useCallback(() => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-    router.push(
-      hasHealthRiskForTravel === 'yes'
-        ? '/apply?type=new&step=health-risk'
-        : '/apply?type=new&step=additional-concerns'
-    );
-  }, [hasHealthRiskForTravel, router]);
+    router.push('/apply?type=new&step=health-risk');
+  }, [router]);
 
   return (
     <WizardStepLayout

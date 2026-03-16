@@ -1892,6 +1892,13 @@
   }
 }
 
+.locationConceptIconEu {
+  svg {
+    width: 1.78rem;
+    height: 1.78rem;
+  }
+}
+
 .locationConceptTitle {
   position: relative;
   z-index: 1;
@@ -1928,6 +1935,17 @@
   @media (max-width: 640px) {
     font-size: 0.86rem;
   }
+}
+
+.locationConceptFootnote {
+  margin: 0.8rem 0 0;
+  padding: 0 0.35rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  color: color-mix(in srgb, var(--wizard-copy, var(--text-body)) 88%, #ffffff);
 }
 
 .wizardSurfaceEnter {
@@ -3616,6 +3634,11 @@
   line-height: 1.68;
   color: color-mix(in srgb, var(--text-heading) 84%, #5f6675);
   text-align: left;
+
+  strong {
+    font-weight: 600;
+    color: var(--text-heading);
+  }
 }
 
 .serviceModalFooter {

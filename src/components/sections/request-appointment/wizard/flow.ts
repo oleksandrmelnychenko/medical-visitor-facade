@@ -197,20 +197,12 @@ function getConcernFallback(data: WizardData): WizardStep | null {
     return "address";
   }
 
-  if (!hasText(data.primaryConcernText)) {
-    return "primary-concern";
-  }
-
   if (data.currentlyInTreatment === null) {
     return "current-treatment";
   }
 
   if (data.hasHealthRiskForTravel === null) {
     return "health-risk";
-  }
-
-  if (!data.additionalConcernsCompleted) {
-    return "additional-concerns";
   }
 
   return null;
@@ -294,18 +286,11 @@ export function sanitizeWizardData(data: WizardData): WizardData {
     next.whatsappNumber = "";
   }
 
-  if (!hasText(next.primaryConcernText)) {
-    next.currentlyInTreatment = null;
+  next.additionalConcerns = "";
+  next.additionalConcernsCompleted = false;
+
+  if (next.currentlyInTreatment === null) {
     next.hasHealthRiskForTravel = null;
-    next.additionalConcerns = "";
-    next.additionalConcernsCompleted = false;
-  } else if (next.currentlyInTreatment === null) {
-    next.hasHealthRiskForTravel = null;
-    next.additionalConcerns = "";
-    next.additionalConcernsCompleted = false;
-  } else if (next.hasHealthRiskForTravel === null) {
-    next.additionalConcerns = "";
-    next.additionalConcernsCompleted = false;
   }
 
   if (next.hasInsurance !== "yes") {
@@ -664,12 +649,8 @@ export function getAccessibleWizardStep(step: WizardStep, data: WizardData): Wiz
 
     case "health-risk": {
       const fallback = getConcernFallback(cleanData);
-      if (fallback && fallback !== "health-risk" && fallback !== "additional-concerns") {
+      if (fallback && fallback !== "health-risk") {
         return fallback;
-      }
-
-      if (!hasText(cleanData.primaryConcernText)) {
-        return "primary-concern";
       }
 
       return cleanData.currentlyInTreatment === null ? "current-treatment" : "health-risk";
@@ -681,24 +662,12 @@ export function getAccessibleWizardStep(step: WizardStep, data: WizardData): Wiz
         return fallback;
       }
 
-      return hasText(cleanData.primaryConcernText) ? "current-treatment" : "primary-concern";
+      return "current-treatment";
     }
 
     case "additional-concerns": {
       const fallback = getConcernFallback(cleanData);
-      if (fallback && fallback !== "additional-concerns") {
-        return fallback;
-      }
-
-      if (!hasText(cleanData.primaryConcernText)) {
-        return "primary-concern";
-      }
-
-      if (cleanData.currentlyInTreatment === null) {
-        return "current-treatment";
-      }
-
-      return cleanData.hasHealthRiskForTravel === null ? "health-risk" : "additional-concerns";
+      return fallback ?? "insurance-intro";
     }
 
     case "insurance-intro":

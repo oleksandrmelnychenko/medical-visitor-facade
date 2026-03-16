@@ -223,13 +223,6 @@ export function WizardReviewSummary({ data, uploadedMedicalFiles = [] }: WizardR
       });
     }
 
-    if (hasText(data.additionalConcerns)) {
-      requestRows.push({
-        label: t("reviewSummary.additionalConcerns"),
-        value: data.additionalConcerns,
-      });
-    }
-
     if (uploadedMedicalFiles.length > 0) {
       requestRows.push({
         label: t("reviewSummary.attachments"),

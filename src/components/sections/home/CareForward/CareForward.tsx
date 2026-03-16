@@ -1,4 +1,6 @@
-import type { CSSProperties } from "react";
+"use client";
+
+import { useState, type CSSProperties, type KeyboardEvent } from "react";
 import { useTranslations } from "next-intl";
 import {
   Stethoscope,
@@ -8,6 +10,7 @@ import {
   PlaneTakeoff,
   Headphones,
   HeartPulse,
+  ChevronDown,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
@@ -25,6 +28,21 @@ const STEPS = [
 
 export function CareForward() {
   const t = useTranslations("home.careForward");
+  const [activeKey, setActiveKey] = useState<string | null>(null);
+  const [hoveredKey, setHoveredKey] = useState<string | null>(null);
+
+  const toggleCard = (key: string) => {
+    setActiveKey((current) => (current === key ? null : key));
+  };
+
+  const handleCardKeyDown = (event: KeyboardEvent<HTMLElement>, key: string) => {
+    if (event.key !== "Enter" && event.key !== " ") {
+      return;
+    }
+
+    event.preventDefault();
+    toggleCard(key);
+  };
 
   return (
     <section className={styles.section} data-dark-section>
@@ -39,35 +57,59 @@ export function CareForward() {
             <h2 className={styles.title}>{t("title")}</h2>
           </div>
           <div className={styles.flowGrid}>
-            {STEPS.map((step, index) => (
-              <article
-                key={step.key}
-                className={cn(
-                  styles.flowCard,
-                  step.key === "aftercare" && styles.flowCardWide
-                )}
-                style={{ "--tone": step.tone } as CSSProperties}
-              >
-                <div className={styles.cardTop}>
-                  <span className={styles.stepNumber}>
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div className={styles.cardIcon}>
-                    <step.icon />
+            {STEPS.map((step, index) => {
+              const isExpanded = activeKey === step.key || hoveredKey === step.key;
+              const panelId = `care-forward-${step.key}-details`;
+
+              return (
+                <article
+                  key={step.key}
+                  className={cn(
+                    styles.flowCard,
+                    step.key === "aftercare" && styles.flowCardWide,
+                    isExpanded && styles.flowCardExpanded
+                  )}
+                  style={{ "--tone": step.tone } as CSSProperties}
+                  role="button"
+                  tabIndex={0}
+                  aria-expanded={isExpanded}
+                  aria-controls={panelId}
+                  onClick={() => toggleCard(step.key)}
+                  onKeyDown={(event) => handleCardKeyDown(event, step.key)}
+                  onMouseEnter={() => setHoveredKey(step.key)}
+                  onMouseLeave={() => setHoveredKey((current) => (current === step.key ? null : current))}
+                  onFocus={() => setHoveredKey(step.key)}
+                  onBlur={() => setHoveredKey((current) => (current === step.key ? null : current))}
+                >
+                  <div className={styles.cardTop}>
+                    <span className={styles.stepNumber}>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className={styles.cardTopSide}>
+                      <span className={styles.cardExpandBadge} aria-hidden="true">
+                        <ChevronDown />
+                      </span>
+                      <div className={styles.cardIcon}>
+                        <step.icon />
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className={styles.cardContent}>
-                  <h3 className={styles.cardTitle}>{t(`services.${step.key}.title`)}</h3>
-                  <ul className={styles.cardList}>
-                    {(["point1", "point2", "point3"] as const).map((pointKey) => (
-                      <li key={pointKey} className={styles.cardPoint}>
-                        {t(`services.${step.key}.${pointKey}`)}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
+                  <div className={styles.cardContent}>
+                    <h3 className={styles.cardTitle}>{t(`services.${step.key}.title`)}</h3>
+                    <div className={styles.cardDivider} aria-hidden="true" />
+                    <div className={styles.cardListWrap}>
+                      <ul id={panelId} className={styles.cardList}>
+                        {(["point1", "point2", "point3"] as const).map((pointKey) => (
+                          <li key={pointKey} className={styles.cardPoint}>
+                            {t(`services.${step.key}.${pointKey}`)}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </div>

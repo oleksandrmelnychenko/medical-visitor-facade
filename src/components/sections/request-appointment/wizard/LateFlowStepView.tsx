@@ -7,7 +7,6 @@ import { ConcernIntroStep } from "./steps/shared/ConcernIntroStep";
 import { PrimaryConcernStep } from "./steps/shared/PrimaryConcernStep";
 import { TravelRiskStep } from "./steps/shared/TravelRiskStep";
 import { CurrentTreatmentStep } from "./steps/shared/CurrentTreatmentStep";
-import { AdditionalConcernsStep } from "./steps/shared/AdditionalConcernsStep";
 import { InsuranceIntroStep } from "./steps/shared/InsuranceIntroStep";
 import { InsuranceStep } from "./steps/shared/InsuranceStep";
 import { InsuranceCoverageStep } from "./steps/shared/InsuranceCoverageStep";
@@ -24,7 +23,6 @@ type LateFlowStep =
   | "primary-concern"
   | "health-risk"
   | "current-treatment"
-  | "additional-concerns"
   | "insurance-intro"
   | "insurance"
   | "insurance-coverage"
@@ -52,8 +50,6 @@ export function LateFlowStepView({ step }: LateFlowStepViewProps) {
       return <TravelRiskStep />;
     case "current-treatment":
       return <CurrentTreatmentStep />;
-    case "additional-concerns":
-      return <AdditionalConcernsStep />;
     case "insurance-intro":
       return <InsuranceIntroStep />;
     case "insurance":

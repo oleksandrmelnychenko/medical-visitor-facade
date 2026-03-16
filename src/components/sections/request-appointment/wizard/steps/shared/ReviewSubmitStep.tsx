@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
-import { useRouter } from '@/i18n/navigation';
+import { Link, useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
 import { sanitizeWizardData, validateWizardSubmission } from '../../flow';
 import { WizardStepLayout } from '../../components/WizardStepLayout';
@@ -133,7 +133,15 @@ export function ReviewSubmitStep() {
                 className={formStyles.checkboxInput}
               />
               <span className={formStyles.checkboxCustom} />
-              <span className={`${formStyles.checkboxText} ${styles.wizardConsentText}`}>{t('reviewStep.consent4')}</span>
+              <span className={`${formStyles.checkboxText} ${styles.wizardConsentText}`}>
+                {t.rich('reviewStep.consent4', {
+                  privacyLink: (chunks) => (
+                    <Link href="/privacy-policy" className={styles.wizardLink} target="_blank" rel="noopener noreferrer">
+                      {chunks}
+                    </Link>
+                  ),
+                })}
+              </span>
             </label>
           </div>
 
