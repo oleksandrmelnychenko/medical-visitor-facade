@@ -19,6 +19,7 @@
   "footer": {
     "impressum": "Aviso legal",
     "companyName": "Medical <accent>Concierge Agency</accent>",
+    "backToTop": "Volver arriba",
     "contact": "Contacto",
     "copyright": "© {year} Medical Concierge Agency",
     "allRightsReserved": "Todos los derechos reservados",
@@ -35,49 +36,98 @@
     },
     "careForward": {
       "title": "Lo que hacemos",
-      "subtitle": "",
+      "subtitle": "Desde la coordinación médica inicial hasta el acompañamiento en cada etapa del tratamiento.",
       "services": {
         "consultation": {
+          "label": "Consultas",
           "title": "Consultas individuales",
           "point1": "sobre opciones de tratamiento",
           "point2": "sobre clínicas especializadas y especialistas médicos",
-          "point3": "basadas en necesidades y prioridades personales"
+          "point3": "basadas en necesidades y prioridades personales",
+          "item1Title": "Opciones de tratamiento",
+          "item1Text": "con una evaluación de los escenarios disponibles y de las posibles vías",
+          "item2Title": "Clínicas y especialistas",
+          "item2Text": "con la selección de instituciones especializadas y expertos adecuados",
+          "item3Title": "Necesidades y prioridades personales",
+          "item3Text": "teniendo en cuenta la solicitud individual, las expectativas y las preferencias"
         },
         "coordination": {
+          "label": "Coordinación",
           "title": "Coordinación de los procesos médicos",
           "point1": "desde la programación de citas hasta la alineación de cada etapa",
           "point2": "garantizando la colaboración interdisciplinaria",
-          "point3": "con un claro enfoque en la eficiencia y la claridad"
+          "point3": "con un claro enfoque en la eficiencia y la claridad",
+          "item1Title": "Ruta asistencial",
+          "item1Text": "desde la programación de citas hasta la coordinación de las etapas clave del tratamiento",
+          "item2Title": "Coordinación interdisciplinaria",
+          "item2Text": "con comunicación organizada entre clínicas, médicos y todas las partes implicadas",
+          "item3Title": "Eficiencia y claridad",
+          "item3Text": "con un proceso transparente que reduce la carga para el paciente"
         },
         "documentation": {
+          "label": "Documentación",
           "title": "Organización de documentación y comunicación",
           "point1": "para informes médicos, altas y expedientes",
           "point2": "mediante la transferencia estructurada de información médica",
-          "point3": "para asegurar una comunicación fluida entre todas las partes implicadas"
+          "point3": "para asegurar una comunicación fluida entre todas las partes implicadas",
+          "item1Title": "Informes y documentación",
+          "item1Text": "con trabajo estructurado sobre documentos médicos y materiales clave",
+          "item2Title": "Transferencia de información",
+          "item2Text": "con preparación clara de los datos para clínicas y especialistas",
+          "item3Title": "Comunicación alineada",
+          "item3Text": "para un intercambio preciso y coherente en cada etapa"
         },
         "languageDigital": {
+          "label": "Idioma y digital",
           "title": "Apoyo lingüístico y digital",
           "point1": "mediante servicios de traducción e interpretación",
           "point2": "para la traducción de documentación médica",
-          "point3": "para consultas digitales y acceso a plataformas"
+          "point3": "para consultas digitales y acceso a plataformas",
+          "item1Title": "Traducción e interpretación",
+          "item1Text": "con apoyo escrito y oral en contexto médico",
+          "item2Title": "Documentación médica",
+          "item2Text": "con traducción de informes, registros y materiales complementarios",
+          "item3Title": "Plataformas digitales",
+          "item3Text": "con asistencia para servicios online y videoconsultas"
         },
         "travelTransfer": {
+          "label": "Viajes",
           "title": "Servicios de viaje y traslado al más alto nivel",
           "point1": "servicio personal de chófer y traslados",
           "point2": "aviación ejecutiva y aviación médica",
-          "point3": "transporte sanitario coordinado profesionalmente"
+          "point3": "transporte sanitario coordinado profesionalmente",
+          "item1Title": "Traslados y chófer",
+          "item1Text": "con apoyo personal para cada desplazamiento del itinerario",
+          "item2Title": "Soluciones aéreas",
+          "item2Text": "con organización de aviación ejecutiva y sanitaria cuando sea necesario",
+          "item3Title": "Transporte médico",
+          "item3Text": "con coordinación segura del traslado en el formato adecuado"
         },
         "personalSupport": {
+          "label": "Acompañamiento",
           "title": "Acompañamiento personal durante toda la estancia",
           "point1": "con servicios de concierge y lifestyle cuidadosamente seleccionados",
           "point2": "con asistencia individual en el lugar",
-          "point3": "con apoyo discreto adaptado a las preferencias personales"
+          "point3": "con apoyo discreto adaptado a las preferencias personales",
+          "item1Title": "Servicios de concierge",
+          "item1Text": "con apoyo lifestyle y concierge cuidadosamente seleccionado",
+          "item2Title": "Asistencia en destino",
+          "item2Text": "con ayuda individual durante la estancia y las citas clave",
+          "item3Title": "Preferencias personales",
+          "item3Text": "con acompañamiento discreto adaptado a la solicitud individual"
         },
         "aftercare": {
+          "label": "Seguimiento",
           "title": "Acompañamiento continuo más allá del tratamiento",
           "point1": "mediante la coordinación del seguimiento y la rehabilitación",
           "point2": "mediante consultas de seguimiento",
-          "point3": "mediante una planificación y control transparente de los gastos"
+          "point3": "mediante una planificación y control transparente de los gastos",
+          "item1Title": "Seguimiento y rehabilitación",
+          "item1Text": "con coordinación del acompañamiento médico posterior",
+          "item2Title": "Consultas de seguimiento",
+          "item2Text": "con organización de contactos posteriores con especialistas",
+          "item3Title": "Costes y planificación",
+          "item3Text": "con control transparente del presupuesto y de los próximos pasos"
         }
       }
     },
@@ -168,6 +218,7 @@
       "back": "Atrás",
       "continue": "Continuar",
       "travelPatient": {
+        "overline": "Viaje",
         "title": "¿Tiene la posibilidad de viajar a Alemania para recibir tratamiento?",
         "yes": "Sí",
         "no": "No"
@@ -203,6 +254,7 @@
         "postalCode": "Código postal (ingrese 0 si no aplica)"
       },
       "welcome": {
+        "overline": "Primeros Pasos",
         "title": "Comencemos",
         "subtitle": "Le haremos algunas preguntas para preparar de manera óptima la consulta con su coordinador médico.",
         "continue": "Continuar",
@@ -210,11 +262,13 @@
         "privacyPolicy": "Leer nuestra política de privacidad"
       },
       "memberCheck": {
+        "overline": "Estado",
         "title": "¿Ya es miembro de nuestra agencia?",
         "isMember": "Sí, soy miembro",
         "notMember": "No, soy nuevo cliente"
       },
       "location3": {
+        "overline": "Ubicación",
         "title": "¿En qué país reside actualmente?",
         "subtitle": "Esta información nos ayuda a evaluar los requisitos de visado y la logística del viaje.",
         "germany": "En Alemania",
@@ -222,6 +276,7 @@
         "outsideEu": "Fuera de la UE"
       },
       "becomeMember": {
+        "overline": "Solicitud",
         "title": "¿Desea hacerse miembro?",
         "yes": "Sí, quiero hacerme miembro",
         "no": "No, es para otra persona"
@@ -546,10 +601,24 @@
     "showPassword": "Mostrar contraseña",
     "hidePassword": "Ocultar contraseña",
     "welcomeTitle": "Portal del cliente",
-    "welcomeSubtitle": "Inicie sesión para gestionar su plan de tratamiento"
+    "welcomeSubtitle": "Inicie sesión para gestionar su plan de tratamiento",
+    "paymentSectionTitle": "Pago de servicios",
+    "paymentSecureLine": "Pago seguro a través de Mollie",
+    "paymentFrameFootnote": "Después del pago, Mollie devuelve al visitante a esta pantalla con el estado más reciente de la operación.",
+    "paymentExternalLink": "Abrir mollie.com",
+    "paymentButton": "Mollie",
+    "paymentUnavailable": "El pago no está disponible en este momento. Revise la configuración de Mollie.",
+    "paymentStatusPaid": "Pago confirmado. Ya puede continuar con el inicio de sesión.",
+    "paymentStatusPending": "El pago fue creado, pero aún no se ha completado. Termínelo en Mollie o vuelva más tarde.",
+    "paymentStatusFailed": "El pago ha fallado. Inténtelo de nuevo o use otro método de pago.",
+    "paymentStatusCanceled": "El pago fue cancelado.",
+    "paymentStatusExpired": "La sesión de pago ha caducado. Inicie un nuevo pago para continuar.",
+    "paymentStatusUnknown": "No se pudo verificar el estado del pago. Actualice la página o inténtelo de nuevo."
   },
   "impressumPage": {
     "title": "Aviso legal",
+    "legalNameTitle": "Nombre legal",
+    "addressTitle": "Dirección",
     "companyName": "Agentur für Patientenbetreuung Heorhii Hudiiev",
     "contact": "Contacto",
     "vatTitle": "NIF / IVA",

@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useWizard } from "../WizardContext";
 import { WizardChoiceStep } from "../components/WizardChoiceStep";
+import localStyles from "./TravelReadyStep.module.scss";
 
 export function ExitNoTravelStep() {
   const t = useTranslations("appointment.newPatient");
@@ -29,12 +30,13 @@ export function ExitNoTravelStep() {
       subtitle={t("exitNoTravelPatient.description")}
       onBack={handleBack}
       backLabel={t("back")}
+      titleClassName={localStyles.title}
+      headerClassName={localStyles.header}
       options={[
         {
           key: "exit",
           title: t("exitNoTravelPatient.button"),
           icon: LogOut,
-          hoverColor: "#E5D5A8",
           onSelect: handleExit,
         },
       ]}

@@ -5,14 +5,20 @@ import { cn } from '@/lib/utils';
 import sectionStyles from '@/components/sections/shared/Section.module.scss';
 import pageStyles from '@/styles/page.module.scss';
 import { WizardPathTree } from './WizardPathTree';
+import { WizardStageProgress } from './WizardStageProgress';
 import styles from '../../RequestAppointment/RequestAppointment.module.scss';
 
 interface WizardStepLayoutProps {
   title: string;
+  titleClassName?: string;
   subtitle?: string;
   subtitleClassName?: string;
+  shellDecor?: React.ReactNode;
+  shellClassName?: string;
   contentClassName?: string;
   innerClassName?: string;
+  hideTimeline?: boolean;
+  showStageProgress?: boolean;
   onBack?: () => void;
   backLabel?: string;
   onContinue?: () => void;
@@ -23,10 +29,15 @@ interface WizardStepLayoutProps {
 
 export function WizardStepLayout({
   title,
+  titleClassName,
   subtitle,
   subtitleClassName,
+  shellDecor,
+  shellClassName,
   contentClassName,
   innerClassName,
+  hideTimeline = true,
+  showStageProgress = true,
   onBack,
   backLabel = 'Back',
   onContinue,
@@ -40,15 +51,17 @@ export function WizardStepLayout({
     <div className={cn(pageStyles.page, styles.gridBackground)}>
       <section className={cn(sectionStyles.section, styles.wizardShellSection)} id="register">
         <div className={sectionStyles.container}>
-          <div className={styles.wizardOuterRow}>
-            <div className={styles.wizardShell}>
+          <div className={cn(styles.wizardOuterRow, hideTimeline && styles.wizardOuterRowSolo)}>
+            <div className={cn(styles.wizardShell, shellClassName)}>
+              {shellDecor}
               <div className={styles.wizardShellHeader}>
                 <div className={styles.wizardHeaderWrapper}>
                   <h1
                     className={cn(
                       styles.wizardHeaderTitle,
                       hasManualTitleBreak && styles.wizardHeaderTitleManualBreak,
-                      styles.wizardHeaderEnter
+                      styles.wizardHeaderEnter,
+                      titleClassName
                     )}
                   >
                     {title}
@@ -90,17 +103,22 @@ export function WizardStepLayout({
                           )}
                         </div>
                       )}
+
                     </div>
                   </div>
                 </div>
               </div>
+
+              {showStageProgress && <WizardStageProgress />}
             </div>
 
-            <div className={styles.wizardTreeCol}>
-              <div className={styles.wizardTimelinePanel}>
-                <WizardPathTree />
+            {!hideTimeline && (
+              <div className={styles.wizardTreeCol}>
+                <div className={styles.wizardTimelinePanel}>
+                  <WizardPathTree />
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </section>

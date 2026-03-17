@@ -1,13 +1,14 @@
 "use client";
 
-import React, { useCallback, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { Link } from '@/i18n/navigation';
+import { cn } from '@/lib/utils';
 import { useWizard } from '../../WizardContext';
-import { WizardStepLayout } from '../../components/WizardStepLayout';
-import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
-import formStyles from '@/components/auth/Auth.module.scss';
+import sectionStyles from '@/components/sections/shared/Section.module.scss';
+import pageStyles from '@/styles/page.module.scss';
+import styles from './WelcomeStep.module.scss';
 
 export function WelcomeStep() {
   const t = useTranslations('appointment.newPatient');
@@ -30,29 +31,58 @@ export function WelcomeStep() {
   }, [router, updateData]);
 
   return (
-    <WizardStepLayout
-      title={t('welcome.title')}
-      subtitle={t('welcome.subtitle')}
-      subtitleClassName={styles.welcomeSubtitleBody}
-      contentClassName={styles.welcomeSurfacePlain}
-      onBack={handleBack}
-      backLabel={t('back')}
-    >
-      <div className={`${styles.wizardFormContainer} ${styles.welcomeFormContainer}`}>
-        <button
-          onClick={handleContinue}
-          className={`${formStyles.submitButton} ${styles.welcomeContinueButton}`}
-          type="button"
-        >
-          {t('welcome.continue')}
-        </button>
-        <p className={styles.wizardEmergencyNote}>
-          {t('welcome.emergency')}
-        </p>
-        <Link href="/privacy-policy" className={styles.wizardPrivacyLink}>
-          {t('welcome.privacyPolicy')}
-        </Link>
-      </div>
-    </WizardStepLayout>
+    <div className={pageStyles.page}>
+      <section className={cn(sectionStyles.section, styles.welcome)}>
+        <div className={sectionStyles.container}>
+          <div className={styles.layout}>
+            <button
+              onClick={handleBack}
+              className={styles.backCircle}
+              type="button"
+              aria-label={t('back')}
+            >
+              <svg viewBox="0 0 24 24" fill="none" className={styles.backCircleIcon}>
+                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            <div className={styles.headingRow}>
+              <div className={styles.header}>
+                <p className={styles.overline}>{t('welcome.overline')}</p>
+                <h1 className={styles.title}>{t('welcome.title')}</h1>
+                <p className={styles.subtitle}>{t('welcome.subtitle')}</p>
+              </div>
+            </div>
+
+            <div className={styles.actions}>
+              <button
+                onClick={handleContinue}
+                className={styles.ctaLink}
+                type="button"
+              >
+                <span className={styles.ctaLabel}>{t('welcome.continue')}</span>
+                <span className={styles.ctaArrow} aria-hidden="true">
+                  <svg viewBox="0 0 40 40" fill="none" className={styles.ctaArrowIcon}>
+                    <path
+                      d="M18.67 4L22.91 8.24L14.31 16.83H36V22.83H14.31L22.91 31.43L18.67 35.67L2.76 19.76L18.67 4Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </button>
+
+              <div className={styles.disclaimer}>
+                <p className={styles.emergency}>{t('welcome.emergency')}</p>
+                <Link href="/privacy-policy" className={styles.privacyLink}>
+                  {t('welcome.privacyPolicy')}
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <span className={styles.cornerDecor} aria-hidden="true" />
+      </section>
+    </div>
   );
 }
