@@ -14,7 +14,7 @@ export default async function FinancialAssistancePage({ params }: FinancialAssis
   const t = await getTranslations({ locale, namespace: "appointment.freeService" });
   const tCommon = await getTranslations({ locale, namespace: "common" });
   const noteText = t("note");
-  const noteMatch = noteText.match(/^([^:]+):\s*(.+)$/s);
+  const noteMatch = noteText.match(new RegExp("^([^:]+):\\s*(.+)$", "s"));
   const noteBody = noteMatch?.[2] ?? noteText;
   const noteStatement = noteBody ? `${noteBody.charAt(0).toUpperCase()}${noteBody.slice(1)}` : noteBody;
 
