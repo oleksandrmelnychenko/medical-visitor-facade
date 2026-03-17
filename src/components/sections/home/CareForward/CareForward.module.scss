@@ -203,109 +203,135 @@
   }
 }
 
-.servicesColumn {
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr));
+  gap: clamp(1.4rem, 2.4vw, 2rem);
+  max-width: 100%;
+
+  @include up(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include up(xl) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.serviceCard {
   display: flex;
   flex-direction: column;
-  gap: clamp(2.8rem, 4.6vw, 4.2rem);
-  max-width: 100%;
+  gap: clamp(1rem, 1.6vw, 1.4rem);
+  padding: clamp(1.4rem, 2.2vw, 2rem);
+  border-radius: 24px;
+  border: 1px solid var(--care-border);
+  background: var(--care-surface);
+  box-shadow: 0 4px 16px rgba(18, 22, 29, 0.04);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.12) 32%, rgba(255, 255, 255, 0) 64%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.28s ease;
+  }
+
+  @media (max-width: 767px) {
+    border-radius: 20px;
+    padding: 1.2rem;
+  }
 }
 
-.serviceRow {
-  --care-label-shift: clamp(1.1rem, 2vw, 2.1rem);
-  --care-content-shift: clamp(4.1rem, 6vw, 6.6rem);
-  display: grid;
-  grid-template-columns: minmax(6rem, 0.15fr) minmax(13.5rem, max-content) minmax(0, 1fr);
-  gap: clamp(2rem, 4vw, 4.4rem);
-  align-items: start;
-  padding: clamp(0.9rem, 1.6vw, 1.4rem) 0;
-  border-top: 1px solid rgba(17, 20, 29, 0.1);
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.2rem;
 }
 
-.rowIndex {
+.cardIndex {
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(0.88rem, 0.95vw, 0.96rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(20, 25, 35, 0.48);
+  flex-shrink: 0;
+}
+
+.cardLabel {
   margin: 0;
   font-family: "Raleway", sans-serif;
-  font-size: clamp(6.8rem, 13.5vw, 12.6rem);
-  font-weight: 560;
-  line-height: 0.8;
-  letter-spacing: -0.082em;
-  color: #05070c;
-  transform: translateX(clamp(-0.45rem, -1vw, -0.95rem));
-}
-
-.rowContent {
-  display: grid;
-  gap: clamp(1.2rem, 2vw, 1.8rem);
-  max-width: min(100%, 60rem);
-  margin-left: var(--care-content-shift);
-  transition: transform 0.24s ease;
-}
-
-.rowHeader {
-  display: grid;
-  gap: clamp(1.25rem, 2.2vw, 2rem);
-}
-
-.rowEyebrow {
-  margin: 0 0 0 var(--care-label-shift);
-  padding-top: clamp(0.9rem, 1.4vw, 1.2rem);
-  font-family: "Raleway", sans-serif;
-  font-size: clamp(1.14rem, 1.34vw, 1.32rem);
+  font-size: clamp(0.98rem, 1.08vw, 1.08rem);
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.02em;
+  color: rgba(20, 25, 35, 0.72);
   white-space: nowrap;
-  color: rgba(20, 25, 35, 0.84);
 }
 
-.rowTitle {
+.cardTitle {
   margin: 0;
   font-family: "Raleway", sans-serif;
-  max-width: 15.5ch;
-  font-size: clamp(1.82rem, 3.55vw, 3.42rem);
+  font-size: clamp(1.48rem, 2.2vw, 1.95rem);
   font-weight: 540;
-  line-height: 0.93;
-  letter-spacing: -0.058em;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
   color: var(--care-text);
   text-wrap: balance;
+  margin-bottom: 0.4rem;
 }
 
-.rowCopy {
-  max-width: 44rem;
+.cardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .editorialList {
   display: grid;
-  gap: 1.05rem;
-  max-width: 40rem;
+  gap: clamp(0.85rem, 1.2vw, 1.05rem);
+  max-width: 100%;
 }
 
 .editorialItem {
   display: grid;
-  gap: 0.14rem;
+  gap: 0.2rem;
 }
 
 .editorialItemTitle {
   margin: 0;
-  font-size: clamp(1.04rem, 1.18vw, 1.18rem);
+  font-size: clamp(0.98rem, 1.1vw, 1.1rem);
   font-weight: 600;
-  line-height: 1.24;
+  line-height: 1.3;
   letter-spacing: -0.02em;
   color: rgba(20, 25, 35, 0.94);
 }
 
 .editorialItemText {
   margin: 0;
-  font-size: clamp(0.95rem, 1.08vw, 1.06rem);
+  font-size: clamp(0.9rem, 1vw, 1rem);
   font-weight: 500;
-  line-height: 1.46;
+  line-height: 1.5;
   letter-spacing: -0.018em;
   color: rgba(20, 25, 35, 0.58);
 }
 
 @media (hover: hover) {
-  .serviceRow:hover {
-    .rowContent {
-      transform: translateX(0.25rem);
+  .serviceCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(18, 22, 29, 0.08);
+    border-color: var(--care-border-strong);
+
+    &::before {
+      opacity: 1;
     }
   }
 }
@@ -319,8 +345,9 @@
     gap: 1.75rem;
   }
 
-  .servicesColumn {
-    gap: 1.65rem;
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
   }
 
   .servicesWrap {
@@ -346,56 +373,25 @@
     font-size: 1rem;
   }
 
-  .serviceRow {
-    grid-template-columns: 1fr;
-    gap: 0.9rem;
-    padding-top: 1.2rem;
+  .serviceCard {
+    padding: 1.2rem;
   }
 
-  .rowIndex {
-    font-size: clamp(3.75rem, 17vw, 5.3rem);
-    line-height: 0.9;
-    transform: none;
-  }
-
-  .rowHeader {
-    gap: 0.85rem;
-  }
-
-  .rowTitle {
-    max-width: 100%;
-    font-size: clamp(1.38rem, 5.9vw, 2.12rem);
-    line-height: 0.98;
-  }
-
-  .rowContent {
-    max-width: 100%;
-    margin-left: 0;
+  .cardTitle {
+    font-size: clamp(1.28rem, 5vw, 1.65rem);
   }
 
   .editorialList {
     gap: 0.88rem;
-    max-width: 100%;
   }
 
   .editorialItemTitle {
-    font-size: 1rem;
-    line-height: 1.26;
+    font-size: 0.98rem;
+    line-height: 1.3;
   }
 
   .editorialItemText {
-    font-size: 0.94rem;
-    line-height: 1.42;
-  }
-
-  .rowEyebrow {
-    margin-left: 0;
-    padding-top: 0;
-    font-size: 1.02rem;
-  }
-
-  .pointItem {
-    font-size: 0.98rem;
-    line-height: 1.38;
+    font-size: 0.92rem;
+    line-height: 1.48;
   }
 }

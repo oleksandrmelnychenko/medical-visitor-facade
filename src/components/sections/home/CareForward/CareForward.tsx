@@ -67,39 +67,36 @@ export function CareForward() {
             </div>
           </div>
           <div className={styles.servicesWrap}>
-            <div className={styles.servicesColumn}>
+            <div className={styles.servicesGrid}>
               {STEPS.map((step, index) => {
                 return (
                   <article
                     key={step.key}
-                    className={styles.serviceRow}
+                    className={styles.serviceCard}
                   >
-                    <div className={styles.rowIndex} aria-hidden="true">
-                      {index + 1}
+                    <div className={styles.cardHeader}>
+                      <span className={styles.cardIndex}>
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <p className={styles.cardLabel}>
+                        {t(`services.${step.key}.label`)}
+                      </p>
                     </div>
-                    <p className={styles.rowEyebrow}>
-                      ({t(`services.${step.key}.label`)})
-                    </p>
-                    <div className={styles.rowContent}>
-                      <div className={styles.rowHeader}>
-                        <h3 className={styles.rowTitle}>
-                          {t(`services.${step.key}.title`)}
-                        </h3>
-                      </div>
-
-                      <div className={styles.rowCopy}>
-                        <div className={styles.editorialList}>
-                          {EDITORIAL_ITEMS.map((itemKey) => (
-                            <div key={itemKey} className={styles.editorialItem}>
-                              <p className={styles.editorialItemTitle}>
-                                {t(`services.${step.key}.${itemKey}Title`)}
-                              </p>
-                              <p className={styles.editorialItemText}>
-                                {t(`services.${step.key}.${itemKey}Text`)}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
+                    <h3 className={styles.cardTitle}>
+                      {t(`services.${step.key}.title`)}
+                    </h3>
+                    <div className={styles.cardContent}>
+                      <div className={styles.editorialList}>
+                        {EDITORIAL_ITEMS.map((itemKey) => (
+                          <div key={itemKey} className={styles.editorialItem}>
+                            <p className={styles.editorialItemTitle}>
+                              {t(`services.${step.key}.${itemKey}Title`)}
+                            </p>
+                            <p className={styles.editorialItemText}>
+                              {t(`services.${step.key}.${itemKey}Text`)}
+                            </p>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </article>
