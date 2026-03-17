@@ -1,28 +1,18 @@
-import {
-  UserRound,
-  Stethoscope,
-  ShieldCheck,
-  FolderArchive,
-  LockKeyhole,
-  CalendarClock,
-  Headset,
-  Globe2,
-} from "lucide-react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./FullSupport.module.scss";
 
-const PRINCIPLES = [
-  { icon: UserRound, key: "individualSupport" },
-  { icon: Stethoscope, key: "expertise" },
-  { icon: ShieldCheck, key: "confidentiality" },
-  { icon: FolderArchive, key: "digitalPortal" },
-  { icon: LockKeyhole, key: "security" },
-  { icon: Headset, key: "concierge" },
-  { icon: CalendarClock, key: "coordination" },
-  { icon: Globe2, key: "international" },
-];
+const PRINCIPLE_KEYS = [
+  "individualSupport",
+  "expertise",
+  "confidentiality",
+  "digitalPortal",
+  "security",
+  "concierge",
+  "coordination",
+  "international",
+] as const;
 
 export function FullSupport() {
   const t = useTranslations("home.fullSupport");
@@ -33,26 +23,34 @@ export function FullSupport() {
     <section className={cn(sectionStyles.section, styles.fullSupport)}>
       <div className={sectionStyles.container}>
         <div className={styles.layout} data-snap-anchor>
-          <div className={styles.header}>
-            {overline ? <p className={styles.overline}>{overline}</p> : null}
-            <h2 className={styles.title}>{t("title")}</h2>
-            {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
+          <div className={styles.headingRow}>
+            <div className={styles.header}>
+              {overline ? <p className={styles.overline}>{overline}</p> : null}
+              <h2 className={styles.title}>{t("title")}</h2>
+              {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
+            </div>
+
+            <div className={styles.heroArrow} aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" className={styles.heroArrowIcon}>
+                <path
+                  d="M18.67 4L22.91 8.24L14.31 16.83H36V22.83H14.31L22.91 31.43L18.67 35.67L2.76 19.76L18.67 4Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
           </div>
 
-          <div className={styles.conceptGrid}>
-            {PRINCIPLES.map((principle, index) => (
-              <article key={principle.key} className={styles.conceptCard}>
-                <div className={styles.conceptCardTop}>
-                  <div className={styles.conceptIcon}>
-                    <principle.icon />
-                  </div>
-                  <span className={styles.conceptIndex}>
+          <div className={styles.contentWrap}>
+            <ol className={styles.principlesList}>
+              {PRINCIPLE_KEYS.map((key, index) => (
+                <li key={key} className={styles.principleItem}>
+                  <span className={styles.principleIndex}>
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                </div>
-                <h3 className={styles.conceptTitle}>{t(`principles.${principle.key}`)}</h3>
-              </article>
-            ))}
+                  <p className={styles.principleText}>{t(`principles.${key}`)}</p>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </div>

@@ -36,8 +36,8 @@ export default function Home() {
     <>
       <Hero />
       <FullSupport />
-      <CareForward />
       <Office />
+      <CareForward />
       <ScrollProgressRail />
     </>
   );

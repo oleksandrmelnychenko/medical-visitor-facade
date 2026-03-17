@@ -1,6 +1,5 @@
 import { getTranslations } from "next-intl/server";
 import { cn } from "@/lib/utils";
-import { SectionHeader } from "@/components/sections/shared/SectionHeader";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
 import styles from "./legal-notice.module.scss";
@@ -15,47 +14,45 @@ export default async function LegalNoticePage({ params }: LegalNoticePageProps) 
 
   return (
     <div className={cn(pageStyles.page, styles.page)}>
-      <section className={cn(sectionStyles.section, styles.heroSection)}>
-        <div className={sectionStyles.container}>
-          <SectionHeader
-            title={t("title")}
-            variant="page"
-            titleAs="h1"
-            theme="beige"
-          />
-        </div>
-      </section>
-
       <section className={cn(sectionStyles.section, styles.contentSection)}>
         <div className={sectionStyles.container}>
-          <div className={styles.content}>
-            <div className={styles.infoBlock}>
-              <p className={styles.companyName}>{t("companyName")}</p>
-              <p className={styles.text}>Albert-Schweitzer-Straße 56</p>
-              <p className={styles.text}>81735 München</p>
+          <h1 className={styles.srOnly}>{t("title")}</h1>
+          <div className={styles.editorialLayout}>
+            <div className={styles.noticeRow}>
+              <p className={styles.rowLabel}>{t("legalNameTitle")}</p>
+              <div className={styles.rowContent}>
+                <h2 className={styles.primaryStatement}>{t("companyName")}</h2>
+              </div>
             </div>
 
-            <div className={styles.infoBlock}>
-              <h2 className={styles.sectionTitle}>{t("contact")}</h2>
-              <p className={styles.text}>
-                <a href="mailto:contact@gmed-health.com">contact@gmed-health.com</a>
-              </p>
-              <p className={styles.text}>
-                <a href="https://www.gmed-health.com" target="_blank" rel="noopener noreferrer">www.gmed-health.com</a>
-              </p>
+            <div className={styles.noticeRow}>
+              <p className={styles.rowLabel}>{t("addressTitle")}</p>
+              <div className={styles.rowContent}>
+                <div className={styles.statementGroup}>
+                  <p className={styles.secondaryStatement}>Albert-Schweitzer-Straße 56</p>
+                  <p className={styles.secondaryStatement}>81735 München</p>
+                </div>
+              </div>
             </div>
 
-            <div className={styles.infoBlock}>
-              <h2 className={styles.sectionTitle}>{t("vatTitle")}</h2>
-              <p className={styles.text}>{t("vatLegal")}</p>
-              <p className={styles.vatNumber}>DE407675242</p>
+            <div className={styles.noticeRow}>
+              <p className={styles.rowLabel}>{t("vatTitle")}</p>
+              <div className={styles.rowContent}>
+                <div className={styles.statementGroup}>
+                  <p className={cn(styles.primaryStatement, styles.pastelVatNumber)}>DE407675242</p>
+                </div>
+              </div>
             </div>
 
-            <div className={styles.infoBlock}>
-              <p className={styles.text}>{t("contactPrompt")}</p>
-              <p className={styles.text}>
-                <a href="mailto:contact@gmed-health.com">contact@gmed-health.com</a>
-              </p>
+            <div className={styles.noticeRow}>
+              <p className={styles.rowLabel}>{t("contactPrompt")}</p>
+              <div className={styles.rowContent}>
+                <p className={styles.secondaryStatement}>
+                  <a href="mailto:contact@gmed-health.com" className={styles.secondaryLink}>
+                    contact@gmed-health.com
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </div>

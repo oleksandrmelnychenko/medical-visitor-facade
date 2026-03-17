@@ -1,0 +1,37 @@
+.routeFrame {
+  position: relative;
+  min-height: 100%;
+}
+
+.routeContent {
+  position: relative;
+  z-index: 1;
+  will-change: opacity;
+}
+
+.screenWipe {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.96) 42%, #ffffff 100%),
+    radial-gradient(circle at 20% 18%, rgba(200, 161, 147, 0.12) 0%, rgba(200, 161, 147, 0) 34%);
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  box-shadow:
+    0 -20px 44px rgba(17, 21, 30, 0.06),
+    0 -1px 0 rgba(255, 255, 255, 0.8) inset;
+  will-change: transform;
+}
+
+.staticContent {
+  min-height: 100%;
+}
+
+@media (max-width: 768px) {
+  .screenWipe {
+    border-top-left-radius: 1.25rem;
+    border-top-right-radius: 1.25rem;
+  }
+}

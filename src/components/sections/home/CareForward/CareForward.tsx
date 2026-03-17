@@ -1,115 +1,111 @@
 "use client";
 
-import { useState, type CSSProperties, type KeyboardEvent } from "react";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
-import {
-  Stethoscope,
-  CalendarClock,
-  FileText,
-  Languages,
-  PlaneTakeoff,
-  Headphones,
-  HeartPulse,
-  ChevronDown,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./CareForward.module.scss";
 
 const STEPS = [
-  { icon: Stethoscope, key: "consultation", tone: "var(--tone-blue)" },
-  { icon: CalendarClock, key: "coordination", tone: "var(--tone-sand)" },
-  { icon: FileText, key: "documentation", tone: "var(--tone-sage)" },
-  { icon: Languages, key: "languageDigital", tone: "var(--tone-lavender)" },
-  { icon: PlaneTakeoff, key: "travelTransfer", tone: "var(--tone-blue)" },
-  { icon: Headphones, key: "personalSupport", tone: "var(--tone-sand)" },
-  { icon: HeartPulse, key: "aftercare", tone: "var(--tone-sage)" },
+  {
+    key: "consultation",
+  },
+  {
+    key: "coordination",
+  },
+  {
+    key: "documentation",
+  },
+  {
+    key: "languageDigital",
+  },
+  {
+    key: "travelTransfer",
+  },
+  {
+    key: "personalSupport",
+  },
+  {
+    key: "aftercare",
+  },
 ];
+
+const EDITORIAL_ITEMS = [
+  "item1",
+  "item2",
+  "item3",
+] as const;
 
 export function CareForward() {
   const t = useTranslations("home.careForward");
-  const [activeKey, setActiveKey] = useState<string | null>(null);
-  const [hoveredKey, setHoveredKey] = useState<string | null>(null);
-
-  const toggleCard = (key: string) => {
-    setActiveKey((current) => (current === key ? null : key));
-  };
-
-  const handleCardKeyDown = (event: KeyboardEvent<HTMLElement>, key: string) => {
-    if (event.key !== "Enter" && event.key !== " ") {
-      return;
-    }
-
-    event.preventDefault();
-    toggleCard(key);
-  };
+  const tCommon = useTranslations("common");
 
   return (
-    <section className={styles.section} data-dark-section>
-      <span className={styles.topSeam} aria-hidden />
-      <div className={sectionStyles.container}>
+    <section className={styles.section}>
+      <div className={`${sectionStyles.container} ${styles.container}`}>
         <div
           className={styles.shell}
           data-snap-anchor
           data-snap-shift="24"
         >
-          <div className={styles.header}>
-            <h2 className={styles.title}>{t("title")}</h2>
+          <div className={styles.headingRow}>
+            <div className={styles.intro}>
+              <p className={styles.eyebrow}>({t("title")})</p>
+            </div>
+            <div className={styles.leadColumn}>
+              <h2 className={styles.statement}>{t("subtitle")}</h2>
+              <Link href="/apply" prefetch={false} className={styles.ctaLink}>
+                <span className={styles.ctaLabel}>{tCommon("requestAppointment")}</span>
+                <span className={styles.ctaArrow} aria-hidden="true">
+                  <svg viewBox="0 0 40 40" fill="none" className={styles.ctaArrowIcon}>
+                    <path
+                      d="M18.67 4L22.91 8.24L14.31 16.83H36V22.83H14.31L22.91 31.43L18.67 35.67L2.76 19.76L18.67 4Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </Link>
+            </div>
           </div>
-          <div className={styles.flowGrid}>
-            {STEPS.map((step, index) => {
-              const isExpanded = activeKey === step.key || hoveredKey === step.key;
-              const panelId = `care-forward-${step.key}-details`;
+          <div className={styles.servicesWrap}>
+            <div className={styles.servicesColumn}>
+              {STEPS.map((step, index) => {
+                return (
+                  <article
+                    key={step.key}
+                    className={styles.serviceRow}
+                  >
+                    <div className={styles.rowIndex} aria-hidden="true">
+                      {index + 1}
+                    </div>
+                    <p className={styles.rowEyebrow}>
+                      ({t(`services.${step.key}.label`)})
+                    </p>
+                    <div className={styles.rowContent}>
+                      <div className={styles.rowHeader}>
+                        <h3 className={styles.rowTitle}>
+                          {t(`services.${step.key}.title`)}
+                        </h3>
+                      </div>
 
-              return (
-                <article
-                  key={step.key}
-                  className={cn(
-                    styles.flowCard,
-                    step.key === "aftercare" && styles.flowCardWide,
-                    isExpanded && styles.flowCardExpanded
-                  )}
-                  style={{ "--tone": step.tone } as CSSProperties}
-                  role="button"
-                  tabIndex={0}
-                  aria-expanded={isExpanded}
-                  aria-controls={panelId}
-                  onClick={() => toggleCard(step.key)}
-                  onKeyDown={(event) => handleCardKeyDown(event, step.key)}
-                  onMouseEnter={() => setHoveredKey(step.key)}
-                  onMouseLeave={() => setHoveredKey((current) => (current === step.key ? null : current))}
-                  onFocus={() => setHoveredKey(step.key)}
-                  onBlur={() => setHoveredKey((current) => (current === step.key ? null : current))}
-                >
-                  <div className={styles.cardTop}>
-                    <span className={styles.stepNumber}>
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <div className={styles.cardTopSide}>
-                      <span className={styles.cardExpandBadge} aria-hidden="true">
-                        <ChevronDown />
-                      </span>
-                      <div className={styles.cardIcon}>
-                        <step.icon />
+                      <div className={styles.rowCopy}>
+                        <div className={styles.editorialList}>
+                          {EDITORIAL_ITEMS.map((itemKey) => (
+                            <div key={itemKey} className={styles.editorialItem}>
+                              <p className={styles.editorialItemTitle}>
+                                {t(`services.${step.key}.${itemKey}Title`)}
+                              </p>
+                              <p className={styles.editorialItemText}>
+                                {t(`services.${step.key}.${itemKey}Text`)}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className={styles.cardContent}>
-                    <h3 className={styles.cardTitle}>{t(`services.${step.key}.title`)}</h3>
-                    <div className={styles.cardDivider} aria-hidden="true" />
-                    <div className={styles.cardListWrap}>
-                      <ul id={panelId} className={styles.cardList}>
-                        {(["point1", "point2", "point3"] as const).map((pointKey) => (
-                          <li key={pointKey} className={styles.cardPoint}>
-                            {t(`services.${step.key}.${pointKey}`)}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </article>
-              );
-            })}
+                  </article>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

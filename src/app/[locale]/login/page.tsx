@@ -6,9 +6,37 @@ import {
 } from "@/lib/seo";
 import { LoginPageClient } from "./LoginPageClient";
 
+type LoginPaymentState =
+  | "canceled"
+  | "expired"
+  | "failed"
+  | "paid"
+  | "pending"
+  | "unknown"
+  | "unavailable"
+  | null;
+
 type LoginPageProps = {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ payment?: string | string[] | undefined }>;
 };
+
+function parsePaymentState(payment: string | string[] | undefined): LoginPaymentState {
+  const rawValue = Array.isArray(payment) ? payment[0] : payment;
+
+  switch (rawValue) {
+    case "paid":
+    case "pending":
+    case "failed":
+    case "canceled":
+    case "expired":
+    case "unknown":
+    case "unavailable":
+      return rawValue;
+    default:
+      return null;
+  }
+}
 
 export async function generateMetadata({ params }: LoginPageProps): Promise<Metadata> {
   const { locale } = await params;
@@ -27,6 +55,8 @@ export async function generateMetadata({ params }: LoginPageProps): Promise<Meta
   });
 }
 
-export default async function LoginPage() {
-  return <LoginPageClient />;
+export default async function LoginPage({ searchParams }: LoginPageProps) {
+  const { payment } = await searchParams;
+
+  return <LoginPageClient paymentState={parsePaymentState(payment)} />;
 }

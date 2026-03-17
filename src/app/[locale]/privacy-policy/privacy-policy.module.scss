@@ -1,98 +1,245 @@
 @use "@/styles/variables" as *;
-@use "@/styles/legal-documents" as legal;
 
 .page {
-  background:
-    linear-gradient(180deg, #f8f8f6 0%, #f4f5f7 100%) !important;
   min-height: 100vh;
-}
-
-.heroSection {
-  padding-top: clamp(2.7rem, 6vw, 4.4rem) !important;
-  padding-bottom: clamp(1.35rem, 3vw, 1.9rem) !important;
-  background: transparent !important;
+  background: #fcfcfc !important;
 }
 
 .contentSection {
-  padding-top: 0.4rem !important;
-  padding-bottom: clamp(3.5rem, 6vw, 5.8rem) !important;
+  padding-top: clamp(8.2rem, 11vw, 10.8rem) !important;
+  padding-bottom: clamp(5rem, 8vw, 6.8rem) !important;
   background: transparent !important;
 }
 
-.content {
-  max-width: 920px;
-  margin: 0 auto;
+.editorialLayout {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 }
 
-.introCard,
-.section {
-  @include legal.legal-surface;
+.heroRow {
+  display: grid;
+  grid-template-columns: minmax(8.5rem, 0.42fr) minmax(0, 1.58fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: start;
+  padding-bottom: clamp(3.2rem, 5vw, 4.8rem);
+  border-bottom: 1px solid rgba(16, 18, 24, 0.12);
 }
 
-.introCard {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+.heroMeta {
+  align-self: start;
+  padding-top: 0.4rem;
 }
 
-.policyStack {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.sectionTitle {
-  @include legal.legal-tile-title;
-  margin-bottom: 0.75rem;
-}
-
-.text {
-  @include legal.legal-body-text;
+.metaLabel {
   margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  font-weight: 560;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: rgba(17, 21, 30, 0.74);
 }
 
-.list {
-  list-style: none;
+.heroContent {
+  max-width: min(100%, 72rem);
+}
+
+.pageTitle {
+  margin: 0;
+  max-width: 11ch;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(2.8rem, 6vw, 5.7rem);
+  font-weight: 540;
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+  color: #05070c;
+  text-wrap: balance;
+}
+
+.pageLead {
+  max-width: 44ch;
+  margin: clamp(1.4rem, 2vw, 1.95rem) 0 0;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1.02rem, 1.22vw, 1.2rem);
+  font-weight: 560;
+  line-height: 1.08;
+  letter-spacing: -0.032em;
+  color: rgba(20, 25, 35, 0.86);
+  text-wrap: balance;
+}
+
+.introRow,
+.policyRow {
+  display: grid;
+  grid-template-columns: minmax(4rem, 0.18fr) minmax(12rem, 0.72fr) minmax(0, 1.1fr);
+  gap: clamp(1.5rem, 4vw, 4.8rem);
+  align-items: start;
+  padding: clamp(2.5rem, 4vw, 4rem) 0;
+  border-bottom: 1px solid rgba(16, 18, 24, 0.1);
+}
+
+.policyRow:last-child {
+  border-bottom: none;
+}
+
+.rowIndex {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(0.86rem, 1vw, 0.95rem);
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(17, 21, 30, 0.46);
+  white-space: nowrap;
+}
+
+.rowHeading {
+  max-width: min(100%, 18rem);
+}
+
+.rowTitle {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1.02rem, 1.22vw, 1.2rem);
+  font-weight: 560;
+  line-height: 1.08;
+  letter-spacing: -0.032em;
+  color: #05070c;
+  text-wrap: balance;
+}
+
+.rowBody {
+  max-width: min(100%, 42rem);
+}
+
+.introStack,
+.bodyStack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.95rem, 1.55vw, 1.25rem);
+}
+
+.introText {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1.2rem, 1.82vw, 1.84rem);
+  font-weight: 520;
+  line-height: 1.18;
+  letter-spacing: -0.04em;
+  color: #05070c;
+}
+
+.bodyText {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1.2rem, 1.82vw, 1.84rem);
+  font-weight: 520;
+  line-height: 1.18;
+  letter-spacing: -0.04em;
+  color: #05070c;
+}
+
+.detailList {
+  display: grid;
+  gap: clamp(0.7rem, 1.2vw, 0.95rem);
+  margin: 0;
   padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
+  list-style: none;
 
   li {
     position: relative;
-    padding-left: 1.5rem;
-    @include legal.legal-body-text;
+    margin: 0;
+    padding-left: 1.35rem;
+    font-family: "Raleway", sans-serif;
+    font-size: clamp(1.2rem, 1.82vw, 1.84rem);
+    font-weight: 520;
+    line-height: 1.18;
+    letter-spacing: -0.04em;
+    color: #05070c;
 
     &::before {
       content: "";
       position: absolute;
-      left: 0.1rem;
+      left: 0;
       top: 0.72rem;
-      width: 0.38rem;
-      height: 0.38rem;
-      border-radius: 50%;
-      background: color-mix(in srgb, #a99670 72%, #d5dbe6);
+      width: 0.42rem;
+      height: 0.42rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #c58d7b 0%, #7e93a7 100%);
     }
   }
 }
 
-@media (max-width: 639px) {
-  .content,
-  .policyStack {
-    gap: 0.85rem;
+@media (max-width: 1023px) {
+  .contentSection {
+    padding-top: 7rem !important;
   }
 
-  .introCard,
-  .section {
-    @include legal.legal-surface-mobile;
+  .heroRow {
+    grid-template-columns: 1fr;
+    gap: 0.95rem;
   }
 
-  .text,
-  .list li {
-    @include legal.legal-body-text-mobile;
+  .heroMeta {
+    padding-top: 0;
+  }
+
+  .introRow,
+  .policyRow {
+    grid-template-columns: 1fr;
+    gap: 0.95rem;
+    padding: 2.2rem 0;
+  }
+
+  .rowHeading,
+  .rowBody,
+  .heroContent {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .contentSection {
+    padding-top: 6rem !important;
+    padding-bottom: 4.1rem !important;
+  }
+
+  .heroRow {
+    padding-bottom: 2.5rem;
+  }
+
+  .pageTitle {
+    max-width: 100%;
+    font-size: clamp(2rem, 10vw, 3.25rem);
+    line-height: 0.96;
+  }
+
+  .pageLead {
+    max-width: 100%;
+    font-size: 1rem;
+    line-height: 1.14;
+  }
+
+  .introRow,
+  .policyRow {
+    gap: 0.7rem;
+    padding: 1.7rem 0;
+  }
+
+  .rowTitle {
+    font-size: 1rem;
+    line-height: 1.08;
+  }
+
+  .bodyText,
+  .introText,
+  .detailList li {
+    font-size: clamp(1.08rem, 5.2vw, 1.4rem);
+    line-height: 1.22;
+  }
+
+  .detailList li {
+    padding-left: 1.15rem;
   }
 }

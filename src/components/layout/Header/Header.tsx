@@ -1,10 +1,10 @@
 "use client";
 
 import React, { startTransition, useEffect, useEffectEvent, useRef, useState } from "react";
-import Image from "next/image";
-import { UserPlus, User, ArrowRight } from "lucide-react";
+import { UserPlus, User } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
+import { GmedHeaderLogo } from "@/components/branding/GmedHeaderLogo/GmedHeaderLogo";
 import { cn } from "@/lib/utils";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import styles from "./Header.module.scss";
@@ -17,6 +17,11 @@ const LANGUAGES = [
 ] as const;
 
 type SupportedLocale = (typeof LANGUAGES)[number]["code"];
+type ClockParts = {
+  dayPeriod?: string,
+  hour: string,
+  minute: string,
+};
 
 export function Header() {
   const tCommon = useTranslations("common");
@@ -26,32 +31,17 @@ export function Header() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isDesktopLangOpen, setIsDesktopLangOpen] = useState(false);
-  const [isStickyLangOpen, setIsStickyLangOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [clockParts, setClockParts] = useState<ClockParts | null>(null);
   const langRef = useRef<HTMLDivElement>(null);
-  const stickyLangRef = useRef<HTMLDivElement>(null);
-
-  const handleScroll = useEffectEvent(() => {
-    const nextScrolled = window.scrollY > 150;
-
-    if (nextScrolled !== isScrolled) {
-      setIsDesktopLangOpen(false);
-      setIsStickyLangOpen(false);
-      setIsScrolled(nextScrolled);
-    }
-  });
 
   const handleClickOutside = useEffectEvent((event: MouseEvent) => {
     const clickedOutsideDesktopLang =
       langRef.current && !langRef.current.contains(event.target as Node);
-    const clickedOutsideStickyLang =
-      stickyLangRef.current && !stickyLangRef.current.contains(event.target as Node);
 
-    if (clickedOutsideDesktopLang && clickedOutsideStickyLang) {
+    if (clickedOutsideDesktopLang) {
       setIsDesktopLangOpen(false);
-      setIsStickyLangOpen(false);
     }
   });
 
@@ -62,18 +52,6 @@ export function Header() {
   });
 
   useEffect(() => {
-    let frameId: number | null = null;
-    const onScroll = () => {
-      if (frameId !== null) {
-        return;
-      }
-
-      frameId = window.requestAnimationFrame(() => {
-        frameId = null;
-        handleScroll();
-      });
-    };
-
     const onResize = () => {
       handleResize();
     };
@@ -83,15 +61,10 @@ export function Header() {
     };
 
     window.addEventListener("resize", onResize);
-    window.addEventListener("scroll", onScroll, { passive: true });
     document.addEventListener("mousedown", onMouseDown);
 
     return () => {
-      if (frameId !== null) {
-        window.cancelAnimationFrame(frameId);
-      }
       window.removeEventListener("resize", onResize);
-      window.removeEventListener("scroll", onScroll);
       document.removeEventListener("mousedown", onMouseDown);
     };
   }, []);
@@ -107,6 +80,35 @@ export function Header() {
     };
   }, [isMobileMenuOpen]);
 
+  useEffect(() => {
+    const formatter = new Intl.DateTimeFormat(locale, {
+      timeZone: "Europe/Berlin",
+      hour: "numeric",
+      minute: "2-digit",
+    });
+
+    const syncTimeLabel = () => {
+      const parts = formatter.formatToParts(new Date());
+      const hour = parts.find((part) => part.type === "hour")?.value ?? "";
+      const minute = parts.find((part) => part.type === "minute")?.value ?? "";
+      const hourValue = Number.parseInt(hour, 10);
+      const dayPeriod = Number.isFinite(hourValue) ? (hourValue >= 12 ? "pm" : "am") : undefined;
+
+      if (!hour || !minute) {
+        return;
+      }
+
+      setClockParts({ dayPeriod, hour, minute });
+    };
+
+    syncTimeLabel();
+    const intervalId = window.setInterval(syncTimeLabel, 60_000);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, [locale]);
+
   const currentLanguage = LANGUAGES.find((language) => language.code === locale) ?? LANGUAGES[1];
 
   const currentSearch = searchParams.toString();
@@ -118,6 +120,13 @@ export function Header() {
   const showLogin = !isLoginPage;
   const showApplyCta = !isApplyPage;
   const hideHeader = isLoginPage;
+  const isHomePage = pathname === "/";
+  const isOverlayHeader = isHomePage || isApplyPage;
+  const locationLabel = tFooter("address").replace(/^\d+\s*/u, "");
+  const primaryLinks = [
+    ...(showApplyCta ? [{ href: "/apply", label: tCommon("requestAppointment") }] : []),
+    ...(showLogin ? [{ href: "/login", label: tCommon("login") }] : []),
+  ];
 
   if (hideHeader) {
     return null;
@@ -128,7 +137,6 @@ export function Header() {
       router.replace(currentPathWithSearch, { locale: code });
     });
     setIsDesktopLangOpen(false);
-    setIsStickyLangOpen(false);
   };
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
@@ -138,89 +146,46 @@ export function Header() {
       router.replace(currentPathWithSearch, { locale: code });
     });
     setIsDesktopLangOpen(false);
-    setIsStickyLangOpen(false);
     closeMobileMenu();
   };
 
+  const renderPrimaryLinks = () =>
+    primaryLinks.map((item, index) => {
+      const isActive = pathname === item.href;
+
+      return (
+        <React.Fragment key={item.href}>
+          <Link
+            href={item.href}
+            prefetch={false}
+            className={cn(styles.navLink, isActive && styles.navLinkActive)}
+            aria-current={isActive ? "page" : undefined}
+          >
+            {item.label}
+          </Link>
+          {index < primaryLinks.length - 1 ? <span className={styles.navComma} aria-hidden="true">,</span> : null}
+        </React.Fragment>
+      );
+    });
+
+  const renderClock = () =>
+    clockParts ? (
+      <span className={styles.metaTime}>
+        <span className={styles.timeNumber}>{clockParts.hour}</span>
+        <span className={styles.timeSeparator} aria-hidden="true" />
+        <span className={styles.timeNumber}>{clockParts.minute}</span>
+        {clockParts.dayPeriod ? (
+          <span className={styles.metaDayPeriod}>{clockParts.dayPeriod}</span>
+        ) : null}
+      </span>
+    ) : null;
+
   return (
     <>
-      <div className={cn(styles.stickyHeader, isScrolled && styles.visible, isMobileMenuOpen && styles.noShadow)}>
-        <div className={styles.stickyContainer}>
-          <Link href="/" className={styles.stickyLogoLink}>
-            <Image
-              src="/assets/logo.png"
-              alt="Medical Concierge Agency"
-              width={120}
-              height={32}
-              className={styles.stickyLogo}
-            />
-            <span className={styles.stickyLogoTagline}>{tFooter.rich('companyName', { accent: (chunks) => <span className={styles.logoAccent}>{chunks}</span> })}</span>
-          </Link>
-          <button
-            onClick={() => setIsMobileMenuOpen((open) => !open)}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            className={cn(styles.stickyMobileMenuButton, isMobileMenuOpen && styles.menuButtonOpen)}
-          >
-            <span
-              className={cn(styles.hamburgerIcon, isMobileMenuOpen && styles.hamburgerIconOpen)}
-              aria-hidden="true"
-            >
-              <span />
-              <span />
-              <span />
-            </span>
-          </button>
-          <div className={styles.stickyActions}>
-            {showApplyCta && (
-              <Link href="/apply" prefetch={false} className={styles.stickyButton}>
-                {tCommon('requestAppointment')}
-                <ArrowRight size={16} />
-              </Link>
-            )}
-            {showLogin && (
-              <Link href="/login" prefetch={false} className={styles.stickyLoginLink}>
-                <User size={16} />
-                <span>{tCommon("login")}</span>
-              </Link>
-            )}
-            <div className={styles.languageSelector} ref={stickyLangRef}>
-              <button
-                className={styles.stickyLangToggle}
-                onClick={() => {
-                  setIsStickyLangOpen((open) => !open);
-                  setIsDesktopLangOpen(false);
-                }}
-                aria-label={tCommon('selectLanguage')}
-                aria-expanded={isStickyLangOpen}
-              >
-                {currentLanguage?.label}
-              </button>
-              {isStickyLangOpen && isScrolled && (
-                <div className={styles.langDropdown}>
-                  {LANGUAGES.map((language, index) => (
-                    <React.Fragment key={language.code}>
-                      <button
-                        onClick={() => handleLanguageSelect(language.code)}
-                        className={cn(styles.langOption, locale === language.code && styles.active)}
-                      >
-                        {language.fullName}
-                      </button>
-                      {index < LANGUAGES.length - 1 && <div className={styles.langSeparator} />}
-                    </React.Fragment>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <header className={cn(styles.header, isApplyPage && styles.headerTransparent)}>
+      <header className={cn(styles.header, isOverlayHeader && styles.headerTransparent)}>
         <div className={styles.headerRow}>
-          <div className={styles.headerLeft} />
-
           <Link href="/" className={styles.logoLink}>
-            <Image
+            {/* <Image
               src="/assets/logo.png"
               alt="Agency for Patient Care"
               width={200}
@@ -228,35 +193,33 @@ export function Header() {
               className={styles.logo}
               priority
             />
+            */}
+            <GmedHeaderLogo className={styles.wordmark} title="GMED" />
             <span className={styles.logoTagline}>{tFooter.rich('companyName', { accent: (chunks) => <span className={styles.logoAccent}>{chunks}</span> })}</span>
           </Link>
 
+          <div className={styles.headerMeta}>
+            <span>{locationLabel}</span>
+            {renderClock()}
+          </div>
+
           <div className={styles.headerRight}>
-            {showApplyCta && (
-              <Link href="/apply" prefetch={false} className={styles.headerButton}>
-                {tCommon("requestAppointment")}
-                <ArrowRight size={16} />
-              </Link>
-            )}
-            {showLogin && (
-              <Link href="/login" prefetch={false} className={styles.headerLoginLink}>
-                <User size={16} />
-                <span>{tCommon("login")}</span>
-              </Link>
-            )}
+            <nav className={styles.headerNav} aria-label="Primary">
+              {renderPrimaryLinks()}
+            </nav>
             <div className={styles.languageSelector} ref={langRef}>
               <button
-                className={styles.langToggle}
+                className={styles.langOrb}
                 onClick={() => {
                   setIsDesktopLangOpen((open) => !open);
-                  setIsStickyLangOpen(false);
                 }}
-                aria-label={tCommon('selectLanguage')}
+                aria-label={`${tCommon("selectLanguage")}: ${currentLanguage?.fullName}`}
                 aria-expanded={isDesktopLangOpen}
               >
-                {currentLanguage?.label}
+                <span className={styles.langOrbLabel}>{currentLanguage?.fullName}</span>
+                <span className={styles.langOrbCore} aria-hidden="true" />
               </button>
-              {isDesktopLangOpen && !isScrolled && (
+              {isDesktopLangOpen && (
                 <div className={styles.langDropdown}>
                   {LANGUAGES.map((language, index) => (
                     <React.Fragment key={language.code}>
@@ -299,8 +262,7 @@ export function Header() {
         <div
           className={cn(
             styles.mobileMenu,
-            isMobileMenuOpen && styles.mobileMenuOpen,
-            isScrolled && styles.mobileMenuWithSticky
+            isMobileMenuOpen && styles.mobileMenuOpen
           )}
         >
           <div
@@ -394,6 +356,7 @@ export function Header() {
           </Link>
         )}
       </header>
+      {!isOverlayHeader ? <div className={styles.headerSpacer} aria-hidden="true" /> : null}
     </>
   );
 }

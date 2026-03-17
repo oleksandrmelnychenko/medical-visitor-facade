@@ -101,12 +101,12 @@
 }
 
 .wizardHeaderTitle {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 3.2vw, 2.55rem);
-  font-weight: 400;
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(2.18rem, 3.02vw, 3.28rem);
+  font-weight: 500;
   color: var(--wizard-ink, var(--text-heading));
-  letter-spacing: -0.018em;
-  line-height: 1.16;
+  letter-spacing: -0.05em;
+  line-height: 0.96;
   text-align: center;
   white-space: pre-line;
   padding: 0;
@@ -115,8 +115,8 @@
   text-wrap: balance;
 
   @media (max-width: 639px) {
-    font-size: clamp(1.5rem, 5vw, 2rem);
-    line-height: 1.2;
+    font-size: clamp(2.28rem, 13.2vw, 3.58rem);
+    line-height: 0.94;
   }
 }
 
@@ -148,6 +148,26 @@
   margin-left: auto;
   margin-right: auto;
   text-wrap: pretty;
+}
+
+.memberCheckTitle {
+  max-width: none;
+  white-space: nowrap;
+  text-wrap: nowrap;
+
+  @media (max-width: 1180px) {
+    max-width: 15ch;
+    white-space: normal;
+    text-wrap: balance;
+  }
+
+  @media (max-width: 767px) {
+    max-width: 14ch;
+    font-size: clamp(1.85rem, 7.1vw, 3rem);
+    line-height: 0.98;
+    white-space: normal;
+    text-wrap: balance;
+  }
 }
 
 .welcomeSubtitleConcept {
@@ -206,6 +226,117 @@
   align-items: center;
   gap: 0.7rem;
   padding-top: 0.15rem;
+}
+
+// Welcome Step – editorial left-aligned redesign
+.welcomeContent {
+  align-items: flex-start !important;
+  text-align: left !important;
+
+  .wizardEmergencyNote {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .wizardPrivacyLink {
+    align-self: flex-start;
+  }
+}
+
+.welcomeInner {
+  width: 100%;
+  max-width: min(100%, 52rem);
+  margin: 0;
+  gap: clamp(2rem, 3.8vw, 3rem);
+}
+
+.welcomeBodyText {
+  margin: 0;
+  font-size: clamp(1.02rem, 1.3vw, 1.16rem);
+  font-weight: 400;
+  color: var(--text-body);
+  line-height: 1.72;
+  max-width: 36rem;
+  letter-spacing: 0;
+  text-wrap: pretty;
+
+  @media (max-width: 639px) {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}
+
+.welcomeCtaBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.welcomeCtaButton {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  column-gap: 0.36em;
+  row-gap: 0.72rem;
+  width: fit-content;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: clamp(1.05rem, 1.2vw, 1.16rem);
+  color: #11141d;
+  text-decoration: none;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+
+  &::after {
+    content: "";
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform-origin: left center;
+    transition: transform 0.24s ease;
+  }
+
+  &:hover {
+    transform: translateX(0.18rem);
+
+    &::after {
+      transform: scaleX(1.04);
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+    opacity: 0.88;
+  }
+}
+
+.welcomeCtaLabel {
+  font-size: inherit;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.welcomeCtaArrow {
+  width: 1.95em;
+  height: 0.95em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+.welcomeCtaArrowIcon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
 }
 
 .welcomeContinueButton,
@@ -914,11 +1045,16 @@
 }
 
 .wizardShellSection {
+  min-height: calc(100svh + clamp(13rem, 18vw, 18rem));
   padding-top: clamp(1.1rem, 3vw, 2.1rem) !important;
   padding-bottom: clamp(2.4rem, 5vw, 4.2rem) !important;
 
   > div {
     max-width: min(100%, 88rem);
+  }
+
+  @media (max-width: 768px) {
+    min-height: calc(100svh + 8rem);
   }
 }
 
@@ -935,6 +1071,13 @@
     gap: var(--wizard-outer-gap);
     padding-left: calc(var(--wizard-timeline-width) + var(--wizard-outer-gap));
     align-items: start;
+  }
+}
+
+.wizardOuterRowSolo {
+  @media (min-width: 1180px) {
+    grid-template-columns: minmax(0, 1fr);
+    padding-left: 0;
   }
 }
 
@@ -966,6 +1109,142 @@
     padding: 1rem 1rem 2.15rem;
     border-radius: 1.18rem 1.32rem 32px 32px;
   }
+}
+
+.memberCheckShell {
+  max-width: min(100%, 84rem);
+  margin: 0 auto;
+  padding:
+    clamp(4.4rem, 7.8vw, 6.4rem)
+    clamp(0.4rem, 1.4vw, 0.9rem)
+    clamp(2.8rem, 4.8vw, 4rem);
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+
+  .wizardHeaderWrapper {
+    width: min(100%, 74rem);
+    max-width: min(100%, 74rem);
+    margin-inline: 0;
+    text-align: left;
+  }
+
+  .wizardHeaderTitle {
+    margin: 0;
+    text-align: left;
+  }
+
+  .wizardMainCol {
+    justify-content: flex-start;
+  }
+
+  .wizardMainCol > .locationStepContent {
+    width: min(100%, 74rem);
+    margin: 0;
+  }
+
+  .wizardShellHeader {
+    padding-bottom: clamp(2rem, 4vw, 3rem);
+  }
+
+  .wizardButtonRow {
+    margin-top: clamp(2rem, 3.2vw, 2.9rem);
+    align-items: center;
+  }
+
+  .wizardBackText {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 0 0 0.9rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.16rem;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: #05070c;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: rgba(17, 22, 32, 0.78);
+    }
+
+    &:hover {
+      color: #05070c;
+      opacity: 0.76;
+    }
+  }
+}
+
+.memberCheckShellArrow {
+  position: absolute;
+  top: clamp(5.15rem, 8vw, 6.9rem);
+  right: clamp(0.35rem, 1.1vw, 0.9rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #12171f;
+  opacity: 0.94;
+  pointer-events: none;
+
+  @media (max-width: 1180px) {
+    display: none;
+  }
+}
+
+.memberCheckShellArrowIcon {
+  width: clamp(2.2rem, 4vw, 3.4rem);
+  height: auto;
+  display: block;
+}
+
+.wizardStageProgress {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.4rem);
+  width: min(100%, 74rem);
+  margin: clamp(2.2rem, 3.8vw, 3rem) auto 0;
+  padding-inline: clamp(0.1rem, 0.5vw, 0.2rem);
+
+  @media (max-width: 767px) {
+    gap: 0.85rem;
+    margin-top: 1.85rem;
+  }
+}
+
+.wizardStageValue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #05070c;
+}
+
+.wizardStageTrack {
+  position: relative;
+  display: block;
+  flex: 1;
+  height: 1px;
+  background: rgba(20, 25, 35, 0.12);
+  overflow: hidden;
+}
+
+.wizardStageFill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: rgba(20, 25, 35, 0.72);
 }
 
 .wizardShellHeader {
@@ -1440,23 +1719,19 @@
     letter-spacing: 0.01em;
   }
 
-  .memberCheckLead {
+  .memberCheckCardHead {
     gap: 0.8rem;
   }
 
   .memberCheckIcon {
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: 0.625rem;
-
     svg {
-      width: 1.25rem;
-      height: 1.25rem;
+      width: 1.45rem;
+      height: 1.45rem;
     }
   }
 
   .memberCheckCardTitle {
-    font-size: 0.94rem;
+    font-size: 1.55rem;
   }
 
   .clientCardDesc {
@@ -1689,83 +1964,133 @@
 
 .memberCheckInner {
   width: 100%;
-  max-width: 36rem;
-  margin: 0 auto;
+  max-width: min(100%, 74rem);
+  margin: 0;
+  gap: clamp(1rem, 2vw, 1.35rem);
 
   @media (max-width: 767px) {
     width: 100%;
   }
 }
 
-.memberCheckGrid {
-  gap: 0;
-  margin-top: 0.25rem;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(24, 28, 38, 0.08);
-  border-radius: 1.25rem 1.55rem 1.2rem 1.45rem;
-  overflow: hidden;
-  box-shadow: 0 18px 34px -30px rgba(20, 24, 34, 0.16);
+.memberCheckSurface {
+  width: min(100%, 74rem);
+  max-width: min(100%, 74rem);
+  margin: 0;
 }
 
-.memberCheckCard {
-  min-height: 0;
-  padding: 1.1rem 1.2rem;
+.memberCheckGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.95rem, 1.8vw, 1.25rem);
+  margin-top: clamp(0.8rem, 1.7vw, 1.2rem);
   background: transparent;
   border: none;
   border-radius: 0;
+  overflow: visible;
   box-shadow: none;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 
-  & + & {
-    border-top: 1px solid rgba(24, 28, 38, 0.07);
+  @media (max-width: 767px) {
+    grid-template-columns: minmax(0, 1fr);
   }
+}
+
+.memberCheckCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(2.8rem, 5vw, 4rem);
+  min-height: clamp(15.25rem, 23vw, 18.5rem);
+  padding: clamp(1.45rem, 2.8vw, 2rem);
+  background: #fff;
+  border: 1px solid rgba(16, 18, 24, 0.09);
+  border-radius: 1.45rem;
+  box-shadow: 0 16px 36px -36px rgba(18, 22, 31, 0.12);
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+  position: relative;
+  overflow: hidden;
 
   &:hover {
-    transform: none;
-    background: color-mix(in srgb, var(--hover-color) 4%, rgba(255, 255, 255, 0.94));
-    border-color: transparent;
-    box-shadow: none;
+    transform: translateY(-2px);
+    border-color: rgba(16, 18, 24, 0.16);
+    box-shadow: 0 24px 44px -38px rgba(18, 22, 31, 0.16);
+
+    .memberCheckIcon {
+      transform: translateY(-1px);
+      color: #05070c;
+    }
   }
 
   &:focus-visible {
-    box-shadow: inset 0 0 0 2px rgba(155, 181, 204, 0.22);
+    outline: none;
+    box-shadow:
+      inset 0 0 0 2px rgba(16, 18, 24, 0.12),
+      0 24px 44px -38px rgba(18, 22, 31, 0.16);
+
+    .memberCheckCardTitle {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+    }
   }
 }
 
 .memberCheckGrid .memberCheckCard:nth-child(n) {
-  border-radius: 0;
+  border-radius: 1.45rem;
 }
 
-.memberCheckLead {
+.memberCheckCardHead {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: flex-start;
+  gap: 0;
   width: 100%;
 }
 
 .memberCheckIcon {
-  width: 3rem;
-  height: 3rem;
+  width: auto;
+  height: auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid color-mix(in srgb, var(--hover-color) 14%, var(--border-card));
-  border-radius: 1rem;
+  border: none;
+  border-radius: 0;
   background: transparent;
-  color: var(--wizard-ink, var(--text-heading));
+  color: rgba(20, 25, 35, 0.82);
+  transition: transform 0.22s ease, color 0.22s ease;
 
   svg {
-    width: 1.45rem;
-    height: 1.45rem;
+    width: 2.3rem;
+    height: 2.3rem;
     stroke: currentColor;
     stroke-width: 1.6;
   }
 }
 
+.memberCheckCardCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  max-width: none;
+  min-width: 0;
+}
+
 .memberCheckCardTitle {
-  font-size: 1rem;
-  line-height: 1.32;
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(1.8rem, 2.55vw, 2.65rem);
+  font-weight: 500;
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  color: #05070c;
+  text-wrap: balance;
 }
 
 .welcomeSurfacePlain {

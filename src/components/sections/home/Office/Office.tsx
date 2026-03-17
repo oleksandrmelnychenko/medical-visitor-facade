@@ -44,25 +44,39 @@ export function Office() {
   const t = useTranslations("home.office");
   const overline = t("overline");
   const subtitle = t("subtitle");
+  const cityNames = [
+    t("cities.munich.name"),
+    ...OTHER_CITIES.map((city) => t(`cities.${city.key}.name`)),
+  ];
 
   return (
     <section className={cn(sectionStyles.section, styles.office)}>
-      <div className={sectionStyles.container}>
-        <div className={styles.header} data-snap-anchor>
-          {overline ? <p className={styles.overline}>{overline}</p> : null}
-          <h2 className={styles.title}>{t("title")}</h2>
-          {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
-        </div>
+      <div className={`${sectionStyles.container} ${styles.container}`}>
+        <div className={styles.shell}>
+          <div className={styles.introPanel} data-snap-anchor>
+            <span className={styles.introMark} aria-hidden="true" />
+            {overline ? <p className={styles.overline}>{overline}</p> : null}
+            <h2 className={styles.title}>{t("title")}</h2>
+            <div className={styles.cityStrip} aria-label={t("title")}>
+              {cityNames.map((cityName) => (
+                <span key={cityName} className={styles.cityChip}>
+                  {cityName}
+                </span>
+              ))}
+            </div>
+            {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
+          </div>
 
-        <div className={styles.stage}>
-          <OfficeCitiesGrid
-            mainCityName={t("cities.munich.name")}
-            mainCityStyle={MUNICH_STYLE}
-            cities={OTHER_CITIES.map((city) => ({
-              ...city,
-              name: t(`cities.${city.key}.name`),
-            }))}
-          />
+          <div className={styles.stage}>
+            <OfficeCitiesGrid
+              mainCityName={t("cities.munich.name")}
+              mainCityStyle={MUNICH_STYLE}
+              cities={OTHER_CITIES.map((city) => ({
+                ...city,
+                name: t(`cities.${city.key}.name`),
+              }))}
+            />
+          </div>
         </div>
       </div>
     </section>

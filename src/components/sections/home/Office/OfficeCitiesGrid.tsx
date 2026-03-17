@@ -53,12 +53,13 @@ export function OfficeCitiesGrid({
   }, []);
 
   return (
-    <div className={styles.citiesGrid}>
-      <div className={styles.mainCity} style={mainCityStyle}>
-        <div className={styles.mainCityContent}>
-          <h3 className={styles.mainCityName}>{mainCityName}</h3>
+    <div className={styles.atlas}>
+      <article className={styles.featuredCity} style={mainCityStyle}>
+        <div className={styles.featuredMeta}>
+          <span className={styles.featuredIndex}>01</span>
+          <h3 className={styles.featuredName}>{mainCityName}</h3>
         </div>
-        <div className={styles.mainCityImageWrapper}>
+        <div className={styles.featuredVisual}>
           <Image
             src="/assets/1_city-munich.png"
             alt={mainCityName}
@@ -69,34 +70,41 @@ export function OfficeCitiesGrid({
             priority={false}
           />
         </div>
-      </div>
+      </article>
 
-      {cities.map((city) => (
-        <div key={city.key} className={styles.cityCard} style={city.style}>
-          <div className={styles.cityImageWrapper}>
-            <Image
-              src={city.image}
-              alt={city.name}
-              width={300}
-              height={220}
-              sizes="(max-width: 767px) 45vw, 25vw"
-              className={cn(
-                styles.cityImage,
-                revealMode === "pending" && styles.brushPaint,
-                revealMode === "animate" && styles.brushPaint,
-                revealMode === "animate" && styles.brushPaintActive,
-                revealMode === "static" && styles.brushPaintStatic
-              )}
-              style={
-                revealMode === "animate"
-                  ? { animationDelay: `${city.delayMs}ms` }
-                  : undefined
-              }
-            />
-          </div>
-          <h3 className={styles.cityName}>{city.name}</h3>
-        </div>
-      ))}
+      <div className={styles.sideCities}>
+        {cities.map((city, index) => (
+          <article key={city.key} className={styles.cityCard} style={city.style}>
+            <div className={styles.cityCardMeta}>
+              <span className={styles.cityCardIndex}>
+                {String(index + 2).padStart(2, "0")}
+              </span>
+              <h3 className={styles.cityName}>{city.name}</h3>
+            </div>
+            <div className={styles.cityCardVisual}>
+              <Image
+                src={city.image}
+                alt={city.name}
+                width={300}
+                height={220}
+                sizes="(max-width: 767px) 45vw, 25vw"
+                className={cn(
+                  styles.cityImage,
+                  revealMode === "pending" && styles.brushPaint,
+                  revealMode === "animate" && styles.brushPaint,
+                  revealMode === "animate" && styles.brushPaintActive,
+                  revealMode === "static" && styles.brushPaintStatic
+                )}
+                style={
+                  revealMode === "animate"
+                    ? { animationDelay: `${city.delayMs}ms` }
+                    : undefined
+                }
+              />
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
   );
 }
