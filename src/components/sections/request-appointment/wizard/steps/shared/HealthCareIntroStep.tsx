@@ -4,9 +4,7 @@ import React, { useCallback, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
-import { WizardStepLayout } from '../../components/WizardStepLayout';
-import formStyles from '@/components/auth/Auth.module.scss';
-import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
+import { WizardIntroStep } from '../../components/WizardIntroStep';
 
 export function HealthCareIntroStep() {
   const t = useTranslations('appointment.newPatient');
@@ -31,21 +29,13 @@ export function HealthCareIntroStep() {
   }, [router, data.locationDetailed]);
 
   return (
-    <WizardStepLayout
+    <WizardIntroStep
       title={t('healthIntro.title')}
       subtitle={t('healthIntro.subtitle')}
       onBack={handleBack}
       backLabel={t('back')}
-    >
-      <div className={styles.wizardFormContainer}>
-        <button
-          onClick={handleStart}
-          className={`${formStyles.submitButton} ${styles.welcomeContinueButton}`}
-          type="button"
-        >
-          {t('healthIntro.start')}
-        </button>
-      </div>
-    </WizardStepLayout>
+      onContinue={handleStart}
+      continueLabel={t('healthIntro.start')}
+    />
   );
 }

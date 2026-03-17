@@ -6,14 +6,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useWizard } from "../WizardContext";
 import { MedicalRecordsType } from "../types";
-import { WizardStepLayout } from "../components/WizardStepLayout";
-import styles from "../../RequestAppointment/RequestAppointment.module.scss";
-
-const CARD_STYLES = {
-  yes: { "--hover-color": "#E5D5A8" } as React.CSSProperties,
-  no: { "--hover-color": "#A8D5E5" } as React.CSSProperties,
-  none: { "--hover-color": "#D5D5D5" } as React.CSSProperties,
-};
+import { WizardChoiceStep } from "../components/WizardChoiceStep";
 
 export function MedicalRecordsStep() {
   const t = useTranslations("appointment.newPatient");
@@ -39,54 +32,30 @@ export function MedicalRecordsStep() {
   }, [router]);
 
   return (
-    <WizardStepLayout
+    <WizardChoiceStep
       title={t("recordsPatient.title")}
-      contentClassName={styles.locationConceptSurface}
-      innerClassName={styles.locationConceptInner}
       onBack={handleBack}
       backLabel={t("back")}
-    >
-      <div className={styles.locationConceptGrid}>
-        <button
-          onClick={() => handleSelect("yes")}
-          className={styles.locationConceptCard}
-          style={CARD_STYLES.yes}
-          type="button"
-        >
-          <div className={styles.locationConceptCardHeader}>
-            <span className={styles.locationConceptIcon} aria-hidden="true">
-              <FileText />
-            </span>
-          </div>
-          <h3 className={styles.locationConceptTitle}>{t("recordsPatient.yes")}</h3>
-        </button>
-        <button
-          onClick={() => handleSelect("no")}
-          className={styles.locationConceptCard}
-          style={CARD_STYLES.no}
-          type="button"
-        >
-          <div className={styles.locationConceptCardHeader}>
-            <span className={styles.locationConceptIcon} aria-hidden="true">
-              <FileX />
-            </span>
-          </div>
-          <h3 className={styles.locationConceptTitle}>{t("recordsPatient.no")}</h3>
-        </button>
-        <button
-          onClick={() => handleSelect("none")}
-          className={styles.locationConceptCard}
-          style={CARD_STYLES.none}
-          type="button"
-        >
-          <div className={styles.locationConceptCardHeader}>
-            <span className={styles.locationConceptIcon} aria-hidden="true">
-              <FolderX />
-            </span>
-          </div>
-          <h3 className={styles.locationConceptTitle}>{t("recordsPatient.none")}</h3>
-        </button>
-      </div>
-    </WizardStepLayout>
+      options={[
+        {
+          key: "yes",
+          title: t("recordsPatient.yes"),
+          icon: FileText,
+          onSelect: () => handleSelect("yes"),
+        },
+        {
+          key: "no",
+          title: t("recordsPatient.no"),
+          icon: FileX,
+          onSelect: () => handleSelect("no"),
+        },
+        {
+          key: "none",
+          title: t("recordsPatient.none"),
+          icon: FolderX,
+          onSelect: () => handleSelect("none"),
+        },
+      ]}
+    />
   );
 }
