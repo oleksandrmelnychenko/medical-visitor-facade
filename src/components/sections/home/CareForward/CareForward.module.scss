@@ -11,8 +11,6 @@
   border-radius: 56px;
   margin-top: -56px;
   overflow: hidden;
-  content-visibility: auto;
-  contain-intrinsic-size: 860px;
   box-shadow:
     0 14px 24px rgba(6, 8, 18, 0.18),
     0 26px 28px -24px rgba(6, 8, 18, 0.38),
@@ -358,11 +356,12 @@
 
 .cardTitle {
   margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.005em;
+  font-size: 0.79rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: rgba(255, 255, 255, 0.92);
-  line-height: 1.35;
+  line-height: 1.32;
 }
 
 .cardContent {
@@ -431,7 +430,7 @@
   padding-left: 1rem;
   font-size: 0.88rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.92);
   line-height: 1.52;
 
   &::before {
@@ -474,7 +473,8 @@
   }
 
   .cardTitle {
-    font-size: 0.88rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.085em;
   }
 
   .cardPoint {
