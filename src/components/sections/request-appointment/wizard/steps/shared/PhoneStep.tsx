@@ -6,6 +6,7 @@ import { useRouter } from "@/i18n/navigation";
 import formStyles from "@/components/auth/Auth.module.scss";
 import { COUNTRY_CODES, splitInternationalPhoneNumber } from "../../contact-phone";
 import { useWizard } from "../../WizardContext";
+import { validateEmail } from "../../validation";
 import { WizardStepLayout } from "../../components/WizardStepLayout";
 import styles from "../../../RequestAppointment/RequestAppointment.module.scss";
 
@@ -17,16 +18,21 @@ export function PhoneStep() {
   const [phone, setPhone] = useState(initialPhone.nationalNumber);
   const [email, setEmail] = useState(data.email || "");
   const [countryCode, setCountryCode] = useState(initialPhone.countryCode);
+  const [touched, setTouched] = useState({ phone: false, email: false });
+
+  const emailValid = validateEmail(email);
+  const canContinue = !!phone.trim() && emailValid;
 
   const handleContinue = useCallback(() => {
-    if (!phone || !email) return;
+    setTouched({ phone: true, email: true });
+    if (!canContinue) return;
     const normalizedPhone = phone.startsWith('+') ? phone : `${countryCode}${phone}`;
     updateData({
-      email,
+      email: email.trim(),
       phones: [{ number: normalizedPhone, type: "mobile" }],
     });
     router.push("/apply?type=new&step=whatsapp-consent");
-  }, [phone, email, countryCode, updateData, router]);
+  }, [canContinue, phone, email, countryCode, updateData, router]);
 
   const handleBack = useCallback(() => {
     router.push("/apply?type=new&step=patient-dob");
@@ -77,15 +83,20 @@ export function PhoneStep() {
               type="email"
               value={email}
               onChange={e => setEmail(e.target.value)}
+              onBlur={() => setTouched(prev => ({ ...prev, email: true }))}
               aria-required="true"
-              className={formStyles.simpleInput}
+              aria-invalid={touched.email && !emailValid}
+              className={`${formStyles.simpleInput} ${touched.email && !emailValid ? formStyles.inputError : ''}`}
               autoComplete="email"
             />
+            {touched.email && !emailValid && (
+              <span className={formStyles.fieldError}>{t('validation.emailInvalid')}</span>
+            )}
           </div>
         </div>
         <button
           onClick={handleContinue}
-          disabled={!phone || !email}
+          disabled={!canContinue}
           className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
           type="button"
         >

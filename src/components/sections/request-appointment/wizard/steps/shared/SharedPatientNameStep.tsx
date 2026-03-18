@@ -4,6 +4,7 @@ import React, { useState, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
+import { validateName } from '../../validation';
 import { WizardStepLayout } from '../../components/WizardStepLayout';
 import formStyles from '@/components/auth/Auth.module.scss';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
@@ -17,12 +18,18 @@ export function SharedPatientNameStep() {
   const [middleName, setMiddleName] = useState(data.middleName || '');
   const [lastName, setLastName] = useState(data.lastName || '');
   const [suffix, setSuffix] = useState(data.suffix || '');
+  const [touched, setTouched] = useState({ firstName: false, lastName: false });
+
+  const firstNameValid = validateName(firstName);
+  const lastNameValid = validateName(lastName);
+  const canContinue = firstNameValid && lastNameValid;
 
   const handleContinue = useCallback(() => {
-    if (!firstName || !lastName) return;
-    updateData({ firstName, middleName, lastName, suffix });
+    setTouched({ firstName: true, lastName: true });
+    if (!canContinue) return;
+    updateData({ firstName: firstName.trim(), middleName: middleName.trim(), lastName: lastName.trim(), suffix: suffix.trim() });
     router.push('/apply?type=new&step=patient-dob');
-  }, [firstName, middleName, lastName, suffix, updateData, router]);
+  }, [canContinue, firstName, middleName, lastName, suffix, updateData, router]);
 
   const handleBack = useCallback(() => {
     router.push('/apply?type=new&step=health-intro');
@@ -43,10 +50,15 @@ export function SharedPatientNameStep() {
               type="text"
               value={firstName}
               onChange={e => setFirstName(e.target.value)}
+              onBlur={() => setTouched(prev => ({ ...prev, firstName: true }))}
               aria-required="true"
-              className={formStyles.simpleInput}
+              aria-invalid={touched.firstName && !firstNameValid}
+              className={`${formStyles.simpleInput} ${touched.firstName && !firstNameValid ? formStyles.inputError : ''}`}
               autoFocus
             />
+            {touched.firstName && !firstNameValid && (
+              <span className={formStyles.fieldError}>{t('validation.nameMin')}</span>
+            )}
           </div>
           <div className={formStyles.simpleFormGroup}>
             <label htmlFor="patient-middle-name" className={formStyles.label}>{t('sharedPatientName.middleName')}</label>
@@ -65,9 +77,14 @@ export function SharedPatientNameStep() {
               type="text"
               value={lastName}
               onChange={e => setLastName(e.target.value)}
+              onBlur={() => setTouched(prev => ({ ...prev, lastName: true }))}
               aria-required="true"
-              className={formStyles.simpleInput}
+              aria-invalid={touched.lastName && !lastNameValid}
+              className={`${formStyles.simpleInput} ${touched.lastName && !lastNameValid ? formStyles.inputError : ''}`}
             />
+            {touched.lastName && !lastNameValid && (
+              <span className={formStyles.fieldError}>{t('validation.nameMin')}</span>
+            )}
           </div>
           <div className={formStyles.simpleFormGroup}>
             <label htmlFor="patient-suffix" className={formStyles.label}>{t('sharedPatientName.suffix')}</label>
@@ -82,7 +99,7 @@ export function SharedPatientNameStep() {
         </div>
         <button
           onClick={handleContinue}
-          disabled={!firstName || !lastName}
+          disabled={!canContinue}
           className={`${formStyles.submitButton} ${styles.welcomeContinueButton}`}
           type="button"
         >

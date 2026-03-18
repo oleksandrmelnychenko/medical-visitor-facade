@@ -151,6 +151,32 @@ export function LoginPageClient() {
                     {tAuth("privacyPolicyLink")}
                   </Link>
                 </div>
+
+                <div className={styles.mollieBadge}>
+                  <a
+                    href="https://www.mollie.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.mollieButton}
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" className={styles.mollieIcon} aria-hidden="true">
+                      <path d="M20.5 12a8.5 8.5 0 1 1-17 0 8.5 8.5 0 0 1 17 0Z" fill="currentColor" opacity="0.15" />
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8Zm-1-13h2v6h-2Zm0 8h2v2h-2Z" fill="currentColor" />
+                    </svg>
+                    {tAuth("payWithMollie")}
+                  </a>
+                  <p className={styles.mollieTrust}>
+                    {tAuth("securePoweredBy")}{" "}
+                    <a
+                      href="https://www.mollie.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.mollieLink}
+                    >
+                      Mollie
+                    </a>
+                  </p>
+                </div>
               </form>
             </div>
           </div>

@@ -4,6 +4,7 @@ import React, { useState, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
+import { validateMinLength } from '../../validation';
 import { WizardStepLayout } from '../../components/WizardStepLayout';
 import formStyles from '@/components/auth/Auth.module.scss';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
@@ -13,12 +14,16 @@ export function SharedPrimaryLanguageStep() {
   const router = useRouter();
   const { data, updateData } = useWizard();
   const [language, setLanguage] = useState(data.primaryLanguage || '');
+  const [touched, setTouched] = useState(false);
+
+  const languageValid = validateMinLength(language, 2);
 
   const handleContinue = useCallback(() => {
-    if (!language) return;
-    updateData({ primaryLanguage: language });
+    setTouched(true);
+    if (!languageValid) return;
+    updateData({ primaryLanguage: language.trim() });
     router.push('/apply?type=new&step=legal-sex');
-  }, [language, updateData, router]);
+  }, [languageValid, language, updateData, router]);
 
   const handleBack = useCallback(() => {
     router.push('/apply?type=new&step=email-consent');
@@ -38,16 +43,21 @@ export function SharedPrimaryLanguageStep() {
               type="text"
               value={language}
               onChange={e => setLanguage(e.target.value)}
+              onBlur={() => setTouched(true)}
               aria-label={t('sharedPrimaryLanguage.title')}
               aria-required="true"
-              className={formStyles.simpleInput}
+              aria-invalid={touched && !languageValid}
+              className={`${formStyles.simpleInput} ${touched && !languageValid ? formStyles.inputError : ''}`}
               autoFocus
             />
+            {touched && !languageValid && (
+              <span className={formStyles.fieldError}>{t('validation.languageMin')}</span>
+            )}
           </div>
         </div>
         <button
           onClick={handleContinue}
-          disabled={!language}
+          disabled={!languageValid}
           className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
           type="button"
         >

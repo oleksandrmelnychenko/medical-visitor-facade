@@ -5,6 +5,7 @@ import { Check, ChevronDown } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
+import { validateMinLength, validateZipCode } from '../../validation';
 import { WizardStepLayout } from '../../components/WizardStepLayout';
 import formStyles from '@/components/auth/Auth.module.scss';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
@@ -59,6 +60,7 @@ export function AddressStep() {
   const [state, setState] = useState(data.state || '');
   const [postal, setPostal] = useState(data.zipCode || '');
   const [isCountryOpen, setIsCountryOpen] = useState(false);
+  const [touched, setTouched] = useState({ street: false, city: false, postal: false });
   const countryDropdownRef = useRef<HTMLDivElement>(null);
   const countryLabelId = "address-country-label";
   const countryValueId = "address-country-value";
@@ -69,11 +71,17 @@ export function AddressStep() {
     [country]
   );
 
+  const streetValid = validateMinLength(street, 3);
+  const cityValid = validateMinLength(city, 2);
+  const postalValid = validateZipCode(postal);
+  const canContinue = !!country && streetValid && cityValid && postalValid;
+
   const handleContinue = useCallback(() => {
-    if (!country || !street || !city || !postal) return;
-    updateData({ country, streetAddress: street, city, state, zipCode: postal });
+    setTouched({ street: true, city: true, postal: true });
+    if (!canContinue) return;
+    updateData({ country, streetAddress: street.trim(), city: city.trim(), state: state.trim(), zipCode: postal.trim() });
     router.push('/apply?type=new&step=concern-intro');
-  }, [country, street, city, state, postal, updateData, router]);
+  }, [canContinue, country, street, city, state, postal, updateData, router]);
 
   const handleBack = useCallback(() => {
     router.push('/apply?type=new&step=services');
@@ -183,9 +191,14 @@ export function AddressStep() {
               type="text"
               value={street}
               onChange={e => setStreet(e.target.value)}
+              onBlur={() => setTouched(prev => ({ ...prev, street: true }))}
               aria-required="true"
-              className={formStyles.simpleInput}
+              aria-invalid={touched.street && !streetValid}
+              className={`${formStyles.simpleInput} ${touched.street && !streetValid ? formStyles.inputError : ''}`}
             />
+            {touched.street && !streetValid && (
+              <span className={formStyles.fieldError}>{t('validation.streetMin')}</span>
+            )}
           </div>
           <div className={formStyles.simpleFormGroup}>
             <label htmlFor="address-city" className={formStyles.label}>{t('address.city')}</label>
@@ -194,9 +207,14 @@ export function AddressStep() {
               type="text"
               value={city}
               onChange={e => setCity(e.target.value)}
+              onBlur={() => setTouched(prev => ({ ...prev, city: true }))}
               aria-required="true"
-              className={formStyles.simpleInput}
+              aria-invalid={touched.city && !cityValid}
+              className={`${formStyles.simpleInput} ${touched.city && !cityValid ? formStyles.inputError : ''}`}
             />
+            {touched.city && !cityValid && (
+              <span className={formStyles.fieldError}>{t('validation.cityMin')}</span>
+            )}
           </div>
           <div className={formStyles.simpleFormGroup}>
             <label htmlFor="address-state" className={formStyles.label}>{t('address.state')}</label>
@@ -215,14 +233,19 @@ export function AddressStep() {
               type="text"
               value={postal}
               onChange={e => setPostal(e.target.value)}
+              onBlur={() => setTouched(prev => ({ ...prev, postal: true }))}
               aria-required="true"
-              className={formStyles.simpleInput}
+              aria-invalid={touched.postal && !postalValid}
+              className={`${formStyles.simpleInput} ${touched.postal && !postalValid ? formStyles.inputError : ''}`}
             />
+            {touched.postal && !postalValid && (
+              <span className={formStyles.fieldError}>{t('validation.zipInvalid')}</span>
+            )}
           </div>
         </div>
         <button
           onClick={handleContinue}
-          disabled={!country || !street || !city || !postal}
+          disabled={!canContinue}
           className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
           type="button"
         >

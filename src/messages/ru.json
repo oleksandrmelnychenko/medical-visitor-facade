@@ -167,6 +167,15 @@
       },
       "back": "Назад",
       "continue": "Продолжить",
+      "validation": {
+        "nameMin": "Минимум 2 символа",
+        "emailInvalid": "Введите корректный email",
+        "phoneMin": "Введите номер телефона",
+        "streetMin": "Введите адрес",
+        "cityMin": "Введите город",
+        "zipInvalid": "Введите почтовый индекс",
+        "languageMin": "Введите язык"
+      },
       "travelPatient": {
         "title": "Рассматриваете ли Вы поездку\nв Германию на обследование/лечение?",
         "yes": "Да",
@@ -546,7 +555,9 @@
     "showPassword": "Показать",
     "hidePassword": "Скрыть",
     "welcomeTitle": "Личный кабинет",
-    "welcomeSubtitle": "Войдите для управления Вашими данными"
+    "welcomeSubtitle": "Войдите для управления Вашими данными",
+    "payWithMollie": "Оплатить через Mollie",
+    "securePoweredBy": "Безопасные платежи —"
   },
   "impressumPage": {
     "title": "Правовая информация",

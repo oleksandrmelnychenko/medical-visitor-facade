@@ -167,6 +167,15 @@
       },
       "back": "Atrás",
       "continue": "Continuar",
+      "validation": {
+        "nameMin": "Mínimo 2 caracteres",
+        "emailInvalid": "Introduce un email válido",
+        "phoneMin": "Introduce un número de teléfono",
+        "streetMin": "Introduce la dirección",
+        "cityMin": "Introduce la ciudad",
+        "zipInvalid": "Introduce un código postal válido",
+        "languageMin": "Introduce el idioma"
+      },
       "travelPatient": {
         "title": "¿Tiene la posibilidad de viajar a Alemania para recibir tratamiento?",
         "yes": "Sí",
@@ -546,7 +555,9 @@
     "showPassword": "Mostrar contraseña",
     "hidePassword": "Ocultar contraseña",
     "welcomeTitle": "Portal del cliente",
-    "welcomeSubtitle": "Inicie sesión para gestionar su plan de tratamiento"
+    "welcomeSubtitle": "Inicie sesión para gestionar su plan de tratamiento",
+    "payWithMollie": "Pagar con Mollie",
+    "securePoweredBy": "Pagos seguros —"
   },
   "impressumPage": {
     "title": "Aviso legal",

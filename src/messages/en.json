@@ -167,6 +167,15 @@
       },
       "back": "Back",
       "continue": "Continue",
+      "validation": {
+        "nameMin": "At least 2 characters",
+        "emailInvalid": "Enter a valid email",
+        "phoneMin": "Enter a phone number",
+        "streetMin": "Enter a street address",
+        "cityMin": "Enter a city",
+        "zipInvalid": "Enter a valid postal code",
+        "languageMin": "Enter a language"
+      },
       "travelPatient": {
         "title": "Are you able to travel to Germany for treatment?",
         "yes": "Yes",
@@ -546,7 +555,9 @@
     "showPassword": "Show password",
     "hidePassword": "Hide password",
     "welcomeTitle": "Client Portal",
-    "welcomeSubtitle": "Sign in to manage your medical journey"
+    "welcomeSubtitle": "Sign in to manage your medical journey",
+    "payWithMollie": "Pay with Mollie",
+    "securePoweredBy": "Secure payments —"
   },
   "impressumPage": {
     "title": "Legal Notice",
