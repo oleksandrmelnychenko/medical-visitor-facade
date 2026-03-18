@@ -10,7 +10,6 @@ import {
   PlaneTakeoff,
   Headphones,
   HeartPulse,
-  ChevronDown,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
@@ -57,7 +56,7 @@ export function CareForward() {
             <h2 className={styles.title}>{t("title")}</h2>
           </div>
           <div className={styles.flowGrid}>
-            {STEPS.map((step, index) => {
+            {STEPS.map((step) => {
               const isExpanded = activeKey === step.key || hoveredKey === step.key;
               const panelId = `care-forward-${step.key}-details`;
 
@@ -82,16 +81,8 @@ export function CareForward() {
                   onBlur={() => setHoveredKey((current) => (current === step.key ? null : current))}
                 >
                   <div className={styles.cardTop}>
-                    <span className={styles.stepNumber}>
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <div className={styles.cardTopSide}>
-                      <span className={styles.cardExpandBadge} aria-hidden="true">
-                        <ChevronDown />
-                      </span>
-                      <div className={styles.cardIcon}>
-                        <step.icon />
-                      </div>
+                    <div className={styles.cardIcon}>
+                      <step.icon />
                     </div>
                   </div>
                   <div className={styles.cardContent}>
