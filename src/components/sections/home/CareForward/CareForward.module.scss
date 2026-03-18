@@ -2,7 +2,7 @@
 
 .section {
   padding: clamp(4.65rem, 9.6vw, 6.75rem) 0;
-  background: linear-gradient(180deg, #2e2e36 0%, #26262e 100%);
+  background: linear-gradient(180deg, #3a3a44 0%, #32323c 100%);
   position: relative;
   isolation: isolate;
   z-index: 1;
@@ -286,7 +286,7 @@
   padding: clamp(1.2rem, 2vw, 1.6rem) clamp(1.2rem, 2vw, 1.6rem) clamp(1.2rem, 2vw, 1.6rem) clamp(1.6rem, 2.4vw, 2rem);
   text-align: left;
   cursor: pointer;
-  transition: background 0.28s ease;
+  transition: background 0.2s ease;
 
   &::before {
     content: "";
@@ -298,7 +298,7 @@
     border-radius: 3px;
     background: var(--tone);
     opacity: 0.45;
-    transition: opacity 0.28s ease;
+    transition: opacity 0.2s ease;
   }
 
   &::after {
@@ -380,8 +380,8 @@
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  margin-top: 0;
-  transition: grid-template-rows 0.34s ease, opacity 0.22s ease, margin-top 0.34s ease;
+  overflow: hidden;
+  transition: grid-template-rows 0.28s ease, opacity 0.2s ease;
 
   > * {
     min-height: 0;
@@ -389,13 +389,15 @@
   }
 }
 
-.flowCardExpanded .cardListWrap {
+.flowCardExpanded .cardListWrap,
+.flowCard:hover .cardListWrap {
   grid-template-rows: 1fr;
   opacity: 1;
   margin-top: 0.75rem;
 }
 
-.flowCardExpanded .cardIcon svg {
+.flowCardExpanded .cardIcon svg,
+.flowCard:hover .cardIcon svg {
   color: rgba(255, 255, 255, 0.9);
 }
 

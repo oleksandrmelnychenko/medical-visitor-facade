@@ -28,11 +28,9 @@ const STEPS = [
 export function CareForward() {
   const t = useTranslations("home.careForward");
   const [activeKey, setActiveKey] = useState<string | null>(null);
-  const [hoveredKey, setHoveredKey] = useState<string | null>(null);
 
   const toggleCard = (key: string) => {
     setActiveKey((current) => (current === key ? null : key));
-    setHoveredKey(null);
   };
 
   const handleCardKeyDown = (event: KeyboardEvent<HTMLElement>, key: string) => {
@@ -58,7 +56,7 @@ export function CareForward() {
           </div>
           <div className={styles.flowGrid}>
             {STEPS.map((step) => {
-              const isExpanded = activeKey === step.key || hoveredKey === step.key;
+              const isExpanded = activeKey === step.key;
               const panelId = `care-forward-${step.key}-details`;
 
               return (
@@ -76,10 +74,6 @@ export function CareForward() {
                   aria-controls={panelId}
                   onClick={() => toggleCard(step.key)}
                   onKeyDown={(event) => handleCardKeyDown(event, step.key)}
-                  onMouseEnter={() => setHoveredKey(step.key)}
-                  onMouseLeave={() => setHoveredKey((current) => (current === step.key ? null : current))}
-                  onFocus={() => setHoveredKey(step.key)}
-                  onBlur={() => setHoveredKey((current) => (current === step.key ? null : current))}
                 >
                   <div className={styles.cardTop}>
                     <div className={styles.cardIcon}>
