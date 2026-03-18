@@ -30,6 +30,8 @@ export function CareForward() {
   const [activeKey, setActiveKey] = useState<string | null>(null);
 
   const toggleCard = (key: string) => {
+    const hasHover = window.matchMedia("(hover: hover)").matches;
+    if (hasHover) return;
     setActiveKey((current) => (current === key ? null : key));
   };
 

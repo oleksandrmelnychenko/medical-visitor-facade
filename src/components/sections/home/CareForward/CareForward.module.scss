@@ -389,16 +389,28 @@
   }
 }
 
-.flowCardExpanded .cardListWrap,
-.flowCard:hover .cardListWrap {
+.flowCardExpanded .cardListWrap {
   grid-template-rows: 1fr;
   opacity: 1;
   margin-top: 0.75rem;
 }
 
-.flowCardExpanded .cardIcon svg,
-.flowCard:hover .cardIcon svg {
+@media (hover: hover) {
+  .flowCard:hover .cardListWrap {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 0.75rem;
+  }
+}
+
+.flowCardExpanded .cardIcon svg {
   color: rgba(255, 255, 255, 0.9);
+}
+
+@media (hover: hover) {
+  .flowCard:hover .cardIcon svg {
+    color: rgba(255, 255, 255, 0.9);
+  }
 }
 
 .flowCardExpanded .cardDivider {
