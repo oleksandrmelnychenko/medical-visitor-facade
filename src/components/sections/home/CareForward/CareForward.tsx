@@ -32,6 +32,7 @@ export function CareForward() {
 
   const toggleCard = (key: string) => {
     setActiveKey((current) => (current === key ? null : key));
+    setHoveredKey(null);
   };
 
   const handleCardKeyDown = (event: KeyboardEvent<HTMLElement>, key: string) => {

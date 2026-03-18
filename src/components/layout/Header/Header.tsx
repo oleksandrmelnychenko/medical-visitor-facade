@@ -144,7 +144,7 @@ export function Header() {
 
   return (
     <>
-      <div className={cn(styles.stickyHeader, isScrolled && styles.visible, isMobileMenuOpen && styles.noShadow)}>
+      <div className={cn(styles.stickyHeader, (isScrolled || isMobileMenuOpen) && styles.visible, isMobileMenuOpen && styles.noShadow)}>
         <div className={styles.stickyContainer}>
           <Link href="/" className={styles.stickyLogoLink}>
             <Image
@@ -303,16 +303,7 @@ export function Header() {
             isScrolled && styles.mobileMenuWithSticky
           )}
         >
-          <div
-            style={{
-              padding: "2rem 1.5rem",
-              display: "flex",
-              flexDirection: "column",
-              gap: "1.5rem",
-              alignItems: "center",
-              textAlign: "center",
-            }}
-          >
+          <div className={styles.mobileMenuContent}>
             <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center" }}>
               {LANGUAGES.map((language) => (
                 <button
