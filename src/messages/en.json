@@ -12,7 +12,7 @@
   },
   "common": {
     "home": "Home",
-    "requestAppointment": "Become a Member",
+    "requestAppointment": "Submit Request",
     "login": "Sign in",
     "selectLanguage": "Select language"
   },
@@ -117,23 +117,23 @@
     }
   },
   "appointment": {
-    "title": "Become a Member",
+    "title": "Submit Request",
     "subtitle": "Submit a request, and our team will contact you shortly.",
     "backToSelection": "← Back to selection",
     "freeService": {
       "title": "Need financial assistance?",
-      "description1": "We understand that medical care can be financially challenging. The Medical Concierge Agency offers a limited program for members who need help with medical expenses.",
+      "description1": "We understand that medical care can be financially challenging. The Medical Concierge Agency offers a limited program for patients who need help with medical expenses.",
       "description2": "Our team carefully reviews each application and provides support based on available resources.",
       "priority": "Priority cases:",
-      "priorityText": "We prioritize cases involving children, urgent medical situations, and members in exceptional circumstances.",
+      "priorityText": "We prioritize cases involving children, urgent medical situations, and patients in exceptional circumstances.",
       "note": "Please note: Applications for complimentary care are reviewed individually based on available capacity and medical necessity. We will contact you within 5-7 business days regarding the status of your application."
     },
     "newPatient": {
       "pathTree": {
         "welcome": "Welcome",
-        "member-check": "Membership",
+        "member-check": "Client Status",
         "location": "Location",
-        "become-member": "Join as Member",
+        "become-member": "Request For",
         "outside-travel": "Able to Travel",
         "outside-records": "Medical Records",
         "records-language": "Records Language",
@@ -219,9 +219,9 @@
         "privacyPolicy": "Read our Privacy Policy"
       },
       "memberCheck": {
-        "title": "Are you already a member?",
-        "isMember": "Yes, I am a member",
-        "notMember": "No, I am a new client"
+        "title": "Have you contacted us before?",
+        "isMember": "Yes",
+        "notMember": "No, this is my first request"
       },
       "location3": {
         "title": "Where do you currently live?",
@@ -231,9 +231,9 @@
         "outsideEu": "I live outside the EU"
       },
       "becomeMember": {
-        "title": "Do you want to become a member?",
-        "yes": "Yes, I want to become a member",
-        "no": "No, I am requesting for someone else"
+        "title": "Who are you submitting this request for?",
+        "yes": "For myself",
+        "no": "For someone else"
       },
       "healthIntro": {
         "title": "Let's start with your medical information",
@@ -334,11 +334,12 @@
         "optional": "(Optional)"
       },
       "services": {
-        "title": "Will you need any of the following services during your stay in Germany? (Select all that apply):",
+        "title": "Will you need any of the following services during your stay in Germany?",
+        "subtitle": "Select all that apply",
         "driver": "Personal driver and transfer services",
         "driverLearnMore": "Learn more about our transfer services",
         "driverDetails": "Private airport, clinic, and hotel transfers with coordinated timing and a dedicated driver throughout your care journey.",
-        "concierge": "Concierge services (bookings, leisure)",
+        "concierge": "Concierge services",
         "conciergeLearnMore": "Learn more about our concierge services",
         "conciergeDetails": "Hands-on support with accommodation, bookings, day-to-day arrangements, and practical coordination during your stay.",
         "medicalTransport": "Ground medical transport",
@@ -418,7 +419,7 @@
         "patient": "Patient",
         "contact": "Contact",
         "request": "Request details",
-        "membership": "Membership",
+        "membership": "Request for",
         "location": "Location",
         "travel": "Travel to Germany",
         "records": "Medical records",
@@ -451,7 +452,7 @@
       }
     },
     "returningPatient": {
-      "title": "Returning member",
+      "title": "Existing client",
       "formPending": "Form under development...",
       "back": "Back"
     },

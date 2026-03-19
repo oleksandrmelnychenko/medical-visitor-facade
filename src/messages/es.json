@@ -12,7 +12,7 @@
   },
   "common": {
     "home": "Inicio",
-    "requestAppointment": "Hacerse miembro",
+    "requestAppointment": "Enviar solicitud",
     "login": "Iniciar sesión",
     "selectLanguage": "Seleccionar idioma"
   },
@@ -117,7 +117,7 @@
     }
   },
   "appointment": {
-    "title": "Hacerse miembro",
+    "title": "Enviar solicitud",
     "subtitle": "Envíenos una solicitud y nuestro equipo se pondrá en contacto con usted a la brevedad.",
     "backToSelection": "← Volver a la selección",
     "freeService": {
@@ -131,9 +131,9 @@
     "newPatient": {
       "pathTree": {
         "welcome": "Bienvenido",
-        "member-check": "Membresía",
+        "member-check": "Estado del cliente",
         "location": "Residencia",
-        "become-member": "Hacerse miembro",
+        "become-member": "Para quién",
         "outside-travel": "Capacidad de viaje",
         "outside-records": "Informes médicos",
         "records-language": "Idioma de los informes",
@@ -219,9 +219,9 @@
         "privacyPolicy": "Leer nuestra política de privacidad"
       },
       "memberCheck": {
-        "title": "¿Ya es miembro de nuestra agencia?",
-        "isMember": "Sí, soy miembro",
-        "notMember": "No, soy nuevo cliente"
+        "title": "¿Ha contactado con nosotros anteriormente?",
+        "isMember": "Sí",
+        "notMember": "No, es mi primera solicitud"
       },
       "location3": {
         "title": "¿En qué país reside actualmente?",
@@ -231,9 +231,9 @@
         "outsideEu": "Fuera de la UE"
       },
       "becomeMember": {
-        "title": "¿Desea hacerse miembro?",
-        "yes": "Sí, quiero hacerme miembro",
-        "no": "No, es para otra persona"
+        "title": "¿Para quién envía esta solicitud?",
+        "yes": "Para mí",
+        "no": "Para otra persona"
       },
       "healthIntro": {
         "title": "Comencemos con su información médica",
@@ -334,11 +334,12 @@
         "optional": "(Opcional)"
       },
       "services": {
-        "title": "¿Cuáles de los siguientes servicios premium necesitará durante su estancia? (Puede seleccionar varios):",
+        "title": "¿Cuáles de los siguientes servicios premium necesitará durante su estancia?",
+        "subtitle": "Puede seleccionar varios.",
         "driver": "Conductor privado y traslados",
         "driverLearnMore": "Más información sobre nuestros traslados",
         "driverDetails": "Traslados privados entre aeropuerto, clínica y alojamiento con horarios coordinados y conductor dedicado.",
-        "concierge": "Servicios de conserjería (reservas de hotel, ocio)",
+        "concierge": "Servicios de conserjería",
         "conciergeLearnMore": "Más información sobre nuestro servicio de conserjería",
         "conciergeDetails": "Apoyo con alojamiento, reservas, necesidades cotidianas y coordinación práctica durante su estancia.",
         "medicalTransport": "Transporte médico terrestre",
@@ -418,7 +419,7 @@
         "patient": "Paciente",
         "contact": "Contacto",
         "request": "Detalles de la solicitud",
-        "membership": "Membresía",
+        "membership": "Para quién es la solicitud",
         "location": "Lugar de residencia",
         "travel": "Viaje a Alemania",
         "records": "Informes médicos",
@@ -451,7 +452,7 @@
       }
     },
     "returningPatient": {
-      "title": "Miembro existente",
+      "title": "Cliente existente",
       "formPending": "Formulario en desarrollo...",
       "back": "Atrás"
     },

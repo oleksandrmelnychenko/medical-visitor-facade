@@ -12,7 +12,7 @@
   },
   "common": {
     "home": "Startseite",
-    "requestAppointment": "Mitglied werden",
+    "requestAppointment": "Anfrage senden",
     "login": "Anmelden",
     "selectLanguage": "Sprache auswählen"
   },
@@ -117,7 +117,7 @@
     }
   },
   "appointment": {
-    "title": "Mitglied werden",
+    "title": "Anfrage senden",
     "subtitle": "Senden Sie uns eine Anfrage, und unser Team wird sich zeitnah bei Ihnen melden.",
     "backToSelection": "← Zurück zur Auswahl",
     "freeService": {
@@ -131,9 +131,9 @@
     "newPatient": {
       "pathTree": {
         "welcome": "Willkommen",
-        "member-check": "Mitgliedschaft",
+        "member-check": "Kundenstatus",
         "location": "Wohnort",
-        "become-member": "Mitglied werden",
+        "become-member": "Anfrage für",
         "outside-travel": "Reisefähigkeit",
         "outside-records": "Medizinische Befunde",
         "records-language": "Sprache der Befunde",
@@ -219,9 +219,9 @@
         "privacyPolicy": "Datenschutzerklärung lesen"
       },
       "memberCheck": {
-        "title": "Sind Sie bereits Mitglied bei uns?",
-        "isMember": "Ja, ich bin Mitglied",
-        "notMember": "Nein, ich bin Neukunde"
+        "title": "Haben Sie sich schon einmal an uns gewandt?",
+        "isMember": "Ja",
+        "notMember": "Nein, ich melde mich zum ersten Mal"
       },
       "location3": {
         "title": "In welchem Land leben Sie aktuell?",
@@ -231,9 +231,9 @@
         "outsideEu": "Außerhalb der EU"
       },
       "becomeMember": {
-        "title": "Möchten Sie Mitglied werden?",
-        "yes": "Ja, ich möchte Mitglied werden",
-        "no": "Nein, ich stelle die Anfrage für eine andere Person"
+        "title": "Für wen reichen Sie diese Anfrage ein?",
+        "yes": "Für mich selbst",
+        "no": "Für eine andere Person"
       },
       "healthIntro": {
         "title": "Beginnen wir mit Ihren medizinischen Informationen",
@@ -334,11 +334,12 @@
         "optional": "(Optional)"
       },
       "services": {
-        "title": "Welche der folgenden Premium-Services benötigen Sie während Ihres Aufenthalts? (Mehrfachauswahl möglich):",
+        "title": "Welche der folgenden Premium-Services benötigen Sie während Ihres Aufenthalts?",
+        "subtitle": "Mehrfachauswahl möglich.",
         "driver": "Limousinenservice und privater Fahrer",
         "driverLearnMore": "Mehr über unseren Transfer-Service",
         "driverDetails": "Individuelle Transfers zwischen Flughafen, Klinik und Unterkunft mit abgestimmten Fahrzeiten und festem Fahrer.",
-        "concierge": "Concierge-Services (Hotelbuchungen, Freizeitgestaltung)",
+        "concierge": "Concierge-Services",
         "conciergeLearnMore": "Mehr über unseren Concierge-Service",
         "conciergeDetails": "Unterstützung bei Unterkunft, Buchungen, Alltagsorganisation und der Koordination vor Ort während Ihres Aufenthalts.",
         "medicalTransport": "Bodengebundener medizinischer Transport",
@@ -418,7 +419,7 @@
         "patient": "Patient",
         "contact": "Kontakt",
         "request": "Anfragedetails",
-        "membership": "Mitgliedschaft",
+        "membership": "Anfrage für",
         "location": "Wohnort",
         "travel": "Reise nach Deutschland",
         "records": "Medizinische Unterlagen",
@@ -451,7 +452,7 @@
       }
     },
     "returningPatient": {
-      "title": "Bestehendes Mitglied",
+      "title": "Bestehender Kunde",
       "formPending": "Formular in Entwicklung...",
       "back": "Zurück"
     },

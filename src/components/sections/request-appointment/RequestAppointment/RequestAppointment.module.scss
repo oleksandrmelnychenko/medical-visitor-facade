@@ -181,6 +181,14 @@
   }
 }
 
+.servicesSubtitleTight {
+  margin-bottom: -0.2rem;
+}
+
+.servicesContentTight {
+  margin-top: -0.65rem;
+}
+
 .wizardHeaderEnter {
   animation: wizardFadeUp 220ms ease-out both;
 }
@@ -3359,12 +3367,28 @@
   gap: 0.28rem;
 }
 
+.serviceOptionTitleWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  flex-wrap: wrap;
+}
+
 .serviceOptionTitle {
   color: #14161b;
   font-size: 0.96rem;
   font-weight: 600;
   line-height: 1.46;
   text-align: left;
+}
+
+.serviceOptionStar {
+  width: 0.88rem;
+  height: 0.88rem;
+  color: #f0a325;
+  flex-shrink: 0;
+  transform: translateY(-0.02rem);
+  filter: drop-shadow(0 1px 1px rgba(240, 163, 37, 0.24));
 }
 
 .wizardConsentList {

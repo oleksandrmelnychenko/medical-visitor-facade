@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { Star } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
@@ -86,6 +87,9 @@ export function ServicesStep() {
   return (
     <WizardStepLayout
       title={t('services.title')}
+      subtitle={t('services.subtitle')}
+      subtitleClassName={styles.servicesSubtitleTight}
+      contentClassName={styles.servicesContentTight}
       onBack={handleBack}
       backLabel={t('back')}
     >
@@ -103,7 +107,17 @@ export function ServicesStep() {
                   />
                   <span className={`${formStyles.checkboxCustom} ${styles.serviceOptionCheck}`} />
                   <span className={`${formStyles.checkboxContent} ${styles.serviceOptionContent}`}>
-                    <span className={`${formStyles.checkboxTitle} ${styles.serviceOptionTitle}`}>{t(`services.${opt.key}`)}</span>
+                    <span className={styles.serviceOptionTitleWrap}>
+                      <span className={`${formStyles.checkboxTitle} ${styles.serviceOptionTitle}`}>{t(`services.${opt.key}`)}</span>
+                      {opt.key === 'concierge' ? (
+                        <Star
+                          className={styles.serviceOptionStar}
+                          aria-hidden="true"
+                          fill="currentColor"
+                          strokeWidth={1.8}
+                        />
+                      ) : null}
+                    </span>
                     <button
                       type="button"
                       onClick={(event) => handleOpenDetails(event, opt.value)}
