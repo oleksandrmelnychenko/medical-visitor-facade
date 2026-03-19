@@ -34,6 +34,58 @@ function normalizeWizardHref<T>(href: T): T {
   return (LEGACY_WIZARD_ROUTE_MAP[href] ?? href) as T;
 }
 
+type ClientWizardNavigationOptions = {
+  scroll?: boolean;
+};
+
+function isWizardStepHref(href: string) {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  const targetUrl = new URL(href, window.location.origin);
+
+  return targetUrl.pathname === "/apply"
+    && targetUrl.searchParams.get("type") === "new"
+    && targetUrl.searchParams.has("step");
+}
+
+function updateWizardStepHistory(
+  mode: "push" | "replace",
+  href: string,
+  options?: ClientWizardNavigationOptions
+) {
+  if (typeof window === "undefined" || !isWizardStepHref(href)) {
+    return false;
+  }
+
+  const currentUrl = new URL(window.location.href);
+
+  if (!currentUrl.pathname.endsWith("/apply")) {
+    return false;
+  }
+
+  const targetUrl = new URL(href, window.location.origin);
+  const nextUrl = `${currentUrl.pathname}${targetUrl.search}${targetUrl.hash}`;
+  const currentPathWithSearch = `${currentUrl.pathname}${currentUrl.search}${currentUrl.hash}`;
+
+  if (nextUrl === currentPathWithSearch) {
+    return true;
+  }
+
+  const historyMethod = mode === "push"
+    ? window.history.pushState
+    : window.history.replaceState;
+
+  historyMethod.call(window.history, null, "", nextUrl);
+
+  if (options?.scroll !== false) {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }
+
+  return true;
+}
+
 export const { Link, redirect, usePathname, getPathname } = navigation;
 
 export function useRouter() {
@@ -42,13 +94,25 @@ export function useRouter() {
   return {
     ...router,
     push(href: Parameters<typeof router.push>[0], options?: Parameters<typeof router.push>[1]) {
-      return router.push(normalizeWizardHref(href), options);
+      const normalizedHref = normalizeWizardHref(href);
+
+      if (typeof normalizedHref === "string" && updateWizardStepHistory("push", normalizedHref, options)) {
+        return;
+      }
+
+      return router.push(normalizedHref, options);
     },
     replace(
       href: Parameters<typeof router.replace>[0],
       options?: Parameters<typeof router.replace>[1]
     ) {
-      return router.replace(normalizeWizardHref(href), options);
+      const normalizedHref = normalizeWizardHref(href);
+
+      if (typeof normalizedHref === "string" && updateWizardStepHistory("replace", normalizedHref, options)) {
+        return;
+      }
+
+      return router.replace(normalizedHref, options);
     },
     prefetch(
       href: Parameters<typeof router.prefetch>[0],

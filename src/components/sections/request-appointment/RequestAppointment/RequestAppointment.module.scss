@@ -3936,3 +3936,11 @@
     transition: none !important;
   }
 }
+
+@media (max-width: 767px) {
+  .wizardHeaderEnter,
+  .wizardHeaderSubtitleEnter,
+  .wizardSurfaceEnter {
+    animation: none !important;
+  }
+}
