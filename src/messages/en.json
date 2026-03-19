@@ -377,7 +377,7 @@
       },
       "preferredLocation": {
         "title": "Do you have a preferred city for your treatment?",
-        "subtitle": "We prioritize the clinic's expertise, but we will take your preferences into account.",
+        "subtitle": "We prioritize medical expertise, but we will take your preferences into account.",
         "noPreference": "No preference",
         "munich": "Munich",
         "berlin": "Berlin",

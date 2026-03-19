@@ -377,7 +377,7 @@
       },
       "preferredLocation": {
         "title": "Haben Sie eine Präferenz, in welcher Stadt Sie behandelt werden möchten?",
-        "subtitle": "Wir orientieren uns primär an der medizinischen Expertise der Klinik, berücksichtigen aber gerne Ihre Wünsche.",
+        "subtitle": "Wir orientieren uns primär an medizinischer Expertise, berücksichtigen aber gerne Ihre Wünsche.",
         "noPreference": "Keine Präferenz (Fachexpertise entscheidet)",
         "munich": "München",
         "berlin": "Berlin",
