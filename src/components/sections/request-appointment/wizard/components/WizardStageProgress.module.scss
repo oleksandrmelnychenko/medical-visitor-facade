@@ -1,0 +1,68 @@
+.progress {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(1.6rem, 2.8vw, 2.4rem);
+  width: min(100%, 76rem);
+  margin: 0 auto;
+  padding-inline: clamp(0.8rem, 2.2vw, 2rem);
+
+  @media (max-width: 767px) {
+    gap: 1.1rem;
+  }
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.stageNumber {
+  font-family: "Raleway", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: rgba(17, 20, 29, 0.28);
+  transition: color 0.28s ease;
+
+  @media (max-width: 767px) {
+    font-size: 0.64rem;
+  }
+}
+
+.stageNumberActive {
+  color: #11141d;
+}
+
+.stageNumberCompleted {
+  color: rgba(17, 20, 29, 0.52);
+}
+
+.stageBar {
+  display: block;
+  width: clamp(1.6rem, 2.8vw, 2.4rem);
+  height: 3px;
+  border-radius: 1.5px;
+  background: rgba(17, 20, 29, 0.1);
+  transition: background-color 0.28s ease, width 0.28s ease;
+
+  @media (max-width: 767px) {
+    width: 1.2rem;
+    height: 2.5px;
+  }
+}
+
+.stageBarActive {
+  background: #11141d;
+  width: clamp(2.4rem, 4vw, 3.6rem);
+
+  @media (max-width: 767px) {
+    width: 1.8rem;
+  }
+}
+
+.stageBarCompleted {
+  background: rgba(17, 20, 29, 0.42);
+}
