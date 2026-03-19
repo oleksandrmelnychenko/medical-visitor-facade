@@ -377,7 +377,7 @@
       },
       "preferredLocation": {
         "title": "¿Tiene alguna preferencia sobre la ciudad donde desea recibir tratamiento?",
-        "subtitle": "Nos guiamos principalmente por la experiencia clínica, pero tendremos en cuenta sus preferencias.",
+        "subtitle": "Priorizamos la experiencia médica, pero tendremos en cuenta sus preferencias.",
         "noPreference": "Sin preferencia (la experiencia médica decide)",
         "munich": "Múnich",
         "berlin": "Berlín",

@@ -42,7 +42,7 @@ export function AnythingElseStep() {
         </div>
         <button
           onClick={handleContinue}
-          className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
+          className={`${formStyles.submitButton} ${styles.wizardPrimaryButton} ${styles.anythingElseButton}`}
           type="button"
         >
           {t('continue')}
