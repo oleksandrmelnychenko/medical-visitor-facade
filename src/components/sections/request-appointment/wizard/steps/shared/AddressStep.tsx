@@ -231,6 +231,8 @@ export function AddressStep() {
             <input
               id="address-postal"
               type="text"
+              inputMode="numeric"
+              maxLength={5}
               value={postal}
               onChange={e => setPostal(e.target.value)}
               onBlur={() => setTouched(prev => ({ ...prev, postal: true }))}

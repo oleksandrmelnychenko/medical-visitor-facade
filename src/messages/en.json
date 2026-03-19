@@ -173,7 +173,7 @@
         "phoneMin": "Enter a phone number",
         "streetMin": "Enter a street address",
         "cityMin": "Enter a city",
-        "zipInvalid": "Enter a valid postal code",
+        "zipInvalid": "Enter 5 digits or 0",
         "languageMin": "Enter a language"
       },
       "travelPatient": {

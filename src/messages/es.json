@@ -173,7 +173,7 @@
         "phoneMin": "Introduce un número de teléfono",
         "streetMin": "Introduce la dirección",
         "cityMin": "Introduce la ciudad",
-        "zipInvalid": "Introduce un código postal válido",
+        "zipInvalid": "Introduce 5 dígitos o 0",
         "languageMin": "Introduce el idioma"
       },
       "travelPatient": {

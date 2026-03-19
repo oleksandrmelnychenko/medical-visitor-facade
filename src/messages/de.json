@@ -173,7 +173,7 @@
         "phoneMin": "Telefonnummer eingeben",
         "streetMin": "Adresse eingeben",
         "cityMin": "Stadt eingeben",
-        "zipInvalid": "Gültige Postleitzahl eingeben",
+        "zipInvalid": "5 Ziffern oder 0 eingeben",
         "languageMin": "Sprache eingeben"
       },
       "travelPatient": {

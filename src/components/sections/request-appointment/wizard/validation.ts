@@ -1,7 +1,7 @@
 const NAME_PATTERN = /^[\p{L}\p{M}' -]{2,}$/u;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_DIGITS_PATTERN = /^[\d\s().+-]{5,}$/;
-const ZIP_PATTERN = /^[\w\d\s-]{2,10}$/;
+const ZIP_PATTERN = /^(0|\d{5})$/;
 
 export function validateName(value: string): boolean {
   return NAME_PATTERN.test(value.trim());

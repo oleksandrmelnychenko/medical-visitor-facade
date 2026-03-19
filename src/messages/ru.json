@@ -173,7 +173,7 @@
         "phoneMin": "Введите номер телефона",
         "streetMin": "Введите адрес",
         "cityMin": "Введите город",
-        "zipInvalid": "Введите почтовый индекс",
+        "zipInvalid": "Введите 5 цифр или 0",
         "languageMin": "Введите язык"
       },
       "travelPatient": {
