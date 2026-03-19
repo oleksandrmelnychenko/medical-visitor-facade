@@ -40,7 +40,7 @@ export function PrimaryConcernStep() {
   }, [concern, updateData, router]);
 
   const handleBack = useCallback(() => {
-    router.push('/apply?type=new&step=concern-intro');
+    router.push('/apply?type=new&step=address');
   }, [router]);
 
   const handleOpenFilePicker = useCallback(() => {
@@ -119,7 +119,8 @@ export function PrimaryConcernStep() {
 
   return (
     <WizardStepLayout
-      title={t('primaryConcernText.title')}
+      title={t('concernIntro.title')}
+      subtitle={t('concernIntro.description')}
       onBack={handleBack}
       backLabel={t('back')}
     >

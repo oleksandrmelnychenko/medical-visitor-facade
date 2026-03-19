@@ -3399,11 +3399,42 @@
   }
 }
 
+.wizardConsentCheckboxInvalid {
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(212, 24, 61, 0.24) !important;
+  border-radius: 1rem;
+  background: rgba(212, 24, 61, 0.05) !important;
+
+  &:hover {
+    border: 1px solid rgba(212, 24, 61, 0.24) !important;
+    background: rgba(212, 24, 61, 0.05) !important;
+    box-shadow: none !important;
+    transform: none;
+  }
+}
+
+.wizardConsentContent {
+  min-width: 0;
+}
+
+.wizardConsentCustomInvalid {
+  border-color: #d4183d;
+  box-shadow: 0 0 0 1px rgba(212, 24, 61, 0.12);
+}
+
 .wizardConsentText {
   display: block;
   flex: 1;
   text-align: left;
   line-height: 1.62;
+}
+
+.wizardConsentTextInvalid {
+  color: #8f1232;
+}
+
+.wizardConsentFieldError {
+  margin-top: 0.2rem;
 }
 
 .wizardReviewFormContainer {

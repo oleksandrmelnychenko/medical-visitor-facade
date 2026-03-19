@@ -35,8 +35,13 @@ function normalizeWizardHref<T>(href: T): T {
 }
 
 type ClientWizardNavigationOptions = {
+  locale?: string;
   scroll?: boolean;
 };
+
+function hasLocaleOverride(options?: ClientWizardNavigationOptions) {
+  return typeof options?.locale === "string" && options.locale.length > 0;
+}
 
 function isWizardStepHref(href: string) {
   if (typeof window === "undefined") {
@@ -96,7 +101,11 @@ export function useRouter() {
     push(href: Parameters<typeof router.push>[0], options?: Parameters<typeof router.push>[1]) {
       const normalizedHref = normalizeWizardHref(href);
 
-      if (typeof normalizedHref === "string" && updateWizardStepHistory("push", normalizedHref, options)) {
+      if (
+        typeof normalizedHref === "string"
+        && !hasLocaleOverride(options)
+        && updateWizardStepHistory("push", normalizedHref, options)
+      ) {
         return;
       }
 
@@ -108,7 +117,11 @@ export function useRouter() {
     ) {
       const normalizedHref = normalizeWizardHref(href);
 
-      if (typeof normalizedHref === "string" && updateWizardStepHistory("replace", normalizedHref, options)) {
+      if (
+        typeof normalizedHref === "string"
+        && !hasLocaleOverride(options)
+        && updateWizardStepHistory("replace", normalizedHref, options)
+      ) {
         return;
       }
 

@@ -402,6 +402,8 @@
         "consent2": "Entiendo que puedo ser contactado en relación con mi atención médica, incluso para programar una cita.",
         "consent3": "Entiendo que, cuando se me contacte de esta manera, se me dará la oportunidad de rechazar comunicaciones futuras similares.",
         "consent4": "He leído y confirmado la recepción del Aviso sobre las prácticas de privacidad.",
+        "consentRequired": "Confirme este punto.",
+        "consentIncompleteError": "Para enviar la solicitud, debe confirmar los 4 puntos.",
         "incompleteError": "Por favor, complete todos los campos obligatorios antes de enviar la solicitud.",
         "submit": "Enviar solicitud",
         "submitting": "Enviando...",

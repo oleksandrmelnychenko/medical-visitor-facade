@@ -80,7 +80,7 @@ export function AddressStep() {
     setTouched({ street: true, city: true, postal: true });
     if (!canContinue) return;
     updateData({ country, streetAddress: street.trim(), city: city.trim(), state: state.trim(), zipCode: postal.trim() });
-    router.push('/apply?type=new&step=concern-intro');
+    router.push('/apply?type=new&step=primary-concern');
   }, [canContinue, country, street, city, state, postal, updateData, router]);
 
   const handleBack = useCallback(() => {

@@ -3,7 +3,6 @@
 import type { WizardStep } from "./types";
 import { ServicesStep } from "./steps/shared/ServicesStep";
 import { AddressStep } from "./steps/shared/AddressStep";
-import { ConcernIntroStep } from "./steps/shared/ConcernIntroStep";
 import { PrimaryConcernStep } from "./steps/shared/PrimaryConcernStep";
 import { TravelRiskStep } from "./steps/shared/TravelRiskStep";
 import { CurrentTreatmentStep } from "./steps/shared/CurrentTreatmentStep";
@@ -43,7 +42,7 @@ export function LateFlowStepView({ step }: LateFlowStepViewProps) {
     case "address":
       return <AddressStep />;
     case "concern-intro":
-      return <ConcernIntroStep />;
+      return <PrimaryConcernStep />;
     case "primary-concern":
       return <PrimaryConcernStep />;
     case "health-risk":

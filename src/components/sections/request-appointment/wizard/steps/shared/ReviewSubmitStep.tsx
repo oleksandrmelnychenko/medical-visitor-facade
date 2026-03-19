@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link, useRouter } from '@/i18n/navigation';
+import type { WizardData } from '../../types';
 import { useWizard } from '../../WizardContext';
 import { sanitizeWizardData, validateWizardSubmission } from '../../flow';
 import { WizardStepLayout } from '../../components/WizardStepLayout';
@@ -10,6 +11,12 @@ import { WizardReviewSummary } from '../../components/WizardReviewSummary';
 import { buildSalesforceBundle, submitSalesforceBundle } from '../../salesforce-bundle';
 import formStyles from '@/components/auth/Auth.module.scss';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
+
+type ConsentField =
+  | 'consentAutomatedContact'
+  | 'consentHealthcare'
+  | 'consentOptOut'
+  | 'consentPrivacyPractices';
 
 export function ReviewSubmitStep() {
   const t = useTranslations('appointment.newPatient');
@@ -19,7 +26,15 @@ export function ReviewSubmitStep() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showConsentErrors, setShowConsentErrors] = useState(false);
 
+  const checkedConsentCount = [
+    data.consentAutomatedContact,
+    data.consentHealthcare,
+    data.consentOptOut,
+    data.consentPrivacyPractices,
+  ].filter(Boolean).length;
+  const canAttemptSubmit = checkedConsentCount >= 2;
   const allConsented =
     data.consentAutomatedContact &&
     data.consentHealthcare &&
@@ -28,18 +43,31 @@ export function ReviewSubmitStep() {
 
   const flow = data.locationDetailed === 'outside_eu' ? 'outside-eu' : 'eu';
 
+  const handleConsentChange = useCallback((field: ConsentField, checked: boolean) => {
+    updateData({ [field]: checked } as Partial<WizardData>);
+    setError(null);
+  }, [updateData]);
+
   const handleSubmit = useCallback(async () => {
-    if (!allConsented || isSubmitting) return;
+    if (!canAttemptSubmit || isSubmitting) return;
+
+    if (!allConsented) {
+      setShowConsentErrors(true);
+      setError(t('reviewStep.consentIncompleteError'));
+      return;
+    }
 
     const submissionData = sanitizeWizardData(data);
     const validationErrors = validateWizardSubmission(submissionData);
 
     if (validationErrors.length > 0) {
+      setShowConsentErrors(false);
       setError(t('reviewStep.incompleteError'));
       return;
     }
 
     setIsSubmitting(true);
+    setShowConsentErrors(false);
     setError(null);
 
     const bundle = buildSalesforceBundle(submissionData, { flow, locale });
@@ -52,11 +80,16 @@ export function ReviewSubmitStep() {
       setError(result.error ?? 'Submission failed');
     }
     setIsSubmitting(false);
-  }, [allConsented, isSubmitting, data, flow, locale, resetData, t, uploadedMedicalFiles]);
+  }, [allConsented, canAttemptSubmit, isSubmitting, data, flow, locale, resetData, t, uploadedMedicalFiles]);
 
   const handleBack = useCallback(() => {
     router.push('/apply?type=new&step=anything-else');
   }, [router]);
+
+  const automatedContactInvalid = showConsentErrors && !data.consentAutomatedContact;
+  const healthcareInvalid = showConsentErrors && !data.consentHealthcare;
+  const optOutInvalid = showConsentErrors && !data.consentOptOut;
+  const privacyInvalid = showConsentErrors && !data.consentPrivacyPractices;
 
   if (isSubmitted) {
     return (
@@ -95,52 +128,90 @@ export function ReviewSubmitStep() {
 
         <section className={styles.wizardConsentCard}>
           <div className={styles.wizardConsentList}>
-            <label className={`${formStyles.checkboxLabel} ${styles.wizardConsentCheckbox}`}>
+            <label
+              className={`${formStyles.checkboxLabel} ${styles.wizardConsentCheckbox} ${automatedContactInvalid ? styles.wizardConsentCheckboxInvalid : ''}`}
+            >
               <input
                 type="checkbox"
                 checked={data.consentAutomatedContact}
-                onChange={e => updateData({ consentAutomatedContact: e.target.checked })}
+                onChange={e => handleConsentChange('consentAutomatedContact', e.target.checked)}
+                aria-invalid={automatedContactInvalid}
                 className={formStyles.checkboxInput}
               />
-              <span className={formStyles.checkboxCustom} />
-              <span className={`${formStyles.checkboxText} ${styles.wizardConsentText}`}>{t('reviewStep.consent1')}</span>
+              <span className={`${formStyles.checkboxCustom} ${automatedContactInvalid ? styles.wizardConsentCustomInvalid : ''}`} />
+              <span className={`${formStyles.checkboxContent} ${styles.wizardConsentContent}`}>
+                <span className={`${formStyles.checkboxText} ${styles.wizardConsentText} ${automatedContactInvalid ? styles.wizardConsentTextInvalid : ''}`}>
+                  {t('reviewStep.consent1')}
+                </span>
+                {automatedContactInvalid && (
+                  <span className={`${formStyles.fieldError} ${styles.wizardConsentFieldError}`}>{t('reviewStep.consentRequired')}</span>
+                )}
+              </span>
             </label>
-            <label className={`${formStyles.checkboxLabel} ${styles.wizardConsentCheckbox}`}>
+            <label
+              className={`${formStyles.checkboxLabel} ${styles.wizardConsentCheckbox} ${healthcareInvalid ? styles.wizardConsentCheckboxInvalid : ''}`}
+            >
               <input
                 type="checkbox"
                 checked={data.consentHealthcare}
-                onChange={e => updateData({ consentHealthcare: e.target.checked })}
+                onChange={e => handleConsentChange('consentHealthcare', e.target.checked)}
+                aria-invalid={healthcareInvalid}
                 className={formStyles.checkboxInput}
               />
-              <span className={formStyles.checkboxCustom} />
-              <span className={`${formStyles.checkboxText} ${styles.wizardConsentText}`}>{t('reviewStep.consent2')}</span>
+              <span className={`${formStyles.checkboxCustom} ${healthcareInvalid ? styles.wizardConsentCustomInvalid : ''}`} />
+              <span className={`${formStyles.checkboxContent} ${styles.wizardConsentContent}`}>
+                <span className={`${formStyles.checkboxText} ${styles.wizardConsentText} ${healthcareInvalid ? styles.wizardConsentTextInvalid : ''}`}>
+                  {t('reviewStep.consent2')}
+                </span>
+                {healthcareInvalid && (
+                  <span className={`${formStyles.fieldError} ${styles.wizardConsentFieldError}`}>{t('reviewStep.consentRequired')}</span>
+                )}
+              </span>
             </label>
-            <label className={`${formStyles.checkboxLabel} ${styles.wizardConsentCheckbox}`}>
+            <label
+              className={`${formStyles.checkboxLabel} ${styles.wizardConsentCheckbox} ${optOutInvalid ? styles.wizardConsentCheckboxInvalid : ''}`}
+            >
               <input
                 type="checkbox"
                 checked={data.consentOptOut}
-                onChange={e => updateData({ consentOptOut: e.target.checked })}
+                onChange={e => handleConsentChange('consentOptOut', e.target.checked)}
+                aria-invalid={optOutInvalid}
                 className={formStyles.checkboxInput}
               />
-              <span className={formStyles.checkboxCustom} />
-              <span className={`${formStyles.checkboxText} ${styles.wizardConsentText}`}>{t('reviewStep.consent3')}</span>
+              <span className={`${formStyles.checkboxCustom} ${optOutInvalid ? styles.wizardConsentCustomInvalid : ''}`} />
+              <span className={`${formStyles.checkboxContent} ${styles.wizardConsentContent}`}>
+                <span className={`${formStyles.checkboxText} ${styles.wizardConsentText} ${optOutInvalid ? styles.wizardConsentTextInvalid : ''}`}>
+                  {t('reviewStep.consent3')}
+                </span>
+                {optOutInvalid && (
+                  <span className={`${formStyles.fieldError} ${styles.wizardConsentFieldError}`}>{t('reviewStep.consentRequired')}</span>
+                )}
+              </span>
             </label>
-            <label className={`${formStyles.checkboxLabel} ${styles.wizardConsentCheckbox}`}>
+            <label
+              className={`${formStyles.checkboxLabel} ${styles.wizardConsentCheckbox} ${privacyInvalid ? styles.wizardConsentCheckboxInvalid : ''}`}
+            >
               <input
                 type="checkbox"
                 checked={data.consentPrivacyPractices}
-                onChange={e => updateData({ consentPrivacyPractices: e.target.checked })}
+                onChange={e => handleConsentChange('consentPrivacyPractices', e.target.checked)}
+                aria-invalid={privacyInvalid}
                 className={formStyles.checkboxInput}
               />
-              <span className={formStyles.checkboxCustom} />
-              <span className={`${formStyles.checkboxText} ${styles.wizardConsentText}`}>
-                {t.rich('reviewStep.consent4', {
-                  privacyLink: (chunks) => (
-                    <Link href="/privacy-policy" className={styles.wizardLink} target="_blank" rel="noopener noreferrer">
-                      {chunks}
-                    </Link>
-                  ),
-                })}
+              <span className={`${formStyles.checkboxCustom} ${privacyInvalid ? styles.wizardConsentCustomInvalid : ''}`} />
+              <span className={`${formStyles.checkboxContent} ${styles.wizardConsentContent}`}>
+                <span className={`${formStyles.checkboxText} ${styles.wizardConsentText} ${privacyInvalid ? styles.wizardConsentTextInvalid : ''}`}>
+                  {t.rich('reviewStep.consent4', {
+                    privacyLink: (chunks) => (
+                      <Link href="/privacy-policy" className={styles.wizardLink} target="_blank" rel="noopener noreferrer">
+                        {chunks}
+                      </Link>
+                    ),
+                  })}
+                </span>
+                {privacyInvalid && (
+                  <span className={`${formStyles.fieldError} ${styles.wizardConsentFieldError}`}>{t('reviewStep.consentRequired')}</span>
+                )}
               </span>
             </label>
           </div>
@@ -151,7 +222,7 @@ export function ReviewSubmitStep() {
 
           <button
             onClick={handleSubmit}
-            disabled={!allConsented || isSubmitting}
+            disabled={!canAttemptSubmit || isSubmitting}
             className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
             type="button"
           >

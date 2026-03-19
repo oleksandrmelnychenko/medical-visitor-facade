@@ -402,6 +402,8 @@
         "consent2": "Ich verstehe, dass ich in Bezug auf meine Gesundheitsversorgung kontaktiert werden kann, einschließlich zur Terminvereinbarung.",
         "consent3": "Ich verstehe, dass mir bei einer solchen Kontaktaufnahme die Möglichkeit gegeben wird, zukünftige ähnliche Mitteilungen abzulehnen.",
         "consent4": "Ich habe die Hinweise zu den Datenschutzpraktiken gelesen und deren Erhalt bestätigt.",
+        "consentRequired": "Bitte bestätigen Sie diesen Punkt.",
+        "consentIncompleteError": "Zum Absenden müssen alle 4 Punkte bestätigt sein.",
         "incompleteError": "Bitte füllen Sie alle erforderlichen Felder aus, bevor Sie die Anfrage absenden.",
         "submit": "Anfrage absenden",
         "submitting": "Wird gesendet...",

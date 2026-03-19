@@ -402,6 +402,8 @@
         "consent2": "I understand that I may be contacted regarding my health care, including to schedule an appointment.",
         "consent3": "I understand that when contacted in this manner, I will be given the opportunity to opt out of similar future communications.",
         "consent4": "I have read and confirmed receipt of the Notice of Privacy Practices.",
+        "consentRequired": "Please confirm this item.",
+        "consentIncompleteError": "All 4 consent items must be confirmed before submitting.",
         "incompleteError": "Please complete all required fields before submitting.",
         "submit": "Submit Request",
         "submitting": "Submitting...",

@@ -631,7 +631,7 @@ export function getAccessibleWizardStep(step: WizardStep, data: WizardData): Wiz
         return "services";
       }
 
-      return hasRequiredAddress(cleanData) ? "concern-intro" : "address";
+      return hasRequiredAddress(cleanData) ? "primary-concern" : "address";
     }
 
     case "primary-concern": {
