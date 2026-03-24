@@ -113,6 +113,29 @@
         "concierge": "Concierge- und Lifestyle-Services",
         "coordination": "Effiziente Koordination",
         "international": "Internationale Begleitung aus einer Hand"
+      },
+      "programComparison": {
+        "ariaLabel": "Vergleich der Programmleistungen",
+        "portal": {
+          "title": "GMED Online-Portalzugang",
+          "features": {
+            "access": "24/7-Onlinezugriff auf Ihre Informationen über unser sicheres Portal"
+          }
+        },
+        "reserve": {
+          "title": "GMED Reserve-Mitgliedschaftsprogramm",
+          "features": {
+            "personalizedSupport": "Personalisierte Unterstützung rund um die Uhr (24/7)",
+            "priorityProcessing": "Priorisierte Bearbeitung medizinischer Anfragen innerhalb von 24 Stunden",
+            "dedicatedManager": "Ihr persönlicher 1:1-Manager und ein medizinisches Concierge-Team",
+            "proactiveFollowUp": "Proaktive Nachverfolgung von Terminen, Unterlagen, Testergebnissen und den nächsten Schritten",
+            "portalAccess": "24/7-Onlinezugriff auf Ihre Informationen über unser sicheres Portal",
+            "travelCoordination": "Unterstützung bei reisebezogener Koordination",
+            "annualReview": "Jährliche strategische Fallbesprechung",
+            "executiveScheduling": "Terminplanung auf Executive-Niveau",
+            "crossBorderCoordination": "Länderübergreifende / grenzüberschreitende Koordinationsunterstützung"
+          }
+        }
       }
     }
   },
@@ -246,7 +269,7 @@
         "no": "Nein"
       },
       "healthRisk": {
-        "title": "Gibt es medizinische Kontraindikationen, die gegen eine Flugreise nach Deutschland sprechen könnten?",
+        "title": "Gibt es medizinische Kontraindikationen für Ihre Reise nach Deutschland?",
         "yes": "Ja",
         "no": "Nein",
         "disclaimer": "Bitte beachten Sie: Die Einschätzung Ihrer Reisefähigkeit sowie die Verantwortung für mögliche gesundheitliche Reiserisiken obliegen Ihnen."
@@ -313,7 +336,7 @@
       },
       "concernIntro": {
         "title": "Kommen wir zu Ihrem medizinischen Anliegen",
-        "description": "Bitte beschreiben Sie kurz Ihre Diagnose oder Ihre Beschwerden. Dies hilft uns, den am besten geeigneten Fachexperten für Sie zu finden.",
+        "description": "Eine kurze Beschreibung der Situation ist ausreichend. Alles Weitere können wir während unseres Telefonats im Detail besprechen und klären",
         "start": "Start"
       },
       "primaryConcernText": {
@@ -402,7 +425,7 @@
         "consent1": "Ich stimme zu, dass GMED ein automatisiertes Telefonwahlsystem, vorab aufgezeichnete oder synthetische Sprachnachrichten, Textnachrichten und E-Mails verwenden darf, um mich unter den von mir angegebenen Telefonnummern und der E-Mail-Adresse zu kontaktieren.",
         "consent2": "Ich verstehe, dass ich in Bezug auf meine Gesundheitsversorgung kontaktiert werden kann, einschließlich zur Terminvereinbarung.",
         "consent3": "Ich verstehe, dass mir bei einer solchen Kontaktaufnahme die Möglichkeit gegeben wird, zukünftige ähnliche Mitteilungen abzulehnen.",
-        "consent4": "Ich habe die Hinweise zu den Datenschutzpraktiken gelesen und deren Erhalt bestätigt.",
+        "consent4": "Ich habe die Datenschutzerklärung gelesen und deren Erhalt bestätigt.",
         "consentRequired": "Bitte bestätigen Sie diesen Punkt.",
         "consentIncompleteError": "Zum Absenden müssen alle 4 Punkte bestätigt sein.",
         "incompleteError": "Bitte füllen Sie alle erforderlichen Felder aus, bevor Sie die Anfrage absenden.",

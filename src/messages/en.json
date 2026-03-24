@@ -113,6 +113,29 @@
         "concierge": "Concierge and lifestyle services",
         "coordination": "Efficient coordination",
         "international": "International support from a single source"
+      },
+      "programComparison": {
+        "ariaLabel": "Program benefits comparison",
+        "portal": {
+          "title": "GMED Online Portal Access",
+          "features": {
+            "access": "24/7 Online Access to Your Information via Our Secure Portal"
+          }
+        },
+        "reserve": {
+          "title": "GMED Reserve Membership Program",
+          "features": {
+            "personalizedSupport": "24/7 Personalized Support",
+            "priorityProcessing": "Priority Medical Request Processing Within 24 Hours",
+            "dedicatedManager": "Your Dedicated 1:1 Manager and Medical Concierge Team",
+            "proactiveFollowUp": "Proactive Follow-Up on Appointments, Records, Test Results, and Next Steps",
+            "portalAccess": "24/7 Online Access to Your Information via Our Secure Portal",
+            "travelCoordination": "travel-related coordination support",
+            "annualReview": "annual strategic case review",
+            "executiveScheduling": "executive-style scheduling support",
+            "crossBorderCoordination": "multi-country / cross-border coordination support"
+          }
+        }
       }
     }
   },
@@ -317,8 +340,8 @@
         "start": "Start"
       },
       "primaryConcernText": {
-        "title": "What main concern or question are you reaching out about?",
-        "placeholder": "Briefly describe your condition or diagnosis...",
+        "title": "Describe the reason for your request",
+        "placeholder": "Briefly describe your situation or objectives",
         "attachmentsLabel": "Files (optional)",
         "attachmentsHint": "If you already have documents, you can attach them here.",
         "attachmentsAction": "Add files",

@@ -24,6 +24,18 @@ const PRINCIPLES = [
   { icon: Globe2, key: "international" },
 ];
 
+const RESERVE_FEATURE_KEYS = [
+  "personalizedSupport",
+  "priorityProcessing",
+  "dedicatedManager",
+  "proactiveFollowUp",
+  "portalAccess",
+  "travelCoordination",
+  "annualReview",
+  "executiveScheduling",
+  "crossBorderCoordination",
+] as const;
+
 export function FullSupport() {
   const t = useTranslations("home.fullSupport");
   const overline = t("overline");
@@ -53,6 +65,26 @@ export function FullSupport() {
                 <h3 className={styles.conceptTitle}>{t(`principles.${principle.key}`)}</h3>
               </article>
             ))}
+          </div>
+
+          <div className={styles.programComparison} aria-label={t("programComparison.ariaLabel")}>
+            <article className={styles.programCard}>
+              <h3 className={styles.programTitle}>{t("programComparison.portal.title")}</h3>
+              <ul className={styles.programList}>
+                <li className={styles.programItem}>{t("programComparison.portal.features.access")}</li>
+              </ul>
+            </article>
+
+            <article className={cn(styles.programCard, styles.programCardHighlighted)}>
+              <h3 className={styles.programTitle}>{t("programComparison.reserve.title")}</h3>
+              <ul className={styles.programList}>
+                {RESERVE_FEATURE_KEYS.map((featureKey) => (
+                  <li key={featureKey} className={styles.programItem}>
+                    {t(`programComparison.reserve.features.${featureKey}`)}
+                  </li>
+                ))}
+              </ul>
+            </article>
           </div>
         </div>
       </div>
