@@ -22,14 +22,15 @@ export function MemberCheckStep() {
   const handleMember = useCallback(() => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-    router.push('/login');
-  }, [router]);
+    updateData({ memberCheckCompleted: true });
+    router.push('/apply?type=new&step=account-check');
+  }, [router, updateData]);
 
   const handleNotMember = useCallback(() => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-    updateData({ memberCheckCompleted: true });
-    router.push('/apply?type=new&step=account-check');
+    updateData({ memberCheckCompleted: true, accountCheckCompleted: true });
+    router.push('/apply?type=new&step=welcome');
   }, [router, updateData]);
 
   const handleBack = useCallback(() => {

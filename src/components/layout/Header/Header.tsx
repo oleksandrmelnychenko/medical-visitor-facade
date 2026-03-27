@@ -150,23 +150,14 @@ export function Header() {
             )}
             <div className={styles.languageSelector} ref={stickyLangRef}>
               <button
-                className={styles.langOrb}
+                className={cn(styles.langOrb, isStickyLangOpen && styles.langOrbOpen)}
                 onClick={() => {
                   setIsStickyLangOpen((open) => !open);
                 }}
                 aria-label={`${tCommon("selectLanguage")}: ${currentLanguage.fullName}`}
                 aria-expanded={isStickyLangOpen}
               >
-                <span className={styles.langOrbFlag} aria-hidden="true">
-                  <Image
-                    src={currentLanguage.flagSrc}
-                    alt=""
-                    width={20}
-                    height={20}
-                    className={styles.langOrbFlagIcon}
-                  />
-                </span>
-                {/* <span className={styles.langOrbLabel}>{currentLanguage.label}</span> */}
+                <span className={styles.langOrbLabel}>{currentLanguage.label}</span>
               </button>
               {isStickyLangOpen && (
                 <div className={styles.langDropdown}>
@@ -177,15 +168,6 @@ export function Header() {
                         className={cn(styles.langOption, locale === language.code && styles.active)}
                       >
                         <span className={styles.langOptionInner}>
-                          <span className={styles.langOptionFlag} aria-hidden="true">
-                            <Image
-                              src={language.flagSrc}
-                              alt=""
-                              width={18}
-                              height={18}
-                              className={styles.langOptionFlagIcon}
-                            />
-                          </span>
                           <span className={styles.langOptionCode}>{language.label}</span>
                           <span className={styles.langOptionName}>{language.fullName}</span>
                         </span>

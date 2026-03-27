@@ -66,7 +66,7 @@ export function CareForward() {
               const triggerId = `care-${key}-trigger`;
 
               return (
-                <div key={key} className={styles.accordionItem}>
+                <div key={key} className={cn(styles.accordionItem, isOpen && styles.accordionItemOpen)}>
                   <button
                     id={triggerId}
                     type="button"

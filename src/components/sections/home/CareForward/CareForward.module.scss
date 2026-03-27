@@ -150,6 +150,7 @@
 
 .accordionItem {
   position: relative;
+  transition: background 0.3s ease;
 
   &::after {
     content: "";
@@ -163,6 +164,55 @@
 
   &:last-child::after {
     display: none;
+  }
+}
+
+.accordionItemOpen {
+  position: relative;
+  z-index: 1;
+  background: #f9f5f2;
+  border-radius: clamp(1rem, 1.5vw, 1.25rem);
+  margin-inline: -1px;
+  border: 1px solid #f9f5f2;
+
+  &::after {
+    display: none;
+  }
+
+  .accordionLabel {
+    color: #1a1a22;
+  }
+
+  .accordionPreview {
+    color: #6b6b76;
+
+    &::before {
+      background: #6b6b76;
+    }
+  }
+
+  .accordionIcon {
+    color: #1a1a22;
+  }
+
+  .accordionIconOpen {
+    color: #6b6b76;
+  }
+
+  .accordionTrigger:hover {
+    background: transparent;
+  }
+
+  .accordionPoint::before {
+    background: rgba(26, 26, 34, 0.3);
+  }
+
+  .accordionPointTitle {
+    color: #1a1a22;
+  }
+
+  .accordionPointText {
+    color: #3a3a44;
   }
 }
 
