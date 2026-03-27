@@ -325,7 +325,7 @@
       },
       "concernIntro": {
         "title": "Please tell us about your primary concern",
-        "description": "Describe the medical issue that prompted your request. This helps us find the most suitable medical specialist for your case.",
+        "description": "Describe the reason for your request. This helps us find the most suitable medical specialist for your case.",
         "start": "Start"
       },
       "primaryConcernText": {
