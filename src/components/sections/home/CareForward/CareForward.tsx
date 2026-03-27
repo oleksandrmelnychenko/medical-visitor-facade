@@ -48,13 +48,13 @@ export function CareForward() {
           <div className={styles.statementCopy}>
             <h2 className={styles.statementHeadline}>{t("headline")}</h2>
           </div>
-          <div className={styles.statementSide}>
+          {/* <div className={styles.statementSide}>
             <p className={styles.statementLabel}>
               <span className={styles.statementLabelBracket} aria-hidden="true">(</span>
               <span>{t("title")}</span>
               <span className={styles.statementLabelBracket} aria-hidden="true">)</span>
             </p>
-          </div>
+          </div> */}
         </div>
 
         {/* Accordion */}
