@@ -2,7 +2,7 @@
 
 import React, { startTransition, useEffect, useEffectEvent, useRef, useState } from "react";
 import Image from "next/image";
-import { UserPlus, User, ArrowRight } from "lucide-react";
+import { UserPlus, User, ArrowUpRight } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
@@ -135,17 +135,19 @@ export function Header() {
           <div className={styles.stickyActions}>
             <Link href="/membership" className={styles.stickyNavLink}>
               {tFooter("membership")}
+              <ArrowUpRight aria-hidden="true" />
             </Link>
             {showApplyCta && (
               <Link href="/apply" prefetch={false} className={styles.stickyButton}>
                 {tCommon('requestAppointment')}
-                <ArrowRight size={16} />
+                <ArrowUpRight aria-hidden="true" />
               </Link>
             )}
             <span className={styles.stickyDivider} aria-hidden="true" />
             {showLogin && (
               <Link href="/login" prefetch={false} className={styles.stickyLoginLink}>
                 <span>{tCommon("login")}</span>
+                <ArrowUpRight aria-hidden="true" />
               </Link>
             )}
             <div className={styles.languageSelector} ref={stickyLangRef}>
