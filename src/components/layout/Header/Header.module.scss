@@ -1,7 +1,7 @@
 @use '../../../styles/variables' as *;
 
 .header {
-  background-color: #f7f7f7;
+  background-color: #fffcfa;
   z-index: 100;
   position: relative;
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
@@ -58,15 +58,14 @@
 // Sticky header that appears on scroll
 .stickyHeader {
   position: fixed;
-  top: clamp(0.45rem, 1.2vw, 0.85rem);
-  left: clamp(0.45rem, 1.2vw, 0.85rem);
-  right: clamp(0.45rem, 1.2vw, 0.85rem);
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.9) 100%);
-  border: 1px solid rgba(26, 26, 26, 0.1);
-  border-radius: 12px 12px 18px 18px;
-  box-shadow: 0 10px 24px rgba(20, 20, 26, 0.07);
+  background: #fffcfa;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -84,10 +83,10 @@
   }
 
   @media (max-width: 768px) {
-    top: 0.35rem;
-    left: 0.35rem;
-    right: 0.35rem;
-    border-radius: 9px 9px 14px 14px;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
   }
 }
 
@@ -103,13 +102,14 @@
 
 .stickyContainer {
   @include container-base;
+  max-width: var(--container-2xl);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 78px;
+  height: 104px;
 
   @media (max-width: 768px) {
-    height: 50px;
+    height: 68px;
   }
 }
 
@@ -126,24 +126,32 @@
 }
 
 .stickyLogo {
-  height: 36px;
+  height: 46px;
   width: auto;
   object-fit: contain;
 
   @media (max-width: 768px) {
-    height: 24px;
+    height: 31px;
   }
 }
 
 .stickyLogoTagline {
   display: block;
-  font-size: 0.56rem;
+  font-size: 0.64rem;
   font-weight: 650;
-  color: #1a1a22;
+  color: #c28b78;
+  background: linear-gradient(90deg, #c58a74 0%, #af89a2 56%, #7f97ad 100%);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   line-height: 1;
   padding-left: 20px;
+
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
 
   @media (max-width: 768px) {
     display: none;
@@ -153,18 +161,18 @@
 .stickyActions {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.75rem;
 
   @media (max-width: 1280px) {
-    gap: 1.6rem;
+    gap: 1rem;
   }
 
   @media (max-width: 1100px) {
-    gap: 1.15rem;
+    gap: 0.8rem;
   }
 
   @media (max-width: 980px) {
-    gap: 0.9rem;
+    gap: 0.65rem;
   }
 
   @media (max-width: 768px) {
@@ -207,18 +215,24 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  padding: 1rem 1.4rem;
+  font-size: clamp(1rem, 0.84rem + 0.42vw, 1.24rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.005em;
   border: none;
   border-radius: 6px;
-  background: linear-gradient(135deg, #4a4a4a 0%, #2d2d32 50%, #1a1a1a 100%);
-  color: #fff;
+  background: linear-gradient(90deg, #dbb5a4 0%, #ccb3c4 33%, #bec0d4 66%, #dbb5a4 100%);
+  background-size: 200% 100%;
+  color: #1a1a22;
   cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;
   transition: opacity 0.2s;
+  box-shadow:
+    0 0 14px rgba(204, 179, 196, 0.4),
+    0 0 32px rgba(204, 179, 196, 0.18);
+  animation: headerGradientShift 6s ease infinite, headerGlow 6s ease infinite;
 
   svg {
     width: 0.875rem;
@@ -228,6 +242,43 @@
 
   &:hover {
     opacity: 0.9;
+    box-shadow:
+      0 0 16px rgba(175, 137, 162, 0.5),
+      0 0 36px rgba(175, 137, 162, 0.28);
+  }
+
+  @media (max-width: 1360px) {
+    font-size: 1.04rem;
+  }
+}
+
+.stickyDivider {
+  width: 1.5px;
+  height: 1.75rem;
+  background: #1a1a1a;
+  flex-shrink: 0;
+}
+
+.stickyNavLink {
+  margin-right: 1rem;
+  font-size: clamp(1rem, 0.84rem + 0.42vw, 1.24rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.005em;
+  color: #11141d;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+  text-decoration: none;
+  border-bottom: 1px solid #1a1a1a;
+  padding-bottom: 0.5rem;
+
+  @media (max-width: 1360px) {
+    font-size: 1.04rem;
+  }
+
+  &:hover {
+    opacity: 0.7;
   }
 }
 
@@ -235,12 +286,15 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 520;
+  font-size: clamp(1rem, 0.84rem + 0.42vw, 1.24rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.005em;
   color: #161a23;
   white-space: nowrap;
   flex-shrink: 0;
   transition: opacity 0.2s;
+  text-decoration: none;
 
   svg {
     width: 1.125rem;
@@ -249,6 +303,10 @@
 
   &:hover {
     opacity: 0.8;
+  }
+
+  @media (max-width: 1360px) {
+    font-size: 1.04rem;
   }
 
   @media (max-width: 768px) {
@@ -271,8 +329,8 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: clamp(0.9rem, 0.8rem + 0.3vw, 1rem);
+  font-weight: 600;
   line-height: 1;
   color: var(--foreground);
   padding: 0;
@@ -289,8 +347,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.625rem 1.25rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
+  font-size: clamp(0.88rem, 0.82rem + 0.2vw, 0.95rem);
+  font-weight: 600;
   letter-spacing: 0.01em;
   border: none;
   border-radius: 6px;
@@ -312,12 +370,25 @@
   }
 }
 
+.headerNavLink {
+  font-weight: 600;
+  font-size: clamp(0.9rem, 0.77rem + 0.35vw, 1.02rem);
+  line-height: 1;
+  color: var(--foreground);
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
 .headerLoginLink {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-weight: 500;
-  font-size: 0.875rem;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 0.77rem + 0.35vw, 1.02rem);
   line-height: 1;
   color: var(--foreground);
   transition: opacity 0.2s;
@@ -381,14 +452,22 @@
 
 .logoTagline {
   display: block;
-  font-size: 0.56rem;
+  font-size: 0.64rem;
   font-weight: 650;
-  color: #1a1a22;
+  color: #c28b78;
+  background: linear-gradient(90deg, #c58a74 0%, #af89a2 56%, #7f97ad 100%);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   line-height: 1;
   margin-top: 0.25rem;
   padding-left: 20px;
+
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
 
   @media (max-width: 768px) {
     display: none;
@@ -396,19 +475,68 @@
 }
 
 .logoAccent {
-  color: #4a7fb5;
+  color: inherit;
 }
 
 .languageSelector {
   position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.langOrb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.62rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.82;
+  }
+}
+
+.langOrbFlag {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(16, 19, 28, 0.1);
+}
+
+.langOrbFlagIcon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.langOrbLabel {
+  font-size: clamp(1rem, 0.84rem + 0.42vw, 1.24rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.005em;
+  color: #11141d;
+  white-space: nowrap;
+
+  @media (max-width: 1360px) {
+    font-size: 1.04rem;
+  }
 }
 
 .langToggle {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: clamp(0.9rem, 0.8rem + 0.3vw, 1rem);
+  font-weight: 600;
   line-height: 1;
   color: var(--foreground);
   padding: 0;
@@ -427,7 +555,7 @@
   background: white;
   border-radius: 0.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  min-width: 130px;
+  min-width: 11.8rem;
   overflow: hidden;
   z-index: 200;
 }
@@ -438,10 +566,10 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: var(--foreground);
-  padding: 0.75rem 1rem;
+  padding: 0;
   text-align: left;
   transition: background-color 0.2s;
 
@@ -450,12 +578,55 @@
   }
 
   &.active {
-    font-weight: 600;
+    background-color: rgba(0, 0, 0, 0.04);
   }
 }
 
+.langOptionInner {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.58rem;
+  padding: 0.68rem 0.85rem;
+}
+
+.langOptionFlag {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(16, 19, 28, 0.1);
+}
+
+.langOptionFlagIcon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.langOptionCode {
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: #121826;
+}
+
+.langOptionName {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #1a2130;
+  white-space: nowrap;
+}
+
 .langSeparator {
-  display: none;
+  display: block;
+  height: 1px;
+  margin: 0 0.75rem;
+  background: rgba(16, 19, 28, 0.08);
 }
 
 .userMenu {
@@ -651,10 +822,10 @@
 }
 
 .mobileMenuWithSticky {
-  padding-top: 74px;
+  padding-top: 100px;
 
   @media (max-width: 768px) {
-    padding-top: 60px;
+    padding-top: 76px;
   }
 }
 
@@ -909,5 +1080,30 @@
   .mobileMenu,
   .mobileMenuBackdrop {
     display: none;
+  }
+}
+
+@keyframes headerGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 14px rgba(204, 179, 196, 0.4),
+      0 0 32px rgba(204, 179, 196, 0.18);
+  }
+  50% {
+    box-shadow:
+      0 0 18px rgba(190, 192, 212, 0.45),
+      0 0 38px rgba(190, 192, 212, 0.22);
+  }
+}
+
+@keyframes headerGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

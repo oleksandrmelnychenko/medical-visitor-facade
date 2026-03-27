@@ -1,166 +1,399 @@
 @use "../../../../styles/variables" as *;
 
-.office {
-  padding: clamp(3.75rem, 7.5vw, 5.9rem) 0;
-  background-color: transparent;
-  position: relative;
-  z-index: 1;
-  min-height: 100svh;
+.office.office {
+  --office-bg: #ffffff;
+  --office-bg-end: #fbfcfe;
+  --office-surface: rgba(255, 255, 255, 0.4);
+  --office-border: rgba(18, 22, 29, 0.1);
+  --office-border-soft: rgba(18, 22, 29, 0.06);
+  --office-text: #141923;
+  --office-muted: rgba(20, 25, 35, 0.64);
+  padding: 0;
   display: flex;
   align-items: center;
+  position: relative;
   overflow: hidden;
+  background-color: #fffcfa;
+  border-top: 1px solid #000000;
   content-visibility: auto;
-  contain-intrinsic-size: 820px;
+  contain-intrinsic-size: 900px;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 8%;
-    right: 8%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-card) 30%, var(--border-card) 70%, transparent);
-  }
+}
 
-  &::after {
-    content: "";
-    position: absolute;
-    top: 12%;
-    right: -8%;
-    width: min(34vw, 28rem);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(186, 201, 227, 0.18) 0%, rgba(186, 201, 227, 0) 72%);
-    pointer-events: none;
+.container {
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  padding-left: 0.65rem !important;
+  padding-right: 0.65rem !important;
+}
+
+.shell {
+  width: min(calc(100vw - 1.3rem), 1710px);
+  margin: 0 auto;
+  padding: clamp(5.8rem, 9vw, 7.8rem) 0 clamp(10.6rem, 16.8vw, 14.2rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: stretch;
+
+  @media (max-width: 1023px) {
+    gap: 1.9rem;
+    width: min(calc(100vw - 1rem), 100%);
+    padding: 5.2rem 0 8.6rem;
   }
 
   @media (max-width: 767px) {
-    min-height: auto;
-    padding: clamp(3rem, 7vw, 4.5rem) 0;
+    padding: 4.5rem 0 7.2rem;
   }
 }
 
-.stage {
-  max-width: 1120px;
-  margin: 0 auto;
+.introPanel {
+  width: min(100%, 48rem);
+  display: grid;
+  align-content: start;
+  gap: clamp(1rem, 1.8vw, 1.45rem);
+  padding: 0;
 }
 
-.header {
-  text-align: center;
-  max-width: 36rem;
-  margin: 0 auto clamp(1.8rem, 4vw, 2.75rem);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.introMark {
+  display: block;
+  width: clamp(3.4rem, 5vw, 4.8rem);
+  height: 1px;
+  background: linear-gradient(90deg, #c8a193 0%, #a77c8e 52%, rgba(167, 124, 142, 0) 100%);
 }
 
 .overline {
-  color: var(--muted-foreground);
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(0.9rem, 1vw, 0.96rem);
+  font-weight: 650;
+  line-height: 1.1;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-size: 0.75rem;
-  font-weight: 500;
-  margin-bottom: 0.75rem;
+  color: rgba(20, 25, 35, 0.72);
 }
 
 .title {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(1.9rem, 3.35vw, 2.7rem);
-  font-weight: 500;
-  color: var(--text-heading);
-  margin-bottom: 0;
-  letter-spacing: -0.018em;
-  line-height: 1.16;
+  margin: 0;
+  max-width: 15ch;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(2.55rem, 4.7vw, 4.95rem);
+  font-weight: 560;
+  line-height: 0.9;
+  letter-spacing: -0.072em;
+  color: #946b62;
+  text-wrap: balance;
+}
 
-  @media (max-width: 767px) {
-    font-size: clamp(1.5rem, 5vw, 2rem);
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .title {
+    background-image:
+      linear-gradient(
+        100deg,
+        #9d7467 0%,
+        #cb957b 24%,
+        #bf807b 48%,
+        #967fab 72%,
+        #71949d 100%
+      ),
+      linear-gradient(
+        118deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 247, 238, 0.22) 39%,
+        rgba(255, 246, 232, 0.88) 47%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(255, 233, 220, 0.82) 54%,
+        rgba(255, 255, 255, 0.14) 63%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    background-size: 100% 100%, 245% 100%;
+    background-position: 0 50%, 165% 50%;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    filter: saturate(1.05) contrast(1.11) brightness(0.98);
+    will-change: background-position, filter;
+    animation: officeTitleImpulse 5.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+}
+
+@keyframes officeTitleImpulse {
+  0%,
+  46% {
+    background-position: 0 50%, 165% 50%;
+    filter: saturate(1.05) brightness(0.98) contrast(1.11);
+  }
+
+  58% {
+    background-position: 0 50%, 64% 50%;
+    filter: saturate(1.14) brightness(1.05) contrast(1.14);
+  }
+
+  66% {
+    background-position: 0 50%, 8% 50%;
+    filter: saturate(1.18) brightness(1.08) contrast(1.18);
+  }
+
+  74% {
+    background-position: 0 50%, -38% 50%;
+    filter: saturate(1.1) brightness(1.02) contrast(1.12);
+  }
+
+  100% {
+    background-position: 0 50%, -180% 50%;
+    filter: saturate(1.05) brightness(0.98) contrast(1.11);
+  }
+}
+
+.cityStrip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.75rem;
+  max-width: 24rem;
+}
+
+.cityChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(0.98rem, 1.08vw, 1.08rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: rgba(20, 25, 35, 0.82);
+  white-space: nowrap;
+
+  &:not(:last-child)::after {
+    content: "";
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 999px;
+    background: rgba(20, 25, 35, 0.24);
   }
 }
 
 .subtitle {
-  font-size: 1rem;
-  color: var(--muted-foreground);
-  line-height: 1.7;
-  margin-top: 0.95rem;
+  margin: 0;
+  max-width: 25rem;
+  font-size: clamp(0.98rem, 1.12vw, 1.08rem);
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: -0.02em;
+  color: var(--office-muted);
+}
 
-  @media (max-width: 767px) {
-    font-size: 0.9rem;
+.stage {
+  min-width: 0;
+  width: 100%;
+}
+
+.atlas {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(18rem, 0.88fr);
+  gap: clamp(0.95rem, 1.8vw, 1.35rem);
+  min-height: clamp(25rem, 56vh, 35rem);
+
+  @media (max-width: 1180px) {
+    grid-template-columns: 1fr;
+    min-height: auto;
   }
 }
 
-.citiesGrid {
+.featuredCity {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(1rem, 1.9vw, 1.3rem);
-  max-width: 980px;
-  margin: 0 auto;
-  min-width: 0;
-}
-
-.mainCity {
-  grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: clamp(0.9rem, 2vw, 1.6rem);
-  min-height: clamp(12.25rem, 24.5vw, 15.25rem);
-  border-radius: 24px;
-  border: 1px solid transparent;
+  grid-template-columns: minmax(11rem, 0.74fr) minmax(0, 1fr);
+  gap: clamp(1rem, 2vw, 1.7rem);
+  align-items: stretch;
+  min-height: 0;
+  padding: clamp(1.25rem, 2vw, 1.65rem);
+  border-radius: 32px;
+  border: 1px solid var(--office-border);
   position: relative;
   overflow: hidden;
-  padding: clamp(1.25rem, 2.1vw, 1.7rem) clamp(1.3rem, 2.7vw, 2.05rem);
-  cursor: pointer;
-  box-shadow:
-    0 18px 40px rgba(28, 34, 46, 0.06),
-    0 1px 0 rgba(255, 255, 255, 0.34) inset;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 22px 50px rgba(18, 22, 29, 0.09);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0.08) 36%, rgba(255, 255, 255, 0) 64%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.12) 32%, rgba(255, 255, 255, 0) 64%);
     pointer-events: none;
   }
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow:
-      0 22px 44px rgba(28, 34, 46, 0.09),
-      0 1px 0 rgba(255, 255, 255, 0.38) inset;
-    border-color: color-mix(in srgb, var(--border-card) 80%, #999);
-
-    .cityImageMunich {
-      transform: scale(1.04);
-    }
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+    border-radius: 24px;
+    padding: 1rem;
   }
 }
 
-.mainCityImageWrapper {
-  width: min(47%, 22rem);
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-left: auto;
+.featuredMeta {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.2rem;
+  min-width: 0;
+}
+
+.featuredIndex {
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(0.92rem, 0.95vw, 0.98rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(20, 25, 35, 0.52);
+}
+
+.featuredName {
+  margin: 0;
+  max-width: 6.2ch;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(2.75rem, 4.9vw, 4.95rem);
+  font-weight: 560;
+  line-height: 0.86;
+  letter-spacing: -0.074em;
+  color: var(--office-text);
+  text-wrap: balance;
+}
+
+.featuredVisual {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  min-width: 0;
+
+  @media (max-width: 767px) {
+    justify-content: center;
+  }
 }
 
 .cityImageMunich {
-  max-height: 100%;
   width: auto;
+  height: 100%;
+  max-height: clamp(22rem, 51vh, 35rem);
   object-fit: contain;
-  border-radius: 12px;
-  transition: transform 0.4s ease;
+  border-radius: 18px;
+  transition: transform 0.38s ease;
+
+  @media (max-width: 767px) {
+    max-height: 18rem;
+  }
 }
 
-// Smooth brush stroke paint animation - from top-left corner
+.sideCities {
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.95rem, 1.8vw, 1.2rem);
+
+  @media (max-width: 1180px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: none;
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cityCard {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.84fr) minmax(0, 1fr);
+  gap: clamp(0.7rem, 1.2vw, 0.95rem);
+  align-items: end;
+  min-height: 0;
+  padding: clamp(0.95rem, 1.4vw, 1.2rem);
+  border-radius: 24px;
+  border: 1px solid var(--office-border);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(18, 22, 29, 0.06);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.08) 36%, rgba(255, 255, 255, 0) 72%);
+    pointer-events: none;
+  }
+
+  @media (max-width: 1180px) {
+    min-height: clamp(12rem, 24vw, 14rem);
+  }
+
+  @media (max-width: 767px) {
+    border-radius: 20px;
+  }
+}
+
+.cityCardMeta {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 1rem;
+}
+
+.cityCardIndex {
+  font-family: "Raleway", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(20, 25, 35, 0.48);
+}
+
+.cityName {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1.35rem, 1.9vw, 1.85rem);
+  font-weight: 560;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  color: var(--office-text);
+  text-wrap: balance;
+}
+
+.cityCardVisual {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-width: 0;
+  min-height: 0;
+}
+
+.cityImage {
+  width: auto;
+  height: 100%;
+  max-height: clamp(7.6rem, 15.5vh, 11rem);
+  object-fit: contain;
+  border-radius: 14px;
+  transition: transform 0.38s ease;
+}
+
 @keyframes brushReveal {
   0% {
     clip-path: inset(0 100% 100% 0);
     opacity: 0;
   }
+
   100% {
     clip-path: inset(0 0 0 0);
     opacity: 1;
@@ -174,7 +407,7 @@
 }
 
 .brushPaintActive {
-  animation: brushReveal 1s ease-out forwards;
+  animation: brushReveal 0.95s ease-out forwards;
 }
 
 .brushPaintStatic {
@@ -182,228 +415,68 @@
   opacity: 1;
 }
 
-.mainCityContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  flex: 0 0 clamp(15rem, 44%, 21rem);
-  max-width: none;
-  padding-left: clamp(0.9rem, 2.2vw, 1.8rem);
-  padding-right: clamp(0.9rem, 2vw, 1.5rem);
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
+@media (hover: hover) {
+  .featuredCity:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 26px 56px rgba(18, 22, 29, 0.11);
 
-.cityImageWrapper {
-  width: 100%;
-  aspect-ratio: 1 / 0.82;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-}
-
-.cityImage {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 12px;
-  transition: transform 0.4s ease;
-}
-
-.mainCityName {
-  font-size: clamp(1.45rem, 2.3vw, 1.95rem);
-  font-weight: 600;
-  color: var(--foreground);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  line-height: 1.08;
-  text-align: center;
-}
-
-.cityCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  min-height: clamp(11.1rem, 16.5vw, 13.3rem);
-  border-radius: 20px;
-  border: 1px solid transparent;
-  position: relative;
-  overflow: hidden;
-  padding: 1.05rem 1.05rem 1.1rem;
-  gap: 0.9rem;
-  cursor: pointer;
-  box-shadow:
-    0 14px 30px rgba(28, 34, 46, 0.05),
-    0 1px 0 rgba(255, 255, 255, 0.28) inset;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0.08) 28%, rgba(255, 255, 255, 0) 64%);
-    pointer-events: none;
+    .cityImageMunich {
+      transform: translateY(-0.15rem) scale(1.018);
+    }
   }
 
-  &:hover {
+  .cityCard:hover {
     transform: translateY(-2px);
-    box-shadow:
-      0 18px 32px rgba(28, 34, 46, 0.08),
-      0 1px 0 rgba(255, 255, 255, 0.34) inset;
-    border-color: color-mix(in srgb, var(--border-card) 80%, #999);
+    box-shadow: 0 20px 40px rgba(18, 22, 29, 0.08);
 
     .cityImage {
-      transform: scale(1.04);
+      transform: translateY(-0.12rem) scale(1.025);
     }
   }
 }
 
-.cityName {
-  font-size: 0.79rem;
-  font-weight: 650;
-  color: var(--foreground);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  line-height: 1.25;
-  text-align: center;
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .stage {
-    max-width: 980px;
+@media (max-width: 1023px) {
+  .title {
+    max-width: 100%;
   }
 
-  .header {
-    margin-bottom: 1.7rem;
-  }
-
-  .mainCity {
-    min-height: 12rem;
-    gap: 1rem;
-    padding: 1.2rem 1.35rem;
-  }
-
-  .mainCityContent {
-    flex-basis: 42%;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-  }
-
-  .mainCityName {
-    font-size: 1.25rem;
-    letter-spacing: 0.1em;
-  }
-
-  .mainCityImageWrapper {
-    width: min(44%, 18rem);
-  }
-
-  .cityCard {
-    min-height: 10.4rem;
-    padding: 0.95rem 0.9rem 1rem;
-  }
-
-  .cityName {
-    font-size: 0.75rem;
-    letter-spacing: 0.085em;
+  .introPanel {
+    max-width: 100%;
   }
 }
 
 @media (max-width: 767px) {
-  .brushPaint {
-    clip-path: inset(0);
-    opacity: 1;
+  .cityStrip {
+    gap: 0.4rem 0.6rem;
   }
 
-  .brushPaintActive {
-    animation: none;
+  .cityChip {
+    gap: 0.6rem;
+    font-size: 0.94rem;
   }
 
-  .header {
-    margin-bottom: 1.35rem;
+  .title {
+    font-size: clamp(2.1rem, 9vw, 3.3rem);
   }
 
-  .citiesGrid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .mainCity {
-    min-height: 0;
-    padding: 0;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: stretch;
-    gap: 0;
-    border-radius: 16px;
-    overflow: hidden;
-  }
-
-  .mainCityContent {
-    flex: 1;
-    padding: 1rem;
-    order: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .mainCityName {
-    font-size: 0.84rem;
-    letter-spacing: 0.09em;
-  }
-
-  .mainCityImageWrapper {
-    height: auto;
-    max-height: none;
-    width: 40%;
-    flex: none;
-    aspect-ratio: 1;
-    order: 1;
-  }
-
-  .cityImageMunich {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0;
-  }
-
-  .cityCard {
-    flex-direction: row;
-    min-height: 0;
-    padding: 0;
-    gap: 0;
-    border-radius: 14px;
-    overflow: hidden;
-  }
-
-  .cityImageWrapper {
-    width: 40%;
-    flex: none;
-    aspect-ratio: 1;
-  }
-
-  .cityImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0;
+  .featuredName {
+    max-width: 100%;
+    font-size: clamp(2.2rem, 9vw, 3.2rem);
   }
 
   .cityName {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    font-size: 0.74rem;
-    letter-spacing: 0.08em;
+    font-size: clamp(1.18rem, 6.2vw, 1.55rem);
+  }
+
+  .cityImage {
+    max-height: 8.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title {
+    animation: none;
+    background-position: 0 50%, 100% 50%;
+    filter: none;
   }
 }

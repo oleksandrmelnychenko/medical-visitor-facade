@@ -1,101 +1,118 @@
 "use client";
 
-import { useState, type CSSProperties, type KeyboardEvent } from "react";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
-import {
-  Stethoscope,
-  CalendarClock,
-  FileText,
-  Languages,
-  PlaneTakeoff,
-  Headphones,
-  HeartPulse,
-} from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./CareForward.module.scss";
 
 const STEPS = [
-  { icon: Stethoscope, key: "consultation", tone: "var(--tone-blue)" },
-  { icon: CalendarClock, key: "coordination", tone: "var(--tone-sand)" },
-  { icon: FileText, key: "documentation", tone: "var(--tone-sage)" },
-  { icon: Languages, key: "languageDigital", tone: "var(--tone-lavender)" },
-  { icon: PlaneTakeoff, key: "travelTransfer", tone: "var(--tone-blue)" },
-  { icon: Headphones, key: "personalSupport", tone: "var(--tone-sand)" },
-  { icon: HeartPulse, key: "aftercare", tone: "var(--tone-sage)" },
-];
+  "consultation",
+  "coordination",
+  "documentation",
+  "languageDigital",
+  "travelTransfer",
+  "personalSupport",
+  "aftercare",
+] as const;
+
+const DETAIL_DESCRIPTORS = [
+  {
+    pointKey: "point1",
+    itemKey: "item1",
+  },
+  {
+    pointKey: "point2",
+    itemKey: "item2",
+  },
+  {
+    pointKey: "point3",
+    itemKey: "item3",
+  },
+] as const;
 
 export function CareForward() {
   const t = useTranslations("home.careForward");
-  const [activeKey, setActiveKey] = useState<string | null>(null);
+  const [openKey, setOpenKey] = useState<(typeof STEPS)[number] | null>(null);
 
-  const toggleCard = (key: string) => {
-    const hasHover = window.matchMedia("(hover: hover)").matches;
-    if (hasHover) return;
-    setActiveKey((current) => (current === key ? null : key));
-  };
-
-  const handleCardKeyDown = (event: KeyboardEvent<HTMLElement>, key: string) => {
-    if (event.key !== "Enter" && event.key !== " ") {
-      return;
-    }
-
-    event.preventDefault();
-    toggleCard(key);
+  const toggle = (key: (typeof STEPS)[number]) => {
+    setOpenKey((current) => (current === key ? null : key));
   };
 
   return (
-    <section className={styles.section} data-dark-section>
-      <span className={styles.topSeam} aria-hidden />
+    <section className={styles.section}>
       <div className={sectionStyles.container}>
-        <div
-          className={styles.shell}
-          data-snap-anchor
-          data-snap-shift="24"
-        >
-          <div className={styles.header}>
-            <h2 className={styles.title}>{t("title")}</h2>
-          </div>
-          <div className={styles.flowGrid}>
-            {STEPS.map((step) => {
-              const isExpanded = activeKey === step.key;
-              const panelId = `care-forward-${step.key}-details`;
+        {/* Hero statement */}
+        <div className={styles.statement} data-snap-anchor>
+          <p className={styles.statementLabel}>({t("title")})</p>
+          <h2 className={styles.statementHeadline}>{t("headline")}</h2>
+        </div>
+
+        {/* Accordion */}
+        <div className={styles.accordionWrap} data-snap-anchor data-snap-shift="24">
+          <div className={styles.accordion}>
+            {STEPS.map((key) => {
+              const isOpen = openKey === key;
+              const panelId = `care-${key}-panel`;
+              const triggerId = `care-${key}-trigger`;
 
               return (
-                <article
-                  key={step.key}
-                  className={cn(
-                    styles.flowCard,
-                    step.key === "aftercare" && styles.flowCardWide,
-                    isExpanded && styles.flowCardExpanded
-                  )}
-                  style={{ "--tone": step.tone } as CSSProperties}
-                  role="button"
-                  tabIndex={0}
-                  aria-expanded={isExpanded}
-                  aria-controls={panelId}
-                  onClick={() => toggleCard(step.key)}
-                  onKeyDown={(event) => handleCardKeyDown(event, step.key)}
-                >
-                  <div className={styles.cardTop}>
-                    <div className={styles.cardIcon}>
-                      <step.icon />
+                <div key={key} className={styles.accordionItem}>
+                  <button
+                    id={triggerId}
+                    type="button"
+                    className={styles.accordionTrigger}
+                    onClick={() => toggle(key)}
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                  >
+                    <div className={styles.accordionTriggerContent}>
+                      <span className={styles.accordionLabel}>
+                        {t(`services.${key}.title`)}
+                      </span>
                     </div>
-                  </div>
-                  <div className={styles.cardContent}>
-                    <h3 className={styles.cardTitle}>{t(`services.${step.key}.title`)}</h3>
-                    <div className={styles.cardDivider} aria-hidden="true" />
-                    <div className={styles.cardListWrap}>
-                      <ul id={panelId} className={styles.cardList}>
-                        {(["point1", "point2", "point3"] as const).map((pointKey) => (
-                          <li key={pointKey} className={styles.cardPoint}>
-                            {t(`services.${step.key}.${pointKey}`)}
+                    <span className={cn(styles.accordionIcon, isOpen && styles.accordionIconOpen)}>
+                      {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+                    </span>
+                  </button>
+
+                  <div
+                    id={panelId}
+                    className={cn(styles.accordionPanel, isOpen && styles.accordionPanelOpen)}
+                    role="region"
+                    aria-labelledby={triggerId}
+                    aria-hidden={!isOpen}
+                  >
+                    <ul className={styles.accordionList}>
+                      {DETAIL_DESCRIPTORS.map((descriptor) => {
+                        const itemTitleKey = `services.${key}.${descriptor.itemKey}Title`;
+                        const itemTextKey = `services.${key}.${descriptor.itemKey}Text`;
+                        const hasDetailedText =
+                          t.has(itemTitleKey) &&
+                          t.has(itemTextKey);
+
+                        const pointTitle = hasDetailedText
+                          ? t(itemTitleKey)
+                          : t(`services.${key}.${descriptor.pointKey}`);
+                        const pointText = hasDetailedText
+                          ? t(itemTextKey)
+                          : null;
+
+                        return (
+                          <li key={descriptor.pointKey} className={styles.accordionPoint}>
+                            <p className={styles.accordionPointLine}>
+                              <span className={styles.accordionPointTitle}>{pointTitle}</span>
+                              {pointText ? (
+                                <span className={styles.accordionPointText}> {pointText}</span>
+                              ) : null}
+                            </p>
                           </li>
-                        ))}
-                      </ul>
-                    </div>
+                        );
+                      })}
+                    </ul>
                   </div>
-                </article>
+                </div>
               );
             })}
           </div>

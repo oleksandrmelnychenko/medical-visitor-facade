@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { GmedHeaderLogo } from "@/components/branding/GmedHeaderLogo/GmedHeaderLogo";
 import { FooterSwitch } from "./FooterSwitch";
 import styles from "./Footer.module.scss";
 
@@ -24,41 +25,33 @@ export async function Footer({ locale }: FooterProps) {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.grid}>
-          {/* Company Info */}
           <div className={styles.column}>
-            <h3 className={styles.sectionTitle}>{t("headquarters")}</h3>
             <div className={styles.textSmall}>
               <p>{t("address")}</p>
             </div>
           </div>
 
-          {/* Contact */}
           <div className={styles.column}>
-            <h3 className={styles.sectionTitle}>{t("contact")}</h3>
             <ul className={styles.linkList}>
               <li className={styles.linkItem}>
-                <a href="mailto:contact@gmed-health.com">
-                  contact@gmed-health.com
-                </a>
+                <a href="mailto:contact@gmed-health.com">contact@gmed-health.com</a>
               </li>
             </ul>
           </div>
 
-          {/* Links */}
           <div className={styles.column}>
-            <h3 className={styles.sectionTitle}>{t("theAgency")}</h3>
-            <ul className={styles.linkList}>
-              <li className={styles.linkItem}>
+            <ul className={`${styles.linkList} ${styles.agencyList}`}>
+              <li className={`${styles.linkItem} ${styles.agencyLinkItem}`}>
                 <Link href="/financial-assistance" locale={locale}>
                   {t("financialAssistance")}
                 </Link>
               </li>
-              <li className={styles.linkItem}>
+              <li className={`${styles.linkItem} ${styles.agencyLinkItem}`}>
                 <Link href="/privacy-policy" locale={locale}>
                   {t("privacyPolicy")}
                 </Link>
               </li>
-              <li className={styles.linkItem}>
+              <li className={`${styles.linkItem} ${styles.agencyLinkItem}`}>
                 <Link href="/legal-notice" locale={locale}>
                   {t("impressum")}
                 </Link>
@@ -67,9 +60,32 @@ export async function Footer({ locale }: FooterProps) {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className={styles.bottomBar}>
-          <p>{t("copyright", { year: new Date().getFullYear() })}. {t("allRightsReserved")}</p>
+        <div className={styles.trustBadge} aria-label="5 stars, 250 plus">
+          <div className={styles.trustStars} aria-hidden="true">
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+          </div>
+          <p className={styles.trustCount}>250+</p>
+        </div>
+
+        <div className={styles.brandRow}>
+          <div className={styles.brandBlock}>
+            <GmedHeaderLogo className={styles.brandWordmark} />
+          </div>
+
+          <div className={styles.utilityRow}>
+            <div className={styles.bottomBar}>
+              <p>{t("copyright", { year: 2026 })}. {t("allRightsReserved")}.</p>
+            </div>
+
+            <a href="#" className={styles.backToTop}>
+              <span>{t("backToTop")}</span>
+              <span aria-hidden="true">↑</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

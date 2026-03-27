@@ -1,14 +1,14 @@
-@use '../../../styles/variables' as *;
+@use "../../../styles/variables" as *;
 
 .footer {
-  background:
-    linear-gradient(180deg, #1e1e24 0%, #18181c 100%);
-  color: #d4d4dc;
+  background-color: #f9f5f2;
+  color: rgba(20, 25, 35, 0.84);
   position: relative;
   z-index: 10;
-  border-radius: 56px 56px 0 0;
-  margin-top: -56px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 84px 84px 0 0;
+  margin-top: 0;
+  border: 1px solid rgba(158, 124, 111, 0.26);
+  overflow: hidden;
 }
 
 .authFooter {
@@ -30,83 +30,256 @@
   text-align: center;
   font-size: 0.82rem;
   letter-spacing: 0.01em;
-  color: #7a808d;
+  color: #000000;
 }
 
 .container {
   @include container-base;
-  padding-top: clamp(3.75rem, 7vw, 5rem);
-  padding-bottom: clamp(2rem, 4vw, 3rem);
+  position: relative;
+  padding-top: clamp(4.8rem, 8vw, 6rem);
+  padding-bottom: clamp(2.4rem, 4.8vw, 3.8rem);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(1.75rem, 4vw, 2.5rem);
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(2rem, 4vw, 3.5rem);
-  }
+  grid-template-columns: repeat(3, minmax(11rem, max-content));
+  width: fit-content;
+  max-width: 100%;
+  gap: clamp(3.8rem, 7vw, 8rem);
+  align-items: start;
+  justify-content: center;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .column {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 1.7rem;
+  align-items: center;
 }
 
 .sectionTitle {
-  color: #a0a0b0;
-  margin-bottom: 0.2rem;
-  font-weight: 600;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.13em;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1rem, 1.22vw, 1.16rem);
+  font-weight: 560;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: rgba(20, 25, 35, 0.92);
 }
 
 .textSmall {
-  font-size: 0.95rem;
-  line-height: 1.55;
-  color: #f0f0f4;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  max-width: 18rem;
+  font-size: clamp(1.14rem, 1.34vw, 1.32rem);
   font-weight: 500;
+  line-height: 1.48;
+  letter-spacing: -0.018em;
+  color: #000000;
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
 }
 
 .linkList {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .linkItem {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
 
   a {
-    color: #f0f0f4;
+    font-family: "Raleway", sans-serif;
+    max-width: 20rem;
+    color: #000000;
     font-weight: 500;
-    font-size: 0.95rem;
-    letter-spacing: 0.01em;
+    font-size: clamp(1.14rem, 1.34vw, 1.32rem);
+    line-height: 1.48;
+    letter-spacing: -0.018em;
     text-decoration: none;
     transition: color 0.18s ease, transform 0.18s ease;
+    text-wrap: balance;
 
     &:hover {
-      color: #d4b060;
+      color: rgba(20, 25, 35, 0.9);
       transform: translateX(1px);
     }
   }
 }
 
+.agencyList {
+  gap: 0.95rem;
+}
+
+.agencyLinkItem {
+  align-items: stretch;
+  width: min(100%, 18.5rem);
+
+  a {
+    display: inline-grid;
+    gap: 0.46rem;
+    width: 100%;
+    font-family: "Raleway", sans-serif;
+    font-size: clamp(0.98rem, 1.04vw, 1.06rem);
+    font-weight: 560;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    color: rgba(20, 25, 35, 0.84);
+    text-decoration: none;
+    text-wrap: balance;
+    transition: transform 0.22s ease, opacity 0.22s ease;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      background: currentColor;
+      transform-origin: left center;
+      transition: transform 0.24s ease, opacity 0.24s ease;
+    }
+
+    &:hover {
+      color: rgba(20, 25, 35, 0.92);
+      transform: translateX(0.16rem);
+    }
+
+    &:hover::after,
+    &:focus-visible::after {
+      transform: scaleX(1.03);
+    }
+
+    &:focus-visible {
+      outline: none;
+      opacity: 0.84;
+    }
+  }
+}
+
+.trustBadge {
+  position: static;
+  display: grid;
+  justify-items: center;
+  gap: 0.28rem;
+  pointer-events: none;
+  width: fit-content;
+  margin: clamp(1.4rem, 2.2vw, 2rem) auto 0;
+}
+
+.trustStars {
+  display: inline-flex;
+  gap: 0.16rem;
+  font-size: clamp(1rem, 1.18vw, 1.14rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #e58c2d;
+  text-shadow: none;
+}
+
+.trustCount {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1.28rem, 1.7vw, 1.56rem);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  color: #b96b17;
+}
+
+.brandRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.7rem, 1.3vw, 1.2rem);
+  margin-top: clamp(6.2rem, 12vw, 9rem);
+}
+
+.brandBlock {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.brandWordmark {
+  display: block;
+  width: min(64vw, 54rem);
+  max-width: 100%;
+  color: rgba(20, 25, 35, 0.9);
+}
+
 .bottomBar {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  margin-top: clamp(1.5rem, 3vw, 2.25rem);
-  padding-top: clamp(1.15rem, 2vw, 1.5rem);
-  text-align: center;
-  font-size: 0.82rem;
-  letter-spacing: 0.01em;
-  color: #a0a0b0;
-  font-weight: 400;
+  text-align: left;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(0.98rem, 1.04vw, 1.06rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: #000000;
+  font-weight: 560;
+
+  p {
+    margin: 0;
+  }
+}
+
+.utilityRow {
+  width: min(64vw, 54rem);
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.backToTop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(0.98rem, 1.04vw, 1.06rem);
+  font-weight: 560;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: #000000;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+
+  &:hover {
+    opacity: 0.72;
+    transform: translateY(-1px);
+  }
+}
+
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(11rem, max-content));
+    gap: 2.8rem 4rem;
+  }
+
+  .trustBadge {
+    justify-items: center;
+    margin: 1.8rem auto 0;
+  }
+
+  .brandRow {
+    align-items: start;
+  }
+
+  .utilityRow {
+    width: 100%;
+  }
 }
 
 @media (max-width: 767px) {
@@ -120,39 +293,77 @@
   }
 
   .footer {
-    border-radius: 32px 32px 0 0;
-    margin-top: -32px;
+    border-radius: 52px 52px 0 0;
+    margin-top: 0;
   }
 
   .container {
-    padding-top: 2.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 3.4rem;
+    padding-bottom: 1.8rem;
   }
 
   .grid {
-    gap: 1.75rem;
-    text-align: center;
+    grid-template-columns: 1fr;
+    gap: 2.35rem;
+    width: 100%;
   }
 
-  .column {
-    align-items: center;
+  .trustBadge {
+    margin: 1.2rem auto 0;
+    gap: 0.18rem;
   }
 
-  .linkList {
-    align-items: center;
+  .trustStars {
+    font-size: 0.96rem;
+  }
+
+  .trustCount {
+    font-size: 1.1rem;
   }
 
   .sectionTitle {
-    font-size: 0.68rem;
+    font-size: 1rem;
   }
 
-  .textSmall {
-    font-size: 0.88rem;
+  .textSmall,
+  .linkItem a,
+  .bottomBar,
+  .backToTop {
+    font-size: 0.94rem;
   }
 
-  .bottomBar {
-    font-size: 0.76rem;
-    margin-top: 1.25rem;
-    padding-top: 1rem;
+  .textSmall,
+  .linkItem a {
+    font-size: 1.06rem;
+    line-height: 1.48;
+  }
+
+  .agencyList {
+    gap: 0.8rem;
+  }
+
+  .agencyLinkItem {
+    width: 100%;
+
+    a {
+      gap: 0.38rem;
+      font-size: 0.94rem;
+    }
+  }
+
+  .brandRow {
+    margin-top: 2.6rem;
+    gap: 0.85rem;
+  }
+
+  .brandWordmark {
+    width: min(82vw, 22rem);
+  }
+
+  .utilityRow {
+    width: min(82vw, 22rem);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.45rem;
   }
 }
