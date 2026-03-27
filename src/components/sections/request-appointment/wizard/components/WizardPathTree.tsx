@@ -3,6 +3,7 @@
 import React, { Suspense, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import { Activity } from 'lucide-react';
 import { useWizard } from '../WizardContext';
 import { WizardData, WizardStep } from '../types';
 import styles from './WizardPathTree.module.scss';
@@ -131,16 +132,14 @@ function WizardPathTreeInner() {
       style={{ '--wizard-zone-progress': `${progressPercent}%` } as React.CSSProperties}
     >
       <div className={styles.bar}>
+        <span className={styles.name}>
+          {activeZone ? (t as (k: string) => string)(`zones.${activeZone.key}`) : ''}
+        </span>
+        <Activity size={16} className={styles.icon} />
         <span className={styles.count}>
           {String(resolvedActiveZoneIndex + 1).padStart(2, '0')}
           <span className={styles.countDash}>-</span>
           {String(zones.length).padStart(2, '0')}
-        </span>
-        <span className={styles.line} aria-hidden="true">
-          <span className={styles.lineFill} />
-        </span>
-        <span className={styles.name}>
-          {activeZone ? (t as (k: string) => string)(`zones.${activeZone.key}`) : ''}
         </span>
       </div>
     </div>

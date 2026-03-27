@@ -38,14 +38,14 @@ export function WizardStepLayout({
 
   return (
     <div className={cn(pageStyles.page, styles.gridBackground)}>
+      <div className={styles.wizardTreeStrip}>
+        <div className={styles.wizardTreeCol}>
+          <WizardPathTree />
+        </div>
+      </div>
       <section className={cn(sectionStyles.section, styles.wizardShellSection)} id="register">
         <div className={sectionStyles.container}>
           <div className={styles.wizardOuterRow}>
-            <div className={styles.wizardTreeCol}>
-              <div className={styles.wizardTimelinePanel}>
-                <WizardPathTree />
-              </div>
-            </div>
 
             <div className={styles.wizardShell}>
               <div className={styles.wizardShellHeader}>
