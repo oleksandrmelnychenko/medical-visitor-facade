@@ -142,6 +142,7 @@
   --accordion-block-pad: clamp(1.35rem, 2vw, 1.8rem);
   background-color: color-mix(in oklab, var(--foreground) 85%, transparent);
   border-radius: clamp(1.5rem, 2vw, 1.75rem);
+  overflow: hidden;
   padding-block: var(--accordion-block-pad);
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 22px 44px -32px rgba(0, 0, 0, 0.4);
@@ -170,10 +171,10 @@
   position: relative;
   z-index: 1;
   background: #f9f5f2;
-  border-radius: clamp(1.5rem, 2vw, 1.75rem);
-  margin: -1px -1px;
+  border-radius: 0;
+  margin: 0;
   border: none;
-  box-shadow: 0 0 0 3px #f9f5f2;
+  box-shadow: none;
 
   &::after {
     display: none;

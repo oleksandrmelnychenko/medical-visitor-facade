@@ -2,7 +2,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { Header, HeaderSwitch } from "@/components/layout/Header";
+import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 
@@ -23,15 +23,8 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <HeaderSwitch
-        main={(
-          <>
-            <Header />
-            <div className="headerOffset" aria-hidden="true" />
-          </>
-        )}
-        auth={null}
-      />
+      <Header />
+      <div className="headerOffset" aria-hidden="true" />
       {children}
       <Footer locale={locale} />
       <CookieConsent />
