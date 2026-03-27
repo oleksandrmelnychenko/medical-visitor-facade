@@ -24,7 +24,6 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <Header />
-      <div className="headerOffset" aria-hidden="true" />
       {children}
       <Footer locale={locale} />
       <CookieConsent />

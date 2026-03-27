@@ -167,6 +167,10 @@
     height: 1px;
     flex-shrink: 0;
     background: linear-gradient(90deg, #c8a193 0%, #a77c8e 52%, rgba(167, 124, 142, 0) 100%);
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 }
 

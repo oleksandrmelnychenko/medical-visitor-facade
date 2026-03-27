@@ -84,6 +84,8 @@ export function Header() {
   const isApplyPage = pathname === "/apply";
   const showLogin = !isLoginPage;
   const showApplyCta = !isApplyPage;
+
+  if (isLoginPage) return null;
   const showMobileLoginFab = showLogin && !isMobileMenuOpen && !isApplyPage;
 
   const handleLanguageSelect = (code: SupportedLocale) => {
@@ -105,6 +107,7 @@ export function Header() {
 
   return (
     <>
+      <div className="headerOffset" aria-hidden="true" />
       <div
         className={cn(
           styles.stickyHeader,

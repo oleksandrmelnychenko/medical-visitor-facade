@@ -1851,8 +1851,8 @@
 
 .locationConceptIconEu {
   svg {
-    width: 1.78rem;
-    height: 1.78rem;
+    width: 2.2rem;
+    height: 2.2rem;
   }
 }
 
@@ -4033,7 +4033,7 @@
   }
 
   .gridBackground {
-    min-height: auto;
+    min-height: calc(100svh - 90px);
   }
 
   .wizardShellSection {
@@ -4135,7 +4135,12 @@
   }
 
   .wizardContinueBtnHalf {
-    font-size: 0.92rem;
+    font-size: 0.86rem;
+  }
+
+  .wizardPrimaryButton,
+  .welcomeContinueButton {
+    font-size: 0.86rem !important;
   }
 
   .wizardCheckboxList {
