@@ -77,16 +77,16 @@
   .name {
     flex: 1 1 auto;
     max-width: none;
-    font-size: 0.78rem;
+    font-size: 0.92rem;
     line-height: 1.1;
-    letter-spacing: 0.02em;
+    letter-spacing: -0.02em;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .icon {
-    width: 1.18rem;
-    height: 1.18rem;
+    width: 1.3rem;
+    height: 1.3rem;
   }
 }
 

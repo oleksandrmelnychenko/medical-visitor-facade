@@ -227,7 +227,6 @@ export function Header() {
                 onClick={closeMobileMenu}
                 className={styles.mobileApplyButton}
               >
-                <UserPlus size={16} />
                 {tCommon("requestAppointment")}
               </Link>
             )}
@@ -237,20 +236,21 @@ export function Header() {
                 href="/login"
                 prefetch={false}
                 onClick={closeMobileMenu}
-                className={styles.mobileFooterLink}
+                className={styles.mobileLoginLink}
               >
                 {tCommon("login")}
+                <ArrowUpRight aria-hidden="true" />
               </Link>
             )}
 
             <div className={styles.mobileFooterLinks}>
-              <div className={styles.mobileFooterTitle}>{tFooter("theAgency")}</div>
               <Link
                 href="/membership"
                 onClick={closeMobileMenu}
                 className={styles.mobileFooterLink}
               >
                 {tFooter("membership")}
+                <ArrowUpRight aria-hidden="true" />
               </Link>
               <Link
                 href="/financial-assistance"
@@ -258,6 +258,7 @@ export function Header() {
                 className={styles.mobileFooterLink}
               >
                 {tFooter("financialAssistance")}
+                <ArrowUpRight aria-hidden="true" />
               </Link>
               <Link
                 href="/privacy-policy"
@@ -265,6 +266,7 @@ export function Header() {
                 className={styles.mobileFooterLink}
               >
                 {tFooter("privacyPolicy")}
+                <ArrowUpRight aria-hidden="true" />
               </Link>
               <Link
                 href="/legal-notice"
@@ -272,6 +274,7 @@ export function Header() {
                 className={styles.mobileFooterLink}
               >
                 {tFooter("impressum")}
+                <ArrowUpRight aria-hidden="true" />
               </Link>
             </div>
           </div>

@@ -4032,6 +4032,10 @@
     animation: none !important;
   }
 
+  .gridBackground {
+    min-height: auto;
+  }
+
   .wizardShellSection {
     padding-top: 0.35rem !important;
     padding-bottom: 1.75rem !important;
@@ -4042,7 +4046,7 @@
   }
 
   .wizardTreeStrip {
-    padding: 0.55rem 0.9rem;
+    padding: 0.85rem 1rem;
   }
 
   .wizardShell {
@@ -4055,18 +4059,26 @@
   }
 
   .wizardHeaderTitle {
-    font-size: clamp(1.38rem, 7.6vw, 1.85rem);
-    line-height: 1.12;
-    max-width: 13ch;
+    font-size: clamp(1.28rem, 6.5vw, 1.65rem);
+    line-height: 1.14;
+    max-width: 18ch;
+  }
+
+  .locationConceptTitle {
+    font-size: 1.08rem;
+  }
+
+  .wizardHeaderSubtitle {
+    font-size: 0.96rem;
   }
 
   .wizardMainCol > .locationStepContent {
-    min-height: clamp(23rem, calc(100svh - 16rem), 30rem);
+    min-height: auto;
   }
 
   .wizardSurface,
   .wizardSurfaceInner {
-    min-height: 100%;
+    min-height: auto;
   }
 
   .wizardSurfaceInner {
