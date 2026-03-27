@@ -26,9 +26,9 @@
   max-width: 100%;
   height: clamp(23rem, 56vw, 49rem);
   overflow: hidden;
-  border-radius: clamp(1rem, 1.6vw, 1.45rem);
-  border: 1px solid rgba(21, 24, 32, 0.08);
-  box-shadow: 0 12px 30px rgba(16, 19, 27, 0.06);
+  border-radius: clamp(1.35rem, 2vw, 1.75rem);
+  border: 1px solid rgba(17, 20, 29, 0.12);
+  box-shadow: 0 20px 42px -32px rgba(16, 19, 27, 0.22);
   background-color: #d7d6d2;
   background-image: url("/assets/hero-poster-desktop.jpg");
   background-size: cover;
@@ -48,12 +48,12 @@
 
   @media (max-width: 768px) {
     height: clamp(17.25rem, 76vw, 21.75rem);
-    border-radius: 0.9rem;
+    border-radius: 1.15rem;
     background-image: url("/assets/hero-poster-mobile.jpg");
     background-position: center top;
     background-size: cover;
     background-repeat: no-repeat;
-    box-shadow: 0 8px 20px rgba(16, 19, 27, 0.05);
+    box-shadow: 0 16px 30px -24px rgba(16, 19, 27, 0.2);
   }
 
   @media (max-width: 480px) {
@@ -105,13 +105,26 @@
 }
 
 .heroCaption {
-  margin: 0.75rem 0 0;
-  font-size: clamp(1rem, 0.84rem + 0.42vw, 1.24rem);
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.005em;
-  color: #11141d;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 1rem 0 0;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(0.92rem, 1vw, 0.98rem);
+  font-weight: 650;
+  line-height: 1.12;
+  letter-spacing: 0.04em;
+  color: rgba(20, 25, 35, 0.74);
   text-align: left;
+  text-wrap: balance;
+
+  &::before {
+    content: "";
+    width: clamp(3.4rem, 5vw, 4.8rem);
+    height: 1px;
+    flex-shrink: 0;
+    background: linear-gradient(90deg, #c8a193 0%, #a77c8e 52%, rgba(167, 124, 142, 0) 100%);
+  }
 }
 
 // Visually hidden but accessible to screen readers & crawlers

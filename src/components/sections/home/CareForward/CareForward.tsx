@@ -45,8 +45,16 @@ export function CareForward() {
       <div className={sectionStyles.container}>
         {/* Hero statement */}
         <div className={styles.statement} data-snap-anchor>
-          <p className={styles.statementLabel}>({t("title")})</p>
-          <h2 className={styles.statementHeadline}>{t("headline")}</h2>
+          <div className={styles.statementCopy}>
+            <h2 className={styles.statementHeadline}>{t("headline")}</h2>
+          </div>
+          <div className={styles.statementSide}>
+            <p className={styles.statementLabel}>
+              <span className={styles.statementLabelBracket} aria-hidden="true">(</span>
+              <span>{t("title")}</span>
+              <span className={styles.statementLabelBracket} aria-hidden="true">)</span>
+            </p>
+          </div>
         </div>
 
         {/* Accordion */}

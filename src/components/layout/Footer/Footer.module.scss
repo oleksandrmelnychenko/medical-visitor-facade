@@ -200,8 +200,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(0.7rem, 1.3vw, 1.2rem);
-  margin-top: clamp(6.2rem, 12vw, 9rem);
+  gap: clamp(0.9rem, 1.5vw, 1.35rem);
+  margin-top: clamp(5.4rem, 10vw, 7.25rem);
 }
 
 .brandBlock {
@@ -240,6 +240,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid rgba(17, 20, 29, 0.12);
 }
 
 .backToTop {
@@ -352,8 +354,8 @@
   }
 
   .brandRow {
-    margin-top: 2.6rem;
-    gap: 0.85rem;
+    margin-top: 2.9rem;
+    gap: 0.95rem;
   }
 
   .brandWordmark {
@@ -364,6 +366,7 @@
     width: min(82vw, 22rem);
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.45rem;
+    gap: 0.55rem;
+    padding-top: 0.95rem;
   }
 }
