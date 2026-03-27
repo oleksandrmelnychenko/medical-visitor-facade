@@ -13,9 +13,10 @@ const MUNICH_STYLE: CSSProperties = {
 const OTHER_CITIES = [
   {
     key: "berlin",
-    image: "/assets/1_city-berlin-v2.jpg",
+    image: "/assets/1_city-berlin-v2.png",
     imageWidth: 750,
     imageHeight: 971,
+    imageOverlay: "rgba(210, 195, 180, 0.6)",
     delayMs: 200,
     style: {
       backgroundColor: "color-mix(in srgb, var(--tone-blue) 6%, #fff)",
@@ -24,9 +25,10 @@ const OTHER_CITIES = [
   },
   {
     key: "hamburg",
-    image: "/assets/1_city-hamburg.jpg",
+    image: "/assets/1_city-hamburg.png",
     imageWidth: 1058,
     imageHeight: 1336,
+    imagePosition: "center 35%",
     delayMs: 400,
     style: {
       backgroundColor: "color-mix(in srgb, var(--tone-sand) 8%, #fff)",
@@ -35,9 +37,11 @@ const OTHER_CITIES = [
   },
   {
     key: "cologne",
-    image: "/assets/1_city-cologne.jpg",
+    image: "/assets/1_city-cologne.png",
     imageWidth: 736,
     imageHeight: 920,
+    imagePosition: "center 15%",
+    imageOverlay: "rgba(210, 195, 180, 0.6)",
     delayMs: 600,
     style: {
       backgroundColor: "color-mix(in srgb, var(--tone-lavender) 6%, #fff)",

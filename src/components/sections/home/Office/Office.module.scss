@@ -162,6 +162,156 @@
   width: 100%;
 }
 
+// Collage layout — CSS Grid areas
+.collage {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr 0.9fr;
+  grid-template-rows: 1fr 1fr;
+  gap: clamp(0.6rem, 1.2vw, 1rem);
+  height: clamp(28rem, 55vw, 42rem);
+  grid-template-areas:
+    "munich berlin cologne"
+    "munich hamburg cologne";
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    height: auto;
+    gap: 0.5rem;
+    grid-template-areas:
+      "munich munich"
+      "berlin hamburg"
+      "cologne cologne";
+  }
+}
+
+.collageMunich,
+.collageBerlin,
+.collageHamburg,
+.collageCologne {
+  position: relative;
+  overflow: hidden;
+  border-radius: clamp(0.75rem, 1.4vw, 1.1rem);
+}
+
+.collageMunich { grid-area: munich; }
+.collageBerlin { grid-area: berlin; }
+.collageHamburg { grid-area: hamburg; }
+.collageCologne { grid-area: cologne; }
+
+@media (max-width: 767px) {
+  .collageMunich { min-height: 16rem; }
+  .collageBerlin,
+  .collageHamburg { min-height: 12rem; }
+  .collageCologne { min-height: 14rem; }
+}
+
+.collageImage {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+}
+
+.collageLabel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: clamp(1rem, 1.8vw, 1.5rem);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, transparent 100%);
+}
+
+.collageName {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+  font-weight: 560;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+@media (hover: hover) {
+  .collageMunich:hover .collageImage,
+  .collageBerlin:hover .collageImage,
+  .collageHamburg:hover .collageImage,
+  .collageCologne:hover .collageImage {
+    transform: scale(1.03);
+  }
+}
+
+// New full-width grid layout
+.gridAtlas {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  grid-template-rows: auto auto;
+  gap: clamp(0.75rem, 1.4vw, 1.1rem);
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gridCity {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  border: 1px solid var(--office-border);
+  min-height: clamp(16rem, 32vw, 24rem);
+  box-shadow: 0 20px 40px -28px rgba(18, 22, 29, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  @media (max-width: 767px) {
+    min-height: 14rem;
+    border-radius: 1.25rem;
+  }
+}
+
+.gridCityMain {
+  grid-row: 1;
+  grid-column: 1;
+  min-height: clamp(22rem, 42vw, 34rem);
+
+  @media (max-width: 767px) {
+    min-height: 18rem;
+  }
+}
+
+.gridCityImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.gridCityLabel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: clamp(1.2rem, 2vw, 1.8rem);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.gridCityName {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-weight: 560;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+
+@media (hover: hover) {
+  .gridCity:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 48px rgba(18, 22, 29, 0.12);
+  }
+}
+
 .atlas {
   display: grid;
   grid-template-columns: minmax(0, 1.12fr) minmax(18rem, 0.88fr);
@@ -363,6 +513,14 @@
   object-position: center;
   border-radius: inherit;
   transition: transform 0.38s ease;
+}
+
+.cityImageOverlay {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
 }
 
 @keyframes brushReveal {

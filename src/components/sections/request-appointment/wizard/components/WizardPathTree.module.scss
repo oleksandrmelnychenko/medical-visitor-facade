@@ -1,137 +1,106 @@
-@use "../../../../../styles/variables" as *;
-
 .wrapper {
-  position: relative;
+  --wizard-zone-progress: 0%;
+  width: 100%;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.9rem, 2vw, 1.35rem);
   width: 100%;
   min-width: 0;
 }
 
-.scroll {
-  position: relative;
-  height: min(72vh, 46rem);
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: none;
+.count {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.28rem;
+  font-family: "Raleway", sans-serif;
+  color: #17171c;
+  font-size: clamp(1.18rem, 2vw, 1.66rem);
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+  white-space: nowrap;
+  font-variant-numeric: lining-nums tabular-nums;
+}
 
-  &::-webkit-scrollbar {
-    display: none;
+.countDash {
+  color: rgba(23, 23, 28, 0.52);
+  font-weight: 400;
+}
+
+.line {
+  position: relative;
+  flex: 1 1 auto;
+  display: block;
+  min-width: 0;
+  height: 2px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(23, 23, 28, 0.14) 0 28px,
+      transparent 28px 36px
+    );
+  overflow: hidden;
+}
+
+.lineFill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--wizard-zone-progress);
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(23, 23, 28, 0.56) 0 28px,
+      transparent 28px 36px
+    );
+  transition: width 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: width;
+}
+
+.name {
+  flex: 0 1 auto;
+  min-width: 0;
+  font-family: "Raleway", sans-serif;
+  color: #17171c;
+  font-size: clamp(0.74rem, 0.92vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .bar {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    row-gap: 0.7rem;
+    column-gap: 0.85rem;
+  }
+
+  .count {
+    font-size: 1.04rem;
+  }
+
+  .line {
+    order: 2;
+    grid-column: 1 / -1;
+  }
+
+  .name {
+    justify-self: end;
+    max-width: 100%;
+    font-size: 0.69rem;
+    letter-spacing: 0.02em;
   }
 }
 
-.track {
-  position: relative;
-  padding: 0;
-}
-
-.trackLine {
-  position: absolute;
-  top: 12px;
-  bottom: 12px;
-  left: 12px;
-  width: 1px;
-  background: rgba(30, 30, 36, 0.12);
-  z-index: 0;
-}
-
-.progressFill {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  width: 1.5px;
-  background: rgba(30, 30, 36, 0.5);
-  border-radius: 1px;
-  z-index: 1;
-  transition: height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none;
-}
-
-.list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  position: relative;
-  z-index: 2;
-}
-
-.node {
-  display: grid;
-  grid-template-columns: 24px minmax(0, 1fr);
-  align-items: center;
-  gap: 0.85rem;
-  opacity: 0.48;
-  transition: opacity 180ms ease;
-}
-
-.nodeDone {
-  opacity: 0.72;
-}
-
-.nodeActive {
-  opacity: 1;
-}
-
-.nodePending {
-  opacity: 0.42;
-}
-
-.dot {
-  position: relative;
-  z-index: 2;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  padding: 0;
-  flex-shrink: 0;
-}
-
-.dotInner {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #b0b0b8;
-  box-shadow: 0 0 0 3px var(--wizard-shell-bg, #fafafe);
-  transition:
-    width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-    height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.nodeActive .dotInner {
-  width: 9px;
-  height: 9px;
-  background: #1e1e24;
-  box-shadow: 0 0 0 4px var(--wizard-shell-bg, #fafafe);
-}
-
-.label {
-  color: color-mix(in srgb, var(--text-body) 88%, #59606f);
-  font-size: 0.76rem;
-  font-weight: 400;
-  line-height: 1.35;
-  letter-spacing: 0.01em;
-}
-
-.nodeDone .label {
-  color: color-mix(in srgb, var(--text-heading) 72%, #6a7080);
-}
-
-.nodeActive .label {
-  color: #1e1e24;
-  font-weight: 600;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .node,
-  .dotInner,
-  .progressFill {
+  .lineFill {
     transition: none;
   }
 }

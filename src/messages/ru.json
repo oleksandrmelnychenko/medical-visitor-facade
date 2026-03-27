@@ -185,6 +185,14 @@
     },
     "newPatient": {
       "pathTree": {
+        "zones": {
+          "entry": "Старт",
+          "eligibility": "Условия и поездка",
+          "profile": "Профиль и контакты",
+          "care": "Запрос и лечение",
+          "insurance": "Страхование",
+          "finish": "Финализация"
+        },
         "welcome": "Начало",
         "member-check": "Статус клиента",
         "account-check": "Доступ к порталу",

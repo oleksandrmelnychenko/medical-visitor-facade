@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useState, type CSSProperties } from "react";
+import { type CSSProperties } from "react";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 import styles from "./Office.module.scss";
 
 type City = {
@@ -11,6 +10,8 @@ type City = {
   image: string;
   imageWidth?: number;
   imageHeight?: number;
+  imagePosition?: string;
+  imageOverlay?: string;
   style: CSSProperties;
   delayMs: number;
 };
@@ -21,88 +22,86 @@ type OfficeCitiesGridProps = {
   mainCityStyle: CSSProperties;
 };
 
-type RevealMode = "pending" | "animate" | "static";
-
-let officeRevealPrimed = false;
-
 export function OfficeCitiesGrid({
   cities,
   mainCityName,
-  mainCityStyle,
 }: OfficeCitiesGridProps) {
-  const [revealMode, setRevealMode] = useState<RevealMode>(() =>
-    officeRevealPrimed ? "static" : "pending"
-  );
-
-  useEffect(() => {
-    if (officeRevealPrimed) {
-      return;
-    }
-
-    officeRevealPrimed = true;
-
-    const frame = window.requestAnimationFrame(() => {
-      setRevealMode(
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches
-          ? "static"
-          : "animate"
-      );
-    });
-
-    return () => {
-      window.cancelAnimationFrame(frame);
-    };
-  }, []);
-
   return (
-    <div className={styles.atlas}>
-      <article className={styles.featuredCity} style={mainCityStyle}>
-        <div className={styles.featuredMeta}>
-          <h3 className={styles.featuredName}>{mainCityName}</h3>
+    <div className={styles.collage}>
+      {/* Munich — large left */}
+      <div className={styles.collageMunich}>
+        <Image
+          src="/assets/1_city-munich.png"
+          alt={mainCityName}
+          fill
+          sizes="(max-width: 767px) 100vw, 40vw"
+          className={styles.collageImage}
+          style={{ objectPosition: "center 20%" }}
+        />
+        <div className={styles.collageLabel}>
+          <h3 className={styles.collageName}>{mainCityName}</h3>
         </div>
-        <div className={styles.featuredVisual}>
-          <Image
-            src="/assets/1_city-munich.jpg"
-            alt={mainCityName}
-            width={512}
-            height={1024}
-            sizes="(max-width: 767px) 40vw, 50vw"
-            className={styles.cityImageMunich}
-            priority={false}
-          />
-        </div>
-      </article>
-
-      <div className={styles.sideCities}>
-        {cities.map((city) => (
-          <article key={city.key} className={styles.cityCard} style={city.style}>
-            <div className={styles.cityCardMeta}>
-              <h3 className={styles.cityName}>{city.name}</h3>
-            </div>
-            <div className={styles.cityCardVisual}>
-              <Image
-                src={city.image}
-                alt={city.name}
-                width={city.imageWidth ?? 300}
-                height={city.imageHeight ?? 220}
-                sizes="(max-width: 767px) 45vw, 25vw"
-                className={cn(
-                  styles.cityImage,
-                  revealMode === "pending" && styles.brushPaint,
-                  revealMode === "animate" && styles.brushPaint,
-                  revealMode === "animate" && styles.brushPaintActive,
-                  revealMode === "static" && styles.brushPaintStatic
-                )}
-                style={
-                  revealMode === "animate"
-                    ? { animationDelay: `${city.delayMs}ms` }
-                    : undefined
-                }
-              />
-            </div>
-          </article>
-        ))}
       </div>
+
+      {/* Berlin — top middle */}
+      {cities[0] && (
+        <div className={styles.collageBerlin}>
+          <Image
+            src={cities[0].image}
+            alt={cities[0].name}
+            fill
+            sizes="(max-width: 767px) 100vw, 30vw"
+            className={styles.collageImage}
+            style={cities[0].imagePosition ? { objectPosition: cities[0].imagePosition } : undefined}
+          />
+          {cities[0].imageOverlay && (
+            <span className={styles.cityImageOverlay} style={{ background: cities[0].imageOverlay }} />
+          )}
+          <div className={styles.collageLabel}>
+            <h3 className={styles.collageName}>{cities[0].name}</h3>
+          </div>
+        </div>
+      )}
+
+      {/* Hamburg — bottom middle */}
+      {cities[1] && (
+        <div className={styles.collageHamburg}>
+          <Image
+            src={cities[1].image}
+            alt={cities[1].name}
+            fill
+            sizes="(max-width: 767px) 100vw, 30vw"
+            className={styles.collageImage}
+            style={cities[1].imagePosition ? { objectPosition: cities[1].imagePosition } : undefined}
+          />
+          {cities[1].imageOverlay && (
+            <span className={styles.cityImageOverlay} style={{ background: cities[1].imageOverlay }} />
+          )}
+          <div className={styles.collageLabel}>
+            <h3 className={styles.collageName}>{cities[1].name}</h3>
+          </div>
+        </div>
+      )}
+
+      {/* Cologne — full right */}
+      {cities[2] && (
+        <div className={styles.collageCologne}>
+          <Image
+            src={cities[2].image}
+            alt={cities[2].name}
+            fill
+            sizes="(max-width: 767px) 100vw, 30vw"
+            className={styles.collageImage}
+            style={cities[2].imagePosition ? { objectPosition: cities[2].imagePosition } : undefined}
+          />
+          {cities[2].imageOverlay && (
+            <span className={styles.cityImageOverlay} style={{ background: cities[2].imageOverlay }} />
+          )}
+          <div className={styles.collageLabel}>
+            <h3 className={styles.collageName}>{cities[2].name}</h3>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

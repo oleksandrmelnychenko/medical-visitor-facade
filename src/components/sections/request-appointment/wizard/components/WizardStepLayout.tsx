@@ -41,6 +41,12 @@ export function WizardStepLayout({
       <section className={cn(sectionStyles.section, styles.wizardShellSection)} id="register">
         <div className={sectionStyles.container}>
           <div className={styles.wizardOuterRow}>
+            <div className={styles.wizardTreeCol}>
+              <div className={styles.wizardTimelinePanel}>
+                <WizardPathTree />
+              </div>
+            </div>
+
             <div className={styles.wizardShell}>
               <div className={styles.wizardShellHeader}>
                 <div className={styles.wizardHeaderWrapper}>
@@ -93,12 +99,6 @@ export function WizardStepLayout({
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div className={styles.wizardTreeCol}>
-              <div className={styles.wizardTimelinePanel}>
-                <WizardPathTree />
               </div>
             </div>
           </div>

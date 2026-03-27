@@ -159,6 +159,14 @@
     },
     "newPatient": {
       "pathTree": {
+        "zones": {
+          "entry": "Start",
+          "eligibility": "Eignung & Reise",
+          "profile": "Profil & Kontakt",
+          "care": "Anliegen & Behandlung",
+          "insurance": "Versicherung",
+          "finish": "Abschluss"
+        },
         "welcome": "Willkommen",
         "member-check": "Kundenstatus",
         "account-check": "Portalzugang",
@@ -220,7 +228,7 @@
       "documentsPatient": {
         "title": "Verfügen Sie über die notwendigen Dokumente für die Einreise nach Deutschland?",
         "yes": "Ja",
-        "no": "Nein, ich benötige Hilfe bei der Visabeschaffung"
+        "no": "Nein"
       },
       "exitNoTravelPatient": {
         "title": "Vielen Dank. Wir organisieren aktuell ausschließlich Behandlungen in Deutschland.",

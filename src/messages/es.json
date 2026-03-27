@@ -136,6 +136,14 @@
     },
     "newPatient": {
       "pathTree": {
+        "zones": {
+          "entry": "Inicio",
+          "eligibility": "Elegibilidad y viaje",
+          "profile": "Perfil y contacto",
+          "care": "Solicitud medica",
+          "insurance": "Seguro",
+          "finish": "Revision final"
+        },
         "welcome": "Bienvenido",
         "member-check": "Estado del cliente",
         "account-check": "Acceso al portal",
@@ -197,7 +205,7 @@
       "documentsPatient": {
         "title": "¿Cuenta con los documentos necesarios para viajar a Alemania?",
         "yes": "Sí",
-        "no": "No, necesito asistencia con el visado"
+        "no": "No"
       },
       "exitNoTravelPatient": {
         "title": "Gracias. Actualmente solo organizamos tratamientos en Alemania.",

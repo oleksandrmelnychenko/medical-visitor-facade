@@ -1,0 +1,513 @@
+{
+  "version": 1,
+  "generatedOn": "2026-03-27",
+  "sourceOfTruth": {
+    "wizardDataType": "src/components/sections/request-appointment/wizard/types.ts",
+    "csvGenerator": "src/components/sections/request-appointment/wizard/salesforce-bundle.ts",
+    "postmanCollectionCompared": "/Users/oleksandrmelnychenko/Downloads/GMED Lead and Attachment.postman_collection.json",
+    "note": "The actual contract is the field set generated in salesforce-bundle.ts. The sample CSV in docs is not fully up to date."
+  },
+  "statusLegend": {
+    "already_supported_in_salesforce": "A matching Salesforce field already exists.",
+    "requires_value_transformation": "A matching Salesforce field exists, but the website value must be transformed before sending.",
+    "missing_new_salesforce_field_needed": "The website collects this data, but Salesforce currently does not have a proper target field.",
+    "exists_but_disabled_or_inactive": "A related Salesforce field exists, but it is disabled or inactive according to the collection overview.",
+    "attachment_not_lead_field": "This is not a Lead field and should be handled as a separate attachment object.",
+    "internal_navigation_only": "This is a UI or routing flag and should not be stored in Salesforce.",
+    "legacy_field_not_currently_collected": "This field exists in code or CSV but is not currently populated by the questionnaire UI."
+  },
+  "submissionMetadata": [
+    {
+      "fieldKey": "source",
+      "sourcePath": "bundle.source",
+      "csvColumn": null,
+      "currentValue": "apply",
+      "step": "submission-metadata",
+      "status": "missing_new_salesforce_field_needed",
+      "descriptionEn": "Identifies the submission source channel. Currently always set to 'apply' for the website questionnaire."
+    },
+    {
+      "fieldKey": "patientType",
+      "sourcePath": "bundle.patientType",
+      "csvColumn": null,
+      "currentValue": "new",
+      "step": "submission-metadata",
+      "status": "missing_new_salesforce_field_needed",
+      "descriptionEn": "Identifies the patient route handled by this form. Currently the web form supports new patients only."
+    },
+    {
+      "fieldKey": "flow",
+      "sourcePath": "bundle.flow",
+      "csvColumn": "Flow",
+      "currentValue": "eu | outside-eu",
+      "step": "submission-metadata",
+      "status": "missing_new_salesforce_field_needed",
+      "descriptionEn": "Internal routing outcome for the intake flow. It distinguishes the EU path from the outside-EU path after eligibility logic is applied."
+    },
+    {
+      "fieldKey": "locale",
+      "sourcePath": "bundle.locale",
+      "csvColumn": "Locale",
+      "currentValue": "en | de | es | ru",
+      "step": "submission-metadata",
+      "status": "missing_new_salesforce_field_needed",
+      "descriptionEn": "UI language active at the moment the form was submitted."
+    },
+    {
+      "fieldKey": "submittedAt",
+      "sourcePath": "bundle.submittedAt",
+      "csvColumn": "SubmittedAt",
+      "currentValue": "ISO 8601 datetime",
+      "step": "submission-metadata",
+      "status": "missing_new_salesforce_field_needed",
+      "descriptionEn": "Server-side timestamp of the final submission event in ISO 8601 format."
+    },
+    {
+      "fieldKey": "version",
+      "sourcePath": "bundle.version",
+      "csvColumn": null,
+      "currentValue": 1,
+      "step": "submission-metadata",
+      "status": "missing_new_salesforce_field_needed",
+      "descriptionEn": "Payload contract version for future compatibility and migration tracking."
+    }
+  ],
+  "steps": [
+    {
+      "stepKey": "member-check",
+      "stepTitleEn": "Initial member gate",
+      "fields": [
+        {
+          "fieldKey": "hasContactedUsBefore",
+          "sourcePath": "proposed payload.hasContactedUsBefore",
+          "csvColumn": "HasContactedUsBefore__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": [true, false],
+          "descriptionEn": "Indicates whether the person has contacted GMED before. This should be stored as an explicit business field instead of relying on the internal completion flag."
+        },
+        {
+          "fieldKey": "memberCheckCompleted",
+          "sourcePath": "payload.memberCheckCompleted",
+          "csvColumn": null,
+          "status": "internal_navigation_only",
+          "descriptionEn": "Internal UI flag that confirms the user completed the member-check entry gate. This is not business data."
+        }
+      ]
+    },
+    {
+      "stepKey": "account-check",
+      "stepTitleEn": "Account check gate",
+      "fields": [
+        {
+          "fieldKey": "hasPortalAccess",
+          "sourcePath": "proposed payload.hasPortalAccess",
+          "csvColumn": "HasPortalAccess__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": [true, false],
+          "descriptionEn": "Indicates whether the person already has access to the GMED client portal. This should be stored as an explicit business field instead of relying on the internal completion flag."
+        },
+        {
+          "fieldKey": "accountCheckCompleted",
+          "sourcePath": "payload.accountCheckCompleted",
+          "csvColumn": null,
+          "status": "internal_navigation_only",
+          "descriptionEn": "Internal UI flag that confirms the user completed the account-check gate. This is not patient data."
+        }
+      ]
+    },
+    {
+      "stepKey": "welcome",
+      "stepTitleEn": "Welcome and onboarding gate",
+      "fields": [
+        {
+          "fieldKey": "welcomeCompleted",
+          "sourcePath": "payload.welcomeCompleted",
+          "csvColumn": null,
+          "status": "internal_navigation_only",
+          "descriptionEn": "Internal UI flag that confirms the welcome step was completed. This is not business data."
+        }
+      ]
+    },
+    {
+      "stepKey": "location",
+      "stepTitleEn": "Location and path selection",
+      "fields": [
+        {
+          "fieldKey": "location",
+          "sourcePath": "payload.location",
+          "csvColumn": "Location__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": ["eu", "outside_eu"],
+          "descriptionEn": "High-level region bucket derived from the initial location choice. It is used by the questionnaire flow to decide which path the patient follows."
+        },
+        {
+          "fieldKey": "locationDetailed",
+          "sourcePath": "payload.locationDetailed",
+          "csvColumn": "LocationDetailed__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": ["germany", "eu_not_germany", "outside_eu"],
+          "descriptionEn": "Detailed location category selected by the patient: Germany, European Union outside Germany, or outside the European Union."
+        }
+      ]
+    },
+    {
+      "stepKey": "eligibility",
+      "stepTitleEn": "Eligibility questions for patients outside Germany",
+      "fields": [
+        {
+          "fieldKey": "wantsMembership",
+          "sourcePath": "payload.wantsMembership",
+          "csvColumn": "WantsMembership__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": ["yes", "no", null],
+          "descriptionEn": "Indicates whether the request is being submitted for the patient personally or for someone else. In the current UI, 'yes' means 'For myself' and 'no' means 'For someone else'. The internal field name is legacy and does not reflect the current question wording."
+        },
+        {
+          "fieldKey": "canTravel",
+          "sourcePath": "payload.canTravel",
+          "csvColumn": "CanTravel__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": ["yes", "no", null],
+          "descriptionEn": "Indicates whether the person is able to travel to Germany for treatment or consultation."
+        },
+        {
+          "fieldKey": "hasMedicalRecords",
+          "sourcePath": "payload.hasMedicalRecords",
+          "csvColumn": "HasMedicalRecords__c",
+          "status": "requires_value_transformation",
+          "salesforceTarget": "MedicalDocsReceived__c",
+          "allowedValues": ["yes", "no", "none", null],
+          "descriptionEn": "Indicates whether the patient already has medical records available. The questionnaire also distinguishes a special 'none' state when records do not exist yet."
+        },
+        {
+          "fieldKey": "recordsInAcceptedLanguage",
+          "sourcePath": "payload.recordsInAcceptedLanguage",
+          "csvColumn": "RecordsInAcceptedLanguage__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": ["yes", "no", null],
+          "descriptionEn": "Indicates whether the available medical records are already translated into German or English."
+        },
+        {
+          "fieldKey": "hasTravelDocuments",
+          "sourcePath": "payload.hasTravelDocuments",
+          "csvColumn": "HasTravelDocuments__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": ["yes", "no", null],
+          "descriptionEn": "Indicates whether the patient currently has the travel documents needed to come to Germany."
+        }
+      ]
+    },
+    {
+      "stepKey": "patient-identity",
+      "stepTitleEn": "Patient identity and demographics",
+      "fields": [
+        {
+          "fieldKey": "firstName",
+          "sourcePath": "payload.firstName",
+          "csvColumn": "FirstName",
+          "status": "already_supported_in_salesforce",
+          "descriptionEn": "Patient first name."
+        },
+        {
+          "fieldKey": "middleName",
+          "sourcePath": "payload.middleName",
+          "csvColumn": "MiddleName",
+          "status": "exists_but_disabled_or_inactive",
+          "descriptionEn": "Patient middle name. The questionnaire supports it, but the collection overview says the Salesforce Middle Name field is disabled."
+        },
+        {
+          "fieldKey": "lastName",
+          "sourcePath": "payload.lastName",
+          "csvColumn": "LastName",
+          "status": "already_supported_in_salesforce",
+          "descriptionEn": "Patient last name. This is required in the current form flow."
+        },
+        {
+          "fieldKey": "suffix",
+          "sourcePath": "payload.suffix",
+          "csvColumn": "Suffix",
+          "status": "exists_but_disabled_or_inactive",
+          "descriptionEn": "Optional suffix such as Jr., Sr., or similar. The questionnaire supports it, but the collection overview says the Salesforce Suffix field is disabled."
+        },
+        {
+          "fieldKey": "dateOfBirth",
+          "sourcePath": "payload.dateOfBirth",
+          "csvColumn": "DateOfBirth",
+          "status": "missing_new_salesforce_field_needed",
+          "currentFormat": "DD.MM.YYYY",
+          "descriptionEn": "Patient date of birth captured in day-month-year format by the questionnaire."
+        },
+        {
+          "fieldKey": "legalSex",
+          "sourcePath": "payload.legalSex",
+          "csvColumn": "LegalSex",
+          "status": "requires_value_transformation",
+          "salesforceTarget": "GenderIdentity",
+          "allowedValues": ["female", "male", "diverse", "no_entry", null],
+          "descriptionEn": "Legal sex exactly as it appears on the patient's official identification documents."
+        }
+      ]
+    },
+    {
+      "stepKey": "contact-and-language",
+      "stepTitleEn": "Contact details and communication preferences",
+      "fields": [
+        {
+          "fieldKey": "phones[0].number",
+          "sourcePath": "payload.phones[0].number",
+          "csvColumn": "Phone",
+          "status": "already_supported_in_salesforce",
+          "descriptionEn": "Primary contact phone number entered by the patient."
+        },
+        {
+          "fieldKey": "phones[0].type",
+          "sourcePath": "payload.phones[0].type",
+          "csvColumn": "PhoneType",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": ["mobile", "home", "work"],
+          "descriptionEn": "Phone type for the primary contact number. The current UI stores the main number as mobile."
+        },
+        {
+          "fieldKey": "email",
+          "sourcePath": "payload.email",
+          "csvColumn": "Email",
+          "status": "already_supported_in_salesforce",
+          "descriptionEn": "Primary email address entered by the patient."
+        },
+        {
+          "fieldKey": "whatsappConsent",
+          "sourcePath": "payload.whatsappConsent",
+          "csvColumn": "WhatsAppConsent__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": [true, false, null],
+          "descriptionEn": "Indicates whether the patient agrees to communicate via WhatsApp."
+        },
+        {
+          "fieldKey": "whatsappNumber",
+          "sourcePath": "payload.whatsappNumber",
+          "csvColumn": "WhatsAppNumber__c",
+          "status": "missing_new_salesforce_field_needed",
+          "possibleTemporarySalesforceFallback": "MobilePhone",
+          "descriptionEn": "WhatsApp number provided by the patient when WhatsApp communication is accepted."
+        },
+        {
+          "fieldKey": "emailConsent",
+          "sourcePath": "payload.emailConsent",
+          "csvColumn": "EmailConsent__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": [true, false, null],
+          "descriptionEn": "Indicates whether the patient agrees to communicate via email."
+        },
+        {
+          "fieldKey": "primaryLanguage",
+          "sourcePath": "payload.primaryLanguage",
+          "csvColumn": "PrimaryLanguage__c",
+          "status": "requires_value_transformation",
+          "salesforceTarget": "Language__c",
+          "descriptionEn": "Primary language of the patient. The questionnaire stores free text, while the current Salesforce field is a restricted picklist."
+        },
+        {
+          "fieldKey": "needsInterpreter",
+          "sourcePath": "payload.needsInterpreter",
+          "csvColumn": "NeedsInterpreter__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": ["yes", "no", null],
+          "descriptionEn": "Indicates whether the patient will require a medical interpreter during appointments in Germany."
+        }
+      ]
+    },
+    {
+      "stepKey": "address",
+      "stepTitleEn": "Home address",
+      "fields": [
+        {
+          "fieldKey": "country",
+          "sourcePath": "payload.country",
+          "csvColumn": "Country",
+          "status": "requires_value_transformation",
+          "salesforceTarget": "CountryCode",
+          "descriptionEn": "Country selected in the form. The UI currently stores country names, while Salesforce expects a restricted country code."
+        },
+        {
+          "fieldKey": "streetAddress",
+          "sourcePath": "payload.streetAddress",
+          "csvColumn": "Street",
+          "status": "already_supported_in_salesforce",
+          "descriptionEn": "Street address entered by the patient."
+        },
+        {
+          "fieldKey": "city",
+          "sourcePath": "payload.city",
+          "csvColumn": "City",
+          "status": "already_supported_in_salesforce",
+          "descriptionEn": "City entered by the patient."
+        },
+        {
+          "fieldKey": "state",
+          "sourcePath": "payload.state",
+          "csvColumn": "State",
+          "status": "requires_value_transformation",
+          "salesforceTarget": "StateCode",
+          "descriptionEn": "State or region entered by the patient. The UI stores free text, while Salesforce expects a dependent restricted state code."
+        },
+        {
+          "fieldKey": "zipCode",
+          "sourcePath": "payload.zipCode",
+          "csvColumn": "PostalCode",
+          "status": "already_supported_in_salesforce",
+          "descriptionEn": "Postal code entered by the patient."
+        }
+      ]
+    },
+    {
+      "stepKey": "services",
+      "stepTitleEn": "Requested support services",
+      "fields": [
+        {
+          "fieldKey": "services",
+          "sourcePath": "payload.services",
+          "csvColumn": "Services__c",
+          "status": "requires_value_transformation",
+          "salesforceTarget": "MedicalService__c and NonmedicalService__c",
+          "allowedValues": [
+            "driver",
+            "concierge",
+            "medical-transport",
+            "air-ambulance",
+            "business-aviation",
+            "none",
+            "not-sure"
+          ],
+          "descriptionEn": "Multi-select list of requested support services during the patient's stay in Germany. The CSV stores the raw selected values, while the current Salesforce design only has two service-type booleans."
+        }
+      ]
+    },
+    {
+      "stepKey": "clinical-request",
+      "stepTitleEn": "Clinical request and uploaded records",
+      "fields": [
+        {
+          "fieldKey": "primaryConcernText",
+          "sourcePath": "payload.primaryConcernText",
+          "csvColumn": "PrimaryConcernText__c",
+          "status": "missing_new_salesforce_field_needed",
+          "descriptionEn": "Free-text description of the main medical reason for the request. This is the primary clinical narrative entered by the patient."
+        },
+        {
+          "fieldKey": "uploadedMedicalFiles",
+          "sourcePath": "uploadedMedicalFiles[]",
+          "csvColumn": null,
+          "status": "attachment_not_lead_field",
+          "salesforceTarget": "ContentVersion",
+          "descriptionEn": "Optional uploaded files such as PDFs, ZIP archives, or medical images. These should be stored as Salesforce ContentVersion records linked to the created Lead."
+        },
+        {
+          "fieldKey": "currentlyInTreatment",
+          "sourcePath": "payload.currentlyInTreatment",
+          "csvColumn": "CurrentlyInTreatment__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": ["yes", "no", null],
+          "descriptionEn": "Indicates whether the patient is currently undergoing treatment."
+        },
+        {
+          "fieldKey": "hasHealthRiskForTravel",
+          "sourcePath": "payload.hasHealthRiskForTravel",
+          "csvColumn": "HasHealthRiskForTravel__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": ["yes", "no", null],
+          "descriptionEn": "Indicates whether travel to Germany might be medically unsafe for the patient."
+        }
+      ]
+    },
+    {
+      "stepKey": "insurance",
+      "stepTitleEn": "Insurance details",
+      "fields": [
+        {
+          "fieldKey": "hasInsurance",
+          "sourcePath": "payload.hasInsurance",
+          "csvColumn": "HasInsurance__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": ["yes", "no", null],
+          "descriptionEn": "Indicates whether the patient currently has health insurance."
+        },
+        {
+          "fieldKey": "insuranceCoversGermany",
+          "sourcePath": "payload.insuranceCoversGermany",
+          "csvColumn": "InsuranceCoversGermany__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": ["yes", "no", "not_sure", null],
+          "descriptionEn": "Indicates whether the patient's health insurance is believed to cover medical expenses in Germany."
+        }
+      ]
+    },
+    {
+      "stepKey": "wrap-up",
+      "stepTitleEn": "Preferred location, timing, and final notes",
+      "fields": [
+        {
+          "fieldKey": "preferredLocation",
+          "sourcePath": "payload.preferredLocation",
+          "csvColumn": "PreferredLocation__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": ["no_preference", "munich", "berlin", "hamburg", "cologne", null],
+          "descriptionEn": "Preferred city for treatment if the patient has one."
+        },
+        {
+          "fieldKey": "visitTiming",
+          "sourcePath": "payload.visitTiming",
+          "csvColumn": "VisitTiming__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": ["asap", "next_few_months", "not_sure", null],
+          "descriptionEn": "Approximate timing for when the patient expects to travel to Germany."
+        },
+        {
+          "fieldKey": "message",
+          "sourcePath": "payload.message",
+          "csvColumn": "Description",
+          "status": "exists_but_disabled_or_inactive",
+          "descriptionEn": "Final free-text notes for special requests or additional non-clinical details such as accommodation, diet, logistics, or other context."
+        }
+      ]
+    },
+    {
+      "stepKey": "submit-consents",
+      "stepTitleEn": "Submission consents confirmed before final submit",
+      "fields": [
+        {
+          "fieldKey": "consentAutomatedContact",
+          "sourcePath": "payload.consentAutomatedContact",
+          "csvColumn": "ConsentAutomatedContact__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": [true, false],
+          "descriptionEn": "Explicit consent for GMED to contact the patient using automated dialing, voice messages, text messages, and email."
+        },
+        {
+          "fieldKey": "consentHealthcare",
+          "sourcePath": "payload.consentHealthcare",
+          "csvColumn": "ConsentHealthcare__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": [true, false],
+          "descriptionEn": "Acknowledgement that the patient may be contacted regarding health care and appointment scheduling."
+        },
+        {
+          "fieldKey": "consentOptOut",
+          "sourcePath": "payload.consentOptOut",
+          "csvColumn": "ConsentOptOut__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": [true, false],
+          "descriptionEn": "Acknowledgement that the patient will be given the opportunity to opt out of similar future communications. This is not the same as an actual email or call opt-out flag."
+        },
+        {
+          "fieldKey": "consentPrivacyPractices",
+          "sourcePath": "payload.consentPrivacyPractices",
+          "csvColumn": "ConsentPrivacyPractices__c",
+          "status": "missing_new_salesforce_field_needed",
+          "allowedValues": [true, false],
+          "descriptionEn": "Acknowledgement that the patient has read and confirmed receipt of the Notice of Privacy Practices."
+        }
+      ]
+    }
+  ],
+  "legacyFieldsNotCurrentlyCollected": []
+}

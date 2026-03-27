@@ -1,15 +1,53 @@
 "use client";
 
-import React, { useMemo, useRef, useEffect, Suspense } from 'react';
+import React, { Suspense, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { cn } from '@/lib/utils';
 import { useWizard } from '../WizardContext';
-import { WizardData } from '../types';
+import { WizardData, WizardStep } from '../types';
 import styles from './WizardPathTree.module.scss';
 
-function buildPath(data: WizardData): string[] {
-  const steps: string[] = ['member-check', 'account-check', 'welcome', 'location'];
+type TimelineZoneKey = 'entry' | 'eligibility' | 'profile' | 'care' | 'insurance' | 'finish';
+
+interface TimelineZoneConfig {
+  key: TimelineZoneKey;
+  steps: WizardStep[];
+}
+
+interface TimelineZone extends TimelineZoneConfig {
+  startIndex: number;
+  endIndex: number;
+}
+
+const TIMELINE_ZONES: TimelineZoneConfig[] = [
+  {
+    key: 'entry',
+    steps: ['member-check', 'account-check', 'welcome'],
+  },
+  {
+    key: 'eligibility',
+    steps: ['location', 'become-member', 'outside-travel', 'outside-records', 'records-language', 'outside-documents', 'outside-exit-travel'],
+  },
+  {
+    key: 'profile',
+    steps: ['health-intro', 'patient-name', 'patient-dob', 'phone', 'whatsapp-consent', 'email-consent', 'no-contact-exit', 'primary-language', 'legal-sex', 'interpreter'],
+  },
+  {
+    key: 'care',
+    steps: ['services', 'address', 'primary-concern', 'current-treatment', 'health-risk'],
+  },
+  {
+    key: 'insurance',
+    steps: ['insurance-intro', 'insurance', 'insurance-coverage'],
+  },
+  {
+    key: 'finish',
+    steps: ['wrap-up-intro', 'preferred-location', 'visit-timing', 'anything-else', 'review'],
+  },
+];
+
+function buildPath(data: WizardData): WizardStep[] {
+  const steps: WizardStep[] = ['member-check', 'account-check', 'welcome', 'location'];
 
   if (!data.locationDetailed) return steps;
 
@@ -46,6 +84,30 @@ function buildPath(data: WizardData): string[] {
   return steps;
 }
 
+function buildZones(steps: WizardStep[]): TimelineZone[] {
+  let cursor = 0;
+
+  return TIMELINE_ZONES.reduce<TimelineZone[]>((zones, zone) => {
+    const zoneSteps = steps.filter((step) => zone.steps.includes(step));
+    if (!zoneSteps.length) {
+      return zones;
+    }
+
+    const startIndex = cursor;
+    const endIndex = cursor + zoneSteps.length - 1;
+    cursor = endIndex + 1;
+
+    zones.push({
+      ...zone,
+      steps: zoneSteps,
+      startIndex,
+      endIndex,
+    });
+
+    return zones;
+  }, []);
+}
+
 function WizardPathTreeInner() {
   const searchParams = useSearchParams();
   const { data } = useWizard();
@@ -53,78 +115,33 @@ function WizardPathTreeInner() {
   const currentStep = searchParams.get('step') ?? 'member-check';
 
   const steps = useMemo(() => buildPath(data), [data]);
-  const currentIndex = steps.indexOf(currentStep);
+  const zones = useMemo(() => buildZones(steps), [steps]);
+  const currentIndex = steps.findIndex((step) => step === currentStep);
   const resolvedCurrentIndex = currentIndex >= 0 ? currentIndex : 0;
-
-  const containerRef = useRef<HTMLDivElement>(null);
-  const activeRef = useRef<HTMLLIElement>(null);
-  const progressFillRef = useRef<HTMLDivElement>(null);
-  const isFirstRender = useRef(true);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    const activeEl = activeRef.current;
-    const progressFillEl = progressFillRef.current;
-    if (!container || !activeEl) {
-      if (progressFillEl) {
-        progressFillEl.style.height = '0px';
-      }
-      return;
-    }
-
-    if (progressFillEl) {
-      progressFillEl.style.height = `${activeEl.offsetTop}px`;
-    }
-
-    const inset = 36;
-    const visibleTop = container.scrollTop + inset;
-    const visibleBottom = container.scrollTop + container.clientHeight - inset;
-    const activeTop = activeEl.offsetTop;
-    const activeBottom = activeTop + activeEl.offsetHeight;
-
-    if (activeTop >= visibleTop && activeBottom <= visibleBottom) {
-      isFirstRender.current = false;
-      return;
-    }
-
-    const top = Math.max(0, activeTop - container.clientHeight / 2 + activeEl.offsetHeight / 2);
-    container.scrollTo({ top, behavior: isFirstRender.current ? 'instant' : 'smooth' });
-    isFirstRender.current = false;
-  }, [resolvedCurrentIndex]);
+  const activeZone = zones.find((zone) => zone.startIndex <= resolvedCurrentIndex && resolvedCurrentIndex <= zone.endIndex) ?? zones[0];
+  const activeZoneIndex = zones.findIndex((zone) => zone.key === activeZone?.key);
+  const resolvedActiveZoneIndex = activeZoneIndex >= 0 ? activeZoneIndex : 0;
+  const progressPercent = zones.length > 1
+    ? ((resolvedActiveZoneIndex + 1) / zones.length) * 100
+    : 100;
 
   return (
-    <div className={styles.wrapper}>
-      <div ref={containerRef} className={styles.scroll}>
-        <div className={styles.track}>
-          <div className={styles.trackLine} />
-          <div ref={progressFillRef} className={styles.progressFill} />
-
-          <ul className={styles.list}>
-            {steps.map((key, index) => {
-              const isDone = index < resolvedCurrentIndex;
-              const isActive = index === resolvedCurrentIndex;
-
-              return (
-                <li
-                  key={key}
-                  ref={isActive ? activeRef : undefined}
-                  className={cn(
-                    styles.node,
-                    isDone && styles.nodeDone,
-                    isActive && styles.nodeActive,
-                    !isDone && !isActive && styles.nodePending,
-                  )}
-                  aria-current={isActive ? 'step' : undefined}
-                >
-                  <div className={styles.dot}>
-                    <span className={styles.dotInner} />
-                  </div>
-                  <span className={styles.label}>{(t as (k: string) => string)(key)}</span>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+    <div
+      className={styles.wrapper}
+      style={{ '--wizard-zone-progress': `${progressPercent}%` } as React.CSSProperties}
+    >
+      <div className={styles.bar}>
+        <span className={styles.count}>
+          {String(resolvedActiveZoneIndex + 1).padStart(2, '0')}
+          <span className={styles.countDash}>-</span>
+          {String(zones.length).padStart(2, '0')}
+        </span>
+        <span className={styles.line} aria-hidden="true">
+          <span className={styles.lineFill} />
+        </span>
+        <span className={styles.name}>
+          {activeZone ? (t as (k: string) => string)(`zones.${activeZone.key}`) : ''}
+        </span>
       </div>
     </div>
   );

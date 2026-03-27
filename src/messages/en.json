@@ -136,6 +136,14 @@
     },
     "newPatient": {
       "pathTree": {
+        "zones": {
+          "entry": "Start",
+          "eligibility": "Eligibility & Travel",
+          "profile": "Profile & Contact",
+          "care": "Care Request",
+          "insurance": "Insurance",
+          "finish": "Final Review"
+        },
         "welcome": "Welcome",
         "member-check": "Client Status",
         "account-check": "Portal Access",

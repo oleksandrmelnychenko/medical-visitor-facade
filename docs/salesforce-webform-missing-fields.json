@@ -1,0 +1,296 @@
+{
+  "version": 1,
+  "generatedOn": "2026-03-27",
+  "source": "docs/salesforce-webform-master.json",
+  "filter": "status === missing_new_salesforce_field_needed",
+  "count": 31,
+  "attachmentHandling": {
+    "includedInSubmission": true,
+    "salesforceTarget": "ContentVersion",
+    "linkedToLeadBy": "FirstPublishLocationId = Lead.Id",
+    "requestPattern": "Create Lead first, then upload each file as a separate ContentVersion request.",
+    "maxFiles": 6,
+    "maxFileSizeMb": 10,
+    "maxTotalSizeMb": 20,
+    "acceptedTypes": ["application/pdf", "application/zip", "application/x-zip-compressed", "image/*"],
+    "descriptionEn": "The web form supports optional file uploads. Files are not Lead fields. They must be uploaded after Lead creation as separate ContentVersion records linked to the created Lead."
+  },
+  "fields": [
+    {
+      "stepKey": "member-check",
+      "stepTitleEn": "Initial member gate",
+      "fieldKey": "hasContactedUsBefore",
+      "sourcePath": "proposed payload.hasContactedUsBefore",
+      "csvColumn": "HasContactedUsBefore__c",
+      "allowedValues": [true, false],
+      "descriptionEn": "Indicates whether the person has contacted GMED before. This should be stored as an explicit business field instead of relying on the internal completion flag."
+    },
+    {
+      "stepKey": "account-check",
+      "stepTitleEn": "Account check gate",
+      "fieldKey": "hasPortalAccess",
+      "sourcePath": "proposed payload.hasPortalAccess",
+      "csvColumn": "HasPortalAccess__c",
+      "allowedValues": [true, false],
+      "descriptionEn": "Indicates whether the person already has access to the GMED client portal. This should be stored as an explicit business field instead of relying on the internal completion flag."
+    },
+    {
+      "stepKey": "location",
+      "stepTitleEn": "Location and path selection",
+      "fieldKey": "location",
+      "sourcePath": "payload.location",
+      "csvColumn": "Location__c",
+      "allowedValues": ["eu", "outside_eu"],
+      "descriptionEn": "High-level region bucket derived from the initial location choice. It is used by the questionnaire flow to decide which path the patient follows."
+    },
+    {
+      "stepKey": "location",
+      "stepTitleEn": "Location and path selection",
+      "fieldKey": "locationDetailed",
+      "sourcePath": "payload.locationDetailed",
+      "csvColumn": "LocationDetailed__c",
+      "allowedValues": ["germany", "eu_not_germany", "outside_eu"],
+      "descriptionEn": "Detailed location category selected by the patient: Germany, European Union outside Germany, or outside the European Union."
+    },
+    {
+      "stepKey": "eligibility",
+      "stepTitleEn": "Eligibility questions for patients outside Germany",
+      "fieldKey": "wantsMembership",
+      "sourcePath": "payload.wantsMembership",
+      "csvColumn": "WantsMembership__c",
+      "allowedValues": ["yes", "no", null],
+      "descriptionEn": "Indicates whether the request is being submitted for the patient personally or for someone else. In the current UI, 'yes' means 'For myself' and 'no' means 'For someone else'. The internal field name is legacy and does not reflect the current question wording."
+    },
+    {
+      "stepKey": "eligibility",
+      "stepTitleEn": "Eligibility questions for patients outside Germany",
+      "fieldKey": "canTravel",
+      "sourcePath": "payload.canTravel",
+      "csvColumn": "CanTravel__c",
+      "allowedValues": ["yes", "no", null],
+      "descriptionEn": "Indicates whether the person is able to travel to Germany for treatment or consultation."
+    },
+    {
+      "stepKey": "eligibility",
+      "stepTitleEn": "Eligibility questions for patients outside Germany",
+      "fieldKey": "recordsInAcceptedLanguage",
+      "sourcePath": "payload.recordsInAcceptedLanguage",
+      "csvColumn": "RecordsInAcceptedLanguage__c",
+      "allowedValues": ["yes", "no", null],
+      "descriptionEn": "Indicates whether the available medical records are already translated into German or English."
+    },
+    {
+      "stepKey": "eligibility",
+      "stepTitleEn": "Eligibility questions for patients outside Germany",
+      "fieldKey": "hasTravelDocuments",
+      "sourcePath": "payload.hasTravelDocuments",
+      "csvColumn": "HasTravelDocuments__c",
+      "allowedValues": ["yes", "no", null],
+      "descriptionEn": "Indicates whether the patient currently has the travel documents needed to come to Germany."
+    },
+    {
+      "stepKey": "patient-identity",
+      "stepTitleEn": "Patient identity and demographics",
+      "fieldKey": "dateOfBirth",
+      "sourcePath": "payload.dateOfBirth",
+      "csvColumn": "DateOfBirth",
+      "descriptionEn": "Patient date of birth captured in day-month-year format by the questionnaire."
+    },
+    {
+      "stepKey": "contact-and-language",
+      "stepTitleEn": "Contact details and communication preferences",
+      "fieldKey": "phones[0].type",
+      "sourcePath": "payload.phones[0].type",
+      "csvColumn": "PhoneType",
+      "allowedValues": ["mobile", "home", "work"],
+      "descriptionEn": "Phone type for the primary contact number. The current UI stores the main number as mobile."
+    },
+    {
+      "stepKey": "contact-and-language",
+      "stepTitleEn": "Contact details and communication preferences",
+      "fieldKey": "whatsappConsent",
+      "sourcePath": "payload.whatsappConsent",
+      "csvColumn": "WhatsAppConsent__c",
+      "allowedValues": [true, false, null],
+      "descriptionEn": "Indicates whether the patient agrees to communicate via WhatsApp."
+    },
+    {
+      "stepKey": "contact-and-language",
+      "stepTitleEn": "Contact details and communication preferences",
+      "fieldKey": "whatsappNumber",
+      "sourcePath": "payload.whatsappNumber",
+      "csvColumn": "WhatsAppNumber__c",
+      "descriptionEn": "WhatsApp number provided by the patient when WhatsApp communication is accepted."
+    },
+    {
+      "stepKey": "contact-and-language",
+      "stepTitleEn": "Contact details and communication preferences",
+      "fieldKey": "emailConsent",
+      "sourcePath": "payload.emailConsent",
+      "csvColumn": "EmailConsent__c",
+      "allowedValues": [true, false, null],
+      "descriptionEn": "Indicates whether the patient agrees to communicate via email."
+    },
+    {
+      "stepKey": "contact-and-language",
+      "stepTitleEn": "Contact details and communication preferences",
+      "fieldKey": "needsInterpreter",
+      "sourcePath": "payload.needsInterpreter",
+      "csvColumn": "NeedsInterpreter__c",
+      "allowedValues": ["yes", "no", null],
+      "descriptionEn": "Indicates whether the patient will require a medical interpreter during appointments in Germany."
+    },
+    {
+      "stepKey": "clinical-request",
+      "stepTitleEn": "Clinical request and uploaded records",
+      "fieldKey": "primaryConcernText",
+      "sourcePath": "payload.primaryConcernText",
+      "csvColumn": "PrimaryConcernText__c",
+      "descriptionEn": "Free-text description of the main medical reason for the request. This is the primary clinical narrative entered by the patient."
+    },
+    {
+      "stepKey": "clinical-request",
+      "stepTitleEn": "Clinical request and uploaded records",
+      "fieldKey": "currentlyInTreatment",
+      "sourcePath": "payload.currentlyInTreatment",
+      "csvColumn": "CurrentlyInTreatment__c",
+      "allowedValues": ["yes", "no", null],
+      "descriptionEn": "Indicates whether the patient is currently undergoing treatment."
+    },
+    {
+      "stepKey": "clinical-request",
+      "stepTitleEn": "Clinical request and uploaded records",
+      "fieldKey": "hasHealthRiskForTravel",
+      "sourcePath": "payload.hasHealthRiskForTravel",
+      "csvColumn": "HasHealthRiskForTravel__c",
+      "allowedValues": ["yes", "no", null],
+      "descriptionEn": "Indicates whether travel to Germany might be medically unsafe for the patient."
+    },
+    {
+      "stepKey": "insurance",
+      "stepTitleEn": "Insurance details",
+      "fieldKey": "hasInsurance",
+      "sourcePath": "payload.hasInsurance",
+      "csvColumn": "HasInsurance__c",
+      "allowedValues": ["yes", "no", null],
+      "descriptionEn": "Indicates whether the patient currently has health insurance."
+    },
+    {
+      "stepKey": "insurance",
+      "stepTitleEn": "Insurance details",
+      "fieldKey": "insuranceCoversGermany",
+      "sourcePath": "payload.insuranceCoversGermany",
+      "csvColumn": "InsuranceCoversGermany__c",
+      "allowedValues": ["yes", "no", "not_sure", null],
+      "descriptionEn": "Indicates whether the patient's health insurance is believed to cover medical expenses in Germany."
+    },
+    {
+      "stepKey": "wrap-up",
+      "stepTitleEn": "Preferred location, timing, and final notes",
+      "fieldKey": "preferredLocation",
+      "sourcePath": "payload.preferredLocation",
+      "csvColumn": "PreferredLocation__c",
+      "allowedValues": ["no_preference", "munich", "berlin", "hamburg", "cologne", null],
+      "descriptionEn": "Preferred city for treatment if the patient has one."
+    },
+    {
+      "stepKey": "wrap-up",
+      "stepTitleEn": "Preferred location, timing, and final notes",
+      "fieldKey": "visitTiming",
+      "sourcePath": "payload.visitTiming",
+      "csvColumn": "VisitTiming__c",
+      "allowedValues": ["asap", "next_few_months", "not_sure", null],
+      "descriptionEn": "Approximate timing for when the patient expects to travel to Germany."
+    },
+    {
+      "stepKey": "submit-consents",
+      "stepTitleEn": "Submission consents confirmed before final submit",
+      "fieldKey": "consentAutomatedContact",
+      "sourcePath": "payload.consentAutomatedContact",
+      "csvColumn": "ConsentAutomatedContact__c",
+      "allowedValues": [true, false],
+      "descriptionEn": "Explicit consent for GMED to contact the patient using automated dialing, voice messages, text messages, and email."
+    },
+    {
+      "stepKey": "submit-consents",
+      "stepTitleEn": "Submission consents confirmed before final submit",
+      "fieldKey": "consentHealthcare",
+      "sourcePath": "payload.consentHealthcare",
+      "csvColumn": "ConsentHealthcare__c",
+      "allowedValues": [true, false],
+      "descriptionEn": "Acknowledgement that the patient may be contacted regarding health care and appointment scheduling."
+    },
+    {
+      "stepKey": "submit-consents",
+      "stepTitleEn": "Submission consents confirmed before final submit",
+      "fieldKey": "consentOptOut",
+      "sourcePath": "payload.consentOptOut",
+      "csvColumn": "ConsentOptOut__c",
+      "allowedValues": [true, false],
+      "descriptionEn": "Acknowledgement that the patient will be given the opportunity to opt out of similar future communications. This is not the same as an actual email or call opt-out flag."
+    },
+    {
+      "stepKey": "submit-consents",
+      "stepTitleEn": "Submission consents confirmed before final submit",
+      "fieldKey": "consentPrivacyPractices",
+      "sourcePath": "payload.consentPrivacyPractices",
+      "csvColumn": "ConsentPrivacyPractices__c",
+      "allowedValues": [true, false],
+      "descriptionEn": "Acknowledgement that the patient has read and confirmed receipt of the Notice of Privacy Practices."
+    },
+    {
+      "stepKey": "submission-metadata",
+      "stepTitleEn": "Submission metadata",
+      "fieldKey": "source",
+      "sourcePath": "bundle.source",
+      "csvColumn": null,
+      "currentValue": "apply",
+      "descriptionEn": "Identifies the submission source channel. Currently always set to 'apply' for the website questionnaire."
+    },
+    {
+      "stepKey": "submission-metadata",
+      "stepTitleEn": "Submission metadata",
+      "fieldKey": "patientType",
+      "sourcePath": "bundle.patientType",
+      "csvColumn": null,
+      "currentValue": "new",
+      "descriptionEn": "Identifies the patient route handled by this form. Currently the web form supports new patients only."
+    },
+    {
+      "stepKey": "submission-metadata",
+      "stepTitleEn": "Submission metadata",
+      "fieldKey": "flow",
+      "sourcePath": "bundle.flow",
+      "csvColumn": "Flow",
+      "currentValue": "eu | outside-eu",
+      "descriptionEn": "Internal routing outcome for the intake flow. It distinguishes the EU path from the outside-EU path after eligibility logic is applied."
+    },
+    {
+      "stepKey": "submission-metadata",
+      "stepTitleEn": "Submission metadata",
+      "fieldKey": "locale",
+      "sourcePath": "bundle.locale",
+      "csvColumn": "Locale",
+      "currentValue": "en | de | es | ru",
+      "descriptionEn": "UI language active at the moment the form was submitted."
+    },
+    {
+      "stepKey": "submission-metadata",
+      "stepTitleEn": "Submission metadata",
+      "fieldKey": "submittedAt",
+      "sourcePath": "bundle.submittedAt",
+      "csvColumn": "SubmittedAt",
+      "currentValue": "ISO 8601 datetime",
+      "descriptionEn": "Server-side timestamp of the final submission event in ISO 8601 format."
+    },
+    {
+      "stepKey": "submission-metadata",
+      "stepTitleEn": "Submission metadata",
+      "fieldKey": "version",
+      "sourcePath": "bundle.version",
+      "csvColumn": null,
+      "currentValue": 1,
+      "descriptionEn": "Payload contract version for future compatibility and migration tracking."
+    }
+  ]
+}
