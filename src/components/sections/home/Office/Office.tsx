@@ -13,7 +13,9 @@ const MUNICH_STYLE: CSSProperties = {
 const OTHER_CITIES = [
   {
     key: "berlin",
-    image: "/assets/1_city-berlin.png",
+    image: "/assets/1_city-berlin-v2.jpg",
+    imageWidth: 750,
+    imageHeight: 971,
     delayMs: 200,
     style: {
       backgroundColor: "color-mix(in srgb, var(--tone-blue) 6%, #fff)",
@@ -22,7 +24,9 @@ const OTHER_CITIES = [
   },
   {
     key: "hamburg",
-    image: "/assets/1_city-hamburg.png",
+    image: "/assets/1_city-hamburg.jpg",
+    imageWidth: 1058,
+    imageHeight: 1336,
     delayMs: 400,
     style: {
       backgroundColor: "color-mix(in srgb, var(--tone-sand) 8%, #fff)",
@@ -31,7 +35,9 @@ const OTHER_CITIES = [
   },
   {
     key: "cologne",
-    image: "/assets/1_city-cologne.png",
+    image: "/assets/1_city-cologne.jpg",
+    imageWidth: 736,
+    imageHeight: 920,
     delayMs: 600,
     style: {
       backgroundColor: "color-mix(in srgb, var(--tone-lavender) 6%, #fff)",
@@ -47,22 +53,25 @@ export function Office() {
 
   return (
     <section className={cn(sectionStyles.section, styles.office)}>
-      <div className={sectionStyles.container}>
-        <div className={styles.header} data-snap-anchor>
-          {overline ? <p className={styles.overline}>{overline}</p> : null}
-          <h2 className={styles.title}>{t("title")}</h2>
-          {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
-        </div>
+      <div className={`${sectionStyles.container} ${styles.container}`}>
+        <div className={styles.shell}>
+          <div className={styles.introPanel} data-snap-anchor>
+            <span className={styles.introMark} aria-hidden="true" />
+            {overline ? <p className={styles.overline}>{overline}</p> : null}
+            <h2 className={styles.title}>{t("title")}</h2>
+            {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
+          </div>
 
-        <div className={styles.stage}>
-          <OfficeCitiesGrid
-            mainCityName={t("cities.munich.name")}
-            mainCityStyle={MUNICH_STYLE}
-            cities={OTHER_CITIES.map((city) => ({
-              ...city,
-              name: t(`cities.${city.key}.name`),
-            }))}
-          />
+          <div className={styles.stage}>
+            <OfficeCitiesGrid
+              mainCityName={t("cities.munich.name")}
+              mainCityStyle={MUNICH_STYLE}
+              cities={OTHER_CITIES.map((city) => ({
+                ...city,
+                name: t(`cities.${city.key}.name`),
+              }))}
+            />
+          </div>
         </div>
       </div>
     </section>

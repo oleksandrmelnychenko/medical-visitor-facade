@@ -10,14 +10,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Playfair Display';
-  src: url('../assets/PlayfairDisplay-VariableFont_wght.ttf') format('truetype-variations');
-  font-weight: 400 900;
-  font-style: normal;
-  font-display: swap;
-}
-
 [data-theme="dark"],
 .dark {
   --background: oklch(0.145 0 0);
@@ -78,6 +70,14 @@ body {
   font-variant-numeric: lining-nums;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.headerOffset {
+  height: 104px;
+
+  @media (max-width: 768px) {
+    height: 68px;
+  }
 }
 
 a {

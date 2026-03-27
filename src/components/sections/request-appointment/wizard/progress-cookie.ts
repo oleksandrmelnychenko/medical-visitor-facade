@@ -31,6 +31,7 @@ const VISIT_TIMING_VALUES = ["asap", "next_few_months", "not_sure"] as const;
 
 const WIZARD_STEPS = [
   "member-check",
+  "account-check",
   "welcome",
   "location",
   "become-member",
@@ -68,6 +69,7 @@ const WIZARD_STEPS = [
 
 type WizardProgressSnapshot = {
   memberCheckCompleted: boolean;
+  accountCheckCompleted: boolean;
   welcomeCompleted: boolean;
   locationDetailed: LocationDetailedType;
   wantsMembership: YesNoType;
@@ -151,6 +153,7 @@ export function createWizardProgressSnapshot(data: WizardData): WizardProgressSn
 
   return {
     memberCheckCompleted: cleanData.memberCheckCompleted,
+    accountCheckCompleted: cleanData.accountCheckCompleted,
     welcomeCompleted: cleanData.welcomeCompleted,
     locationDetailed: cleanData.locationDetailed,
     wantsMembership: cleanData.wantsMembership,
@@ -202,6 +205,7 @@ export function parseWizardProgressSnapshot(
 
     return {
       memberCheckCompleted: parsed.memberCheckCompleted === true,
+      accountCheckCompleted: parsed.accountCheckCompleted === true,
       welcomeCompleted: parsed.welcomeCompleted === true,
       locationDetailed: normalizeLocationDetailed(parsed.locationDetailed),
       wantsMembership: normalizeYesNo(parsed.wantsMembership),
@@ -240,6 +244,7 @@ export function snapshotToWizardData(snapshot: WizardProgressSnapshot): WizardDa
   return sanitizeWizardData({
     ...initialWizardData,
     memberCheckCompleted: snapshot.memberCheckCompleted,
+    accountCheckCompleted: snapshot.accountCheckCompleted,
     welcomeCompleted: snapshot.welcomeCompleted,
     locationDetailed: snapshot.locationDetailed,
     wantsMembership: snapshot.wantsMembership,

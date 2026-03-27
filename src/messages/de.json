@@ -26,15 +26,21 @@
     "privacyPolicy": "Datenschutzerklärung",
     "headquarters": "Hauptsitz",
     "address": "81735 München, Deutschland",
-    "theAgency": "Die Agentur"
+    "theAgency": "Die Agentur",
+    "membership": "Digitales Kundenportal",
+    "backToTop": "Nach oben"
   },
   "home": {
+    "scrollReveal": {
+      "headline": "Wir koordinieren Ihre Versorgung, damit Sie mit Zuversicht vorangehen"
+    },
     "hero": {
       "title": "Medical Concierge Agency",
       "subtitle": "Exzellente medizinische Betreuung"
     },
     "careForward": {
       "title": "Was wir tun",
+      "headline": "Von der ersten Behandlungskoordination bis zur Begleitung aller Schritte Ihrer medizinischen Versorgung.",
       "subtitle": "",
       "services": {
         "consultation": {
@@ -155,6 +161,7 @@
       "pathTree": {
         "welcome": "Willkommen",
         "member-check": "Kundenstatus",
+        "account-check": "Portalzugang",
         "location": "Wohnort",
         "become-member": "Anfrage für",
         "outside-travel": "Reisefähigkeit",
@@ -245,6 +252,11 @@
         "title": "Haben Sie sich schon einmal an uns gewandt?",
         "isMember": "Ja",
         "notMember": "Nein, ich melde mich zum ersten Mal"
+      },
+      "accountCheck": {
+        "title": "Haben Sie bereits Zugang zu unserem Kundenportal?",
+        "hasAccount": "Ja, ich habe bereits ein Konto",
+        "noAccount": "Nein, ich möchte eine neue Anfrage stellen"
       },
       "location3": {
         "title": "In welchem Land leben Sie aktuell?",
@@ -587,6 +599,8 @@
   },
   "impressumPage": {
     "title": "Impressum",
+    "legalNameTitle": "Rechtlicher Name",
+    "addressTitle": "Adresse",
     "companyName": "Agentur für Patientenbetreuung Heorhii Hudiiev",
     "contact": "Kontakt",
     "vatTitle": "Umsatzsteuer-ID",
@@ -597,5 +611,39 @@
     "title": "Etwas ist schiefgelaufen",
     "description": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut oder kehren Sie zur Startseite zurück.",
     "tryAgain": "Erneut versuchen"
+  },
+  "membership": {
+    "meta": {
+      "title": "Mitgliedschaftsprogramme",
+      "description": "Vergleichen Sie die GMED-Mitgliedschaftsprogramme — Online-Portalzugang und Reserve-Mitgliedschaft mit persönlichem Concierge-Service."
+    },
+    "title": "Mitgliedschaftsprogramme",
+    "subtitle": "Wählen Sie die Betreuungsstufe, die zu Ihnen passt",
+    "portal": {
+      "badge": "Standard",
+      "title": "Digitales Kundenportal",
+      "description": "Selbstständiger Zugriff auf Ihre medizinischen Informationen rund um die Uhr.",
+      "features": {
+        "access": "24/7-Onlinezugriff auf Ihre Informationen über unser sicheres Portal"
+      },
+      "cta": "Jetzt starten"
+    },
+    "reserve": {
+      "badge": "Premium",
+      "title": "GMED Reserve-Mitgliedschaftsprogramm",
+      "description": "Umfassender medizinischer Concierge-Service mit persönlichem Manager.",
+      "features": {
+        "personalizedSupport": "Personalisierte Unterstützung rund um die Uhr (24/7)",
+        "priorityProcessing": "Priorisierte Bearbeitung medizinischer Anfragen innerhalb von 24 Stunden",
+        "dedicatedManager": "Ihr persönlicher 1:1-Manager und ein medizinisches Concierge-Team",
+        "proactiveFollowUp": "Proaktive Nachverfolgung von Terminen, Unterlagen, Testergebnissen und den nächsten Schritten",
+        "portalAccess": "24/7-Onlinezugriff auf Ihre Informationen über unser sicheres Portal",
+        "travelCoordination": "Unterstützung bei reisebezogener Koordination",
+        "annualReview": "Jährliche strategische Fallbesprechung",
+        "executiveScheduling": "Terminplanung auf Executive-Niveau",
+        "crossBorderCoordination": "Länderübergreifende / grenzüberschreitende Koordinationsunterstützung"
+      },
+      "cta": "Jetzt starten"
+    }
   }
 }

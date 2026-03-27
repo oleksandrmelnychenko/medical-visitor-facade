@@ -64,6 +64,49 @@
 
 }
 
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.2rem, 3vw, 2.5rem);
+  pointer-events: none;
+}
+
+.heroOverlayStamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.8rem, 1.8vw, 1rem) clamp(1.2rem, 2.8vw, 1.8rem);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 252, 250, 0.3);
+  background:
+    linear-gradient(180deg, rgba(18, 22, 30, 0.34) 0%, rgba(18, 22, 30, 0.28) 100%),
+    rgba(255, 252, 250, 0.08);
+  box-shadow:
+    0 20px 44px -30px rgba(10, 12, 18, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1.05rem, 2vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 252, 250, 0.96);
+  text-align: center;
+  text-indent: 0.3em;
+
+  @media (max-width: 768px) {
+    padding: 0.78rem 1.08rem;
+    font-size: clamp(0.9rem, 4vw, 1.12rem);
+    letter-spacing: 0.22em;
+    text-indent: 0.22em;
+  }
+}
+
 @media (max-width: 768px) and (prefers-reduced-motion: reduce) {
   .videoContainer {
     background-image: url("/assets/hero-poster-mobile.jpg");
@@ -114,7 +157,7 @@
   font-weight: 650;
   line-height: 1.12;
   letter-spacing: 0.04em;
-  color: rgba(20, 25, 35, 0.74);
+  color: #000;
   text-align: left;
   text-wrap: balance;
 

@@ -1,0 +1,305 @@
+@use "@/styles/variables" as *;
+
+.wrapper {
+  padding: clamp(7rem, 11vw, 9.25rem) 0 clamp(4rem, 8vw, 6rem);
+}
+
+// Statement
+.statement {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(10rem, 0.54fr);
+  gap: clamp(1.7rem, 3.6vw, 3.9rem);
+  width: min(100%, 76rem);
+  margin-inline: auto;
+  padding-inline: clamp(0.8rem, 2.2vw, 2rem);
+  align-items: start;
+  margin-bottom: clamp(3.1rem, 5.4vw, 5.4rem);
+}
+
+.statementCopy {
+  position: relative;
+  max-width: 44rem;
+  padding-top: clamp(0.95rem, 2.1vw, 1.4rem);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: clamp(3.4rem, 5vw, 4.8rem);
+    height: 1px;
+    background: linear-gradient(90deg, #c8a193 0%, #a77c8e 52%, rgba(167, 124, 142, 0) 100%);
+    pointer-events: none;
+  }
+}
+
+.statementSide {
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-top: clamp(1.05rem, 2.2vw, 1.45rem);
+}
+
+.statementLabel {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.28rem;
+  width: fit-content;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1.2rem, 1.5vw, 1.46rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #1a1a22;
+  margin: 0;
+  padding-top: 0;
+  text-align: right;
+}
+
+.statementLabelBracket {
+  color: inherit;
+  font-weight: inherit;
+}
+
+.statementHeadline {
+  margin: 0;
+  max-width: 14.5ch;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(2.35rem, 4.8vw, 4.15rem);
+  font-weight: 500;
+  color: #1a1a22;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.plans {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  width: min(100%, 76rem);
+  margin-inline: auto;
+  padding-inline: clamp(0.8rem, 2.2vw, 2rem);
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 0.95rem;
+    width: 100%;
+    padding-inline: 0;
+  }
+}
+
+.statementCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  font-weight: 600;
+  color: #1a1a22;
+  text-decoration: none;
+  border-bottom: 1px solid #1a1a22;
+  padding-bottom: 0.4rem;
+  width: fit-content;
+  transition: opacity 0.2s;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    stroke-width: 2;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 0.75rem;
+  }
+}
+
+// Plan cards
+.plans {
+  @include up(md) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+}
+
+.planCard {
+  background: #fff;
+  border: 1px solid #e8e8ec;
+  border-radius: clamp(1rem, 2vw, 1.25rem);
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+
+  &:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.planCardHighlighted {
+  border-color: #1a1a22;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+
+  &:hover {
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.planHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.planBadge {
+  display: inline-block;
+  width: fit-content;
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #565964;
+  background: #f2f2f5;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  margin-bottom: 0.25rem;
+}
+
+.planBadgeHighlighted {
+  color: #1a1a22;
+  background: #e8e5dd;
+}
+
+.planTitle {
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1.26rem, 1.9vw, 1.8rem);
+  font-weight: 560;
+  color: #1a1a22;
+  line-height: 1.1;
+  letter-spacing: -0.032em;
+  margin: 0;
+}
+
+.planDescription {
+  margin: 0;
+  font-size: 0.96rem;
+  font-weight: 500;
+  color: #4a4d57;
+  line-height: 1.52;
+  letter-spacing: -0.01em;
+}
+
+.planDivider {
+  height: 1px;
+  background: #e8e8ec;
+  margin: 1.25rem 0;
+}
+
+// Features
+.featureList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.96rem;
+  font-weight: 500;
+  color: #232632;
+  line-height: 1.48;
+  letter-spacing: -0.01em;
+}
+
+.featureIcon {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  color: #1a1a22;
+}
+
+// CTA buttons
+.planCta {
+  display: block;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.85rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  color: #1a1a22;
+  background: #f2f2f5;
+  border: 1px solid #e8e8ec;
+  border-radius: 0.65rem;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    background: #e8e8ec;
+  }
+}
+
+.planCtaHighlighted {
+  color: #fff;
+  background: #1a1a22;
+  border-color: #1a1a22;
+
+  &:hover {
+    background: #2d2d38;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: clamp(4rem, 8vw, 5.8rem) 0 clamp(3rem, 6vw, 4rem);
+  }
+
+  .statement {
+    grid-template-columns: 1fr;
+    gap: 0.95rem;
+    width: 100%;
+    padding-inline: 0;
+  }
+
+  .statementSide {
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: auto;
+    padding-top: 0;
+  }
+
+  .statementHeadline {
+    max-width: 100%;
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .statementLabel {
+    font-size: clamp(1rem, 4.6vw, 1.18rem);
+    justify-content: flex-start;
+    width: fit-content;
+    padding-top: 0;
+    text-align: left;
+  }
+
+  .planTitle {
+    font-size: 1.14rem;
+  }
+
+  .planDescription {
+    font-size: 0.92rem;
+  }
+
+  .featureItem {
+    font-size: 0.9rem;
+  }
+}

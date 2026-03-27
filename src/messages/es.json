@@ -26,15 +26,21 @@
     "privacyPolicy": "Política de privacidad",
     "headquarters": "Sede central",
     "address": "81735 Múnich, Alemania",
-    "theAgency": "La Agencia"
+    "theAgency": "La Agencia",
+    "membership": "Portal digital del cliente",
+    "backToTop": "Volver arriba"
   },
   "home": {
+    "scrollReveal": {
+      "headline": "Coordinamos la atención para que avance con confianza"
+    },
     "hero": {
       "title": "Medical Concierge Agency",
       "subtitle": "Excelencia en la atención médica"
     },
     "careForward": {
       "title": "Lo que hacemos",
+      "headline": "Desde la coordinación inicial del tratamiento hasta la gestión de cada etapa de su acompañamiento médico.",
       "subtitle": "",
       "services": {
         "consultation": {
@@ -113,29 +119,6 @@
         "concierge": "Servicios de concierge y lifestyle",
         "coordination": "Coordinación eficiente",
         "international": "Acompañamiento internacional desde una sola fuente"
-      },
-      "programComparison": {
-        "ariaLabel": "Comparación de beneficios del programa",
-        "portal": {
-          "title": "Acceso al portal en línea de GMED",
-          "features": {
-            "access": "Acceso en línea 24/7 a su información a través de nuestro portal seguro"
-          }
-        },
-        "reserve": {
-          "title": "Programa de membresía GMED Reserve",
-          "features": {
-            "personalizedSupport": "Soporte personalizado 24/7",
-            "priorityProcessing": "Procesamiento prioritario de solicitudes médicas en un plazo de 24 horas",
-            "dedicatedManager": "Su gestor dedicado 1:1 y equipo de concierge médico",
-            "proactiveFollowUp": "Seguimiento proactivo de citas, expedientes, resultados y próximos pasos",
-            "portalAccess": "Acceso en línea 24/7 a su información a través de nuestro portal seguro",
-            "travelCoordination": "Soporte de coordinación relacionado con viajes",
-            "annualReview": "Revisión estratégica anual del caso",
-            "executiveScheduling": "Soporte de programación de estilo ejecutivo",
-            "crossBorderCoordination": "Soporte de coordinación multinacional / transfronteriza"
-          }
-        }
       }
     }
   },
@@ -155,6 +138,7 @@
       "pathTree": {
         "welcome": "Bienvenido",
         "member-check": "Estado del cliente",
+        "account-check": "Acceso al portal",
         "location": "Residencia",
         "become-member": "Para quién",
         "outside-travel": "Capacidad de viaje",
@@ -245,6 +229,11 @@
         "title": "¿Ha contactado con nosotros anteriormente?",
         "isMember": "Sí",
         "notMember": "No, es mi primera solicitud"
+      },
+      "accountCheck": {
+        "title": "¿Ya tiene acceso a nuestro portal del cliente?",
+        "hasAccount": "Sí, ya tengo una cuenta",
+        "noAccount": "No, quiero crear una nueva solicitud"
       },
       "location3": {
         "title": "¿En qué país reside actualmente?",
@@ -587,6 +576,8 @@
   },
   "impressumPage": {
     "title": "Aviso legal",
+    "legalNameTitle": "Nombre legal",
+    "addressTitle": "Dirección",
     "companyName": "Agentur für Patientenbetreuung Heorhii Hudiiev",
     "contact": "Contacto",
     "vatTitle": "NIF / IVA",
@@ -597,5 +588,39 @@
     "title": "Algo salió mal",
     "description": "Se produjo un error inesperado. Por favor, inténtelo de nuevo o vuelva a la página principal.",
     "tryAgain": "Intentar de nuevo"
+  },
+  "membership": {
+    "meta": {
+      "title": "Programas de membresía",
+      "description": "Compare los programas de membresía GMED — Acceso al portal en línea y membresía Reserve con servicio de concierge dedicado."
+    },
+    "title": "Programas de membresía",
+    "subtitle": "Elija el nivel de apoyo que mejor se adapte a sus necesidades",
+    "portal": {
+      "badge": "Estándar",
+      "title": "Portal digital del cliente",
+      "description": "Acceso autónomo a su información médica las 24 horas del día.",
+      "features": {
+        "access": "Acceso en línea 24/7 a su información a través de nuestro portal seguro"
+      },
+      "cta": "Comenzar"
+    },
+    "reserve": {
+      "badge": "Premium",
+      "title": "Programa de membresía GMED Reserve",
+      "description": "Servicio completo de concierge médico con un gestor personal dedicado.",
+      "features": {
+        "personalizedSupport": "Soporte personalizado 24/7",
+        "priorityProcessing": "Procesamiento prioritario de solicitudes médicas en un plazo de 24 horas",
+        "dedicatedManager": "Su gestor dedicado 1:1 y equipo de concierge médico",
+        "proactiveFollowUp": "Seguimiento proactivo de citas, expedientes, resultados y próximos pasos",
+        "portalAccess": "Acceso en línea 24/7 a su información a través de nuestro portal seguro",
+        "travelCoordination": "Soporte de coordinación relacionado con viajes",
+        "annualReview": "Revisión estratégica anual del caso",
+        "executiveScheduling": "Soporte de programación de estilo ejecutivo",
+        "crossBorderCoordination": "Soporte de coordinación multinacional / transfronteriza"
+      },
+      "cta": "Comenzar"
+    }
   }
 }

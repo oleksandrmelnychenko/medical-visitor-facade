@@ -17,6 +17,7 @@ import { MedicalRecordsLanguageStep } from "./steps/shared/MedicalRecordsLanguag
 // Shared new steps
 import { WelcomeStep } from "./steps/shared/WelcomeStep";
 import { MemberCheckStep } from "./steps/shared/MemberCheckStep";
+import { AccountCheckStep } from "./steps/shared/AccountCheckStep";
 import { BecomeMemberStep } from "./steps/shared/BecomeMemberStep";
 import { useWizard } from "./WizardContext";
 import type { WizardStep } from "./types";
@@ -149,6 +150,8 @@ function WizardStepView() {
     // Shared start
     case "member-check":
       return <MemberCheckStep />;
+    case "account-check":
+      return <AccountCheckStep />;
     case "welcome":
       return <WelcomeStep />;
     case "location":

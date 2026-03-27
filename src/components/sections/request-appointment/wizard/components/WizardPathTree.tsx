@@ -9,7 +9,7 @@ import { WizardData } from '../types';
 import styles from './WizardPathTree.module.scss';
 
 function buildPath(data: WizardData): string[] {
-  const steps: string[] = ['member-check', 'welcome', 'location'];
+  const steps: string[] = ['member-check', 'account-check', 'welcome', 'location'];
 
   if (!data.locationDetailed) return steps;
 

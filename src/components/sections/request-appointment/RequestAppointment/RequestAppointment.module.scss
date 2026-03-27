@@ -12,8 +12,6 @@
 .applyPageChrome {
   position: relative;
   min-height: 100vh;
-  margin-top: -78px;
-  padding-top: 78px;
   isolation: isolate;
 
   &::before,
@@ -43,8 +41,7 @@
   }
 
   @media (max-width: 768px) {
-    margin-top: -56px;
-    padding-top: 56px;
+    min-height: 100svh;
   }
 }
 
@@ -101,7 +98,7 @@
 }
 
 .wizardHeaderTitle {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Raleway', sans-serif;
   font-size: clamp(1.8rem, 3.2vw, 2.55rem);
   font-weight: 400;
   color: var(--wizard-ink, var(--text-heading));
@@ -604,7 +601,7 @@
 
 // Question text styles
 .questionTitle {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Raleway', sans-serif;
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 400;
   color: var(--foreground);

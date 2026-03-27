@@ -26,15 +26,21 @@
     "privacyPolicy": "Privacy Policy",
     "headquarters": "Office",
     "address": "81735 Munich, Germany",
-    "theAgency": "The Agency"
+    "theAgency": "The Agency",
+    "membership": "Digital Client Portal",
+    "backToTop": "Back to top"
   },
   "home": {
+    "scrollReveal": {
+      "headline": "We coordinate care that moves people forward with confidence"
+    },
     "hero": {
       "title": "Medical Concierge Agency",
       "subtitle": "Excellence in medical care"
     },
     "careForward": {
       "title": "What we do",
+      "headline": "From initial treatment coordination to managing every stage of your medical journey.",
       "subtitle": "",
       "services": {
         "consultation": {
@@ -113,29 +119,6 @@
         "concierge": "Concierge and lifestyle services",
         "coordination": "Efficient coordination",
         "international": "International support from a single source"
-      },
-      "programComparison": {
-        "ariaLabel": "Program benefits comparison",
-        "portal": {
-          "title": "GMED Online Portal Access",
-          "features": {
-            "access": "24/7 Online Access to Your Information via Our Secure Portal"
-          }
-        },
-        "reserve": {
-          "title": "GMED Reserve Membership Program",
-          "features": {
-            "personalizedSupport": "24/7 Personalized Support",
-            "priorityProcessing": "Priority Medical Request Processing Within 24 Hours",
-            "dedicatedManager": "Your Dedicated 1:1 Manager and Medical Concierge Team",
-            "proactiveFollowUp": "Proactive Follow-Up on Appointments, Records, Test Results, and Next Steps",
-            "portalAccess": "24/7 Online Access to Your Information via Our Secure Portal",
-            "travelCoordination": "travel-related coordination support",
-            "annualReview": "annual strategic case review",
-            "executiveScheduling": "executive-style scheduling support",
-            "crossBorderCoordination": "multi-country / cross-border coordination support"
-          }
-        }
       }
     }
   },
@@ -155,6 +138,7 @@
       "pathTree": {
         "welcome": "Welcome",
         "member-check": "Client Status",
+        "account-check": "Portal Access",
         "location": "Location",
         "become-member": "Request For",
         "outside-travel": "Able to Travel",
@@ -245,6 +229,11 @@
         "title": "Have you contacted us before?",
         "isMember": "Yes",
         "notMember": "No, this is my first request"
+      },
+      "accountCheck": {
+        "title": "Do you already have access to our client portal?",
+        "hasAccount": "Yes, I already have an account",
+        "noAccount": "No, I need to create a new request"
       },
       "location3": {
         "title": "Where do you currently live?",
@@ -587,6 +576,8 @@
   },
   "impressumPage": {
     "title": "Legal Notice",
+    "legalNameTitle": "Legal name",
+    "addressTitle": "Address",
     "companyName": "Agentur für Patientenbetreuung Heorhii Hudiiev",
     "contact": "Contact",
     "vatTitle": "VAT ID",
@@ -597,5 +588,39 @@
     "title": "Something went wrong",
     "description": "An unexpected error occurred. Please try again or return to the home page.",
     "tryAgain": "Try again"
+  },
+  "membership": {
+    "meta": {
+      "title": "Membership Programs",
+      "description": "Compare GMED membership programs — Online Portal Access and Reserve Membership with dedicated concierge support."
+    },
+    "title": "Membership Programs",
+    "subtitle": "Choose the level of support that fits your needs",
+    "portal": {
+      "badge": "Standard",
+      "title": "Digital Client Portal",
+      "description": "Self-service access to your medical information around the clock.",
+      "features": {
+        "access": "24/7 Online Access to Your Information via Our Secure Portal"
+      },
+      "cta": "Get Started"
+    },
+    "reserve": {
+      "badge": "Premium",
+      "title": "GMED Reserve Membership Program",
+      "description": "Full-service medical concierge with a dedicated personal manager.",
+      "features": {
+        "personalizedSupport": "24/7 Personalized Support",
+        "priorityProcessing": "Priority Medical Request Processing Within 24 Hours",
+        "dedicatedManager": "Your Dedicated 1:1 Manager and Medical Concierge Team",
+        "proactiveFollowUp": "Proactive Follow-Up on Appointments, Records, Test Results, and Next Steps",
+        "portalAccess": "24/7 Online Access to Your Information via Our Secure Portal",
+        "travelCoordination": "Travel-Related Coordination Support",
+        "annualReview": "Annual Strategic Case Review",
+        "executiveScheduling": "Executive-Style Scheduling Support",
+        "crossBorderCoordination": "Multi-Country / Cross-Border Coordination Support"
+      },
+      "cta": "Get Started"
+    }
   }
 }

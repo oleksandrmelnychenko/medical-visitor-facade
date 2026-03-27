@@ -70,6 +70,10 @@ function getEntryFallback(data: WizardData): WizardStep | null {
     return "member-check";
   }
 
+  if (!data.accountCheckCompleted) {
+    return "account-check";
+  }
+
   if (!data.welcomeCompleted) {
     return "welcome";
   }
@@ -252,12 +256,21 @@ export function sanitizeWizardData(data: WizardData): WizardData {
 
   if (hasReachedLocationOrLater(next)) {
     next.memberCheckCompleted = true;
+    next.accountCheckCompleted = true;
     next.welcomeCompleted = true;
   } else if (next.welcomeCompleted) {
+    next.memberCheckCompleted = true;
+    next.accountCheckCompleted = true;
+  } else if (next.accountCheckCompleted) {
     next.memberCheckCompleted = true;
   }
 
   if (!next.memberCheckCompleted) {
+    next.accountCheckCompleted = false;
+    next.welcomeCompleted = false;
+  }
+
+  if (!next.accountCheckCompleted) {
     next.welcomeCompleted = false;
   }
 
@@ -307,8 +320,13 @@ export function getAccessibleWizardStep(step: WizardStep, data: WizardData): Wiz
     case "member-check":
       return step;
 
+    case "account-check":
+      return cleanData.memberCheckCompleted ? "account-check" : "member-check";
+
     case "welcome":
-      return cleanData.memberCheckCompleted ? "welcome" : "member-check";
+      if (!cleanData.memberCheckCompleted) return "member-check";
+      if (!cleanData.accountCheckCompleted) return "account-check";
+      return "welcome";
 
     case "location": {
       const fallback = getEntryFallback(cleanData);

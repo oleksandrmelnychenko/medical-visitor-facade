@@ -10,7 +10,7 @@ $breakpoints: (
 
 :root {
   --font-size: 16px;
-  --background: #ffffff;
+  --background: #fffcfa;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;
   --card-foreground: oklch(0.145 0 0);
@@ -71,7 +71,7 @@ $breakpoints: (
   --container-md: 768px;
   --container-lg: 1024px;
   --container-xl: 1200px;
-  --container-2xl: 1600px;
+  --container-2xl: 1800px;
 }
 
 @mixin up($size) {

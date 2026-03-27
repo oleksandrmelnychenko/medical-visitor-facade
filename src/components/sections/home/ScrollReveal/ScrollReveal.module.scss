@@ -1,0 +1,53 @@
+.anchor {
+  position: relative;
+  z-index: 0;
+  height: 82vh;
+}
+
+.pinned {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  will-change: transform;
+}
+
+.surface {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  background: #f5e642;
+}
+
+.headline {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(2.6rem, 6vw, 5.5rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #1a1a22;
+  text-align: center;
+  text-wrap: balance;
+  max-width: 16ch;
+  padding: 0 2rem;
+}
+
+.cta {
+  display: inline-block;
+  font-family: "Raleway", sans-serif;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 600;
+  color: #1a1a22;
+  text-decoration: none;
+  border-bottom: 1.5px solid #1a1a22;
+  padding-bottom: 0.35rem;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}

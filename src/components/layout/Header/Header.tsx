@@ -10,10 +10,10 @@ import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import styles from "./Header.module.scss";
 
 const LANGUAGES = [
-  { code: "de", label: "DE", fullName: "Deutsch" },
-  { code: "en", label: "EN", fullName: "English" },
-  { code: "ru", label: "RU", fullName: "Русский" },
-  { code: "es", label: "ES", fullName: "Español" },
+  { code: "de", label: "DE", fullName: "Deutsch", flagSrc: "/assets/flags/de.svg" },
+  { code: "en", label: "EN", fullName: "English", flagSrc: "/assets/flags/gb.svg" },
+  { code: "ru", label: "RU", fullName: "Русский", flagSrc: "/assets/flags/ru.svg" },
+  { code: "es", label: "ES", fullName: "Español", flagSrc: "/assets/flags/es.svg" },
 ] as const;
 
 type SupportedLocale = (typeof LANGUAGES)[number]["code"];
@@ -26,31 +26,15 @@ export function Header() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isDesktopLangOpen, setIsDesktopLangOpen] = useState(false);
   const [isStickyLangOpen, setIsStickyLangOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const langRef = useRef<HTMLDivElement>(null);
   const stickyLangRef = useRef<HTMLDivElement>(null);
 
-  const handleScroll = useEffectEvent(() => {
-    const nextScrolled = window.scrollY > 150;
-
-    if (nextScrolled !== isScrolled) {
-      setIsDesktopLangOpen(false);
-      setIsStickyLangOpen(false);
-      setIsScrolled(nextScrolled);
-    }
-  });
-
   const handleClickOutside = useEffectEvent((event: MouseEvent) => {
-    const clickedOutsideDesktopLang =
-      langRef.current && !langRef.current.contains(event.target as Node);
     const clickedOutsideStickyLang =
       stickyLangRef.current && !stickyLangRef.current.contains(event.target as Node);
 
-    if (clickedOutsideDesktopLang && clickedOutsideStickyLang) {
-      setIsDesktopLangOpen(false);
+    if (clickedOutsideStickyLang) {
       setIsStickyLangOpen(false);
     }
   });
@@ -62,18 +46,6 @@ export function Header() {
   });
 
   useEffect(() => {
-    let frameId: number | null = null;
-    const onScroll = () => {
-      if (frameId !== null) {
-        return;
-      }
-
-      frameId = window.requestAnimationFrame(() => {
-        frameId = null;
-        handleScroll();
-      });
-    };
-
     const onResize = () => {
       handleResize();
     };
@@ -83,15 +55,10 @@ export function Header() {
     };
 
     window.addEventListener("resize", onResize);
-    window.addEventListener("scroll", onScroll, { passive: true });
     document.addEventListener("mousedown", onMouseDown);
 
     return () => {
-      if (frameId !== null) {
-        window.cancelAnimationFrame(frameId);
-      }
       window.removeEventListener("resize", onResize);
-      window.removeEventListener("scroll", onScroll);
       document.removeEventListener("mousedown", onMouseDown);
     };
   }, []);
@@ -117,17 +84,11 @@ export function Header() {
   const isApplyPage = pathname === "/apply";
   const showLogin = !isLoginPage;
   const showApplyCta = !isApplyPage;
-  const hideHeader = isLoginPage;
-
-  if (hideHeader) {
-    return null;
-  }
 
   const handleLanguageSelect = (code: SupportedLocale) => {
     startTransition(() => {
       router.replace(currentPathWithSearch, { locale: code });
     });
-    setIsDesktopLangOpen(false);
     setIsStickyLangOpen(false);
   };
 
@@ -137,14 +98,13 @@ export function Header() {
     startTransition(() => {
       router.replace(currentPathWithSearch, { locale: code });
     });
-    setIsDesktopLangOpen(false);
     setIsStickyLangOpen(false);
     closeMobileMenu();
   };
 
   return (
     <>
-      <div className={cn(styles.stickyHeader, (isScrolled || isMobileMenuOpen) && styles.visible, isMobileMenuOpen && styles.noShadow)}>
+      <div className={cn(styles.stickyHeader, styles.visible, isMobileMenuOpen && styles.noShadow)}>
         <div className={styles.stickyContainer}>
           <Link href="/" className={styles.stickyLogoLink}>
             <Image
@@ -154,7 +114,9 @@ export function Header() {
               height={32}
               className={styles.stickyLogo}
             />
-            <span className={styles.stickyLogoTagline}>{tFooter.rich('companyName', { accent: (chunks) => <span className={styles.logoAccent}>{chunks}</span> })}</span>
+            <span className={styles.stickyLogoTagline}>
+              {tFooter.rich("companyName", { accent: (chunks) => <span className={styles.logoAccent}>{chunks}</span> })}
+            </span>
           </Link>
           <button
             onClick={() => setIsMobileMenuOpen((open) => !open)}
@@ -171,31 +133,42 @@ export function Header() {
             </span>
           </button>
           <div className={styles.stickyActions}>
+            <Link href="/membership" className={styles.stickyNavLink}>
+              {tFooter("membership")}
+            </Link>
             {showApplyCta && (
               <Link href="/apply" prefetch={false} className={styles.stickyButton}>
                 {tCommon('requestAppointment')}
                 <ArrowRight size={16} />
               </Link>
             )}
+            <span className={styles.stickyDivider} aria-hidden="true" />
             {showLogin && (
               <Link href="/login" prefetch={false} className={styles.stickyLoginLink}>
-                <User size={16} />
                 <span>{tCommon("login")}</span>
               </Link>
             )}
             <div className={styles.languageSelector} ref={stickyLangRef}>
               <button
-                className={styles.stickyLangToggle}
+                className={styles.langOrb}
                 onClick={() => {
                   setIsStickyLangOpen((open) => !open);
-                  setIsDesktopLangOpen(false);
                 }}
-                aria-label={tCommon('selectLanguage')}
+                aria-label={`${tCommon("selectLanguage")}: ${currentLanguage.fullName}`}
                 aria-expanded={isStickyLangOpen}
               >
-                {currentLanguage?.label}
+                <span className={styles.langOrbFlag} aria-hidden="true">
+                  <Image
+                    src={currentLanguage.flagSrc}
+                    alt=""
+                    width={20}
+                    height={20}
+                    className={styles.langOrbFlagIcon}
+                  />
+                </span>
+                {/* <span className={styles.langOrbLabel}>{currentLanguage.label}</span> */}
               </button>
-              {isStickyLangOpen && isScrolled && (
+              {isStickyLangOpen && (
                 <div className={styles.langDropdown}>
                   {LANGUAGES.map((language, index) => (
                     <React.Fragment key={language.code}>
@@ -203,7 +176,19 @@ export function Header() {
                         onClick={() => handleLanguageSelect(language.code)}
                         className={cn(styles.langOption, locale === language.code && styles.active)}
                       >
-                        {language.fullName}
+                        <span className={styles.langOptionInner}>
+                          <span className={styles.langOptionFlag} aria-hidden="true">
+                            <Image
+                              src={language.flagSrc}
+                              alt=""
+                              width={18}
+                              height={18}
+                              className={styles.langOptionFlagIcon}
+                            />
+                          </span>
+                          <span className={styles.langOptionCode}>{language.label}</span>
+                          <span className={styles.langOptionName}>{language.fullName}</span>
+                        </span>
                       </button>
                       {index < LANGUAGES.length - 1 && <div className={styles.langSeparator} />}
                     </React.Fragment>
@@ -216,80 +201,6 @@ export function Header() {
       </div>
 
       <header className={cn(styles.header, isApplyPage && styles.headerTransparent)}>
-        <div className={styles.headerRow}>
-          <div className={styles.headerLeft} />
-
-          <Link href="/" className={styles.logoLink}>
-            <Image
-              src="/assets/logo.png"
-              alt="Agency for Patient Care"
-              width={200}
-              height={54}
-              className={styles.logo}
-              priority
-            />
-            <span className={styles.logoTagline}>{tFooter.rich('companyName', { accent: (chunks) => <span className={styles.logoAccent}>{chunks}</span> })}</span>
-          </Link>
-
-          <div className={styles.headerRight}>
-            {showApplyCta && (
-              <Link href="/apply" prefetch={false} className={styles.headerButton}>
-                {tCommon("requestAppointment")}
-                <ArrowRight size={16} />
-              </Link>
-            )}
-            {showLogin && (
-              <Link href="/login" prefetch={false} className={styles.headerLoginLink}>
-                <User size={16} />
-                <span>{tCommon("login")}</span>
-              </Link>
-            )}
-            <div className={styles.languageSelector} ref={langRef}>
-              <button
-                className={styles.langToggle}
-                onClick={() => {
-                  setIsDesktopLangOpen((open) => !open);
-                  setIsStickyLangOpen(false);
-                }}
-                aria-label={tCommon('selectLanguage')}
-                aria-expanded={isDesktopLangOpen}
-              >
-                {currentLanguage?.label}
-              </button>
-              {isDesktopLangOpen && !isScrolled && (
-                <div className={styles.langDropdown}>
-                  {LANGUAGES.map((language, index) => (
-                    <React.Fragment key={language.code}>
-                      <button
-                        onClick={() => handleLanguageSelect(language.code)}
-                        className={cn(styles.langOption, locale === language.code && styles.active)}
-                      >
-                        {language.fullName}
-                      </button>
-                      {index < LANGUAGES.length - 1 && <div className={styles.langSeparator} />}
-                    </React.Fragment>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-
-          <button
-            onClick={() => setIsMobileMenuOpen((open) => !open)}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            className={cn(styles.mobileMenuButton, isMobileMenuOpen && styles.menuButtonOpen)}
-          >
-            <span
-              className={cn(styles.hamburgerIcon, isMobileMenuOpen && styles.hamburgerIconOpen)}
-              aria-hidden="true"
-            >
-              <span />
-              <span />
-              <span />
-            </span>
-          </button>
-        </div>
-
         <div
           className={cn(styles.mobileMenuBackdrop, isMobileMenuOpen && styles.mobileMenuBackdropOpen)}
           onClick={closeMobileMenu}
@@ -300,7 +211,7 @@ export function Header() {
           className={cn(
             styles.mobileMenu,
             isMobileMenuOpen && styles.mobileMenuOpen,
-            isScrolled && styles.mobileMenuWithSticky
+            styles.mobileMenuWithSticky
           )}
         >
           <div className={styles.mobileMenuContent}>
@@ -349,6 +260,13 @@ export function Header() {
 
             <div className={styles.mobileFooterLinks}>
               <div className={styles.mobileFooterTitle}>{tFooter("theAgency")}</div>
+              <Link
+                href="/membership"
+                onClick={closeMobileMenu}
+                className={styles.mobileFooterLink}
+              >
+                {tFooter("membership")}
+              </Link>
               <Link
                 href="/financial-assistance"
                 onClick={closeMobileMenu}

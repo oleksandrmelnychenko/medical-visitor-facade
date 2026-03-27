@@ -3,7 +3,7 @@ import { Hero } from "@/components/sections/home/Hero";
 import { FullSupport } from "@/components/sections/home/FullSupport";
 import { CareForward } from "@/components/sections/home/CareForward";
 import { Office } from "@/components/sections/home/Office";
-import { ScrollProgressRail } from "@/components/layout/ScrollProgressRail";
+import { ScrollReveal } from "@/components/sections/home/ScrollReveal";
 import {
   getLocalizedMetadata,
   getLocalizedMessage,
@@ -38,7 +38,7 @@ export default function Home() {
       <FullSupport />
       <CareForward />
       <Office />
-      <ScrollProgressRail />
+      <ScrollReveal />
     </>
   );
 }

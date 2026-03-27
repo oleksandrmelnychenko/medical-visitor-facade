@@ -43,11 +43,19 @@
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #1e2330;
+  color: #c28b78;
+  background: linear-gradient(90deg, #c58a74 0%, #af89a2 56%, #7f97ad 100%);
+
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
 }
 
 .brandAccent {
-  color: #4a78bc;
+  color: inherit;
 }
 
 .formIsland {

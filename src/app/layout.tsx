@@ -1,15 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import "../styles/globals.scss";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/seo/JsonLd";
 import { baseUrl } from "@/lib/seo";
-
-const montserrat = Montserrat({
-  subsets: ["latin", "cyrillic", "latin-ext"],
-  variable: "--font-montserrat",
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   themeColor: [
@@ -111,7 +104,7 @@ export default async function RootLayout({
         <OrganizationJsonLd />
         <WebsiteJsonLd />
       </head>
-      <body className={montserrat.variable}>
+      <body>
         {children}
       </body>
     </html>
