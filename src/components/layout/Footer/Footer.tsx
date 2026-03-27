@@ -69,8 +69,20 @@ export async function Footer({ locale }: FooterProps) {
           </div>
 
           <div className={styles.utilityRow}>
-            <div className={styles.bottomBar}>
-              <p>{t("copyright", { year: 2026 })}. {t("allRightsReserved")}.</p>
+            <div className={styles.utilityLeft}>
+              <div className={styles.bottomBar}>
+                <p>{t("copyright", { year: 2026 })}. {t("allRightsReserved")}.</p>
+              </div>
+              <div className={styles.legalBar}>
+                <Link href="/privacy-policy" locale={locale} className={styles.legalLink}>
+                  {t("privacyPolicy")}
+                  <ArrowUpRight aria-hidden="true" />
+                </Link>
+                <Link href="/legal-notice" locale={locale} className={styles.legalLink}>
+                  {t("impressum")}
+                  <ArrowUpRight aria-hidden="true" />
+                </Link>
+              </div>
             </div>
 
             <a href="#" className={styles.backToTop}>
@@ -79,15 +91,6 @@ export async function Footer({ locale }: FooterProps) {
             </a>
           </div>
         </div>
-      </div>
-
-      <div className={styles.legalBar}>
-        <Link href="/privacy-policy" locale={locale} className={styles.legalLink}>
-          {t("privacyPolicy")}
-        </Link>
-        <Link href="/legal-notice" locale={locale} className={styles.legalLink}>
-          {t("impressum")}
-        </Link>
       </div>
     </footer>
   );

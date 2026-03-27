@@ -142,7 +142,6 @@
   --accordion-block-pad: clamp(1.35rem, 2vw, 1.8rem);
   background-color: color-mix(in oklab, var(--foreground) 85%, transparent);
   border-radius: clamp(1.5rem, 2vw, 1.75rem);
-  overflow: hidden;
   padding-block: var(--accordion-block-pad);
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 22px 44px -32px rgba(0, 0, 0, 0.4);
@@ -171,9 +170,10 @@
   position: relative;
   z-index: 1;
   background: #f9f5f2;
-  border-radius: clamp(1rem, 1.5vw, 1.25rem);
-  margin-inline: -1px;
-  border: 1px solid #f9f5f2;
+  border-radius: clamp(1.5rem, 2vw, 1.75rem);
+  margin: -1px -1px;
+  border: none;
+  box-shadow: 0 0 0 3px #f9f5f2;
 
   &::after {
     display: none;
@@ -344,9 +344,7 @@
 .accordionPointLine {
   margin: 0;
   min-width: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
 }
 
 .accordionPointTitle {
@@ -414,14 +412,28 @@
   }
 
   .accordionLabel {
-    font-size: 0.95rem;
+    font-size: clamp(1.02rem, 4.7vw, 1.18rem);
+    line-height: 1.12;
+  }
+
+  .accordionTrigger {
+    align-items: flex-start;
+    gap: 1rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+  }
+
+  .accordionIcon {
+    margin-top: 0.1rem;
   }
 
   .accordionPointTitle {
     font-size: 0.92rem;
+    line-height: 1.45;
   }
 
   .accordionPointText {
     font-size: 0.88rem;
+    line-height: 1.45;
   }
 }

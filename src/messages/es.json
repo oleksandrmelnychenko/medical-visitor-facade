@@ -47,43 +47,85 @@
           "title": "Consultas individuales",
           "point1": "sobre opciones de tratamiento",
           "point2": "sobre clínicas especializadas y especialistas médicos",
-          "point3": "basadas en necesidades y prioridades personales"
+          "point3": "basadas en necesidades y prioridades personales",
+          "item1Title": "Opciones de tratamiento",
+          "item1Text": "con evaluación de los escenarios disponibles y las posibles direcciones",
+          "item2Title": "Clínicas y especialistas médicos",
+          "item2Text": "con selección de centros especializados y profesionales relevantes",
+          "item3Title": "Necesidades y preferencias personales",
+          "item3Text": "adaptadas a la solicitud individual, expectativas y preferencias"
         },
         "coordination": {
           "title": "Coordinación de los procesos médicos",
           "point1": "desde la programación de citas hasta la alineación de cada etapa",
           "point2": "garantizando la colaboración interdisciplinaria",
-          "point3": "con un claro enfoque en la eficiencia y la claridad"
+          "point3": "con un claro enfoque en la eficiencia y la claridad",
+          "item1Title": "Etapas del recorrido",
+          "item1Text": "desde la programación de citas hasta la coordinación de los pasos clave del tratamiento",
+          "item2Title": "Colaboración interdisciplinaria",
+          "item2Text": "con comunicación coordinada entre clínicas, médicos y todas las partes implicadas",
+          "item3Title": "Eficiencia y claridad",
+          "item3Text": "con un proceso transparente que minimiza la carga innecesaria para el paciente"
         },
         "documentation": {
           "title": "Organización de documentación y comunicación",
           "point1": "para informes médicos, altas y expedientes",
           "point2": "mediante la transferencia estructurada de información médica",
-          "point3": "para asegurar una comunicación fluida entre todas las partes implicadas"
+          "point3": "para asegurar una comunicación fluida entre todas las partes implicadas",
+          "item1Title": "Informes y expedientes",
+          "item1Text": "con gestión sistemática de documentos médicos y materiales especializados",
+          "item2Title": "Transferencia de información",
+          "item2Text": "con preparación estructurada de datos para clínicas y especialistas",
+          "item3Title": "Comunicación entre las partes",
+          "item3Text": "para un intercambio de información preciso y coordinado en cada etapa"
         },
         "languageDigital": {
           "title": "Apoyo lingüístico y digital",
           "point1": "mediante servicios de traducción e interpretación",
           "point2": "para la traducción de documentación médica",
-          "point3": "para consultas digitales y acceso a plataformas"
+          "point3": "para consultas digitales y acceso a plataformas",
+          "item1Title": "Traducción e interpretación",
+          "item1Text": "con traducción escrita y oral en contexto médico",
+          "item2Title": "Documentación médica",
+          "item2Text": "con traducción de informes de alta, diagnósticos y materiales complementarios",
+          "item3Title": "Plataformas en línea",
+          "item3Text": "con soporte para la conexión a servicios digitales y videoconsultas"
         },
         "travelTransfer": {
           "title": "Servicios de viaje y traslado al más alto nivel",
           "point1": "servicio personal de chófer y traslados",
           "point2": "aviación ejecutiva y aviación médica",
-          "point3": "transporte sanitario coordinado profesionalmente"
+          "point3": "transporte sanitario coordinado profesionalmente",
+          "item1Title": "Traslado y chófer",
+          "item1Text": "con servicio personalizado para desplazamientos entre todos los puntos del recorrido",
+          "item2Title": "Soluciones de aviación",
+          "item2Text": "con organización de vuelos chárter y médicos cuando sea necesario",
+          "item3Title": "Transporte sanitario",
+          "item3Text": "con coordinación de un traslado seguro en el formato adecuado"
         },
         "personalSupport": {
           "title": "Acompañamiento personal durante toda la estancia",
           "point1": "con servicios de concierge y lifestyle cuidadosamente seleccionados",
           "point2": "con asistencia individual en el lugar",
-          "point3": "con apoyo discreto adaptado a las preferencias personales"
+          "point3": "con apoyo discreto adaptado a las preferencias personales",
+          "item1Title": "Servicio de concierge",
+          "item1Text": "con servicios de concierge cuidadosamente seleccionados y atención a solicitudes personales",
+          "item2Title": "Apoyo en el lugar",
+          "item2Text": "con asistencia individual durante la estancia y las citas",
+          "item3Title": "Preferencias personales",
+          "item3Text": "con acompañamiento discreto adaptado a sus necesidades específicas"
         },
         "aftercare": {
           "title": "Acompañamiento continuo más allá del tratamiento",
           "point1": "mediante la coordinación del seguimiento y la rehabilitación",
           "point2": "mediante consultas de seguimiento",
-          "point3": "mediante una planificación y control transparente de los gastos"
+          "point3": "mediante una planificación y control transparente de los gastos",
+          "item1Title": "Seguimiento y rehabilitación",
+          "item1Text": "con coordinación del acompañamiento médico continuo",
+          "item2Title": "Consultas de seguimiento",
+          "item2Text": "con organización de contactos adicionales con especialistas",
+          "item3Title": "Costes y planificación",
+          "item3Text": "con control presupuestario transparente y próximos pasos"
         }
       }
     },
@@ -283,7 +325,7 @@
         "day": "DD",
         "month": "MM",
         "year": "AAAA",
-        "hint": "Ejemplo: 14.09.1987",
+        "hint": "Ejemplo: 14 09 1987",
         "invalid": "Por favor, introduzca una fecha de nacimiento válida."
       },
       "sharedLegalSex": {
@@ -322,7 +364,7 @@
         "emailLabel": "Correo electrónico"
       },
       "recordsLanguage": {
-        "title": "¿Sus informes médicos ya están traducidos al alemán o al inglés?",
+        "title": "¿Sus informes médicos ya están traducidos al <b>alemán</b> o al <b>inglés</b>?",
         "yes": "Sí",
         "no": "No"
       },

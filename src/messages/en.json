@@ -47,43 +47,85 @@
           "title": "Individual guidance",
           "point1": "on treatment options",
           "point2": "on specialized clinics and medical experts",
-          "point3": "based on personal needs and priorities"
+          "point3": "based on personal needs and priorities",
+          "item1Title": "Treatment options",
+          "item1Text": "with an assessment of available scenarios and possible directions",
+          "item2Title": "Clinics and medical experts",
+          "item2Text": "with a selection of specialized facilities and relevant specialists",
+          "item3Title": "Personal needs and priorities",
+          "item3Text": "tailored to individual requests, expectations, and preferences"
         },
         "coordination": {
           "title": "Coordination of medical processes",
           "point1": "from appointment scheduling to the alignment of every step",
           "point2": "with the assurance of interdisciplinary collaboration",
-          "point3": "with a clear focus on efficiency and clarity"
+          "point3": "with a clear focus on efficiency and clarity",
+          "item1Title": "Journey stages",
+          "item1Text": "from appointment scheduling to the alignment of key treatment steps",
+          "item2Title": "Interdisciplinary collaboration",
+          "item2Text": "with coordinated communication between clinics, doctors, and all parties involved",
+          "item3Title": "Efficiency and clarity",
+          "item3Text": "with a transparent process that minimizes unnecessary burden on the patient"
         },
         "documentation": {
           "title": "Organization of documentation and communication",
           "point1": "for medical reports, discharge letters, and records",
           "point2": "through the structured transfer of medical information",
-          "point3": "to ensure smooth communication between all parties involved"
+          "point3": "to ensure smooth communication between all parties involved",
+          "item1Title": "Reports and records",
+          "item1Text": "with systematic handling of medical documents and specialized materials",
+          "item2Title": "Information transfer",
+          "item2Text": "with structured data preparation for clinics and specialists",
+          "item3Title": "Communication between parties",
+          "item3Text": "for accurate and coordinated information exchange at every stage"
         },
         "languageDigital": {
           "title": "Linguistic and digital support",
           "point1": "through translation and interpreting services",
           "point2": "for the translation of medical documentation",
-          "point3": "for digital consultations and platform access"
+          "point3": "for digital consultations and platform access",
+          "item1Title": "Translation and interpreting",
+          "item1Text": "with written and spoken translation in a medical context",
+          "item2Title": "Medical documentation",
+          "item2Text": "with translation of discharge summaries, reports, and related materials",
+          "item3Title": "Online platforms",
+          "item3Text": "with support for connecting to digital services and video consultations"
         },
         "travelTransfer": {
           "title": "Travel and transfer services to the highest standard",
           "point1": "personal chauffeur and transfer services",
           "point2": "business aviation and medical aviation",
-          "point3": "professionally coordinated medical transport"
+          "point3": "professionally coordinated medical transport",
+          "item1Title": "Transfer and chauffeur",
+          "item1Text": "with a personal service for travel between all points of the journey",
+          "item2Title": "Aviation solutions",
+          "item2Text": "with charter and medical flight arrangements when required",
+          "item3Title": "Medical transport",
+          "item3Text": "with coordination of safe transfer in the appropriate format"
         },
         "personalSupport": {
           "title": "Personal support throughout each stay",
           "point1": "with carefully selected concierge and lifestyle services",
           "point2": "with individual assistance on site",
-          "point3": "with discreet support tailored to personal preferences"
+          "point3": "with discreet support tailored to personal preferences",
+          "item1Title": "Concierge service",
+          "item1Text": "with carefully selected concierge services and personal requests",
+          "item2Title": "On-site support",
+          "item2Text": "with individual assistance during stays and appointments",
+          "item3Title": "Personal preferences",
+          "item3Text": "with discreet support adapted to your specific needs"
         },
         "aftercare": {
           "title": "Ongoing support beyond treatment",
           "point1": "through aftercare and rehabilitation coordination",
           "point2": "through follow-up consultations",
-          "point3": "through transparent cost control and planning"
+          "point3": "through transparent cost control and planning",
+          "item1Title": "Follow-up and rehabilitation",
+          "item1Text": "with coordination of ongoing medical support",
+          "item2Title": "Follow-up consultations",
+          "item2Text": "with organization of further contact with specialists",
+          "item3Title": "Costs and planning",
+          "item3Text": "with transparent budget control and next steps"
         }
       }
     },
@@ -283,7 +325,7 @@
         "day": "DD",
         "month": "MM",
         "year": "YYYY",
-        "hint": "Example: 14.09.1987",
+        "hint": "Example: 14 09 1987",
         "invalid": "Please enter a valid date of birth."
       },
       "sharedLegalSex": {
@@ -322,7 +364,7 @@
         "emailLabel": "Email address"
       },
       "recordsLanguage": {
-        "title": "Are your medical records already translated into German or English?",
+        "title": "Are your medical records already translated into <b>German</b> or <b>English</b>?",
         "yes": "Yes",
         "no": "No"
       },

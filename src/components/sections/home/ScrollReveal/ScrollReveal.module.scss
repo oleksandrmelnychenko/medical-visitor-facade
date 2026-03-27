@@ -37,7 +37,9 @@
 }
 
 .cta {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15em;
   font-family: "Onest", sans-serif;
   font-size: clamp(1.3rem, 2vw, 1.7rem);
   font-weight: 600;
@@ -47,7 +49,41 @@
   padding-bottom: 0.35rem;
   transition: opacity 0.2s;
 
+  svg {
+    width: 1.3em;
+    height: 1.3em;
+    stroke-width: 2.6;
+  }
+
   &:hover {
     opacity: 0.6;
+  }
+}
+
+@media (max-width: 768px) {
+  .anchor {
+    height: auto;
+  }
+
+  .pinned {
+    position: relative;
+    inset: auto;
+  }
+
+  .surface {
+    min-height: 24rem;
+    gap: 1.5rem;
+    padding: 3rem 1.25rem 3.5rem;
+  }
+
+  .headline {
+    max-width: 9ch;
+    padding: 0;
+    font-size: clamp(2.35rem, 10vw, 3.45rem);
+    line-height: 1;
+  }
+
+  .cta {
+    font-size: 1rem;
   }
 }

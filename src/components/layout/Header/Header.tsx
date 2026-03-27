@@ -84,6 +84,7 @@ export function Header() {
   const isApplyPage = pathname === "/apply";
   const showLogin = !isLoginPage;
   const showApplyCta = !isApplyPage;
+  const showMobileLoginFab = showLogin && !isMobileMenuOpen && !isApplyPage;
 
   const handleLanguageSelect = (code: SupportedLocale) => {
     startTransition(() => {
@@ -104,7 +105,13 @@ export function Header() {
 
   return (
     <>
-      <div className={cn(styles.stickyHeader, styles.visible, isMobileMenuOpen && styles.noShadow)}>
+      <div
+        className={cn(
+          styles.stickyHeader,
+          styles.visible,
+          isMobileMenuOpen && styles.noShadow
+        )}
+      >
         <div className={styles.stickyContainer}>
           <Link href="/" className={styles.stickyLogoLink}>
             <Image
@@ -198,20 +205,15 @@ export function Header() {
           )}
         >
           <div className={styles.mobileMenuContent}>
-            <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center" }}>
+            <div className={styles.mobileLanguageTabs}>
               {LANGUAGES.map((language) => (
                 <button
                   key={language.code}
                   onClick={() => handleMobileLanguageSelect(language.code)}
-                  style={{
-                    background: "none",
-                    border: "none",
-                    padding: "0.5rem",
-                    fontSize: "1rem",
-                    fontWeight: locale === language.code ? 600 : 400,
-                    color: "#1a1a1a",
-                    cursor: "pointer",
-                  }}
+                  className={cn(
+                    styles.mobileLanguageButton,
+                    locale === language.code && styles.mobileLanguageButtonActive
+                  )}
                 >
                   {language.label}
                 </button>
@@ -275,7 +277,7 @@ export function Header() {
           </div>
         </div>
 
-        {showLogin && !isMobileMenuOpen && (
+        {showMobileLoginFab && (
           <Link
             href="/login"
             prefetch={false}

@@ -2,7 +2,6 @@
 
 import type { CSSProperties, ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
-import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { WizardStepLayout } from "./WizardStepLayout";
 import styles from "../../RequestAppointment/RequestAppointment.module.scss";
@@ -17,7 +16,7 @@ export interface WizardChoiceOption {
 }
 
 interface WizardChoiceStepProps {
-  title: string;
+  title: React.ReactNode;
   subtitle?: string;
   subtitleClassName?: string;
   onBack?: () => void;
@@ -72,10 +71,6 @@ export function WizardChoiceStep({
                 {option.description && (
                   <span className={styles.locationConceptDesc}>{option.description}</span>
                 )}
-              </span>
-
-              <span className={styles.locationConceptArrow} aria-hidden="true">
-                <ArrowUpRight />
               </span>
             </button>
           );

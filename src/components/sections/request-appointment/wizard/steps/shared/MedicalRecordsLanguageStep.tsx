@@ -28,7 +28,7 @@ export function MedicalRecordsLanguageStep() {
 
   return (
     <WizardChoiceStep
-      title={t("recordsLanguage.title")}
+      title={t.rich("recordsLanguage.title", { b: (chunks) => <strong>{chunks}</strong> })}
       onBack={handleBack}
       backLabel={t("back")}
       options={[

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback, useRef } from 'react';
+import { ArrowUpRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { Link } from '@/i18n/navigation';
@@ -51,6 +52,7 @@ export function WelcomeStep() {
         </p>
         <Link href="/privacy-policy" className={styles.wizardPrivacyLink}>
           {t('welcome.privacyPolicy')}
+          <ArrowUpRight aria-hidden="true" />
         </Link>
       </div>
     </WizardStepLayout>

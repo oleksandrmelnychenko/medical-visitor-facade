@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { ArrowUpLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import sectionStyles from '@/components/sections/shared/Section.module.scss';
 import pageStyles from '@/styles/page.module.scss';
@@ -8,7 +9,7 @@ import { WizardPathTree } from './WizardPathTree';
 import styles from '../../RequestAppointment/RequestAppointment.module.scss';
 
 interface WizardStepLayoutProps {
-  title: string;
+  title: React.ReactNode;
   subtitle?: string;
   subtitleClassName?: string;
   contentClassName?: string;
@@ -34,7 +35,7 @@ export function WizardStepLayout({
   continueDisabled = false,
   children,
 }: WizardStepLayoutProps) {
-  const hasManualTitleBreak = title.includes("\n");
+  const hasManualTitleBreak = typeof title === "string" && title.includes("\n");
 
   return (
     <div className={cn(pageStyles.page, styles.gridBackground)}>
@@ -91,6 +92,7 @@ export function WizardStepLayout({
                               className={styles.wizardBackText}
                               type="button"
                             >
+                              <ArrowUpLeft aria-hidden="true" />
                               {backLabel}
                             </button>
                           )}

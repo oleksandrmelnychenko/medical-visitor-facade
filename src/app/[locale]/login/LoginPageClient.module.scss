@@ -1,8 +1,8 @@
 @use "../../../styles/variables" as *;
 
 .page {
-  background: #fff !important;
-  min-height: calc(100svh - 4.5rem);
+  background: #fffcfa !important;
+  min-height: 100svh;
   display: flex;
 }
 
@@ -13,7 +13,7 @@
   align-items: center;
   padding-top: clamp(2.5rem, 6vw, 4rem) !important;
   padding-bottom: clamp(2.25rem, 5vw, 3.5rem) !important;
-  background: #fff !important;
+  background: #fffcfa !important;
 }
 
 .shell {
@@ -62,11 +62,10 @@
   width: 100%;
   margin-top: clamp(1.7rem, 4vw, 2.35rem);
   padding: clamp(1.45rem, 3vw, 2.1rem);
-  border-radius: 1.75rem 2.15rem 1.8rem 2rem;
-  border: 1px solid rgba(26, 31, 39, 0.045);
-  background:
-    linear-gradient(180deg, rgba(253, 253, 253, 0.99) 0%, rgba(247, 248, 249, 0.97) 100%);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.92) inset;
+  border-radius: 1rem 1.25rem 1rem 1.15rem;
+  border: 1px solid rgba(24, 28, 38, 0.08);
+  background: #ffffff;
+  box-shadow: none;
 }
 
 .form {
@@ -85,18 +84,18 @@
   font-weight: 400;
   line-height: 1.04;
   letter-spacing: -0.04em;
-  color: #1b2029;
+  color: #1a1a22;
 }
 
 .formSubtitle {
   max-width: 28rem;
   margin: 0.8rem auto 0;
   font-family: "Onest", sans-serif;
-  font-size: 1rem;
+  font-size: 1.06rem;
   font-weight: 400;
   line-height: 1.7;
   letter-spacing: -0.01em;
-  color: #646b78;
+  color: #1a1a22;
 }
 
 .fieldGroup {
@@ -236,11 +235,11 @@
   margin: 1.4rem 0 1.15rem;
   text-align: center;
   font-family: "Onest", sans-serif;
-  font-size: 0.95rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.65;
-  color: #646b78;
+  color: #1a1a22;
 }
 
 .linkRow {

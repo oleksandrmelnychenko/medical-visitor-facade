@@ -326,6 +326,10 @@
     width: clamp(1.75rem, 8vw, 2.15rem);
   }
 
+  .heroArrow {
+    display: none;
+  }
+
   .principleItem {
     gap: 0.9rem;
     padding-top: 1.15rem;

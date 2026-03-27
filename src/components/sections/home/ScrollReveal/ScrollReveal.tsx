@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import styles from "./ScrollReveal.module.scss";
@@ -10,6 +11,26 @@ export function ScrollReveal() {
   const t = useTranslations("common");
   const tHome = useTranslations("home.scrollReveal");
   const ref = useRef<HTMLDivElement>(null);
+  const [isStaticMobile, setIsStaticMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return undefined;
+    }
+
+    const mediaQuery = window.matchMedia("(max-width: 768px), (prefers-reduced-motion: reduce)");
+
+    const syncMode = () => {
+      setIsStaticMobile(mediaQuery.matches);
+    };
+
+    syncMode();
+    mediaQuery.addEventListener("change", syncMode);
+
+    return () => {
+      mediaQuery.removeEventListener("change", syncMode);
+    };
+  }, []);
 
   // Visibility: fade in as anchor approaches viewport
   const { scrollYProgress: showProgress } = useScroll({
@@ -27,13 +48,17 @@ export function ScrollReveal() {
 
   return (
     <div ref={ref} className={styles.anchor}>
-      <motion.div className={styles.pinned} style={{ y, opacity }}>
+      <motion.div
+        className={styles.pinned}
+        style={isStaticMobile ? undefined : { y, opacity }}
+      >
         <div className={styles.surface}>
           <h2 className={styles.headline}>
             {tHome("headline")}
           </h2>
           <Link href="/apply" prefetch={false} className={styles.cta}>
             <span>{t("requestAppointment")}</span>
+            <ArrowUpRight aria-hidden="true" />
           </Link>
         </div>
       </motion.div>

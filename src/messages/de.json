@@ -47,43 +47,85 @@
           "title": "Individuelle Beratung",
           "point1": "zu Behandlungsoptionen",
           "point2": "zu spezialisierten Kliniken und Fachärzten",
-          "point3": "auf Grundlage persönlicher Bedürfnisse"
+          "point3": "auf Grundlage persönlicher Bedürfnisse",
+          "item1Title": "Behandlungsoptionen",
+          "item1Text": "mit Bewertung verfügbarer Szenarien und möglicher Richtungen",
+          "item2Title": "Kliniken und Fachärzte",
+          "item2Text": "mit Auswahl spezialisierter Einrichtungen und relevanter Spezialisten",
+          "item3Title": "Persönliche Bedürfnisse und Wünsche",
+          "item3Text": "unter Berücksichtigung individueller Anfragen, Erwartungen und Präferenzen"
         },
         "coordination": {
           "title": "Koordination medizinischer Abläufe",
           "point1": "von der Terminplanung bis zur Abstimmung aller Schritte",
           "point2": "unter Gewährleistung interdisziplinärer Zusammenarbeit",
-          "point3": "mit Fokus auf Effizienz und Klarheit"
+          "point3": "mit Fokus auf Effizienz und Klarheit",
+          "item1Title": "Etappen des Behandlungswegs",
+          "item1Text": "von der Terminplanung bis zur Abstimmung der wichtigsten Behandlungsschritte",
+          "item2Title": "Interdisziplinäre Zusammenarbeit",
+          "item2Text": "mit koordinierter Kommunikation zwischen Kliniken, Ärzten und allen Beteiligten",
+          "item3Title": "Effizienz und Klarheit",
+          "item3Text": "mit transparenter Prozessgestaltung ohne unnötige Belastung für den Patienten"
         },
         "documentation": {
           "title": "Organisation von Unterlagen und Kommunikation",
           "point1": "bei Befunden, Arztbriefen und Dokumenten",
           "point2": "bei der strukturierten Übermittlung medizinischer Informationen",
-          "point3": "für einen reibungslosen Austausch aller Beteiligten"
+          "point3": "für einen reibungslosen Austausch aller Beteiligten",
+          "item1Title": "Befunde und Arztbriefe",
+          "item1Text": "mit systematischer Bearbeitung medizinischer Dokumente und Fachmaterialien",
+          "item2Title": "Informationsübermittlung",
+          "item2Text": "mit strukturierter Datenaufbereitung für Kliniken und Spezialisten",
+          "item3Title": "Kommunikation der Beteiligten",
+          "item3Text": "für einen präzisen und abgestimmten Informationsaustausch in jeder Phase"
         },
         "languageDigital": {
           "title": "Sprachliche und digitale Unterstützung",
           "point1": "durch Übersetzungs- und Dolmetscherdienste",
           "point2": "bei der Übersetzung medizinischer Unterlagen",
-          "point3": "bei digitalen Sprechstunden und Plattformzugängen"
+          "point3": "bei digitalen Sprechstunden und Plattformzugängen",
+          "item1Title": "Übersetzung und Begleitung",
+          "item1Text": "mit schriftlicher und mündlicher Übersetzung im medizinischen Kontext",
+          "item2Title": "Medizinische Dokumentation",
+          "item2Text": "mit Übersetzung von Entlassungsbriefen, Befunden und begleitenden Unterlagen",
+          "item3Title": "Online-Plattformen",
+          "item3Text": "mit Unterstützung bei der Anbindung an digitale Dienste und Videosprechstunden"
         },
         "travelTransfer": {
           "title": "Reise- und Transferleistungen auf höchstem Niveau",
           "point1": "persönlicher Chauffeur- und Transferservice",
           "point2": "Business Aviation und Medical Aviation",
-          "point3": "professionell koordinierter Krankentransport"
+          "point3": "professionell koordinierter Krankentransport",
+          "item1Title": "Transfer und Fahrer",
+          "item1Text": "mit persönlichem Service für Fahrten zwischen allen Stationen",
+          "item2Title": "Fluglösungen",
+          "item2Text": "mit Organisation von Charter- und Medizinflügen bei Bedarf",
+          "item3Title": "Krankentransport",
+          "item3Text": "mit Koordination eines sicheren Transports im passenden Format"
         },
         "personalSupport": {
           "title": "Persönliche Begleitung während des Aufenthalts",
           "point1": "mit ausgewählten Concierge- und Lifestyle-Services",
           "point2": "mit individueller Unterstützung vor Ort",
-          "point3": "mit diskreter Betreuung nach persönlichen Anforderungen"
+          "point3": "mit diskreter Betreuung nach persönlichen Anforderungen",
+          "item1Title": "Concierge-Service",
+          "item1Text": "mit sorgfältig ausgewählten Concierge-Leistungen und persönlichem Service",
+          "item2Title": "Unterstützung vor Ort",
+          "item2Text": "mit individueller Hilfe während des Aufenthalts und bei Terminen",
+          "item3Title": "Persönliche Wünsche",
+          "item3Text": "mit diskreter Begleitung, angepasst an Ihre Anforderungen"
         },
         "aftercare": {
           "title": "Nachsorge und Begleitung über die Behandlung hinaus",
           "point1": "durch Koordination von Nachsorge und Rehabilitation",
           "point2": "durch Follow-up-Beratungen",
-          "point3": "durch transparente Kostenkontrolle und Planung"
+          "point3": "durch transparente Kostenkontrolle und Planung",
+          "item1Title": "Nachsorge und Rehabilitation",
+          "item1Text": "mit Koordination der weiterführenden medizinischen Betreuung",
+          "item2Title": "Folgeberatungen",
+          "item2Text": "mit Organisation weiterer Kontakte zu Spezialisten",
+          "item3Title": "Kosten und Planung",
+          "item3Text": "mit transparenter Budgetkontrolle und nächsten Schritten"
         }
       }
     },
@@ -306,7 +348,7 @@
         "day": "TT",
         "month": "MM",
         "year": "JJJJ",
-        "hint": "Beispiel: 14.09.1987",
+        "hint": "Beispiel: 14 09 1987",
         "invalid": "Bitte geben Sie ein gültiges Geburtsdatum ein."
       },
       "sharedLegalSex": {
@@ -345,7 +387,7 @@
         "emailLabel": "E-Mail-Adresse"
       },
       "recordsLanguage": {
-        "title": "Liegen Ihre medizinischen Unterlagen bereits in deutscher oder englischer Sprache vor?",
+        "title": "Liegen Ihre medizinischen Unterlagen bereits in <b>deutscher</b> oder <b>englischer</b> Sprache vor?",
         "yes": "Ja",
         "no": "Nein"
       },
