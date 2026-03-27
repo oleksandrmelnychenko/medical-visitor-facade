@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useRef } from "react";
-import { Ban, Plane } from "lucide-react";
+import { ArrowUpRight, Ban, Plane } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useWizard } from "../WizardContext";
@@ -58,6 +58,9 @@ export function TravelReadyStep() {
             </span>
           </div>
           <h3 className={styles.locationConceptTitle}>{t("travelPatient.yes")}</h3>
+          <span className={styles.locationConceptArrow} aria-hidden="true">
+            <ArrowUpRight />
+          </span>
         </button>
         <button
           onClick={() => handleSelect("no")}
@@ -71,6 +74,9 @@ export function TravelReadyStep() {
             </span>
           </div>
           <h3 className={styles.locationConceptTitle}>{t("travelPatient.no")}</h3>
+          <span className={styles.locationConceptArrow} aria-hidden="true">
+            <ArrowUpRight />
+          </span>
         </button>
       </div>
     </WizardStepLayout>

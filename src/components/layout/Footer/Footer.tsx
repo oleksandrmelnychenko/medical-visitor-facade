@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { GmedHeaderLogo } from "@/components/branding/GmedHeaderLogo/GmedHeaderLogo";
 import { FooterSwitch } from "./FooterSwitch";
@@ -44,16 +45,7 @@ export async function Footer({ locale }: FooterProps) {
               <li className={`${styles.linkItem} ${styles.agencyLinkItem}`}>
                 <Link href="/financial-assistance" locale={locale}>
                   {t("financialAssistance")}
-                </Link>
-              </li>
-              <li className={`${styles.linkItem} ${styles.agencyLinkItem}`}>
-                <Link href="/privacy-policy" locale={locale}>
-                  {t("privacyPolicy")}
-                </Link>
-              </li>
-              <li className={`${styles.linkItem} ${styles.agencyLinkItem}`}>
-                <Link href="/legal-notice" locale={locale}>
-                  {t("impressum")}
+                  <ArrowUpRight aria-hidden="true" />
                 </Link>
               </li>
             </ul>
@@ -87,6 +79,15 @@ export async function Footer({ locale }: FooterProps) {
             </a>
           </div>
         </div>
+      </div>
+
+      <div className={styles.legalBar}>
+        <Link href="/privacy-policy" locale={locale} className={styles.legalLink}>
+          {t("privacyPolicy")}
+        </Link>
+        <Link href="/legal-notice" locale={locale} className={styles.legalLink}>
+          {t("impressum")}
+        </Link>
       </div>
     </footer>
   );

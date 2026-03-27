@@ -98,7 +98,7 @@
 }
 
 .wizardHeaderTitle {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-size: clamp(1.72rem, 2.9vw, 2.42rem);
   font-weight: 400;
   color: var(--wizard-ink, var(--text-heading));
@@ -326,7 +326,7 @@
   background: transparent;
   color: var(--text-heading);
   text-align: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -402,7 +402,7 @@
   border: none;
   background-color: transparent;
   color: var(--text-heading);
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-size: 0.975rem;
   font-weight: 500;
   letter-spacing: 0.01em;
@@ -602,7 +602,7 @@
 
 // Question text styles
 .questionTitle {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 400;
   color: var(--foreground);
@@ -1147,7 +1147,7 @@
 }
 
 .clientCardTitle {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-size: 1rem;
   font-weight: 500;
   color: var(--wizard-ink, var(--text-heading));
@@ -1852,17 +1852,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid color-mix(in srgb, var(--hover-color) 14%, var(--border-card));
-  border-radius: 1rem;
+  border: none;
+  border-radius: 0;
   background: transparent;
   color: var(--wizard-ink, var(--text-heading));
   flex-shrink: 0;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
   svg {
-    width: 1.45rem;
-    height: 1.45rem;
-    stroke-width: 1.6;
+    width: 2.2rem;
+    height: 2.2rem;
+    stroke-width: 1.4;
   }
 }
 
@@ -1876,7 +1875,7 @@
 .locationConceptTitle {
   position: relative;
   z-index: 1;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   color: var(--wizard-ink, var(--text-heading));
@@ -1896,9 +1895,29 @@
   gap: 0.22rem;
 }
 
+.locationConceptArrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: rgba(15, 20, 29, 0.28);
+  transition: color 0.2s ease, transform 0.2s ease;
+
+  svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    stroke-width: 1.8;
+  }
+}
+
+.locationConceptCard:hover .locationConceptArrow {
+  color: rgba(15, 20, 29, 0.52);
+  transform: translate(2px, -2px);
+}
+
 .locationConceptDesc {
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   color: color-mix(in srgb, var(--wizard-copy, var(--text-body)) 86%, #ffffff);
@@ -1914,7 +1933,7 @@
 .locationConceptFootnote {
   margin: 0.8rem 0 0;
   padding: 0 0.35rem;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.5;
@@ -2300,7 +2319,7 @@
   justify-content: center;
   width: 100%;
   padding: 0.95rem 1.5rem;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.01em;
@@ -2351,7 +2370,7 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -2555,7 +2574,7 @@
   align-items: center;
   justify-content: center;
   padding: 1rem 2rem;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.01em;
@@ -3469,7 +3488,7 @@
 
 .wizardReviewTitle {
   margin: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Onest", sans-serif;
   font-size: 1.04rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -3513,7 +3532,7 @@
 
 .wizardReviewSectionTitle {
   margin: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Onest", sans-serif;
   font-size: 0.86rem;
   font-weight: 600;
   letter-spacing: 0.07em;
@@ -3571,7 +3590,7 @@
   border: none;
   background: none;
   color: color-mix(in srgb, var(--text-heading) 78%, #6d7583);
-  font-family: "Raleway", sans-serif;
+  font-family: "Onest", sans-serif;
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -3625,7 +3644,7 @@
 
 .serviceModalTitle {
   margin: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Onest", sans-serif;
   font-size: 1.12rem;
   font-weight: 600;
   line-height: 1.35;
@@ -3683,7 +3702,7 @@
   border-radius: 0.85rem;
   background: #fff;
   color: #14161b;
-  font-family: "Raleway", sans-serif;
+  font-family: "Onest", sans-serif;
   font-size: 0.86rem;
   font-weight: 500;
   letter-spacing: 0.01em;
@@ -3843,7 +3862,7 @@
 
 .fileUploadTitle {
   margin: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Onest", sans-serif;
   font-size: 0.84rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -3876,7 +3895,7 @@
   border-radius: 0.9rem;
   background: #fff;
   color: #14161b;
-  font-family: "Raleway", sans-serif;
+  font-family: "Onest", sans-serif;
   font-size: 0.86rem;
   font-weight: 500;
   letter-spacing: 0.01em;

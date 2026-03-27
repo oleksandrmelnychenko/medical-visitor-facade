@@ -61,7 +61,7 @@
 
 .sectionTitle {
   margin: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Onest", sans-serif;
   font-size: clamp(1rem, 1.22vw, 1.16rem);
   font-weight: 560;
   line-height: 1.08;
@@ -71,7 +71,7 @@
 
 .textSmall {
   margin: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Onest", sans-serif;
   max-width: 18rem;
   font-size: clamp(1.14rem, 1.34vw, 1.32rem);
   font-weight: 500;
@@ -100,7 +100,7 @@
   justify-content: center;
 
   a {
-    font-family: "Raleway", sans-serif;
+    font-family: "Onest", sans-serif;
     max-width: 20rem;
     color: #000000;
     font-weight: 500;
@@ -123,14 +123,15 @@
 }
 
 .agencyLinkItem {
-  align-items: stretch;
+  align-items: center;
   width: min(100%, 18.5rem);
 
   a {
-    display: inline-grid;
-    gap: 0.46rem;
-    width: 100%;
-    font-family: "Raleway", sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2em;
+    width: fit-content;
+    font-family: "Onest", sans-serif;
     font-size: clamp(0.98rem, 1.04vw, 1.06rem);
     font-weight: 560;
     line-height: 1.08;
@@ -140,23 +141,16 @@
     text-wrap: balance;
     transition: transform 0.22s ease, opacity 0.22s ease;
 
-    &::after {
-      content: "";
-      width: 100%;
-      height: 1px;
-      background: currentColor;
-      transform-origin: left center;
-      transition: transform 0.24s ease, opacity 0.24s ease;
+    svg {
+      width: 1.3em;
+      height: 1.3em;
+      stroke-width: 2.6;
+      flex-shrink: 0;
     }
 
     &:hover {
       color: rgba(20, 25, 35, 0.92);
       transform: translateX(0.16rem);
-    }
-
-    &:hover::after,
-    &:focus-visible::after {
-      transform: scaleX(1.03);
     }
 
     &:focus-visible {
@@ -188,7 +182,7 @@
 
 .trustCount {
   margin: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Onest", sans-serif;
   font-size: clamp(1.28rem, 1.7vw, 1.56rem);
   font-weight: 700;
   line-height: 0.94;
@@ -221,7 +215,7 @@
 
 .bottomBar {
   text-align: left;
-  font-family: "Raleway", sans-serif;
+  font-family: "Onest", sans-serif;
   font-size: clamp(0.98rem, 1.04vw, 1.06rem);
   line-height: 1.08;
   letter-spacing: -0.035em;
@@ -248,7 +242,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-family: "Raleway", sans-serif;
+  font-family: "Onest", sans-serif;
   font-size: clamp(0.98rem, 1.04vw, 1.06rem);
   font-weight: 560;
   line-height: 1.08;
@@ -261,6 +255,31 @@
   &:hover {
     opacity: 0.72;
     transform: translateY(-1px);
+  }
+}
+
+.legalBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.2rem, 2.5vw, 2rem);
+  width: 100%;
+  padding: 0.55rem 1.5rem;
+  background: #ffffff;
+}
+
+.legalLink {
+  font-family: "Onest", sans-serif;
+  font-size: clamp(0.88rem, 0.96vw, 0.96rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: rgba(20, 25, 35, 0.52);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: rgba(20, 25, 35, 0.82);
   }
 }
 
@@ -368,5 +387,15 @@
     align-items: flex-start;
     gap: 0.55rem;
     padding-top: 0.95rem;
+  }
+
+  .legalBar {
+    width: min(82vw, 22rem);
+    gap: 0.8rem;
+    padding: 0.45rem 0;
+  }
+
+  .legalLink {
+    font-size: 0.82rem;
   }
 }

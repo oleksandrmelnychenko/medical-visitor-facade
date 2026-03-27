@@ -140,7 +140,6 @@ export function Header() {
             {showApplyCta && (
               <Link href="/apply" prefetch={false} className={styles.stickyButton}>
                 {tCommon('requestAppointment')}
-                <ArrowUpRight aria-hidden="true" />
               </Link>
             )}
             <span className={styles.stickyDivider} aria-hidden="true" />
