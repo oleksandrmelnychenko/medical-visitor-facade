@@ -1,42 +1,77 @@
 @use "../../../../styles/variables" as *;
 
-// Scroll-reveal anchor
+// Anchor creates scroll space in document flow
 .anchor {
   position: relative;
   z-index: 0;
-  height: 110vh;
+  height: 260vh;
   background: #1a1a22;
+  pointer-events: none;
 }
 
-// Fixed layer
+.anchorExpanded {
+  height: 310vh;
+}
+
+.anchorLastExpanded {
+  height: 360vh;
+}
+
+// Fixed layer animated with scroll progress
 .pinned {
   position: fixed;
   inset: 0;
   z-index: 0;
-  will-change: transform;
+  pointer-events: none;
 }
 
-// Yellow surface
+// Dark surface
 .surface {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  background: #1a1a22;
-  overflow-y: auto;
-  padding-top: clamp(6rem, 10vw, 9rem);
+  background:
+    radial-gradient(circle at 14% 12%, rgba(183, 127, 107, 0.2), transparent 30%),
+    radial-gradient(circle at 82% 18%, rgba(127, 144, 165, 0.18), transparent 28%),
+    linear-gradient(180deg, #21212a 0%, #181821 58%, #15151d 100%);
+  padding-top: clamp(5rem, 7vw, 7rem);
+  padding-bottom: clamp(3.4rem, 5vw, 4.8rem);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.backdropGlow {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  width: min(72rem, 88vw);
+  height: clamp(16rem, 32vw, 30rem);
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, rgba(249, 245, 242, 0.18) 0%, rgba(159, 136, 162, 0.14) 34%, rgba(26, 26, 34, 0) 72%);
+  filter: blur(28px);
+  pointer-events: none;
 }
 
 .container {
-  width: min(100%, 76rem);
+  position: relative;
+  z-index: 1;
+  width: min(100%, 78rem);
   margin-inline: auto;
-  padding: clamp(3rem, 5vw, 4.5rem) clamp(0.8rem, 2.2vw, 2rem);
+  padding: clamp(2.8rem, 4.4vw, 4.4rem) clamp(0.8rem, 2.2vw, 2rem) clamp(1.85rem, 3vw, 2.8rem);
+  display: grid;
+  gap: clamp(0.9rem, 1.5vw, 1.35rem);
+  pointer-events: auto;
 }
 
 // Statement
 .statement {
-  margin-bottom: clamp(1.8rem, 3vw, 2.8rem);
+  max-width: clamp(24rem, 62vw, 56rem);
+  will-change: transform, opacity;
 }
 
 .statementCopy {
@@ -61,10 +96,10 @@
   margin: 0;
   max-width: 100%;
   font-family: "Onest", sans-serif;
-  font-size: clamp(1.7rem, 3.2vw, 2.8rem);
+  font-size: clamp(1.95rem, 3.8vw, 3.35rem);
   font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
   color: #9d7f84;
   background: linear-gradient(90deg, #b77f6b 0%, #9f88a2 33%, #7f90a5 66%, #b77f6b 100%);
   background-size: 200% 100%;
@@ -94,24 +129,60 @@
 
 // Accordion
 .accordionWrap {
+  position: relative;
   width: 100%;
+  margin-top: clamp(-0.35rem, -0.6vw, -0.75rem);
+  padding-bottom: clamp(0.9rem, 1.8vh, 1.4rem);
+  transform-origin: 50% 12%;
+  will-change: transform, opacity;
+
 }
 
 .accordion {
+  position: relative;
+  overflow: hidden;
   width: 100%;
   --accordion-inline-pad: clamp(3.8rem, 5.4vw, 6rem);
   --accordion-block-pad: clamp(1.8rem, 2.8vw, 3rem);
-  background-color: #1a1a22;
+  background:
+    linear-gradient(180deg, rgba(31, 31, 40, 0.96) 0%, rgba(20, 20, 27, 0.98) 100%);
   border-radius: clamp(1.5rem, 2vw, 1.75rem);
   padding-block: var(--accordion-block-pad);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 22px 44px -32px rgba(0, 0, 0, 0.4);
+  box-shadow:
+    0 42px 90px -54px rgba(0, 0, 0, 0.78),
+    0 20px 52px -34px rgba(183, 127, 107, 0.24);
+  backdrop-filter: blur(24px);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0));
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: auto 12% -7.5rem;
+    height: 10rem;
+    background: radial-gradient(circle at center, rgba(127, 144, 165, 0.2), rgba(127, 144, 165, 0));
+    pointer-events: none;
+  }
 }
 
 .accordionItem {
   position: relative;
   padding-block: 0;
-  transition: background 0.35s ease, border-color 0.35s ease, padding 0.35s ease;
+  overflow: clip;
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    border-radius 0.35s ease,
+    padding 0.42s cubic-bezier(0.22, 1, 0.36, 1);
 
   &::after {
     content: "";
@@ -163,6 +234,10 @@
 
   .accordionTrigger:hover {
     background: transparent;
+
+    .accordionLabel {
+      color: #1a1a22;
+    }
   }
 
   .accordionPoint::before {
@@ -236,56 +311,52 @@
 }
 
 .accordionIcon {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   width: 1.75rem;
   height: 1.75rem;
-  color: #f5c542;
-  transition: transform 0.2s ease, color 0.3s ease;
+  color: #fff;
+  transition: color 0.3s ease, transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .accordionIconOpen {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.accordionPanel {
-  display: grid;
-  grid-template-rows: 0fr;
-  overflow: hidden;
-  opacity: 0;
-  visibility: hidden;
+.accordionIconBar {
+  position: absolute;
+  width: 0.95rem;
+  height: 1.5px;
+  border-radius: 999px;
+  background: currentColor;
   transition:
-    grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.3s ease,
-    visibility 0s linear 0.4s;
-
-  > * {
-    min-height: 0;
-    overflow: hidden;
-  }
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease;
 }
 
-.accordionPanelOpen {
-  grid-template-rows: 1fr;
-  opacity: 1;
-  visibility: visible;
-  transition:
-    grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.3s ease 0.05s;
+.accordionIconBarVertical {
+  transform: rotate(90deg) scaleX(1);
+}
+
+.accordionIconBarVerticalHidden {
+  transform: rotate(90deg) scaleX(0);
+  opacity: 0;
+}
+
+.accordionPanel {
+  overflow: hidden;
+  will-change: height, opacity;
 }
 
 .accordionList {
   list-style: none;
   margin: 0;
-  padding: 0 var(--accordion-inline-pad) 0;
+  padding: 0 var(--accordion-inline-pad) clamp(0.9rem, 1.5vw, 1.2rem);
   display: grid;
   gap: clamp(0.85rem, 1.2vw, 1.05rem);
-}
-
-.accordionPanelOpen .accordionList {
-  padding-bottom: clamp(0.9rem, 1.5vw, 1.2rem);
 }
 
 .accordionPoint {
@@ -330,6 +401,18 @@
 }
 
 @media (max-width: 1023px) {
+  .anchor {
+    height: 142vh;
+  }
+
+  .anchorExpanded {
+    height: 192vh;
+  }
+
+  .anchorLastExpanded {
+    height: 224vh;
+  }
+
   .accordion {
     --accordion-inline-pad: clamp(1.1rem, 3.6vw, 1.8rem);
     --accordion-block-pad: clamp(0.9rem, 2.8vw, 1.2rem);
@@ -339,25 +422,36 @@
 
 @media (max-width: 768px) {
   .anchor {
-    height: 100svh !important;
+    height: 100svh;
   }
 
   .pinned {
-    position: fixed !important;
-    inset: 0 !important;
-    will-change: auto !important;
-    opacity: 1 !important;
-    transform: none !important;
+    pointer-events: auto !important;
   }
 
   .surface {
-    min-height: 100%;
-    align-items: flex-start;
-    padding-top: 5rem;
+    padding-top: 6.75rem;
+    padding-bottom: 4rem;
+    overflow: visible;
+  }
+
+  .backdropGlow {
+    display: none;
   }
 
   .container {
-    padding: 1.5rem 1.25rem;
+    padding: 2rem 1.25rem 1.5rem;
+    gap: 1.8rem;
+  }
+
+  .statement {
+    max-width: 100%;
+  }
+
+  .accordionWrap {
+    margin-top: 0;
+    padding-bottom: 0;
+    transform: none !important;
   }
 
   .statementHeadline {
