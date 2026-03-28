@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import styles from "./CareForward.module.scss";
@@ -31,30 +31,14 @@ const DETAIL_DESCRIPTORS = [
   },
 ] as const;
 
-const ACCORDION_LAYOUT_TRANSITION = {
-  duration: 0.42,
-  ease: [0.22, 1, 0.36, 1] as const,
-};
-
-const ACCORDION_PANEL_TRANSITION = {
-  height: {
-    duration: 0.42,
-    ease: [0.22, 1, 0.36, 1] as const,
-  },
-  opacity: {
-    duration: 0.24,
-    ease: "easeOut" as const,
-  },
-};
-
 export function CareForward() {
   const t = useTranslations("home.careForward");
   const ref = useRef<HTMLDivElement>(null);
   const [isStaticMobile, setIsStaticMobile] = useState(false);
   const [isInteractive, setIsInteractive] = useState(false);
   const [openKey, setOpenKey] = useState<(typeof STEPS)[number] | null>(null);
-  const isExpanded = openKey !== null;
-  const isLastExpanded = openKey === STEPS[STEPS.length - 1];
+  const isTailOpen = !isStaticMobile && openKey === STEPS[STEPS.length - 2];
+  const isLastOpen = !isStaticMobile && openKey === STEPS[STEPS.length - 1];
 
   const toggle = (key: (typeof STEPS)[number]) => {
     setOpenKey((current) => (current === key ? null : key));
@@ -89,23 +73,11 @@ export function CareForward() {
   });
 
   const sectionOpacity = useTransform(revealProgress, [0, 0.45], [0, 1]);
-  const sectionY = useTransform(
-    sceneProgress,
-    [0, 1],
-    ["0%", isLastExpanded ? "-12%" : isExpanded ? "-9%" : "-6%"]
-  );
-  const statementY = useTransform(
-    sceneProgress,
-    [0, 0.42, 1],
-    ["0%", "-1%", isLastExpanded ? "-12%" : isExpanded ? "-10%" : "-8%"]
-  );
+  const sectionY = useTransform(sceneProgress, [0, 1], ["0%", "-9%"]);
+  const statementY = useTransform(sceneProgress, [0, 0.42, 1], ["0%", "-1%", "-10%"]);
   const statementOpacity = useTransform(sceneProgress, [0, 0.64, 1], [1, 0.98, 0.42]);
   const statementScale = useTransform(sceneProgress, [0, 0.58, 1], [1, 0.992, 0.965]);
-  const accordionY = useTransform(
-    sceneProgress,
-    [0, 0.16, 0.46, 1],
-    ["0.5%", "0%", "0%", isLastExpanded ? "-4%" : isExpanded ? "-2.75%" : "-1.5%"]
-  );
+  const accordionY = useTransform(sceneProgress, [0, 0.16, 0.46, 1], ["0.5%", "0%", "0%", "-2.5%"]);
   const accordionOpacity = useTransform(sceneProgress, [0, 0.14, 0.3], [0.72, 0.9, 1]);
   const accordionScale = useTransform(sceneProgress, [0, 0.46, 1], [0.994, 1.006, 1]);
   const accordionRotate = useTransform(sceneProgress, [0, 0.46, 1], ["0.35deg", "0deg", "-0.08deg"]);
@@ -141,7 +113,7 @@ export function CareForward() {
     const panelId = `care-${openKey}-panel`;
     const triggerId = `care-${openKey}-trigger`;
 
-    const ensurePanelVisible = () => {
+    const ensurePanelVisible = (behavior: ScrollBehavior) => {
       const panel = document.getElementById(panelId);
       const trigger = document.getElementById(triggerId);
 
@@ -151,44 +123,40 @@ export function CareForward() {
 
       const panelRect = panel.getBoundingClientRect();
       const triggerRect = trigger?.getBoundingClientRect();
-      const viewportTopInset = 28;
       const viewportBottomInset = 28;
       const viewportBottom = window.innerHeight - viewportBottomInset;
+      const overflowBottom = panelRect.bottom - viewportBottom;
 
-      if (triggerRect && triggerRect.top < viewportTopInset) {
-        window.scrollBy({
-          top: triggerRect.top - viewportTopInset,
-          behavior: "smooth",
-        });
+      if (overflowBottom > 0) {
+        // Scroll the fixed surface container
+        const surface = panel.closest("[class*='surface']");
+        if (surface) {
+          surface.scrollBy({ top: overflowBottom + 18, behavior });
+        }
         return;
       }
 
-      if (panelRect.bottom > viewportBottom) {
-        window.scrollBy({
-          top: panelRect.bottom - viewportBottom,
-          behavior: "smooth",
-        });
+      if (triggerRect && triggerRect.top < 28) {
+        const surface = panel.closest("[class*='surface']");
+        if (surface) {
+          surface.scrollBy({ top: triggerRect.top - 28, behavior });
+        }
       }
     };
 
-    const frame = window.requestAnimationFrame(ensurePanelVisible);
-    const delayed = window.setTimeout(ensurePanelVisible, 260);
+    const passes = [
+      window.setTimeout(() => ensurePanelVisible("auto"), 140),
+      window.setTimeout(() => ensurePanelVisible("auto"), 360),
+      window.setTimeout(() => ensurePanelVisible("smooth"), 620),
+    ];
 
     return () => {
-      window.cancelAnimationFrame(frame);
-      window.clearTimeout(delayed);
+      passes.forEach((timeoutId) => window.clearTimeout(timeoutId));
     };
   }, [openKey]);
 
   return (
-    <div
-      ref={ref}
-      className={cn(
-        styles.anchor,
-        isExpanded && styles.anchorExpanded,
-        isLastExpanded && styles.anchorLastExpanded
-      )}
-    >
+    <div ref={ref} className={styles.anchor}>
       <motion.div
         className={styles.pinned}
         style={isStaticMobile
@@ -223,7 +191,7 @@ export function CareForward() {
             </motion.div>
 
             <motion.div
-              className={styles.accordionWrap}
+              className={styles.accordionMotion}
               data-snap-anchor
               data-snap-shift="24"
               style={isStaticMobile
@@ -234,68 +202,58 @@ export function CareForward() {
                     scale: accordionScale,
                     rotate: accordionRotate,
                   }}
-            >
-              <div className={styles.accordion}>
-                {STEPS.map((key) => {
-                  const isOpen = openKey === key;
-                  const panelId = `care-${key}-panel`;
-                  const triggerId = `care-${key}-trigger`;
+              >
+                <div
+                  className={cn(
+                    styles.accordionWrap,
+                    isTailOpen && styles.accordionWrapLiftTail,
+                    isLastOpen && styles.accordionWrapLiftLast
+                  )}
+                >
+                  <div className={styles.accordion}>
+                    {STEPS.map((key) => {
+                      const isOpen = openKey === key;
+                      const panelId = `care-${key}-panel`;
+                      const triggerId = `care-${key}-trigger`;
 
-                  return (
-                    <motion.div
-                      key={key}
-                      layout
-                      initial={false}
-                      transition={ACCORDION_LAYOUT_TRANSITION}
-                      className={cn(styles.accordionItem, isOpen && styles.accordionItemOpen)}
-                    >
-                      <button
-                        id={triggerId}
-                        type="button"
-                        className={styles.accordionTrigger}
-                        onClick={() => toggle(key)}
-                        aria-expanded={isOpen}
-                        aria-controls={panelId}
-                      >
-                        <div className={styles.accordionTriggerContent}>
-                          <span className={styles.accordionLabel}>
-                            {t(`services.${key}.title`)}
-                          </span>
-                        </div>
-                        <span className={cn(styles.accordionIcon, isOpen && styles.accordionIconOpen)}>
-                          <span className={styles.accordionIconBar} />
-                          <span
-                            className={cn(
-                              styles.accordionIconBar,
-                              styles.accordionIconBarVertical,
-                              isOpen && styles.accordionIconBarVerticalHidden
-                            )}
-                          />
-                        </span>
-                      </button>
+                      return (
+                        <div
+                          key={key}
+                          className={cn(styles.accordionItem, isOpen && styles.accordionItemOpen)}
+                        >
+                          <button
+                            id={triggerId}
+                            type="button"
+                            className={styles.accordionTrigger}
+                            onClick={() => toggle(key)}
+                            aria-expanded={isOpen}
+                            aria-controls={panelId}
+                          >
+                            <div className={styles.accordionTriggerContent}>
+                              <span className={styles.accordionLabel}>
+                                {t(`services.${key}.title`)}
+                              </span>
+                            </div>
+                            <span className={cn(styles.accordionIcon, isOpen && styles.accordionIconOpen)}>
+                              <span className={styles.accordionIconBar} />
+                              <span
+                                className={cn(
+                                  styles.accordionIconBar,
+                                  styles.accordionIconBarVertical,
+                                  isOpen && styles.accordionIconBarVerticalHidden
+                                )}
+                              />
+                            </span>
+                          </button>
 
-                      <AnimatePresence initial={false}>
-                        {isOpen ? (
-                          <motion.div
+                          <div
                             id={panelId}
-                            className={styles.accordionPanel}
+                            className={cn(styles.accordionPanel, isOpen && styles.accordionPanelOpen)}
                             role="region"
                             aria-labelledby={triggerId}
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={ACCORDION_PANEL_TRANSITION}
+                            aria-hidden={!isOpen}
                           >
-                            <motion.ul
-                              className={styles.accordionList}
-                              initial={{ y: -10, opacity: 0 }}
-                              animate={{ y: 0, opacity: 1 }}
-                              exit={{ y: -6, opacity: 0 }}
-                              transition={{
-                                duration: 0.28,
-                                ease: [0.22, 1, 0.36, 1],
-                              }}
-                            >
+                            <ul className={cn(styles.accordionList, isOpen && styles.accordionListOpen)}>
                               {DETAIL_DESCRIPTORS.map((descriptor) => {
                                 const itemTitleKey = `services.${key}.${descriptor.itemKey}Title`;
                                 const itemTextKey = `services.${key}.${descriptor.itemKey}Text`;
@@ -321,13 +279,12 @@ export function CareForward() {
                                   </li>
                                 );
                               })}
-                            </motion.ul>
-                          </motion.div>
-                        ) : null}
-                      </AnimatePresence>
-                    </motion.div>
-                  );
-                })}
+                            </ul>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
               </div>
             </motion.div>
           </div>
