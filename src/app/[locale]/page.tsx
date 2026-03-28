@@ -33,12 +33,12 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
 
 export default function Home() {
   return (
-    <>
+    <div data-page="home">
       <Hero />
       <FullSupport />
       <CareForward />
       <Office />
       <ScrollReveal />
-    </>
+    </div>
   );
 }
