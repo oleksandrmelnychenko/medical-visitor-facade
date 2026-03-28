@@ -67,21 +67,23 @@
 
 @media (max-width: 768px) {
   .anchor {
-    height: 100svh !important;
+    height: auto !important;
+    min-height: 0;
   }
 
   .pinned {
-    position: fixed !important;
-    inset: 0 !important;
+    position: relative !important;
+    inset: auto !important;
     will-change: auto !important;
     opacity: 1 !important;
     transform: none !important;
+    pointer-events: auto !important;
   }
 
   .surface {
-    min-height: 100%;
-    gap: 1.5rem;
-    padding: 2.5rem 1.25rem 3rem;
+    min-height: clamp(28rem, 82svh, 38rem);
+    gap: 1.35rem;
+    padding: 4.25rem 1.25rem 4.5rem;
   }
 
   .headline {

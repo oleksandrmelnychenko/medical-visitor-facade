@@ -29,6 +29,11 @@
   content-visibility: auto;
   contain-intrinsic-size: 900px;
 
+  @media (max-width: 767px) {
+    padding: 2.5rem 0 0;
+    border-radius: 2.25rem 2.25rem 0 0;
+  }
+
 }
 
 .container {
@@ -60,7 +65,7 @@
   }
 
   @media (max-width: 767px) {
-    padding: 4.5rem 0 2rem;
+    padding: 2.85rem 0 2rem;
   }
 }
 
