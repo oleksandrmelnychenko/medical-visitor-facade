@@ -147,6 +147,7 @@
   position: relative;
   overflow: visible;
   width: 100%;
+  --accordion-hover-accent: #cfc5d8;
   --accordion-inline-pad: clamp(3.8rem, 5.4vw, 6rem);
   --accordion-block-pad: clamp(1.8rem, 2.8vw, 3rem);
   background:
@@ -278,7 +279,11 @@
 
   &:hover {
     .accordionLabel {
-      color: #f5c542;
+      color: var(--accordion-hover-accent);
+    }
+
+    .accordionIcon {
+      color: color-mix(in srgb, var(--accordion-hover-accent) 86%, white 14%);
     }
   }
 }
