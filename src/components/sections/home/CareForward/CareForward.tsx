@@ -72,7 +72,23 @@ export function CareForward() {
     offset: ["start start", "end start"],
   });
 
-  const sectionOpacity = useTransform(revealProgress, [0, 0.45], [0, 1]);
+  const sectionOpacity = useTransform(() => {
+    const reveal = revealProgress.get();
+    const scene = sceneProgress.get();
+
+    const revealOpacity = reveal <= 0
+      ? 0
+      : reveal >= 0.45
+        ? 1
+        : reveal / 0.45;
+
+    const exitStart = 0.9;
+    const exitOpacity = scene <= exitStart
+      ? 1
+      : Math.max(0, 1 - (scene - exitStart) / (1 - exitStart));
+
+    return revealOpacity * exitOpacity;
+  });
   const sectionY = useTransform(sceneProgress, [0, 1], ["0%", "-9%"]);
   const statementY = useTransform(sceneProgress, [0, 0.42, 1], ["0%", "-1%", "-10%"]);
   const statementOpacity = useTransform(sceneProgress, [0, 0.64, 1], [1, 0.98, 0.42]);

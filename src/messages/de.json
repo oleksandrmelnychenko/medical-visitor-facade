@@ -200,6 +200,7 @@
       "note": "Hinweis: Anträge auf kostenfreie Leistungen werden individuell nach medizinischer Notwendigkeit und Kapazität geprüft. Sie erhalten innerhalb von 5-7 Werktagen eine Rückmeldung zum Status Ihrer Anfrage."
     },
     "newPatient": {
+      "trustBanner": "Ihre Daten sind verschlüsselt und sicher",
       "pathTree": {
         "zones": {
           "entry": "Start",

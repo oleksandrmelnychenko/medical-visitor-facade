@@ -1,0 +1,27 @@
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  margin-top: 1.2rem;
+  border-radius: 8px;
+  background: rgba(127, 144, 165, 0.08);
+  border: 1px solid rgba(127, 144, 165, 0.12);
+}
+
+.icon {
+  width: 0.9rem;
+  height: 0.9rem;
+  color: #7f90a5;
+  flex-shrink: 0;
+}
+
+.text {
+  font-family: "Onest", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(20, 25, 35, 0.6);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}

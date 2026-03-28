@@ -177,6 +177,7 @@
       "note": "Please note: Applications for complimentary care are reviewed individually based on available capacity and medical necessity. We will contact you within 5-7 business days regarding the status of your application."
     },
     "newPatient": {
+      "trustBanner": "Your data is encrypted and secure",
       "pathTree": {
         "zones": {
           "entry": "Start",

@@ -1,11 +1,14 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
+import { AnimatePresence, motion } from "motion/react";
 import { useRouter } from "@/i18n/navigation";
 import { WizardProvider } from "./WizardContext";
+import { WizardProgressBar } from "./components/WizardProgressBar";
 import { getAccessibleWizardStep } from "./flow";
+import { buildPath } from "./wizard-path";
 import { LocationStep } from "./steps/LocationStep";
 import { TravelReadyStep } from "./steps/TravelReadyStep";
 import { MedicalRecordsStep } from "./steps/MedicalRecordsStep";
@@ -92,6 +95,14 @@ function preloadLateFlow() {
   return lateFlowPrefetchPromise;
 }
 
+const slideVariants = {
+  enter: (dir: number) => ({ x: dir > 0 ? 48 : -48, opacity: 0 }),
+  center: { x: 0, opacity: 1 },
+  exit: (dir: number) => ({ x: dir > 0 ? -48 : 48, opacity: 0 }),
+};
+
+const slideTransition = { duration: 0.28, ease: [0.32, 0.72, 0, 1] as [number, number, number, number] };
+
 function WizardStepView() {
   const router = useRouter();
   const { data, isDraftHydrated } = useWizard();
@@ -100,6 +111,16 @@ function WizardStepView() {
   const step = isDraftHydrated
     ? getAccessibleWizardStep(requestedStep, data)
     : requestedStep;
+
+  const prevStepRef = useRef(step);
+  const path = useMemo(() => buildPath(data), [data]);
+  const currentIndex = path.indexOf(step);
+  const prevIndex = path.indexOf(prevStepRef.current);
+  const direction = currentIndex >= prevIndex ? 1 : -1;
+
+  useEffect(() => {
+    prevStepRef.current = step;
+  }, [step]);
 
   useEffect(() => {
     if (!isDraftHydrated || step === requestedStep) {
@@ -146,49 +167,73 @@ function WizardStepView() {
     }
   }, [step]);
 
+  let stepContent: React.ReactNode;
+
   switch (step) {
-    // Shared start
     case "member-check":
-      return <MemberCheckStep />;
+      stepContent = <MemberCheckStep />;
+      break;
     case "account-check":
-      return <AccountCheckStep />;
+      stepContent = <AccountCheckStep />;
+      break;
     case "welcome":
-      return <WelcomeStep />;
+      stepContent = <WelcomeStep />;
+      break;
     case "location":
-      return <LocationStep />;
-
-    // Non-Germany eligibility
+      stepContent = <LocationStep />;
+      break;
     case "become-member":
-      return <BecomeMemberStep />;
+      stepContent = <BecomeMemberStep />;
+      break;
     case "outside-travel":
-      return <TravelReadyStep />;
+      stepContent = <TravelReadyStep />;
+      break;
     case "outside-records":
-      return <MedicalRecordsStep />;
+      stepContent = <MedicalRecordsStep />;
+      break;
     case "records-language":
-      return <MedicalRecordsLanguageStep />;
+      stepContent = <MedicalRecordsLanguageStep />;
+      break;
     case "outside-documents":
-      return <TravelDocumentsStep />;
+      stepContent = <TravelDocumentsStep />;
+      break;
     case "outside-exit-travel":
-      return <ExitNoTravelStep />;
+      stepContent = <ExitNoTravelStep />;
+      break;
     case "outside-exit-records":
-      return <ExitNoRecordsStep />;
-
+      stepContent = <ExitNoRecordsStep />;
+      break;
     default:
       if (isPatientFlowStep(step)) {
-        return <PatientFlowStepView step={step} />;
+        stepContent = <PatientFlowStepView step={step} />;
+      } else if (isLateFlowStep(step)) {
+        stepContent = <LateFlowStepView step={step} />;
+      } else {
+        stepContent = <MemberCheckStep />;
       }
-
-      if (isLateFlowStep(step)) {
-        return <LateFlowStepView step={step} />;
-      }
-
-      return <MemberCheckStep />;
   }
+
+  return (
+    <AnimatePresence mode="wait" custom={direction}>
+      <motion.div
+        key={step}
+        custom={direction}
+        variants={slideVariants}
+        initial="enter"
+        animate="center"
+        exit="exit"
+        transition={slideTransition}
+      >
+        {stepContent}
+      </motion.div>
+    </AnimatePresence>
+  );
 }
 
 export function ApplyNewPatientWizard() {
   return (
     <WizardProvider>
+      <WizardProgressBar />
       <WizardStepView />
     </WizardProvider>
   );

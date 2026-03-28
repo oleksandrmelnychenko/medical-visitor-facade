@@ -43,6 +43,7 @@ export function PhoneStep() {
       title={t("phoneStep.title")}
       onBack={handleBack}
       backLabel={t("back")}
+      showTrustBanner
     >
       <div className={styles.wizardFormContainer}>
         <div className={styles.wizardFormGrid}>

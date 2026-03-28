@@ -177,6 +177,7 @@
       "note": "Nota: Las solicitudes de servicios gratuitos se evalúan individualmente según la necesidad médica y la capacidad disponible. Le informaremos sobre el estado de su solicitud en un plazo de 5 a 7 días hábiles."
     },
     "newPatient": {
+      "trustBanner": "Sus datos están encriptados y seguros",
       "pathTree": {
         "zones": {
           "entry": "Inicio",

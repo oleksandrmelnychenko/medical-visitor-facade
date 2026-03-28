@@ -121,6 +121,7 @@ export function AddressStep() {
       title={t('address.question')}
       onBack={handleBack}
       backLabel={t('back')}
+      showTrustBanner
     >
       <div className={styles.wizardFormContainer}>
         <div className={styles.wizardFormGrid}>

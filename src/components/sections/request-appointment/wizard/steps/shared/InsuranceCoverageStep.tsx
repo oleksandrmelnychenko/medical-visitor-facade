@@ -32,6 +32,7 @@ export function InsuranceCoverageStep() {
       title={t("insuranceCoverage.title")}
       onBack={handleBack}
       backLabel={t("back")}
+      showTrustBanner
       options={[
         {
           key: "yes",

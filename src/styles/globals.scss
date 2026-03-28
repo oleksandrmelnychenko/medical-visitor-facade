@@ -124,9 +124,9 @@ input {
   }
 }
 
-// Home page: yellow behind footer rounded corners
+// Home page: cool accent behind footer rounded corners
 body:has([data-page="home"]) {
-  background-color: #f5e642;
+  background-color: #c1caca;
 }
 
 [data-page="home"] ~ footer {

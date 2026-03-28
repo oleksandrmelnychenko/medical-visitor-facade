@@ -25,6 +25,7 @@ interface WizardChoiceStepProps {
   footer?: ReactNode;
   contentClassName?: string;
   innerClassName?: string;
+  showTrustBanner?: boolean;
 }
 
 export function WizardChoiceStep({
@@ -37,6 +38,7 @@ export function WizardChoiceStep({
   footer,
   contentClassName,
   innerClassName,
+  showTrustBanner,
 }: WizardChoiceStepProps) {
   return (
     <WizardStepLayout
@@ -47,6 +49,7 @@ export function WizardChoiceStep({
       innerClassName={cn(styles.locationConceptInner, innerClassName)}
       onBack={onBack}
       backLabel={backLabel}
+      showTrustBanner={showTrustBanner}
     >
       <div className={styles.locationConceptGrid}>
         {options.map((option) => {

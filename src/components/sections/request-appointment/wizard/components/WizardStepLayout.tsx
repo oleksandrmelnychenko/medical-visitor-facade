@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import sectionStyles from '@/components/sections/shared/Section.module.scss';
 import pageStyles from '@/styles/page.module.scss';
 import { WizardPathTree } from './WizardPathTree';
+import { TrustBanner } from './TrustBanner';
 import styles from '../../RequestAppointment/RequestAppointment.module.scss';
 
 interface WizardStepLayoutProps {
@@ -19,6 +20,7 @@ interface WizardStepLayoutProps {
   onContinue?: () => void;
   continueLabel?: string;
   continueDisabled?: boolean;
+  showTrustBanner?: boolean;
   children: React.ReactNode;
 }
 
@@ -33,6 +35,7 @@ export function WizardStepLayout({
   onContinue,
   continueLabel = 'Continue',
   continueDisabled = false,
+  showTrustBanner = false,
   children,
 }: WizardStepLayoutProps) {
   const hasManualTitleBreak = typeof title === "string" && title.includes("\n");
@@ -73,6 +76,8 @@ export function WizardStepLayout({
                   <div className={cn(styles.locationStepContent, styles.wizardSurface, styles.wizardSurfaceEnter, contentClassName)}>
                     <div className={cn(styles.wizardSurfaceInner, innerClassName)}>
                       {children}
+
+                      {showTrustBanner && <TrustBanner />}
 
                       {(onBack || onContinue) && (
                         <div className={styles.wizardButtonRow}>
