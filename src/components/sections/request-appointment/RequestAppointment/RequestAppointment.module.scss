@@ -1860,11 +1860,11 @@
   position: relative;
   z-index: 1;
   font-family: 'Onest', sans-serif;
-  font-size: 1.28rem;
+  font-size: clamp(0.875rem, 0.76rem + 0.34vw, 1.115rem);
   font-weight: 600;
   color: #1a1a22;
-  letter-spacing: 0.01em;
-  line-height: 1.32;
+  letter-spacing: -0.005em;
+  line-height: 1;
   margin: 0;
   transition: color 0.2s ease;
 }

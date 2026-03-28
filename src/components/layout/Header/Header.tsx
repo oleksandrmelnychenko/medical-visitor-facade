@@ -118,10 +118,10 @@ export function Header() {
         <div className={styles.stickyContainer}>
           <Link href="/" className={styles.stickyLogoLink}>
             <Image
-              src="/assets/logo.png"
-              alt="Medical Concierge Agency"
-              width={120}
-              height={32}
+              src="/assets/gmed_logo.png"
+              alt="GMED - Medical Concierge Agency"
+              width={140}
+              height={46}
               className={styles.stickyLogo}
             />
             <span className={styles.stickyLogoTagline}>
