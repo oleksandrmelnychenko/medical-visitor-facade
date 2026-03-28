@@ -5,6 +5,7 @@ import { ClipboardMinus, ClipboardPlus } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useWizard } from "../../WizardContext";
+import { BINARY_CHOICE_CARD_STYLES, BINARY_CHOICE_HOVER_COLORS } from "../../choiceCardStyles";
 import { WizardChoiceStep } from "../../components/WizardChoiceStep";
 
 export function CurrentTreatmentStep() {
@@ -36,14 +37,16 @@ export function CurrentTreatmentStep() {
           key: "yes",
           title: t("healthTreatment.yes"),
           icon: ClipboardPlus,
-          hoverColor: "#E5D5A8",
+          hoverColor: BINARY_CHOICE_HOVER_COLORS.yes,
+          style: BINARY_CHOICE_CARD_STYLES.yes,
           onSelect: () => handleSelect("yes"),
         },
         {
           key: "no",
           title: t("healthTreatment.no"),
           icon: ClipboardMinus,
-          hoverColor: "#A8D5E5",
+          hoverColor: BINARY_CHOICE_HOVER_COLORS.no,
+          style: BINARY_CHOICE_CARD_STYLES.no,
           onSelect: () => handleSelect("no"),
         },
       ]}

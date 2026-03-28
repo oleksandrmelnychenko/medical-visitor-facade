@@ -5,6 +5,7 @@ import { MessageCircleMore, MessageCircleX } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useWizard } from "../../WizardContext";
+import { BINARY_CHOICE_CARD_STYLES, BINARY_CHOICE_HOVER_COLORS } from "../../choiceCardStyles";
 import { WizardStepLayout } from "../../components/WizardStepLayout";
 import { WizardChoiceStep } from "../../components/WizardChoiceStep";
 import { COUNTRY_CODES, splitInternationalPhoneNumber } from "../../contact-phone";
@@ -53,6 +54,7 @@ export function WhatsAppConsentStep() {
         title={t("whatsappConsentNew.numberTitle")}
         onBack={() => setConsent(null)}
         backLabel={t("back")}
+        showTrustBanner
       >
         <div className={styles.wizardFormContainer}>
           <div className={styles.wizardFormGrid}>
@@ -99,20 +101,23 @@ export function WhatsAppConsentStep() {
       title={t("whatsappConsentNew.title")}
       onBack={handleBack}
       backLabel={t("back")}
+      showTrustBanner
       options={[
         {
           key: "yes",
           title: t("whatsappConsentNew.yes"),
           description: t("whatsappConsentNew.yesDisclaimer"),
           icon: MessageCircleMore,
-          hoverColor: "#E5D5A8",
+          hoverColor: BINARY_CHOICE_HOVER_COLORS.yes,
+          style: BINARY_CHOICE_CARD_STYLES.yes,
           onSelect: handleYes,
         },
         {
           key: "no",
           title: t("whatsappConsentNew.no"),
           icon: MessageCircleX,
-          hoverColor: "#A8D5E5",
+          hoverColor: BINARY_CHOICE_HOVER_COLORS.no,
+          style: BINARY_CHOICE_CARD_STYLES.no,
           onSelect: handleNo,
         },
       ]}

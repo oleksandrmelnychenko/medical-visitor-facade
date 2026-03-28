@@ -5,6 +5,7 @@ import { BadgeCheck, BadgeX, ShieldQuestionMark } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useWizard } from "../../WizardContext";
+import { BINARY_CHOICE_CARD_STYLES, BINARY_CHOICE_HOVER_COLORS } from "../../choiceCardStyles";
 import { InsuranceCoverageType } from "../../types";
 import { WizardChoiceStep } from "../../components/WizardChoiceStep";
 
@@ -38,21 +39,24 @@ export function InsuranceCoverageStep() {
           key: "yes",
           title: t("insuranceCoverage.yes"),
           icon: BadgeCheck,
-          hoverColor: "#E5D5A8",
+          hoverColor: BINARY_CHOICE_HOVER_COLORS.yes,
+          style: BINARY_CHOICE_CARD_STYLES.yes,
           onSelect: () => handleSelect("yes"),
         },
         {
           key: "no",
           title: t("insuranceCoverage.no"),
           icon: BadgeX,
-          hoverColor: "#A8D5E5",
+          hoverColor: BINARY_CHOICE_HOVER_COLORS.no,
+          style: BINARY_CHOICE_CARD_STYLES.no,
           onSelect: () => handleSelect("no"),
         },
         {
           key: "not_sure",
           title: t("insuranceCoverage.notSure"),
           icon: ShieldQuestionMark,
-          hoverColor: "#D5D5D5",
+          hoverColor: BINARY_CHOICE_HOVER_COLORS.neutral,
+          style: BINARY_CHOICE_CARD_STYLES.neutral,
           onSelect: () => handleSelect("not_sure"),
         },
       ]}

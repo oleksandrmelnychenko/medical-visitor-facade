@@ -1,16 +1,17 @@
 "use client";
 
-import React, { useCallback, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { LogIn, UserRoundPlus } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
+import { BINARY_CHOICE_CARD_STYLES } from '../../choiceCardStyles';
 import { WizardStepLayout } from '../../components/WizardStepLayout';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
 
 const CARD_STYLES = {
-  hasAccount: { '--hover-color': '#E5D5A8' } as React.CSSProperties,
-  noAccount: { '--hover-color': '#A8D5E5' } as React.CSSProperties,
+  hasAccount: BINARY_CHOICE_CARD_STYLES.yes,
+  noAccount: BINARY_CHOICE_CARD_STYLES.no,
 };
 
 export function AccountCheckStep() {

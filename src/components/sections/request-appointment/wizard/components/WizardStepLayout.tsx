@@ -77,8 +77,6 @@ export function WizardStepLayout({
                     <div className={cn(styles.wizardSurfaceInner, innerClassName)}>
                       {children}
 
-                      {showTrustBanner && <TrustBanner />}
-
                       {(onBack || onContinue) && (
                         <div className={styles.wizardButtonRow}>
                           {onContinue && (
@@ -91,6 +89,7 @@ export function WizardStepLayout({
                               {continueLabel}
                             </button>
                           )}
+                          {showTrustBanner && <TrustBanner />}
                           {onBack && (
                             <button
                               onClick={onBack}

@@ -95,13 +95,13 @@ function preloadLateFlow() {
   return lateFlowPrefetchPromise;
 }
 
-const slideVariants = {
-  enter: (dir: number) => ({ x: dir > 0 ? 48 : -48, opacity: 0 }),
-  center: { x: 0, opacity: 1 },
-  exit: (dir: number) => ({ x: dir > 0 ? -48 : 48, opacity: 0 }),
+const fadeVariants = {
+  enter: { opacity: 0 },
+  center: { opacity: 1 },
+  exit: { opacity: 0 },
 };
 
-const slideTransition = { duration: 0.28, ease: [0.32, 0.72, 0, 1] as [number, number, number, number] };
+const fadeTransition = { duration: 0.08 };
 
 function WizardStepView() {
   const router = useRouter();
@@ -214,19 +214,7 @@ function WizardStepView() {
   }
 
   return (
-    <AnimatePresence mode="wait" custom={direction}>
-      <motion.div
-        key={step}
-        custom={direction}
-        variants={slideVariants}
-        initial="enter"
-        animate="center"
-        exit="exit"
-        transition={slideTransition}
-      >
-        {stepContent}
-      </motion.div>
-    </AnimatePresence>
+    <>{stepContent}</>
   );
 }
 

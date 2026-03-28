@@ -5,6 +5,7 @@ import { FileCheck, FileX } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useWizard } from "../WizardContext";
+import { BINARY_CHOICE_CARD_STYLES, BINARY_CHOICE_HOVER_COLORS } from "../choiceCardStyles";
 import { YesNoType } from "../types";
 import { WizardChoiceStep } from "../components/WizardChoiceStep";
 
@@ -41,14 +42,16 @@ export function TravelDocumentsStep() {
           key: "yes",
           title: t("documentsPatient.yes"),
           icon: FileCheck,
-          hoverColor: "#E5D5A8",
+          hoverColor: BINARY_CHOICE_HOVER_COLORS.yes,
+          style: BINARY_CHOICE_CARD_STYLES.yes,
           onSelect: () => handleSelect("yes"),
         },
         {
           key: "no",
           title: t("documentsPatient.no"),
           icon: FileX,
-          hoverColor: "#A8D5E5",
+          hoverColor: BINARY_CHOICE_HOVER_COLORS.no,
+          style: BINARY_CHOICE_CARD_STYLES.no,
           onSelect: () => handleSelect("no"),
         },
       ]}

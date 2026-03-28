@@ -5,6 +5,7 @@ import { ShieldAlert, ShieldCheck } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useWizard } from "../../WizardContext";
+import { BINARY_CHOICE_CARD_STYLES, BINARY_CHOICE_HOVER_COLORS } from "../../choiceCardStyles";
 import { WizardChoiceStep } from "../../components/WizardChoiceStep";
 import styles from "../../../RequestAppointment/RequestAppointment.module.scss";
 
@@ -37,14 +38,16 @@ export function TravelRiskStep() {
           key: "yes",
           title: t("healthRisk.yes"),
           icon: ShieldAlert,
-          hoverColor: "#E5D5A8",
+          hoverColor: BINARY_CHOICE_HOVER_COLORS.yes,
+          style: BINARY_CHOICE_CARD_STYLES.yes,
           onSelect: () => handleSelect("yes"),
         },
         {
           key: "no",
           title: t("healthRisk.no"),
           icon: ShieldCheck,
-          hoverColor: "#A8D5E5",
+          hoverColor: BINARY_CHOICE_HOVER_COLORS.no,
+          style: BINARY_CHOICE_CARD_STYLES.no,
           onSelect: () => handleSelect("no"),
         },
       ]}

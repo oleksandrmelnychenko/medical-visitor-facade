@@ -1,17 +1,15 @@
 "use client";
 
-import React, { useCallback, useRef } from "react";
+import { useCallback, useRef } from "react";
 import { UserRoundPlus, Users } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useWizard } from "../../WizardContext";
+import { BINARY_CHOICE_CARD_STYLES } from "../../choiceCardStyles";
 import { WizardStepLayout } from "../../components/WizardStepLayout";
 import styles from "../../../RequestAppointment/RequestAppointment.module.scss";
 
-const CARD_STYLES = {
-  yes: { "--hover-color": "#E5D5A8" } as React.CSSProperties,
-  no: { "--hover-color": "#A8D5E5" } as React.CSSProperties,
-};
+const CARD_STYLES = BINARY_CHOICE_CARD_STYLES;
 
 export function BecomeMemberStep() {
   const t = useTranslations("appointment.newPatient");

@@ -1,13 +1,13 @@
 .banner {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1rem;
-  margin-top: 1.2rem;
-  border-radius: 8px;
-  background: rgba(127, 144, 165, 0.08);
-  border: 1px solid rgba(127, 144, 165, 0.12);
+  align-self: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  background: rgba(127, 144, 165, 0.06);
+  border: 1px solid rgba(127, 144, 165, 0.1);
 }
 
 .icon {

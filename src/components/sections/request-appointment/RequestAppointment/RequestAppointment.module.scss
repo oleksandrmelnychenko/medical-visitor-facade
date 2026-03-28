@@ -369,17 +369,17 @@
 }
 
 .dobHint {
-  width: min(100%, 24.5rem);
+  width: auto;
   margin: 0;
-  padding: 0.95rem 1rem;
-  font-size: 0.96rem;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.72rem;
   font-weight: 500;
-  line-height: 1.6;
-  color: #1a1a22;
+  line-height: 1.4;
+  color: rgba(26, 26, 34, 0.5);
   text-align: center;
-  background: #f9f5f2;
-  border: 1px solid rgba(24, 28, 38, 0.08);
-  border-radius: 1rem 1.25rem 1rem 1.15rem;
+  background: rgba(24, 28, 38, 0.04);
+  border: 1px solid rgba(24, 28, 38, 0.06);
+  border-radius: 6px;
 }
 
 .dobHintError {
@@ -1809,7 +1809,7 @@
   min-height: 0;
   width: 100%;
   padding: 1.1rem 1.2rem;
-  background: transparent;
+  background: var(--card-surface, transparent);
   color: #171b23;
   border: none;
   border-radius: 0;
@@ -1818,7 +1818,7 @@
     background-color 0.2s ease,
     box-shadow 0.2s ease,
     transform 0.2s ease;
-  box-shadow: none;
+  box-shadow: inset 0 0 0 1px var(--card-border, transparent);
 
   & + & {
     border-top: 1px solid rgba(24, 28, 38, 0.07);
@@ -1827,7 +1827,8 @@
   &:hover {
     z-index: 1;
     transform: translateY(-1px);
-    background: rgba(24, 28, 38, 0.035);
+    background: var(--card-surface-hover, color-mix(in srgb, var(--hover-color) 4%, rgba(24, 28, 38, 0.02)));
+    box-shadow: inset 0 0 0 1px var(--card-border, transparent);
 
     .locationConceptTitle {
       color: #0f141d;
@@ -1866,8 +1867,9 @@
   align-items: center;
   justify-content: center;
   border: none;
-  border-radius: 0;
-  background: transparent;
+  border-radius: var(--card-icon-radius, 0);
+  background: var(--card-icon-surface, transparent);
+  box-shadow: inset 0 0 0 1px var(--card-icon-border, transparent);
   color: var(--wizard-ink, var(--text-heading));
   flex-shrink: 0;
 
@@ -1880,8 +1882,8 @@
 
 .locationConceptIconEu {
   svg {
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 2.6rem;
+    height: 2.6rem;
   }
 }
 

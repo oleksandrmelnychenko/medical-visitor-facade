@@ -1,18 +1,19 @@
 "use client";
 
-import React, { useCallback, useRef } from "react";
+import { useCallback, useRef } from "react";
 import { FileText, FileX, FolderX } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useWizard } from "../WizardContext";
+import { BINARY_CHOICE_CARD_STYLES } from "../choiceCardStyles";
 import { MedicalRecordsType } from "../types";
 import { WizardStepLayout } from "../components/WizardStepLayout";
 import styles from "../../RequestAppointment/RequestAppointment.module.scss";
 
 const CARD_STYLES = {
-  yes: { "--hover-color": "#E5D5A8" } as React.CSSProperties,
-  no: { "--hover-color": "#A8D5E5" } as React.CSSProperties,
-  none: { "--hover-color": "#D5D5D5" } as React.CSSProperties,
+  yes: BINARY_CHOICE_CARD_STYLES.yes,
+  no: BINARY_CHOICE_CARD_STYLES.no,
+  none: BINARY_CHOICE_CARD_STYLES.neutral,
 };
 
 export function MedicalRecordsStep() {

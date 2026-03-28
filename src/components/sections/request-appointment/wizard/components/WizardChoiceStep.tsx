@@ -12,6 +12,7 @@ export interface WizardChoiceOption {
   icon: LucideIcon;
   key: string;
   onSelect: () => void;
+  style?: CSSProperties;
   title: string;
 }
 
@@ -60,7 +61,7 @@ export function WizardChoiceStep({
               key={option.key}
               onClick={option.onSelect}
               className={styles.locationConceptCard}
-              style={{ "--hover-color": option.hoverColor } as CSSProperties}
+              style={{ "--hover-color": option.hoverColor, ...option.style } as CSSProperties}
               type="button"
             >
               <span className={styles.locationConceptCardHeader}>
