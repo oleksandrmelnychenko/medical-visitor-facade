@@ -208,10 +208,9 @@
 
 .brandWordmark {
   display: block;
-  height: auto;
   width: min(64vw, 54rem);
   max-width: 100%;
-  object-fit: contain;
+  color: rgba(20, 25, 35, 0.9);
 }
 
 .bottomBar {
