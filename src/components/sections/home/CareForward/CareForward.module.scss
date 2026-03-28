@@ -1,7 +1,7 @@
 @use "../../../../styles/variables" as *;
 
 .section {
-  padding: clamp(10rem, 15.8vw, 13.4rem) 0;
+  padding: clamp(4rem, 6vw, 5.5rem) 0;
   background: #f9f5f2;
   position: relative;
   z-index: 1;
@@ -10,19 +10,19 @@
 // Statement hero block
 .statement {
   display: grid;
-  grid-template-columns: minmax(0, 1.06fr) minmax(10rem, 0.54fr);
+  grid-template-columns: 1fr;
   gap: clamp(1.7rem, 3.6vw, 3.9rem);
   width: min(100%, 76rem);
   margin-inline: auto;
   padding-inline: clamp(0.8rem, 2.2vw, 2rem);
   align-items: start;
-  margin-bottom: clamp(3.1rem, 5.4vw, 5.4rem);
+  margin-bottom: clamp(1.8rem, 3vw, 2.8rem);
 }
 
 .statementCopy {
   position: relative;
-  max-width: 44rem;
-  padding-top: clamp(0.95rem, 2.1vw, 1.4rem);
+  max-width: 100%;
+  padding-top: clamp(0.6rem, 1.2vw, 0.9rem);
 
   &::before {
     content: "";
@@ -68,14 +68,37 @@
 
 .statementHeadline {
   margin: 0;
-  max-width: 14.5ch;
+  max-width: 100%;
   font-family: "Onest", sans-serif;
-  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
   font-weight: 500;
-  color: #1a1a22;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  color: #9d7f84;
+  background: linear-gradient(90deg, #b77f6b 0%, #9f88a2 33%, #7f90a5 66%, #b77f6b 100%);
+  background-size: 200% 100%;
+  animation: gradientShift 6s ease infinite;
+
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
   text-wrap: balance;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .statementCta {
@@ -139,7 +162,7 @@
 .accordion {
   width: 100%;
   --accordion-inline-pad: clamp(3.8rem, 5.4vw, 6rem);
-  --accordion-block-pad: clamp(1.35rem, 2vw, 1.8rem);
+  --accordion-block-pad: clamp(1.8rem, 2.8vw, 3rem);
   background-color: color-mix(in oklab, var(--foreground) 85%, transparent);
   border-radius: clamp(1.5rem, 2vw, 1.75rem);
   padding-block: var(--accordion-block-pad);
@@ -149,7 +172,8 @@
 
 .accordionItem {
   position: relative;
-  transition: background 0.35s ease, border-color 0.35s ease, margin 0.35s ease;
+  padding-block: 0;
+  transition: background 0.35s ease, border-color 0.35s ease, padding 0.35s ease;
 
   &::after {
     content: "";
@@ -171,7 +195,7 @@
   z-index: 1;
   background: #f9f5f2;
   border-radius: clamp(1rem, 1.5vw, 1.25rem);
-  margin: -1px -2px;
+  padding-block: clamp(1rem, 1.5vw, 1.4rem);
   border: 2px solid #f9f5f2;
   box-shadow: 0 0 0 3px #f9f5f2;
 
@@ -222,7 +246,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.8rem;
-  padding: clamp(1.5rem, 2.2vw, 2rem) var(--accordion-inline-pad);
+  padding: clamp(1rem, 1.5vw, 1.35rem) var(--accordion-inline-pad);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -230,7 +254,9 @@
   transition: background 0.2s ease;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.035);
+    .accordionLabel {
+      color: #f5c542;
+    }
   }
 }
 
@@ -242,7 +268,7 @@
 
 .accordionLabel {
   font-family: "Onest", sans-serif;
-  font-size: clamp(1.26rem, 1.9vw, 1.8rem);
+  font-size: clamp(1.14rem, 1.6vw, 1.5rem);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.92);
   line-height: 1.06;
@@ -278,7 +304,7 @@
   flex-shrink: 0;
   width: 1.75rem;
   height: 1.75rem;
-  color: color-mix(in srgb, var(--tone-sand) 80%, #fff);
+  color: #f5c542;
   transition: transform 0.2s ease, color 0.3s ease;
 }
 
@@ -389,7 +415,7 @@
   }
 
   .section {
-    padding: clamp(5rem, 10vw, 8rem) 0;
+    padding: clamp(3rem, 6vw, 4.5rem) 0;
   }
 
   .accordionWrap {
@@ -399,7 +425,8 @@
 
   .statementHeadline {
     max-width: 100%;
-    font-size: clamp(2rem, 8vw, 3rem);
+    font-size: clamp(2.35rem, 11vw, 3.65rem);
+    line-height: 0.96;
   }
 
   .statementLabel {
