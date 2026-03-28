@@ -62,8 +62,8 @@ export function LoginPageClient() {
           <div className={styles.shell}>
             <Link href="/" className={styles.brandLink} aria-label="GMED home">
               <Image
-                src="/assets/gmed_logo.png"
-                alt="GMED - Medical Concierge Agency"
+                src="/assets/logo.png"
+                alt="Medical Concierge Agency"
                 width={220}
                 height={60}
                 className={styles.logo}
