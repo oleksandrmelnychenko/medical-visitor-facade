@@ -128,19 +128,12 @@ export function CareForward() {
       const overflowBottom = panelRect.bottom - viewportBottom;
 
       if (overflowBottom > 0) {
-        // Scroll the fixed surface container
-        const surface = panel.closest("[class*='surface']");
-        if (surface) {
-          surface.scrollBy({ top: overflowBottom + 18, behavior });
-        }
+        window.scrollBy({ top: overflowBottom + 18, behavior });
         return;
       }
 
       if (triggerRect && triggerRect.top < 28) {
-        const surface = panel.closest("[class*='surface']");
-        if (surface) {
-          surface.scrollBy({ top: triggerRect.top - 28, behavior });
-        }
+        window.scrollBy({ top: triggerRect.top - 28, behavior });
       }
     };
 
