@@ -56,28 +56,30 @@ export function Office() {
   const subtitle = t("subtitle");
 
   return (
-    <section className={cn(sectionStyles.section, styles.office)}>
-      <div className={`${sectionStyles.container} ${styles.container}`}>
-        <div className={styles.shell}>
-          <div className={styles.introPanel} data-snap-anchor>
-            <span className={styles.introMark} aria-hidden="true" />
-            {overline ? <p className={styles.overline}>{overline}</p> : null}
-            <h2 className={styles.title}>{t("title")}</h2>
-            {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
-          </div>
+    <div className={styles.officeWrap}>
+      <section className={cn(sectionStyles.section, styles.office)}>
+        <div className={`${sectionStyles.container} ${styles.container}`}>
+          <div className={styles.shell}>
+            <div className={styles.introPanel} data-snap-anchor>
+              <span className={styles.introMark} aria-hidden="true" />
+              {overline ? <p className={styles.overline}>{overline}</p> : null}
+              <h2 className={styles.title}>{t("title")}</h2>
+              {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
+            </div>
 
-          <div className={styles.stage}>
-            <OfficeCitiesGrid
-              mainCityName={t("cities.munich.name")}
-              mainCityStyle={MUNICH_STYLE}
-              cities={OTHER_CITIES.map((city) => ({
-                ...city,
-                name: t(`cities.${city.key}.name`),
-              }))}
-            />
+            <div className={styles.stage}>
+              <OfficeCitiesGrid
+                mainCityName={t("cities.munich.name")}
+                mainCityStyle={MUNICH_STYLE}
+                cities={OTHER_CITIES.map((city) => ({
+                  ...city,
+                  name: t(`cities.${city.key}.name`),
+                }))}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

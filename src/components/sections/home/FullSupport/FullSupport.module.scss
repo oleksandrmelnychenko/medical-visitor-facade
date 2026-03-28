@@ -7,7 +7,9 @@
   padding: clamp(10rem, 15.8vw, 13.4rem) 0;
   background-color: #fffcfa;
   color: #11141d;
-  border-bottom: 1px solid #000000;
+  border-bottom: none;
+  box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.12), 0 2px 8px -2px rgba(0, 0, 0, 0.06);
+  border-radius: 0 0 clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem);
   overflow: clip;
   isolation: isolate;
 

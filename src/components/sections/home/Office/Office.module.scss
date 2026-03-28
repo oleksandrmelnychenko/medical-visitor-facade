@@ -1,5 +1,11 @@
 @use "../../../../styles/variables" as *;
 
+.officeWrap {
+  position: relative;
+  z-index: 1;
+  background: #f5e642;
+}
+
 .office.office {
   --office-bg: #ffffff;
   --office-bg-end: #fbfcfe;
@@ -8,17 +14,18 @@
   --office-border-soft: rgba(18, 22, 29, 0.08);
   --office-text: #141923;
   --office-muted: rgba(20, 25, 35, 0.64);
-  padding: 0;
-  padding-bottom: 84px;
+  padding: 84px 0;
+
+
   display: flex;
   align-items: center;
   position: relative;
   z-index: 1;
   overflow: hidden;
   background-color: #fffcfa;
-  border-top: 1px solid #000000;
-  border-radius: 0 0 84px 84px;
-  box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.18);
+  border-top: none;
+  border-radius: 84px;
+  box-shadow: 0 -8px 32px -4px rgba(0, 0, 0, 0.12), 0 -2px 8px -2px rgba(0, 0, 0, 0.06), 0 30px 60px -10px rgba(0, 0, 0, 0.18);
   content-visibility: auto;
   contain-intrinsic-size: 900px;
 
