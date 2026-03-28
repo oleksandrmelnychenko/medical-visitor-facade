@@ -42,12 +42,14 @@ export function CareForward() {
     return () => mediaQuery.removeEventListener("change", syncMode);
   }, []);
 
+  // Fade in as anchor approaches viewport
   const { scrollYProgress: showProgress } = useScroll({
     target: ref,
     offset: ["start end", "start start"],
   });
   const opacity = useTransform(showProgress, [0, 0.5], [0, 1]);
 
+  // Slide up once fully revealed
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
