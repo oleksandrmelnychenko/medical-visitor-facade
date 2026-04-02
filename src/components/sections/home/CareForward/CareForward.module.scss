@@ -4,7 +4,7 @@
 .anchor {
   position: relative;
   z-index: 0;
-  height: 260vh;
+  height: 220vh;
   background: linear-gradient(180deg, #d7ddda 0%, #cdd6d7 100%);
   pointer-events: none;
 }
@@ -239,12 +239,9 @@
     background: rgba(52, 48, 58, 0.26);
   }
 
-  .accordionPointTitle {
-    color: #26222b;
-  }
-
+  .accordionPointTitle,
   .accordionPointText {
-    color: #57515b;
+    color: #1a1a22;
   }
 }
 
@@ -429,7 +426,7 @@
 
 @media (max-width: 1023px) {
   .anchor {
-    height: 180vh;
+    height: 160vh;
   }
 
   .accordion {
