@@ -5,10 +5,24 @@
   position: relative;
   overflow: visible;
   z-index: 1;
+  isolation: isolate;
   max-width: var(--container-2xl);
   background: #fffcfa;
   padding-top: clamp(0.75rem, 1.8vw, 1.25rem);
   padding-bottom: clamp(1rem, 2.2vw, 1.75rem);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background: #fffcfa;
+    z-index: -1;
+    pointer-events: none;
+  }
 
   @media (max-width: 768px) {
     padding-bottom: 0.9rem;

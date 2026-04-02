@@ -72,32 +72,12 @@ export function CareForward() {
     offset: ["start start", "end start"],
   });
 
-  const sectionOpacity = useTransform(() => {
-    const reveal = revealProgress.get();
-    const scene = sceneProgress.get();
-
-    const revealOpacity = reveal <= 0
-      ? 0
-      : reveal >= 0.45
-        ? 1
-        : reveal / 0.45;
-
-    const exitStart = 0.9;
-    const exitOpacity = scene <= exitStart
-      ? 1
-      : Math.max(0, 1 - (scene - exitStart) / (1 - exitStart));
-
-    return revealOpacity * exitOpacity;
-  });
   const sectionY = useTransform(sceneProgress, [0, 1], ["0%", "-9%"]);
   const statementY = useTransform(sceneProgress, [0, 0.42, 1], ["0%", "-1%", "-10%"]);
-  const statementOpacity = useTransform(sceneProgress, [0, 0.64, 1], [1, 0.98, 0.42]);
   const statementScale = useTransform(sceneProgress, [0, 0.58, 1], [1, 0.992, 0.965]);
   const accordionY = useTransform(sceneProgress, [0, 0.16, 0.46, 1], ["0.5%", "0%", "0%", "-2.5%"]);
-  const accordionOpacity = useTransform(sceneProgress, [0, 0.14, 0.3], [0.72, 0.9, 1]);
   const accordionScale = useTransform(sceneProgress, [0, 0.46, 1], [0.994, 1.006, 1]);
   const accordionRotate = useTransform(sceneProgress, [0, 0.46, 1], ["0.35deg", "0deg", "-0.08deg"]);
-  const auraOpacity = useTransform(sceneProgress, [0, 0.35, 0.65, 1], [0.15, 0.45, 0.78, 0.4]);
 
   useEffect(() => {
     if (isStaticMobile) {
@@ -172,16 +152,10 @@ export function CareForward() {
           ? { pointerEvents: "auto" }
           : {
               y: sectionY,
-              opacity: sectionOpacity,
               pointerEvents: isInteractive ? "auto" : "none",
             }}
       >
         <div className={styles.surface}>
-          <motion.div
-            aria-hidden="true"
-            className={styles.backdropGlow}
-            style={isStaticMobile ? undefined : { opacity: auraOpacity }}
-          />
           <div className={styles.container}>
             <motion.div
               className={styles.statement}
@@ -190,7 +164,6 @@ export function CareForward() {
                 ? undefined
                 : {
                     y: statementY,
-                    opacity: statementOpacity,
                     scale: statementScale,
                   }}
             >
@@ -207,7 +180,6 @@ export function CareForward() {
                 ? undefined
                 : {
                     y: accordionY,
-                    opacity: accordionOpacity,
                     scale: accordionScale,
                     rotate: accordionRotate,
                   }}

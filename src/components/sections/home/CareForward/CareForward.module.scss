@@ -4,7 +4,7 @@
 .anchor {
   position: relative;
   z-index: 0;
-  height: 340vh;
+  height: 260vh;
   background: linear-gradient(180deg, #d7ddda 0%, #cdd6d7 100%);
   pointer-events: none;
 }
@@ -429,7 +429,7 @@
 
 @media (max-width: 1023px) {
   .anchor {
-    height: 220vh;
+    height: 180vh;
   }
 
   .accordion {
@@ -457,6 +457,9 @@
     position: relative;
     inset: auto;
     pointer-events: auto !important;
+    opacity: 1 !important;
+    transform: none !important;
+    will-change: auto !important;
   }
 
   .surface {
@@ -477,12 +480,21 @@
 
   .statement {
     max-width: 100%;
+    opacity: 1 !important;
+    transform: none !important;
+    will-change: auto !important;
   }
 
   .accordionWrap {
     margin-top: 0;
     padding-bottom: 0;
     transform: none !important;
+  }
+
+  .accordionMotion {
+    opacity: 1 !important;
+    transform: none !important;
+    will-change: auto !important;
   }
 
   .statementHeadline {
