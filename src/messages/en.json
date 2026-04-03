@@ -34,13 +34,48 @@
     "scrollReveal": {
       "headline": "We coordinate care that moves people forward with confidence"
     },
+    "faq": {
+      "eyebrow": "FAQs",
+      "title": "Common questions",
+      "subtitle": "",
+      "items": {
+        "services": {
+          "question": "What does the Medical Concierge Agency actually do?",
+          "answer": "We support international patients through the full journey: clinic and specialist selection, treatment coordination, document handling, communication, and travel organization."
+        },
+        "clinicSelection": {
+          "question": "Can you help us choose the right clinic or specialist in Germany?",
+          "answer": "Yes. We look at your request, medical context, and practical circumstances to suggest relevant clinics and suitable specialists."
+        },
+        "travel": {
+          "question": "Do I need to already be in Germany to contact you?",
+          "answer": "No. Many patients begin remotely. We help prepare the process in advance and structure the medical journey before arrival in Germany."
+        },
+        "documents": {
+          "question": "Do you help with records, translation, and communication with clinics?",
+          "answer": "Yes. We help organize medical documents, translate materials, and create clear communication between everyone involved in the process."
+        },
+        "onSite": {
+          "question": "Do you also support travel and on-site coordination?",
+          "answer": "Yes. When needed, we can support transfers, logistics, local coordination, and in-person stages so the patient and family feel more at ease."
+        },
+        "start": {
+          "question": "How do we get started?",
+          "answer": "You can begin by submitting a request through the website. We then get in touch, understand your situation, and outline the most relevant next step."
+        }
+      }
+    },
     "hero": {
-      "title": "Medical Concierge Agency",
-      "subtitle": "Excellence in medical care"
+      "titleDark": "Your Medical",
+      "titleMuted": "Concierge in Germany",
+      "subtitle": "We guide international patients through every step — from specialist selection to treatment coordination.",
+      "cta": "Request an Appointment",
+      "learnMore": "Learn More"
     },
     "careForward": {
       "title": "What we do",
-      "headline": "From initial treatment coordination to managing every stage of your medical journey",
+      "headlineDark": "From initial treatment coordination",
+      "headlineMuted": "to managing every stage of your medical journey",
       "subtitle": "",
       "services": {
         "consultation": {
@@ -149,7 +184,7 @@
       }
     },
     "fullSupport": {
-      "overline": "",
+      "overline": "(How we work)",
       "title": "Our concept",
       "subtitle": "",
       "principles": {
@@ -319,7 +354,7 @@
         "firstName": "First name",
         "middleName": "Middle name (optional)",
         "lastName": "Last name",
-        "suffix": "Suffix (optional)"
+        "suffix": "Title (optional, e.g. Mr., Mrs., Ms., Miss, Dr.)"
       },
       "sharedDob": {
         "title": "What is your date of birth?",

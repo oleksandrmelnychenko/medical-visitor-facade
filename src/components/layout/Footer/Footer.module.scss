@@ -5,9 +5,9 @@
   color: rgba(20, 25, 35, 0.84);
   position: relative;
   z-index: 10;
-  border-radius: 84px 84px 0 0;
+  border-radius: 0;
   margin-top: 0;
-  border: 1px solid rgba(158, 124, 111, 0.26);
+  border: none;
   overflow: hidden;
 }
 
@@ -49,14 +49,25 @@
   align-items: start;
   justify-content: center;
   margin-inline: auto;
-  text-align: center;
+  text-align: left;
 }
 
 .column {
   display: flex;
   flex-direction: column;
-  gap: 1.7rem;
-  align-items: center;
+  gap: 0.65rem;
+  align-items: flex-start;
+}
+
+.columnLabel {
+  margin: 0 0 0.4rem;
+  font-family: "Onest", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(20, 25, 35, 0.38);
 }
 
 .sectionTitle {
@@ -325,7 +336,7 @@
   }
 
   .footer {
-    border-radius: 32px 32px 0 0;
+    border-radius: 0;
     margin-top: 0;
   }
 

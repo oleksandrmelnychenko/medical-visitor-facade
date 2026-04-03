@@ -34,13 +34,48 @@
     "scrollReveal": {
       "headline": "Wir koordinieren Ihre Versorgung, damit Sie mit Zuversicht vorangehen"
     },
+    "faq": {
+      "eyebrow": "FAQs",
+      "title": "Häufige Fragen",
+      "subtitle": "",
+      "items": {
+        "services": {
+          "question": "Was genau macht die Medical Concierge Agency?",
+          "answer": "Wir begleiten internationale Patientinnen und Patienten durch den gesamten Prozess: von der Auswahl von Klinik und Facharzt bis zur Koordination der Behandlung, Dokumente, Kommunikation und Reiseorganisation."
+        },
+        "clinicSelection": {
+          "question": "Helfen Sie bei der Auswahl der passenden Klinik oder Fachärztin in Deutschland?",
+          "answer": "Ja. Wir berücksichtigen Ihr Anliegen, die medizinische Situation und die organisatorischen Rahmenbedingungen, um passende Kliniken und relevante Spezialisten vorzuschlagen."
+        },
+        "travel": {
+          "question": "Muss ich bereits in Deutschland sein, um Sie zu kontaktieren?",
+          "answer": "Nein. Viele Patientinnen und Patienten starten den Prozess aus dem Ausland. Wir helfen dabei, den Ablauf schon vor der Einreise nach Deutschland vorzubereiten."
+        },
+        "documents": {
+          "question": "Unterstützen Sie bei Unterlagen, Übersetzungen und der Kommunikation mit Kliniken?",
+          "answer": "Ja. Wir helfen bei der Strukturierung medizinischer Unterlagen, bei Übersetzungen und bei einer klaren Kommunikation mit allen Beteiligten."
+        },
+        "onSite": {
+          "question": "Gibt es auch Unterstützung vor Ort und bei der Reise?",
+          "answer": "Ja. Bei Bedarf unterstützen wir bei Transfers, Logistik, Aufenthaltskoordination und den persönlichen Terminen vor Ort, damit sich Patient und Familie entlastet fühlen."
+        },
+        "start": {
+          "question": "Wie beginnt die Zusammenarbeit?",
+          "answer": "Am einfachsten über eine Anfrage auf der Website. Danach melden wir uns bei Ihnen, klären die Situation und empfehlen den sinnvollsten nächsten Schritt."
+        }
+      }
+    },
     "hero": {
-      "title": "Medical Concierge Agency",
-      "subtitle": "Exzellente medizinische Betreuung"
+      "titleDark": "Ihr medizinischer",
+      "titleMuted": "Concierge in Deutschland",
+      "subtitle": "Wir begleiten internationale Patienten bei jedem Schritt — von der Spezialistenauswahl bis zur Behandlungskoordination.",
+      "cta": "Termin anfragen",
+      "learnMore": "Mehr erfahren"
     },
     "careForward": {
       "title": "Was wir tun",
-      "headline": "Von der ersten Behandlungskoordination bis zur Begleitung aller Schritte Ihrer medizinischen Versorgung",
+      "headlineDark": "Von der ersten Behandlungskoordination",
+      "headlineMuted": "bis zur Begleitung aller Schritte Ihrer medizinischen Versorgung",
       "subtitle": "",
       "services": {
         "consultation": {
@@ -149,7 +184,7 @@
       }
     },
     "fullSupport": {
-      "overline": "",
+      "overline": "(So arbeiten wir)",
       "title": "Unser Konzept",
       "subtitle": "",
       "principles": {
@@ -342,7 +377,7 @@
         "firstName": "Vorname",
         "middleName": "Zweiter Vorname (optional)",
         "lastName": "Nachname",
-        "suffix": "Namenszusatz (optional)"
+        "suffix": "Anrede (optional, z. B. Mr., Mrs., Ms., Miss, Dr.)"
       },
       "sharedDob": {
         "title": "Wie lautet Ihr Geburtsdatum?",

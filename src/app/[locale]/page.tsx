@@ -4,6 +4,8 @@ import { FullSupport } from "@/components/sections/home/FullSupport";
 import { CareForward } from "@/components/sections/home/CareForward";
 import { Office } from "@/components/sections/home/Office";
 import { ScrollReveal } from "@/components/sections/home/ScrollReveal";
+import { Faq } from "@/components/sections/home/Faq";
+import { HomeScrollRail } from "@/components/sections/home/HomeScrollRail";
 import {
   getLocalizedMetadata,
   getLocalizedMessage,
@@ -18,7 +20,7 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
   const { locale } = await params;
   const safeLocale = normalizeLanguage(locale);
   const [title, heroSubtitle, careSubtitle] = await Promise.all([
-    getLocalizedMessage(safeLocale, "home.hero.title"),
+    getLocalizedMessage(safeLocale, "home.hero.titleDark"),
     getLocalizedMessage(safeLocale, "home.hero.subtitle"),
     getLocalizedMessage(safeLocale, "home.careForward.subtitle"),
   ]);
@@ -34,11 +36,13 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
 export default function Home() {
   return (
     <div data-page="home">
+      <HomeScrollRail />
       <Hero />
       <FullSupport />
       <CareForward />
       <Office />
       <ScrollReveal />
+      <Faq />
     </div>
   );
 }

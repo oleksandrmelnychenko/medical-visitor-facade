@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import styles from "./CareForward.module.scss";
@@ -33,244 +32,95 @@ const DETAIL_DESCRIPTORS = [
 
 export function CareForward() {
   const t = useTranslations("home.careForward");
-  const ref = useRef<HTMLDivElement>(null);
-  const [isStaticMobile, setIsStaticMobile] = useState(false);
-  const [isInteractive, setIsInteractive] = useState(false);
-  const [openKey, setOpenKey] = useState<(typeof STEPS)[number] | null>(null);
-  const isTailOpen = !isStaticMobile && openKey === STEPS[STEPS.length - 2];
-  const isLastOpen = !isStaticMobile && openKey === STEPS[STEPS.length - 1];
+  const [openKey, setOpenKey] = useState<(typeof STEPS)[number] | null>(STEPS[0]);
 
   const toggle = (key: (typeof STEPS)[number]) => {
     setOpenKey((current) => (current === key ? null : key));
   };
 
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return undefined;
-    }
-
-    const mediaQuery = window.matchMedia("(max-width: 768px), (prefers-reduced-motion: reduce)");
-
-    const syncMode = () => {
-      setIsStaticMobile(mediaQuery.matches);
-    };
-
-    syncMode();
-    mediaQuery.addEventListener("change", syncMode);
-
-    return () => {
-      mediaQuery.removeEventListener("change", syncMode);
-    };
-  }, []);
-
-  const { scrollYProgress: revealProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "start start"],
-  });
-  const { scrollYProgress: sceneProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const sectionY = useTransform(sceneProgress, [0, 1], ["0%", "-9%"]);
-  const statementY = useTransform(sceneProgress, [0, 0.42, 1], ["0%", "-1%", "-10%"]);
-  const statementScale = useTransform(sceneProgress, [0, 0.58, 1], [1, 0.992, 0.965]);
-  const accordionY = useTransform(sceneProgress, [0, 0.16, 0.46, 1], ["0.5%", "0%", "0%", "-2.5%"]);
-  const accordionScale = useTransform(sceneProgress, [0, 0.46, 1], [0.994, 1.006, 1]);
-  const accordionRotate = useTransform(sceneProgress, [0, 0.46, 1], ["0.35deg", "0deg", "-0.08deg"]);
-
-  useEffect(() => {
-    if (isStaticMobile) {
-      setIsInteractive(true);
-      return undefined;
-    }
-
-    const syncInteractive = () => {
-      const nextValue = revealProgress.get() > 0.34 && sceneProgress.get() < 0.96;
-      setIsInteractive((current) => (current === nextValue ? current : nextValue));
-    };
-
-    syncInteractive();
-
-    const unsubscribeReveal = revealProgress.on("change", syncInteractive);
-    const unsubscribeScene = sceneProgress.on("change", syncInteractive);
-
-    return () => {
-      unsubscribeReveal();
-      unsubscribeScene();
-    };
-  }, [isStaticMobile, revealProgress, sceneProgress]);
-
-  useEffect(() => {
-    if (!openKey || typeof window === "undefined") {
-      return undefined;
-    }
-
-    const panelId = `care-${openKey}-panel`;
-    const triggerId = `care-${openKey}-trigger`;
-
-    const ensurePanelVisible = (behavior: ScrollBehavior) => {
-      const panel = document.getElementById(panelId);
-      const trigger = document.getElementById(triggerId);
-
-      if (!panel) {
-        return;
-      }
-
-      const panelRect = panel.getBoundingClientRect();
-      const triggerRect = trigger?.getBoundingClientRect();
-      const viewportBottomInset = 28;
-      const viewportBottom = window.innerHeight - viewportBottomInset;
-      const overflowBottom = panelRect.bottom - viewportBottom;
-
-      if (overflowBottom > 0) {
-        window.scrollBy({ top: overflowBottom + 18, behavior });
-        return;
-      }
-
-      if (triggerRect && triggerRect.top < 28) {
-        window.scrollBy({ top: triggerRect.top - 28, behavior });
-      }
-    };
-
-    const passes = [
-      window.setTimeout(() => ensurePanelVisible("auto"), 140),
-      window.setTimeout(() => ensurePanelVisible("auto"), 360),
-      window.setTimeout(() => ensurePanelVisible("smooth"), 620),
-    ];
-
-    return () => {
-      passes.forEach((timeoutId) => window.clearTimeout(timeoutId));
-    };
-  }, [openKey]);
-
   return (
-    <div ref={ref} className={styles.anchor}>
-      <motion.div
-        className={styles.pinned}
-        style={isStaticMobile
-          ? { pointerEvents: "auto" }
-          : {
-              y: sectionY,
-              pointerEvents: isInteractive ? "auto" : "none",
-            }}
-      >
-        <div className={styles.surface}>
-          <div className={styles.container}>
-            <motion.div
-              className={styles.statement}
-              data-snap-anchor
-              style={isStaticMobile
-                ? undefined
-                : {
-                    y: statementY,
-                    scale: statementScale,
-                  }}
-            >
-              <div className={styles.statementCopy}>
-                <h2 className={styles.statementHeadline}>{t("headline")}</h2>
-              </div>
-            </motion.div>
+    <section id="care" className={styles.section} data-home-section="care">
+      <div className={styles.container}>
+        <div className={styles.grid}>
+          <div className={styles.intro}>
+            <p className={styles.eyebrow}>({t("title")})</p>
+            <h2 className={styles.title}>
+              {t("headlineDark")}{" "}
+              <span className={styles.titleMuted}>{t("headlineMuted")}</span>
+            </h2>
+          </div>
 
-            <motion.div
-              className={styles.accordionMotion}
-              data-snap-anchor
-              data-snap-shift="24"
-              style={isStaticMobile
-                ? undefined
-                : {
-                    y: accordionY,
-                    scale: accordionScale,
-                    rotate: accordionRotate,
-                  }}
-              >
-                <div
-                  className={cn(
-                    styles.accordionWrap,
-                    isTailOpen && styles.accordionWrapLiftTail,
-                    isLastOpen && styles.accordionWrapLiftLast
-                  )}
+          <div className={styles.accordion}>
+            {STEPS.map((key, index) => {
+              const isOpen = openKey === key;
+              const panelId = `care-${key}-panel`;
+              const triggerId = `care-${key}-trigger`;
+
+              return (
+                <article
+                  key={key}
+                  className={cn(styles.item, isOpen && styles.itemOpen)}
                 >
-                  <div className={styles.accordion}>
-                    {STEPS.map((key) => {
-                      const isOpen = openKey === key;
-                      const panelId = `care-${key}-panel`;
-                      const triggerId = `care-${key}-trigger`;
+                  <button
+                    id={triggerId}
+                    type="button"
+                    className={styles.trigger}
+                    onClick={() => toggle(key)}
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                  >
+                    <span className={styles.index}>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className={styles.question}>
+                      {t(`services.${key}.title`)}
+                    </span>
+                    <span className={cn(styles.icon, isOpen && styles.iconOpen)} aria-hidden="true">
+                      <span className={styles.iconBar} />
+                      <span className={cn(styles.iconBar, styles.iconBarVertical)} />
+                    </span>
+                  </button>
 
-                      return (
-                        <div
-                          key={key}
-                          className={cn(styles.accordionItem, isOpen && styles.accordionItemOpen)}
-                        >
-                          <button
-                            id={triggerId}
-                            type="button"
-                            className={styles.accordionTrigger}
-                            onClick={() => toggle(key)}
-                            aria-expanded={isOpen}
-                            aria-controls={panelId}
-                          >
-                            <div className={styles.accordionTriggerContent}>
-                              <span className={styles.accordionLabel}>
-                                {t(`services.${key}.title`)}
-                              </span>
-                            </div>
-                            <span className={cn(styles.accordionIcon, isOpen && styles.accordionIconOpen)}>
-                              <span className={styles.accordionIconBar} />
-                              <span
-                                className={cn(
-                                  styles.accordionIconBar,
-                                  styles.accordionIconBarVertical,
-                                  isOpen && styles.accordionIconBarVerticalHidden
-                                )}
-                              />
-                            </span>
-                          </button>
+                  <div
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={triggerId}
+                    aria-hidden={!isOpen}
+                    className={cn(styles.panel, isOpen && styles.panelOpen)}
+                  >
+                    <div className={styles.answerWrap}>
+                      <ul className={styles.answerList}>
+                        {DETAIL_DESCRIPTORS.map((descriptor) => {
+                          const itemTitleKey = `services.${key}.${descriptor.itemKey}Title`;
+                          const itemTextKey = `services.${key}.${descriptor.itemKey}Text`;
+                          const hasDetailedText =
+                            t.has(itemTitleKey) && t.has(itemTextKey);
 
-                          <div
-                            id={panelId}
-                            className={cn(styles.accordionPanel, isOpen && styles.accordionPanelOpen)}
-                            role="region"
-                            aria-labelledby={triggerId}
-                            aria-hidden={!isOpen}
-                          >
-                            <ul className={cn(styles.accordionList, isOpen && styles.accordionListOpen)}>
-                              {DETAIL_DESCRIPTORS.map((descriptor) => {
-                                const itemTitleKey = `services.${key}.${descriptor.itemKey}Title`;
-                                const itemTextKey = `services.${key}.${descriptor.itemKey}Text`;
-                                const hasDetailedText =
-                                  t.has(itemTitleKey) &&
-                                  t.has(itemTextKey);
+                          const pointTitle = hasDetailedText
+                            ? t(itemTitleKey)
+                            : t(`services.${key}.${descriptor.pointKey}`);
+                          const pointText = hasDetailedText
+                            ? t(itemTextKey)
+                            : null;
 
-                                const pointTitle = hasDetailedText
-                                  ? t(itemTitleKey)
-                                  : t(`services.${key}.${descriptor.pointKey}`);
-                                const pointText = hasDetailedText
-                                  ? t(itemTextKey)
-                                  : null;
-
-                                return (
-                                  <li key={descriptor.pointKey} className={styles.accordionPoint}>
-                                    <p className={styles.accordionPointLine}>
-                                      <span className={styles.accordionPointTitle}>{pointTitle}</span>
-                                      {pointText ? (
-                                        <span className={styles.accordionPointText}> {pointText}</span>
-                                      ) : null}
-                                    </p>
-                                  </li>
-                                );
-                              })}
-                            </ul>
-                          </div>
-                        </div>
-                      );
-                    })}
+                          return (
+                            <li key={descriptor.pointKey} className={styles.answerPoint}>
+                              <span className={styles.answerPointTitle}>{pointTitle}</span>
+                              {pointText && (
+                                <span className={styles.answerPointText}> — {pointText}</span>
+                              )}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
                   </div>
-              </div>
-            </motion.div>
+                </article>
+              );
+            })}
           </div>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </section>
   );
 }

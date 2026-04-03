@@ -1,14 +1,12 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useRef, useMemo } from "react";
+import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { AnimatePresence, motion } from "motion/react";
 import { useRouter } from "@/i18n/navigation";
 import { WizardProvider } from "./WizardContext";
 import { WizardProgressBar } from "./components/WizardProgressBar";
 import { getAccessibleWizardStep } from "./flow";
-import { buildPath } from "./wizard-path";
 import { LocationStep } from "./steps/LocationStep";
 import { TravelReadyStep } from "./steps/TravelReadyStep";
 import { MedicalRecordsStep } from "./steps/MedicalRecordsStep";
@@ -95,14 +93,6 @@ function preloadLateFlow() {
   return lateFlowPrefetchPromise;
 }
 
-const fadeVariants = {
-  enter: { opacity: 0 },
-  center: { opacity: 1 },
-  exit: { opacity: 0 },
-};
-
-const fadeTransition = { duration: 0.08 };
-
 function WizardStepView() {
   const router = useRouter();
   const { data, isDraftHydrated } = useWizard();
@@ -111,16 +101,6 @@ function WizardStepView() {
   const step = isDraftHydrated
     ? getAccessibleWizardStep(requestedStep, data)
     : requestedStep;
-
-  const prevStepRef = useRef(step);
-  const path = useMemo(() => buildPath(data), [data]);
-  const currentIndex = path.indexOf(step);
-  const prevIndex = path.indexOf(prevStepRef.current);
-  const direction = currentIndex >= prevIndex ? 1 : -1;
-
-  useEffect(() => {
-    prevStepRef.current = step;
-  }, [step]);
 
   useEffect(() => {
     if (!isDraftHydrated || step === requestedStep) {

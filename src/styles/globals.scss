@@ -124,9 +124,9 @@ input {
   }
 }
 
-// Home page: cool accent behind footer rounded corners
+// Home page: keep the area behind footer corners filled with the footer tone.
 body:has([data-page="home"]) {
-  background-color: #d0d7d5;
+  background-color: #f9f5f2;
 }
 
 [data-page="home"] ~ footer {

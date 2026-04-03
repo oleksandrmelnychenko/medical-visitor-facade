@@ -2,7 +2,7 @@
 
 import React, { startTransition, useEffect, useEffectEvent, useRef, useState } from "react";
 import Image from "next/image";
-import { UserPlus, User, ArrowUpRight } from "lucide-react";
+import { User, ArrowUpRight, Menu, SunMedium, SendHorizonal } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
@@ -18,9 +18,17 @@ const LANGUAGES = [
 
 type SupportedLocale = (typeof LANGUAGES)[number]["code"];
 
+const COOKIE_POLICY_LABELS = {
+  de: "Cookies",
+  en: "Cookie Policy",
+  ru: "Файлы Cookie",
+  es: "Cookies",
+} as const;
+
 export function Header() {
   const tCommon = useTranslations("common");
   const tFooter = useTranslations("footer");
+  const tHome = useTranslations("home");
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -28,6 +36,7 @@ export function Header() {
 
   const [isStickyLangOpen, setIsStickyLangOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrollPercentRemaining, setScrollPercentRemaining] = useState(100);
   const stickyLangRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = useEffectEvent((event: MouseEvent) => {
@@ -74,12 +83,47 @@ export function Header() {
     };
   }, [isMobileMenuOpen]);
 
+  useEffect(() => {
+    const updateScrollPercent = () => {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const nextProgress = scrollHeight > 0
+        ? Math.min(100, Math.max(0, Math.round((window.scrollY / scrollHeight) * 100)))
+        : 100;
+      const nextRemaining = Math.max(0, 100 - nextProgress);
+
+      setScrollPercentRemaining((current) => (current === nextRemaining ? current : nextRemaining));
+    };
+
+    updateScrollPercent();
+    window.addEventListener("scroll", updateScrollPercent, { passive: true });
+    window.addEventListener("resize", updateScrollPercent);
+
+    return () => {
+      window.removeEventListener("scroll", updateScrollPercent);
+      window.removeEventListener("resize", updateScrollPercent);
+    };
+  }, []);
+
   const currentLanguage = LANGUAGES.find((language) => language.code === locale) ?? LANGUAGES[1];
 
   const currentSearch = searchParams.toString();
   const currentPathWithSearch = currentSearch
     ? `${pathname}?${currentSearch}`
     : pathname;
+  const menuPrimaryLinks = [
+    { label: tHome("fullSupport.title"), href: "/#support" },
+    { label: tHome("careForward.title"), href: "/#care" },
+    { label: tHome("office.title"), href: "/#office" },
+    { label: tHome("faq.eyebrow"), href: "/#faq" },
+  ] as const;
+  const menuOtherLinks = [
+    { label: tFooter("privacyPolicy"), href: "/privacy-policy" },
+    { label: tFooter("impressum"), href: "/legal-notice" },
+    {
+      label: COOKIE_POLICY_LABELS[locale as SupportedLocale] ?? COOKIE_POLICY_LABELS.en,
+      href: "/privacy-policy",
+    },
+  ] as const;
   const isLoginPage = pathname === "/login";
   const isApplyPage = pathname === "/apply";
   const showLogin = !isLoginPage;
@@ -124,39 +168,22 @@ export function Header() {
               height={32}
               className={styles.stickyLogo}
             />
-            <span className={styles.stickyLogoTagline}>
-              {tFooter.rich("companyName", { accent: (chunks) => <span className={styles.logoAccent}>{chunks}</span> })}
-            </span>
           </Link>
-          <button
-            onClick={() => setIsMobileMenuOpen((open) => !open)}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            className={cn(styles.stickyMobileMenuButton, isMobileMenuOpen && styles.menuButtonOpen)}
-          >
-            <span
-              className={cn(styles.hamburgerIcon, isMobileMenuOpen && styles.hamburgerIconOpen)}
-              aria-hidden="true"
-            >
-              <span />
-              <span />
-              <span />
-            </span>
-          </button>
+
           <div className={styles.stickyActions}>
             <Link href="/membership" className={styles.stickyNavLink}>
               {tFooter("membership")}
               <ArrowUpRight aria-hidden="true" />
             </Link>
+            {showLogin && (
+              <Link href="/login" prefetch={false} className={styles.stickyLoginOrb} aria-label={tCommon("login")}>
+                <User aria-hidden="true" />
+              </Link>
+            )}
             {showApplyCta && (
               <Link href="/apply" prefetch={false} className={styles.stickyButton}>
                 {tCommon('requestAppointment')}
-              </Link>
-            )}
-            <span className={styles.stickyDivider} aria-hidden="true" />
-            {showLogin && (
-              <Link href="/login" prefetch={false} className={styles.stickyLoginLink}>
-                <span>{tCommon("login")}</span>
-                <ArrowUpRight aria-hidden="true" />
+                <SendHorizonal aria-hidden="true" />
               </Link>
             )}
             <div className={styles.languageSelector} ref={stickyLangRef}>
@@ -190,6 +217,21 @@ export function Header() {
               )}
             </div>
           </div>
+
+          <button
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            className={cn(styles.stickyMobileMenuButton, isMobileMenuOpen && styles.menuButtonOpen)}
+          >
+            <span
+              className={cn(styles.hamburgerIcon, isMobileMenuOpen && styles.hamburgerIconOpen)}
+              aria-hidden="true"
+            >
+              <span />
+              <span />
+              <span />
+            </span>
+          </button>
         </div>
       </div>
 
@@ -208,7 +250,62 @@ export function Header() {
           )}
         >
           <div className={styles.mobileMenuContent}>
-            <div className={styles.mobileLanguageTabs}>
+            <div className={styles.menuControlBar}>
+              <button
+                type="button"
+                className={styles.menuCloseButton}
+                onClick={closeMobileMenu}
+                aria-label="Close menu"
+              >
+                <Menu aria-hidden="true" />
+                <span>Menu</span>
+              </button>
+
+              <div className={styles.menuThemeButton} aria-hidden="true">
+                <span className={styles.menuThemeGlyph}>
+                  <SunMedium aria-hidden="true" />
+                </span>
+              </div>
+
+              <div className={styles.menuProgressPill}>{scrollPercentRemaining}%</div>
+            </div>
+
+            <div className={styles.menuGrid}>
+              <div className={styles.menuColumn}>
+                <p className={styles.menuColumnTitle}>Menu</p>
+                <div className={styles.menuLinkList}>
+                  {menuPrimaryLinks.map((item) => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={closeMobileMenu}
+                      className={styles.menuPrimaryLink}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <div className={styles.menuColumn}>
+                <p className={styles.menuColumnTitle}>Other</p>
+                <div className={styles.menuLinkList}>
+                  {menuOtherLinks.map((item) => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={closeMobileMenu}
+                      className={styles.menuSecondaryLink}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+
+            <div className={styles.menuLanguageRow}>
               {LANGUAGES.map((language) => (
                 <button
                   key={language.code}
@@ -221,64 +318,6 @@ export function Header() {
                   {language.label}
                 </button>
               ))}
-            </div>
-
-            {showApplyCta && (
-              <Link
-                href="/apply"
-                prefetch={false}
-                onClick={closeMobileMenu}
-                className={styles.mobileApplyButton}
-              >
-                {tCommon("requestAppointment")}
-              </Link>
-            )}
-
-            {showLogin && (
-              <Link
-                href="/login"
-                prefetch={false}
-                onClick={closeMobileMenu}
-                className={styles.mobileLoginLink}
-              >
-                {tCommon("login")}
-                <ArrowUpRight aria-hidden="true" />
-              </Link>
-            )}
-
-            <div className={styles.mobileFooterLinks}>
-              <Link
-                href="/membership"
-                onClick={closeMobileMenu}
-                className={styles.mobileFooterLink}
-              >
-                {tFooter("membership")}
-                <ArrowUpRight aria-hidden="true" />
-              </Link>
-              <Link
-                href="/financial-assistance"
-                onClick={closeMobileMenu}
-                className={styles.mobileFooterLink}
-              >
-                {tFooter("financialAssistance")}
-                <ArrowUpRight aria-hidden="true" />
-              </Link>
-              <Link
-                href="/privacy-policy"
-                onClick={closeMobileMenu}
-                className={styles.mobileFooterLink}
-              >
-                {tFooter("privacyPolicy")}
-                <ArrowUpRight aria-hidden="true" />
-              </Link>
-              <Link
-                href="/legal-notice"
-                onClick={closeMobileMenu}
-                className={styles.mobileFooterLink}
-              >
-                {tFooter("impressum")}
-                <ArrowUpRight aria-hidden="true" />
-              </Link>
             </div>
           </div>
         </div>

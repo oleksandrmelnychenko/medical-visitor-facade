@@ -47,7 +47,7 @@ export function ScrollReveal() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
 
   return (
-    <div ref={ref} className={styles.anchor}>
+    <div ref={ref} className={styles.anchor} data-home-section="outro">
       <motion.div
         className={styles.pinned}
         style={isStaticMobile ? undefined : { y, opacity }}

@@ -1,7 +1,8 @@
 "use client";
 
-import { type CSSProperties } from "react";
+import { type CSSProperties, useRef } from "react";
 import Image from "next/image";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import styles from "./Office.module.scss";
 
 type City = {
@@ -26,10 +27,29 @@ export function OfficeCitiesGrid({
   cities,
   mainCityName,
 }: OfficeCitiesGridProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const munichY = useTransform(scrollYProgress, [0, 1], [36, -28]);
+  const berlinY = useTransform(scrollYProgress, [0, 1], [36, -22]);
+  const hamburgY = useTransform(scrollYProgress, [0, 1], [36, -14]);
+  const cologneY = useTransform(scrollYProgress, [0, 1], [42, -32]);
+
   return (
-    <div className={styles.collage}>
-      {/* Munich — large left */}
-      <div className={styles.collageMunich}>
+    <div ref={ref} className={styles.collage}>
+      <motion.div
+        className={styles.collageMunich}
+        style={shouldReduceMotion ? undefined : { y: munichY }}
+        initial={shouldReduceMotion ? undefined : { opacity: 0, y: 30 }}
+        whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+      >
         <Image
           src="/assets/1_city-munich.png"
           alt={mainCityName}
@@ -41,11 +61,17 @@ export function OfficeCitiesGrid({
         <div className={styles.collageLabel}>
           <h3 className={styles.collageName}>{mainCityName}</h3>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Berlin — top middle */}
       {cities[0] && (
-        <div className={styles.collageBerlin}>
+        <motion.div
+          className={styles.collageBerlin}
+          style={shouldReduceMotion ? undefined : { y: berlinY }}
+          initial={shouldReduceMotion ? undefined : { opacity: 0, y: 38 }}
+          whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.58, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
+        >
           <Image
             src={cities[0].image}
             alt={cities[0].name}
@@ -60,12 +86,18 @@ export function OfficeCitiesGrid({
           <div className={styles.collageLabel}>
             <h3 className={styles.collageName}>{cities[0].name}</h3>
           </div>
-        </div>
+        </motion.div>
       )}
 
-      {/* Hamburg — bottom middle */}
       {cities[1] && (
-        <div className={styles.collageHamburg}>
+        <motion.div
+          className={styles.collageHamburg}
+          style={shouldReduceMotion ? undefined : { y: hamburgY }}
+          initial={shouldReduceMotion ? undefined : { opacity: 0, y: 42 }}
+          whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.58, ease: [0.22, 1, 0.36, 1], delay: 0.14 }}
+        >
           <Image
             src={cities[1].image}
             alt={cities[1].name}
@@ -80,12 +112,18 @@ export function OfficeCitiesGrid({
           <div className={styles.collageLabel}>
             <h3 className={styles.collageName}>{cities[1].name}</h3>
           </div>
-        </div>
+        </motion.div>
       )}
 
-      {/* Cologne — full right */}
       {cities[2] && (
-        <div className={styles.collageCologne}>
+        <motion.div
+          className={styles.collageCologne}
+          style={shouldReduceMotion ? undefined : { y: cologneY }}
+          initial={shouldReduceMotion ? undefined : { opacity: 0, y: 34 }}
+          whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+        >
           <Image
             src={cities[2].image}
             alt={cities[2].name}
@@ -100,7 +138,7 @@ export function OfficeCitiesGrid({
           <div className={styles.collageLabel}>
             <h3 className={styles.collageName}>{cities[2].name}</h3>
           </div>
-        </div>
+        </motion.div>
       )}
     </div>
   );

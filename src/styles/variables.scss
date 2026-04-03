@@ -119,3 +119,24 @@ $breakpoints: (
     max-width: var(--container-2xl);
   }
 }
+
+@mixin home-section-title {
+  font-family: "Onest", sans-serif;
+  font-size: clamp(2.18rem, 4.4vw, 4rem);
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: -0.056em;
+}
+
+@mixin home-section-title-mobile {
+  font-size: clamp(1.92rem, 8.8vw, 2.78rem);
+  line-height: 0.98;
+}
+
+@mixin home-supporting-copy {
+  font-family: "Onest", sans-serif;
+  font-size: clamp(0.98rem, 1.08vw, 1.08rem);
+  font-weight: 450;
+  line-height: 1.5;
+  letter-spacing: -0.016em;
+}

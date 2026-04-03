@@ -1,15 +1,19 @@
+"use client";
+
 import type { CSSProperties } from "react";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import { OfficeCitiesGrid } from "./OfficeCitiesGrid";
 import styles from "./Office.module.scss";
 
-// Static styles moved outside component to prevent recreation on each render
 const MUNICH_STYLE: CSSProperties = {
   backgroundColor: "color-mix(in srgb, var(--tone-sand) 6%, #fff)",
   borderColor: "color-mix(in srgb, var(--tone-sand) 25%, var(--border-card))",
 };
+
 const OTHER_CITIES = [
   {
     key: "berlin",
@@ -54,20 +58,39 @@ export function Office() {
   const t = useTranslations("home.office");
   const overline = t("overline");
   const subtitle = t("subtitle");
+  const ref = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const introY = useTransform(scrollYProgress, [0, 0.32, 1], [56, 0, -24]);
+  const introOpacity = useTransform(scrollYProgress, [0, 0.2, 1], [0.42, 1, 1]);
+  const stageY = useTransform(scrollYProgress, [0, 0.34, 1], [72, 0, -20]);
+  const stageScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.98, 1, 1.01]);
 
   return (
-    <div className={styles.officeWrap}>
+    <div ref={ref} id="office" className={styles.officeWrap} data-home-section="office">
       <section className={cn(sectionStyles.section, styles.office)}>
         <div className={`${sectionStyles.container} ${styles.container}`}>
           <div className={styles.shell}>
-            <div className={styles.introPanel} data-snap-anchor>
+            <motion.div
+              className={styles.introPanel}
+              data-snap-anchor
+              style={shouldReduceMotion ? undefined : { y: introY, opacity: introOpacity }}
+            >
               <span className={styles.introMark} aria-hidden="true" />
               {overline ? <p className={styles.overline}>{overline}</p> : null}
               <h2 className={styles.title}>{t("title")}</h2>
               {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
-            </div>
+            </motion.div>
 
-            <div className={styles.stage}>
+            <motion.div
+              className={styles.stage}
+              style={shouldReduceMotion ? undefined : { y: stageY, scale: stageScale }}
+            >
               <OfficeCitiesGrid
                 mainCityName={t("cities.munich.name")}
                 mainCityStyle={MUNICH_STYLE}
@@ -76,7 +99,7 @@ export function Office() {
                   name: t(`cities.${city.key}.name`),
                 }))}
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

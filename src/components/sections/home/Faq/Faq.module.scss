@@ -3,7 +3,9 @@
 .section {
   position: relative;
   padding: clamp(5rem, 8vw, 8.5rem) 0 clamp(3rem, 6vw, 5.5rem);
-  background: linear-gradient(180deg, #d7ddda 0%, #cdd6d7 100%);
+  background:
+    radial-gradient(circle at top left, rgba(168, 181, 176, 0.2), transparent 36%),
+    linear-gradient(180deg, #f7f5f1 0%, #f0ece5 100%);
 }
 
 .container {
@@ -45,36 +47,11 @@
   text-wrap: balance;
 }
 
-.titleMuted {
-  background: linear-gradient(90deg, #5e7169 0%, #788f84 40%, #5e7169 80%);
-  background-size: 200% 100%;
-  color: #5e7169;
-  animation: shimmerMuted 8s ease-in-out infinite;
-
-  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-}
-
-@keyframes shimmerMuted {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .titleMuted {
-    animation: none;
-  }
+.subtitle {
+  margin: 0;
+  max-width: 26rem;
+  @include home-supporting-copy;
+  color: rgba(19, 23, 33, 0.62);
 }
 
 .accordion {
@@ -186,30 +163,16 @@
   overflow: hidden;
 }
 
-.answerList {
-  list-style: none;
+.answer {
   margin: 0;
   padding: 0 4rem 1.5rem 3.3rem;
-  display: grid;
-  gap: 0.5rem;
-}
-
-.answerPoint {
+  max-width: 44rem;
   font-family: "Onest", sans-serif;
   font-size: 0.98rem;
   font-weight: 450;
   line-height: 1.5;
   letter-spacing: -0.016em;
   color: rgba(19, 23, 33, 0.68);
-}
-
-.answerPointTitle {
-  font-weight: 520;
-  color: rgba(19, 23, 33, 0.82);
-}
-
-.answerPointText {
-  font-weight: 450;
 }
 
 @media (max-width: 1024px) {
@@ -243,11 +206,8 @@
     line-height: 1.14;
   }
 
-  .answerList {
+  .answer {
     padding: 0 0 1.2rem 2.95rem;
-  }
-
-  .answerPoint {
     font-size: 0.94rem;
     line-height: 1.52;
   }

@@ -8,7 +8,7 @@ type MembershipPageProps = {
 
 export default async function MembershipPage({ params }: MembershipPageProps) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "membership" });
+  await getTranslations({ locale, namespace: "membership" });
 
   return (
     <div className={styles.page}>

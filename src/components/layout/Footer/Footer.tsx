@@ -27,12 +27,14 @@ export async function Footer({ locale }: FooterProps) {
       <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.column}>
+            <p className={styles.columnLabel}>{t("headquarters")}</p>
             <div className={styles.textSmall}>
               <p>{t("address")}</p>
             </div>
           </div>
 
           <div className={styles.column}>
+            <p className={styles.columnLabel}>{t("contact")}</p>
             <ul className={styles.linkList}>
               <li className={styles.linkItem}>
                 <a href="mailto:contact@gmed-health.com">contact@gmed-health.com</a>
@@ -41,6 +43,7 @@ export async function Footer({ locale }: FooterProps) {
           </div>
 
           <div className={styles.column}>
+            <p className={styles.columnLabel}>{t("theAgency")}</p>
             <ul className={`${styles.linkList} ${styles.agencyList}`}>
               <li className={`${styles.linkItem} ${styles.agencyLinkItem}`}>
                 <Link href="/financial-assistance" locale={locale}>

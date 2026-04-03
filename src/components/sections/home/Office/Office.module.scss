@@ -24,14 +24,14 @@
   overflow: hidden;
   background-color: #fffcfa;
   border-top: none;
-  border-radius: 84px;
-  box-shadow: 0 -8px 32px -4px rgba(0, 0, 0, 0.12), 0 -2px 8px -2px rgba(0, 0, 0, 0.06), 0 30px 60px -10px rgba(0, 0, 0, 0.18);
+  border-radius: 0 0 84px 84px;
+  box-shadow: none;
   content-visibility: auto;
   contain-intrinsic-size: 900px;
 
   @media (max-width: 767px) {
     padding: 2.5rem 0 0;
-    border-radius: 2.25rem 2.25rem 0 0;
+    border-radius: 0;
   }
 
 }
@@ -89,7 +89,7 @@
   font-family: "Onest", sans-serif;
   font-size: clamp(0.92rem, 1vw, 0.98rem);
   font-weight: 650;
-  line-height: 1.12;
+  line-height: 1.08;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: rgba(20, 25, 35, 0.72);
@@ -98,11 +98,7 @@
 .title {
   margin: 0;
   max-width: 100%;
-  font-family: "Onest", sans-serif;
-  font-size: clamp(2.4rem, 5vw, 4.6rem);
-  font-weight: 500;
-  line-height: 0.95;
-  letter-spacing: -0.055em;
+  @include home-section-title;
   color: #9d7f84;
   background: linear-gradient(90deg, #b77f6b 0%, #9f88a2 33%, #7f90a5 66%, #b77f6b 100%);
   background-size: 200% 100%;
@@ -145,7 +141,7 @@
   font-family: "Onest", sans-serif;
   font-size: clamp(0.98rem, 1.08vw, 1.08rem);
   font-weight: 600;
-  line-height: 1.1;
+  line-height: 1.08;
   letter-spacing: -0.02em;
   color: rgba(20, 25, 35, 0.82);
   white-space: nowrap;
@@ -162,10 +158,7 @@
 .subtitle {
   margin: 0;
   max-width: 25rem;
-  font-size: clamp(0.98rem, 1.12vw, 1.08rem);
-  font-weight: 500;
-  line-height: 1.55;
-  letter-spacing: -0.02em;
+  @include home-supporting-copy;
   color: var(--office-muted);
 }
 
@@ -236,10 +229,10 @@
 .collageName {
   margin: 0;
   font-family: "Onest", sans-serif;
-  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
-  font-weight: 560;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.08rem, 1.55vw, 1.44rem);
+  font-weight: 540;
+  line-height: 1.04;
+  letter-spacing: -0.028em;
   color: #fff;
 }
 
@@ -312,7 +305,7 @@
   font-family: "Onest", sans-serif;
   font-size: clamp(1.4rem, 2.5vw, 2.2rem);
   font-weight: 560;
-  line-height: 1;
+  line-height: 1.02;
   letter-spacing: -0.04em;
   color: #fff;
 }
@@ -391,7 +384,7 @@
   font-family: "Onest", sans-serif;
   font-size: clamp(1.92rem, 3.55vw, 3.65rem);
   font-weight: 560;
-  line-height: 0.86;
+  line-height: 0.94;
   letter-spacing: -0.074em;
   color: var(--office-text);
   text-wrap: balance;
@@ -497,7 +490,7 @@
   font-family: "Onest", sans-serif;
   font-size: clamp(1.35rem, 1.9vw, 1.85rem);
   font-weight: 560;
-  line-height: 0.92;
+  line-height: 1.02;
   letter-spacing: -0.05em;
   color: var(--office-text);
   text-wrap: balance;
@@ -614,17 +607,18 @@
 
   .title {
     max-width: 100%;
-    font-size: clamp(1.8rem, 8vw, 2.8rem);
-    line-height: 1;
+    @include home-section-title-mobile;
   }
 
   .featuredName {
     max-width: 100%;
     font-size: clamp(2.2rem, 9vw, 3.2rem);
+    line-height: 0.98;
   }
 
   .cityName {
     font-size: clamp(1.18rem, 6.2vw, 1.55rem);
+    line-height: 1.06;
   }
 
   .cityImage {

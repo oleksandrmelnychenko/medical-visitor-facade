@@ -34,13 +34,48 @@
     "scrollReveal": {
       "headline": "Coordinamos la atención para que avance con confianza"
     },
+    "faq": {
+      "eyebrow": "FAQs",
+      "title": "Preguntas frecuentes",
+      "subtitle": "",
+      "items": {
+        "services": {
+          "question": "¿Qué hace exactamente Medical Concierge Agency?",
+          "answer": "Acompañamos a pacientes internacionales durante todo el proceso: selección de clínica y especialista, coordinación del tratamiento, gestión documental, comunicación y organización del viaje."
+        },
+        "clinicSelection": {
+          "question": "¿Pueden ayudarnos a elegir la clínica o el especialista adecuado en Alemania?",
+          "answer": "Sí. Analizamos su solicitud, el contexto médico y las circunstancias prácticas para proponer clínicas y especialistas relevantes."
+        },
+        "travel": {
+          "question": "¿Necesito estar ya en Alemania para contactar con ustedes?",
+          "answer": "No. Muchos pacientes comienzan a distancia. Ayudamos a preparar el proceso con antelación y a organizar el recorrido médico antes de llegar a Alemania."
+        },
+        "documents": {
+          "question": "¿Ayudan con los informes, las traducciones y la comunicación con las clínicas?",
+          "answer": "Sí. Ayudamos a estructurar la documentación médica, traducir materiales y organizar una comunicación clara entre todas las partes implicadas."
+        },
+        "onSite": {
+          "question": "¿También ofrecen apoyo local y ayuda con el viaje?",
+          "answer": "Sí. Cuando hace falta, apoyamos con traslados, logística, coordinación local y etapas presenciales para que el paciente y su familia se sientan más tranquilos."
+        },
+        "start": {
+          "question": "¿Cómo empezamos?",
+          "answer": "Puede comenzar enviando una solicitud a través del sitio web. Después nos pondremos en contacto con usted, entenderemos la situación y le propondremos el siguiente paso más adecuado."
+        }
+      }
+    },
     "hero": {
-      "title": "Medical Concierge Agency",
-      "subtitle": "Excelencia en la atención médica"
+      "titleDark": "Su concierge",
+      "titleMuted": "médico en Alemania",
+      "subtitle": "Acompañamos a pacientes internacionales en cada paso — desde la selección de especialistas hasta la coordinación del tratamiento.",
+      "cta": "Solicitar una cita",
+      "learnMore": "Más información"
     },
     "careForward": {
       "title": "Lo que hacemos",
-      "headline": "Desde la coordinación inicial del tratamiento hasta la gestión de cada etapa de su acompañamiento médico",
+      "headlineDark": "Desde la coordinación inicial del tratamiento",
+      "headlineMuted": "hasta la gestión de cada etapa de su acompañamiento médico",
       "subtitle": "",
       "services": {
         "consultation": {
@@ -149,7 +184,7 @@
       }
     },
     "fullSupport": {
-      "overline": "",
+      "overline": "(Cómo trabajamos)",
       "title": "Nuestro concepto",
       "subtitle": "",
       "principles": {
@@ -319,7 +354,7 @@
         "firstName": "Nombre",
         "middleName": "Segundo nombre (opcional)",
         "lastName": "Apellido",
-        "suffix": "Sufijo (opcional)"
+        "suffix": "Tratamiento (opcional, p. ej., Mr., Mrs., Ms., Miss, Dr.)"
       },
       "sharedDob": {
         "title": "¿Cuál es su fecha de nacimiento?",

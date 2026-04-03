@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import Image from "next/image";
-import { Eye, EyeOff, LogIn } from "lucide-react";
+import { ArrowUpRight, Eye, EyeOff, LogIn } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
@@ -146,9 +146,11 @@ export function LoginPageClient() {
                 <div className={styles.linkRow}>
                   <Link href="/apply" className={styles.secondaryLink}>
                     {tCommon("requestAppointment")}
+                    <ArrowUpRight aria-hidden="true" />
                   </Link>
                   <Link href="/privacy-policy" className={styles.secondaryLink}>
                     {tAuth("privacyPolicyLink")}
+                    <ArrowUpRight aria-hidden="true" />
                   </Link>
                 </div>
 
