@@ -29,16 +29,17 @@ export function HomeScrollRail() {
       return undefined;
     }
 
-    const visibility = new Map<string, number>();
+    type SectionId = (typeof SECTION_IDS)[number];
+    const visibility = new Map<SectionId, number>();
 
     const syncActiveSection = () => {
-      let bestId = SECTION_IDS[0];
+      let bestId: SectionId = SECTION_IDS[0];
       let bestRatio = -1;
 
       visibility.forEach((ratio, id) => {
         if (ratio > bestRatio) {
           bestRatio = ratio;
-          bestId = id as (typeof SECTION_IDS)[number];
+          bestId = id;
         }
       });
 
@@ -54,7 +55,7 @@ export function HomeScrollRail() {
             return;
           }
 
-          visibility.set(id, entry.isIntersecting ? entry.intersectionRatio : 0);
+          visibility.set(id as SectionId, entry.isIntersecting ? entry.intersectionRatio : 0);
         });
 
         syncActiveSection();
