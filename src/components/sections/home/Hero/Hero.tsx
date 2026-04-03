@@ -9,7 +9,7 @@ export function Hero() {
   const srTitle = [t("titleDark"), t("titleMuted")].filter(Boolean).join(" ");
 
   return (
-    <section className={styles.hero}>
+    <section id="hero" className={styles.hero} data-home-section="hero">
       <h1 className={styles.srOnly}>{srTitle}</h1>
 
       <p className={styles.brandLabel}>

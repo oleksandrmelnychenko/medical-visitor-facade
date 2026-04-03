@@ -1,23 +1,72 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { motion, useScroll, useSpring } from "motion/react";
+import { useLocale, useTranslations } from "next-intl";
+import { cn } from "@/lib/utils";
 import styles from "./HomeScrollRail.module.scss";
 
 const SECTION_IDS = ["hero", "support", "care", "office", "outro", "faq"] as const;
+const SECTION_SCROLL_OFFSET = 104;
+const SHORT_LABELS = {
+  de: {
+    hero: "Start",
+    support: "Konzept",
+    care: "Leistungen",
+    office: "Standorte",
+    outro: "Anfrage",
+    faq: "FAQ",
+  },
+  en: {
+    hero: "Home",
+    support: "Concept",
+    care: "Services",
+    office: "Offices",
+    outro: "Apply",
+    faq: "FAQ",
+  },
+  ru: {
+    hero: "Главная",
+    support: "Концепт",
+    care: "Услуги",
+    office: "Офисы",
+    outro: "Заявка",
+    faq: "FAQ",
+  },
+  es: {
+    hero: "Inicio",
+    support: "Concepto",
+    care: "Servicios",
+    office: "Oficinas",
+    outro: "Solicitud",
+    faq: "FAQ",
+  },
+} as const;
 
 export function HomeScrollRail() {
+  const tHome = useTranslations("home");
+  const tCommon = useTranslations("common");
+  const locale = useLocale();
   const [activeIndex, setActiveIndex] = useState(0);
-  const { scrollYProgress } = useScroll();
-  const progress = useSpring(scrollYProgress, {
-    stiffness: 140,
-    damping: 24,
-    mass: 0.2,
-  });
+  const shortLabels = SHORT_LABELS[locale as keyof typeof SHORT_LABELS] ?? SHORT_LABELS.en;
+  const sections = useMemo(
+    () => [
+      {
+        id: "hero",
+        label: shortLabels.hero,
+        fullLabel: `${tHome("hero.titleDark")} ${tHome("hero.titleMuted")}`,
+      },
+      { id: "support", label: shortLabels.support, fullLabel: tHome("fullSupport.title") },
+      { id: "care", label: shortLabels.care, fullLabel: tHome("careForward.title") },
+      { id: "office", label: shortLabels.office, fullLabel: tHome("office.title") },
+      { id: "outro", label: shortLabels.outro, fullLabel: tCommon("requestAppointment") },
+      { id: "faq", label: shortLabels.faq, fullLabel: tHome("faq.title") },
+    ] as const,
+    [shortLabels, tCommon, tHome]
+  );
 
   const sectionIndex = useMemo(
-    () => new Map(SECTION_IDS.map((id, index) => [id, index])),
-    []
+    () => new Map(sections.map(({ id }, index) => [id, index])),
+    [sections]
   );
 
   useEffect(() => {
@@ -42,6 +91,11 @@ export function HomeScrollRail() {
           bestId = id;
         }
       });
+
+      // If no section is visible (e.g. scrolled to footer), keep the last one active
+      if (bestRatio <= 0) {
+        return;
+      }
 
       const nextIndex = sectionIndex.get(bestId) ?? 0;
       setActiveIndex((current) => (current === nextIndex ? current : nextIndex));
@@ -73,30 +127,48 @@ export function HomeScrollRail() {
     };
   }, [sectionIndex]);
 
+  const handlePointClick = (sectionId: (typeof SECTION_IDS)[number], index: number) => {
+    const target = document.querySelector(`[data-home-section="${sectionId}"]`);
+
+    if (!target) {
+      return;
+    }
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const top = window.scrollY + target.getBoundingClientRect().top - SECTION_SCROLL_OFFSET;
+
+    window.scrollTo({
+      top: Math.max(0, top),
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+    });
+
+    setActiveIndex(index);
+  };
+
+  const activeSection = sections[activeIndex]?.id;
+  const isDark = activeSection === "outro";
+
   return (
-    <div className={styles.rail} aria-hidden="true">
-      <div className={styles.counter}>
-        <span>{String(activeIndex + 1).padStart(2, "0")}</span>
-        <span className={styles.counterDivider} />
-        <span>{String(SECTION_IDS.length).padStart(2, "0")}</span>
-      </div>
-
-      <div className={styles.track}>
-        <div className={styles.trackBase} />
-        <motion.div className={styles.trackFill} style={{ scaleY: progress }} />
-      </div>
-
+    <nav className={cn(styles.rail, isDark && styles.railInverted)} aria-label="Home sections">
       <ol className={styles.points}>
-        {SECTION_IDS.map((section, index) => (
+        {sections.map((section, index) => (
           <li
-            key={section}
+            key={section.id}
             className={index === activeIndex ? styles.pointActive : styles.point}
           >
-            <span className={styles.pointIndex}>{String(index + 1).padStart(2, "0")}</span>
-            <span className={styles.pointDot} />
+            <button
+              type="button"
+              className={styles.pointButton}
+              onClick={() => handlePointClick(section.id, index)}
+              aria-label={section.fullLabel}
+              aria-current={index === activeIndex ? "step" : undefined}
+            >
+              <span className={styles.pointLabel}>{section.label}</span>
+              <span className={styles.pointDot} />
+            </button>
           </li>
         ))}
       </ol>
-    </div>
+    </nav>
   );
 }

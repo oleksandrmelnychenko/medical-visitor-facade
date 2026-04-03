@@ -2,7 +2,7 @@
   position: relative;
   z-index: 0;
   height: 82vh;
-  background: linear-gradient(180deg, #d7ddda 0%, #cdd6d7 100%);
+  background: #1f4b5c;
 }
 
 .pinned {
@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   gap: 3.65rem;
-  background: linear-gradient(180deg, #d7ddda 0%, #cdd6d7 100%);
+  background: #1f4b5c;
   pointer-events: none;
 }
 
@@ -32,8 +32,8 @@
   font-weight: 460;
   line-height: 0.97;
   letter-spacing: -0.052em;
-  color: #141922;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.18);
+  color: #e8f0ed;
+  text-shadow: none;
   text-align: center;
   text-wrap: balance;
   width: min(100%, 76rem);
@@ -49,9 +49,9 @@
   font-size: clamp(1.16rem, 1.55vw, 1.42rem);
   font-weight: 580;
   line-height: 1.04;
-  color: #141922;
+  color: #fff;
   text-decoration: none;
-  border-bottom: 1.5px solid rgba(20, 25, 34, 0.88);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.6);
   padding-bottom: 0.35rem;
   transition: opacity 0.2s, border-color 0.2s;
   pointer-events: auto;
@@ -63,8 +63,8 @@
   }
 
   &:hover {
-    opacity: 0.72;
-    border-color: rgba(20, 25, 34, 0.64);
+    opacity: 0.82;
+    border-color: rgba(255, 255, 255, 0.4);
   }
 }
 

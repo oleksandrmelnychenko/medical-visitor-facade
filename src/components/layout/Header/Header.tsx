@@ -168,6 +168,11 @@ export function Header() {
               height={32}
               className={styles.stickyLogo}
             />
+            <span className={styles.stickyLogoTagline}>
+              {tFooter.rich("companyName", {
+                accent: (chunks) => <span className={styles.logoAccent}>{chunks}</span>,
+              })}
+            </span>
           </Link>
 
           <div className={styles.stickyActions}>

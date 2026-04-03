@@ -3,7 +3,7 @@
 .officeWrap {
   position: relative;
   z-index: 1;
-  background: linear-gradient(to bottom, #cdd6d7 50%, #d0d7d5 50%);
+  background: #1f4b5c;
 }
 
 .office.office {
@@ -187,6 +187,22 @@
       "munich munich"
       "berlin hamburg"
       "cologne cologne";
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .collage {
+    grid-template-columns:
+      minmax(0, 0.36fr)
+      minmax(18.5rem, 1fr)
+      minmax(0, 0.36fr);
+    gap: 0.7rem;
+    height: clamp(30rem, 66vw, 38rem);
+    justify-content: center;
+  }
+
+  .collageHamburg {
+    margin-top: -0.45rem;
   }
 }
 
@@ -623,6 +639,10 @@
 
   .cityImage {
     width: 100%;
+  }
+
+  .collageHamburg {
+    margin-top: -0.35rem;
   }
 }
 
