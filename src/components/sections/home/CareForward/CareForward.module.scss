@@ -24,7 +24,7 @@
   top: 7.6rem;
   display: grid;
   gap: 1rem;
-  max-width: 28rem;
+  max-width: 36rem;
 }
 
 .eyebrow {
@@ -43,6 +43,8 @@
   @include home-section-title;
   color: #131721;
   text-wrap: balance;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .titleMuted {
