@@ -22,6 +22,7 @@ export function LoginPageClient() {
   const tAuth = useTranslations("auth");
   const tCommon = useTranslations("common");
   const tFooter = useTranslations("footer");
+  const tNotFound = useTranslations("notFound");
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -140,6 +141,10 @@ export function LoginPageClient() {
                     {tAuth("signIn")}
                   </button>
                 </div>
+
+                <Link href="/" className={styles.desktopHomeLabel}>
+                  {tNotFound("backHome")}
+                </Link>
 
                 <p className={styles.confidentialityNotice}>{tAuth("confidentialityNotice")}</p>
 

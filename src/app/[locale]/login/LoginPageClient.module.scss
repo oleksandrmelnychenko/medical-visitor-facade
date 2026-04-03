@@ -231,8 +231,28 @@
   }
 }
 
+.desktopHomeLabel {
+  display: inline-flex;
+  align-self: center;
+  justify-content: center;
+  margin-top: 2.08rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #131721;
+  text-decoration: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+
+  &:hover {
+    opacity: 0.62;
+    transform: translateY(-1px);
+  }
+}
+
 .confidentialityNotice {
-  margin: 1.4rem 0 1.15rem;
+  margin: 1.4rem 0 0.54rem;
   text-align: center;
   font-family: "Onest", sans-serif;
   font-size: 1rem;
@@ -374,6 +394,10 @@
 
   .submitButtonFrame {
     padding: 0;
+  }
+
+  .desktopHomeLabel {
+    display: none;
   }
 
   .formTitle {

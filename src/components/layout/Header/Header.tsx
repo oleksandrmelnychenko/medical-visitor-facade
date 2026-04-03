@@ -2,7 +2,7 @@
 
 import React, { startTransition, useEffect, useEffectEvent, useRef, useState } from "react";
 import Image from "next/image";
-import { User, ArrowUpRight, Menu, SunMedium, SendHorizonal } from "lucide-react";
+import { User, House, ArrowUpRight, Menu, SunMedium, SendHorizonal } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
@@ -129,8 +129,22 @@ export function Header() {
   const showLogin = !isLoginPage;
   const showApplyCta = !isApplyPage;
 
-  if (isLoginPage) return null;
   const showMobileLoginFab = showLogin && !isMobileMenuOpen && !isApplyPage;
+
+  if (isLoginPage) {
+    return (
+      <header className={styles.header}>
+        <Link
+          href="/"
+          prefetch={false}
+          className={cn(styles.mobileLoginFab, styles.mobileHomeFab)}
+          aria-label={tCommon("home")}
+        >
+          <House size={24} aria-hidden="true" />
+        </Link>
+      </header>
+    );
+  }
 
   const handleLanguageSelect = (code: SupportedLocale) => {
     startTransition(() => {
@@ -293,15 +307,41 @@ export function Header() {
               </Link>
             )}
 
+            <Link
+              href="/membership"
+              onClick={closeMobileMenu}
+              className={styles.mobileMembershipLink}
+            >
+              {tFooter("membership")}
+              <ArrowUpRight aria-hidden="true" />
+            </Link>
+
+            <div className={styles.mobileSectionLinks}>
+              {[
+                { id: "hero", label: tHome("hero.titleDark") },
+                { id: "support", label: tHome("fullSupport.title") },
+                { id: "care", label: tHome("careForward.title") },
+                { id: "office", label: tHome("office.title") },
+                { id: "faq", label: tHome("faq.title") },
+              ].map((section) => (
+                <button
+                  key={section.id}
+                  type="button"
+                  className={styles.mobileSectionLink}
+                  onClick={() => {
+                    closeMobileMenu();
+                    setTimeout(() => {
+                      const target = document.querySelector(`[data-home-section="${section.id}"]`);
+                      target?.scrollIntoView({ behavior: "smooth" });
+                    }, 350);
+                  }}
+                >
+                  {section.label}
+                </button>
+              ))}
+            </div>
+
             <div className={styles.mobileFooterLinks}>
-              <Link
-                href="/membership"
-                onClick={closeMobileMenu}
-                className={styles.mobileFooterLink}
-              >
-                {tFooter("membership")}
-                <ArrowUpRight aria-hidden="true" />
-              </Link>
               <Link
                 href="/financial-assistance"
                 onClick={closeMobileMenu}
