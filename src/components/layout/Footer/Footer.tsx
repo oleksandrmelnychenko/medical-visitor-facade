@@ -55,7 +55,7 @@ export async function Footer({ locale }: FooterProps) {
           </div>
         </div>
 
-        <div className={styles.trustBadge} aria-label="5 stars, 250 plus">
+        <div className={styles.trustBadge} aria-label="14+ years">
           <div className={styles.trustStars} aria-hidden="true">
             <span>★</span>
             <span>★</span>
@@ -63,7 +63,7 @@ export async function Footer({ locale }: FooterProps) {
             <span>★</span>
             <span>★</span>
           </div>
-          <p className={styles.trustCount}>250+</p>
+          <p className={styles.trustCount}>{t("trustLine")}</p>
         </div>
 
         <div className={styles.brandRow}>

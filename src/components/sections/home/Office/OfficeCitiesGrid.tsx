@@ -35,10 +35,10 @@ export function OfficeCitiesGrid({
     offset: ["start end", "end start"],
   });
 
-  const munichY = useTransform(scrollYProgress, [0, 1], [36, -28]);
-  const berlinY = useTransform(scrollYProgress, [0, 1], [36, -22]);
-  const hamburgY = useTransform(scrollYProgress, [0, 1], [36, -14]);
-  const cologneY = useTransform(scrollYProgress, [0, 1], [42, -32]);
+  const munichY = useTransform(scrollYProgress, [0, 1], [24, -18]);
+  const berlinY = useTransform(scrollYProgress, [0, 1], [24, -18]);
+  const hamburgY = useTransform(scrollYProgress, [0, 1], [24, -18]);
+  const cologneY = useTransform(scrollYProgress, [0, 1], [24, -18]);
 
   return (
     <div ref={ref} className={styles.collage}>
