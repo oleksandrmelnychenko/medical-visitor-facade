@@ -927,26 +927,27 @@
 
 .mobileMenu {
   position: fixed;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-  overflow: hidden;
-  background: transparent;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 100dvh;
+  overflow-y: auto;
+  background: #fffdf9;
   z-index: 1150;
-  transform: translateY(-6px) scale(0.985);
+  transform: translateY(-12px);
   visibility: hidden;
   pointer-events: none;
   backface-visibility: hidden;
+  box-shadow: 0 24px 48px rgba(15, 18, 24, 0.08);
   transition:
     transform 0.12s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.12s ease,
+    padding-top 0.12s cubic-bezier(0.22, 1, 0.36, 1),
     visibility 0s linear 0.12s;
 }
 
 .mobileMenuOpen {
-  transform: translateY(0) scale(1);
-  opacity: 1;
+  transform: translateY(0);
   visibility: visible;
   pointer-events: auto;
   transition-duration: 0.32s, 0.32s, 0s;
@@ -954,8 +955,12 @@
 }
 
 .mobileMenuWithSticky {
-  padding-top: max(1rem, calc(env(safe-area-inset-top) + 0.35rem));
-  padding-bottom: max(1rem, calc(env(safe-area-inset-bottom) + 0.35rem));
+  padding-top: 100px;
+  padding-bottom: max(1.5rem, calc(env(safe-area-inset-bottom) + 1rem));
+
+  @media (max-width: 768px) {
+    padding-top: 76px;
+  }
 }
 
 // ========================================
@@ -1000,20 +1005,11 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: min(100%, 25rem);
-  min-height: min(43rem, calc(100dvh - 2rem));
-  max-height: calc(100dvh - 2rem);
-  margin: 0 auto;
-  padding: 1rem 1.4rem 1.5rem;
-  gap: 1.45rem;
+  min-height: calc(100dvh - 76px);
+  padding: 1.25rem 1.25rem 2rem;
+  gap: 1.2rem;
   align-items: stretch;
-  text-align: left;
-  overflow-y: auto;
-  border-radius: 2.15rem;
-  background: rgba(234, 234, 234, 0.96);
-  box-shadow:
-    0 32px 60px -28px rgba(15, 18, 24, 0.34),
-    0 12px 24px -16px rgba(15, 18, 24, 0.16);
+  text-align: center;
 }
 
 .menuControlBar {
@@ -1153,7 +1149,7 @@
 .mobileLanguageTabs {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 0.5rem;
   flex-wrap: wrap;
 }
@@ -1321,6 +1317,39 @@
   font-weight: 600;
   color: #1a1a22;
   text-decoration: none;
+  transition: opacity 0.2s;
+
+  svg {
+    width: 1.3em;
+    height: 1.3em;
+    stroke-width: 2.6;
+  }
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.mobileFooterLinks {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  align-items: center;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(20, 25, 35, 0.08);
+}
+
+.mobileFooterLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15em;
+  font-family: "Onest", sans-serif;
+  font-size: 0.935rem;
+  font-weight: 560;
+  color: #1a1a22;
+  text-decoration: none;
+  padding: 0.55rem 0;
   transition: opacity 0.2s;
 
   svg {

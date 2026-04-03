@@ -255,62 +255,7 @@ export function Header() {
           )}
         >
           <div className={styles.mobileMenuContent}>
-            <div className={styles.menuControlBar}>
-              <button
-                type="button"
-                className={styles.menuCloseButton}
-                onClick={closeMobileMenu}
-                aria-label="Close menu"
-              >
-                <Menu aria-hidden="true" />
-                <span>Menu</span>
-              </button>
-
-              <div className={styles.menuThemeButton} aria-hidden="true">
-                <span className={styles.menuThemeGlyph}>
-                  <SunMedium aria-hidden="true" />
-                </span>
-              </div>
-
-              <div className={styles.menuProgressPill}>{scrollPercentRemaining}%</div>
-            </div>
-
-            <div className={styles.menuGrid}>
-              <div className={styles.menuColumn}>
-                <p className={styles.menuColumnTitle}>Menu</p>
-                <div className={styles.menuLinkList}>
-                  {menuPrimaryLinks.map((item) => (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      onClick={closeMobileMenu}
-                      className={styles.menuPrimaryLink}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              <div className={styles.menuColumn}>
-                <p className={styles.menuColumnTitle}>Other</p>
-                <div className={styles.menuLinkList}>
-                  {menuOtherLinks.map((item) => (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      onClick={closeMobileMenu}
-                      className={styles.menuSecondaryLink}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-            </div>
-
-            <div className={styles.menuLanguageRow}>
+            <div className={styles.mobileLanguageTabs}>
               {LANGUAGES.map((language) => (
                 <button
                   key={language.code}
@@ -323,6 +268,64 @@ export function Header() {
                   {language.label}
                 </button>
               ))}
+            </div>
+
+            {showApplyCta && (
+              <Link
+                href="/apply"
+                prefetch={false}
+                onClick={closeMobileMenu}
+                className={styles.mobileApplyButton}
+              >
+                {tCommon("requestAppointment")}
+              </Link>
+            )}
+
+            {showLogin && (
+              <Link
+                href="/login"
+                prefetch={false}
+                onClick={closeMobileMenu}
+                className={styles.mobileLoginLink}
+              >
+                {tCommon("login")}
+                <ArrowUpRight aria-hidden="true" />
+              </Link>
+            )}
+
+            <div className={styles.mobileFooterLinks}>
+              <Link
+                href="/membership"
+                onClick={closeMobileMenu}
+                className={styles.mobileFooterLink}
+              >
+                {tFooter("membership")}
+                <ArrowUpRight aria-hidden="true" />
+              </Link>
+              <Link
+                href="/financial-assistance"
+                onClick={closeMobileMenu}
+                className={styles.mobileFooterLink}
+              >
+                {tFooter("financialAssistance")}
+                <ArrowUpRight aria-hidden="true" />
+              </Link>
+              <Link
+                href="/privacy-policy"
+                onClick={closeMobileMenu}
+                className={styles.mobileFooterLink}
+              >
+                {tFooter("privacyPolicy")}
+                <ArrowUpRight aria-hidden="true" />
+              </Link>
+              <Link
+                href="/legal-notice"
+                onClick={closeMobileMenu}
+                className={styles.mobileFooterLink}
+              >
+                {tFooter("impressum")}
+                <ArrowUpRight aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </div>
