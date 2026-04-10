@@ -707,26 +707,28 @@
     "portal": {
       "badge": "Standard",
       "title": "Digital Client Portal",
-      "description": "Self-service access to your medical information around the clock.",
+      "description": "Self-service online access to your medical information and requests.",
       "features": {
-        "access": "24/7 Online Access to Your Information via Our Secure Portal"
+        "access": "24/7 access through our secure online portal",
+        "documents": "Centralized storage for medical documents and records",
+        "requests": "Submit medical requests online at any time",
+        "responses": "Responses from our team within standard processing times",
+        "history": "Complete history of your requests and communications",
+        "executiveScheduling": "Executive-style appointment scheduling",
+        "annualReview": "Annual strategic review of your medical case"
       },
       "cta": "Get Started"
     },
     "reserve": {
       "badge": "Premium",
-      "title": "GMED Reserve Membership Program",
-      "description": "Full-service medical concierge with a dedicated personal manager.",
+      "title": "GMED Reserve",
+      "description": "Personal concierge service for those who want full-scale support.",
+      "includesPortal": "Everything in Standard, plus:",
       "features": {
-        "personalizedSupport": "24/7 Personalized Support",
-        "priorityProcessing": "Priority Medical Request Processing Within 24 Hours",
-        "dedicatedManager": "Your Dedicated 1:1 Manager and Medical Concierge Team",
-        "proactiveFollowUp": "Proactive Follow-Up on Appointments, Records, Test Results, and Next Steps",
-        "portalAccess": "24/7 Online Access to Your Information via Our Secure Portal",
-        "travelCoordination": "Travel-Related Coordination Support",
-        "annualReview": "Annual Strategic Case Review",
-        "executiveScheduling": "Executive-Style Scheduling Support",
-        "crossBorderCoordination": "Multi-Country / Cross-Border Coordination Support"
+        "dedicatedManager": "A dedicated 1:1 manager and medical concierge team",
+        "priorityProcessing": "Priority request processing within 24 hours",
+        "travelCoordination": "Travel and flight coordination across clinics",
+        "crossBorderCoordination": "Multi-country and cross-border case coordination"
       },
       "cta": "Get Started"
     }

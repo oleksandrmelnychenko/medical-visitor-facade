@@ -6,17 +6,20 @@ import { Link } from "@/i18n/navigation";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import styles from "./MembershipComparison.module.scss";
 
-const PORTAL_FEATURES = ["access"] as const;
+const PORTAL_FEATURES = [
+  "access",
+  "documents",
+  "requests",
+  "responses",
+  "history",
+  "executiveScheduling",
+  "annualReview",
+] as const;
 
 const RESERVE_FEATURES = [
-  "personalizedSupport",
-  "priorityProcessing",
   "dedicatedManager",
-  "proactiveFollowUp",
-  "portalAccess",
+  "priorityProcessing",
   "travelCoordination",
-  "annualReview",
-  "executiveScheduling",
   "crossBorderCoordination",
 ] as const;
 
@@ -72,6 +75,10 @@ export function MembershipComparison() {
               <p className={styles.planDescription}>{t("reserve.description")}</p>
             </div>
             <div className={styles.planDivider} />
+            <p className={styles.includesBanner}>
+              <Check size={14} className={styles.includesIcon} aria-hidden="true" />
+              <span>{t("reserve.includesPortal")}</span>
+            </p>
             <ul className={styles.featureList}>
               {RESERVE_FEATURES.map((key) => (
                 <li key={key} className={styles.featureItem}>

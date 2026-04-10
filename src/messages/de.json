@@ -730,26 +730,28 @@
     "portal": {
       "badge": "Standard",
       "title": "Digitales Kundenportal",
-      "description": "Selbstständiger Zugriff auf Ihre medizinischen Informationen rund um die Uhr.",
+      "description": "Eigenständiger Online-Zugriff auf Ihre medizinischen Daten und Anfragen.",
       "features": {
-        "access": "24/7-Onlinezugriff auf Ihre Informationen über unser sicheres Portal"
+        "access": "24/7-Zugriff über unser sicheres Online-Portal",
+        "documents": "Zentrale Ablage medizinischer Dokumente und Unterlagen",
+        "requests": "Medizinische Anfragen jederzeit online einreichen",
+        "responses": "Antworten unseres Teams innerhalb der Standardbearbeitungszeit",
+        "history": "Vollständige Historie Ihrer Anfragen und Kommunikation",
+        "executiveScheduling": "Terminplanung auf Executive-Niveau",
+        "annualReview": "Jährliche strategische Fallbesprechung"
       },
       "cta": "Jetzt starten"
     },
     "reserve": {
       "badge": "Premium",
-      "title": "GMED Reserve-Mitgliedschaftsprogramm",
-      "description": "Umfassender medizinischer Concierge-Service mit persönlichem Manager.",
+      "title": "GMED Reserve",
+      "description": "Persönlicher Concierge-Service für umfassende medizinische Begleitung.",
+      "includesPortal": "Alles aus dem Standard-Tarif, plus:",
       "features": {
-        "personalizedSupport": "Personalisierte Unterstützung rund um die Uhr (24/7)",
-        "priorityProcessing": "Priorisierte Bearbeitung medizinischer Anfragen innerhalb von 24 Stunden",
-        "dedicatedManager": "Ihr persönlicher 1:1-Manager und ein medizinisches Concierge-Team",
-        "proactiveFollowUp": "Proaktive Nachverfolgung von Terminen, Unterlagen, Testergebnissen und den nächsten Schritten",
-        "portalAccess": "24/7-Onlinezugriff auf Ihre Informationen über unser sicheres Portal",
-        "travelCoordination": "Unterstützung bei reisebezogener Koordination",
-        "annualReview": "Jährliche strategische Fallbesprechung",
-        "executiveScheduling": "Terminplanung auf Executive-Niveau",
-        "crossBorderCoordination": "Länderübergreifende / grenzüberschreitende Koordinationsunterstützung"
+        "dedicatedManager": "Persönlicher 1:1-Manager und medizinisches Concierge-Team",
+        "priorityProcessing": "Priorisierte Bearbeitung innerhalb von 24 Stunden",
+        "travelCoordination": "Reise- und Flugkoordination zwischen Kliniken",
+        "crossBorderCoordination": "Länderübergreifende und grenzüberschreitende Fallkoordination"
       },
       "cta": "Jetzt starten"
     }

@@ -707,26 +707,28 @@
     "portal": {
       "badge": "Estándar",
       "title": "Portal digital del cliente",
-      "description": "Acceso autónomo a su información médica las 24 horas del día.",
+      "description": "Acceso autónomo en línea a su información médica y solicitudes.",
       "features": {
-        "access": "Acceso en línea 24/7 a su información a través de nuestro portal seguro"
+        "access": "Acceso 24/7 a través de nuestro portal seguro",
+        "documents": "Almacenamiento centralizado de documentos y expedientes",
+        "requests": "Envíe solicitudes médicas en línea en cualquier momento",
+        "responses": "Respuestas del equipo dentro de los tiempos estándar",
+        "history": "Historial completo de sus solicitudes y comunicaciones",
+        "executiveScheduling": "Programación de citas estilo ejecutivo",
+        "annualReview": "Revisión estratégica anual de su caso médico"
       },
       "cta": "Comenzar"
     },
     "reserve": {
       "badge": "Premium",
-      "title": "Programa de membresía GMED Reserve",
-      "description": "Servicio completo de concierge médico con un gestor personal dedicado.",
+      "title": "GMED Reserve",
+      "description": "Servicio de concierge personal para quienes desean acompañamiento integral.",
+      "includesPortal": "Todo lo del plan Estándar, y además:",
       "features": {
-        "personalizedSupport": "Soporte personalizado 24/7",
-        "priorityProcessing": "Procesamiento prioritario de solicitudes médicas en un plazo de 24 horas",
-        "dedicatedManager": "Su gestor dedicado 1:1 y equipo de concierge médico",
-        "proactiveFollowUp": "Seguimiento proactivo de citas, expedientes, resultados y próximos pasos",
-        "portalAccess": "Acceso en línea 24/7 a su información a través de nuestro portal seguro",
-        "travelCoordination": "Soporte de coordinación relacionado con viajes",
-        "annualReview": "Revisión estratégica anual del caso",
-        "executiveScheduling": "Soporte de programación de estilo ejecutivo",
-        "crossBorderCoordination": "Soporte de coordinación multinacional / transfronteriza"
+        "dedicatedManager": "Gestor 1:1 dedicado y equipo de concierge médico",
+        "priorityProcessing": "Procesamiento prioritario de solicitudes en 24 horas",
+        "travelCoordination": "Coordinación de viajes y vuelos entre clínicas",
+        "crossBorderCoordination": "Coordinación multinacional y transfronteriza"
       },
       "cta": "Comenzar"
     }

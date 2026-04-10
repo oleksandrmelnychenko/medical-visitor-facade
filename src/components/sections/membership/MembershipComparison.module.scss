@@ -202,6 +202,30 @@
   margin: 1.25rem 0;
 }
 
+.includesBanner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1.05rem;
+  padding: 0.55rem 0.9rem;
+  background: #eeeae0;
+  border: 1px solid rgba(26, 26, 34, 0.1);
+  border-radius: 999px;
+  font-family: "Onest", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: -0.006em;
+  color: #1a1a22;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.includesIcon {
+  flex-shrink: 0;
+  color: #1a1a22;
+  stroke-width: 2.6;
+}
+
 // Features
 .featureList {
   list-style: none;
