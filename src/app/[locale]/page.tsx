@@ -6,6 +6,7 @@ import { Office } from "@/components/sections/home/Office";
 import { ScrollReveal } from "@/components/sections/home/ScrollReveal";
 import { Faq } from "@/components/sections/home/Faq";
 import { HomeScrollRail } from "@/components/sections/home/HomeScrollRail";
+import { ScaleStats } from "@/components/sections/ScaleStats";
 import {
   getLocalizedMetadata,
   getLocalizedMessage,
@@ -43,6 +44,7 @@ export default function Home() {
       <Office />
       <ScrollReveal />
       <Faq />
+      <ScaleStats />
     </div>
   );
 }

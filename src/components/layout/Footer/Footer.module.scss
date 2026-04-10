@@ -5,8 +5,8 @@
   color: rgba(20, 25, 35, 0.84);
   position: relative;
   z-index: 10;
-  border-radius: 0;
-  margin-top: 0;
+  border-radius: clamp(2.4rem, 4.8vw, 4.4rem) clamp(2.4rem, 4.8vw, 4.4rem) 0 0;
+  margin-top: calc(-1 * clamp(2.4rem, 4.8vw, 4.4rem));
   border: none;
   overflow: hidden;
 }
@@ -36,8 +36,8 @@
 .container {
   @include container-base;
   position: relative;
-  padding-top: clamp(4.8rem, 8vw, 6rem);
-  padding-bottom: clamp(2.4rem, 4.8vw, 3.8rem);
+  padding-top: clamp(7rem, 12vw, 10rem);
+  padding-bottom: clamp(7rem, 12vw, 10rem);
 }
 
 .grid {
@@ -171,42 +171,12 @@
   }
 }
 
-.trustBadge {
-  position: static;
-  display: grid;
-  justify-items: center;
-  gap: 0.28rem;
-  pointer-events: none;
-  width: fit-content;
-  margin: clamp(1.4rem, 2.2vw, 2rem) auto 0;
-}
-
-.trustStars {
-  display: inline-flex;
-  gap: 0.16rem;
-  font-size: clamp(1rem, 1.18vw, 1.14rem);
-  line-height: 1;
-  letter-spacing: 0.02em;
-  color: #e58c2d;
-  text-shadow: none;
-}
-
-.trustCount {
-  margin: 0.5rem 0 0;
-  font-family: "Onest", sans-serif;
-  font-size: clamp(1.28rem, 1.7vw, 1.56rem);
-  font-weight: 700;
-  line-height: 0.94;
-  letter-spacing: -0.04em;
-  color: #b96b17;
-}
-
 .brandRow {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: clamp(0.9rem, 1.5vw, 1.35rem);
-  margin-top: clamp(5.4rem, 10vw, 7.25rem);
+  margin-top: clamp(3rem, 5.4vw, 4.4rem);
 }
 
 .brandBlock {
@@ -246,7 +216,6 @@
   justify-content: space-between;
   gap: 1rem;
   padding-top: 1.15rem;
-  border-top: 1px solid rgba(17, 20, 29, 0.12);
 }
 
 .backToTop {
@@ -311,11 +280,6 @@
     gap: 2.8rem 4rem;
   }
 
-  .trustBadge {
-    justify-items: center;
-    margin: 1.8rem auto 0;
-  }
-
   .brandRow {
     align-items: start;
   }
@@ -336,8 +300,8 @@
   }
 
   .footer {
-    border-radius: 0;
-    margin-top: 0;
+    border-radius: 2rem 2rem 0 0;
+    margin-top: -2rem;
   }
 
   .container {
@@ -349,19 +313,6 @@
     grid-template-columns: 1fr;
     gap: 1.4rem;
     width: 100%;
-  }
-
-  .trustBadge {
-    margin: 1rem auto 0;
-    gap: 0.15rem;
-  }
-
-  .trustStars {
-    font-size: 0.92rem;
-  }
-
-  .trustCount {
-    font-size: 1rem;
   }
 
   .sectionTitle {

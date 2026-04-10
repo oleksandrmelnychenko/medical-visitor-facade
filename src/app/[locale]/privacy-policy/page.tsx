@@ -149,7 +149,7 @@ export default async function PrivacyPolicyPage({ params }: PrivacyPolicyPagePro
           <div className={styles.editorialLayout}>
             <header className={styles.heroRow}>
               <div className={styles.heroMeta}>
-                <p className={styles.metaLabel}>{t("lastUpdated")}</p>
+                <p className={styles.metaLabel}>({t("lastUpdated")})</p>
               </div>
               <div className={styles.heroContent}>
                 <h1 className={styles.pageTitle}>{t("title")}</h1>

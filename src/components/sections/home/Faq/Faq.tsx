@@ -18,7 +18,7 @@ const FAQ_FALLBACKS = {
   ru: {
     eyebrow: "FAQs",
     title: "Частые вопросы.",
-    subtitle: "Самое важное о медицинском сопровождении, организации поездки и начале работы с нами.",
+    subtitle: "",
     items: {
       services: {
         question: "Что именно делает Medical Concierge Agency?",
@@ -49,7 +49,7 @@ const FAQ_FALLBACKS = {
   en: {
     eyebrow: "FAQs",
     title: "Common questions.",
-    subtitle: "The essentials about medical coordination, travel planning, and how to start working with us.",
+    subtitle: "",
     items: {
       services: {
         question: "What does the Medical Concierge Agency actually do?",

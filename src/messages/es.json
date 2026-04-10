@@ -16,6 +16,16 @@
     "login": "Iniciar sesión",
     "selectLanguage": "Seleccionar idioma"
   },
+  "scaleStats": {
+    "eyebrow": "(Desde 2012)",
+    "headline": "Ya operando a gran escala en toda Alemania",
+    "yearsValue": "14",
+    "yearsLabel": "Años de coordinación médica",
+    "citiesValue": "4",
+    "citiesLabel": "Ciudades en Alemania",
+    "languagesValue": "4",
+    "languagesLabel": "Idiomas soportados"
+  },
   "footer": {
     "impressum": "Aviso legal",
     "companyName": "Agencia médica <accent>de conserjería</accent>",
@@ -29,7 +39,14 @@
     "theAgency": "La Agencia",
     "membership": "Programas de participación",
     "backToTop": "Volver arriba",
-    "trustLine": "14+ años en coordinación médica"
+    "trustLine": "14+ años en coordinación médica en 4 ciudades alemanas",
+    "trustSince": "Desde 2012",
+    "trustYearsNumber": "14",
+    "trustYearsLabel": "Años",
+    "trustCitiesNumber": "4",
+    "trustCitiesLabel": "Ciudades",
+    "trustLanguagesNumber": "4",
+    "trustLanguagesLabel": "Idiomas"
   },
   "home": {
     "scrollReveal": {
@@ -39,6 +56,7 @@
       "eyebrow": "FAQs",
       "title": "Preguntas frecuentes",
       "subtitle": "",
+      "delicateLabel": "Cuestiones delicadas",
       "items": {
         "services": {
           "question": "¿Qué hace exactamente Medical Concierge Agency?",
@@ -207,6 +225,9 @@
     "freeService": {
       "title": "Pro bono",
       "description1": "Entendemos que una atención médica de excelencia puede suponer un desafío financiero. La Medical Concierge Agency ofrece un programa pro bono limitado para pacientes que necesitan apoyo con los gastos médicos.",
+      "description1Dark": "Entendemos que una atención médica de excelencia puede suponer un desafío financiero.",
+      "description1Muted": "La Medical Concierge Agency ofrece un programa pro bono limitado",
+      "description1Accent": "para pacientes que necesitan apoyo con los gastos médicos.",
       "description2": "Nuestro comité médico revisa cuidadosamente cada solicitud y brinda apoyo en función de los recursos disponibles.",
       "priority": "Casos prioritarios:",
       "priorityText": "Damos prioridad a casos pediátricos, situaciones médicas agudas y pacientes en circunstancias excepcionales.",

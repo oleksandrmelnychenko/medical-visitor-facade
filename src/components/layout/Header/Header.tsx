@@ -339,6 +339,14 @@ export function Header() {
                   {section.label}
                 </button>
               ))}
+              <Link
+                href="/financial-assistance"
+                onClick={closeMobileMenu}
+                className={styles.mobileDelicateLink}
+              >
+                <span className={styles.mobileDelicateStar}>★</span>
+                {tHome.has("faq.delicateLabel") ? tHome("faq.delicateLabel") : "Деликатные вопросы"}
+              </Link>
             </div>
 
             <div className={styles.mobileFooterLinks}>

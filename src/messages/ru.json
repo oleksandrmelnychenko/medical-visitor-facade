@@ -16,6 +16,16 @@
     "login": "Войти",
     "selectLanguage": "Выбрать язык"
   },
+  "scaleStats": {
+    "eyebrow": "(С 2012 года)",
+    "headline": "Работаем в масштабе всей Германии",
+    "yearsValue": "14",
+    "yearsLabel": "Лет медицинского сопровождения",
+    "citiesValue": "4",
+    "citiesLabel": "Города по всей Германии",
+    "languagesValue": "4",
+    "languagesLabel": "Поддерживаемых языка"
+  },
   "footer": {
     "impressum": "Юридическая информация",
     "companyName": "Медицинское <accent>консьерж-агентство</accent>",
@@ -29,7 +39,14 @@
     "theAgency": "Агентство",
     "membership": "Программы участия",
     "backToTop": "Наверх",
-    "trustLine": "14+ лет в медицинском сопровождении"
+    "trustLine": "14+ лет в медицинском сопровождении в 4 городах Германии",
+    "trustSince": "С 2012",
+    "trustYearsNumber": "14",
+    "trustYearsLabel": "Лет",
+    "trustCitiesNumber": "4",
+    "trustCitiesLabel": "Города",
+    "trustLanguagesNumber": "4",
+    "trustLanguagesLabel": "Языка"
   },
   "home": {
     "scrollReveal": {
@@ -39,6 +56,7 @@
       "eyebrow": "FAQs",
       "title": "Частые вопросы",
       "subtitle": "",
+      "delicateLabel": "Деликатные вопросы",
       "items": {
         "services": {
           "question": "Что именно делает Medical Concierge Agency?",
@@ -214,6 +232,9 @@
     "freeService": {
       "title": "Pro bono",
       "description1": "Мы понимаем, что качественное лечение требует значительных затрат. Поэтому мы предлагаем ограниченные квоты (Pro bono) для пациентов, которым необходима помощь.",
+      "description1Dark": "Мы понимаем, что качественное лечение требует значительных затрат.",
+      "description1Muted": "Поэтому мы предлагаем ограниченные квоты (Pro bono)",
+      "description1Accent": "для пациентов, которым необходима помощь.",
       "description2": "Наша команда рассматривает каждый случай и старается помочь, исходя из имеющихся ресурсов.",
       "priority": "В приоритетном порядке:",
       "priorityText": "Мы отдаем приоритет случаям с детьми, экстренным ситуациям и особым жизненным обстоятельствам.",

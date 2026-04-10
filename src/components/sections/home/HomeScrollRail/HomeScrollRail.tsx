@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import styles from "./HomeScrollRail.module.scss";
 
-const SECTION_IDS = ["hero", "support", "care", "office", "outro", "faq"] as const;
+const SECTION_IDS = ["hero", "support", "care", "office", "outro", "faq", "scale"] as const;
 const SECTION_SCROLL_OFFSET = 104;
 const SHORT_LABELS = {
   de: {
@@ -15,6 +15,7 @@ const SHORT_LABELS = {
     office: "Standorte",
     outro: "Anfrage",
     faq: "FAQ",
+    scale: "Zahlen",
   },
   en: {
     hero: "Home",
@@ -23,6 +24,7 @@ const SHORT_LABELS = {
     office: "Offices",
     outro: "Apply",
     faq: "FAQ",
+    scale: "Scale",
   },
   ru: {
     hero: "Главная",
@@ -31,6 +33,7 @@ const SHORT_LABELS = {
     office: "Офисы",
     outro: "Заявка",
     faq: "FAQ",
+    scale: "Цифры",
   },
   es: {
     hero: "Inicio",
@@ -39,6 +42,7 @@ const SHORT_LABELS = {
     office: "Oficinas",
     outro: "Solicitud",
     faq: "FAQ",
+    scale: "Cifras",
   },
 } as const;
 
@@ -60,6 +64,7 @@ export function HomeScrollRail() {
       { id: "office", label: shortLabels.office, fullLabel: tHome("office.title") },
       { id: "outro", label: shortLabels.outro, fullLabel: tCommon("requestAppointment") },
       { id: "faq", label: shortLabels.faq, fullLabel: tHome("faq.title") },
+      { id: "scale", label: shortLabels.scale, fullLabel: shortLabels.scale },
     ] as const,
     [shortLabels, tCommon, tHome]
   );

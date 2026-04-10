@@ -1,8 +1,8 @@
 "use client";
 
-import { type CSSProperties, useRef } from "react";
+import { type CSSProperties } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import styles from "./Office.module.scss";
 
 type City = {
@@ -27,24 +27,12 @@ export function OfficeCitiesGrid({
   cities,
   mainCityName,
 }: OfficeCitiesGridProps) {
-  const ref = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const munichY = useTransform(scrollYProgress, [0, 1], [24, -18]);
-  const berlinY = useTransform(scrollYProgress, [0, 1], [24, -18]);
-  const hamburgY = useTransform(scrollYProgress, [0, 1], [24, -18]);
-  const cologneY = useTransform(scrollYProgress, [0, 1], [24, -18]);
-
   return (
-    <div ref={ref} className={styles.collage}>
+    <div className={styles.collage}>
       <motion.div
         className={styles.collageMunich}
-        style={shouldReduceMotion ? undefined : { y: munichY }}
         initial={shouldReduceMotion ? undefined : { opacity: 0, y: 30 }}
         whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.25 }}
@@ -66,7 +54,6 @@ export function OfficeCitiesGrid({
       {cities[0] && (
         <motion.div
           className={styles.collageBerlin}
-          style={shouldReduceMotion ? undefined : { y: berlinY }}
           initial={shouldReduceMotion ? undefined : { opacity: 0, y: 38 }}
           whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
@@ -92,7 +79,6 @@ export function OfficeCitiesGrid({
       {cities[1] && (
         <motion.div
           className={styles.collageHamburg}
-          style={shouldReduceMotion ? undefined : { y: hamburgY }}
           initial={shouldReduceMotion ? undefined : { opacity: 0, y: 42 }}
           whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
@@ -118,7 +104,6 @@ export function OfficeCitiesGrid({
       {cities[2] && (
         <motion.div
           className={styles.collageCologne}
-          style={shouldReduceMotion ? undefined : { y: cologneY }}
           initial={shouldReduceMotion ? undefined : { opacity: 0, y: 34 }}
           whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}

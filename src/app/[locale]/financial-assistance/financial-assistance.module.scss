@@ -5,222 +5,174 @@
   background: #fffcfa !important;
 }
 
-.contentSection {
-  padding-top: clamp(8.2rem, 11vw, 10.8rem) !important;
-  padding-bottom: clamp(5rem, 8vw, 6.8rem) !important;
-  background: transparent !important;
+.section {
+  position: relative;
+  padding: clamp(8.2rem, 11vw, 10.8rem) 0 clamp(5rem, 8vw, 7rem);
+  background: #fffcfa;
 }
 
-.editorialLayout {
-  display: flex;
-  flex-direction: column;
+.container {
+  width: min(100%, 1400px);
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem, 3vw, 2.6rem);
 }
 
-.heroRow {
+.grid {
   display: grid;
-  grid-template-columns: minmax(8.5rem, 0.42fr) minmax(0, 1.58fr);
-  gap: clamp(2rem, 5vw, 6rem);
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
+  gap: clamp(3.5rem, 8vw, 9rem);
   align-items: start;
-  padding-bottom: clamp(3.2rem, 5vw, 4.8rem);
-  border-bottom: 1px solid rgba(16, 18, 24, 0.12);
 }
 
-.heroMeta {
-  align-self: start;
-  padding-top: 0.4rem;
-}
-
-.metaLabel {
-  margin: 0;
-  font-family: "Onest", sans-serif;
-  font-size: clamp(1rem, 1.25vw, 1.2rem);
-  font-weight: 560;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: rgba(17, 21, 30, 0.74);
-}
-
-.heroContent {
-  max-width: min(100%, 72rem);
-}
-
-.pageTitle {
-  margin: 0;
-  max-width: 9ch;
-  font-family: "Onest", sans-serif;
-  font-size: clamp(2.8rem, 6vw, 5.7rem);
-  font-weight: 540;
-  line-height: 0.9;
-  letter-spacing: -0.07em;
-  color: #05070c;
-  text-wrap: balance;
-}
-
-.pageLead {
-  max-width: 42ch;
-  margin: clamp(1.4rem, 2vw, 1.95rem) 0 0;
-  font-family: "Onest", sans-serif;
-  font-size: clamp(1.02rem, 1.22vw, 1.2rem);
-  font-weight: 560;
-  line-height: 1.08;
-  letter-spacing: -0.032em;
-  color: rgba(20, 25, 35, 0.86);
-  text-wrap: balance;
-}
-
-.introRow,
-.policyRow {
+.intro {
+  position: sticky;
+  top: 7.6rem;
   display: grid;
-  grid-template-columns: minmax(4rem, 0.18fr) minmax(12rem, 0.72fr) minmax(0, 1.1fr);
-  gap: clamp(1.5rem, 4vw, 4.8rem);
-  align-items: start;
-  padding: clamp(2.5rem, 4vw, 4rem) 0;
-  border-bottom: 1px solid rgba(16, 18, 24, 0.1);
+  gap: clamp(1.15rem, 2vw, 1.85rem);
+  max-width: 36rem;
 }
 
-.policyRow:last-child {
-  border-bottom: none;
-}
-
-.rowIndex {
+.eyebrow {
   margin: 0;
   font-family: "Onest", sans-serif;
-  font-size: clamp(0.86rem, 1vw, 0.95rem);
+  font-size: 0.88rem;
   font-weight: 650;
-  line-height: 1;
-  letter-spacing: 0.14em;
+  line-height: 1.08;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(17, 21, 30, 0.46);
-  white-space: nowrap;
+  color: #131721;
 }
 
-.rowHeading {
-  max-width: min(100%, 18rem);
+.title {
+  margin: 0;
+  @include home-section-title;
+  color: #131721;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
 }
 
-.rowTitle {
+.titleMuted {
+  display: inline;
+  font-size: 0.78em;
+  font-weight: 500;
+  color: rgba(19, 23, 33, 0.55);
+}
+
+.titleAccent {
+  display: inline;
+  color: inherit;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 3.2vw, 2.8rem);
+  padding-top: 0.25rem;
+}
+
+.lead {
   margin: 0;
   font-family: "Onest", sans-serif;
-  font-size: clamp(1.02rem, 1.22vw, 1.2rem);
-  font-weight: 560;
-  line-height: 1.08;
-  letter-spacing: -0.032em;
-  color: #05070c;
+  font-size: clamp(1.16rem, 1.5vw, 1.48rem);
+  font-weight: 480;
+  line-height: 1.44;
+  letter-spacing: -0.022em;
+  color: #1a1a22;
+  max-width: 46ch;
   text-wrap: balance;
 }
 
-.rowBody {
-  max-width: min(100%, 42rem);
-}
-
-.bodyStack {
+.priorityBlock {
   display: flex;
   flex-direction: column;
-  gap: clamp(0.95rem, 1.55vw, 1.25rem);
+  gap: 0.7rem;
+  padding-top: clamp(1rem, 1.8vw, 1.6rem);
+  border-top: 1px solid rgba(19, 23, 33, 0.12);
 }
 
-.bodyText {
+.priorityTitle {
   margin: 0;
   font-family: "Onest", sans-serif;
-  font-size: clamp(1.02rem, 1.3vw, 1.28rem);
-  font-weight: 480;
-  line-height: 1.45;
-  letter-spacing: -0.02em;
-  color: #1a1a22;
+  font-size: clamp(1.16rem, 1.72vw, 1.72rem);
+  font-weight: 540;
+  line-height: 1.1;
+  letter-spacing: -0.042em;
+  color: #131721;
+}
+
+.priorityText {
+  margin: 0;
+  font-family: "Onest", sans-serif;
+  font-size: clamp(1.04rem, 1.22vw, 1.2rem);
+  font-weight: 460;
+  line-height: 1.5;
+  letter-spacing: -0.018em;
+  color: rgba(20, 25, 35, 0.78);
+  max-width: 48ch;
+  text-wrap: balance;
 }
 
 .noteCard {
-  margin-top: clamp(0.4rem, 0.9vw, 0.7rem);
-  padding: clamp(1.05rem, 1.9vw, 1.35rem) clamp(1.15rem, 2vw, 1.5rem);
-  border: 1px solid rgba(169, 150, 112, 0.18);
-  border-radius: 1.5rem;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(249, 246, 239, 0.92) 100%);
+  padding: 0 0 0 clamp(1rem, 1.6vw, 1.3rem);
+  border-left: 2px solid rgba(19, 23, 33, 0.18);
+  background: transparent;
 }
 
 .noteText {
   margin: 0;
   font-family: "Onest", sans-serif;
-  font-size: clamp(1rem, 1.18vw, 1.12rem);
-  font-weight: 560;
-  line-height: 1.28;
-  letter-spacing: -0.02em;
-  color: #625947;
+  font-size: clamp(0.94rem, 1.1vw, 1.04rem);
+  font-weight: 450;
+  line-height: 1.55;
+  letter-spacing: -0.014em;
+  color: rgba(20, 25, 35, 0.62);
+  max-width: 54ch;
+  font-style: italic;
 }
 
 @media (max-width: 1023px) {
-  .contentSection {
-    padding-top: 7rem !important;
+  .section {
+    padding: 7rem 0 5rem;
   }
 
-  .heroRow {
+  .grid {
     grid-template-columns: 1fr;
-    gap: 0.95rem;
+    gap: 2rem;
   }
 
-  .heroMeta {
-    padding-top: 0;
-  }
-
-  .introRow,
-  .policyRow {
-    grid-template-columns: 1fr;
-    gap: 0.95rem;
-    padding: 2.2rem 0;
-  }
-
-  .rowHeading,
-  .rowBody,
-  .heroContent {
+  .intro {
+    position: static;
     max-width: 100%;
+    gap: 1rem;
   }
 }
 
 @media (max-width: 767px) {
-  .contentSection {
-    padding-top: 6rem !important;
-    padding-bottom: 4.1rem !important;
+  .section {
+    padding: 6rem 0 4rem;
   }
 
-  .heroRow {
-    padding-bottom: 2.5rem;
+  .grid {
+    gap: 1.4rem;
   }
 
-  .pageTitle {
-    max-width: 100%;
-    font-size: clamp(2rem, 10vw, 3.25rem);
-    line-height: 0.96;
+  .content {
+    gap: 1.6rem;
   }
 
-  .pageLead {
-    max-width: 100%;
+  .lead {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .priorityText {
     font-size: 1rem;
-    line-height: 1.14;
-  }
-
-  .introRow,
-  .policyRow {
-    gap: 0.7rem;
-    padding: 1.7rem 0;
-  }
-
-  .rowTitle {
-    font-size: 1rem;
-    line-height: 1.08;
-  }
-
-  .bodyText {
-    font-size: clamp(1.08rem, 5.2vw, 1.4rem);
-    line-height: 1.22;
-  }
-
-  .noteCard {
-    border-radius: 1.2rem;
-    padding: 1rem 1rem 1.05rem;
   }
 
   .noteText {
-    font-size: 0.96rem;
-    line-height: 1.3;
+    font-size: 0.92rem;
+    line-height: 1.48;
   }
 }

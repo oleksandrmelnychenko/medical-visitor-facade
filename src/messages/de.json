@@ -16,6 +16,16 @@
     "login": "Anmelden",
     "selectLanguage": "Sprache auswählen"
   },
+  "scaleStats": {
+    "eyebrow": "(Seit 2012)",
+    "headline": "Bereits bundesweit im Einsatz",
+    "yearsValue": "14",
+    "yearsLabel": "Jahre medizinische Begleitung",
+    "citiesValue": "4",
+    "citiesLabel": "Städte in Deutschland",
+    "languagesValue": "4",
+    "languagesLabel": "Unterstützte Sprachen"
+  },
   "footer": {
     "impressum": "Impressum",
     "companyName": "Medizinische <accent>Concierge-Agentur</accent>",
@@ -29,7 +39,14 @@
     "theAgency": "Die Agentur",
     "membership": "Teilnahmeprogramme",
     "backToTop": "Nach oben",
-    "trustLine": "14+ Jahre medizinische Begleitung"
+    "trustLine": "14+ Jahre medizinische Begleitung in 4 deutschen Städten",
+    "trustSince": "Seit 2012",
+    "trustYearsNumber": "14",
+    "trustYearsLabel": "Jahre",
+    "trustCitiesNumber": "4",
+    "trustCitiesLabel": "Städte",
+    "trustLanguagesNumber": "4",
+    "trustLanguagesLabel": "Sprachen"
   },
   "home": {
     "scrollReveal": {
@@ -39,6 +56,7 @@
       "eyebrow": "FAQs",
       "title": "Häufige Fragen",
       "subtitle": "",
+      "delicateLabel": "Sensible Fragen",
       "items": {
         "services": {
           "question": "Was genau macht die Medical Concierge Agency?",
@@ -230,6 +248,9 @@
     "freeService": {
       "title": "Pro bono",
       "description1": "Wir wissen, dass eine exzellente medizinische Versorgung finanziell herausfordernd sein kann. Die Medical Concierge Agency bietet daher ein begrenztes Pro-bono-Programm für Patienten an, die Unterstützung bei den Behandlungskosten benötigen.",
+      "description1Dark": "Wir wissen, dass eine exzellente medizinische Versorgung finanziell herausfordernd sein kann.",
+      "description1Muted": "Die Medical Concierge Agency bietet daher ein begrenztes Pro-bono-Programm",
+      "description1Accent": "für Patienten, die Unterstützung bei den Behandlungskosten benötigen.",
       "description2": "Unser medizinisches Gremium prüft jede Anfrage sorgfältig und gewährt Unterstützung im Rahmen der verfügbaren Ressourcen.",
       "priority": "Priorisierte Fälle:",
       "priorityText": "Wir priorisieren pädiatrische Fälle, akute medizinische Notlagen sowie Patienten in besonderen Lebensumständen.",
