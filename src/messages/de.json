@@ -799,8 +799,8 @@
     },
     "selection": {
       "summaryLabel": "Gewähltes Programm",
-      "bannerEyebrow": "Für diese Anfrage ausgewählt",
-      "bannerBody": "Wir übernehmen diese Wahl in Ihre Anfrage, und Sie können sie später noch ändern.",
+      "bannerEyebrow": "Programm in dieser Anfrage",
+      "bannerBody": "Das Programm kann später noch geändert werden.",
       "change": "Ändern"
     },
     "portal": {

@@ -226,12 +226,7 @@ function SelectedProgramBanner() {
     <div className={styles.wizardProgramBanner}>
       <div className={styles.wizardProgramCopy}>
         <p className={styles.wizardProgramEyebrow}>{tMembership("selection.bannerEyebrow")}</p>
-        <div className={styles.wizardProgramSummary}>
-          <span className={styles.wizardProgramPill}>
-            {tMembership(`${data.selectedProgram}.title`)}
-          </span>
-          <p className={styles.wizardProgramText}>{tMembership("selection.bannerBody")}</p>
-        </div>
+        <p className={styles.wizardProgramTitle}>{tMembership(`${data.selectedProgram}.title`)}</p>
       </div>
       <Link href="/membership" prefetch={false} className={styles.wizardProgramChangeLink}>
         {tMembership("selection.change")}

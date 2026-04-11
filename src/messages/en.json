@@ -776,8 +776,8 @@
     },
     "selection": {
       "summaryLabel": "Selected program",
-      "bannerEyebrow": "Selected for this application",
-      "bannerBody": "We will carry this choice into your application, and you can still change it later.",
+      "bannerEyebrow": "Program in this application",
+      "bannerBody": "You can change the program later.",
       "change": "Change"
     },
     "portal": {
