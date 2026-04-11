@@ -36,6 +36,7 @@ export type WizardStep =
   | 'anything-else'
   | 'review';
 
+export type MembershipPlanType = 'portal' | 'reserve' | null;
 export type LocationType = 'eu' | 'outside_eu' | null;
 export type LocationDetailedType = 'germany' | 'eu_not_germany' | 'outside_eu' | null;
 export type YesNoType = 'yes' | 'no' | null;
@@ -58,6 +59,7 @@ export interface WizardData {
   memberCheckCompleted: boolean;
   accountCheckCompleted: boolean;
   welcomeCompleted: boolean;
+  selectedProgram: MembershipPlanType;
   // Member
   wantsMembership: YesNoType;
   // Outside-EU eligibility
@@ -124,6 +126,7 @@ export const initialWizardData: WizardData = {
   memberCheckCompleted: false,
   accountCheckCompleted: false,
   welcomeCompleted: false,
+  selectedProgram: null,
   wantsMembership: null,
   canTravel: null,
   hasMedicalRecords: null,

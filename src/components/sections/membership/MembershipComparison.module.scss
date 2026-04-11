@@ -1,329 +1,329 @@
 @use "@/styles/variables" as *;
 
 .wrapper {
-  padding: clamp(7rem, 11vw, 9.25rem) 0 clamp(4rem, 8vw, 6rem);
+  padding: clamp(4.75rem, 8vw, 7rem) 0 clamp(9rem, 16vw, 13.5rem);
 }
 
-// Statement
-.statement {
-  display: grid;
-  grid-template-columns: minmax(0, 1.06fr) minmax(10rem, 0.54fr);
-  gap: clamp(1.7rem, 3.6vw, 3.9rem);
-  width: min(100%, 76rem);
-  margin-inline: auto;
-  padding-inline: clamp(0.8rem, 2.2vw, 2rem);
-  align-items: start;
-  margin-bottom: clamp(3.1rem, 5.4vw, 5.4rem);
-}
-
-.statementCopy {
+.section {
   position: relative;
-  max-width: 44rem;
-  padding-top: clamp(0.95rem, 2.1vw, 1.4rem);
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: clamp(3.4rem, 5vw, 4.8rem);
-    height: 1px;
-    background: linear-gradient(90deg, #c8a193 0%, #a77c8e 52%, rgba(167, 124, 142, 0) 100%);
-    pointer-events: none;
-  }
 }
 
-.statementSide {
-  align-self: stretch;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding-top: clamp(1.05rem, 2.2vw, 1.45rem);
+.content {
+  width: min(100%, 66rem);
+  margin: 0 auto;
 }
 
-.statementLabel {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 0.28rem;
-  width: fit-content;
-  font-family: "Onest", sans-serif;
-  font-size: clamp(1.2rem, 1.5vw, 1.46rem);
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: #1a1a22;
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
+  column-gap: clamp(4.5rem, 8vw, 8rem);
+  row-gap: clamp(2.25rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.intro {
+  position: sticky;
+  top: 7.6rem;
+  display: grid;
+  gap: 0.9rem;
+  max-width: 34rem;
+}
+
+.eyebrow {
   margin: 0;
-  padding-top: 0;
-  text-align: right;
+  font-size: 0.88rem;
+  font-weight: 650;
+  line-height: 1.08;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #131721;
 }
 
-.statementLabelBracket {
-  color: inherit;
-  font-weight: inherit;
-}
-
-.statementHeadline {
+.title {
   margin: 0;
-  max-width: 14.5ch;
-  font-family: "Onest", sans-serif;
-  font-size: clamp(2.35rem, 4.8vw, 4.15rem);
+  max-width: 8.5ch;
+  font-size: clamp(3rem, 5.6vw, 5rem);
   font-weight: 500;
-  color: #1a1a22;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  line-height: 0.98;
+  letter-spacing: 0;
+  color: #131721;
   text-wrap: balance;
 }
 
-.plans {
+.subtitle {
+  margin: 0;
+  max-width: 28rem;
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.42;
+  letter-spacing: 0;
+  color: rgba(19, 23, 33, 0.76);
+  text-wrap: balance;
+}
+
+.accordion {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 1.5rem;
-  width: min(100%, 76rem);
-  margin-inline: auto;
-  padding-inline: clamp(0.8rem, 2.2vw, 2rem);
+  gap: 0;
+  padding-top: 0.25rem;
+}
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 0.95rem;
-    width: 100%;
-    padding-inline: 0;
+.item {
+  border-top: 1px solid rgba(19, 23, 33, 0.14);
+}
+
+.item:last-child {
+  border-bottom: 1px solid rgba(19, 23, 33, 0.14);
+}
+
+.itemOpen {
+  .planTitle {
+    color: #0f141d;
+  }
+
+  .icon {
+    color: #0f141d;
+    background: rgba(19, 23, 33, 0.06);
   }
 }
 
-.statementCta {
-  display: inline-flex;
+.trigger {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.15rem;
   align-items: center;
-  gap: 0.6rem;
-  margin-top: 1.5rem;
-  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
-  font-weight: 600;
-  color: #1a1a22;
-  text-decoration: none;
-  border-bottom: 1px solid #1a1a22;
-  padding-bottom: 0.4rem;
-  width: fit-content;
-  transition: opacity 0.2s;
-
-  svg {
-    width: 1rem;
-    height: 1rem;
-    stroke-width: 2;
-  }
-
-  &:hover {
-    opacity: 0.7;
-  }
-
-  @media (max-width: 768px) {
-    margin-top: 0.75rem;
-  }
+  padding: 1.3rem 0;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
 }
 
-// Plan cards
-.plans {
-  @include up(md) {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 1.5rem;
-    align-items: start;
-  }
-}
-
-.planCard {
-  background: #fff;
-  border: 1px solid #e8e8ec;
-  border-radius: clamp(1rem, 2vw, 1.25rem);
-  padding: clamp(1.5rem, 2.5vw, 2rem);
-  display: flex;
-  flex-direction: column;
-  transition: box-shadow 0.25s ease, border-color 0.25s ease;
-
-  &:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-  }
-}
-
-.planCardHighlighted {
-  border-color: #1a1a22;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-
-  &:hover {
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
-  }
-}
-
-.planHeader {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+.triggerBody {
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
 }
 
 .planBadge {
-  display: inline-block;
   width: fit-content;
-  font-size: 0.7rem;
-  font-weight: 650;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #565964;
-  background: #f2f2f5;
-  padding: 0.25rem 0.65rem;
+  padding: 0.28rem 0.55rem;
   border-radius: 999px;
-  margin-bottom: 0.25rem;
+  background: #edf1f4;
+  color: #22252f;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .planBadgeHighlighted {
-  color: #1a1a22;
-  background: #e8e5dd;
+  background: #1d222c;
+  color: #f4f6f8;
 }
 
 .planTitle {
-  font-family: "Onest", sans-serif;
-  font-size: clamp(1.5rem, 2.4vw, 2.2rem);
-  font-weight: 560;
-  color: #1a1a22;
-  line-height: 1.1;
-  letter-spacing: -0.032em;
   margin: 0;
+  max-width: none;
+  font-size: clamp(1.18rem, 1.58vw, 1.9rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: rgba(19, 23, 33, 0.88);
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.icon {
+  position: relative;
+  width: 2.55rem;
+  height: 2.55rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  color: rgba(19, 23, 33, 0.58);
+  transition:
+    transform 0.22s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.iconOpen {
+  transform: rotate(45deg);
+}
+
+.iconBar {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 1rem;
+  height: 1.5px;
+  border-radius: 999px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.iconBarVertical {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.28s ease,
+    opacity 0.22s ease;
+}
+
+.panelOpen {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.panelInner {
+  overflow: hidden;
+  display: grid;
+  gap: 0.9rem;
+  padding: 0 4rem 1.45rem 0;
 }
 
 .planDescription {
   margin: 0;
-  font-size: 0.96rem;
-  font-weight: 500;
-  color: #4a4d57;
-  line-height: 1.52;
-  letter-spacing: -0.01em;
+  max-width: 34rem;
+  font-size: 0.98rem;
+  font-weight: 450;
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: rgba(19, 23, 33, 0.72);
 }
 
-.planDivider {
-  height: 1px;
-  background: #e8e8ec;
-  margin: 1.25rem 0;
-}
-
-.includesBanner {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 0 0 1.05rem;
-  padding: 0.55rem 0.9rem;
-  background: #eeeae0;
-  border: 1px solid rgba(26, 26, 34, 0.1);
-  border-radius: 999px;
-  font-family: "Onest", sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: -0.006em;
-  color: #1a1a22;
+.planIncludes {
+  margin: 0;
   width: fit-content;
   max-width: 100%;
+  padding: 0.38rem 0.72rem;
+  border-radius: 999px;
+  background: rgba(94, 113, 105, 0.12);
+  color: #335f4c;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0;
 }
 
-.includesIcon {
-  flex-shrink: 0;
-  color: #1a1a22;
-  stroke-width: 2.6;
-}
-
-// Features
 .featureList {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
 
 .featureItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  font-size: 0.96rem;
-  font-weight: 500;
-  color: #232632;
-  line-height: 1.48;
-  letter-spacing: -0.01em;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.65rem;
+  align-items: start;
+  font-size: 0.98rem;
+  font-weight: 450;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: rgba(19, 23, 33, 0.82);
 }
 
 .featureIcon {
+  margin-top: 0.18rem;
+  color: #131721;
   flex-shrink: 0;
-  margin-top: 0.2rem;
-  color: #1a1a22;
 }
 
-// CTA buttons
 .planCta {
-  display: block;
-  width: 100%;
-  margin-top: 1.5rem;
-  padding: 0.85rem 1.5rem;
-  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: fit-content;
+  min-height: 3rem;
+  padding: 0.9rem 1.25rem;
+  border-radius: 999px;
+  background: transparent;
+  color: #131721;
+  border: 1px solid rgba(19, 23, 33, 0.16);
+  font-size: 0.94rem;
   font-weight: 600;
-  text-align: center;
+  line-height: 1;
+  letter-spacing: 0;
   text-decoration: none;
-  color: #1a1a22;
-  background: #f2f2f5;
-  border: 1px solid #e8e8ec;
-  border-radius: 0.65rem;
-  transition: background 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    background-color 0.18s ease,
+    color 0.18s ease;
 
   &:hover {
-    background: #e8e8ec;
+    transform: translateY(-1px);
+    border-color: rgba(19, 23, 33, 0.3);
+    background: rgba(19, 23, 33, 0.04);
   }
 }
 
 .planCtaHighlighted {
-  color: #fff;
-  background: #1a1a22;
-  border-color: #1a1a22;
+  background: #131721;
+  border-color: #131721;
+  color: #f4f6f8;
 
   &:hover {
-    background: #2d2d38;
+    background: #202632;
+    border-color: #202632;
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .intro {
+    position: static;
+    max-width: none;
   }
 }
 
 @media (max-width: 768px) {
   .wrapper {
-    padding: clamp(4rem, 8vw, 5.8rem) 0 clamp(3rem, 6vw, 4rem);
+    padding: 3rem 0 3rem;
   }
 
-  .statement {
-    grid-template-columns: 1fr;
-    gap: 0.95rem;
-    width: 100%;
-    padding-inline: 0;
-  }
-
-  .statementSide {
-    justify-content: flex-start;
-    align-items: flex-start;
-    min-height: auto;
-    padding-top: 0;
-  }
-
-  .statementHeadline {
-    max-width: 100%;
-    font-size: clamp(2rem, 8vw, 3rem);
-  }
-
-  .statementLabel {
-    font-size: clamp(1rem, 4.6vw, 1.18rem);
-    justify-content: flex-start;
-    width: fit-content;
-    padding-top: 0;
-    text-align: left;
+  .trigger {
+    gap: 0.85rem;
+    padding: 1.1rem 0;
   }
 
   .planTitle {
-    font-size: 1.14rem;
+    font-size: 1.2rem;
+    line-height: 1.08;
+    white-space: normal;
+    text-wrap: balance;
   }
 
-  .planDescription {
-    font-size: 0.92rem;
+  .panelInner {
+    padding: 0 0 1.2rem;
   }
 
+  .planDescription,
   .featureItem {
-    font-size: 0.9rem;
+    font-size: 0.94rem;
+    line-height: 1.52;
+  }
+
+  .icon {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .planCta {
+    width: 100%;
+    justify-content: center;
   }
 }

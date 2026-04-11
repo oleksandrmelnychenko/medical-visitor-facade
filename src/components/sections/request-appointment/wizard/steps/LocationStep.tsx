@@ -53,23 +53,34 @@ const LOCATION_OPTIONS = [
 export function LocationStep() {
   const t = useTranslations('appointment.newPatient');
   const router = useRouter();
-  const { updateData } = useWizard();
+  const { data, updateData } = useWizard();
   const isNavigatingRef = useRef(false);
 
   const handleSelect = useCallback((locationDetailed: LocationDetailedType) => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
 
+    const selectedProgram = data.selectedProgram;
+    const selectedMembership =
+      locationDetailed !== 'germany' && selectedProgram
+        ? selectedProgram === 'reserve'
+          ? 'yes'
+          : 'no'
+        : null;
+
     updateData({
       location: locationDetailed === 'outside_eu' ? 'outside_eu' : 'eu',
       locationDetailed,
+      ...(selectedMembership ? { wantsMembership: selectedMembership } : {}),
     });
     if (locationDetailed === 'germany') {
       router.push('/apply?type=new&step=health-intro');
+    } else if (selectedMembership) {
+      router.push('/apply?type=new&step=outside-travel');
     } else {
       router.push('/apply?type=new&step=become-member');
     }
-  }, [updateData, router]);
+  }, [data.selectedProgram, updateData, router]);
 
   const handleBack = useCallback(() => {
     if (isNavigatingRef.current) return;

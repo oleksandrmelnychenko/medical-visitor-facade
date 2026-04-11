@@ -700,14 +700,91 @@
   "membership": {
     "meta": {
       "title": "Membership Programs",
-      "description": "Compare GMED membership programs — Online Portal Access and Reserve Membership with dedicated concierge support."
+      "description": "Compare GMED programs and choose between secure portal access or GMED Reserve with dedicated concierge coordination."
     },
+    "eyebrow": "GMED Programs",
     "title": "Membership Programs",
-    "subtitle": "Choose the level of support that fits your needs",
+    "subtitle": "Choose the level of support that fits your case",
+    "intro": "Two ways to work with GMED: keep everything in one protected digital space, or add a dedicated team that coordinates appointments, travel, and communication around your case.",
+    "decision": {
+      "title": "How to choose",
+      "portal": "Choose Portal if you mainly need secure access to documents, requests, and updates.",
+      "reserve": "Choose Reserve if you want one team to actively coordinate the moving parts around your care."
+    },
+    "signals": {
+      "documents": {
+        "label": "One secure space",
+        "value": "Documents, requests, and replies stay in one protected workflow."
+      },
+      "response": {
+        "label": "Priority option",
+        "value": "Reserve adds 24-hour request handling and a dedicated manager."
+      },
+      "flexibility": {
+        "label": "Flexible choice",
+        "value": "You can still adjust the program while completing your application."
+      }
+    },
+    "comparison": {
+      "title": "Compare the ways we can support you",
+      "subtitle": "Portal is the lean digital option. Reserve adds human coordination, faster handling, and cross-border support.",
+      "columnFeature": "What changes",
+      "columnPortal": "Portal",
+      "columnReserve": "Reserve",
+      "rows": {
+        "fit": {
+          "label": "Best for",
+          "portal": "People who want secure self-service access and a direct line for requests.",
+          "reserve": "People who want a dedicated team to coordinate the case end to end."
+        },
+        "supportModel": {
+          "label": "Support model",
+          "portal": "Digital portal with standard team handling.",
+          "reserve": "Dedicated 1:1 manager plus concierge team."
+        },
+        "requestHandling": {
+          "label": "Request handling",
+          "portal": "Standard processing times for requests and replies.",
+          "reserve": "Priority handling within 24 hours."
+        },
+        "documents": {
+          "label": "Documents and history",
+          "portal": "Centralized records, requests, and communication history.",
+          "reserve": "Everything in Portal, with manager-led follow-through."
+        },
+        "appointments": {
+          "label": "Appointments",
+          "portal": "Executive-style appointment scheduling.",
+          "reserve": "Scheduling coordinated together with ongoing case management."
+        },
+        "annualReview": {
+          "label": "Strategic oversight",
+          "portal": "Annual strategic review of your medical case.",
+          "reserve": "Ongoing coordination plus an annual strategic review."
+        },
+        "travel": {
+          "label": "Travel between clinics",
+          "portal": "Not included as a managed service.",
+          "reserve": "Travel and flight coordination across clinics."
+        },
+        "crossBorder": {
+          "label": "Cross-border cases",
+          "portal": "Handled independently on your side.",
+          "reserve": "Multi-country and cross-border coordination."
+        }
+      }
+    },
+    "selection": {
+      "summaryLabel": "Selected program",
+      "bannerEyebrow": "Selected for this application",
+      "bannerBody": "We will carry this choice into your application, and you can still change it later.",
+      "change": "Change"
+    },
     "portal": {
       "badge": "Standard",
       "title": "Digital Client Portal",
       "description": "Self-service online access to your medical information and requests.",
+      "bestFor": "Best for patients who mostly need secure access, organized records, and a clean place to communicate.",
       "features": {
         "access": "24/7 access through our secure online portal",
         "documents": "Centralized storage for medical documents and records",
@@ -717,20 +794,21 @@
         "executiveScheduling": "Executive-style appointment scheduling",
         "annualReview": "Annual strategic review of your medical case"
       },
-      "cta": "Get Started"
+      "cta": "Continue With Portal"
     },
     "reserve": {
       "badge": "Premium",
       "title": "GMED Reserve",
       "description": "Personal concierge service for those who want full-scale support.",
-      "includesPortal": "Everything in Standard, plus:",
+      "bestFor": "Best for patients who want a dedicated manager, faster handling, and active coordination across appointments and travel.",
+      "includesPortal": "Everything in Portal, plus:",
       "features": {
         "dedicatedManager": "A dedicated 1:1 manager and medical concierge team",
         "priorityProcessing": "Priority request processing within 24 hours",
         "travelCoordination": "Travel and flight coordination across clinics",
         "crossBorderCoordination": "Multi-country and cross-border case coordination"
       },
-      "cta": "Get Started"
+      "cta": "Continue With GMED Reserve"
     }
   }
 }

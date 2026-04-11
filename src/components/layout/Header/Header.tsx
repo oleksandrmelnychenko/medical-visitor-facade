@@ -126,10 +126,11 @@ export function Header() {
   ] as const;
   const isLoginPage = pathname === "/login";
   const isApplyPage = pathname === "/apply";
+  const isMembershipPage = pathname === "/membership";
   const showLogin = !isLoginPage;
   const showApplyCta = !isApplyPage;
 
-  const showMobileLoginFab = showLogin && !isMobileMenuOpen && !isApplyPage;
+  const showMobileLoginFab = showLogin && !isMobileMenuOpen && !isApplyPage && !isMembershipPage;
 
   if (isLoginPage) {
     return (

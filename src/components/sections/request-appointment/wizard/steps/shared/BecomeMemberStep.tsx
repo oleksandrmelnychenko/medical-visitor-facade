@@ -20,7 +20,10 @@ export function BecomeMemberStep() {
   const handleSelect = useCallback((value: "yes" | "no") => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-    updateData({ wantsMembership: value });
+    updateData({
+      wantsMembership: value,
+      selectedProgram: value === "yes" ? "reserve" : "portal",
+    });
     router.push("/apply?type=new&step=outside-travel");
   }, [updateData, router]);
 

@@ -67,6 +67,7 @@ function hasText(value: string | null | undefined) {
 
 export function WizardReviewSummary({ data, uploadedMedicalFiles = [] }: WizardReviewSummaryProps) {
   const t = useTranslations("appointment.newPatient");
+  const tMembership = useTranslations("membership");
 
   const sections = useMemo<SummarySection[]>(() => {
     const yesNo = (value: string | boolean | null | undefined) => {
@@ -91,6 +92,9 @@ export function WizardReviewSummary({ data, uploadedMedicalFiles = [] }: WizardR
     const location = data.locationDetailed
       ? t(`location3.${LOCATION_LABELS[data.locationDetailed]}`)
       : t("reviewSummary.notProvided");
+    const selectedProgram = data.selectedProgram
+      ? tMembership(`${data.selectedProgram}.title`)
+      : "";
 
     const fullName = [data.firstName, data.middleName, data.lastName, data.suffix]
       .map((value) => value.trim())
@@ -125,9 +129,16 @@ export function WizardReviewSummary({ data, uploadedMedicalFiles = [] }: WizardR
 
     const eligibilityRows: SummaryRow[] = [{ label: t("reviewSummary.location"), value: location }];
 
+    if (selectedProgram) {
+      eligibilityRows.push({
+        label: tMembership("selection.summaryLabel"),
+        value: selectedProgram,
+      });
+    }
+
     if (data.locationDetailed && data.locationDetailed !== "germany") {
-      eligibilityRows.push(
-        {
+      if (!selectedProgram) {
+        eligibilityRows.push({
           label: t("reviewSummary.membership"),
           value:
             data.wantsMembership === "yes"
@@ -135,7 +146,10 @@ export function WizardReviewSummary({ data, uploadedMedicalFiles = [] }: WizardR
               : data.wantsMembership === "no"
                 ? t("becomeMember.no")
                 : t("reviewSummary.notProvided"),
-        },
+        });
+      }
+
+      eligibilityRows.push(
         { label: t("reviewSummary.travel"), value: yesNo(data.canTravel) },
         { label: t("reviewSummary.records"), value: medicalRecords() }
       );
@@ -277,7 +291,7 @@ export function WizardReviewSummary({ data, uploadedMedicalFiles = [] }: WizardR
       { key: "contact", title: t("reviewSummary.contact"), icon: Phone, rows: contactRows },
       { key: "request", title: t("reviewSummary.request"), icon: ClipboardList, rows: requestRows },
     ];
-  }, [data, t, uploadedMedicalFiles]);
+  }, [data, t, tMembership, uploadedMedicalFiles]);
 
   return (
     <section className={styles.wizardReviewCard} aria-label={t("reviewSummary.title")}>

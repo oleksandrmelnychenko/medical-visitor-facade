@@ -3,7 +3,9 @@
 import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import { WizardProvider } from "./WizardContext";
 import { WizardProgressBar } from "./components/WizardProgressBar";
 import { getAccessibleWizardStep } from "./flow";
@@ -21,7 +23,8 @@ import { MemberCheckStep } from "./steps/shared/MemberCheckStep";
 import { AccountCheckStep } from "./steps/shared/AccountCheckStep";
 import { BecomeMemberStep } from "./steps/shared/BecomeMemberStep";
 import { useWizard } from "./WizardContext";
-import type { WizardStep } from "./types";
+import type { MembershipPlanType, WizardStep } from "./types";
+import styles from "../RequestAppointment/RequestAppointment.module.scss";
 
 const PatientFlowStepView = dynamic(
   () => import("./PatientFlowStepView").then((module) => module.PatientFlowStepView),
@@ -66,6 +69,10 @@ const LATE_FLOW_STEPS = [
 type PatientFlowStep = (typeof PATIENT_FLOW_STEPS)[number];
 type LateFlowStep = (typeof LATE_FLOW_STEPS)[number];
 
+function normalizeMembershipPlan(value: string | null): MembershipPlanType {
+  return value === "portal" || value === "reserve" ? value : null;
+}
+
 function isPatientFlowStep(step: WizardStep): step is PatientFlowStep {
   return (PATIENT_FLOW_STEPS as readonly WizardStep[]).includes(step);
 }
@@ -95,12 +102,21 @@ function preloadLateFlow() {
 
 function WizardStepView() {
   const router = useRouter();
-  const { data, isDraftHydrated } = useWizard();
+  const { data, isDraftHydrated, updateData } = useWizard();
   const searchParams = useSearchParams();
   const requestedStep = (searchParams.get("step") ?? "member-check") as WizardStep;
+  const selectedPlan = normalizeMembershipPlan(searchParams.get("plan"));
   const step = isDraftHydrated
     ? getAccessibleWizardStep(requestedStep, data)
     : requestedStep;
+
+  useEffect(() => {
+    if (!isDraftHydrated || !selectedPlan || data.selectedProgram === selectedPlan) {
+      return;
+    }
+
+    updateData({ selectedProgram: selectedPlan });
+  }, [data.selectedProgram, isDraftHydrated, selectedPlan, updateData]);
 
   useEffect(() => {
     if (!isDraftHydrated || step === requestedStep) {
@@ -198,9 +214,36 @@ function WizardStepView() {
   );
 }
 
+function SelectedProgramBanner() {
+  const tMembership = useTranslations("membership");
+  const { data } = useWizard();
+
+  if (!data.selectedProgram) {
+    return null;
+  }
+
+  return (
+    <div className={styles.wizardProgramBanner}>
+      <div className={styles.wizardProgramCopy}>
+        <p className={styles.wizardProgramEyebrow}>{tMembership("selection.bannerEyebrow")}</p>
+        <div className={styles.wizardProgramSummary}>
+          <span className={styles.wizardProgramPill}>
+            {tMembership(`${data.selectedProgram}.title`)}
+          </span>
+          <p className={styles.wizardProgramText}>{tMembership("selection.bannerBody")}</p>
+        </div>
+      </div>
+      <Link href="/membership" prefetch={false} className={styles.wizardProgramChangeLink}>
+        {tMembership("selection.change")}
+      </Link>
+    </div>
+  );
+}
+
 export function ApplyNewPatientWizard() {
   return (
     <WizardProvider>
+      <SelectedProgramBanner />
       <WizardProgressBar />
       <WizardStepView />
     </WizardProvider>
