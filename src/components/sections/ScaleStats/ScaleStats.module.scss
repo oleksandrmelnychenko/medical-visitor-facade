@@ -2,19 +2,185 @@
 
 .section {
   position: relative;
-  padding: clamp(1.2rem, 2vw, 1.8rem) 0 clamp(4rem, 7vw, 6rem);
-  background-color: #dde1df;
+  padding: 0 0 clamp(4rem, 7vw, 6rem);
+  background: #f0ece5;
 }
 
 .container {
   @include container-base;
 }
 
+.featureSplit {
+  display: grid;
+  grid-template-columns: minmax(0, 60fr) minmax(0, 40fr);
+  gap: clamp(0.8rem, 1vw, 1.1rem);
+  margin-bottom: clamp(0.8rem, 1vw, 1.1rem);
+}
+
+.splitMedia,
+.splitCopy {
+  position: relative;
+  min-height: 85svh;
+  border-radius: clamp(20px, 2.2vw, 28px);
+  overflow: hidden;
+}
+
+.splitMedia {
+  background: #0d1a24;
+}
+
+.splitSlides {
+  position: absolute;
+  inset: 0;
+}
+
+.splitSlide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  will-change: opacity, transform, filter;
+}
+
+.splitSlidePrimary {
+  opacity: 1;
+  animation: scaleStatsSlidePrimary 18s cubic-bezier(0.32, 0.02, 0.16, 1) infinite;
+}
+
+.splitSlideSecondary {
+  animation: scaleStatsSlideSecondary 18s cubic-bezier(0.32, 0.02, 0.16, 1) infinite;
+}
+
+.splitMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 14, 20, 0.08) 0%, rgba(8, 14, 20, 0.02) 28%, rgba(8, 14, 20, 0.22) 100%),
+    linear-gradient(135deg, rgba(255, 90, 20, 0.14) 0%, rgba(255, 90, 20, 0) 35%, rgba(4, 10, 16, 0.24) 100%);
+  pointer-events: none;
+}
+
+.splitImage {
+  object-fit: cover;
+  object-position: center center;
+  transform: scale(1.015);
+}
+
+.splitImagePrimary {
+  animation: scaleStatsImagePrimaryMotion 18s ease-in-out infinite;
+}
+
+.splitImageSecondary {
+  object-position: 54% center;
+  animation: scaleStatsImageSecondaryMotion 18s ease-in-out infinite;
+}
+
+.splitCopy {
+  display: grid;
+  align-content: start;
+  gap: clamp(0.9rem, 1.4vw, 1.2rem);
+  padding: clamp(2.5rem, 4.2vw, 3.8rem);
+  background: #ff5a14;
+  border: 1px solid rgba(201, 70, 12, 0.34);
+}
+
+.splitCopy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: none;
+  pointer-events: none;
+}
+
+.splitBody {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  font-family: "Onest", sans-serif;
+  font-size: clamp(1.22rem, 2vw, 1.95rem);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.04em;
+  color: #11141d;
+  text-wrap: pretty;
+}
+
+.splitBadge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  width: fit-content;
+  min-height: 2.1rem;
+  padding: 0.42rem 0.98rem;
+  border-radius: 999px;
+  background: rgba(116, 43, 8, 0.18);
+  font-family: "Onest", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(17, 20, 29, 0.92);
+  white-space: nowrap;
+}
+
+.splitStatsOverlay {
+  position: absolute;
+  left: clamp(1.4rem, 2.8vw, 2.4rem);
+  right: clamp(1.4rem, 2.8vw, 2.4rem);
+  bottom: clamp(1.1rem, 2.1vw, 1.8rem);
+  z-index: 1;
+  display: grid;
+  gap: clamp(0.2rem, 0.45vw, 0.35rem);
+}
+
+.splitStatLine {
+  display: block;
+  max-width: none;
+  font-family: "Onest", sans-serif;
+  font-size: clamp(1.65rem, 3.45vw, 3.45rem);
+  font-weight: 380;
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  color: #fbf8f3;
+  white-space: nowrap;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+
+.lowerMedia {
+  position: relative;
+  width: min(100%, 34rem);
+  min-height: clamp(24rem, 56vw, 40rem);
+  margin: 0 auto clamp(0.8rem, 1vw, 1.1rem);
+  border-radius: clamp(14px, 1.5vw, 20px);
+  overflow: hidden;
+  background: #c9bcb0;
+}
+
+.lowerMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(14, 18, 22, 0.04) 0%, rgba(14, 18, 22, 0.12) 100%),
+    linear-gradient(135deg, rgba(255, 90, 20, 0.12) 0%, rgba(255, 90, 20, 0) 40%);
+  pointer-events: none;
+}
+
+.lowerImage {
+  object-fit: cover;
+  object-position: center center;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1.35fr 1fr 1fr;
   grid-template-rows: clamp(11rem, 18.7vw, 17rem) clamp(11rem, 18.7vw, 17rem);
-  gap: clamp(0.35rem, 0.6vw, 0.5rem);
+  gap: clamp(0.8rem, 1vw, 1.1rem);
 }
 
 .tile {
@@ -23,8 +189,8 @@
   flex-direction: column;
   justify-content: space-between;
   padding: clamp(1.6rem, 2.8vw, 2.4rem);
-  background: #ffffff;
-  border: 1px solid rgba(17, 20, 29, 0.08);
+  background: #ff5a14;
+  border: 1px solid rgba(201, 70, 12, 0.34);
   border-radius: clamp(14px, 1.5vw, 20px);
   overflow: hidden;
 }
@@ -318,24 +484,152 @@
   }
 }
 
+@keyframes scaleStatsSlidePrimary {
+  0%,
+  40% {
+    opacity: 1;
+    transform: scale(1.024) translate3d(0, -1.1%, 0);
+    filter: blur(0) saturate(1) brightness(1);
+  }
+  49% {
+    opacity: 0.34;
+    transform: scale(1.055) translate3d(0, 1.2%, 0);
+    filter: blur(2.5px) saturate(1.04) brightness(0.98);
+  }
+  55%,
+  100% {
+    opacity: 0;
+    transform: scale(1.075) translate3d(0, 2.6%, 0);
+    filter: blur(4px) saturate(1.03) brightness(0.95);
+  }
+}
+
+@keyframes scaleStatsSlideSecondary {
+  0%,
+  43% {
+    opacity: 0;
+    transform: scale(1.01) translate3d(0, 0, 0);
+    filter: blur(3px) saturate(1.02) brightness(0.97);
+  }
+  52% {
+    opacity: 1;
+    transform: scale(1.01) translate3d(0, 0, 0);
+    filter: blur(0) saturate(1) brightness(1);
+  }
+  88% {
+    opacity: 1;
+    transform: scale(1.01) translate3d(0, 0, 0);
+    filter: blur(0) saturate(1.01) brightness(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.01) translate3d(0, 0, 0);
+    filter: blur(2px) saturate(1.03) brightness(0.98);
+  }
+}
+
+@keyframes scaleStatsImagePrimaryMotion {
+  0%,
+  100% {
+    transform: scale(1.03) translate3d(0, -1.5%, 0);
+    filter: saturate(1) brightness(1);
+  }
+  50% {
+    transform: scale(1.08) translate3d(0, 2.8%, 0);
+    filter: saturate(1.04) brightness(1.02);
+  }
+}
+
+@keyframes scaleStatsImageSecondaryMotion {
+  0%,
+  100% {
+    transform: scale(1.045) translate3d(-0.8%, 0, 0);
+  }
+  50% {
+    transform: scale(1.07) translate3d(1.2%, 0, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .splitSlide {
+    animation: none;
+  }
+
+  .splitSlidePrimary {
+    opacity: 1;
+  }
+
+  .splitSlideSecondary {
+    opacity: 0;
+  }
+
+  .splitImagePrimary,
+  .splitImageSecondary {
+    animation: none;
+    transform: scale(1.015);
+    filter: none;
+  }
+
   .tileBrand::before {
     animation: none;
   }
+
   .brandDot {
     animation: none;
     opacity: 0.9;
   }
+
   .brandMark {
     animation: none;
   }
+
   .brandTimelineFill {
     animation: none;
     clip-path: inset(0 0 0 0);
   }
+
   .brandTimelineDot {
     animation: none;
     left: 100%;
+  }
+}
+
+@media (max-width: 960px) {
+  .featureSplit {
+    grid-template-columns: 1fr;
+  }
+
+  .splitMedia,
+  .splitCopy {
+    min-height: auto;
+  }
+
+  .splitMedia {
+    min-height: clamp(19rem, 74vw, 28rem);
+  }
+
+  .splitCopy {
+    min-height: clamp(15rem, 46vw, 21rem);
+  }
+
+  .splitBody {
+    max-width: none;
+    font-size: clamp(1.25rem, 4.9vw, 2.1rem);
+  }
+
+  .splitBadge {
+    font-size: 0.76rem;
+    letter-spacing: 0.07em;
+  }
+
+  .splitStatLine {
+    max-width: 11ch;
+    font-size: clamp(1.45rem, 6.3vw, 2.7rem);
+  }
+
+  .lowerMedia {
+    width: min(100%, 30rem);
+    min-height: clamp(20rem, 78vw, 32rem);
   }
 }
 
@@ -370,7 +664,7 @@
   .grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    gap: 0.3rem;
+    gap: 0.8rem;
   }
 
   .tileHeadline {

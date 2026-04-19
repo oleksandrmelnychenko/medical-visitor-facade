@@ -12,19 +12,27 @@
   },
   "common": {
     "home": "Inicio",
-    "requestAppointment": "Enviar solicitud",
+    "requestAppointment": "Comentar su situación",
     "login": "Iniciar sesión",
     "selectLanguage": "Seleccionar idioma"
   },
   "scaleStats": {
     "eyebrow": "(Desde 2012)",
+    "introBadge": "Sobre nosotros",
+    "introText": "Acompañamos a pacientes de distintos países en clínicas de Alemania y asumimos la organización del recorrido terapéutico, la comunicación con las clínicas, la documentación y la coordinación de cada etapa.",
     "headline": "Ya operando a gran escala en toda Alemania",
+    "overlayLineOne": "Responsabilidad.",
+    "overlayLineTwo": "Compromiso.",
+    "overlayLineThree": "Sostenibilidad.",
     "yearsValue": "14",
     "yearsLabel": "Años de coordinación médica",
+    "yearsShortLabel": "años",
     "citiesValue": "4",
     "citiesLabel": "Ciudades en Alemania",
-    "languagesValue": "4",
-    "languagesLabel": "Idiomas soportados"
+    "citiesShortLabel": "ciudades",
+    "supportAreasValue": "7",
+    "supportAreasLabel": "Áreas de acompañamiento",
+    "supportAreasShortLabel": "áreas"
   },
   "footer": {
     "impressum": "Aviso legal",
@@ -85,11 +93,35 @@
       }
     },
     "hero": {
-      "titleDark": "Su concierge",
-      "titleMuted": "médico en Alemania",
+      "brandLabel": "Medical Concierge · Desde 2012",
+      "titleDark": "La mejor medicina de Europa.",
+      "titleMuted": "Sin barrera idiomática, burocracia ni colas.",
+      "subHeadline": "Atención a pacientes internacionales en clínicas alemanas desde 2012.",
+      "caption": "Múnich · Berlín · Hamburgo · Colonia",
+      "cta": "Comentar su situación",
       "subtitle": "Acompañamos a pacientes internacionales en cada paso — desde la selección de especialistas hasta la coordinación del tratamiento.",
-      "cta": "Solicitar una cita",
       "learnMore": "Más información"
+    },
+    "forWhom": {
+      "eyebrow": "Para quién",
+      "items": {
+        "secondOpinion": {
+          "label": "Segunda opinión",
+          "description": "Recibió un diagnóstico complejo y desea una segunda opinión en una clínica alemana."
+        },
+        "continuedTreatment": {
+          "label": "Continuar el tratamiento",
+          "description": "Su tratamiento se interrumpió y debe continuar en Europa."
+        },
+        "familyCheckup": {
+          "label": "Chequeo familiar",
+          "description": "Su familia necesita un protocolo de chequeo periódico de primer nivel."
+        },
+        "rareSpecialist": {
+          "label": "Especialista poco común",
+          "description": "Busca un especialista en una patología rara."
+        }
+      }
     },
     "careForward": {
       "title": "Lo que hacemos",
@@ -203,7 +235,7 @@
       }
     },
     "fullSupport": {
-      "overline": "(Cómo trabajamos)",
+      "overline": "Cómo trabajamos",
       "title": "Nuestro concepto",
       "subtitle": "",
       "principles": {

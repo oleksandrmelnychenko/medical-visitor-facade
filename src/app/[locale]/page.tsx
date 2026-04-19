@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { Hero } from "@/components/sections/home/Hero";
+import { ForWhom } from "@/components/sections/home/ForWhom";
 import { FullSupport } from "@/components/sections/home/FullSupport";
 import { CareForward } from "@/components/sections/home/CareForward";
 import { Office } from "@/components/sections/home/Office";
@@ -39,6 +40,7 @@ export default function Home() {
     <div data-page="home">
       <HomeScrollRail />
       <Hero />
+      <ForWhom />
       <FullSupport />
       <CareForward />
       <Office />

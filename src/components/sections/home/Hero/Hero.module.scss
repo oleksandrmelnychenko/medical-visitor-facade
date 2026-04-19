@@ -36,19 +36,39 @@
 }
 
 .brandLabel {
+  display: inline-flex;
   align-self: center;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.4rem;
+  padding: 0.55rem 1.2rem 0.52rem;
   margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
-  font-family: "Onest", sans-serif;
-  font-size: 0.88rem;
-  font-weight: 650;
-  line-height: 1.08;
-  letter-spacing: 0.12em;
+  border: 1px solid rgba(19, 23, 33, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.92),
+    0 14px 30px -26px rgba(19, 23, 33, 0.28);
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(0.88rem, 0.8rem + 0.18vw, 1rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #131721;
+  color: #1b2028;
   text-align: center;
+  white-space: nowrap;
+  font-variant-ligatures: none;
   opacity: 0;
   transform: translateY(1rem);
   animation: heroTextReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.08s forwards;
+
+  @media (max-width: 768px) {
+    min-height: 2.2rem;
+    padding: 0.5rem 1rem 0.46rem;
+    font-size: 0.86rem;
+    letter-spacing: 0.04em;
+  }
 }
 
 .brandAccent {
@@ -98,6 +118,31 @@
 
 .headlineMuted {
   color: inherit;
+}
+
+.subHeadline {
+  align-self: center;
+  max-width: 46ch;
+  margin: 0 0 clamp(1.8rem, 3.5vw, 2.5rem);
+  font-family: "Onest", sans-serif;
+  font-size: clamp(1rem, 0.92rem + 0.32vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  color: #4a5160;
+  text-align: center;
+  text-wrap: balance;
+  opacity: 0;
+  transform: translateY(1rem);
+  animation: heroTextReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.26s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .subHeadline {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .videoContainer {

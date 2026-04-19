@@ -12,19 +12,27 @@
   },
   "common": {
     "home": "Startseite",
-    "requestAppointment": "Anfrage senden",
+    "requestAppointment": "Ihre Situation besprechen",
     "login": "Anmelden",
     "selectLanguage": "Sprache auswählen"
   },
   "scaleStats": {
     "eyebrow": "(Seit 2012)",
+    "introBadge": "Über uns",
+    "introText": "Wir begleiten Patienten aus verschiedenen Ländern in deutschen Kliniken und übernehmen die Organisation des Behandlungswegs, die Kommunikation mit Kliniken, die Unterlagen und die Koordination jedes Schritts.",
     "headline": "Bereits bundesweit im Einsatz",
+    "overlayLineOne": "Verantwortung.",
+    "overlayLineTwo": "Verbindlichkeit.",
+    "overlayLineThree": "Nachhaltigkeit.",
     "yearsValue": "14",
     "yearsLabel": "Jahre medizinische Begleitung",
+    "yearsShortLabel": "Jahre",
     "citiesValue": "4",
     "citiesLabel": "Städte in Deutschland",
-    "languagesValue": "4",
-    "languagesLabel": "Unterstützte Sprachen"
+    "citiesShortLabel": "Städte",
+    "supportAreasValue": "7",
+    "supportAreasLabel": "Bereiche der Begleitung",
+    "supportAreasShortLabel": "Bereiche"
   },
   "footer": {
     "impressum": "Impressum",
@@ -85,11 +93,35 @@
       }
     },
     "hero": {
-      "titleDark": "Ihr medizinischer",
-      "titleMuted": "Concierge in Deutschland",
+      "brandLabel": "Medical Concierge · Seit 2012",
+      "titleDark": "Europas beste Medizin.",
+      "titleMuted": "Ohne Sprachbarriere, Bürokratie oder Wartezeiten.",
+      "subHeadline": "Betreuung internationaler Patienten in deutschen Kliniken seit 2012.",
+      "caption": "München · Berlin · Hamburg · Köln",
+      "cta": "Ihre Situation besprechen",
       "subtitle": "Wir begleiten internationale Patienten bei jedem Schritt — von der Spezialistenauswahl bis zur Behandlungskoordination.",
-      "cta": "Termin anfragen",
       "learnMore": "Mehr erfahren"
+    },
+    "forWhom": {
+      "eyebrow": "Für wen",
+      "items": {
+        "secondOpinion": {
+          "label": "Zweitmeinung",
+          "description": "Sie haben eine komplexe Diagnose erhalten und möchten eine Zweitmeinung in einer deutschen Klinik."
+        },
+        "continuedTreatment": {
+          "label": "Behandlung fortsetzen",
+          "description": "Ihre Behandlung wurde unterbrochen und muss in Europa fortgesetzt werden."
+        },
+        "familyCheckup": {
+          "label": "Familien-Check-up",
+          "description": "Ihre Familie benötigt ein regelmäßiges Check-up-Protokoll auf höchstem Niveau."
+        },
+        "rareSpecialist": {
+          "label": "Spezialist für seltene Fälle",
+          "description": "Sie suchen einen Spezialisten für eine seltene Erkrankung."
+        }
+      }
     },
     "careForward": {
       "title": "Was wir tun",
@@ -203,7 +235,7 @@
       }
     },
     "fullSupport": {
-      "overline": "(So arbeiten wir)",
+      "overline": "So arbeiten wir",
       "title": "Unser Konzept",
       "subtitle": "",
       "principles": {

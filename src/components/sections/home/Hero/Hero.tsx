@@ -5,20 +5,13 @@ import styles from "./Hero.module.scss";
 
 export function Hero() {
   const t = useTranslations("home.hero");
-  const tFooter = useTranslations("footer");
   const srTitle = [t("titleDark"), t("titleMuted")].filter(Boolean).join(" ");
 
   return (
     <section id="hero" className={styles.hero} data-home-section="hero">
       <h1 className={styles.srOnly}>{srTitle}</h1>
 
-      <p className={styles.brandLabel}>
-        <span aria-hidden="true">(</span>
-        {tFooter.rich("companyName", {
-          accent: (chunks) => <span className={styles.brandAccent}>{chunks}</span>,
-        })}
-        <span aria-hidden="true">)</span>
-      </p>
+      <p className={styles.brandLabel}>{t("brandLabel")}</p>
 
       <div className={styles.headlineWrap}>
         <h2 className={styles.headline}>
@@ -27,7 +20,9 @@ export function Hero() {
         </h2>
       </div>
 
-      <p className={styles.heroCaption}>Agentur für Patientenbetreuung Heorhii Hudiiev</p>
+      <p className={styles.subHeadline}>{t("subHeadline")}</p>
+
+      <p className={styles.heroCaption}>{t("caption")}</p>
     </section>
   );
 }

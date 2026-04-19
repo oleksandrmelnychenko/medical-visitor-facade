@@ -12,19 +12,27 @@
   },
   "common": {
     "home": "Home",
-    "requestAppointment": "Submit Request",
+    "requestAppointment": "Discuss your situation",
     "login": "Sign in",
     "selectLanguage": "Select language"
   },
   "scaleStats": {
     "eyebrow": "(Since 2012)",
+    "introBadge": "About",
+    "introText": "We support patients from different countries in clinics across Germany and take care of treatment routing, clinic communication, documentation, and coordination at every stage.",
     "headline": "Already working at scale, across Germany",
+    "overlayLineOne": "Responsibility.",
+    "overlayLineTwo": "Accountability.",
+    "overlayLineThree": "Sustainability.",
     "yearsValue": "14",
     "yearsLabel": "Years of medical coordination",
+    "yearsShortLabel": "years",
     "citiesValue": "4",
     "citiesLabel": "Cities across Germany",
-    "languagesValue": "4",
-    "languagesLabel": "Languages supported"
+    "citiesShortLabel": "cities",
+    "supportAreasValue": "7",
+    "supportAreasLabel": "Areas of support",
+    "supportAreasShortLabel": "areas"
   },
   "footer": {
     "impressum": "Legal notice",
@@ -85,11 +93,35 @@
       }
     },
     "hero": {
-      "titleDark": "Your Medical",
-      "titleMuted": "Concierge in Germany",
+      "brandLabel": "Medical Concierge · Since 2012",
+      "titleDark": "The best medicine in Europe.",
+      "titleMuted": "Without language barriers, bureaucracy, or queues.",
+      "subHeadline": "International patient care in German clinics since 2012.",
+      "caption": "München · Berlin · Hamburg · Köln",
+      "cta": "Discuss your situation",
       "subtitle": "We guide international patients through every step — from specialist selection to treatment coordination.",
-      "cta": "Request an Appointment",
       "learnMore": "Learn More"
+    },
+    "forWhom": {
+      "eyebrow": "For whom",
+      "items": {
+        "secondOpinion": {
+          "label": "Second opinion",
+          "description": "You received a complex diagnosis and want a second opinion in a German clinic."
+        },
+        "continuedTreatment": {
+          "label": "Continued treatment",
+          "description": "Your treatment was interrupted and needs to continue in Europe."
+        },
+        "familyCheckup": {
+          "label": "Family check-up",
+          "description": "Your family needs a top-tier regular check-up protocol."
+        },
+        "rareSpecialist": {
+          "label": "Rare specialist",
+          "description": "You are looking for a specialist in a rare condition."
+        }
+      }
     },
     "careForward": {
       "title": "What we do",
@@ -203,7 +235,7 @@
       }
     },
     "fullSupport": {
-      "overline": "(How we work)",
+      "overline": "How we work",
       "title": "Our concept",
       "subtitle": "",
       "principles": {

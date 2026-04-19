@@ -1,8 +1,16 @@
 import type { Metadata, Viewport } from "next";
 import { getLocale } from "next-intl/server";
+import { JetBrains_Mono } from "next/font/google";
 import "../styles/globals.scss";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/seo/JsonLd";
 import { baseUrl } from "@/lib/seo";
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   themeColor: [
@@ -96,7 +104,7 @@ export default async function RootLayout({
   const locale = await getLocale();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} className={jetbrainsMono.variable} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

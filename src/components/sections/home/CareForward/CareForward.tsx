@@ -43,7 +43,7 @@ export function CareForward() {
       <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.intro}>
-            <p className={styles.eyebrow}>({t("title")})</p>
+            <p className={styles.eyebrow}>{t("title")}</p>
             <h2 className={styles.title}>
               {t("headlineDark")}{" "}
               <span className={styles.titleMuted}>{t("headlineMuted")}</span>
