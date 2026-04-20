@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useCallback } from 'react';
+import { ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
@@ -58,10 +59,14 @@ export function SharedPrimaryLanguageStep() {
         <button
           onClick={handleContinue}
           disabled={!languageValid}
-          className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
+          className={`${formStyles.submitButton} ${styles.welcomeContinueButton}`}
           type="button"
         >
-          {t('continue')}
+          <span className={styles.welcomeContinueIcon} aria-hidden="true">
+            <ArrowRight />
+          </span>
+          <span className={styles.welcomeContinueLabel}>{t('continue')}</span>
+          <span className={styles.welcomeContinueDot} aria-hidden="true" />
         </button>
       </div>
     </WizardStepLayout>

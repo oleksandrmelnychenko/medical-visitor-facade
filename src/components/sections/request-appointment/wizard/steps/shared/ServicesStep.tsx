@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Star } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
@@ -158,10 +158,14 @@ export function ServicesStep() {
         <button
           onClick={handleContinue}
           disabled={selected.length === 0}
-          className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
+          className={`${formStyles.submitButton} ${styles.welcomeContinueButton}`}
           type="button"
         >
-          {t('continue')}
+          <span className={styles.welcomeContinueIcon} aria-hidden="true">
+            <ArrowRight />
+          </span>
+          <span className={styles.welcomeContinueLabel}>{t('continue')}</span>
+          <span className={styles.welcomeContinueDot} aria-hidden="true" />
         </button>
       </div>
 

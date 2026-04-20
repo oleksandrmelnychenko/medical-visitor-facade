@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useCallback, useEffect, useMemo, useRef } from 'react';
-import { Check, ChevronDown } from 'lucide-react';
+import { ArrowRight, Check, ChevronDown } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
@@ -249,10 +249,14 @@ export function AddressStep() {
         <button
           onClick={handleContinue}
           disabled={!canContinue}
-          className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
+          className={`${formStyles.submitButton} ${styles.welcomeContinueButton}`}
           type="button"
         >
-          {t('continue')}
+          <span className={styles.welcomeContinueIcon} aria-hidden="true">
+            <ArrowRight />
+          </span>
+          <span className={styles.welcomeContinueLabel}>{t('continue')}</span>
+          <span className={styles.welcomeContinueDot} aria-hidden="true" />
         </button>
       </div>
     </WizardStepLayout>

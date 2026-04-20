@@ -157,9 +157,14 @@ export function HomeScrollRail() {
 
   const activeSection = sections[activeIndex]?.id;
   const isDark = activeSection === "outro";
+  const isHidden = activeSection === "hero";
 
   return (
-    <nav className={cn(styles.rail, isDark && styles.railInverted)} aria-label="Home sections">
+    <nav
+      className={cn(styles.rail, isDark && styles.railInverted, isHidden && styles.railHidden)}
+      aria-hidden={isHidden}
+      aria-label="Home sections"
+    >
       <ol className={styles.points}>
         {sections.map((section, index) => (
           <li

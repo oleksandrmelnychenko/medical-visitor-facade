@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback, useRef } from "react";
+import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useWizard } from "../../WizardContext";
@@ -34,16 +35,21 @@ export function WrapUpIntroStep() {
     <WizardStepLayout
       title={t("wrapUpIntro.title")}
       subtitle={t("wrapUpIntro.subtitle")}
+      subtitleClassName={styles.welcomeSubtitleBody}
       onBack={handleBack}
       backLabel={t("back")}
     >
       <div className={styles.wizardFormContainer}>
         <button
           onClick={handleContinue}
-          className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
+          className={`${formStyles.submitButton} ${styles.welcomeContinueButton}`}
           type="button"
         >
-          {t("wrapUpIntro.start")}
+          <span className={styles.welcomeContinueIcon} aria-hidden="true">
+            <ArrowRight />
+          </span>
+          <span className={styles.welcomeContinueLabel}>{t("wrapUpIntro.start")}</span>
+          <span className={styles.welcomeContinueDot} aria-hidden="true" />
         </button>
       </div>
     </WizardStepLayout>

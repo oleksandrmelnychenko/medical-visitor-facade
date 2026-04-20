@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useRef } from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { Link } from '@/i18n/navigation';
@@ -45,7 +45,11 @@ export function WelcomeStep() {
           className={`${formStyles.submitButton} ${styles.welcomeContinueButton}`}
           type="button"
         >
-          {t('welcome.continue')}
+          <span className={styles.welcomeContinueIcon} aria-hidden="true">
+            <ArrowRight />
+          </span>
+          <span className={styles.welcomeContinueLabel}>{t('welcome.continue')}</span>
+          <span className={styles.welcomeContinueDot} aria-hidden="true" />
         </button>
         <p className={styles.wizardEmergencyNote}>
           {t('welcome.emergency')}

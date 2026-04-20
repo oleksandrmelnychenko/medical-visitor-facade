@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useCallback } from 'react';
+import { ArrowRight } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link, useRouter } from '@/i18n/navigation';
 import type { WizardData } from '../../types';
@@ -223,10 +224,16 @@ export function ReviewSubmitStep() {
           <button
             onClick={handleSubmit}
             disabled={!canAttemptSubmit || isSubmitting}
-            className={`${formStyles.submitButton} ${styles.wizardPrimaryButton}`}
+            className={`${formStyles.submitButton} ${styles.welcomeContinueButton}`}
             type="button"
           >
-            {isSubmitting ? t('reviewStep.submitting') : t('reviewStep.submit')}
+            <span className={styles.welcomeContinueIcon} aria-hidden="true">
+              <ArrowRight />
+            </span>
+            <span className={styles.welcomeContinueLabel}>
+              {isSubmitting ? t('reviewStep.submitting') : t('reviewStep.submit')}
+            </span>
+            <span className={styles.welcomeContinueDot} aria-hidden="true" />
           </button>
         </section>
       </div>

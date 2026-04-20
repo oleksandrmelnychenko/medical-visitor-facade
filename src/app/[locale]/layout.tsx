@@ -5,6 +5,7 @@ import { routing } from "@/i18n/routing";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CookieConsent } from "@/components/ui/CookieConsent";
+import { HoverSound } from "@/components/ui/HoverSound";
 
 type Props = {
   children: React.ReactNode;
@@ -27,6 +28,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       {children}
       <Footer locale={locale} />
       <CookieConsent />
+      <HoverSound />
     </NextIntlClientProvider>
   );
 }

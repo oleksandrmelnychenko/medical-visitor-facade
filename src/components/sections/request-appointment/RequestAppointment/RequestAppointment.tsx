@@ -41,14 +41,20 @@ export function RequestAppointment() {
 
   if (activeType === "new") {
     return (
-      <div className={cn(pageStyles.page, styles.applyPageChrome, styles.gridBackground)}>
+      <div
+        data-page="apply"
+        className={cn(pageStyles.page, styles.applyPageChrome, styles.gridBackground)}
+      >
         <ApplyNewPatientWizard />
       </div>
     );
   }
 
   return (
-    <div className={cn(pageStyles.page, styles.applyPageChrome, styles.gridBackground)}>
+    <div
+      data-page="apply"
+      className={cn(pageStyles.page, styles.applyPageChrome, styles.gridBackground)}
+    >
       <section
         className={cn(sectionStyles.section, pageStyles.heroSection, styles.applyHeroSection)}
         id="appointment"

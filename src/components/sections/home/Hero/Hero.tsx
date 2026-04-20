@@ -11,18 +11,23 @@ export function Hero() {
     <section id="hero" className={styles.hero} data-home-section="hero">
       <h1 className={styles.srOnly}>{srTitle}</h1>
 
-      <p className={styles.brandLabel}>{t("brandLabel")}</p>
-
-      <div className={styles.headlineWrap}>
-        <h2 className={styles.headline}>
-          {t("titleDark")}{" "}
-          <span className={styles.headlineMuted}>{t("titleMuted")}</span>
+      <div className={styles.heroIntro}>
+        <h2 className={styles.heroTagline}>
+          {t("titleDark")} {t("titleMuted")} {t("subHeadline")}
         </h2>
       </div>
 
-      <p className={styles.subHeadline}>{t("subHeadline")}</p>
+      <div className={styles.videoFrame} aria-hidden="true">
+        <span className={styles.videoFramePlaceholder} />
+      </div>
 
-      <p className={styles.heroCaption}>{t("caption")}</p>
+      <div className={styles.scrollBar} aria-hidden="true">
+        <span className={styles.scrollBarMark}>+</span>
+        <span className={styles.scrollBarMark}>+</span>
+        <span className={styles.scrollBarLabel}>{t("scrollToExplore")}</span>
+        <span className={styles.scrollBarMark}>+</span>
+        <span className={styles.scrollBarMark}>+</span>
+      </div>
     </section>
   );
 }

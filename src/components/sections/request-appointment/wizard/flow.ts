@@ -675,11 +675,10 @@ export function getAccessibleWizardStep(step: WizardStep, data: WizardData): Wiz
     }
 
     case "current-treatment": {
-      const fallback = getConcernFallback(cleanData);
-      if (fallback && fallback !== "current-treatment") {
-        return fallback;
-      }
-
+      const patientInfoFallback = getPatientInfoFallback(cleanData);
+      if (patientInfoFallback) return patientInfoFallback;
+      if (!cleanData.services.length) return "services";
+      if (!hasRequiredAddress(cleanData)) return "address";
       return "current-treatment";
     }
 

@@ -41,12 +41,12 @@ export default function Home() {
       <HomeScrollRail />
       <Hero />
       <ForWhom />
+      <ScaleStats />
       <FullSupport />
       <CareForward />
       <Office />
       <ScrollReveal />
       <Faq />
-      <ScaleStats />
     </div>
   );
 }

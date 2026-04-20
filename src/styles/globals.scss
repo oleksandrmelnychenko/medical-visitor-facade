@@ -97,6 +97,32 @@ body {
   }
 }
 
+body:has([data-page="home"]) {
+  background-color: #eceef5;
+}
+
+body:has([data-page="home"]) .headerOffset {
+  height: 0;
+  background: transparent;
+}
+
+body:has([data-page="apply"]) {
+  background-color: #eceef5;
+}
+
+body:has([data-page="apply"]) .headerOffset {
+  background: transparent;
+}
+
+body:has([data-page="membership"]) {
+  background-color: #eceef5;
+}
+
+body:has([data-page="membership"]) .headerOffset {
+  height: 0;
+  background: transparent;
+}
+
 a {
   color: inherit;
   text-decoration: none;

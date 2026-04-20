@@ -11,7 +11,7 @@ export default async function MembershipPage({ params }: MembershipPageProps) {
   await getTranslations({ locale, namespace: "membership" });
 
   return (
-    <main className={styles.page}>
+    <main className={styles.page} data-page="membership">
       <MembershipComparison />
     </main>
   );

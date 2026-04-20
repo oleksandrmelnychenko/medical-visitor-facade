@@ -98,6 +98,9 @@ function WizardPathTreeInner() {
   const progressPercent = zones.length > 1
     ? ((resolvedActiveZoneIndex + 1) / zones.length) * 100
     : 100;
+  const stepPercent = steps.length > 1
+    ? ((Math.max(resolvedCurrentIndex, 0) + 1) / steps.length) * 100
+    : 100;
 
   return (
     <div
@@ -117,6 +120,12 @@ function WizardPathTreeInner() {
           <span className={styles.countDash}>-</span>
           {String(zones.length).padStart(2, '0')}
         </span>
+      </div>
+      <div className={styles.progressTrack} aria-hidden="true">
+        <div
+          className={styles.progressFill}
+          style={{ width: `${stepPercent}%` }}
+        />
       </div>
     </div>
   );

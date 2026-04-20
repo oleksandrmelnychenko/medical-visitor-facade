@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback, useRef } from 'react';
+import { ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
@@ -34,6 +35,7 @@ export function HealthCareIntroStep() {
     <WizardStepLayout
       title={t('healthIntro.title')}
       subtitle={t('healthIntro.subtitle')}
+      subtitleClassName={styles.welcomeSubtitleBody}
       onBack={handleBack}
       backLabel={t('back')}
     >
@@ -43,7 +45,11 @@ export function HealthCareIntroStep() {
           className={`${formStyles.submitButton} ${styles.welcomeContinueButton}`}
           type="button"
         >
-          {t('healthIntro.start')}
+          <span className={styles.welcomeContinueIcon} aria-hidden="true">
+            <ArrowRight />
+          </span>
+          <span className={styles.welcomeContinueLabel}>{t('healthIntro.start')}</span>
+          <span className={styles.welcomeContinueDot} aria-hidden="true" />
         </button>
       </div>
     </WizardStepLayout>

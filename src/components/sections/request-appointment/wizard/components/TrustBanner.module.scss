@@ -3,25 +3,28 @@
   align-items: center;
   justify-content: center;
   align-self: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.9rem;
-  border-radius: 6px;
-  background: rgba(127, 144, 165, 0.06);
-  border: 1px solid rgba(127, 144, 165, 0.1);
+  gap: 0.5rem;
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: 999px;
+  background: #ff5a14;
+  box-shadow: 0 12px 28px -22px rgba(255, 90, 20, 0.6);
 }
 
 .icon {
-  width: 0.9rem;
-  height: 0.9rem;
-  color: #7f90a5;
+  width: 0.95rem;
+  height: 0.95rem;
+  color: #ffffff;
   flex-shrink: 0;
+  stroke-width: 2.4;
 }
 
 .text {
-  font-family: "Onest", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: rgba(20, 25, 35, 0.6);
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ffffff;
   line-height: 1.2;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }

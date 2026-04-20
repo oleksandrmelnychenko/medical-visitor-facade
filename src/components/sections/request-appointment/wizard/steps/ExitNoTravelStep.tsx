@@ -1,43 +1,59 @@
 "use client";
 
-import { LogOut } from "lucide-react";
+import { useCallback, useRef } from "react";
+import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useWizard } from "../WizardContext";
-import { WizardChoiceStep } from "../components/WizardChoiceStep";
+import { WizardStepLayout } from "../components/WizardStepLayout";
+import formStyles from "@/components/auth/Auth.module.scss";
+import styles from "../../RequestAppointment/RequestAppointment.module.scss";
 
 export function ExitNoTravelStep() {
   const t = useTranslations("appointment.newPatient");
   const router = useRouter();
   const { data } = useWizard();
+  const isNavigatingRef = useRef(false);
 
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
+    if (isNavigatingRef.current) return;
+    isNavigatingRef.current = true;
     router.push(
       data.hasTravelDocuments === "no"
         ? "/apply?type=new&step=outside-documents"
         : "/apply?type=new&step=outside-travel"
     );
-  };
+  }, [router, data.hasTravelDocuments]);
 
-  const handleExit = () => {
+  const handleExit = useCallback(() => {
+    if (isNavigatingRef.current) return;
+    isNavigatingRef.current = true;
     router.push("/");
-  };
+  }, [router]);
 
   return (
-    <WizardChoiceStep
+    <WizardStepLayout
       title={t("exitNoTravelPatient.title")}
       subtitle={t("exitNoTravelPatient.description")}
+      subtitleClassName={styles.welcomeSubtitleBody}
       onBack={handleBack}
       backLabel={t("back")}
-      options={[
-        {
-          key: "exit",
-          title: t("exitNoTravelPatient.button"),
-          icon: LogOut,
-          hoverColor: "#E5D5A8",
-          onSelect: handleExit,
-        },
-      ]}
-    />
+    >
+      <div className={styles.wizardFormContainer}>
+        <button
+          onClick={handleExit}
+          className={`${formStyles.submitButton} ${styles.welcomeContinueButton}`}
+          type="button"
+        >
+          <span className={styles.welcomeContinueIcon} aria-hidden="true">
+            <ArrowRight />
+          </span>
+          <span className={styles.welcomeContinueLabel}>
+            {t("exitNoTravelPatient.button")}
+          </span>
+          <span className={styles.welcomeContinueDot} aria-hidden="true" />
+        </button>
+      </div>
+    </WizardStepLayout>
   );
 }

@@ -1,7 +1,7 @@
 @use '../../../styles/variables' as *;
 
 .header {
-  background-color: #fffcfa;
+  background-color: transparent;
   z-index: 100;
   position: relative;
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
@@ -61,8 +61,8 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
-  background: #fffcfa;
+  z-index: 1200;
+  background: transparent;
   border: none;
   border-radius: 0;
   box-shadow: none;
@@ -102,14 +102,27 @@
 
 .stickyContainer {
   @include container-base;
+  position: relative;
   max-width: var(--container-2xl);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 104px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  min-height: auto;
+  padding-top: clamp(2.75rem, 5vw, 4rem);
+  padding-bottom: 1.75rem;
+
+  @media (max-width: 960px) {
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 96px;
+    padding-top: clamp(2rem, 4vw, 3rem);
+  }
 
   @media (max-width: 768px) {
-    height: 90px;
+    min-height: 88px;
+    padding-top: 1.5rem;
   }
 }
 
@@ -118,21 +131,31 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.4rem;
+  padding-left: 1.35rem;
   transition: opacity 0.2s ease;
 
   &:hover {
     opacity: 0.8;
   }
+
+  @media (max-width: 768px) {
+    padding-left: 1.05rem;
+  }
 }
 
 .stickyLogo {
-  height: 38px;
+  height: 48px;
   width: auto;
   object-fit: contain;
+  transition: filter 0.32s ease;
 
   @media (max-width: 768px) {
-    height: 32px;
+    height: 40px;
   }
+}
+
+.stickyLogoInverted {
+  filter: invert(1) brightness(2);
 }
 
 .stickyLogoTagline {
@@ -159,26 +182,141 @@
   }
 }
 
+.stickyTagline {
+  margin: 0;
+  justify-self: start;
+  max-width: 38ch;
+  font-family: "Onest", sans-serif;
+  font-size: clamp(1.8rem, 1.4rem + 1.2vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.028em;
+  color: #0f1118;
+  text-align: left;
+  text-wrap: balance;
+
+  @media (max-width: 960px) {
+    display: none;
+  }
+}
+
 .stickyActions {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
+  justify-self: end;
 
-  @media (max-width: 1280px) {
-    gap: 0.45rem;
-  }
-
-  @media (max-width: 1100px) {
+  @media (max-width: 540px) {
     gap: 0.4rem;
   }
+}
 
-  @media (max-width: 980px) {
-    gap: 0.35rem;
+.stickyMenuPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 3.1rem;
+  padding: 0 1.35rem 0 1.45rem;
+  border: none;
+  border-radius: 999px;
+  background: #dfe2eb;
+  color: #131721;
+  font-family: "Onest", sans-serif;
+  font-size: clamp(0.78rem, 0.72rem + 0.14vw, 0.9rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    color 0.2s ease;
+
+  &:hover {
+    background: #d5d9e4;
   }
 
-  @media (max-width: 768px) {
-    gap: 1rem;
-    display: none;
+  &:focus-visible {
+    outline: 2px solid rgba(19, 23, 33, 0.45);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 540px) {
+    padding: 0 1.05rem 0 1.15rem;
+    min-height: 2.75rem;
+  }
+}
+
+.stickyMenuPillOpen {
+  // Keep default .stickyMenuPill background & color; only label swaps
+}
+
+.stickyMenuPillLabel {
+  display: inline-block;
+  overflow: hidden;
+  height: 1em;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  vertical-align: middle;
+}
+
+.stickyMenuPillLabelTrack {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.stickyMenuPillLabelText {
+  display: block;
+  height: 1em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.stickyMenuPillOpen .stickyMenuPillLabelTrack {
+  transform: translateY(-1em);
+}
+
+.stickyMenuPillDots {
+  position: relative;
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+
+  span {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.28rem;
+    height: 0.28rem;
+    border-radius: 999px;
+    background: currentColor;
+    opacity: 0.75;
+    transition: transform 0.22s ease, opacity 0.22s ease;
+  }
+
+  span:first-child {
+    transform: translate(calc(-50% - 0.22rem), -50%);
+  }
+
+  span:last-child {
+    transform: translate(calc(-50% + 0.22rem), -50%);
+  }
+}
+
+.stickyMenuPill:hover .stickyMenuPillDots,
+.stickyMenuPill:focus-visible .stickyMenuPillDots {
+  span:first-child {
+    transform: translate(-50%, calc(-50% - 0.22rem));
+  }
+
+  span:last-child {
+    transform: translate(-50%, calc(-50% + 0.22rem));
   }
 }
 
@@ -237,7 +375,6 @@
 
   &:hover {
     background: transparent;
-    transform: translateY(-1px);
   }
 
   @media (max-width: 768px) {
@@ -261,79 +398,136 @@
   letter-spacing: -0.015em;
   border: none;
   border-radius: 999px;
-  background: #06060b;
+  background: #252734;
   color: #f4f3f1;
   white-space: nowrap;
   text-decoration: none;
   box-shadow:
-    0 12px 32px -16px rgba(0, 0, 0, 0.44),
-    0 4px 12px -4px rgba(0, 0, 0, 0.18);
+    0 12px 28px -18px rgba(16, 18, 28, 0.55),
+    0 4px 10px -4px rgba(16, 18, 28, 0.18);
   cursor: pointer;
   overflow: hidden;
   transition:
     transform 0.18s ease,
     box-shadow 0.18s ease,
-    filter 0.18s ease;
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 1px 1px auto;
-    height: 42%;
-    border-radius: inherit;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 58%, rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    left: 10%;
-    right: 10%;
-    bottom: -22%;
-    height: 42%;
-    border-radius: 999px;
-    background: var(--cta-brand-glow);
-    filter: blur(20px);
-    opacity: 0.62;
-    z-index: -1;
-    pointer-events: none;
-    transform: translateY(0.28rem) scaleX(0.88);
-  }
+    background-color 0.18s ease;
 
   svg {
     width: 1.3em;
     height: 1.3em;
-    stroke-width: 2.6;
+    stroke-width: 2.4;
+    color: currentColor;
   }
 
   &:hover {
+    background: #2d2f3e;
     transform: translateY(-0.5px);
-    filter: brightness(1.005);
     box-shadow:
-      0 14px 22px -16px rgba(47, 52, 64, 0.46),
-      0 6px 12px -9px rgba(47, 52, 64, 0.26),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
-
-    &::after {
-      opacity: 0.74;
-      filter: blur(22px);
-      transform: translateY(0.36rem) scaleX(0.9);
-    }
+      0 14px 30px -18px rgba(16, 18, 28, 0.6),
+      0 6px 12px -6px rgba(16, 18, 28, 0.22);
   }
 
   &:active {
     transform: translateY(0);
-    filter: brightness(0.99);
   }
 }
 
 .stickyButton {
   flex-shrink: 0;
+  gap: 0.62rem;
+  background: #252734;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    background: #ff5a14;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: #252734;
+  }
+
+  &:hover::before,
+  &:focus-visible::before {
+    transform: scaleX(1);
+  }
+
+  &:hover .stickyButtonIcon,
+  &:focus-visible .stickyButtonIcon {
+    width: 1rem;
+    margin-right: 0.05rem;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &:hover .stickyButtonDot,
+  &:focus-visible .stickyButtonDot {
+    width: 0;
+    margin-left: 0;
+    opacity: 0;
+    transform: scale(0.4);
+  }
 
   @media (max-width: 1360px) {
     font-size: 0.915rem;
   }
+
+  @media (max-width: 640px) {
+    display: none;
+  }
+}
+
+.stickyButtonIcon,
+.stickyButtonLabel,
+.stickyButtonDot {
+  position: relative;
+  z-index: 1;
+}
+
+.stickyButtonIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  margin-right: -0.15rem;
+  opacity: 0;
+  overflow: hidden;
+  flex-shrink: 0;
+  transform: translateX(-0.35rem);
+  transition:
+    width 0.22s ease,
+    margin-right 0.22s ease,
+    opacity 0.18s ease,
+    transform 0.22s ease;
+
+  svg {
+    width: 0.95rem;
+    height: 0.95rem;
+    stroke-width: 2.5;
+  }
+}
+
+.stickyButtonDot {
+  display: inline-block;
+  width: 0.28rem;
+  height: 0.28rem;
+  margin-left: 0.55rem;
+  border-radius: 999px;
+  background: #ffffff;
+  flex-shrink: 0;
+  transform-origin: center;
+  transition:
+    width 0.22s ease,
+    margin-left 0.22s ease,
+    opacity 0.18s ease,
+    transform 0.22s ease;
 }
 
 .stickyDivider {
@@ -911,11 +1105,10 @@
 .mobileMenuBackdrop {
   position: fixed;
   inset: 0;
-  background: rgba(18, 20, 28, 0.2);
-  backdrop-filter: blur(4px);
+  background: rgba(12, 15, 22, 0.04);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.12s ease;
+  transition: opacity 0.18s ease;
   z-index: 1100;
 }
 
@@ -932,34 +1125,36 @@
   left: 0;
   right: 0;
   min-height: 100dvh;
-  overflow-y: auto;
-  background: #fffdf9;
+  overflow: hidden;
+  background: transparent;
   z-index: 1150;
-  transform: translateY(-12px);
   visibility: hidden;
   pointer-events: none;
   backface-visibility: hidden;
-  box-shadow: 0 24px 48px rgba(15, 18, 24, 0.08);
-  transition:
-    transform 0.12s cubic-bezier(0.22, 1, 0.36, 1),
-    padding-top 0.12s cubic-bezier(0.22, 1, 0.36, 1),
-    visibility 0s linear 0.12s;
+  box-shadow: none;
+  transition: visibility 0s linear 0.16s;
 }
 
 .mobileMenuOpen {
-  transform: translateY(0);
   visibility: visible;
-  pointer-events: auto;
-  transition-duration: 0.32s, 0.32s, 0s;
+  transition-duration: 0s;
   transition-delay: 0s;
 }
 
+.mobileMenuOpen .mobileMenuContent {
+  pointer-events: auto;
+}
+
 .mobileMenuWithSticky {
-  padding-top: 100px;
-  padding-bottom: max(1.5rem, calc(env(safe-area-inset-bottom) + 1rem));
+  padding-top: clamp(6.5rem, 10.6vw, 8rem);
+  padding-bottom: max(1.15rem, calc(env(safe-area-inset-bottom) + 0.85rem));
+
+  @media (max-width: 960px) {
+    padding-top: clamp(6rem, 9.5vw, 7rem);
+  }
 
   @media (max-width: 768px) {
-    padding-top: 76px;
+    padding-top: max(5.4rem, calc(env(safe-area-inset-top) + 4.4rem));
   }
 }
 
@@ -1005,11 +1200,383 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-height: calc(100dvh - 76px);
-  padding: 1.25rem 1.25rem 2rem;
-  gap: 1.4rem;
+  width: min(100%, 32rem);
+  min-height: calc(100dvh - 2rem);
+  margin-left: auto;
+  margin-right: max(4rem, calc((100vw - var(--container-2xl)) / 2 + 4rem));
+  padding: 0 0 1.8rem 1rem;
+  gap: 1rem;
   align-items: stretch;
-  text-align: center;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .mobileMenuContent {
+    width: 100%;
+    margin-right: 2.5rem;
+  }
+}
+
+.menuToolbar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.7rem;
+  position: relative;
+  z-index: 2;
+}
+
+.menuDropdownStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(2rem);
+  transform-origin: bottom right;
+  transition:
+    transform 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.22s ease;
+}
+
+.mobileMenuOpen .menuDropdownStack {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menuOrbButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border: none;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #0f1118;
+  box-shadow: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    opacity: 0.94;
+  }
+}
+
+.menuOrbLine {
+  display: block;
+  width: 1.95rem;
+  height: 0.24rem;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.menuToolbarCenter {
+  display: flex;
+  justify-content: center;
+}
+
+.menuToolbarSpacer {
+  display: block;
+  min-height: 4rem;
+}
+
+.menuTalkPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.72rem;
+  width: min(100%, 19rem);
+  min-height: 4rem;
+  padding: 0 1.5rem;
+  border-radius: 999px;
+  background: #252734;
+  color: #f9fafc;
+  text-decoration: none;
+  box-shadow: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    opacity: 0.97;
+  }
+}
+
+.menuTalkLabel {
+  font-family: "Onest", sans-serif;
+  font-size: clamp(0.94rem, 0.78rem + 0.55vw, 1.18rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.menuTalkDot {
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 999px;
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
+.menuMorphClosePill {
+  gap: 0.55rem;
+  min-height: 3.1rem;
+  padding: 0 1.35rem 0 1.45rem;
+  background: #131721;
+  color: #f4f3f1;
+  font-size: clamp(0.78rem, 0.72rem + 0.14vw, 0.9rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transform-origin: right center;
+  opacity: 0;
+  transform: scaleX(0.92);
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.16s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+
+  &:hover {
+    background: #1f2230;
+    transform: scaleX(1);
+  }
+
+  &:focus-visible {
+    outline-color: rgba(244, 243, 241, 0.42);
+  }
+
+  @media (max-width: 540px) {
+    min-height: 2.75rem;
+    padding: 0 1.05rem 0 1.15rem;
+  }
+}
+
+.mobileMenuOpen .menuMorphClosePill {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.menuMorphCloseLabel {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.menuShowcaseCard,
+.menuContactCard {
+  background: #ffffff;
+  border-radius: 1.8rem;
+  box-shadow: none;
+}
+
+.menuShowcaseCard {
+  padding: 1.5rem 1.35rem 1.15rem;
+}
+
+.menuShowcaseNav {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.menuShowcaseLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #0f1118;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    opacity: 0.7;
+    transform: translateX(0.08rem);
+  }
+}
+
+.menuShowcaseText {
+  font-family: "Onest", sans-serif;
+  font-size: clamp(1rem, 4vw, 1.85rem);
+  font-weight: 400;
+  line-height: 0.96;
+  letter-spacing: -0.065em;
+}
+
+.menuShowcaseDot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+  background: #0f1118;
+  flex-shrink: 0;
+}
+
+.menuShowcaseFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(15, 17, 24, 0.08);
+}
+
+.menuLocaleRail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+}
+
+.menuLocaleRail .mobileLanguageButton {
+  padding: 0.42rem 0.72rem;
+  border-radius: 999px;
+  background: #eff1f7;
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.menuLocaleRail .mobileLanguageButtonActive {
+  background: #10131b;
+  color: #f4f5f8;
+}
+
+.menuMetaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.18em;
+  font-family: "Onest", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #0f1118;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  svg {
+    width: 1.2em;
+    height: 1.2em;
+    stroke-width: 2.2;
+  }
+
+  &:hover {
+    opacity: 0.65;
+  }
+}
+
+.menuContactCard {
+  padding: 1.5rem 1.35rem 1.35rem;
+}
+
+.menuContactTitle {
+  margin: 0;
+  display: grid;
+  gap: 0.08rem;
+  font-family: "Onest", sans-serif;
+  font-size: clamp(1.1rem, 5.5vw, 2.1rem);
+  font-weight: 400;
+  line-height: 0.94;
+  letter-spacing: -0.075em;
+  color: #0f1118;
+  text-wrap: balance;
+}
+
+.menuContactField {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.9rem;
+  margin-top: 1.55rem;
+  padding: 0 1.25rem;
+  border-radius: 1.4rem;
+  background: #eceef9;
+  color: #0f1118;
+  text-decoration: none;
+  box-shadow: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+    stroke-width: 1.8;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    opacity: 0.94;
+  }
+}
+
+.menuContactFieldText {
+  font-family: "Onest", sans-serif;
+  font-size: clamp(0.7rem, 2.3vw, 0.85rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: rgba(15, 17, 24, 0.45);
+}
+
+.menuFeatureCard {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  min-height: 5.9rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 1.5rem;
+  background: #08090d;
+  color: #f6f7fa;
+  text-decoration: none;
+  box-shadow: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+    stroke-width: 1.8;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    opacity: 0.98;
+  }
+}
+
+.menuFeatureGlyph {
+  position: relative;
+  width: 3.1rem;
+  height: 3.1rem;
+  border-radius: 999px;
+  border: 4px solid #ffffff;
+  flex-shrink: 0;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: -0.15rem;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 999px;
+    background: #ffffff;
+  }
+
+  &::before {
+    left: 0.28rem;
+  }
+
+  &::after {
+    left: 1.1rem;
+  }
+}
+
+.menuFeatureLabel {
+  font-family: "Onest", sans-serif;
+  font-size: clamp(1.45rem, 7vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.06em;
 }
 
 .menuControlBar {
@@ -1219,19 +1786,23 @@
   background: transparent;
   font-family: "Onest", sans-serif;
   font-size: 0.935rem;
-  font-weight: 400;
-  color: rgba(26, 26, 34, 0.4);
+  font-weight: 500;
+  color: #1a1a22;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, opacity 0.2s ease;
 
   &:hover {
-    color: #1a1a22;
+    opacity: 0.7;
   }
 }
 
 .mobileLanguageButtonActive {
   font-weight: 700;
   color: #1a1a22;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .mobileMenuItem {
@@ -1408,13 +1979,14 @@
 }
 
 .mobileFooterLinks {
-  margin-top: auto;
+  margin-top: 0.1rem;
   display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 0.95rem;
   align-items: center;
-  padding-top: 1.4rem;
-  border-top: 1px solid rgba(20, 25, 35, 0.08);
+  padding-top: 0.2rem;
+  border-top: none;
 }
 
 .mobileFooterLink {
@@ -1422,17 +1994,17 @@
   align-items: center;
   gap: 0.15em;
   font-family: "Onest", sans-serif;
-  font-size: 0.935rem;
+  font-size: 0.76rem;
   font-weight: 560;
-  color: #1a1a22;
+  color: rgba(255, 255, 255, 0.82);
   text-decoration: none;
-  padding: 0.55rem 0;
+  padding: 0.3rem 0;
   transition: opacity 0.2s;
 
   svg {
-    width: 1.3em;
-    height: 1.3em;
-    stroke-width: 2.6;
+    width: 1.12em;
+    height: 1.12em;
+    stroke-width: 2.4;
   }
 
   &:hover {

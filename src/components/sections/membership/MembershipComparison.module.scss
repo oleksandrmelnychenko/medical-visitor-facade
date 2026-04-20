@@ -1,329 +1,330 @@
 @use "@/styles/variables" as *;
 
 .wrapper {
-  padding: clamp(4.75rem, 8vw, 7rem) 0 clamp(9rem, 16vw, 13.5rem);
+  padding: clamp(8.5rem, 13vw, 12rem) 0 clamp(6rem, 10vw, 9rem);
+  background: #eceef5;
 }
 
 .section {
   position: relative;
-}
-
-.content {
-  width: min(100%, 66rem);
-  margin: 0 auto;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
-  column-gap: clamp(4.5rem, 8vw, 8rem);
-  row-gap: clamp(2.25rem, 5vw, 5rem);
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  width: min(100%, 76rem);
+  margin-inline: auto;
 }
 
 .intro {
-  position: sticky;
-  top: 7.6rem;
   display: grid;
-  gap: 0.9rem;
-  max-width: 34rem;
+  gap: 1rem;
+  max-width: 48rem;
 }
 
 .eyebrow {
   margin: 0;
-  font-size: 0.88rem;
-  font-weight: 650;
-  line-height: 1.08;
-  letter-spacing: 0.12em;
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(19, 23, 33, 0.08);
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #131721;
 }
 
 .title {
   margin: 0;
-  max-width: 8.5ch;
-  font-size: clamp(3rem, 5.6vw, 5rem);
+  max-width: 24ch;
+  font-family: "Onest", sans-serif;
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
   font-weight: 500;
-  line-height: 0.98;
-  letter-spacing: 0;
+  line-height: 1;
+  letter-spacing: -0.02em;
   color: #131721;
   text-wrap: balance;
 }
 
 .subtitle {
   margin: 0;
-  max-width: 28rem;
-  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
-  font-weight: 500;
-  line-height: 1.42;
-  letter-spacing: 0;
-  color: rgba(19, 23, 33, 0.76);
-  text-wrap: balance;
+  max-width: 36rem;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0b0e14;
 }
 
-.accordion {
+.grid {
   display: grid;
-  gap: 0;
-  padding-top: 0.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.6rem);
+  align-items: stretch;
 }
 
-.item {
-  border-top: 1px solid rgba(19, 23, 33, 0.14);
-}
-
-.item:last-child {
-  border-bottom: 1px solid rgba(19, 23, 33, 0.14);
-}
-
-.itemOpen {
-  .planTitle {
-    color: #0f141d;
-  }
-
-  .icon {
-    color: #0f141d;
-    background: rgba(19, 23, 33, 0.06);
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
-.trigger {
-  width: 100%;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 1.15rem;
-  align-items: center;
-  padding: 1.3rem 0;
-  border: none;
-  background: transparent;
-  text-align: left;
-  cursor: pointer;
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: clamp(1.75rem, 3vw, 2.6rem);
+  background: #ffffff;
+  border-radius: 1.6rem;
+  border: 1px solid rgba(19, 23, 33, 0.08);
+  box-shadow: 0 20px 50px -36px rgba(19, 23, 33, 0.28);
+  transition: box-shadow 0.24s ease, border-color 0.24s ease;
+
+  &:hover {
+    box-shadow: 0 28px 70px -40px rgba(19, 23, 33, 0.32);
+    border-color: rgba(19, 23, 33, 0.14);
+  }
 }
 
-.triggerBody {
+.cardHighlighted {
+  background: #ffffff;
+  border-color: rgba(19, 23, 33, 0.08);
+  color: #131721;
+  box-shadow: 0 20px 50px -36px rgba(19, 23, 33, 0.28);
+
+  &:hover {
+    border-color: rgba(19, 23, 33, 0.14);
+    box-shadow: 0 28px 70px -40px rgba(19, 23, 33, 0.32);
+  }
+}
+
+.cardHead {
   display: grid;
-  gap: 0.5rem;
-  min-width: 0;
+  gap: 0.95rem;
 }
 
 .planBadge {
   width: fit-content;
-  padding: 0.28rem 0.55rem;
+  padding: 0.5rem 1rem;
   border-radius: 999px;
-  background: #edf1f4;
-  color: #22252f;
-  font-size: 0.72rem;
-  font-weight: 600;
+  background: rgba(19, 23, 33, 0.08);
+  color: #131721;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .planBadgeHighlighted {
-  background: #1d222c;
-  color: #f4f6f8;
+  background: #ff5a14;
+  color: #ffffff;
 }
 
 .planTitle {
   margin: 0;
-  max-width: none;
-  font-size: clamp(1.18rem, 1.58vw, 1.9rem);
+  max-width: 18ch;
+  font-family: "Onest", sans-serif;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
   font-weight: 500;
-  line-height: 1.02;
-  letter-spacing: -0.02em;
-  color: rgba(19, 23, 33, 0.88);
-  transition: color 0.2s ease;
-  white-space: nowrap;
-}
-
-.icon {
-  position: relative;
-  width: 2.55rem;
-  height: 2.55rem;
-  flex-shrink: 0;
-  border-radius: 999px;
-  color: rgba(19, 23, 33, 0.58);
-  transition:
-    transform 0.22s ease,
-    color 0.2s ease,
-    background-color 0.2s ease;
-}
-
-.iconOpen {
-  transform: rotate(45deg);
-}
-
-.iconBar {
-  position: absolute;
-  inset: 50% auto auto 50%;
-  width: 1rem;
-  height: 1.5px;
-  border-radius: 999px;
-  background: currentColor;
-  transform: translate(-50%, -50%);
-}
-
-.iconBarVertical {
-  transform: translate(-50%, -50%) rotate(90deg);
-}
-
-.panel {
-  display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0;
-  transition:
-    grid-template-rows 0.28s ease,
-    opacity 0.22s ease;
-}
-
-.panelOpen {
-  grid-template-rows: 1fr;
-  opacity: 1;
-}
-
-.panelInner {
-  overflow: hidden;
-  display: grid;
-  gap: 0.9rem;
-  padding: 0 4rem 1.45rem 0;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: inherit;
+  text-wrap: balance;
 }
 
 .planDescription {
   margin: 0;
   max-width: 34rem;
-  font-size: 0.98rem;
-  font-weight: 450;
-  line-height: 1.55;
-  letter-spacing: 0;
-  color: rgba(19, 23, 33, 0.72);
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.96rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0b0e14;
+
+  .cardHighlighted & {
+    color: #131721;
+  }
 }
 
 .planIncludes {
   margin: 0;
   width: fit-content;
-  max-width: 100%;
-  padding: 0.38rem 0.72rem;
+  padding: 0.42rem 0.85rem;
   border-radius: 999px;
-  background: rgba(94, 113, 105, 0.12);
-  color: #335f4c;
+  background: #ff5a14;
+  color: #ffffff;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.82rem;
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: 0;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .featureList {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  gap: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
 }
 
 .featureItem {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  gap: 0.65rem;
+  gap: 0.7rem;
   align-items: start;
-  font-size: 0.98rem;
-  font-weight: 450;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
   line-height: 1.5;
-  letter-spacing: 0;
-  color: rgba(19, 23, 33, 0.82);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0b0e14;
+
+  .cardHighlighted & {
+    color: #131721;
+  }
 }
 
 .featureIcon {
-  margin-top: 0.18rem;
+  margin-top: 0.2rem;
   color: #131721;
   flex-shrink: 0;
+
+  .cardHighlighted & {
+    color: #131721;
+  }
 }
 
 .planCta {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  width: fit-content;
-  min-height: 3rem;
-  padding: 0.9rem 1.25rem;
+  gap: 0.85rem;
+  width: 100%;
+  min-height: 3.4rem;
+  margin-top: auto;
+  padding: 0 1.4rem;
   border-radius: 999px;
-  background: transparent;
+  background: #eceef5;
   color: #131721;
-  border: 1px solid rgba(19, 23, 33, 0.16);
-  font-size: 0.94rem;
+  font-family: "Onest", sans-serif;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
   text-decoration: none;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color 0.2s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    background: #ff5a14;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:hover::before,
+  &:focus-visible::before {
+    transform: scaleX(1);
+  }
+
+  &:hover .planCtaIcon,
+  &:focus-visible .planCtaIcon {
+    width: 1.1rem;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &:hover .planCtaDot,
+  &:focus-visible .planCtaDot {
+    width: 0;
+    opacity: 0;
+  }
+
+  .cardHighlighted & {
+    background: #252734;
+    color: #ffffff;
+
+    &::before {
+      background: #ff5a14;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: #ffffff;
+    }
+
+    .planCtaDot {
+      background: #ffffff;
+    }
+  }
+}
+
+.planCtaIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  opacity: 0;
+  transform: translateX(-0.35rem);
+  overflow: hidden;
   transition:
-    transform 0.18s ease,
-    border-color 0.18s ease,
-    background-color 0.18s ease,
-    color 0.18s ease;
+    width 0.26s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.22s ease,
+    transform 0.26s ease;
 
-  &:hover {
-    transform: translateY(-1px);
-    border-color: rgba(19, 23, 33, 0.3);
-    background: rgba(19, 23, 33, 0.04);
+  svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    stroke-width: 1.75;
   }
 }
 
-.planCtaHighlighted {
+.planCtaLabel {
+  white-space: nowrap;
+}
+
+.planCtaDot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
   background: #131721;
-  border-color: #131721;
-  color: #f4f6f8;
-
-  &:hover {
-    background: #202632;
-    border-color: #202632;
-  }
-}
-
-@media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 2.25rem;
-  }
-
-  .intro {
-    position: static;
-    max-width: none;
-  }
+  flex-shrink: 0;
+  transition:
+    width 0.22s ease,
+    opacity 0.22s ease;
 }
 
 @media (max-width: 768px) {
   .wrapper {
-    padding: 3rem 0 3rem;
-  }
-
-  .trigger {
-    gap: 0.85rem;
-    padding: 1.1rem 0;
-  }
-
-  .planTitle {
-    font-size: 1.2rem;
-    line-height: 1.08;
-    white-space: normal;
-    text-wrap: balance;
-  }
-
-  .panelInner {
-    padding: 0 0 1.2rem;
+    padding: 3.5rem 0 4rem;
   }
 
   .planDescription,
   .featureItem {
     font-size: 0.94rem;
-    line-height: 1.52;
-  }
-
-  .icon {
-    width: 2.2rem;
-    height: 2.2rem;
-  }
-
-  .planCta {
-    width: 100%;
-    justify-content: center;
   }
 }

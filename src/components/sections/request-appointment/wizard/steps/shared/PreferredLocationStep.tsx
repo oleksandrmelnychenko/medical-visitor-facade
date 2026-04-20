@@ -8,6 +8,7 @@ import { useRouter } from "@/i18n/navigation";
 import { useWizard } from "../../WizardContext";
 import { PreferredLocationType } from "../../types";
 import { WizardChoiceStep } from "../../components/WizardChoiceStep";
+import styles from "../../../RequestAppointment/RequestAppointment.module.scss";
 
 const LOCATIONS: { value: NonNullable<PreferredLocationType>; key: string; color: string; icon: LucideIcon }[] = [
   { value: "no_preference", key: "noPreference", color: "#D5D5D5", icon: MapPinHouse },
@@ -40,6 +41,7 @@ export function PreferredLocationStep() {
     <WizardChoiceStep
       title={t("preferredLocation.title")}
       subtitle={t("preferredLocation.subtitle")}
+      subtitleClassName={styles.welcomeSubtitleBody}
       onBack={handleBack}
       backLabel={t("back")}
       options={LOCATIONS.map((location) => ({

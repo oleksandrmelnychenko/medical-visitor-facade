@@ -1,13 +1,14 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { Link } from "@/i18n/navigation";
+import { ArrowUpRight } from "lucide-react";
 import { WizardProvider } from "./WizardContext";
-import { WizardProgressBar } from "./components/WizardProgressBar";
 import { getAccessibleWizardStep } from "./flow";
 import { LocationStep } from "./steps/LocationStep";
 import { TravelReadyStep } from "./steps/TravelReadyStep";
@@ -214,15 +215,35 @@ function WizardStepView() {
   );
 }
 
-function SelectedProgramBanner() {
+const GATE_STEPS: ReadonlySet<string> = new Set(["member-check", "account-check"]);
+
+function SelectedProgramBannerInner() {
   const tMembership = useTranslations("membership");
   const { data } = useWizard();
+  const searchParams = useSearchParams();
+  const currentStep = searchParams.get("step") ?? "member-check";
+  const [mounted, setMounted] = useState(false);
 
-  if (!data.selectedProgram) {
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Hide on the entry gate — the user hasn't committed to the new-patient
+  // path yet, so showing a program is premature. Returning members can
+  // change the program from the portal after login.
+  if (GATE_STEPS.has(currentStep)) {
     return null;
   }
 
-  return (
+  if (!data.selectedProgram || !data.accountCheckCompleted) {
+    return null;
+  }
+
+  if (!mounted || typeof document === "undefined") {
+    return null;
+  }
+
+  return createPortal(
     <div className={styles.wizardProgramBanner}>
       <div className={styles.wizardProgramCopy}>
         <p className={styles.wizardProgramEyebrow}>{tMembership("selection.bannerEyebrow")}</p>
@@ -230,8 +251,18 @@ function SelectedProgramBanner() {
       </div>
       <Link href="/membership" prefetch={false} className={styles.wizardProgramChangeLink}>
         {tMembership("selection.change")}
+        <ArrowUpRight aria-hidden="true" />
       </Link>
-    </div>
+    </div>,
+    document.body
+  );
+}
+
+function SelectedProgramBanner() {
+  return (
+    <Suspense fallback={null}>
+      <SelectedProgramBannerInner />
+    </Suspense>
   );
 }
 
@@ -239,7 +270,6 @@ export function ApplyNewPatientWizard() {
   return (
     <WizardProvider>
       <SelectedProgramBanner />
-      <WizardProgressBar />
       <WizardStepView />
     </WizardProvider>
   );

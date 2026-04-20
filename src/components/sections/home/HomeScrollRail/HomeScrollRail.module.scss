@@ -9,10 +9,19 @@
   justify-items: center;
   transform: translateY(-50%);
   pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.28s ease, visibility 0s linear 0s;
 
   @media (max-width: 1100px) {
     display: none;
   }
+}
+
+.railHidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.28s ease, visibility 0s linear 0.28s;
+  pointer-events: none;
 }
 
 .counter {

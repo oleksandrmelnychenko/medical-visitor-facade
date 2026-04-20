@@ -11,31 +11,25 @@
 }
 
 .wizardProgramBanner {
-  position: relative;
-  isolation: isolate;
-  display: grid;
+  position: fixed !important;
+  left: clamp(1rem, 2.6vw, 1.8rem) !important;
+  bottom: clamp(3.5rem, 6vw, 5rem) !important;
+  top: auto !important;
+  right: auto !important;
+  z-index: 40;
+  display: inline-grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem 1.25rem;
-  margin: 0 auto 0.65rem;
-  width: min(100%, 44rem);
-  padding: 0.95rem 1.05rem;
-  border: 1px solid rgba(24, 28, 38, 0.08);
-  border-radius: 1rem 1.14rem 1rem 1.08rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 250, 248, 0.94) 100%);
-  box-shadow: 0 16px 30px -28px rgba(20, 24, 34, 0.18);
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto;
-    height: 2px;
-    border-radius: inherit;
-    background: linear-gradient(90deg, rgba(183, 127, 107, 0.82) 0%, rgba(126, 143, 165, 0.72) 100%);
-    opacity: 0.88;
-    pointer-events: none;
-  }
+  gap: 0.8rem 1rem;
+  width: auto;
+  max-width: min(calc(100vw - 2rem), 24rem);
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border: none;
+  border-radius: 0.85rem;
+  background: #0e1218;
+  box-shadow: 0 18px 36px -22px rgba(0, 0, 0, 0.45);
+  color: #f3f4f8;
 }
 
 .wizardProgramCopy {
@@ -46,21 +40,21 @@
 
 .wizardProgramEyebrow {
   margin: 0;
-  font-size: 0.66rem;
+  font-size: 0.62rem;
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(90, 110, 101, 0.9);
+  color: #ff5a14;
 }
 
 .wizardProgramTitle {
   margin: 0;
-  font-size: 1.04rem;
+  font-size: 0.96rem;
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.01em;
-  color: #152129;
+  color: #f3f4f8;
 }
 
 .wizardProgramChangeLink {
@@ -68,38 +62,39 @@
   align-items: center;
   justify-content: center;
   align-self: stretch;
+  gap: 0.35rem;
   white-space: nowrap;
-  padding-left: 1rem;
-  border-left: 1px solid rgba(24, 28, 38, 0.08);
-  color: #152129;
-  font-size: 0.84rem;
+  padding-left: 0.85rem;
+  border-left: 1px solid rgba(243, 244, 248, 0.14);
+  color: #ffffff;
+  font-size: 0.78rem;
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.01em;
   text-decoration: none;
-  transition: opacity 0.2s ease, color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
+
+  svg {
+    width: 0.95rem;
+    height: 0.95rem;
+    stroke-width: 2;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
 
   &:hover {
-    opacity: 1;
-    color: rgba(21, 33, 41, 0.68);
+    color: #ffffff;
+  }
+
+  &:hover svg {
+    transform: translate(1px, -1px);
   }
 }
 
 @media (max-width: 768px) {
   .wizardProgramBanner {
-    grid-template-columns: 1fr;
-    align-items: start;
-    gap: 0.65rem;
-    padding: 0.85rem 0.9rem;
-  }
-
-  .wizardProgramChangeLink {
-    width: 100%;
-    justify-content: flex-start;
-    padding-left: 0;
-    padding-top: 0.7rem;
-    border-left: none;
-    border-top: 1px solid rgba(24, 28, 38, 0.08);
+    max-width: calc(100vw - 1.5rem);
+    padding: 0.75rem 0.9rem;
   }
 }
 
@@ -209,11 +204,11 @@
   font-weight: 400;
   color: var(--wizard-ink, var(--text-heading));
   letter-spacing: -0.018em;
-  line-height: 1.12;
+  line-height: 1.44;
   text-align: center;
   white-space: pre-line;
   padding: 0;
-  max-width: 38ch;
+  max-width: 52ch;
   margin: 0 auto;
   text-wrap: balance;
 
@@ -281,16 +276,17 @@
 
 .welcomeSubtitleBody {
   max-width: 34rem;
-  font-size: 1.12rem;
-  font-weight: 400;
-  letter-spacing: 0;
-  text-transform: none;
-  color: #1a1a22;
-  line-height: 1.68;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.94rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0b0e14;
+  line-height: 1.5;
 
   @media (max-width: 639px) {
-    font-size: 1.02rem;
-    line-height: 1.6;
+    font-size: 0.84rem;
+    line-height: 1.48;
   }
 }
 
@@ -329,7 +325,6 @@
   padding-top: 0.5rem;
 }
 
-.welcomeContinueButton,
 .wizardPrimaryButton {
   width: min(100%, 18.5rem);
   min-height: 3.3rem;
@@ -366,6 +361,152 @@
     svg {
       transform: translateX(3px);
     }
+  }
+}
+
+.welcomeContinueLabel {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.welcomeContinueIcon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  margin-right: -0.15rem;
+  opacity: 0;
+  overflow: hidden;
+  flex-shrink: 0;
+  transform: translateX(-0.35rem);
+  transition:
+    width 0.22s ease,
+    margin-right 0.22s ease,
+    opacity 0.18s ease,
+    transform 0.22s ease;
+
+  svg {
+    width: 0.95rem !important;
+    height: 0.95rem !important;
+    stroke-width: 2.5 !important;
+    color: currentColor !important;
+    filter: none !important;
+  }
+}
+
+.welcomeContinueDot {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  width: 0.28rem;
+  height: 0.28rem;
+  margin-left: 0.55rem;
+  border-radius: 999px;
+  background: #ffffff;
+  flex-shrink: 0;
+  transition:
+    width 0.22s ease,
+    margin-left 0.22s ease,
+    opacity 0.18s ease,
+    transform 0.22s ease;
+}
+
+.welcomeContinueButton:hover:not(:disabled) .welcomeContinueIcon,
+.welcomeContinueButton:focus-visible:not(:disabled) .welcomeContinueIcon {
+  width: 1rem;
+  margin-right: 0.05rem;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.welcomeContinueButton:hover:not(:disabled) .welcomeContinueDot,
+.welcomeContinueButton:focus-visible:not(:disabled) .welcomeContinueDot {
+  width: 0;
+  margin-left: 0;
+  opacity: 0;
+  transform: scale(0.4);
+}
+
+.welcomeContinueButton {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: min(100%, 18.5rem);
+  min-height: 3.1rem;
+  align-self: center;
+  margin-top: 0.2rem;
+  padding: 0.92rem 1.7rem !important;
+  font-size: clamp(0.78rem, 0.66rem + 0.38vw, 0.98rem) !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.015em;
+  border: none !important;
+  border-radius: 999px !important;
+  background: #252734 !important;
+  color: #f4f3f1 !important;
+  white-space: nowrap;
+  text-decoration: none;
+  text-shadow: none;
+  overflow: hidden;
+  box-shadow:
+    0 12px 28px -18px rgba(16, 18, 28, 0.55),
+    0 4px 10px -4px rgba(16, 18, 28, 0.18) !important;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease !important;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    background: #ff5a14;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  svg {
+    position: relative;
+    z-index: 1;
+    width: 1.3em;
+    height: 1.3em;
+    stroke-width: 2.4;
+    color: currentColor;
+  }
+
+  &:hover:not(:disabled),
+  &:focus-visible:not(:disabled) {
+    background: #252734 !important;
+    box-shadow:
+      0 14px 30px -18px rgba(16, 18, 28, 0.6),
+      0 6px 12px -6px rgba(16, 18, 28, 0.22) !important;
+  }
+
+  &:hover:not(:disabled)::before,
+  &:focus-visible:not(:disabled)::before {
+    transform: scaleX(1);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+    box-shadow: none !important;
   }
 }
 
@@ -462,21 +603,29 @@
 }
 
 .dobHint {
-  width: auto;
-  margin: 0;
-  padding: 0.35rem 0.9rem;
-  font-size: 0.72rem;
-  font-weight: 500;
-  line-height: 1.4;
-  color: rgba(26, 26, 34, 0.5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.7rem 1.4rem;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: #ffffff;
   text-align: center;
-  background: rgba(24, 28, 38, 0.04);
-  border: 1px solid rgba(24, 28, 38, 0.06);
-  border-radius: 6px;
+  background: #ff5a14;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 12px 28px -22px rgba(255, 90, 20, 0.6);
 }
 
 .dobHintError {
-  color: #b13a45;
+  background: #c22a0f;
+  color: #ffffff;
 }
 
 .contactPhoneSurface {
@@ -1074,7 +1223,7 @@
 }
 
 .wizardShellHeader {
-  padding: clamp(0.05rem, 0.3vw, 0.18rem) clamp(0.1rem, 0.4vw, 0.25rem) clamp(0.95rem, 2vw, 1.45rem);
+  padding: clamp(0.05rem, 0.3vw, 0.18rem) clamp(0.1rem, 0.4vw, 0.25rem) clamp(2.2rem, 4vw, 3.2rem);
 }
 
 .wizardPageRow {
@@ -1119,15 +1268,15 @@
 .wizardTreeStrip {
   width: 100%;
   background: transparent;
-  padding: clamp(0.4rem, 1vw, 0.72rem) clamp(1rem, 3vw, 2rem) 0.28rem;
+  padding: clamp(2.4rem, 4.6vw, 3.8rem) clamp(1rem, 3vw, 2rem) 0.28rem;
   position: sticky;
   top: 0;
   z-index: 5;
 }
 
 .wizardTreeCol {
-  width: min(100%, 44rem);
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   padding: 0.4rem 0;
   border: none;
   background: transparent;
@@ -1684,7 +1833,7 @@
   min-height: calc(100vh - 80px);
   overflow: hidden;
   isolation: isolate;
-  background: #fffcfa !important;
+  background: #eceef5 !important;
 
   &::before {
     display: none;
@@ -2029,31 +2178,42 @@
 
 .locationConceptDesc {
   margin: 0;
-  font-family: 'Onest', sans-serif;
-  font-size: 0.98rem;
-  font-weight: 400;
-  color: rgba(26, 26, 34, 0.7);
-  letter-spacing: 0.005em;
-  line-height: 1.45;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #0b0e14;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-transform: uppercase;
   transition: color 0.2s ease;
 
   @media (max-width: 640px) {
-    font-size: 0.92rem;
+    font-size: 0.68rem;
   }
 }
 
 .locationConceptFootnote {
-  margin: 0.8rem 0 0;
-  padding: 0.95rem 1rem;
-  font-family: 'Onest', sans-serif;
-  font-size: 0.96rem;
-  font-weight: 500;
-  line-height: 1.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.2rem auto 0;
+  padding: 0.72rem 1.4rem;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.4;
   text-align: center;
-  color: #1a1a22;
-  background: #f9f5f2;
-  border: 1px solid rgba(24, 28, 38, 0.08);
-  border-radius: 1rem 1.25rem 1rem 1.15rem;
+  color: #ffffff;
+  background: #ff5a14;
+  border: none;
+  border-radius: 1.4rem;
+  box-shadow: 0 12px 28px -22px rgba(255, 90, 20, 0.6);
+  position: relative;
+  z-index: 1;
 }
 
 .wizardSurfaceEnter {
@@ -2481,29 +2641,35 @@
 }
 
 .wizardBackText {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.15em;
-  padding: 0;
-  font-family: 'Onest', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  color: var(--text-heading);
-  background: transparent;
+  gap: 0.45rem;
+  padding: 0.6rem 1.15rem;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0b0e14;
+  background: rgba(19, 23, 33, 0.08);
   border: none;
+  border-radius: 999px;
   cursor: pointer;
-  transition: color 180ms ease, opacity 180ms ease;
+  pointer-events: auto;
+  transition: background-color 180ms ease, color 180ms ease;
 
   svg {
-    width: 1.2em;
-    height: 1.2em;
-    stroke-width: 2.6;
+    width: 0.95rem;
+    height: 0.95rem;
+    stroke-width: 2.4;
   }
 
   &:hover {
-    opacity: 0.6;
+    background: rgba(19, 23, 33, 0.14);
+    color: #000000;
   }
 }
 
@@ -3336,21 +3502,27 @@
 // ── Wizard shared step utilities ──────────────────────────────────────────────
 
 .wizardEmergencyNote {
-  width: 100%;
-  font-size: 0.96rem;
-  font-weight: 500;
-  letter-spacing: 0;
-  text-transform: none;
-  color: #1a1a22;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
   text-align: center;
   margin-top: 0.2rem;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.6;
-  padding: 0.95rem 1rem;
-  background: #f9f5f2;
-  border: 1px solid rgba(24, 28, 38, 0.08);
-  border-radius: 1rem 1.25rem 1rem 1.15rem;
+  line-height: 1.2;
+  padding: 0.7rem 1.4rem;
+  background: #ff5a14;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 12px 28px -22px rgba(255, 90, 20, 0.6);
 
   @media (max-width: 639px) {
     font-size: 0.9rem;
@@ -3993,15 +4165,29 @@
 }
 
 .wizardTimingNote {
-  margin-top: 1.2rem;
-  padding: 0.95rem 1rem;
-  background: #f9f5f2;
-  border: 1px solid rgba(24, 28, 38, 0.08);
-  border-radius: 1rem 1.25rem 1rem 1.15rem;
-  font-size: 0.96rem;
-  font-weight: 500;
-  color: #1a1a22;
-  line-height: 1.6;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.2rem auto 0;
+  padding: 0.7rem 1.4rem;
+  background: #ff5a14;
+  border: none;
+  border-radius: 999px;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.25;
+  box-shadow: 0 12px 28px -22px rgba(255, 90, 20, 0.6);
+
+  @media (max-width: 639px) {
+    font-size: 0.9rem;
+  }
 }
 
 .fileUploadSection {
@@ -4064,20 +4250,23 @@
   gap: 0.5rem;
   width: fit-content;
   min-height: 2.85rem;
-  padding: 0.72rem 1.2rem;
+  padding: 0.7rem 1.4rem;
   border: none;
-  border-radius: 0.5rem;
-  background: linear-gradient(135deg, #3f434c 0%, #282c34 56%, #191c22 100%);
-  color: #fff;
-  font-family: "Onest", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  border-radius: 999px;
+  background: #ff5a14;
+  color: #ffffff;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: opacity 180ms ease;
+  box-shadow: 0 12px 28px -22px rgba(255, 90, 20, 0.6);
+  transition: background-color 180ms ease, box-shadow 180ms ease;
 
   &:hover {
-    opacity: 0.85;
+    background: #e44d0c;
+    box-shadow: 0 14px 32px -20px rgba(255, 90, 20, 0.7);
   }
 }
 
