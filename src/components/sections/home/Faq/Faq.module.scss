@@ -2,10 +2,8 @@
 
 .section {
   position: relative;
-  padding: clamp(5rem, 8vw, 8.5rem) 0 clamp(3rem, 6vw, 5.5rem);
-  background:
-    radial-gradient(circle at top left, rgba(168, 181, 176, 0.2), transparent 36%),
-    linear-gradient(180deg, #f7f5f1 0%, #f0ece5 100%);
+  padding: clamp(5rem, 8vw, 8.5rem) 0;
+  background: #ece7df;
 }
 
 .container {
@@ -30,14 +28,27 @@
 }
 
 .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  justify-self: start;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 2.1rem;
+  padding: 0.48rem 0.98rem;
   margin: 0;
-  font-family: "Onest", sans-serif;
-  font-size: 0.88rem;
-  font-weight: 650;
-  line-height: 1.08;
-  letter-spacing: 0.12em;
+  border: none;
+  border-radius: 999px;
+  background: rgba(19, 23, 33, 0.08);
+  box-shadow: none;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #131721;
+  color: #0b0e14;
+  white-space: nowrap;
 }
 
 .title {
@@ -189,7 +200,7 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: 4.5rem 0 2.6rem;
+    padding: 4.5rem 0;
   }
 
   .title {

@@ -4,7 +4,6 @@ import styles from "./ScaleStats.module.scss";
 
 export async function ScaleStats() {
   const t = await getTranslations("scaleStats");
-  const eyebrow = t("eyebrow");
   const splitSlides = [
     "/assets/scale-intro-panorama.webp",
     "/assets/scale-intro-electric.webp",
@@ -35,11 +34,6 @@ export async function ScaleStats() {
                 </div>
               ))}
             </div>
-            <div className={styles.splitStatsOverlay} aria-hidden="true">
-              <span className={styles.splitStatLine}>{t("overlayLineOne")}</span>
-              <span className={styles.splitStatLine}>{t("overlayLineTwo")}</span>
-              <span className={styles.splitStatLine}>{t("overlayLineThree")}</span>
-            </div>
           </div>
 
           <div className={styles.splitCopy}>
@@ -48,61 +42,29 @@ export async function ScaleStats() {
           </div>
         </div>
 
-        <div className={styles.lowerMedia}>
-          <Image
-            src="/assets/scale-balcony-tree.png"
-            alt=""
-            fill
-            sizes="(max-width: 640px) 92vw, (max-width: 960px) 70vw, 34vw"
-            className={styles.lowerImage}
-          />
-        </div>
-
-        <div className={styles.grid}>
-          <div className={`${styles.tile} ${styles.tileHeadline}`}>
-            {eyebrow ? <p className={styles.eyebrow}>{eyebrow}</p> : null}
-            <h2 id="scale-stats-title" className={styles.headline}>
-              {t("headline")}
-            </h2>
-          </div>
-
-          <div className={styles.tile}>
-            <span className={styles.tileValue}>
-              {t("yearsValue")}
-              <span className={styles.tileValuePlus}>+</span>
-            </span>
-            <span className={styles.tileLabel}>{t("yearsLabel")}</span>
-          </div>
-
-          <div className={styles.tile}>
-            <span className={styles.tileValue}>{t("citiesValue")}</span>
-            <span className={styles.tileLabel}>{t("citiesLabel")}</span>
-          </div>
-
-          <div className={styles.tile}>
-            <span className={styles.tileValue}>{t("supportAreasValue")}</span>
-            <span className={styles.tileLabel}>{t("supportAreasLabel")}</span>
-          </div>
-
-          <div className={`${styles.tile} ${styles.tileBrand}`} aria-hidden="true">
-            <div className={styles.brandPattern}>
-              {Array.from({ length: 36 }).map((_, i) => (
-                <span key={i} className={styles.brandDot} />
-              ))}
+        <div className={styles.secondarySplit}>
+          <div className={styles.secondaryCopy}>
+            <span className={styles.secondaryBadge}>{t("secondaryBadge")}</span>
+            <div className={styles.secondaryContent}>
+              <p id="scale-stats-title" className={styles.secondaryText}>
+                {t("secondaryText")}
+              </p>
             </div>
-            <div className={styles.brandTimeline}>
-              <div className={styles.brandTimelineTrack}>
-                <span className={styles.brandTimelineFill} />
-                <span className={`${styles.brandTimelineTick} ${styles.brandTimelineTickStart}`} />
-                <span className={styles.brandTimelineDot} />
-                <span className={`${styles.brandTimelineTick} ${styles.brandTimelineTickEnd}`} />
-              </div>
-              <div className={styles.brandTimelineLabels}>
-                <span>2012</span>
-                <span>2026</span>
-              </div>
+          </div>
+
+          <div className={styles.secondaryMedia}>
+            <Image
+              src="/assets/scale-balcony-mountains.png"
+              alt=""
+              fill
+              sizes="(max-width: 960px) 100vw, 60vw"
+              className={styles.secondaryImage}
+            />
+            <div className={styles.splitStatsOverlay} aria-hidden="true">
+              <span className={styles.splitStatLine}>{t("overlayLineOne")}</span>
+              <span className={styles.splitStatLine}>{t("overlayLineTwo")}</span>
+              <span className={styles.splitStatLine}>{t("overlayLineThree")}</span>
             </div>
-            <span className={styles.brandMark}>GMED</span>
           </div>
         </div>
       </div>

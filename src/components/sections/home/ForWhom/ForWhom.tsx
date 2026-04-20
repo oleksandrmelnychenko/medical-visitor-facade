@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { ArrowLeftIcon } from "@phosphor-icons/react/dist/ssr";
 import styles from "./ForWhom.module.scss";
 
 const ITEMS = [
@@ -25,7 +26,12 @@ export function ForWhom() {
               key={key}
               className={`${styles.item} ${!hasDescription ? styles.itemSingle : ""}`.trim()}
             >
-              <h3 className={styles.label}>{t(`items.${key}.label`)}</h3>
+              <div className={styles.labelRow}>
+                <h3 className={styles.label}>{t(`items.${key}.label`)}</h3>
+                <span className={styles.arrow} aria-hidden="true">
+                  <ArrowLeftIcon size={32} weight="light" />
+                </span>
+              </div>
               {hasDescription ? <p className={styles.description}>{t(descriptionKey)}</p> : null}
             </li>
           );

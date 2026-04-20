@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import styles from "./CareForward.module.scss";
@@ -32,6 +34,7 @@ const DETAIL_DESCRIPTORS = [
 
 export function CareForward() {
   const t = useTranslations("home.careForward");
+  const shouldReduceMotion = useReducedMotion();
   const [openKey, setOpenKey] = useState<(typeof STEPS)[number] | null>(STEPS[0]);
 
   const toggle = (key: (typeof STEPS)[number]) => {
@@ -41,8 +44,8 @@ export function CareForward() {
   return (
     <section id="care" className={styles.section} data-home-section="care">
       <div className={styles.container}>
-        <div className={styles.grid}>
-          <div className={styles.intro}>
+        <div className={styles.layout}>
+          <div className={styles.header}>
             <p className={styles.eyebrow}>{t("title")}</p>
             <h2 className={styles.title}>
               {t("headlineDark")}{" "}
@@ -50,7 +53,38 @@ export function CareForward() {
             </h2>
           </div>
 
-          <div className={styles.accordion}>
+          <div className={styles.body}>
+            <motion.div
+              className={styles.media}
+              aria-hidden="true"
+              initial={shouldReduceMotion ? undefined : { opacity: 0, scale: 0.92, y: 28 }}
+              whileInView={shouldReduceMotion ? undefined : { opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <motion.div
+                className={styles.mediaInner}
+                animate={
+                  shouldReduceMotion
+                    ? undefined
+                    : { y: [0, -6, 0], scale: [1, 1.012, 1] }
+                }
+                transition={
+                  shouldReduceMotion
+                    ? undefined
+                    : { duration: 6, ease: "easeInOut", repeat: Infinity }
+                }
+              >
+                <Image
+                  src="/assets/care-forward-stones.webp"
+                  alt=""
+                  fill
+                  sizes="(max-width: 767px) 80vw, 32vw"
+                />
+              </motion.div>
+            </motion.div>
+
+            <div className={styles.accordion}>
             {STEPS.map((key, index) => {
               const isOpen = openKey === key;
               const panelId = `care-${key}-panel`;
@@ -118,6 +152,7 @@ export function CareForward() {
                 </article>
               );
             })}
+            </div>
           </div>
         </div>
       </div>

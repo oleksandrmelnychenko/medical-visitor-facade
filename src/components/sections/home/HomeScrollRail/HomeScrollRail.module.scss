@@ -104,8 +104,8 @@
 
 .pointLabel {
   width: max-content;
-  max-width: 6.6rem;
-  padding: 0.24rem 0.4rem;
+  max-width: none;
+  padding: 0.32rem 0.72rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: #1f4b5c;
@@ -117,7 +117,7 @@
   font-weight: 680;
   line-height: 1;
   letter-spacing: 0.08em;
-  text-align: right;
+  text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
   opacity: 1;

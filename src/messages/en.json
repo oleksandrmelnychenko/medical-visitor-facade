@@ -14,24 +14,30 @@
     "home": "Home",
     "requestAppointment": "Discuss your situation",
     "login": "Sign in",
-    "selectLanguage": "Select language"
+    "selectLanguage": "Select language",
+    "menu": "Menu",
+    "headerTagline": "Treatment organization in German medical centers",
+    "headerTaglineSub": "Professional treatment organization and coordination. Operating since 2012."
   },
   "scaleStats": {
-    "eyebrow": "(Since 2012)",
+    "eyebrow": "",
     "introBadge": "About",
-    "introText": "We support patients from different countries in clinics across Germany and take care of treatment routing, clinic communication, documentation, and coordination at every stage.",
-    "headline": "Already working at scale, across Germany",
-    "overlayLineOne": "Responsibility.",
-    "overlayLineTwo": "Accountability.",
-    "overlayLineThree": "Sustainability.",
+    "introText": "Comprehensive organization of medical processes in specialized German clinics since 2012. We provide a full support cycle: from documentation analysis and data preparation to interdisciplinary coordination and Concierge service.",
+    "secondaryBadge": "Methodology and Standards",
+    "secondaryHeadline": "Interdisciplinary approach and deep expertise in resolving complex medical cases.",
+    "secondaryText": "We organize work according to European quality standards. We perform expert document analysis, assess risks, and form a treatment plan. We ensure transparency, information protection, and constant control at every stage of the treatment process.",
+    "headline": "Comprehensive medical coordination and treatment organization in German clinics",
+    "overlayLineOne": "Expertise.",
+    "overlayLineTwo": "Transparency.",
+    "overlayLineThree": "Routing.",
     "yearsValue": "14",
-    "yearsLabel": "Years of medical coordination",
+    "yearsLabel": "Years of clinical expertise",
     "yearsShortLabel": "years",
     "citiesValue": "4",
-    "citiesLabel": "Cities across Germany",
+    "citiesLabel": "Cities of operational presence",
     "citiesShortLabel": "cities",
     "supportAreasValue": "7",
-    "supportAreasLabel": "Areas of support",
+    "supportAreasLabel": "Areas of interdisciplinary coordination",
     "supportAreasShortLabel": "areas"
   },
   "footer": {
@@ -94,130 +100,134 @@
     },
     "hero": {
       "brandLabel": "Medical Concierge · Since 2012",
-      "titleDark": "The best medicine in Europe.",
-      "titleMuted": "Without language barriers, bureaucracy, or queues.",
-      "subHeadline": "International patient care in German clinics since 2012.",
+      "titleDark": "Comprehensive medicine",
+      "titleMuted": "in leading German centers.",
+      "subHeadline": "Professional treatment organization and expert coordination. Operating since 2012.",
       "caption": "München · Berlin · Hamburg · Köln",
-      "cta": "Discuss your situation",
-      "subtitle": "We guide international patients through every step — from specialist selection to treatment coordination.",
-      "learnMore": "Learn More"
+      "cta": "Get a consultation",
+      "subtitle": "We provide a full support cycle: from selecting specialized experts to coordinating all stages of treatment.",
+      "learnMore": "Learn More",
+      "scrollToExplore": "Scroll to explore"
     },
     "forWhom": {
-      "eyebrow": "For whom",
+      "eyebrow": "Specialization",
       "items": {
         "secondOpinion": {
-          "label": "Second opinion",
-          "description": "You received a complex diagnosis and want a second opinion in a German clinic."
+          "label": "Expert analysis of complex clinical cases"
         },
         "continuedTreatment": {
-          "label": "Continued treatment",
-          "description": "Your treatment was interrupted and needs to continue in Europe."
+          "label": "High-complexity surgical interventions"
         },
         "familyCheckup": {
-          "label": "Family check-up",
-          "description": "Your family needs a top-tier regular check-up protocol."
+          "label": "Organization of comprehensive check-up protocols"
         },
         "rareSpecialist": {
-          "label": "Rare specialist",
-          "description": "You are looking for a specialist in a rare condition."
+          "label": "Expertise in treating rare and highly specialized pathologies"
         }
       }
     },
     "careForward": {
-      "title": "What we do",
-      "headlineDark": "From initial treatment coordination",
-      "headlineMuted": "to managing every stage of your medical journey",
+      "title": "Services and Coordination",
+      "headlineDark": "From initial document analysis",
+      "headlineMuted": "to expert management of the clinical case",
       "subtitle": "",
       "services": {
         "consultation": {
-          "title": "Individual guidance",
-          "point1": "on treatment options",
+          "title": "Individual consultations",
+          "point1": "on possible treatment options",
           "point2": "on specialized clinics and medical experts",
-          "point3": "based on personal needs and priorities",
-          "item1Title": "Treatment options",
-          "item1Text": "with an assessment of available scenarios and possible directions",
-          "item2Title": "Clinics and medical experts",
-          "item2Text": "with a selection of specialized facilities and relevant specialists",
-          "item3Title": "Personal needs and priorities",
-          "item3Text": "tailored to individual requests, expectations, and preferences"
+          "point3": "based on the clinical situation and request",
+          "item1Title": "Treatment Strategy",
+          "item1Text": "expert analysis and selection of treatment strategy",
+          "item2Title": "Specialized Experts",
+          "item2Text": "selection of specialized medical centers and highly specialized doctors",
+          "item3Title": "Individual Request",
+          "item3Text": "consideration of clinical priorities and medical necessity",
+          "label": "Consultations"
         },
         "coordination": {
           "title": "Coordination of medical processes",
-          "point1": "from appointment scheduling to the alignment of every step",
-          "point2": "with the assurance of interdisciplinary collaboration",
-          "point3": "with a clear focus on efficiency and clarity",
-          "item1Title": "Journey stages",
-          "item1Text": "from appointment scheduling to the alignment of key treatment steps",
-          "item2Title": "Interdisciplinary collaboration",
-          "item2Text": "with coordinated communication between clinics, doctors, and all parties involved",
-          "item3Title": "Efficiency and clarity",
-          "item3Text": "with a transparent process that minimizes unnecessary burden on the patient"
+          "point1": "from appointment scheduling to the alignment of all stages",
+          "point2": "with interdisciplinary interaction",
+          "point3": "with a focus on efficiency and clarity",
+          "label": "Coordination",
+          "item1Title": "Routing",
+          "item1Text": "organization and coordination of key treatment visit stages",
+          "item2Title": "Interdisciplinary Interaction",
+          "item2Text": "coordination of communication between clinics, doctors, and all parties",
+          "item3Title": "Process Optimization",
+          "item3Text": "transparent organization to minimize organizational burden"
         },
         "documentation": {
-          "title": "Organization of documentation and communication",
-          "point1": "for medical reports, discharge letters, and records",
-          "point2": "through the structured transfer of medical information",
-          "point3": "to ensure smooth communication between all parties involved",
-          "item1Title": "Reports and records",
-          "item1Text": "with systematic handling of medical documents and specialized materials",
-          "item2Title": "Information transfer",
-          "item2Text": "with structured data preparation for clinics and specialists",
-          "item3Title": "Communication between parties",
-          "item3Text": "for accurate and coordinated information exchange at every stage"
+          "title": "Documentation and communication",
+          "point1": "for reports, discharge letters, and medical documents",
+          "point2": "structured transfer of medical information",
+          "point3": "ensuring correct data exchange between participants",
+          "label": "Documents",
+          "item1Title": "Medical Reporting",
+          "item1Text": "systematic work with medical conclusions and specialized materials",
+          "item2Title": "Data Structuring",
+          "item2Text": "professional preparation and translation of medical information for specialists",
+          "item3Title": "Information Exchange",
+          "item3Text": "accurate data transfer at each stage for process continuity"
         },
         "languageDigital": {
           "title": "Linguistic and digital support",
-          "point1": "through translation and interpreting services",
-          "point2": "for the translation of medical documentation",
-          "point3": "for digital consultations and platform access",
-          "item1Title": "Translation and interpreting",
-          "item1Text": "with written and spoken translation in a medical context",
-          "item2Title": "Medical documentation",
-          "item2Text": "with translation of discharge summaries, reports, and related materials",
-          "item3Title": "Online platforms",
-          "item3Text": "with support for connecting to digital services and video consultations"
+          "point1": "professional translation and coordination",
+          "point2": "translation of specialized documentation",
+          "point3": "support in using telemedicine platforms",
+          "label": "Language and Online",
+          "item1Title": "Medical Translation",
+          "item1Text": "written and spoken translation with a deep understanding of medical terminology",
+          "item2Title": "Translation of Reports",
+          "item2Text": "professional translation of discharge summaries, reports, and related materials",
+          "item3Title": "Remote Services",
+          "item3Text": "support for connecting to video communication services and patient portals"
         },
         "travelTransfer": {
-          "title": "Travel and transfer services to the highest standard",
-          "point1": "personal chauffeur and transfer services",
-          "point2": "business aviation and medical aviation",
-          "point3": "professionally coordinated medical transport",
-          "item1Title": "Transfer and chauffeur",
-          "item1Text": "with a personal service for travel between all points of the journey",
-          "item2Title": "Aviation solutions",
-          "item2Text": "with charter and medical flight arrangements when required",
-          "item3Title": "Medical transport",
-          "item3Text": "with coordination of safe transfer in the appropriate format"
+          "title": "Transport logistics and transfer",
+          "point1": "personal drivers and transfer service",
+          "point2": "business aviation and medical flights",
+          "point3": "coordination of specialized transportation",
+          "label": "Travel",
+          "item1Title": "Personal Transfer",
+          "item1Text": "organization of travel between all points of the medical visit",
+          "item2Title": "Aviation Solutions",
+          "item2Text": "organization of charter and medical flights of any complexity",
+          "item3Title": "Specialized Transport",
+          "item3Text": "coordination of safe transportation in the required format"
         },
         "personalSupport": {
-          "title": "Personal support throughout each stay",
-          "point1": "with carefully selected concierge and lifestyle services",
-          "point2": "with individual assistance on site",
-          "point3": "with discreet support tailored to personal preferences",
-          "item1Title": "Concierge service",
-          "item1Text": "with carefully selected concierge services and personal requests",
-          "item2Title": "On-site support",
-          "item2Text": "with individual assistance during stays and appointments",
-          "item3Title": "Personal preferences",
-          "item3Text": "with discreet support adapted to your specific needs"
+          "title": "Personal support and Concierge service",
+          "point1": "comprehensive support in solving household and organizational tasks",
+          "point2": "individual on-site assistance",
+          "point3": "adaptation of service to personal requests",
+          "label": "Support",
+          "item1Title": "Concierge Service",
+          "item1Text": "organization of household and service matters within the medical visit",
+          "item2Title": "On-site Support",
+          "item2Text": "individual assistance and coordination during all stages of the stay",
+          "item3Title": "Individual Service",
+          "item3Text": "delicate resolution of organizational tasks adapted to your schedule"
         },
         "aftercare": {
-          "title": "Ongoing support beyond treatment",
-          "point1": "through aftercare and rehabilitation coordination",
-          "point2": "through follow-up consultations",
-          "point3": "through transparent cost control and planning",
-          "item1Title": "Follow-up and rehabilitation",
-          "item1Text": "with coordination of ongoing medical support",
-          "item2Title": "Follow-up consultations",
-          "item2Text": "with organization of further contact with specialists",
-          "item3Title": "Costs and planning",
-          "item3Text": "with transparent budget control and next steps"
+          "title": "Support after completion of treatment",
+          "point1": "coordination of follow-up observation and rehabilitation",
+          "point2": "organization of remote consultations",
+          "point3": "monitoring and planning of further stages",
+          "label": "After treatment",
+          "item1Title": "Observation",
+          "item1Text": "organization of continuity of treatment and rehabilitation programs",
+          "item2Title": "Remote Communication",
+          "item2Text": "coordination of contact with attending physicians after returning home",
+          "item3Title": "Expense Planning",
+          "item3Text": "transparent budget control and formation of follow-up check-up schedule"
         }
       }
     },
     "office": {
-      "overline": "",
-      "title": "Our locations",
+      "overline": "Infrastructure",
+      "title": "Presence in key medical clusters ensures direct control of the treatment process and prompt interaction with clinics.",
       "subtitle": "",
       "cities": {
         "berlin": {
@@ -235,35 +245,35 @@
       }
     },
     "fullSupport": {
-      "overline": "How we work",
-      "title": "Our concept",
+      "overline": "Operational standards",
+      "title": "Agency concept",
       "subtitle": "",
       "principles": {
-        "individualSupport": "Individual support and personalized consultation",
-        "expertise": "Medical and organizational expertise",
-        "confidentiality": "Security, discretion, and reliability",
-        "digitalPortal": "Digital client portal",
-        "security": "High IT security standards for the protection of sensitive data",
-        "concierge": "Concierge and lifestyle services",
-        "coordination": "Efficient coordination",
-        "international": "International support from a single source"
+        "individualSupport": "Targeted medical coordination",
+        "expertise": "Medical and operational expertise",
+        "confidentiality": "Compliance with medical secrecy and data protection",
+        "digitalPortal": "Access to documents via patient portal",
+        "security": "Data security according to EU standards",
+        "concierge": "Concierge service and logistics",
+        "coordination": "Interdisciplinary coordination",
+        "international": "Management based on the 'single source' principle"
       }
     }
   },
   "appointment": {
     "title": "Submit Request",
-    "subtitle": "Submit a request, and our team will contact you shortly.",
+    "subtitle": "Fill out the form, and our specialist will contact you.",
     "backToSelection": "← Back to selection",
     "freeService": {
       "title": "Pro bono",
-      "description1": "We understand that medical care can be financially challenging. The Medical Concierge Agency offers a limited program for patients who need help with medical expenses.",
-      "description1Dark": "We understand that medical care can be financially challenging.",
-      "description1Muted": "The Medical Concierge Agency offers a limited program",
-      "description1Accent": "for patients who need help with medical expenses.",
-      "description2": "Our team carefully reviews each application and provides support based on available resources.",
-      "priority": "Priority cases:",
-      "priorityText": "We prioritize cases involving children, urgent medical situations, and patients in exceptional circumstances.",
-      "note": "Please note: Applications for complimentary care are reviewed individually based on available capacity and medical necessity. We will contact you within 5-7 business days regarding the status of your application."
+      "description1": "Organizing high-quality treatment requires significant resources. As part of social responsibility, the agency provides limited quotas for pro bono medical coordination.",
+      "description1Dark": "Organizing high-quality treatment requires significant resources.",
+      "description1Muted": "As part of social responsibility, the agency provides quotas (Pro bono)",
+      "description1Accent": "for pro bono medical coordination.",
+      "description2": "Each request is considered individually, based on the complexity of the clinical case and the agency's available resources.",
+      "priority": "Priority areas:",
+      "priorityText": "Priority in the distribution of quotas is given to emergency situations and cases involving the treatment of children.",
+      "note": "Please note: the decision to provide pro bono service is made based on an internal audit. The review period is up to 7 business days."
     },
     "newPatient": {
       "trustBanner": "Your data is encrypted and secure",
@@ -276,7 +286,7 @@
           "insurance": "Insurance",
           "finish": "Final Review"
         },
-        "welcome": "Welcome",
+        "welcome": "Start",
         "member-check": "Client Status",
         "account-check": "Portal Access",
         "location": "Location",
@@ -298,8 +308,8 @@
         "primary-language": "Language",
         "services": "Support Services",
         "address": "Home Address",
-        "concern-intro": "Medical Concern",
-        "primary-concern": "Primary Concern",
+        "concern-intro": "Purpose of request",
+        "primary-concern": "Clinical situation",
         "health-risk": "Health Risk",
         "current-treatment": "Current Treatment",
         "additional-concerns": "Additional Info",
@@ -359,8 +369,8 @@
         "postalCode": "Postal code (enter 0 if not applicable)"
       },
       "welcome": {
-        "title": "Let's get started",
-        "subtitle": "We will ask you a few questions to help our coordination team prepare for your consultation.",
+        "title": "Registration of request",
+        "subtitle": "The data provided in the form is necessary for the initial clinical audit and the selection of specialized medical experts.",
         "continue": "Continue",
         "emergency": "If this is a medical emergency, please call 112 or 911 immediately.",
         "privacyPolicy": "Read our Privacy Policy"
@@ -464,12 +474,12 @@
         "button": "Back to Home"
       },
       "concernIntro": {
-        "title": "Please tell us about your primary concern",
-        "description": "Describe the reason for your request. This helps us find the most suitable medical specialist for your case.",
+        "title": "Purpose of request",
+        "description": "A brief description of the situation is sufficient. We will discuss and analyze the details more thoroughly during our call.",
         "start": "Start"
       },
       "primaryConcernText": {
-        "title": "Describe the reason for your request",
+        "title": "Clinical situation (Diagnosis or symptom)",
         "placeholder": "Briefly describe your situation or objectives",
         "attachmentsLabel": "Files (optional)",
         "attachmentsHint": "If you already have documents, you can attach them here.",
@@ -488,12 +498,12 @@
       "services": {
         "title": "Will you need any of the following services during your stay in Germany?",
         "subtitle": "Select all that apply",
-        "driver": "Personal driver and transfer services",
+        "driver": "Driver and transfer services",
         "driverLearnMore": "Learn more about our transfer services",
-        "driverDetails": "Private airport, clinic, and hotel transfers with coordinated timing and a dedicated driver throughout your care journey.",
+        "driverDetails": "Provision of professional logistics and transfer between medical visit locations.",
         "concierge": "Concierge services",
         "conciergeLearnMore": "Learn more about our concierge services",
-        "conciergeDetails": "Hands-on support with accommodation, bookings, day-to-day arrangements, and practical coordination during your stay.",
+        "conciergeDetails": "Comprehensive organizational support: coordination of daily tasks, booking, and execution of personal requests.",
         "medicalTransport": "Ground medical transport",
         "medicalTransportLearnMore": "Learn more about our medical transport services",
         "medicalTransportDetails": "Medically supervised ground transport for patients who require more support than a standard transfer can provide.",
@@ -508,8 +518,8 @@
         "close": "Close"
       },
       "insuranceIntro": {
-        "title": "Next, we'd like to ask about your insurance",
-        "subtitle": "If you have health insurance, please provide the details here. If not, we can discuss payment options during our call.",
+        "title": "Insurance",
+        "subtitle": "Please provide your medical insurance details.",
         "start": "Next"
       },
       "insuranceStep": {
@@ -525,7 +535,7 @@
       },
       "wrapUpIntro": {
         "title": "Final details",
-        "subtitle": "We just need to confirm your location preferences and timeline. Our team will contact you within 3 business days.",
+        "subtitle": "Only timing and location remain to be specified. We will contact you within 3 business days.",
         "start": "Finish"
       },
       "preferredLocation": {

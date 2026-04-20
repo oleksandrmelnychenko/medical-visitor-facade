@@ -14,40 +14,31 @@
   --office-border-soft: rgba(18, 22, 29, 0.08);
   --office-text: #141923;
   --office-muted: rgba(20, 25, 35, 0.64);
-  padding: 84px 0;
-
+  padding: clamp(5rem, 8vw, 8.5rem) 0;
 
   display: flex;
   align-items: center;
   position: relative;
   z-index: 1;
   overflow: hidden;
-  background-color: #fffcfa;
+  background-color: #ece7df;
   border-top: none;
   border-radius: 0 0 84px 84px;
   box-shadow: none;
-  content-visibility: auto;
-  contain-intrinsic-size: 900px;
 
   @media (max-width: 767px) {
-    padding: 2.5rem 0 0;
+    padding: 4.5rem 0;
     border-radius: 0;
   }
 
 }
 
 .container {
-  width: 100% !important;
-  max-width: var(--container-xl) !important;
+  width: min(100%, 1400px) !important;
+  max-width: 1400px !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  padding-left: 1rem !important;
-  padding-right: 1rem !important;
-
-  @include up(md) {
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
-  }
+  padding: 0 clamp(1.2rem, 3vw, 2.6rem) !important;
 }
 
 .shell {
@@ -70,7 +61,7 @@
 }
 
 .introPanel {
-  width: min(100%, 48rem);
+  width: min(100%, 64rem);
   display: grid;
   align-content: start;
   gap: clamp(1.15rem, 2vw, 1.85rem);
@@ -85,46 +76,36 @@
 }
 
 .overline {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  width: fit-content;
   margin: 0;
-  font-family: "Onest", sans-serif;
-  font-size: clamp(0.92rem, 1vw, 0.98rem);
-  font-weight: 650;
-  line-height: 1.08;
-  letter-spacing: 0.04em;
+  padding: 0.48rem 0.98rem;
+  border: none;
+  border-radius: 999px;
+  background: rgba(19, 23, 33, 0.08);
+  box-shadow: none;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(20, 25, 35, 0.72);
+  color: #0b0e14;
+  white-space: nowrap;
 }
 
 .title {
   margin: 0;
   max-width: 100%;
   @include home-section-title;
-  color: #9d7f84;
-  background: linear-gradient(90deg, #b77f6b 0%, #9f88a2 33%, #7f90a5 66%, #b77f6b 100%);
-  background-size: 200% 100%;
-  animation: officeTitleShift 6s ease infinite;
+  color: #0b0e14;
   text-wrap: balance;
 }
 
-@supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  .title {
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-}
-
-@keyframes officeTitleShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.titleAccent {
+  color: #ff5a14;
 }
 
 .cityStrip {
@@ -601,7 +582,6 @@
 @media (max-width: 767px) {
   .office.office {
     border-radius: 0 0 32px 32px;
-    padding-bottom: 32px;
     box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.12);
   }
 

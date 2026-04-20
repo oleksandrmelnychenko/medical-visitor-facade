@@ -165,7 +165,7 @@ export function Faq() {
       <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.intro}>
-            <p className={styles.eyebrow}>({getFaqText("eyebrow")})</p>
+            <p className={styles.eyebrow}>{getFaqText("eyebrow")}</p>
             <h2 className={styles.title}>{getFaqText("title")}</h2>
             <p className={styles.subtitle}>{getFaqText("subtitle")}</p>
           </div>

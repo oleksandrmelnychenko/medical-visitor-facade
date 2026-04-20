@@ -3,6 +3,8 @@
   z-index: 0;
   height: 82vh;
   background: #1f4b5c;
+  border-radius: 0 0 84px 84px;
+  overflow: hidden;
 }
 
 .pinned {
@@ -72,6 +74,7 @@
   .anchor {
     height: auto !important;
     min-height: 0;
+    border-radius: 0 0 32px 32px;
   }
 
   .pinned {

@@ -5,43 +5,47 @@ import { useLocale, useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import styles from "./HomeScrollRail.module.scss";
 
-const SECTION_IDS = ["hero", "support", "care", "office", "outro", "faq", "scale"] as const;
+const SECTION_IDS = ["hero", "forWhom", "scale", "support", "care", "office", "outro", "faq"] as const;
 const SECTION_SCROLL_OFFSET = 104;
 const SHORT_LABELS = {
   de: {
     hero: "Start",
+    forWhom: "Fokus",
     support: "Konzept",
     care: "Leistungen",
     office: "Standorte",
     outro: "Anfrage",
-    faq: "FAQ",
+    faq: "FAQs",
     scale: "Zahlen",
   },
   en: {
     hero: "Home",
+    forWhom: "Focus",
     support: "Concept",
     care: "Services",
     office: "Offices",
     outro: "Apply",
-    faq: "FAQ",
+    faq: "FAQs",
     scale: "Scale",
   },
   ru: {
     hero: "Главная",
+    forWhom: "Специализация",
     support: "Концепт",
     care: "Услуги",
-    office: "Офисы",
+    office: "Представительства",
     outro: "Заявка",
-    faq: "FAQ",
+    faq: "FAQs",
     scale: "Цифры",
   },
   es: {
     hero: "Inicio",
+    forWhom: "Foco",
     support: "Concepto",
     care: "Servicios",
     office: "Oficinas",
     outro: "Solicitud",
-    faq: "FAQ",
+    faq: "FAQs",
     scale: "Cifras",
   },
 } as const;
@@ -59,12 +63,13 @@ export function HomeScrollRail() {
         label: shortLabels.hero,
         fullLabel: `${tHome("hero.titleDark")} ${tHome("hero.titleMuted")}`,
       },
+      { id: "forWhom", label: shortLabels.forWhom, fullLabel: tHome("forWhom.eyebrow") },
+      { id: "scale", label: shortLabels.scale, fullLabel: shortLabels.scale },
       { id: "support", label: shortLabels.support, fullLabel: tHome("fullSupport.title") },
       { id: "care", label: shortLabels.care, fullLabel: tHome("careForward.title") },
       { id: "office", label: shortLabels.office, fullLabel: tHome("office.title") },
       { id: "outro", label: shortLabels.outro, fullLabel: tCommon("requestAppointment") },
       { id: "faq", label: shortLabels.faq, fullLabel: tHome("faq.title") },
-      { id: "scale", label: shortLabels.scale, fullLabel: shortLabels.scale },
     ] as const,
     [shortLabels, tCommon, tHome]
   );
