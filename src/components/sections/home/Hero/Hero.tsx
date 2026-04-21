@@ -9,14 +9,14 @@ export function Hero() {
 
   return (
     <section id="hero" className={styles.hero} data-home-section="hero">
-      <div className={styles.heroIntro}>
+      {/* <div className={styles.heroIntro}>
         <h1 className={styles.heroTagline}>
           <span className={styles.heroTaglineAccent}>{t("titleDark")}</span>{" "}
           {t("titleMuted")}{" "}
           <span className={styles.heroTaglineAccent}>{t("subHeadlineAccent")}</span>{" "}
           {t("subHeadlineTail")}
         </h1>
-      </div>
+      </div> */}
 
       <div className={cn(styles.scrollBar, styles.scrollBarTop)} aria-hidden="true">
         <span className={styles.scrollBarMark}>+</span>
