@@ -4,10 +4,6 @@ import styles from "./ScaleStats.module.scss";
 
 export async function ScaleStats() {
   const t = await getTranslations("scaleStats");
-  const splitSlides = [
-    "/assets/scale-intro-panorama.webp",
-    "/assets/scale-intro-electric.webp",
-  ];
 
   return (
     <section
@@ -19,20 +15,15 @@ export async function ScaleStats() {
         <div className={styles.featureSplit}>
           <div className={styles.splitMedia}>
             <div className={styles.splitSlides} aria-hidden="true">
-              {splitSlides.map((src, index) => (
-                <div
-                  key={src}
-                  className={`${styles.splitSlide} ${index === 0 ? styles.splitSlidePrimary : styles.splitSlideSecondary}`}
-                >
-                  <Image
-                    src={src}
-                    alt="Panoramic view of a German city at scale"
-                    fill
-                    sizes="(max-width: 960px) 100vw, 60vw"
-                    className={`${styles.splitImage} ${index === 0 ? styles.splitImagePrimary : styles.splitImageSecondary}`}
-                  />
-                </div>
-              ))}
+              <div className={`${styles.splitSlide} ${styles.splitSlidePrimary}`}>
+                <Image
+                  src="/assets/scale-intro-panorama.webp"
+                  alt="Panoramic view of a German city at scale"
+                  fill
+                  sizes="(max-width: 960px) 100vw, 60vw"
+                  className={styles.splitImage}
+                />
+              </div>
             </div>
           </div>
 

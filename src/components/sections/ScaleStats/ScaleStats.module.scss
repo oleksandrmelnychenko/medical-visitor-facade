@@ -43,11 +43,6 @@
 
 .splitSlidePrimary {
   opacity: 1;
-  animation: scaleStatsSlidePrimary 18s cubic-bezier(0.32, 0.02, 0.16, 1) infinite;
-}
-
-.splitSlideSecondary {
-  animation: scaleStatsSlideSecondary 18s cubic-bezier(0.32, 0.02, 0.16, 1) infinite;
 }
 
 .splitMedia::after {
@@ -64,15 +59,6 @@
   object-fit: cover;
   object-position: center center;
   transform: scale(1.015);
-}
-
-.splitImagePrimary {
-  animation: scaleStatsImagePrimaryMotion 18s ease-in-out infinite;
-}
-
-.splitImageSecondary {
-  object-position: 54% center;
-  animation: scaleStatsImageSecondaryMotion 18s ease-in-out infinite;
 }
 
 .splitCopy {
@@ -632,72 +618,6 @@
   }
 }
 
-@keyframes scaleStatsSlidePrimary {
-  0%,
-  40% {
-    opacity: 1;
-    transform: scale(1.024) translate3d(0, -1.1%, 0);
-    filter: blur(0) saturate(1) brightness(1);
-  }
-  49% {
-    opacity: 0.34;
-    transform: scale(1.055) translate3d(0, 1.2%, 0);
-    filter: blur(2.5px) saturate(1.04) brightness(0.98);
-  }
-  55%,
-  100% {
-    opacity: 0;
-    transform: scale(1.075) translate3d(0, 2.6%, 0);
-    filter: blur(4px) saturate(1.03) brightness(0.95);
-  }
-}
-
-@keyframes scaleStatsSlideSecondary {
-  0%,
-  43% {
-    opacity: 0;
-    transform: scale(1.01) translate3d(0, 0, 0);
-    filter: blur(3px) saturate(1.02) brightness(0.97);
-  }
-  52% {
-    opacity: 1;
-    transform: scale(1.01) translate3d(0, 0, 0);
-    filter: blur(0) saturate(1) brightness(1);
-  }
-  88% {
-    opacity: 1;
-    transform: scale(1.01) translate3d(0, 0, 0);
-    filter: blur(0) saturate(1.01) brightness(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.01) translate3d(0, 0, 0);
-    filter: blur(2px) saturate(1.03) brightness(0.98);
-  }
-}
-
-@keyframes scaleStatsImagePrimaryMotion {
-  0%,
-  100% {
-    transform: scale(1.03) translate3d(0, -1.5%, 0);
-    filter: saturate(1) brightness(1);
-  }
-  50% {
-    transform: scale(1.08) translate3d(0, 2.8%, 0);
-    filter: saturate(1.04) brightness(1.02);
-  }
-}
-
-@keyframes scaleStatsImageSecondaryMotion {
-  0%,
-  100% {
-    transform: scale(1.045) translate3d(-0.8%, 0, 0);
-  }
-  50% {
-    transform: scale(1.07) translate3d(1.2%, 0, 0);
-  }
-}
-
 @keyframes scaleStatsSecondaryImageDrift {
   0%,
   100% {
@@ -711,25 +631,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .splitSlide {
-    animation: none;
-  }
-
-  .splitSlidePrimary {
-    opacity: 1;
-  }
-
-  .splitSlideSecondary {
-    opacity: 0;
-  }
-
-  .splitImagePrimary,
-  .splitImageSecondary {
-    animation: none;
-    transform: scale(1.015);
-    filter: none;
-  }
-
   .secondaryImage {
     animation: none;
     transform: none;
