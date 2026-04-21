@@ -15,30 +15,45 @@ export function MusicToggle() {
     audio.loop = true;
     audio.volume = 0.45;
     audio.preload = "auto";
+    audio.muted = true;
     audio.addEventListener("play", () => setIsPlaying(true));
     audio.addEventListener("pause", () => setIsPlaying(false));
     audioRef.current = audio;
 
-    const startOnInteraction = () => {
-      audio.play().catch(() => {});
-      window.removeEventListener("pointerdown", startOnInteraction);
-      window.removeEventListener("keydown", startOnInteraction);
-      window.removeEventListener("touchstart", startOnInteraction);
+    const interactionEvents = [
+      "pointerdown",
+      "pointermove",
+      "keydown",
+      "touchstart",
+      "touchmove",
+      "scroll",
+      "wheel",
+      "mousemove",
+    ] as const;
+
+    const unmuteOnInteraction = () => {
+      audio.muted = false;
+      if (audio.paused) {
+        audio.play().catch(() => {});
+      }
+      interactionEvents.forEach((evt) =>
+        window.removeEventListener(evt, unmuteOnInteraction),
+      );
     };
 
     audio
       .play()
       .then(() => setIsPlaying(true))
-      .catch(() => {
-        window.addEventListener("pointerdown", startOnInteraction, { once: true });
-        window.addEventListener("keydown", startOnInteraction, { once: true });
-        window.addEventListener("touchstart", startOnInteraction, { once: true });
-      });
+      .catch(() => {});
+
+    interactionEvents.forEach((evt) =>
+      window.addEventListener(evt, unmuteOnInteraction, { once: true, passive: true }),
+    );
 
     return () => {
-      window.removeEventListener("pointerdown", startOnInteraction);
-      window.removeEventListener("keydown", startOnInteraction);
-      window.removeEventListener("touchstart", startOnInteraction);
+      interactionEvents.forEach((evt) =>
+        window.removeEventListener(evt, unmuteOnInteraction),
+      );
       audio.pause();
       audio.src = "";
       audioRef.current = null;

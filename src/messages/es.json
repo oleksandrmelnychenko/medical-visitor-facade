@@ -4,6 +4,100 @@
     "description": "Posiblemente la página haya sido eliminada, movida o haya un error en la dirección.",
     "backHome": "Al inicio"
   },
+  "error": {
+    "title": "Algo salió mal",
+    "description": "Se ha producido un error al cargar esta página. Inténtelo de nuevo o vuelva más tarde.",
+    "tryAgain": "Reintentar"
+  },
+  "impressumPage": {
+    "title": "Aviso legal",
+    "legalNameTitle": "Razón\nsocial",
+    "companyName": "Medical Concierge Agency",
+    "addressTitle": "Dirección",
+    "vatTitle": "CIF / NIF-IVA",
+    "contactPrompt": "Contáctenos directamente"
+  },
+  "privacyPolicy": {
+    "title": "Política de privacidad",
+    "lastUpdated": "Última actualización: 21 de abril de 2026",
+    "intro1": "Respetamos su privacidad y nos comprometemos a proteger sus datos personales.",
+    "intro2": "Esta Política de privacidad explica qué información recopilamos, cómo la utilizamos y qué derechos tiene usted sobre sus datos personales.",
+    "intro3": "Al tratar sus datos, cumplimos el Reglamento General de Protección de Datos (RGPD) y las leyes nacionales aplicables.",
+    "intro4": "Por favor, lea este documento con atención. Al continuar utilizando el sitio, confirma que ha leído sus condiciones y las acepta.",
+    "dataCollection": {
+      "title": "Qué datos recopilamos",
+      "text": "Solo recopilamos la información necesaria para prestar nuestros servicios y comunicarnos con usted:",
+      "item1": "Datos de contacto: nombre, dirección de correo electrónico, teléfono, país de residencia.",
+      "item2": "Información médica: datos sobre el estado de salud y las consultas que proporciona voluntariamente durante las sesiones.",
+      "text2": "No recopilamos datos médicos sin su consentimiento explícito ni los utilizamos fuera del alcance de los servicios de conserjería."
+    },
+    "howWeCollect": {
+      "title": "Cómo recopilamos los datos",
+      "text1": "Los datos llegan directamente de usted — mediante formularios del sitio, correspondencia por correo electrónico, mensajería y conversaciones telefónicas.",
+      "text2": "También podemos recibir información técnica (dirección IP, tipo de dispositivo y navegador, páginas visitadas). Estos datos se utilizan exclusivamente para analizar el rendimiento del sitio."
+    },
+    "purpose": {
+      "title": "Finalidad del tratamiento",
+      "text": "Tratamos los datos personales para los siguientes fines:",
+      "item1": "Responder a sus consultas y acompañarle en el marco de los servicios de conserjería.",
+      "item2": "Coordinar el tratamiento, la traducción de documentos y la comunicación con las clínicas.",
+      "item3": "Organizar el viaje y la logística durante su estancia en Alemania.",
+      "item4": "Mejorar la calidad de nuestros servicios y del sitio web.",
+      "item5": "Cumplir con las obligaciones legales y proteger nuestros derechos.",
+      "text2": "Bases legales del tratamiento:",
+      "legal1": "Su consentimiento (art. 6 (1) (a) del RGPD).",
+      "legal2": "Ejecución de un contrato (art. 6 (1) (b) del RGPD).",
+      "legal3": "Nuestros intereses legítimos en el desarrollo y la protección del servicio (art. 6 (1) (f) del RGPD)."
+    },
+    "sharing": {
+      "title": "Comunicación a terceros",
+      "text1": "No vendemos sus datos ni los compartimos con terceros sin necesidad.",
+      "text2": "Los datos pueden compartirse con clínicas, médicos y traductores solo en la medida necesaria para prestar los servicios y con su consentimiento.",
+      "text3": "Podemos contar con proveedores de confianza para el soporte informático y el alojamiento. Están sujetos a los mismos estándares de protección de datos."
+    },
+    "rights": {
+      "title": "Sus derechos",
+      "text": "En virtud del RGPD, tiene derecho a acceder, rectificar, suprimir sus datos, limitar u oponerse al tratamiento y a la portabilidad de los datos. Para ejercer estos derechos, escríbanos a contact@gmed-health.com."
+    },
+    "hosting": {
+      "title": "Alojamiento del sitio",
+      "text1": "El sitio está alojado por un proveedor certificado dentro de la Unión Europea.",
+      "text2": "Al visitar el sitio, el servidor registra automáticamente datos técnicos para garantizar la seguridad y la estabilidad.",
+      "text3": "Estos datos se conservan durante un período limitado y no se utilizan para identificar a los usuarios."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text1": "Utilizamos cookies para que el sitio funcione correctamente, analizar el tráfico y mejorar la experiencia del usuario.",
+      "text2": "Puede desactivar las cookies en cualquier momento en la configuración del navegador — esto no afectará al acceso al contenido principal del sitio."
+    },
+    "storage": {
+      "title": "Almacenamiento de datos",
+      "text1": "Almacenamos sus datos únicamente durante el tiempo necesario para los fines para los que fueron recopilados.",
+      "text2": "Transcurrido este período, los datos se eliminan o se anonimizan, salvo que la ley exija lo contrario."
+    },
+    "retention": {
+      "title": "Período de conservación",
+      "text": "La información de contacto y médica se conserva únicamente durante el tiempo necesario para prestar los servicios y cumplir las obligaciones legales, tras lo cual se elimina de forma segura."
+    },
+    "security": {
+      "title": "Seguridad",
+      "text1": "Aplicamos medidas técnicas y organizativas modernas para proteger los datos frente a accesos no autorizados, pérdidas o alteraciones.",
+      "text2": "La información confidencial se transmite a través de canales seguros y cifrados.",
+      "text3": "El acceso a los datos se limita al personal autorizado, sujeto a obligaciones de confidencialidad.",
+      "text4": "A pesar de todas las medidas, no se puede garantizar la seguridad absoluta en Internet."
+    },
+    "minors": {
+      "title": "Datos de menores",
+      "text1": "Nuestros servicios no están destinados al uso independiente por parte de menores de 16 años.",
+      "text2": "La información sobre menores solo se acepta a través de sus representantes legales.",
+      "text3": "Si detecta que se han compartido datos de un menor sin el consentimiento de los padres, contáctenos — los eliminaremos con prontitud.",
+      "text4": "Tratamos los datos de menores con especial cuidado y estrictamente en el marco de la coordinación médica necesaria."
+    },
+    "updates": {
+      "title": "Actualizaciones de la política",
+      "text": "Podemos actualizar esta Política de privacidad. La versión vigente está siempre disponible en esta página, con la fecha de la última actualización."
+    }
+  },
   "cookies": {
     "message": "Utilizamos cookies para que el sitio funcione correctamente y sea cómodo para usted. Al continuar navegando, acepta su uso.",
     "accept": "Aceptar",
@@ -272,12 +366,14 @@
     "freeService": {
       "title": "Pro bono",
       "description1": "La organización de un tratamiento de calidad requiere recursos significativos. En el marco de la responsabilidad social, la agencia proporciona cuotas limitadas para el acompañamiento médico gratuito.",
-      "description1Dark": "La organización de un tratamiento de calidad requiere recursos significativos.",
-      "description1Muted": "En el marco de la responsabilidad social, la agencia proporciona cuotas (Pro bono)",
-      "description1Accent": "para el acompañamiento médico gratuito.",
+      "description1Dark": "La agencia ejecuta un programa de responsabilidad social, asignando anualmente un número limitado de cuotas Pro bono para",
+      "description1Muted": "",
+      "description1Accent": "acompañamiento médico gratuito",
+      "description1Tail": "en casos clínicos críticos.",
       "description2": "Cada solicitud se considera individualmente, basándose en la complejidad del caso clínico y los recursos disponibles de la agencia.",
       "priority": "Direcciones prioritarias:",
-      "priorityText": "Se da prioridad al distribuir las cuotas a situaciones de emergencia y casos relacionados con el tratamiento de niños.",
+      "priorityText": "Se da prioridad al distribuir las cuotas a situaciones de emergencia y casos relacionados con el",
+      "priorityAccent": "tratamiento de niños.",
       "note": "Tenga en cuenta: la decisión de proporcionar atención gratuita se toma sobre la base de una auditoría interna. El plazo de consideración es de hasta 7 días hábiles."
     },
     "newPatient": {

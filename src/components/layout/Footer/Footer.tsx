@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { GmedHeaderLogo } from "@/components/branding/GmedHeaderLogo/GmedHeaderLogo";
+import { LogoSvg } from "@/components/layout/Header/LogoSvg";
 import { FooterSwitch } from "./FooterSwitch";
 import styles from "./Footer.module.scss";
 
@@ -57,7 +57,7 @@ export async function Footer({ locale }: FooterProps) {
 
         <div className={styles.brandRow}>
           <div className={styles.brandBlock}>
-            <GmedHeaderLogo className={styles.brandWordmark} />
+            <LogoSvg className={styles.brandWordmark} />
           </div>
 
           <div className={styles.utilityRow}>

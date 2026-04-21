@@ -17,7 +17,7 @@ const FAQ_ITEMS = [
 const FAQ_FALLBACKS = {
   ru: {
     eyebrow: "FAQs",
-    title: "Частые вопросы.",
+    title: "FAQs.",
     subtitle: "",
     items: {
       services: {

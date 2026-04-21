@@ -33,6 +33,7 @@ export function OfficeCitiesGrid({
     <div className={styles.collage}>
       <motion.div
         className={styles.collageMunich}
+        data-dark-bg="true"
         initial={shouldReduceMotion ? undefined : { opacity: 0, y: 30 }}
         whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.25 }}
@@ -54,6 +55,7 @@ export function OfficeCitiesGrid({
       {cities[0] && (
         <motion.div
           className={styles.collageBerlin}
+          data-dark-bg="true"
           initial={shouldReduceMotion ? undefined : { opacity: 0, y: 38 }}
           whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
@@ -79,6 +81,7 @@ export function OfficeCitiesGrid({
       {cities[1] && (
         <motion.div
           className={styles.collageHamburg}
+          data-dark-bg="true"
           initial={shouldReduceMotion ? undefined : { opacity: 0, y: 42 }}
           whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
@@ -104,6 +107,7 @@ export function OfficeCitiesGrid({
       {cities[2] && (
         <motion.div
           className={styles.collageCologne}
+          data-dark-bg="true"
           initial={shouldReduceMotion ? undefined : { opacity: 0, y: 34 }}
           whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}

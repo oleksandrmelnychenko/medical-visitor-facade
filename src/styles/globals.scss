@@ -123,6 +123,15 @@ body:has([data-page="membership"]) .headerOffset {
   background: transparent;
 }
 
+body:has([data-page="financial-assistance"]) {
+  background-color: #eceef5;
+}
+
+body:has([data-page="financial-assistance"]) .headerOffset {
+  height: 0;
+  background: transparent;
+}
+
 a {
   color: inherit;
   text-decoration: none;

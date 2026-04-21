@@ -4,6 +4,100 @@
     "description": "Die angeforderte Seite existiert leider nicht oder wurde verschoben.",
     "backHome": "Zur Startseite"
   },
+  "error": {
+    "title": "Etwas ist schiefgelaufen",
+    "description": "Beim Laden der Seite ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kommen Sie später zurück.",
+    "tryAgain": "Erneut versuchen"
+  },
+  "impressumPage": {
+    "title": "Impressum",
+    "legalNameTitle": "Rechtlicher\nName",
+    "companyName": "Medical Concierge Agency",
+    "addressTitle": "Anschrift",
+    "vatTitle": "USt-IdNr.",
+    "contactPrompt": "Direkt kontaktieren"
+  },
+  "privacyPolicy": {
+    "title": "Datenschutzerklärung",
+    "lastUpdated": "Zuletzt aktualisiert: 21. April 2026",
+    "intro1": "Wir respektieren Ihre Privatsphäre und legen großen Wert auf den Schutz Ihrer personenbezogenen Daten.",
+    "intro2": "Diese Datenschutzerklärung beschreibt, welche Daten wir erheben, wie wir sie verwenden und welche Rechte Ihnen in Bezug auf Ihre personenbezogenen Daten zustehen.",
+    "intro3": "Bei der Verarbeitung Ihrer Daten halten wir uns an die Datenschutz-Grundverordnung (DSGVO) und die geltenden nationalen Gesetze.",
+    "intro4": "Bitte lesen Sie dieses Dokument sorgfältig. Durch die weitere Nutzung der Website bestätigen Sie, dass Sie die Bedingungen gelesen haben und ihnen zustimmen.",
+    "dataCollection": {
+      "title": "Welche Daten wir erheben",
+      "text": "Wir erheben nur die Informationen, die für die Erbringung unserer Dienstleistungen und die Kommunikation mit Ihnen erforderlich sind:",
+      "item1": "Kontaktdaten: Name, E-Mail-Adresse, Telefonnummer, Wohnsitzland.",
+      "item2": "Medizinische Informationen: Angaben zum Gesundheitszustand und zu Anliegen, die Sie uns freiwillig im Rahmen von Beratungen mitteilen.",
+      "text2": "Wir erheben keine medizinischen Daten ohne Ihre ausdrückliche Einwilligung und verwenden sie nicht außerhalb des Zwecks der Concierge-Dienste."
+    },
+    "howWeCollect": {
+      "title": "Wie wir Daten erheben",
+      "text1": "Daten erreichen uns direkt von Ihnen — über Formulare auf der Website, E-Mail-Korrespondenz, Messenger und Telefongespräche.",
+      "text2": "Zusätzlich können wir technische Informationen erhalten (IP-Adresse, Geräte- und Browsertyp, besuchte Seiten). Diese Daten werden ausschließlich zur Analyse der Website-Performance verwendet."
+    },
+    "purpose": {
+      "title": "Zwecke der Verarbeitung",
+      "text": "Wir verarbeiten personenbezogene Daten zu folgenden Zwecken:",
+      "item1": "Beantwortung Ihrer Anfragen und Betreuung im Rahmen der Concierge-Dienste.",
+      "item2": "Koordination von Behandlungen, Übersetzungen und Kommunikation mit Kliniken.",
+      "item3": "Organisation der Reise und Logistik während Ihres Aufenthalts in Deutschland.",
+      "item4": "Verbesserung der Qualität unserer Dienste und Website.",
+      "item5": "Erfüllung rechtlicher Verpflichtungen und Schutz unserer Rechte.",
+      "text2": "Rechtsgrundlagen der Verarbeitung:",
+      "legal1": "Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).",
+      "legal2": "Erfüllung eines Vertrags (Art. 6 Abs. 1 lit. b DSGVO).",
+      "legal3": "Unsere berechtigten Interessen an der Weiterentwicklung und dem Schutz des Dienstes (Art. 6 Abs. 1 lit. f DSGVO)."
+    },
+    "sharing": {
+      "title": "Weitergabe an Dritte",
+      "text1": "Wir verkaufen Ihre Daten nicht und geben sie nicht unnötig an Dritte weiter.",
+      "text2": "Daten können an Kliniken, Ärzte und Dolmetscher nur in dem für die Leistungserbringung erforderlichen Umfang und mit Ihrer Zustimmung weitergegeben werden.",
+      "text3": "Wir können vertrauenswürdige Auftragsverarbeiter für IT-Support und Hosting einsetzen. Sie sind an dieselben Datenschutzstandards gebunden."
+    },
+    "rights": {
+      "title": "Ihre Rechte",
+      "text": "Gemäß DSGVO haben Sie das Recht auf Auskunft, Berichtigung, Löschung Ihrer Daten, Einschränkung oder Widerspruch gegen die Verarbeitung sowie auf Datenübertragbarkeit. Zur Ausübung dieser Rechte kontaktieren Sie uns unter contact@gmed-health.com."
+    },
+    "hosting": {
+      "title": "Website-Hosting",
+      "text1": "Die Website wird von einem zertifizierten Anbieter innerhalb der Europäischen Union gehostet.",
+      "text2": "Beim Besuch der Website protokolliert der Server automatisch technische Daten zur Sicherheit und Stabilität.",
+      "text3": "Diese Daten werden für einen begrenzten Zeitraum gespeichert und nicht zur Identifizierung von Nutzern verwendet."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text1": "Wir verwenden Cookies, damit die Website korrekt funktioniert, den Verkehr analysiert und die Nutzererfahrung verbessert.",
+      "text2": "Sie können Cookies jederzeit in den Einstellungen Ihres Browsers deaktivieren — dies beeinträchtigt nicht den Zugriff auf die Hauptinhalte der Website."
+    },
+    "storage": {
+      "title": "Datenspeicherung",
+      "text1": "Wir speichern Ihre Daten nur so lange, wie es für die Zwecke, für die sie erhoben wurden, erforderlich ist.",
+      "text2": "Nach Ablauf dieses Zeitraums werden die Daten gelöscht oder anonymisiert, sofern gesetzlich nichts anderes vorgeschrieben ist."
+    },
+    "retention": {
+      "title": "Aufbewahrungsdauer",
+      "text": "Kontakt- und medizinische Informationen werden nicht länger aufbewahrt, als es für die Leistungserbringung und die Einhaltung gesetzlicher Pflichten erforderlich ist, und anschließend sicher gelöscht."
+    },
+    "security": {
+      "title": "Sicherheit",
+      "text1": "Wir setzen moderne technische und organisatorische Maßnahmen ein, um Daten vor unbefugtem Zugriff, Verlust oder Veränderung zu schützen.",
+      "text2": "Vertrauliche Informationen werden über sichere, verschlüsselte Kanäle übertragen.",
+      "text3": "Der Zugriff auf Daten ist auf autorisiertes Personal beschränkt, das zur Vertraulichkeit verpflichtet ist.",
+      "text4": "Trotz aller Maßnahmen kann absolute Sicherheit im Internet nicht garantiert werden."
+    },
+    "minors": {
+      "title": "Daten Minderjähriger",
+      "text1": "Unsere Dienste sind nicht für die eigenständige Nutzung durch Personen unter 16 Jahren bestimmt.",
+      "text2": "Informationen über Minderjährige werden nur über deren gesetzliche Vertreter entgegengenommen.",
+      "text3": "Falls Sie erfahren, dass Daten eines Kindes ohne Zustimmung der Eltern übermittelt wurden, kontaktieren Sie uns bitte — wir löschen diese umgehend.",
+      "text4": "Wir verarbeiten Daten Minderjähriger mit besonderer Sorgfalt und streng im Rahmen der erforderlichen medizinischen Koordination."
+    },
+    "updates": {
+      "title": "Aktualisierungen der Richtlinie",
+      "text": "Wir können diese Datenschutzerklärung aktualisieren. Die aktuelle Version ist jederzeit auf dieser Seite mit dem Datum der letzten Aktualisierung verfügbar."
+    }
+  },
   "cookies": {
     "message": "Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu optimieren. Wenn Sie auf der Seite weitersurfen, stimmen Sie der Cookie-Nutzung zu.",
     "accept": "Akzeptieren",
@@ -272,12 +366,14 @@
     "freeService": {
       "title": "Pro bono",
       "description1": "Die Organisation einer qualitativ hochwertigen Behandlung erfordert erhebliche Ressourcen. Im Rahmen der sozialen Verantwortung stellt die Agentur begrenzte Kontingente für eine unentgeltliche medizinische Koordination zur Verfügung.",
-      "description1Dark": "Die Organisation einer qualitativ hochwertigen Behandlung erfordert erhebliche Ressourcen.",
-      "description1Muted": "Im Rahmen der sozialen Verantwortung stellt die Agentur Kontingente (Pro bono) bereit,",
-      "description1Accent": "für eine unentgeltliche medizinische Koordination.",
+      "description1Dark": "Die Agentur führt ein Programm zur sozialen Verantwortung durch und stellt jährlich begrenzte Pro-bono-Kontingente für",
+      "description1Muted": "",
+      "description1Accent": "unentgeltliche medizinische Betreuung",
+      "description1Tail": "in kritischen klinischen Fällen bereit.",
       "description2": "Jede Anfrage wird individuell auf der Grundlage der Komplexität des klinischen Falls und der verfügbaren Ressourcen der Agentur geprüft.",
       "priority": "Prioritätsbereiche:",
-      "priorityText": "Priorität bei der Verteilung der Kontingente haben Notfallsituationen und Fälle, die die Behandlung von Kindern betreffen.",
+      "priorityText": "Priorität bei der Verteilung der Kontingente haben Notfallsituationen und Fälle im Zusammenhang mit",
+      "priorityAccent": "der Behandlung von Kindern.",
       "note": "Bitte beachten Sie: Die Entscheidung über die Bereitstellung von Pro-bono-Leistungen wird auf Grundlage eines internen Audits getroffen. Die Bearbeitungszeit beträgt bis zu 7 Werktage."
     },
     "newPatient": {

@@ -4,6 +4,100 @@
     "description": "The page you are looking for does not exist or has been moved.",
     "backHome": "Back to Home"
   },
+  "error": {
+    "title": "Something went wrong",
+    "description": "We encountered an error loading this page. Please try again or come back later.",
+    "tryAgain": "Try again"
+  },
+  "impressumPage": {
+    "title": "Legal Notice",
+    "legalNameTitle": "Legal\nname",
+    "companyName": "Medical Concierge Agency",
+    "addressTitle": "Address",
+    "vatTitle": "VAT / Tax ID",
+    "contactPrompt": "Contact us directly"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: 21 April 2026",
+    "intro1": "We respect your privacy and are committed to protecting your personal data.",
+    "intro2": "This Privacy Policy explains what information we collect, how we use it, and what rights you have regarding your personal data.",
+    "intro3": "When processing data, we comply with the General Data Protection Regulation (GDPR) and applicable national laws.",
+    "intro4": "Please read this document carefully. By continuing to use the site, you confirm that you have read and agree to its terms.",
+    "dataCollection": {
+      "title": "What data we collect",
+      "text": "We only collect information that is necessary to deliver our services and communicate with you:",
+      "item1": "Contact details: name, email address, phone number, country of residence.",
+      "item2": "Medical information: details about health status and requests that you voluntarily provide during consultations.",
+      "text2": "We never collect medical data without your explicit consent and never use it outside the scope of concierge services."
+    },
+    "howWeCollect": {
+      "title": "How we collect data",
+      "text1": "Data reaches us directly from you — through site forms, email correspondence, messengers, and phone conversations.",
+      "text2": "We may also receive technical information (IP address, device and browser type, visited pages). This data is used solely to analyse site performance."
+    },
+    "purpose": {
+      "title": "Purpose of processing",
+      "text": "We process personal data for the following purposes:",
+      "item1": "Responding to your inquiries and supporting you within concierge services.",
+      "item2": "Coordinating treatment, document translation and communication with clinics.",
+      "item3": "Arranging travel and logistics during your stay in Germany.",
+      "item4": "Improving the quality of our services and website.",
+      "item5": "Complying with legal obligations and protecting our rights.",
+      "text2": "Legal bases for processing:",
+      "legal1": "Your consent (Art. 6 (1) (a) GDPR).",
+      "legal2": "Performance of a contract (Art. 6 (1) (b) GDPR).",
+      "legal3": "Our legitimate interests in developing and protecting the service (Art. 6 (1) (f) GDPR)."
+    },
+    "sharing": {
+      "title": "Sharing with third parties",
+      "text1": "We do not sell your data and do not share it with third parties unnecessarily.",
+      "text2": "Data may be shared with clinics, physicians and translators only to the extent necessary to deliver services, and with your consent.",
+      "text3": "We may engage trusted contractors for IT support and hosting. They are bound by the same data protection standards."
+    },
+    "rights": {
+      "title": "Your rights",
+      "text": "Under the GDPR you have the right to access, rectify, erase your data, restrict or object to processing, and to data portability. To exercise any of these rights, contact us at contact@gmed-health.com."
+    },
+    "hosting": {
+      "title": "Website hosting",
+      "text1": "The site is hosted by a certified provider within the European Union.",
+      "text2": "When you visit the site, the server automatically logs technical data for security and stability.",
+      "text3": "This data is retained for a limited period and is not used to identify users."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text1": "We use cookies to ensure the site works correctly, analyse traffic and improve the user experience.",
+      "text2": "You can disable cookies at any time in your browser settings — this will not affect access to the core content of the site."
+    },
+    "storage": {
+      "title": "Data storage",
+      "text1": "We store your data only for as long as necessary for the purposes for which it was collected.",
+      "text2": "After this period, data is deleted or anonymised unless otherwise required by law."
+    },
+    "retention": {
+      "title": "Retention period",
+      "text": "Contact and medical information is retained no longer than required to deliver services and comply with legal obligations, after which it is securely deleted."
+    },
+    "security": {
+      "title": "Security",
+      "text1": "We apply modern technical and organisational measures to protect data against unauthorised access, loss or alteration.",
+      "text2": "Confidential information is transmitted through secure encrypted channels.",
+      "text3": "Access to data is restricted to authorised staff bound by confidentiality obligations.",
+      "text4": "Despite all measures, absolute security on the internet cannot be guaranteed."
+    },
+    "minors": {
+      "title": "Minors' data",
+      "text1": "Our services are not intended for independent use by persons under 16 years of age.",
+      "text2": "Information about minors is accepted only through their legal representatives.",
+      "text3": "If you become aware that a child's data has been shared without parental consent, please contact us — we will remove it promptly.",
+      "text4": "We process minors' data with particular care and strictly within the scope of necessary medical coordination."
+    },
+    "updates": {
+      "title": "Policy updates",
+      "text": "We may update this Privacy Policy. The current version is always available on this page with the date of the latest update."
+    }
+  },
   "cookies": {
     "message": "We use cookies to improve your experience on our website. By continuing to browse, you agree to our use of cookies.",
     "accept": "Accept",
@@ -272,12 +366,14 @@
     "freeService": {
       "title": "Pro bono",
       "description1": "Organizing high-quality treatment requires significant resources. As part of social responsibility, the agency provides limited quotas for pro bono medical coordination.",
-      "description1Dark": "Organizing high-quality treatment requires significant resources.",
-      "description1Muted": "As part of social responsibility, the agency provides quotas (Pro bono)",
-      "description1Accent": "for pro bono medical coordination.",
+      "description1Dark": "The agency runs a social responsibility programme, annually allocating a limited number of pro bono quotas for",
+      "description1Muted": "",
+      "description1Accent": "complimentary medical support",
+      "description1Tail": "in critical clinical cases.",
       "description2": "Each request is considered individually, based on the complexity of the clinical case and the agency's available resources.",
       "priority": "Priority areas:",
-      "priorityText": "Priority in the distribution of quotas is given to emergency situations and cases involving the treatment of children.",
+      "priorityText": "Priority in the distribution of quotas is given to emergency situations and cases involving the",
+      "priorityAccent": "treatment of children.",
       "note": "Please note: the decision to provide pro bono service is made based on an internal audit. The review period is up to 7 business days."
     },
     "newPatient": {

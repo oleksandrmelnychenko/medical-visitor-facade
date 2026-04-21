@@ -182,44 +182,112 @@
 
 @media (max-width: 767px) {
   .contentSection {
-    padding-top: 6rem !important;
-    padding-bottom: 4.1rem !important;
+    padding-top: 5.5rem !important;
+    padding-bottom: 3.6rem !important;
   }
 
   .heroRow {
-    padding-bottom: 2.5rem;
+    padding-bottom: 2.1rem;
+    gap: 0.75rem;
+  }
+
+  .metaLabel {
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
   }
 
   .pageTitle {
     max-width: 100%;
-    @include home-section-title-mobile;
+    font-size: clamp(2rem, 8.5vw, 2.85rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
   }
 
   .pageLead {
     max-width: 100%;
-    font-size: 1.08rem;
-    line-height: 1.4;
+    font-size: 1rem;
+    line-height: 1.42;
+    margin-top: 1rem;
   }
 
   .introRow,
   .policyRow {
-    gap: 0.7rem;
-    padding: 1.7rem 0;
+    gap: 0.55rem;
+    padding: 1.5rem 0;
+  }
+
+  .rowIndex {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
   }
 
   .rowTitle {
-    font-size: 1.08rem;
-    line-height: 1.14;
+    font-size: 1.05rem;
+    line-height: 1.18;
+    letter-spacing: -0.03em;
+  }
+
+  .rowHeading {
+    max-width: 100%;
+  }
+
+  .rowBody {
+    max-width: 100%;
   }
 
   .bodyText,
   .introText,
   .detailList li {
-    font-size: 0.98rem;
-    line-height: 1.48;
+    font-size: 0.94rem;
+    line-height: 1.5;
+  }
+
+  .introStack,
+  .bodyStack {
+    gap: 0.8rem;
+  }
+
+  .detailList {
+    gap: 0.55rem;
   }
 
   .detailList li {
-    padding-left: 1.15rem;
+    padding-left: 1rem;
+
+    &::before {
+      top: 0.6rem;
+      width: 0.32rem;
+      height: 0.32rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .contentSection {
+    padding-top: 5rem !important;
+  }
+
+  .pageTitle {
+    font-size: clamp(1.75rem, 9.5vw, 2.3rem);
+  }
+
+  .pageLead {
+    font-size: 0.95rem;
+  }
+
+  .introRow,
+  .policyRow {
+    padding: 1.3rem 0;
+  }
+
+  .rowTitle {
+    font-size: 1rem;
+  }
+
+  .bodyText,
+  .introText,
+  .detailList li {
+    font-size: 0.9rem;
+    line-height: 1.52;
   }
 }
