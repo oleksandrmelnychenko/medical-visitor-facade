@@ -107,6 +107,13 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link
+          rel="preload"
+          as="image"
+          href="/video/hero-poster.jpg"
+          type="image/jpeg"
+          fetchPriority="high"
+        />
         <OrganizationJsonLd />
         <WebsiteJsonLd />
       </head>

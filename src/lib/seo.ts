@@ -94,7 +94,7 @@ export function getLocalizedMetadata({
       description,
       images: [
         {
-          url: "/opengraph-image",
+          url: `/${locale}/opengraph-image`,
           width: 1200,
           height: 630,
           alt: "GMED Agency - Medical Concierge Service",
@@ -106,7 +106,7 @@ export function getLocalizedMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: ["/opengraph-image"],
+      images: [`/${locale}/opengraph-image`],
     },
     robots,
   };

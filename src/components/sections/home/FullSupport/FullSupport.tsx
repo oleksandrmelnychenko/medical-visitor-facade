@@ -80,7 +80,7 @@ export function FullSupport() {
               >
                 <Image
                   src="/assets/full-support-concept.webp"
-                  alt=""
+                  alt="End-to-end patient support concept illustration"
                   fill
                   sizes="(max-width: 767px) 80vw, 32vw"
                 />

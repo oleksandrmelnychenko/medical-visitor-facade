@@ -77,7 +77,7 @@ export function CareForward() {
               >
                 <Image
                   src="/assets/care-forward-stones.webp"
-                  alt=""
+                  alt="Balanced stacked stones symbolising considered medical coordination"
                   fill
                   sizes="(max-width: 767px) 80vw, 32vw"
                 />

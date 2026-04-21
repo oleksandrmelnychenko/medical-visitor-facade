@@ -26,7 +26,7 @@ export async function ScaleStats() {
                 >
                   <Image
                     src={src}
-                    alt=""
+                    alt="Panoramic view of a German city at scale"
                     fill
                     sizes="(max-width: 960px) 100vw, 60vw"
                     className={`${styles.splitImage} ${index === 0 ? styles.splitImagePrimary : styles.splitImageSecondary}`}
@@ -55,7 +55,7 @@ export async function ScaleStats() {
           <div className={styles.secondaryMedia}>
             <Image
               src="/assets/scale-balcony-mountains.png"
-              alt=""
+              alt="Alpine view from a German medical clinic balcony"
               fill
               sizes="(max-width: 960px) 100vw, 60vw"
               className={styles.secondaryImage}
