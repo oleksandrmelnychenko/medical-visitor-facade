@@ -1266,21 +1266,37 @@
 }
 
 .wizardTreeStrip {
-  width: 100%;
-  background: transparent;
-  padding: clamp(2.4rem, 4.6vw, 3.8rem) clamp(1rem, 3vw, 2rem) 0.28rem;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 5;
+  right: 0;
+  width: auto;
+  padding: clamp(2.3rem, 4vw, 3.4rem) clamp(12rem, 16vw, 14.5rem) 0 0;
+  z-index: 6;
+  background: transparent;
+  pointer-events: none;
+
+  @media (max-width: 767px) {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    padding: 0.35rem 1rem 0.28rem;
+    pointer-events: auto;
+  }
 }
 
 .wizardTreeCol {
-  width: 100%;
+  width: auto;
   margin: 0;
-  padding: 0.4rem 0;
+  padding: 0;
   border: none;
   background: transparent;
   box-shadow: none;
+  pointer-events: auto;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 }
 
 .wizardTimelinePanel {
