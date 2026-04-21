@@ -418,7 +418,24 @@
     transform 0.22s ease;
 }
 
-.welcomeContinueButton:hover:not(:disabled) .welcomeContinueIcon,
+@media (hover: hover) and (pointer: fine) {
+  .welcomeContinueButton:hover:not(:disabled) .welcomeContinueIcon {
+    width: 1rem;
+    margin-right: 0.05rem;
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 70ms;
+  }
+
+  .welcomeContinueButton:hover:not(:disabled) .welcomeContinueDot {
+    width: 0;
+    margin-left: 0;
+    opacity: 0;
+    transform: scale(0.4);
+    transition-delay: 70ms;
+  }
+}
+
 .welcomeContinueButton:focus-visible:not(:disabled) .welcomeContinueIcon {
   width: 1rem;
   margin-right: 0.05rem;
@@ -426,7 +443,6 @@
   transform: translateX(0);
 }
 
-.welcomeContinueButton:hover:not(:disabled) .welcomeContinueDot,
 .welcomeContinueButton:focus-visible:not(:disabled) .welcomeContinueDot {
   width: 0;
   margin-left: 0;
@@ -493,7 +509,21 @@
     color: currentColor;
   }
 
-  &:hover:not(:disabled),
+  @media (hover: hover) and (pointer: fine) {
+    &:hover:not(:disabled) {
+      background: #252734 !important;
+      box-shadow:
+        0 14px 30px -18px rgba(16, 18, 28, 0.6),
+        0 6px 12px -6px rgba(16, 18, 28, 0.22) !important;
+      transition-delay: 70ms;
+    }
+
+    &:hover:not(:disabled)::before {
+      transform: scaleX(1);
+      transition-delay: 70ms;
+    }
+  }
+
   &:focus-visible:not(:disabled) {
     background: #252734 !important;
     box-shadow:
@@ -501,7 +531,6 @@
       0 6px 12px -6px rgba(16, 18, 28, 0.22) !important;
   }
 
-  &:hover:not(:disabled)::before,
   &:focus-visible:not(:disabled)::before {
     transform: scaleX(1);
   }
@@ -2083,32 +2112,35 @@
     border-color 0.22s ease,
     transform 0.22s ease;
 
-  &:hover {
-    z-index: 1;
-    transform: translateY(-1px);
-    background: #131721;
-    color: #ffffff;
-    border-color: #131721;
-
-    .locationConceptTitle {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      z-index: 1;
+      transform: translateY(-1px);
+      background: #131721;
       color: #ffffff;
-    }
+      border-color: #131721;
+      transition-delay: 70ms;
 
-    .locationConceptDesc {
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .locationConceptIcon {
-      color: #ffffff;
-
-      svg {
-        stroke: #ffffff;
+      .locationConceptTitle {
+        color: #ffffff;
       }
-    }
 
-    .locationConceptArrow {
-      color: #ff5a14;
-      transform: translate(2px, -2px);
+      .locationConceptDesc {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .locationConceptIcon {
+        color: #ffffff;
+
+        svg {
+          stroke: #ffffff;
+        }
+      }
+
+      .locationConceptArrow {
+        color: #ff5a14;
+        transform: translate(2px, -2px);
+      }
     }
   }
 

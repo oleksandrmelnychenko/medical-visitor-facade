@@ -97,6 +97,17 @@ body {
   }
 }
 
+body.no-hover,
+body.no-hover * {
+  pointer-events: none !important;
+}
+
+body.no-hover *,
+body.no-hover *::before,
+body.no-hover *::after {
+  transition: none !important;
+}
+
 body:has([data-page="home"]) {
   background-color: #eceef5;
 }

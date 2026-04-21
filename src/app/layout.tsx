@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { getLocale } from "next-intl/server";
 import { JetBrains_Mono, Inter } from "next/font/google";
 import "../styles/globals.scss";
+import { NavigationHoverGuard } from "@/components/layout/NavigationHoverGuard";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/seo/JsonLd";
 import { baseUrl } from "@/lib/seo";
 
@@ -125,6 +126,7 @@ export default async function RootLayout({
         <WebsiteJsonLd />
       </head>
       <body>
+        <NavigationHoverGuard />
         {children}
       </body>
     </html>
