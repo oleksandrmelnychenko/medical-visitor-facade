@@ -205,6 +205,11 @@
   align-items: center;
   gap: 0.55rem;
   justify-self: end;
+  margin-right: 1rem;
+
+  @media (max-width: 768px) {
+    margin-right: 0.5rem;
+  }
 
   @media (max-width: 540px) {
     gap: 0.4rem;
