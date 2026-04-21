@@ -143,17 +143,16 @@ export default async function PrivacyPolicyPage({ params }: PrivacyPolicyPagePro
   ];
 
   return (
-    <div className={cn(pageStyles.page, styles.page)}>
+    <div className={cn(pageStyles.page, styles.page)} data-page="privacy-policy">
       <section className={cn(sectionStyles.section, styles.contentSection)}>
-        <div className={sectionStyles.container}>
+        <div className={styles.container}>
           <div className={styles.editorialLayout}>
             <header className={styles.heroRow}>
-              <div className={styles.heroMeta}>
-                <p className={styles.metaLabel}>({t("lastUpdated")})</p>
-              </div>
+              <span className={styles.eyebrow}>{t("title")}</span>
               <div className={styles.heroContent}>
                 <h1 className={styles.pageTitle}>{t("title")}</h1>
                 <p className={styles.pageLead}>{t("intro1")}</p>
+                <p className={styles.metaLabel}>{t("lastUpdated")}</p>
               </div>
             </header>
 

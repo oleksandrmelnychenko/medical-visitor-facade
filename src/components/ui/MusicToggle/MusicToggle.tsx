@@ -4,14 +4,26 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import styles from "./MusicToggle.module.scss";
 
-const AUDIO_SRC = "/audio/generic.ogg";
+const AUDIO_SOURCES = [
+  { src: "/audio/generic.mp3", type: "audio/mpeg" },
+  { src: "/audio/generic.ogg", type: "audio/ogg" },
+];
+
+function pickPlayableSource() {
+  if (typeof document === "undefined") return AUDIO_SOURCES[0].src;
+  const probe = document.createElement("audio");
+  for (const source of AUDIO_SOURCES) {
+    if (probe.canPlayType(source.type)) return source.src;
+  }
+  return AUDIO_SOURCES[0].src;
+}
 
 export function MusicToggle() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const audio = new Audio(AUDIO_SRC);
+    const audio = new Audio(pickPlayableSource());
     audio.loop = true;
     audio.volume = 0.45;
     audio.preload = "auto";

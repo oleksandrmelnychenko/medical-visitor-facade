@@ -132,6 +132,24 @@ body:has([data-page="financial-assistance"]) .headerOffset {
   background: transparent;
 }
 
+body:has([data-page="privacy-policy"]) {
+  background-color: #eceef5;
+}
+
+body:has([data-page="privacy-policy"]) .headerOffset {
+  height: 0;
+  background: transparent;
+}
+
+body:has([data-page="legal-notice"]) {
+  background-color: #eceef5;
+}
+
+body:has([data-page="legal-notice"]) .headerOffset {
+  height: 0;
+  background: transparent;
+}
+
 a {
   color: inherit;
   text-decoration: none;
