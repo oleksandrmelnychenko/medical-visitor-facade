@@ -4073,6 +4073,10 @@
 
 .countryDropdown {
   position: relative;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular,
+    Menlo, Consolas, monospace;
+  letter-spacing: 0.02em;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .countryDropdownTrigger {
