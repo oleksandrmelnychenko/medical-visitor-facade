@@ -12,6 +12,8 @@
   },
   "common": {
     "home": "Home",
+    "services": "Services",
+    "programs": "Programs",
     "requestAppointment": "Discuss your situation",
     "login": "Sign in",
     "selectLanguage": "Select language",
@@ -100,14 +102,16 @@
     },
     "hero": {
       "brandLabel": "Medical Concierge · since 2012",
-      "titleDark": "Clinical precision",
-      "titleMuted": "and advanced medicine in Germany.",
-      "subHeadline": "Professional verification of medical decisions and coordination of the treatment process. Since 2012.",
+      "titleDark": "Advanced medicine",
+      "titleMuted": "in Germany.",
+      "subHeadline": "Expert review",
+      "subHeadlineAccent": "of decisions and end-to-end coordination.",
+      "subHeadlineTail": "Since 2012.",
       "caption": "Munich · Berlin · Hamburg · Cologne",
       "cta": "Get a consultation",
       "subtitle": "We provide a full support cycle and medical safety: from selecting specialized experts to coordinating all stages of treatment.",
       "learnMore": "Learn More",
-      "scrollToExplore": "Scroll to explore"
+      "scrollToExplore": "Agentur für Patientenbetreuung Heorhii Hudiiev"
     },
     "forWhom": {
       "eyebrow": "Specialization",
@@ -646,11 +650,11 @@
   },
   "membership": {
     "meta": {
-      "title": "Medical service programs",
+      "title": "Medical Concierge service programs",
       "description": "Compare interaction programs with GMED: management through a secure patient portal or full Concierge support GMED Reserve."
     },
     "eyebrow": "GMED Services",
-    "title": "Medical service programs",
+    "title": "Medical Concierge service programs",
     "subtitle": "Support and coordination levels adapted to the complexity of the clinical case.",
     "intro": "Work organization is possible in two formats: managing medical information through a secure patient portal or comprehensive Concierge support (GMED Reserve).",
     "decision": {

@@ -12,6 +12,8 @@
   },
   "common": {
     "home": "Startseite",
+    "services": "Leistungen",
+    "programs": "Programme",
     "requestAppointment": "Ihre Situation besprechen",
     "login": "Anmelden",
     "selectLanguage": "Sprache auswählen",
@@ -100,14 +102,16 @@
     },
     "hero": {
       "brandLabel": "Medical Concierge · seit 2012",
-      "titleDark": "Klinische Präzision",
-      "titleMuted": "und fortschrittliche Medizin in Deutschland.",
-      "subHeadline": "Professionelle Verifizierung medizinischer Entscheidungen und Koordination des Behandlungsprozesses. Seit 2012.",
+      "titleDark": "Fortschrittliche Medizin",
+      "titleMuted": "in Deutschland.",
+      "subHeadline": "Fachliche Prüfung",
+      "subHeadlineAccent": "von Entscheidungen und vollständige Begleitung.",
+      "subHeadlineTail": "Seit 2012.",
       "caption": "München · Berlin · Hamburg · Köln",
       "cta": "Beratung erhalten",
       "subtitle": "Wir bieten einen vollständigen Betreuungszyklus und medizinische Sicherheit: von der Auswahl spezialisierter Experten bis zur Koordination aller Behandlungsphasen.",
       "learnMore": "Mehr erfahren",
-      "scrollToExplore": "Scrollen zum Entdecken"
+      "scrollToExplore": "Agentur für Patientenbetreuung Heorhii Hudiiev"
     },
     "forWhom": {
       "eyebrow": "Spezialisierung",
@@ -646,11 +650,11 @@
   },
   "membership": {
     "meta": {
-      "title": "Medizinische Service-Programme",
+      "title": "Medizinische Concierge-Service-Programme",
       "description": "Vergleichen Sie die GMED-Interaktionsprogramme: Verwaltung über das geschützte Patientenportal oder umfassende Concierge-Begleitung GMED Reserve."
     },
     "eyebrow": "GMED-Services",
-    "title": "Medizinische Service-Programme",
+    "title": "Medizinische Concierge-Service-Programme",
     "subtitle": "Begleitungs- und Koordinationsstufen, angepasst an die Komplexität des klinischen Falls.",
     "intro": "Die Arbeitsorganisation ist in zwei Formaten möglich: Verwaltung medizinischer Informationen über ein geschütztes Patientenportal oder umfassende Concierge-Begleitung (GMED Reserve).",
     "decision": {

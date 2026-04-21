@@ -1,13 +1,13 @@
 "use client";
 
 import React, { startTransition, useEffect, useEffectEvent, useState } from "react";
-import Image from "next/image";
-import { User, House, ArrowUpRight } from "lucide-react";
+import { User, House, ArrowUpRight, ArrowLeft } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { MusicToggle } from "@/components/ui/MusicToggle";
+import { LogoSvg } from "./LogoSvg";
 import styles from "./Header.module.scss";
 
 const LANGUAGES = [
@@ -96,6 +96,24 @@ export function Header() {
   }, [isMobileMenuOpen]);
 
   useEffect(() => {
+    if (!isMobileMenuOpen) return undefined;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (!target) return;
+      if (target.closest(`.${styles.mobileMenuContent}`)) return;
+      if (target.closest(`.${styles.stickyMenuPill}`)) return;
+      setIsMobileMenuOpen(false);
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown, true);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown, true);
+    };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
     const darkNodes = Array.from(document.querySelectorAll<HTMLElement>('[data-dark-bg="true"]'));
     if (!darkNodes.length) {
       setIsOverDarkBg(false);
@@ -138,9 +156,9 @@ export function Header() {
   const menuCopy = MENU_COPY[locale as SupportedLocale] ?? MENU_COPY.en;
   const menuShowcaseLinks = [
     { label: tCommon("home"), href: "/", type: "route" as const },
-    { label: tFooter("membership"), href: "/membership", type: "route" as const },
+    { label: tCommon("services"), href: "/#care", type: "route" as const },
     { label: tHome("faq.title"), href: "/#faq", type: "route" as const },
-    { label: menuCopy.contactLabel, href: "mailto:contact@gmed-health.com", type: "external" as const },
+    { label: tCommon("programs"), href: "/membership", type: "route" as const },
   ] as const;
 
   const showMobileLoginFab = showLogin && !isMobileMenuOpen && !isApplyPage && !isMembershipPage;
@@ -192,12 +210,8 @@ export function Header() {
         )}
       >
         <div className={styles.stickyContainer}>
-          <Link href="/" className={styles.stickyLogoLink}>
-            <Image
-              src="/assets/logo.png"
-              alt="Medical Concierge Agency"
-              width={150}
-              height={59}
+          <Link href="/" className={styles.stickyLogoLink} aria-label="Medical Concierge Agency">
+            <LogoSvg
               className={cn(styles.stickyLogo, isOverDarkBg && styles.stickyLogoInverted)}
             />
             {/* <span className={styles.stickyLogoTagline}>
@@ -271,6 +285,9 @@ export function Header() {
                           onClick={closeMobileMenu}
                         >
                           <span className={styles.menuShowcaseText}>{item.label}</span>
+                          <span className={styles.menuShowcaseArrow} aria-hidden="true">
+                            <ArrowLeft />
+                          </span>
                           {active && <span className={styles.menuShowcaseDot} aria-hidden="true" />}
                         </a>
                       );
@@ -285,6 +302,9 @@ export function Header() {
                         className={styles.menuShowcaseLink}
                       >
                         <span className={styles.menuShowcaseText}>{item.label}</span>
+                        <span className={styles.menuShowcaseArrow} aria-hidden="true">
+                          <ArrowLeft />
+                        </span>
                         {active && <span className={styles.menuShowcaseDot} aria-hidden="true" />}
                       </Link>
                     );
@@ -324,7 +344,6 @@ export function Header() {
               <div className={styles.menuContactCard}>
                 <p className={styles.menuContactTitle}>
                   <span>{menuCopy.contactLineOne}</span>
-                  <span>{menuCopy.contactLineTwo}</span>
                 </p>
 
                 <a
@@ -337,42 +356,49 @@ export function Header() {
                 </a>
               </div>
 
-              <Link
-                href="/financial-assistance"
-                onClick={closeMobileMenu}
-                className={styles.menuFeatureCard}
-              >
-                <span className={styles.menuFeatureGlyph} aria-hidden="true" />
-                <span className={styles.menuFeatureLabel}>{tFooter("financialAssistance")}</span>
-                <ArrowUpRight aria-hidden="true" />
-              </Link>
-
               <div className={styles.mobileFooterLinks}>
                 <Link
                   href="/financial-assistance"
                   onClick={closeMobileMenu}
                   className={styles.mobileFooterLink}
                 >
-                  {tFooter("financialAssistance")}
-                  <ArrowUpRight aria-hidden="true" />
+                  <span className={styles.mobileFooterLinkText}>{tFooter("financialAssistance")}</span>
+                  <span className={styles.mobileFooterLinkArrow} aria-hidden="true">
+                    <ArrowLeft />
+                  </span>
                 </Link>
                 <Link
                   href="/privacy-policy"
                   onClick={closeMobileMenu}
                   className={styles.mobileFooterLink}
                 >
-                  {tFooter("privacyPolicy")}
-                  <ArrowUpRight aria-hidden="true" />
+                  <span className={styles.mobileFooterLinkText}>{tFooter("privacyPolicy")}</span>
+                  <span className={styles.mobileFooterLinkArrow} aria-hidden="true">
+                    <ArrowLeft />
+                  </span>
                 </Link>
                 <Link
                   href="/legal-notice"
                   onClick={closeMobileMenu}
                   className={styles.mobileFooterLink}
                 >
-                  {tFooter("impressum")}
-                  <ArrowUpRight aria-hidden="true" />
+                  <span className={styles.mobileFooterLinkText}>{tFooter("impressum")}</span>
+                  <span className={styles.mobileFooterLinkArrow} aria-hidden="true">
+                    <ArrowLeft />
+                  </span>
                 </Link>
               </div>
+
+              <Link
+                href="/apply"
+                prefetch={false}
+                onClick={closeMobileMenu}
+                className={styles.menuFeatureCard}
+              >
+                <span className={styles.menuFeatureGlyph} aria-hidden="true" />
+                <span className={styles.menuFeatureLabel}>{tCommon("requestAppointment")}</span>
+                <ArrowUpRight aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </div>

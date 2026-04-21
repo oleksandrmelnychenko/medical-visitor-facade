@@ -13,11 +13,23 @@ export function Hero() {
 
       <div className={styles.heroIntro}>
         <h2 className={styles.heroTagline}>
-          {t("titleDark")} {t("titleMuted")} {t("subHeadline")}
+          <span className={styles.heroTaglineAccent}>{t("titleDark")}</span>{" "}
+          {t("titleMuted")}{" "}
+          <span className={styles.heroTaglineAccent}>{t("subHeadlineAccent")}</span>{" "}
+          {t("subHeadlineTail")}
         </h2>
       </div>
 
-      <div className={styles.videoFrame} aria-hidden="true">
+      <div className={styles.videoFrame} aria-hidden="true" data-dark-bg="true">
+        <video
+          className={styles.videoFrameMedia}
+          src="/video/hero-video.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        />
         <span className={styles.videoFramePlaceholder} />
       </div>
 

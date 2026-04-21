@@ -12,6 +12,8 @@
   },
   "common": {
     "home": "Inicio",
+    "services": "Servicios",
+    "programs": "Programas",
     "requestAppointment": "Comentar su situación",
     "login": "Iniciar sesión",
     "selectLanguage": "Seleccionar idioma",
@@ -100,14 +102,16 @@
     },
     "hero": {
       "brandLabel": "Medical Concierge · desde 2012",
-      "titleDark": "Precisión clínica",
-      "titleMuted": "y medicina avanzada en Alemania.",
-      "subHeadline": "Verificación profesional de decisiones médicas y coordinación del proceso de tratamiento. Desde 2012.",
+      "titleDark": "Medicina avanzada",
+      "titleMuted": "en Alemania.",
+      "subHeadline": "Evaluación experta",
+      "subHeadlineAccent": "de decisiones y acompañamiento integral.",
+      "subHeadlineTail": "Desde 2012.",
       "caption": "Múnich · Berlín · Hamburgo · Colonia",
       "cta": "Obtener consulta",
       "subtitle": "Aseguramos un ciclo completo de acompañamiento y seguridad médica: desde la selección de especialistas especializados hasta la coordinación de todas las etapas del tratamiento.",
       "learnMore": "Saber más",
-      "scrollToExplore": "Deslice para saber más"
+      "scrollToExplore": "Agentur für Patientenbetreuung Heorhii Hudiiev"
     },
     "forWhom": {
       "eyebrow": "Especialización",
@@ -646,11 +650,11 @@
   },
   "membership": {
     "meta": {
-      "title": "Programas de servicio médico",
+      "title": "Programas de servicio médico de conserjería",
       "description": "Compare los programas de interacción con GMED: gestión a través del portal protegido para pacientes o acompañamiento completo de Concierge GMED Reserve."
     },
     "eyebrow": "Servicios GMED",
-    "title": "Programas de servicio médico",
+    "title": "Programas de servicio médico de conserjería",
     "subtitle": "Niveles de acompañamiento y coordinación adaptados a la complejidad del caso clínico.",
     "intro": "La organización del trabajo es posible en dos formatos: gestión de información médica a través del portal protegido para pacientes o acompañamiento integral de Concierge (GMED Reserve).",
     "decision": {
