@@ -1,1 +1,1 @@
-export { OrganizationJsonLd, WebsiteJsonLd, BreadcrumbJsonLd } from "./JsonLd";
+export { OrganizationJsonLd, WebsiteJsonLd, BreadcrumbJsonLd, FaqJsonLd } from "./JsonLd";

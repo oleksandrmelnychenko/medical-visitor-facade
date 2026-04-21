@@ -39,7 +39,6 @@ export const metadata: Metadata = {
     template: "%s | GMED Agency",
   },
   description: "Premium medical concierge service in Germany. Treatment organization, clinic selection, and end-to-end patient support in DE, EN, RU, ES.",
-  keywords: ["medical tourism", "healthcare Germany", "medical concierge", "patient care", "clinic selection", "medical travel"],
   authors: [{ name: "GMED Agency" }],
   creator: "GMED Agency",
   publisher: "GMED Agency",
@@ -49,7 +48,6 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: `${baseUrl}/de`,
     languages: {
       "de-DE": `${baseUrl}/de`,
       "en-US": `${baseUrl}/en`,

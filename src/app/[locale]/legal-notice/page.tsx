@@ -1,19 +1,48 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { cn } from "@/lib/utils";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
+import {
+  getBreadcrumbItems,
+  getLocalizedMessage,
+  getLocalizedMetadata,
+  normalizeLanguage,
+} from "@/lib/seo";
 import styles from "./legal-notice.module.scss";
 
 type LegalNoticePageProps = {
   params: Promise<{ locale: string }>;
 };
 
+export async function generateMetadata({ params }: LegalNoticePageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const safeLocale = normalizeLanguage(locale);
+  const title = await getLocalizedMessage(safeLocale, "impressumPage.title");
+
+  return getLocalizedMetadata({
+    locale: safeLocale,
+    path: "/legal-notice",
+    title,
+    description: "Legal information for GMED Agency — company details, address and VAT identification.",
+  });
+}
+
 export default async function LegalNoticePage({ params }: LegalNoticePageProps) {
   const { locale } = await params;
+  const safeLocale = normalizeLanguage(locale);
   const t = await getTranslations({ locale, namespace: "impressumPage" });
+  const tCommon = await getTranslations({ locale, namespace: "common" });
+
+  const breadcrumbItems = getBreadcrumbItems(safeLocale, [
+    { name: tCommon("home"), path: "" },
+    { name: t("title"), path: "/legal-notice" },
+  ]);
 
   return (
     <div className={cn(pageStyles.page, styles.page)} data-page="legal-notice">
+      <BreadcrumbJsonLd items={breadcrumbItems} />
       <section className={cn(sectionStyles.section, styles.contentSection)}>
         <div className={styles.container}>
           <header className={styles.heroRow}>

@@ -1,12 +1,36 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { cn } from "@/lib/utils";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
+import {
+  getBreadcrumbItems,
+  getLocalizedMessage,
+  getLocalizedMetadata,
+  normalizeLanguage,
+} from "@/lib/seo";
 import styles from "./privacy-policy.module.scss";
 
 type PrivacyPolicyPageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: PrivacyPolicyPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const safeLocale = normalizeLanguage(locale);
+  const [title, description] = await Promise.all([
+    getLocalizedMessage(safeLocale, "privacyPolicy.title"),
+    getLocalizedMessage(safeLocale, "privacyPolicy.intro1"),
+  ]);
+
+  return getLocalizedMetadata({
+    locale: safeLocale,
+    path: "/privacy-policy",
+    title,
+    description,
+  });
+}
 
 type PolicyBlock =
   | {
@@ -20,9 +44,16 @@ type PolicyBlock =
 
 export default async function PrivacyPolicyPage({ params }: PrivacyPolicyPageProps) {
   const { locale } = await params;
+  const safeLocale = normalizeLanguage(locale);
   const t = await getTranslations({ locale, namespace: "privacyPolicy" });
+  const tCommon = await getTranslations({ locale, namespace: "common" });
 
   const introParagraphs = [t("intro2"), t("intro3"), t("intro4")];
+
+  const breadcrumbItems = getBreadcrumbItems(safeLocale, [
+    { name: tCommon("home"), path: "" },
+    { name: t("title"), path: "/privacy-policy" },
+  ]);
 
   const sections: Array<{
     key: string;
@@ -144,6 +175,7 @@ export default async function PrivacyPolicyPage({ params }: PrivacyPolicyPagePro
 
   return (
     <div className={cn(pageStyles.page, styles.page)} data-page="privacy-policy">
+      <BreadcrumbJsonLd items={breadcrumbItems} />
       <section className={cn(sectionStyles.section, styles.contentSection)}>
         <div className={styles.container}>
           <div className={styles.editorialLayout}>

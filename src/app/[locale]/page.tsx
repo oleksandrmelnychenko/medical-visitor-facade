@@ -8,11 +8,14 @@ import { ScrollReveal } from "@/components/sections/home/ScrollReveal";
 import { Faq } from "@/components/sections/home/Faq";
 import { HomeScrollRail } from "@/components/sections/home/HomeScrollRail";
 import { ScaleStats } from "@/components/sections/ScaleStats";
+import { FaqJsonLd } from "@/components/seo/JsonLd";
 import {
   getLocalizedMetadata,
   getLocalizedMessage,
   normalizeLanguage,
 } from "@/lib/seo";
+
+const FAQ_ITEM_KEYS = ["services", "clinicSelection", "travel", "documents", "onSite", "start"] as const;
 
 type HomePageProps = {
   params: Promise<{ locale: string }>;
@@ -35,9 +38,20 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
   });
 }
 
-export default function Home() {
+export default async function Home({ params }: HomePageProps) {
+  const { locale } = await params;
+  const safeLocale = normalizeLanguage(locale);
+
+  const faqItems = await Promise.all(
+    FAQ_ITEM_KEYS.map(async (key) => ({
+      question: await getLocalizedMessage(safeLocale, `home.faq.items.${key}.question`),
+      answer: await getLocalizedMessage(safeLocale, `home.faq.items.${key}.answer`),
+    })),
+  );
+
   return (
     <div data-page="home">
+      <FaqJsonLd items={faqItems} />
       <HomeScrollRail />
       <Hero />
       <ForWhom />

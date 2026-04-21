@@ -1,18 +1,50 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { cn } from "@/lib/utils";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import pageStyles from "@/styles/page.module.scss";
+import {
+  getBreadcrumbItems,
+  getLocalizedMessage,
+  getLocalizedMetadata,
+  normalizeLanguage,
+} from "@/lib/seo";
 import styles from "./financial-assistance.module.scss";
 
 type FinancialAssistancePageProps = {
   params: Promise<{ locale: string }>;
 };
 
+export async function generateMetadata({ params }: FinancialAssistancePageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const safeLocale = normalizeLanguage(locale);
+  const [title, description] = await Promise.all([
+    getLocalizedMessage(safeLocale, "appointment.freeService.title"),
+    getLocalizedMessage(safeLocale, "appointment.freeService.description1"),
+  ]);
+
+  return getLocalizedMetadata({
+    locale: safeLocale,
+    path: "/financial-assistance",
+    title,
+    description,
+  });
+}
+
 export default async function FinancialAssistancePage({ params }: FinancialAssistancePageProps) {
   const { locale } = await params;
+  const safeLocale = normalizeLanguage(locale);
   const t = await getTranslations({ locale, namespace: "appointment.freeService" });
+  const tCommon = await getTranslations({ locale, namespace: "common" });
+
+  const breadcrumbItems = getBreadcrumbItems(safeLocale, [
+    { name: tCommon("home"), path: "" },
+    { name: t("title"), path: "/financial-assistance" },
+  ]);
 
   return (
     <div className={cn(pageStyles.page, styles.page)} data-page="financial-assistance">
+      <BreadcrumbJsonLd items={breadcrumbItems} />
       <section className={styles.section}>
         <div className={styles.container}>
           <header className={styles.header}>

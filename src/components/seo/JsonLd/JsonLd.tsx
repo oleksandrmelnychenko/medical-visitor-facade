@@ -6,9 +6,15 @@ export function OrganizationJsonLd() {
     "@type": "MedicalBusiness",
     "@id": `${baseUrl}/#organization`,
     name: "GMED Agency",
+    alternateName: "Medical Concierge Agency",
     description: "Premium medical concierge service in Germany. Treatment organization, clinic selection, and end-to-end patient support.",
     url: baseUrl,
-    logo: `${baseUrl}/assets/logo.png`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${baseUrl}/assets/logo.png`,
+      width: 512,
+      height: 512,
+    },
     image: `${baseUrl}/opengraph-image`,
     email: "contact@gmed-health.com",
     address: {
@@ -66,6 +72,35 @@ export function WebsiteJsonLd() {
       "@id": `${baseUrl}/#organization`,
     },
     inLanguage: ["de", "en", "ru", "es"],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export function FaqJsonLd({ items }: { items: FaqItem[] }) {
+  if (!items.length) return null;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   };
 
   return (

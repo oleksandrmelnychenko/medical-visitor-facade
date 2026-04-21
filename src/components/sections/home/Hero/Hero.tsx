@@ -5,19 +5,16 @@ import styles from "./Hero.module.scss";
 
 export function Hero() {
   const t = useTranslations("home.hero");
-  const srTitle = [t("titleDark"), t("titleMuted")].filter(Boolean).join(" ");
 
   return (
     <section id="hero" className={styles.hero} data-home-section="hero">
-      <h1 className={styles.srOnly}>{srTitle}</h1>
-
       <div className={styles.heroIntro}>
-        <h2 className={styles.heroTagline}>
+        <h1 className={styles.heroTagline}>
           <span className={styles.heroTaglineAccent}>{t("titleDark")}</span>{" "}
           {t("titleMuted")}{" "}
           <span className={styles.heroTaglineAccent}>{t("subHeadlineAccent")}</span>{" "}
           {t("subHeadlineTail")}
-        </h2>
+        </h1>
       </div>
 
       <div className={styles.videoFrame} aria-hidden="true" data-dark-bg="true">
