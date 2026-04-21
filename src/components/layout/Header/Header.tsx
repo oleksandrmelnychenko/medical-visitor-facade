@@ -276,23 +276,6 @@ export function Header() {
                   {menuShowcaseLinks.map((item) => {
                     const active = isMenuLinkActive(item.href, item.type);
 
-                    if (item.type === "external") {
-                      return (
-                        <a
-                          key={item.label}
-                          href={item.href}
-                          className={styles.menuShowcaseLink}
-                          onClick={closeMobileMenu}
-                        >
-                          <span className={styles.menuShowcaseText}>{item.label}</span>
-                          <span className={styles.menuShowcaseArrow} aria-hidden="true">
-                            <ArrowLeft />
-                          </span>
-                          {active && <span className={styles.menuShowcaseDot} aria-hidden="true" />}
-                        </a>
-                      );
-                    }
-
                     return (
                       <Link
                         key={item.label}
