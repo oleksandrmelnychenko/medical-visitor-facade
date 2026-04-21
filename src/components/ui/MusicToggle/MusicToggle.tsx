@@ -4,79 +4,98 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import styles from "./MusicToggle.module.scss";
 
-const AUDIO_SOURCES = [
-  { src: "/audio/generic.mp3", type: "audio/mpeg" },
-  { src: "/audio/generic.ogg", type: "audio/ogg" },
-];
-
-function pickPlayableSource() {
-  if (typeof document === "undefined") return AUDIO_SOURCES[0].src;
-  const probe = document.createElement("audio");
-  for (const source of AUDIO_SOURCES) {
-    if (probe.canPlayType(source.type)) return source.src;
-  }
-  return AUDIO_SOURCES[0].src;
-}
+const INTERACTION_EVENTS = [
+  "pointerdown",
+  "pointerup",
+  "pointermove",
+  "touchstart",
+  "touchmove",
+  "touchend",
+  "click",
+  "keydown",
+  "scroll",
+  "wheel",
+  "mousemove",
+] as const;
 
 export function MusicToggle() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [hasUnmuted, setHasUnmuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const audio = new Audio(pickPlayableSource());
-    audio.loop = true;
+    const audio = audioRef.current;
+    if (!audio) return undefined;
+
     audio.volume = 0.45;
-    audio.preload = "auto";
     audio.muted = true;
-    audio.addEventListener("play", () => setIsPlaying(true));
-    audio.addEventListener("pause", () => setIsPlaying(false));
-    audioRef.current = audio;
 
-    const interactionEvents = [
-      "pointerdown",
-      "pointermove",
-      "keydown",
-      "touchstart",
-      "touchmove",
-      "scroll",
-      "wheel",
-      "mousemove",
-    ] as const;
+    const onPlay = () => setIsPlaying(true);
+    const onPause = () => setIsPlaying(false);
+    audio.addEventListener("play", onPlay);
+    audio.addEventListener("pause", onPause);
 
-    const unmuteOnInteraction = () => {
-      audio.muted = false;
+    const tryPlayMuted = () => {
       if (audio.paused) {
         audio.play().catch(() => {});
       }
-      interactionEvents.forEach((evt) =>
-        window.removeEventListener(evt, unmuteOnInteraction),
+    };
+
+    const onCanPlay = () => tryPlayMuted();
+    audio.addEventListener("canplay", onCanPlay);
+    audio.addEventListener("canplaythrough", onCanPlay);
+    audio.addEventListener("loadeddata", onCanPlay);
+
+    tryPlayMuted();
+
+    const unmuteOnInteraction = () => {
+      audio.muted = false;
+      setHasUnmuted(true);
+      if (audio.paused) {
+        audio.play().catch(() => {});
+      }
+      INTERACTION_EVENTS.forEach((evt) =>
+        document.removeEventListener(evt, unmuteOnInteraction, true),
       );
     };
 
-    audio
-      .play()
-      .then(() => setIsPlaying(true))
-      .catch(() => {});
-
-    interactionEvents.forEach((evt) =>
-      window.addEventListener(evt, unmuteOnInteraction, { once: true, passive: true }),
+    INTERACTION_EVENTS.forEach((evt) =>
+      document.addEventListener(evt, unmuteOnInteraction, {
+        capture: true,
+        once: true,
+        passive: true,
+      }),
     );
 
+    const onVisibility = () => {
+      if (document.visibilityState === "visible" && audio.paused && hasUnmuted) {
+        audio.play().catch(() => {});
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
     return () => {
-      interactionEvents.forEach((evt) =>
-        window.removeEventListener(evt, unmuteOnInteraction),
+      audio.removeEventListener("play", onPlay);
+      audio.removeEventListener("pause", onPause);
+      audio.removeEventListener("canplay", onCanPlay);
+      audio.removeEventListener("canplaythrough", onCanPlay);
+      audio.removeEventListener("loadeddata", onCanPlay);
+      document.removeEventListener("visibilitychange", onVisibility);
+      INTERACTION_EVENTS.forEach((evt) =>
+        document.removeEventListener(evt, unmuteOnInteraction, true),
       );
       audio.pause();
-      audio.src = "";
-      audioRef.current = null;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleToggle = async () => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    if (audio.paused) {
+    if (audio.paused || audio.muted) {
+      audio.muted = false;
+      setHasUnmuted(true);
       try {
         await audio.play();
       } catch {
@@ -87,34 +106,50 @@ export function MusicToggle() {
     }
   };
 
+  const showActive = isPlaying && hasUnmuted;
+
   return (
-    <button
-      type="button"
-      onClick={handleToggle}
-      aria-pressed={isPlaying}
-      aria-label={isPlaying ? "Pause background music" : "Play background music"}
-      className={cn(styles.button, isPlaying && styles.playing)}
-    >
-      <svg
-        className={styles.waveSvg}
-        viewBox="0 0 24 12"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+    <>
+      <audio
+        ref={audioRef}
+        loop
+        muted
+        autoPlay
+        playsInline
+        preload="auto"
         aria-hidden="true"
       >
-        {isPlaying ? (
-          <path
-            className={styles.wavePath}
-            pathLength="100"
-            d="M 2 6 L 7 6 Q 9 10.2 11 6 T 15 6 L 22 6"
-          />
-        ) : (
-          <path className={styles.dashPath} d="M 2 6 L 22 6" />
-        )}
-      </svg>
-    </button>
+        <source src="/audio/generic.mp3" type="audio/mpeg" />
+        <source src="/audio/generic.ogg" type="audio/ogg" />
+      </audio>
+      <button
+        type="button"
+        onClick={handleToggle}
+        aria-pressed={showActive}
+        aria-label={showActive ? "Pause background music" : "Play background music"}
+        className={cn(styles.button, showActive && styles.playing)}
+      >
+        <svg
+          className={styles.waveSvg}
+          viewBox="0 0 24 12"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          {showActive ? (
+            <path
+              className={styles.wavePath}
+              pathLength="100"
+              d="M 2 6 L 7 6 Q 9 10.2 11 6 T 15 6 L 22 6"
+            />
+          ) : (
+            <path className={styles.dashPath} d="M 2 6 L 22 6" />
+          )}
+        </svg>
+      </button>
+    </>
   );
 }

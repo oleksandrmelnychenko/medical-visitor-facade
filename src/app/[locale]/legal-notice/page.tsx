@@ -13,10 +13,13 @@ export default async function LegalNoticePage({ params }: LegalNoticePageProps) 
   const t = await getTranslations({ locale, namespace: "impressumPage" });
 
   return (
-    <div className={cn(pageStyles.page, styles.page)}>
+    <div className={cn(pageStyles.page, styles.page)} data-page="legal-notice">
       <section className={cn(sectionStyles.section, styles.contentSection)}>
-        <div className={sectionStyles.container}>
-          <h1 className={styles.srOnly}>{t("title")}</h1>
+        <div className={styles.container}>
+          <header className={styles.heroRow}>
+            <span className={styles.eyebrow}>{t("title")}</span>
+            <h1 className={styles.pageTitle}>{t("title")}</h1>
+          </header>
           <div className={styles.editorialLayout}>
             <div className={styles.noticeRow}>
               <p className={styles.rowLabel}>{t("legalNameTitle")}</p>

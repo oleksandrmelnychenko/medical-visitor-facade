@@ -84,7 +84,7 @@
   line-height: 1.2;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(19, 23, 33, 0.55);
+  color: #ff5a14;
 }
 
 .introRow,
@@ -138,16 +138,28 @@
   gap: clamp(0.95rem, 1.55vw, 1.3rem);
 }
 
-.introText,
+.introText {
+  margin: 0;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0b0e14;
+  text-wrap: balance;
+}
+
 .bodyText {
   margin: 0;
-  font-family: "Onest", sans-serif;
-  font-size: clamp(1rem, 1.1vw, 1.12rem);
-  font-weight: 450;
-  line-height: 1.55;
-  letter-spacing: -0.012em;
-  color: rgba(19, 23, 33, 0.78);
-  text-wrap: pretty;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0b0e14;
+  text-wrap: balance;
 }
 
 .detailList {
@@ -161,19 +173,20 @@
     position: relative;
     margin: 0;
     padding-left: 1.35rem;
-    font-family: "Onest", sans-serif;
-    font-size: clamp(1rem, 1.1vw, 1.12rem);
-    font-weight: 450;
-    line-height: 1.55;
-    letter-spacing: -0.012em;
-    color: rgba(19, 23, 33, 0.78);
-    text-wrap: pretty;
+    font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #0b0e14;
+    text-wrap: balance;
 
     &::before {
       content: "";
       position: absolute;
       left: 0;
-      top: 0.65rem;
+      top: 0.6rem;
       width: 0.42rem;
       height: 0.42rem;
       border-radius: 999px;
@@ -281,8 +294,9 @@
   .introText,
   .bodyText,
   .detailList li {
-    font-size: 0.96rem;
-    line-height: 1.5;
+    font-size: 0.76rem;
+    line-height: 1.45;
+    letter-spacing: 0.05em;
   }
 
   .detailList li {
@@ -316,6 +330,7 @@
   .introText,
   .bodyText,
   .detailList li {
-    font-size: 0.92rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
   }
 }
