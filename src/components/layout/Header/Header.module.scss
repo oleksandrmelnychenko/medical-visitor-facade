@@ -132,7 +132,7 @@
   justify-content: center;
   gap: 0.4rem;
   padding: 0.45rem 1rem;
-  margin-left: 1rem;
+  margin-left: 2rem;
   border-radius: 999px;
   background: #eceef5;
   transition: opacity 0.2s ease;
@@ -143,7 +143,7 @@
 
   @media (max-width: 768px) {
     padding: 0.38rem 0.85rem;
-    margin-left: 0.5rem;
+    margin-left: 0.85rem;
   }
 }
 
@@ -205,11 +205,6 @@
   align-items: center;
   gap: 0.55rem;
   justify-self: end;
-  margin-right: 1rem;
-
-  @media (max-width: 768px) {
-    margin-right: 0.5rem;
-  }
 
   @media (max-width: 540px) {
     gap: 0.4rem;
