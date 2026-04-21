@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { cn } from "@/lib/utils";
 import styles from "./Hero.module.scss";
 
 export function Hero() {
@@ -15,6 +16,14 @@ export function Hero() {
           <span className={styles.heroTaglineAccent}>{t("subHeadlineAccent")}</span>{" "}
           {t("subHeadlineTail")}
         </h1>
+      </div>
+
+      <div className={cn(styles.scrollBar, styles.scrollBarTop)} aria-hidden="true">
+        <span className={styles.scrollBarMark}>+</span>
+        <span className={styles.scrollBarMark}>+</span>
+        <span className={styles.scrollBarLabel}>{t("topBar")}</span>
+        <span className={styles.scrollBarMark}>+</span>
+        <span className={styles.scrollBarMark}>+</span>
       </div>
 
       <div className={styles.videoFrame} aria-hidden="true" data-dark-bg="true">
