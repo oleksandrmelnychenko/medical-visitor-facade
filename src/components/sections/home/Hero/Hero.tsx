@@ -24,11 +24,12 @@ export function Hero() {
         <video
           className={styles.videoFrameMedia}
           src="/video/hero-video.mp4"
+          poster="/video/hero-poster.jpg"
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
         />
         <span className={styles.videoFramePlaceholder} />
       </div>
