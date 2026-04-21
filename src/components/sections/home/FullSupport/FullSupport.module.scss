@@ -109,11 +109,29 @@
 .conceptMediaInner {
   position: absolute;
   inset: 0;
-  will-change: transform;
+}
 
-  img {
-    object-fit: cover;
-    object-position: center;
+.conceptMediaImage {
+  object-fit: cover;
+  object-position: center;
+  will-change: transform;
+  animation: fullSupportDrift 20s ease-in-out infinite;
+}
+
+@keyframes fullSupportDrift {
+  0%,
+  100% {
+    transform: scale(1.03) translate3d(0, -1.5%, 0);
+  }
+  50% {
+    transform: scale(1.08) translate3d(0, 2.8%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .conceptMediaImage {
+    animation: none;
+    transform: scale(1.015);
   }
 }
 

@@ -62,26 +62,15 @@ export function CareForward() {
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             >
-              <motion.div
-                className={styles.mediaInner}
-                animate={
-                  shouldReduceMotion
-                    ? undefined
-                    : { y: [0, -6, 0], scale: [1, 1.012, 1] }
-                }
-                transition={
-                  shouldReduceMotion
-                    ? undefined
-                    : { duration: 6, ease: "easeInOut", repeat: Infinity }
-                }
-              >
+              <div className={styles.mediaInner}>
                 <Image
                   src="/assets/care-forward-stones.webp"
                   alt="Balanced stacked stones symbolising considered medical coordination"
                   fill
                   sizes="(max-width: 767px) 80vw, 32vw"
+                  className={styles.mediaImage}
                 />
-              </motion.div>
+              </div>
             </motion.div>
 
             <div className={styles.accordion}>

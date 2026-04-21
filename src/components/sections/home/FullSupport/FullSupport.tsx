@@ -65,26 +65,15 @@ export function FullSupport() {
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
             >
-              <motion.div
-                className={styles.conceptMediaInner}
-                animate={
-                  shouldReduceMotion
-                    ? undefined
-                    : { y: [0, -8, 0], scale: [1, 1.015, 1] }
-                }
-                transition={
-                  shouldReduceMotion
-                    ? undefined
-                    : { duration: 7, ease: "easeInOut", repeat: Infinity }
-                }
-              >
+              <div className={styles.conceptMediaInner}>
                 <Image
                   src="/assets/full-support-concept.webp"
                   alt="End-to-end patient support concept illustration"
                   fill
                   sizes="(max-width: 767px) 80vw, 32vw"
+                  className={styles.conceptMediaImage}
                 />
-              </motion.div>
+              </div>
             </motion.div>
 
             <motion.div

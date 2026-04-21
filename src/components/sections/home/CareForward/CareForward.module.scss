@@ -57,11 +57,29 @@
 .mediaInner {
   position: absolute;
   inset: 0;
-  will-change: transform;
+}
 
-  img {
-    object-fit: cover;
-    object-position: center 35%;
+.mediaImage {
+  object-fit: cover;
+  object-position: center 35%;
+  will-change: transform;
+  animation: careForwardDrift 20s ease-in-out infinite;
+}
+
+@keyframes careForwardDrift {
+  0%,
+  100% {
+    transform: scale(1.03) translate3d(0, 2%, 0);
+  }
+  50% {
+    transform: scale(1.08) translate3d(0, -1.5%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mediaImage {
+    animation: none;
+    transform: scale(1.015);
   }
 }
 
