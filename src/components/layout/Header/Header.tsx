@@ -64,7 +64,6 @@ export function Header() {
   const searchParams = useSearchParams();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isOverDarkBg, setIsOverDarkBg] = useState(false);
 
   const handleResize = useEffectEvent(() => {
     if (window.innerWidth > 768) {
@@ -112,59 +111,6 @@ export function Header() {
       document.removeEventListener("pointerdown", handlePointerDown, true);
     };
   }, [isMobileMenuOpen]);
-
-  useEffect(() => {
-    const darkNodes = Array.from(document.querySelectorAll<HTMLElement>('[data-dark-bg="true"]'));
-    if (!darkNodes.length) {
-      setIsOverDarkBg(false);
-      return undefined;
-    }
-
-    const stickyHeaderHeight = 120;
-    const intersecting = new Set<Element>();
-
-    const buildObserver = () => {
-      const bottomMargin = Math.max(0, window.innerHeight - stickyHeaderHeight);
-      return new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              intersecting.add(entry.target);
-            } else {
-              intersecting.delete(entry.target);
-            }
-          }
-          setIsOverDarkBg((prev) => {
-            const next = intersecting.size > 0;
-            return prev === next ? prev : next;
-          });
-        },
-        { rootMargin: `0px 0px -${bottomMargin}px 0px`, threshold: 0 },
-      );
-    };
-
-    let observer = buildObserver();
-    darkNodes.forEach((node) => observer.observe(node));
-
-    let resizeRaf = 0;
-    const handleResize = () => {
-      if (resizeRaf) cancelAnimationFrame(resizeRaf);
-      resizeRaf = requestAnimationFrame(() => {
-        observer.disconnect();
-        intersecting.clear();
-        observer = buildObserver();
-        darkNodes.forEach((node) => observer.observe(node));
-      });
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      if (resizeRaf) cancelAnimationFrame(resizeRaf);
-      observer.disconnect();
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [pathname]);
 
   const currentSearch = searchParams.toString();
   const currentPathWithSearch = currentSearch
@@ -233,14 +179,7 @@ export function Header() {
       >
         <div className={styles.stickyContainer}>
           <Link href="/" className={styles.stickyLogoLink} aria-label="Medical Concierge Agency">
-            <LogoSvg
-              className={cn(styles.stickyLogo, isOverDarkBg && styles.stickyLogoInverted)}
-            />
-            {/* <span className={styles.stickyLogoTagline}>
-              {tFooter.rich("companyName", {
-                accent: (chunks) => <span className={styles.logoAccent}>{chunks}</span>,
-              })}
-            </span> */}
+            <LogoSvg className={styles.stickyLogo} />
           </Link>
 
           <div className={styles.stickyActions}>
