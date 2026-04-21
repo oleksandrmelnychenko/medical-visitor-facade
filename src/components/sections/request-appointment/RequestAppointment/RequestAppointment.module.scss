@@ -2112,32 +2112,12 @@
     }
   }
 
-  &:focus-visible,
-  &:focus,
-  &:active {
+  &:focus-visible {
     outline: none;
     position: relative;
     z-index: 1;
     box-shadow: 0 0 0 2px rgba(255, 90, 20, 0.32);
-    color: #ff5a14;
     border-color: rgba(255, 90, 20, 0.45);
-    background: rgba(255, 90, 20, 0.06);
-
-    .locationConceptTitle {
-      color: #ff5a14;
-    }
-
-    .locationConceptDesc {
-      color: rgba(255, 90, 20, 0.82);
-    }
-
-    .locationConceptIcon {
-      color: #ff5a14;
-
-      svg {
-        stroke: #ff5a14;
-      }
-    }
   }
 
   @media (max-width: 640px) {
