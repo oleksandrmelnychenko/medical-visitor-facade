@@ -121,26 +121,48 @@ export function Header() {
     }
 
     const stickyHeaderHeight = 120;
+    const intersecting = new Set<Element>();
 
-    const checkOverlap = () => {
-      let overlapping = false;
-      for (const node of darkNodes) {
-        const rect = node.getBoundingClientRect();
-        if (rect.top < stickyHeaderHeight && rect.bottom > 0) {
-          overlapping = true;
-          break;
-        }
-      }
-      setIsOverDarkBg((prev) => (prev === overlapping ? prev : overlapping));
+    const buildObserver = () => {
+      const bottomMargin = Math.max(0, window.innerHeight - stickyHeaderHeight);
+      return new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              intersecting.add(entry.target);
+            } else {
+              intersecting.delete(entry.target);
+            }
+          }
+          setIsOverDarkBg((prev) => {
+            const next = intersecting.size > 0;
+            return prev === next ? prev : next;
+          });
+        },
+        { rootMargin: `0px 0px -${bottomMargin}px 0px`, threshold: 0 },
+      );
     };
 
-    checkOverlap();
-    window.addEventListener("scroll", checkOverlap, { passive: true });
-    window.addEventListener("resize", checkOverlap);
+    let observer = buildObserver();
+    darkNodes.forEach((node) => observer.observe(node));
+
+    let resizeRaf = 0;
+    const handleResize = () => {
+      if (resizeRaf) cancelAnimationFrame(resizeRaf);
+      resizeRaf = requestAnimationFrame(() => {
+        observer.disconnect();
+        intersecting.clear();
+        observer = buildObserver();
+        darkNodes.forEach((node) => observer.observe(node));
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("scroll", checkOverlap);
-      window.removeEventListener("resize", checkOverlap);
+      if (resizeRaf) cancelAnimationFrame(resizeRaf);
+      observer.disconnect();
+      window.removeEventListener("resize", handleResize);
     };
   }, [pathname]);
 
