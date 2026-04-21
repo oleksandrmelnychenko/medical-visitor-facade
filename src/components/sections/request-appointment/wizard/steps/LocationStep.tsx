@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useRef } from 'react';
-import { Globe2, Landmark } from 'lucide-react';
+import { Bank, Globe, GlobeHemisphereWest } from '@phosphor-icons/react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../WizardContext';
@@ -9,43 +9,23 @@ import { LocationDetailedType } from '../types';
 import { WizardStepLayout } from '../components/WizardStepLayout';
 import styles from '../../RequestAppointment/RequestAppointment.module.scss';
 
-function EuropeanUnionFlagIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" {...props}>
-      <rect x="3" y="3" width="18" height="18" rx="4" fill="#1F4AA8" />
-      <circle cx="12" cy="7" r="0.8" fill="#F7C948" />
-      <circle cx="14.5" cy="7.67" r="0.8" fill="#F7C948" />
-      <circle cx="16.33" cy="9.5" r="0.8" fill="#F7C948" />
-      <circle cx="17" cy="12" r="0.8" fill="#F7C948" />
-      <circle cx="16.33" cy="14.5" r="0.8" fill="#F7C948" />
-      <circle cx="14.5" cy="16.33" r="0.8" fill="#F7C948" />
-      <circle cx="12" cy="17" r="0.8" fill="#F7C948" />
-      <circle cx="9.5" cy="16.33" r="0.8" fill="#F7C948" />
-      <circle cx="7.67" cy="14.5" r="0.8" fill="#F7C948" />
-      <circle cx="7" cy="12" r="0.8" fill="#F7C948" />
-      <circle cx="7.67" cy="9.5" r="0.8" fill="#F7C948" />
-      <circle cx="9.5" cy="7.67" r="0.8" fill="#F7C948" />
-    </svg>
-  );
-}
-
 const LOCATION_OPTIONS = [
   {
     value: 'germany' as const,
     color: '#E5D5A8',
-    icon: Landmark,
+    icon: Bank,
     titleKey: 'germany',
   },
   {
     value: 'eu_not_germany' as const,
     color: '#D5E8D5',
-    icon: EuropeanUnionFlagIcon,
+    icon: Globe,
     titleKey: 'euNotGermany',
   },
   {
     value: 'outside_eu' as const,
     color: '#A8D5E5',
-    icon: Globe2,
+    icon: GlobeHemisphereWest,
     titleKey: 'outsideEu',
   },
 ];
@@ -121,7 +101,21 @@ export function LocationStep() {
                 </div>
               </div>
 
-              <span className={styles.locationConceptTitle}>{t(`location3.${option.titleKey}`)}</span>
+              <span className={styles.locationConceptTitle}>
+                {(() => {
+                  const text = t(`location3.${option.titleKey}`);
+                  if (option.value !== 'eu_not_germany') return text;
+                  const parenIdx = text.indexOf('(');
+                  if (parenIdx <= 0) return text;
+                  return (
+                    <>
+                      <span style={{ color: '#ff5a14' }}>{text.slice(0, parenIdx).trim()}</span>
+                      {' '}
+                      {text.slice(parenIdx)}
+                    </>
+                  );
+                })()}
+              </span>
             </button>
           );
         })}

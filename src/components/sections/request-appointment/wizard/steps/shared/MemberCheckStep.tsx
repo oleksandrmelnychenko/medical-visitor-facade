@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useRef } from 'react';
-import { UserRoundCheck, UserRoundPlus } from 'lucide-react';
+import { UserCircleCheck, UserCirclePlus } from '@phosphor-icons/react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
@@ -57,7 +57,7 @@ export function MemberCheckStep() {
         >
           <div className={styles.locationConceptCardHeader}>
             <span className={styles.locationConceptIcon} aria-hidden="true">
-                <UserRoundCheck />
+                <UserCircleCheck />
             </span>
           </div>
           <h3 className={styles.locationConceptTitle}>{t('memberCheck.isMember')}</h3>
@@ -71,7 +71,7 @@ export function MemberCheckStep() {
         >
           <div className={styles.locationConceptCardHeader}>
             <span className={styles.locationConceptIcon} aria-hidden="true">
-                <UserRoundPlus />
+                <UserCirclePlus />
             </span>
           </div>
           <h3 className={styles.locationConceptTitle}>{t('memberCheck.notMember')}</h3>
