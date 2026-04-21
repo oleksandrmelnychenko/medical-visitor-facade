@@ -3,7 +3,7 @@ import { getLocalizedMessage, normalizeLanguage } from "@/lib/seo";
 
 export const runtime = "nodejs";
 
-export const alt = "GMED Agency — Medical Concierge Service";
+export const alt = "GMED Medical Concierge — Medical Concierge Service";
 export const size = {
   width: 1200,
   height: 630,
@@ -19,7 +19,7 @@ export default async function OpengraphImage({ params }: Props) {
   const safeLocale = normalizeLanguage(locale);
 
   const [titleDark, titleMuted, subHeadlineAccent] = await Promise.all([
-    getLocalizedMessage(safeLocale, "home.hero.titleDark").catch(() => "GMED Agency"),
+    getLocalizedMessage(safeLocale, "home.hero.titleDark").catch(() => "GMED Medical Concierge"),
     getLocalizedMessage(safeLocale, "home.hero.titleMuted").catch(() => ""),
     getLocalizedMessage(safeLocale, "home.hero.subHeadlineAccent").catch(() => ""),
   ]);
@@ -55,7 +55,7 @@ export default async function OpengraphImage({ params }: Props) {
             background: "rgba(19, 23, 33, 0.06)",
           }}
         >
-          GMED Agency
+          GMED Medical Concierge
         </div>
 
         <div

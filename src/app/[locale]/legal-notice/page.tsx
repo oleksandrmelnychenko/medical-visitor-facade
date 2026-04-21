@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: LegalNoticePageProps): Promis
     locale: safeLocale,
     path: "/legal-notice",
     title,
-    description: "Legal information for GMED Agency — company details, address and VAT identification.",
+    description: "Legal information for GMED Medical Concierge — company details, address and VAT identification.",
   });
 }
 

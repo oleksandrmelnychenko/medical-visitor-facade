@@ -5,7 +5,7 @@ export function OrganizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
     "@id": `${baseUrl}/#organization`,
-    name: "GMED Agency",
+    name: "GMED Medical Concierge",
     alternateName: "Medical Concierge Agency",
     description: "Premium medical concierge service in Germany. Treatment organization, clinic selection, and end-to-end patient support.",
     url: baseUrl,
@@ -66,7 +66,7 @@ export function WebsiteJsonLd() {
     "@type": "WebSite",
     "@id": `${baseUrl}/#website`,
     url: baseUrl,
-    name: "GMED Agency",
+    name: "GMED Medical Concierge",
     description: "Premium medical concierge service in Germany",
     publisher: {
       "@id": `${baseUrl}/#organization`,

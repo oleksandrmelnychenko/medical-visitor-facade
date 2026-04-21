@@ -25,7 +25,7 @@ export async function generateMetadata({
     locale: safeLocale,
     path: "/legal-notice",
     title,
-    description: `${title}. GMED Agency, ${address}.`,
+    description: `${title}. GMED Medical Concierge, ${address}.`,
   });
 }
 

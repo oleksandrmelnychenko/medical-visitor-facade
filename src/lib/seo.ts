@@ -89,7 +89,7 @@ export function getLocalizedMetadata({
         .filter((language) => language !== locale)
         .map((language) => openGraphLocaleMap[language]),
       url: getLocalizedPath(locale, path),
-      siteName: "GMED Agency",
+      siteName: "GMED Medical Concierge",
       title,
       description,
       images: [
@@ -97,7 +97,7 @@ export function getLocalizedMetadata({
           url: `/${locale}/opengraph-image`,
           width: 1200,
           height: 630,
-          alt: "GMED Agency - Medical Concierge Service",
+          alt: "GMED Medical Concierge - Premium Healthcare in Germany",
           type: "image/png",
         },
       ],

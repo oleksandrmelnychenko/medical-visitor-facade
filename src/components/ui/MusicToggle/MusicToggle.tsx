@@ -9,8 +9,8 @@ const AUDIO_SOURCES = [
   { src: "/audio/generic.ogg", type: "audio/ogg" },
 ] as const;
 const INTERACTION_EVENTS = ["pointerdown", "touchstart", "keydown"] as const;
-const AUTOSTART_DELAY_MS = 900;
-const AUTOSTART_IDLE_TIMEOUT_MS = 1600;
+const AUTOSTART_DELAY_MS = 280;
+const AUTOSTART_IDLE_TIMEOUT_MS = 700;
 
 function pickPlayableSource() {
   if (typeof document === "undefined") {

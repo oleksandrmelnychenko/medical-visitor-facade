@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
-export const alt = 'GMED Agency - Medical Concierge Service';
+export const alt = 'GMED Medical Concierge - Medical Concierge Service';
 export const size = {
   width: 1200,
   height: 630,
@@ -40,7 +40,7 @@ export default async function Image() {
               textAlign: 'center',
             }}
           >
-            GMED Agency
+            GMED Medical Concierge
           </div>
           <div
             style={{
