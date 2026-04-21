@@ -152,6 +152,11 @@
   width: auto;
   color: #131721;
   object-fit: contain;
+  shape-rendering: geometricPrecision;
+  text-rendering: geometricPrecision;
+  image-rendering: -webkit-optimize-contrast;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 
   @media (max-width: 768px) {
     height: 32px;
