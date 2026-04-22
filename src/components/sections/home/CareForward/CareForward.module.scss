@@ -318,8 +318,13 @@
   }
 
   .trigger {
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 0.85rem;
     padding: 1.1rem 0;
+  }
+
+  .index {
+    display: none;
   }
 
   .question {
@@ -328,7 +333,7 @@
   }
 
   .answerList {
-    padding: 0 0 1.2rem 2.95rem;
+    padding: 0 0 1.2rem 0;
   }
 
   .answerPoint {
