@@ -336,11 +336,10 @@
   width: 100%;
   max-width: 100%;
   align-self: flex-start;
-  margin-left: 0;
-  margin-top: 0;
+  margin: 0;
   flex: 1 1 auto;
   min-height: 0;
-  border-radius: 0 0 clamp(1.25rem, 2vw, 1.75rem) clamp(1.25rem, 2vw, 1.75rem);
+  border-radius: 0 !important;
   border: none;
   background: #eceef5;
   overflow: hidden;
@@ -349,17 +348,18 @@
     flex: 0 0 auto;
     aspect-ratio: 16 / 11;
     min-height: auto;
+    border-radius: 0 !important;
   }
 
   @media (max-width: 768px) {
     aspect-ratio: 4 / 5;
-    margin-top: 1rem;
-    border-radius: 0 0 1.15rem 1.15rem;
+    margin-top: 0;
+    border-radius: 0 !important;
   }
 
   @media (max-width: 480px) {
     aspect-ratio: 3 / 4;
-    border-radius: 0 0 1rem 1rem;
+    border-radius: 0 !important;
   }
 }
 
@@ -372,6 +372,7 @@
   object-position: center;
   z-index: 0;
   pointer-events: none;
+  border-radius: 0 !important;
 }
 
 .videoFramePlaceholder {
@@ -382,6 +383,7 @@
   mix-blend-mode: screen;
   pointer-events: none;
   z-index: 1;
+  border-radius: 0 !important;
 }
 
 .scrollBar {
