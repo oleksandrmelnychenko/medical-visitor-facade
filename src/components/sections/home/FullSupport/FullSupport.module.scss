@@ -100,9 +100,7 @@
   }
 
   @media (max-width: 767px) {
-    aspect-ratio: 4 / 3;
-    max-width: min(88vw, 26rem);
-    margin-inline: auto;
+    display: none;
   }
 }
 

@@ -309,6 +309,10 @@
     padding: 4.5rem 0;
   }
 
+  .media {
+    display: none;
+  }
+
   .title {
     @include home-section-title-mobile;
   }

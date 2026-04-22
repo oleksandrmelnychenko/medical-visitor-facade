@@ -28,8 +28,12 @@
   }
 
   @media (max-width: 768px) {
-    min-height: auto;
+    min-height: 100dvh;
     padding: 0;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    width: 100vw;
   }
 }
 
@@ -352,13 +356,19 @@
   }
 
   @media (max-width: 768px) {
-    aspect-ratio: 4 / 5;
+    flex: 1 1 auto;
+    aspect-ratio: auto;
+    min-height: 100dvh;
+    height: 100dvh;
+    width: 100vw;
     margin-top: 0;
     border-radius: 0 !important;
   }
 
   @media (max-width: 480px) {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: auto;
+    min-height: 100dvh;
+    height: 100dvh;
     border-radius: 0 !important;
   }
 }
