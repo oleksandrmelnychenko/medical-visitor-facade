@@ -3,54 +3,54 @@
 import { useEffect, useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { cn } from "@/shared/lib/cn";
-import styles from "./HomeScrollRail.module.scss";
+import styles from "./ScrollRail.module.scss";
 
-const SECTION_IDS = ["hero", "forWhom", "scale", "support", "care", "office", "outro", "faq"] as const;
+const SECTION_IDS = ["hero", "focus", "stats", "approach", "journey", "locations", "outro", "faq"] as const;
 const SECTION_SCROLL_OFFSET = 104;
 const SHORT_LABELS = {
   de: {
     hero: "Start",
-    forWhom: "Fokus",
-    support: "Konzept",
-    care: "Leistungen",
-    office: "Standorte",
+    focus: "Fokus",
+    stats: "Zahlen",
+    approach: "Konzept",
+    journey: "Leistungen",
+    locations: "Standorte",
     outro: "Anfrage",
     faq: "FAQs",
-    scale: "Zahlen",
   },
   en: {
     hero: "Home",
-    forWhom: "Focus",
-    support: "Concept",
-    care: "Services",
-    office: "Offices",
+    focus: "Focus",
+    stats: "Scale",
+    approach: "Concept",
+    journey: "Services",
+    locations: "Offices",
     outro: "Apply",
     faq: "FAQs",
-    scale: "Scale",
   },
   ru: {
     hero: "Главная",
-    forWhom: "Специализация",
-    support: "Концепт",
-    care: "Услуги",
-    office: "Представительства",
+    focus: "Специализация",
+    stats: "Цифры",
+    approach: "Концепт",
+    journey: "Услуги",
+    locations: "Представительства",
     outro: "Заявка",
     faq: "FAQs",
-    scale: "Цифры",
   },
   es: {
     hero: "Inicio",
-    forWhom: "Foco",
-    support: "Concepto",
-    care: "Servicios",
-    office: "Oficinas",
+    focus: "Foco",
+    stats: "Cifras",
+    approach: "Concepto",
+    journey: "Servicios",
+    locations: "Oficinas",
     outro: "Solicitud",
     faq: "FAQs",
-    scale: "Cifras",
   },
 } as const;
 
-export function HomeScrollRail() {
+export function ScrollRail() {
   const tHome = useTranslations("home");
   const tCommon = useTranslations("common");
   const locale = useLocale();
@@ -63,11 +63,11 @@ export function HomeScrollRail() {
         label: shortLabels.hero,
         fullLabel: `${tHome("hero.titleDark")} ${tHome("hero.titleMuted")}`,
       },
-      { id: "forWhom", label: shortLabels.forWhom, fullLabel: tHome("forWhom.eyebrow") },
-      { id: "scale", label: shortLabels.scale, fullLabel: shortLabels.scale },
-      { id: "support", label: shortLabels.support, fullLabel: tHome("fullSupport.title") },
-      { id: "care", label: shortLabels.care, fullLabel: tHome("careForward.title") },
-      { id: "office", label: shortLabels.office, fullLabel: tHome("office.title") },
+      { id: "focus", label: shortLabels.focus, fullLabel: tHome("focus.eyebrow") },
+      { id: "stats", label: shortLabels.stats, fullLabel: shortLabels.stats },
+      { id: "approach", label: shortLabels.approach, fullLabel: tHome("approach.title") },
+      { id: "journey", label: shortLabels.journey, fullLabel: tHome("journey.title") },
+      { id: "locations", label: shortLabels.locations, fullLabel: tHome("locations.title") },
       { id: "outro", label: shortLabels.outro, fullLabel: tCommon("requestAppointment") },
       { id: "faq", label: shortLabels.faq, fullLabel: tHome("faq.title") },
     ] as const,

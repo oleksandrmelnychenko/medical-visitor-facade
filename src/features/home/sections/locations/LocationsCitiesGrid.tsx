@@ -3,7 +3,7 @@
 import { type CSSProperties } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
-import styles from "./Office.module.scss";
+import styles from "./Locations.module.scss";
 
 type City = {
   key: string;
@@ -17,16 +17,16 @@ type City = {
   delayMs: number;
 };
 
-type OfficeCitiesGridProps = {
+type LocationsCitiesGridProps = {
   cities: City[];
   mainCityName: string;
   mainCityStyle: CSSProperties;
 };
 
-export function OfficeCitiesGrid({
+export function LocationsCitiesGrid({
   cities,
   mainCityName,
-}: OfficeCitiesGridProps) {
+}: LocationsCitiesGridProps) {
   const shouldReduceMotion = useReducedMotion();
 
   return (

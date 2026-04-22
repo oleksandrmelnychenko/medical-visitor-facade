@@ -6,7 +6,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "motion/react"
 import { useTranslations } from "next-intl";
 import { cn } from "@/shared/lib/cn";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
-import styles from "./FullSupport.module.scss";
+import styles from "./Approach.module.scss";
 
 const PRINCIPLE_KEYS = [
   "individualSupport",
@@ -19,8 +19,8 @@ const PRINCIPLE_KEYS = [
   "international",
 ] as const;
 
-export function FullSupport() {
-  const t = useTranslations("home.fullSupport");
+export function Approach() {
+  const t = useTranslations("home.approach");
   const overline = t("overline");
   const subtitle = t("subtitle");
   const ref = useRef<HTMLElement>(null);
@@ -39,9 +39,9 @@ export function FullSupport() {
   return (
       <section
         ref={ref}
-        id="support"
+        id="approach"
         className={cn(sectionStyles.section, styles.fullSupport)}
-        data-home-section="support"
+        data-home-section="approach"
       >
       <div className={sectionStyles.container}>
         <div className={styles.layout} data-snap-anchor>

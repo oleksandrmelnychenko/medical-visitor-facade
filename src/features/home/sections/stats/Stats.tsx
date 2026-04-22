@@ -1,15 +1,15 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import styles from "./ScaleStats.module.scss";
+import styles from "./Stats.module.scss";
 
-export async function ScaleStats() {
-  const t = await getTranslations("scaleStats");
+export async function Stats() {
+  const t = await getTranslations("home.stats");
 
   return (
     <section
       className={styles.section}
       aria-labelledby="scale-stats-title"
-      data-home-section="scale"
+      data-home-section="stats"
     >
       <div className={styles.container}>
         <div className={styles.featureSplit}>

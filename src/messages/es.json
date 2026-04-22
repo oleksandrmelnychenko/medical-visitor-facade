@@ -134,27 +134,6 @@
     "headerTagline": "Precisión clínica y medicina avanzada en Alemania",
     "headerTaglineSub": "Verificación profesional de decisiones médicas y coordinación del proceso de tratamiento. Desde 2012."
   },
-  "scaleStats": {
-    "eyebrow": "",
-    "introBadge": "Sobre nosotros",
-    "introText": "Organización integral de procesos médicos en clínicas especializadas de Alemania desde 2012. Aseguramos un ciclo completo de acompañamiento: desde el análisis de documentación y preparación de datos hasta la coordinación interdisciplinaria y el servicio de Concierge.",
-    "secondaryBadge": "Metodología y estándares",
-    "secondaryHeadline": "Enfoque interdisciplinario y profunda experiencia en la resolución de tareas médicas complejas.",
-    "secondaryText": "Organizamos el trabajo según los estándares de calidad europeos. Realizamos un análisis experto de documentos, evaluamos riesgos y formamos un plan de tratamiento. Garantizamos la transparencia de las acciones, la seguridad de la información y un control constante en cada etapa del proceso de curación.",
-    "headline": "Acompañamiento médico integral y organización del tratamiento en clínicas de Alemania",
-    "overlayLineOne": "Experiencia.",
-    "overlayLineTwo": "Transparencia.",
-    "overlayLineThree": "Enrutamiento.",
-    "yearsValue": "14",
-    "yearsLabel": "Años de experiencia clínica",
-    "yearsShortLabel": "años",
-    "citiesValue": "4",
-    "citiesLabel": "Ciudades de presencia operativa",
-    "citiesShortLabel": "ciudades",
-    "supportAreasValue": "7",
-    "supportAreasLabel": "Direcciones de coordinación interdisciplinaria",
-    "supportAreasShortLabel": "direcciones"
-  },
   "footer": {
     "impressum": "Información legal",
     "companyName": "Agencia médica <accent>de conserjería</accent>",
@@ -242,7 +221,7 @@
       "scrollToExplore": "Agentur für Patientenbetreuung Heorhii Hudiiev",
       "topBar": "Su conserje médico en las clínicas líderes de Alemania"
     },
-    "forWhom": {
+    "focus": {
       "eyebrow": "Especialización",
       "title": "Áreas clínicas clave",
       "subtitle": "",
@@ -261,7 +240,42 @@
         }
       }
     },
-    "careForward": {
+    "approach": {
+      "overline": "Estándares operativos",
+      "title": "Concepto de la agencia",
+      "subtitle": "",
+      "principles": {
+        "individualSupport": "Acompañamiento médico dirigido",
+        "expertise": "Experiencia médica y operativa",
+        "confidentiality": "Cumplimiento del secreto médico y protección de datos",
+        "digitalPortal": "Acceso a documentos a través del portal del paciente",
+        "security": "Seguridad de datos según los estándares de la UE",
+        "concierge": "Servicio de Concierge y logística",
+        "coordination": "Coordinación interdisciplinaria",
+        "international": "Gestión bajo el principio de «todo de una sola mano»"
+      }
+    },
+    "locations": {
+      "overline": "Representaciones",
+      "title": "La presencia en clústeres médicos clave garantiza el control directo del proceso de curación y",
+      "titleAccent": "la interacción operativa con las clínicas.",
+      "subtitle": "",
+      "cities": {
+        "berlin": {
+          "name": "Berlín"
+        },
+        "hamburg": {
+          "name": "Hamburgo"
+        },
+        "cologne": {
+          "name": "Colonia"
+        },
+        "munich": {
+          "name": "Múnich"
+        }
+      }
+    },
+    "journey": {
       "title": "Servicios y coordinación",
       "headlineDark": "Desde el análisis inicial de documentación",
       "headlineMuted": "hasta la gestión experta del caso clínico",
@@ -360,40 +374,26 @@
         }
       }
     },
-    "office": {
-      "overline": "Representaciones",
-      "title": "La presencia en clústeres médicos clave garantiza el control directo del proceso de curación y",
-      "titleAccent": "la interacción operativa con las clínicas.",
-      "subtitle": "",
-      "cities": {
-        "berlin": {
-          "name": "Berlín"
-        },
-        "hamburg": {
-          "name": "Hamburgo"
-        },
-        "cologne": {
-          "name": "Colonia"
-        },
-        "munich": {
-          "name": "Múnich"
-        }
-      }
-    },
-    "fullSupport": {
-      "overline": "Estándares operativos",
-      "title": "Concepto de la agencia",
-      "subtitle": "",
-      "principles": {
-        "individualSupport": "Acompañamiento médico dirigido",
-        "expertise": "Experiencia médica y operativa",
-        "confidentiality": "Cumplimiento del secreto médico y protección de datos",
-        "digitalPortal": "Acceso a documentos a través del portal del paciente",
-        "security": "Seguridad de datos según los estándares de la UE",
-        "concierge": "Servicio de Concierge y logística",
-        "coordination": "Coordinación interdisciplinaria",
-        "international": "Gestión bajo el principio de «todo de una sola mano»"
-      }
+    "stats": {
+      "eyebrow": "",
+      "introBadge": "Sobre nosotros",
+      "introText": "Organización integral de procesos médicos en clínicas especializadas de Alemania desde 2012. Aseguramos un ciclo completo de acompañamiento: desde el análisis de documentación y preparación de datos hasta la coordinación interdisciplinaria y el servicio de Concierge.",
+      "secondaryBadge": "Metodología y estándares",
+      "secondaryHeadline": "Enfoque interdisciplinario y profunda experiencia en la resolución de tareas médicas complejas.",
+      "secondaryText": "Organizamos el trabajo según los estándares de calidad europeos. Realizamos un análisis experto de documentos, evaluamos riesgos y formamos un plan de tratamiento. Garantizamos la transparencia de las acciones, la seguridad de la información y un control constante en cada etapa del proceso de curación.",
+      "headline": "Acompañamiento médico integral y organización del tratamiento en clínicas de Alemania",
+      "overlayLineOne": "Experiencia.",
+      "overlayLineTwo": "Transparencia.",
+      "overlayLineThree": "Enrutamiento.",
+      "yearsValue": "14",
+      "yearsLabel": "Años de experiencia clínica",
+      "yearsShortLabel": "años",
+      "citiesValue": "4",
+      "citiesLabel": "Ciudades de presencia operativa",
+      "citiesShortLabel": "ciudades",
+      "supportAreasValue": "7",
+      "supportAreasLabel": "Direcciones de coordinación interdisciplinaria",
+      "supportAreasShortLabel": "direcciones"
     }
   },
   "appointment": {

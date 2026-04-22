@@ -6,8 +6,8 @@ import { motion, useReducedMotion, useScroll, useTransform } from "motion/react"
 import { useTranslations } from "next-intl";
 import { cn } from "@/shared/lib/cn";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
-import { OfficeCitiesGrid } from "./OfficeCitiesGrid";
-import styles from "./Office.module.scss";
+import { LocationsCitiesGrid } from "./LocationsCitiesGrid";
+import styles from "./Locations.module.scss";
 
 const MUNICH_STYLE: CSSProperties = {
   backgroundColor: "color-mix(in srgb, var(--tone-sand) 6%, #fff)",
@@ -54,8 +54,8 @@ const OTHER_CITIES = [
   },
 ];
 
-export function Office() {
-  const t = useTranslations("home.office");
+export function Locations() {
+  const t = useTranslations("home.locations");
   const overline = t("overline");
   const subtitle = t("subtitle");
   const titleAccent = t.has("titleAccent") ? t("titleAccent") : "";
@@ -72,7 +72,7 @@ export function Office() {
   const stageY = useTransform(scrollYProgress, [0, 0.34, 1], [48, 0, -12]);
 
   return (
-    <div ref={ref} id="office" className={styles.officeWrap} data-home-section="office">
+    <div ref={ref} id="locations" className={styles.officeWrap} data-home-section="locations">
       <section className={cn(sectionStyles.section, styles.office)}>
         <div className={`${sectionStyles.container} ${styles.container}`}>
           <div className={styles.shell}>
@@ -98,7 +98,7 @@ export function Office() {
               className={styles.stage}
               style={shouldReduceMotion ? undefined : { y: stageY }}
             >
-              <OfficeCitiesGrid
+              <LocationsCitiesGrid
                 mainCityName={t("cities.munich.name")}
                 mainCityStyle={MUNICH_STYLE}
                 cities={OTHER_CITIES.map((city) => ({

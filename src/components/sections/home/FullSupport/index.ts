@@ -1,1 +1,0 @@
-export { FullSupport } from "./FullSupport";

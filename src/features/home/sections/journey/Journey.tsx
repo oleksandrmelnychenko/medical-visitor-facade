@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/shared/lib/cn";
-import styles from "./CareForward.module.scss";
+import styles from "./Journey.module.scss";
 
 const STEPS = [
   "consultation",
@@ -32,8 +32,8 @@ const DETAIL_DESCRIPTORS = [
   },
 ] as const;
 
-export function CareForward() {
-  const t = useTranslations("home.careForward");
+export function Journey() {
+  const t = useTranslations("home.journey");
   const shouldReduceMotion = useReducedMotion();
   const [openKey, setOpenKey] = useState<(typeof STEPS)[number] | null>(STEPS[0]);
 
@@ -42,7 +42,7 @@ export function CareForward() {
   };
 
   return (
-    <section id="care" className={styles.section} data-home-section="care">
+    <section id="journey" className={styles.section} data-home-section="journey">
       <div className={styles.container}>
         <div className={styles.layout}>
           <div className={styles.header}>

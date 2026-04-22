@@ -134,27 +134,6 @@
     "headerTagline": "Klinische Präzision und fortschrittliche Medizin in Deutschland",
     "headerTaglineSub": "Professionelle Verifizierung medizinischer Entscheidungen und Koordination des Behandlungsprozesses. Seit 2012."
   },
-  "scaleStats": {
-    "eyebrow": "",
-    "introBadge": "Über uns",
-    "introText": "Umfassende Organisation medizinischer Prozesse in spezialisierten deutschen Kliniken seit 2012. Wir bieten einen vollständigen Betreuungszyklus: von der Dokumentenanalyse und Datenaufbereitung bis zur interdisziplinären Koordination und dem Concierge-Service.",
-    "secondaryBadge": "Methodik und Standards",
-    "secondaryHeadline": "Interdisziplinärer Ansatz und tiefe Expertise bei der Lösung komplexer medizinischer Fälle.",
-    "secondaryText": "Wir organisieren die Arbeit nach europäischen Qualitätsstandards. Wir führen eine fachkundige Dokumentenanalyse durch, bewerten Risiken und erstellen einen Behandlungsplan. Wir sorgen für Transparenz, Informationsschutz und ständige Kontrolle in jeder Phase des Behandlungsprozesses.",
-    "headline": "Umfassende medizinische Koordination und Behandlungs­organisation in deutschen Kliniken",
-    "overlayLineOne": "Expertise.",
-    "overlayLineTwo": "Transparenz.",
-    "overlayLineThree": "Koordination.",
-    "yearsValue": "14",
-    "yearsLabel": "Jahre klinischer Expertise",
-    "yearsShortLabel": "Jahre",
-    "citiesValue": "4",
-    "citiesLabel": "Städte operativer Präsenz",
-    "citiesShortLabel": "Städte",
-    "supportAreasValue": "7",
-    "supportAreasLabel": "Bereiche interdisziplinärer Koordination",
-    "supportAreasShortLabel": "Bereiche"
-  },
   "footer": {
     "impressum": "Impressum",
     "companyName": "Medizinische <accent>Concierge-Agentur</accent>",
@@ -242,7 +221,7 @@
       "scrollToExplore": "Agentur für Patientenbetreuung Heorhii Hudiiev",
       "topBar": "Ihr medizinischer Concierge in führenden deutschen Kliniken"
     },
-    "forWhom": {
+    "focus": {
       "eyebrow": "Spezialisierung",
       "title": "Zentrale klinische Schwerpunkte",
       "subtitle": "",
@@ -261,7 +240,42 @@
         }
       }
     },
-    "careForward": {
+    "approach": {
+      "overline": "Operative Standards",
+      "title": "Agenturkonzept",
+      "subtitle": "",
+      "principles": {
+        "individualSupport": "Gezielte medizinische Koordination",
+        "expertise": "Medizinische und operative Expertise",
+        "confidentiality": "Einhaltung der ärztlichen Schweigepflicht und Datenschutz",
+        "digitalPortal": "Dokumentenzugriff über das Patientenportal",
+        "security": "Datensicherheit nach EU-Standards",
+        "concierge": "Concierge-Service und Logistik",
+        "coordination": "Interdisziplinäre Koordination",
+        "international": "Management nach dem 'Alles aus einer Hand'-Prinzip"
+      }
+    },
+    "locations": {
+      "overline": "Repräsentanzen",
+      "title": "Die Präsenz in zentralen medizinischen Clustern garantiert eine direkte Kontrolle des Behandlungsablaufs und",
+      "titleAccent": "eine schnelle Abstimmung mit den Kliniken.",
+      "subtitle": "",
+      "cities": {
+        "berlin": {
+          "name": "Berlin"
+        },
+        "hamburg": {
+          "name": "Gamburg"
+        },
+        "cologne": {
+          "name": "Köln"
+        },
+        "munich": {
+          "name": "München"
+        }
+      }
+    },
+    "journey": {
       "title": "Leistungen und Koordination",
       "headlineDark": "Von der ersten Dokumenten­analyse",
       "headlineMuted": "bis zum Expertenmanagement des klinischen Falls",
@@ -360,40 +374,26 @@
         }
       }
     },
-    "office": {
-      "overline": "Repräsentanzen",
-      "title": "Die Präsenz in zentralen medizinischen Clustern garantiert eine direkte Kontrolle des Behandlungsablaufs und",
-      "titleAccent": "eine schnelle Abstimmung mit den Kliniken.",
-      "subtitle": "",
-      "cities": {
-        "berlin": {
-          "name": "Berlin"
-        },
-        "hamburg": {
-          "name": "Gamburg"
-        },
-        "cologne": {
-          "name": "Köln"
-        },
-        "munich": {
-          "name": "München"
-        }
-      }
-    },
-    "fullSupport": {
-      "overline": "Operative Standards",
-      "title": "Agenturkonzept",
-      "subtitle": "",
-      "principles": {
-        "individualSupport": "Gezielte medizinische Koordination",
-        "expertise": "Medizinische und operative Expertise",
-        "confidentiality": "Einhaltung der ärztlichen Schweigepflicht und Datenschutz",
-        "digitalPortal": "Dokumentenzugriff über das Patientenportal",
-        "security": "Datensicherheit nach EU-Standards",
-        "concierge": "Concierge-Service und Logistik",
-        "coordination": "Interdisziplinäre Koordination",
-        "international": "Management nach dem 'Alles aus einer Hand'-Prinzip"
-      }
+    "stats": {
+      "eyebrow": "",
+      "introBadge": "Über uns",
+      "introText": "Umfassende Organisation medizinischer Prozesse in spezialisierten deutschen Kliniken seit 2012. Wir bieten einen vollständigen Betreuungszyklus: von der Dokumentenanalyse und Datenaufbereitung bis zur interdisziplinären Koordination und dem Concierge-Service.",
+      "secondaryBadge": "Methodik und Standards",
+      "secondaryHeadline": "Interdisziplinärer Ansatz und tiefe Expertise bei der Lösung komplexer medizinischer Fälle.",
+      "secondaryText": "Wir organisieren die Arbeit nach europäischen Qualitätsstandards. Wir führen eine fachkundige Dokumentenanalyse durch, bewerten Risiken und erstellen einen Behandlungsplan. Wir sorgen für Transparenz, Informationsschutz und ständige Kontrolle in jeder Phase des Behandlungsprozesses.",
+      "headline": "Umfassende medizinische Koordination und Behandlungs­organisation in deutschen Kliniken",
+      "overlayLineOne": "Expertise.",
+      "overlayLineTwo": "Transparenz.",
+      "overlayLineThree": "Koordination.",
+      "yearsValue": "14",
+      "yearsLabel": "Jahre klinischer Expertise",
+      "yearsShortLabel": "Jahre",
+      "citiesValue": "4",
+      "citiesLabel": "Städte operativer Präsenz",
+      "citiesShortLabel": "Städte",
+      "supportAreasValue": "7",
+      "supportAreasLabel": "Bereiche interdisziplinärer Koordination",
+      "supportAreasShortLabel": "Bereiche"
     }
   },
   "appointment": {

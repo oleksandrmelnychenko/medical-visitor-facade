@@ -134,27 +134,6 @@
     "headerTagline": "Clinical precision and advanced medicine in Germany",
     "headerTaglineSub": "Professional verification of medical decisions and coordination of the treatment process. Since 2012."
   },
-  "scaleStats": {
-    "eyebrow": "",
-    "introBadge": "About",
-    "introText": "Comprehensive organization of medical processes in specialized German clinics since 2012. We provide a full support cycle: from documentation analysis and data preparation to interdisciplinary coordination and Concierge service.",
-    "secondaryBadge": "Methodology and Standards",
-    "secondaryHeadline": "Interdisciplinary approach and deep expertise in resolving complex medical cases.",
-    "secondaryText": "We organize work according to European quality standards. We perform expert document analysis, assess risks, and form a treatment plan. We ensure transparency, information protection, and constant control at every stage of the treatment process.",
-    "headline": "Comprehensive medical coordination and treatment organization in German clinics",
-    "overlayLineOne": "Expertise.",
-    "overlayLineTwo": "Transparency.",
-    "overlayLineThree": "Routing.",
-    "yearsValue": "14",
-    "yearsLabel": "Years of clinical expertise",
-    "yearsShortLabel": "years",
-    "citiesValue": "4",
-    "citiesLabel": "Cities of operational presence",
-    "citiesShortLabel": "cities",
-    "supportAreasValue": "7",
-    "supportAreasLabel": "Areas of interdisciplinary coordination",
-    "supportAreasShortLabel": "areas"
-  },
   "footer": {
     "impressum": "Legal notice",
     "companyName": "Medical <accent>Concierge Agency</accent>",
@@ -242,7 +221,7 @@
       "scrollToExplore": "Agentur für Patientenbetreuung Heorhii Hudiiev",
       "topBar": "Your medical concierge in leading German clinics"
     },
-    "forWhom": {
+    "focus": {
       "eyebrow": "Specialization",
       "title": "Core clinical focus areas",
       "subtitle": "",
@@ -261,7 +240,42 @@
         }
       }
     },
-    "careForward": {
+    "approach": {
+      "overline": "Operational standards",
+      "title": "Agency concept",
+      "subtitle": "",
+      "principles": {
+        "individualSupport": "Targeted medical coordination",
+        "expertise": "Medical and operational expertise",
+        "confidentiality": "Compliance with medical secrecy and data protection",
+        "digitalPortal": "Access to documents via patient portal",
+        "security": "Data security according to EU standards",
+        "concierge": "Concierge service and logistics",
+        "coordination": "Interdisciplinary coordination",
+        "international": "Management based on the 'single source' principle"
+      }
+    },
+    "locations": {
+      "overline": "Offices",
+      "title": "Presence in key medical clusters ensures direct control of the treatment process and",
+      "titleAccent": "prompt interaction with clinics.",
+      "subtitle": "",
+      "cities": {
+        "berlin": {
+          "name": "Berlin"
+        },
+        "hamburg": {
+          "name": "Hamburg"
+        },
+        "cologne": {
+          "name": "Cologne"
+        },
+        "munich": {
+          "name": "Munich"
+        }
+      }
+    },
+    "journey": {
       "title": "Services and Coordination",
       "headlineDark": "From initial document analysis",
       "headlineMuted": "to expert management of the clinical case",
@@ -360,40 +374,26 @@
         }
       }
     },
-    "office": {
-      "overline": "Offices",
-      "title": "Presence in key medical clusters ensures direct control of the treatment process and",
-      "titleAccent": "prompt interaction with clinics.",
-      "subtitle": "",
-      "cities": {
-        "berlin": {
-          "name": "Berlin"
-        },
-        "hamburg": {
-          "name": "Hamburg"
-        },
-        "cologne": {
-          "name": "Cologne"
-        },
-        "munich": {
-          "name": "Munich"
-        }
-      }
-    },
-    "fullSupport": {
-      "overline": "Operational standards",
-      "title": "Agency concept",
-      "subtitle": "",
-      "principles": {
-        "individualSupport": "Targeted medical coordination",
-        "expertise": "Medical and operational expertise",
-        "confidentiality": "Compliance with medical secrecy and data protection",
-        "digitalPortal": "Access to documents via patient portal",
-        "security": "Data security according to EU standards",
-        "concierge": "Concierge service and logistics",
-        "coordination": "Interdisciplinary coordination",
-        "international": "Management based on the 'single source' principle"
-      }
+    "stats": {
+      "eyebrow": "",
+      "introBadge": "About",
+      "introText": "Comprehensive organization of medical processes in specialized German clinics since 2012. We provide a full support cycle: from documentation analysis and data preparation to interdisciplinary coordination and Concierge service.",
+      "secondaryBadge": "Methodology and Standards",
+      "secondaryHeadline": "Interdisciplinary approach and deep expertise in resolving complex medical cases.",
+      "secondaryText": "We organize work according to European quality standards. We perform expert document analysis, assess risks, and form a treatment plan. We ensure transparency, information protection, and constant control at every stage of the treatment process.",
+      "headline": "Comprehensive medical coordination and treatment organization in German clinics",
+      "overlayLineOne": "Expertise.",
+      "overlayLineTwo": "Transparency.",
+      "overlayLineThree": "Routing.",
+      "yearsValue": "14",
+      "yearsLabel": "Years of clinical expertise",
+      "yearsShortLabel": "years",
+      "citiesValue": "4",
+      "citiesLabel": "Cities of operational presence",
+      "citiesShortLabel": "cities",
+      "supportAreasValue": "7",
+      "supportAreasLabel": "Areas of interdisciplinary coordination",
+      "supportAreasShortLabel": "areas"
     }
   },
   "appointment": {

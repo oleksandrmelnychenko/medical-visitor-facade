@@ -1,1 +1,0 @@
-export { ForWhom } from "./ForWhom";

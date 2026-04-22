@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
-import styles from "./ForWhom.module.scss";
+import styles from "./Focus.module.scss";
 
 const ITEMS = [
   "secondOpinion",
@@ -11,8 +11,8 @@ const ITEMS = [
   "rareSpecialist",
 ] as const;
 
-export function ForWhom() {
-  const t = useTranslations("home.forWhom");
+export function Focus() {
+  const t = useTranslations("home.focus");
   const eyebrow = t("eyebrow");
   const subtitle = t("subtitle");
   const shouldReduceMotion = useReducedMotion();
@@ -21,7 +21,7 @@ export function ForWhom() {
     <section
       id="for-whom"
       className={styles.section}
-      data-home-section="forWhom"
+      data-home-section="focus"
     >
       <div className={styles.layout}>
         <motion.div

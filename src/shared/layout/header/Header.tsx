@@ -151,7 +151,7 @@ export function Header() {
   const menuCopy = MENU_COPY[locale as SupportedLocale] ?? MENU_COPY.en;
   const menuShowcaseLinks = [
     { label: tCommon("home"), href: "/", type: "route" as const },
-    { label: tCommon("services"), href: "/#care", type: "route" as const },
+    { label: tCommon("services"), href: "/#journey", type: "route" as const },
     { label: tHome("faq.title"), href: "/#faq", type: "route" as const },
     { label: tCommon("programs"), href: "/membership", type: "route" as const },
   ] as const;
