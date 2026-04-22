@@ -67,6 +67,9 @@ export function MusicToggle() {
   };
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
     const removeInteractionListeners = () => {
       INTERACTION_EVENTS.forEach((evt) => {
         document.removeEventListener(evt, unmuteOnInteraction, true);

@@ -194,6 +194,21 @@
         }
       }
     },
+    "contactForm": {
+      "eyebrow": "Get in touch",
+      "title": "Book a consultation",
+      "subtitle": "Leave your phone number — we will contact you for a personal consultation.",
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "phoneLabel": "Phone",
+      "phonePlaceholder": "Phone number",
+      "countryCodeLabel": "Country code",
+      "consent": "By clicking «Submit» you agree to the processing of personal data under our <privacyLink>privacy policy</privacyLink>.",
+      "submit": "Submit",
+      "submitting": "Sending…",
+      "success": "Thank you! We will contact you shortly.",
+      "error": "Something went wrong. Please try again or email us directly."
+    },
     "hero": {
       "brandLabel": "Medical Concierge · since 2012",
       "titleDark": "Advanced medicine",

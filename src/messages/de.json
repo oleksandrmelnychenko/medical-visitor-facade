@@ -194,6 +194,21 @@
         }
       }
     },
+    "contactForm": {
+      "eyebrow": "Kontakt aufnehmen",
+      "title": "Beratung vereinbaren",
+      "subtitle": "Hinterlassen Sie Ihre Telefonnummer — wir melden uns für eine persönliche Beratung.",
+      "nameLabel": "Name",
+      "namePlaceholder": "Ihr Name",
+      "phoneLabel": "Telefon",
+      "phonePlaceholder": "Telefonnummer",
+      "countryCodeLabel": "Ländervorwahl",
+      "consent": "Mit dem Klick auf «Absenden» stimmen Sie der Verarbeitung personenbezogener Daten gemäß unserer <privacyLink>Datenschutzerklärung</privacyLink> zu.",
+      "submit": "Absenden",
+      "submitting": "Wird gesendet…",
+      "success": "Danke! Wir melden uns in Kürze bei Ihnen.",
+      "error": "Leider ist etwas schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt."
+    },
     "hero": {
       "brandLabel": "Medical Concierge · seit 2012",
       "titleDark": "Fortschrittliche Medizin",

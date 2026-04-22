@@ -6,6 +6,7 @@ import { CareForward } from "@/components/sections/home/CareForward";
 import { Office } from "@/components/sections/home/Office";
 import { ScrollReveal } from "@/components/sections/home/ScrollReveal";
 import { Faq } from "@/components/sections/home/Faq";
+// import { ContactForm } from "@/components/sections/home/ContactForm";
 import { HomeScrollRail } from "@/components/sections/home/HomeScrollRail";
 import { ScaleStats } from "@/components/sections/ScaleStats";
 import { FaqJsonLd } from "@/components/seo/JsonLd";

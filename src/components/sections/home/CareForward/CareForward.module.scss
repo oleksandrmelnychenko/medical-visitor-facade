@@ -150,6 +150,8 @@
 }
 
 .accordion {
+  --care-toggle-width: 2.55rem;
+  --care-column-gap: 0.82rem;
   display: grid;
   gap: 0;
   padding-top: 0.25rem;
@@ -177,8 +179,8 @@
 .trigger {
   width: 100%;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 1.15rem;
+  grid-template-columns: minmax(0, 1fr) var(--care-toggle-width);
+  column-gap: var(--care-column-gap);
   align-items: center;
   padding: 1.35rem 0;
   border: none;
@@ -188,7 +190,7 @@
 }
 
 .index {
-  min-width: 2.1rem;
+  display: none;
   font-family: "Onest", sans-serif;
   font-size: 0.82rem;
   font-weight: 600;
@@ -199,6 +201,7 @@
 }
 
 .question {
+  padding-left: 0.4rem;
   font-family: "Onest", sans-serif;
   font-size: clamp(1.16rem, 1.72vw, 1.72rem);
   font-weight: 510;
@@ -256,12 +259,16 @@
 
 .answerWrap {
   overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--care-toggle-width);
+  column-gap: var(--care-column-gap);
 }
 
 .answerList {
   list-style: none;
   margin: 0;
-  padding: 0 4rem 1.5rem 3.3rem;
+  grid-column: 1;
+  padding: 0 0 1.5rem 0.4rem;
   display: grid;
   gap: 0.5rem;
 }
@@ -318,6 +325,7 @@
   }
 
   .trigger {
+    --care-toggle-width: 2.2rem;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 0.85rem;
     padding: 1.1rem 0;
@@ -333,12 +341,18 @@
   }
 
   .answerList {
-    padding: 0 0 1.2rem 0;
+    grid-column: 1;
+    padding: 0 0 1.2rem 0.4rem;
   }
 
   .answerPoint {
     font-size: 0.94rem;
     line-height: 1.52;
+  }
+
+  .answerWrap {
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 0.85rem;
   }
 
   .icon {

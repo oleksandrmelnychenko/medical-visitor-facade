@@ -1,0 +1,323 @@
+@use "../../../../styles/variables" as *;
+
+.section {
+  position: relative;
+  padding: clamp(4rem, 6.5vw, 6.5rem) 0 clamp(5rem, 8vw, 8.5rem);
+  background: #ece7df;
+}
+
+.container {
+  @include container-base;
+  max-width: var(--container-2xl);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.9rem, 1.4vw, 1.25rem);
+  margin: 0 auto clamp(2rem, 3.6vw, 3.2rem);
+  max-width: 42rem;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.48rem 0.98rem;
+  border-radius: 999px;
+  background: rgba(19, 23, 33, 0.08);
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0b0e14;
+  white-space: nowrap;
+}
+
+.title {
+  margin: 0;
+  @include home-section-title;
+  color: #131721;
+  text-wrap: balance;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 32rem;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(0.88rem, 0.82rem + 0.22vw, 1rem);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: rgba(19, 23, 33, 0.62);
+}
+
+.form {
+  display: grid;
+  gap: 0.85rem;
+  max-width: 36rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.label {
+  padding-left: 0.15rem;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(19, 23, 33, 0.62);
+}
+
+.input {
+  width: 100%;
+  padding: 0.98rem 1.15rem;
+  font-family: "Onest", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  color: #131721;
+  background: #ffffff;
+  border: 1px solid rgba(19, 23, 33, 0.1);
+  border-radius: 0.85rem;
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+
+  &::placeholder {
+    color: rgba(19, 23, 33, 0.38);
+  }
+
+  &:focus-visible {
+    border-color: #ff5a14;
+    box-shadow: 0 0 0 3px rgba(255, 90, 20, 0.14);
+  }
+}
+
+.phoneSurface {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(19, 23, 33, 0.1);
+  border-radius: 0.85rem;
+  overflow: hidden;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+
+  &:focus-within {
+    border-color: #ff5a14;
+    box-shadow: 0 0 0 3px rgba(255, 90, 20, 0.14);
+  }
+}
+
+.phoneCode {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid rgba(19, 23, 33, 0.08);
+}
+
+.phoneSelect {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0 2.2rem 0 1rem;
+  height: 100%;
+  font-family: "Onest", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #131721;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236d7481' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+}
+
+.phoneInput {
+  flex: 1;
+  min-width: 0;
+  padding: 0.98rem 1.15rem;
+  font-family: "Onest", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  color: #131721;
+  background: transparent;
+  border: none;
+  outline: none;
+
+  &::placeholder {
+    color: rgba(19, 23, 33, 0.38);
+  }
+}
+
+.consentRow {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: flex-start;
+  gap: 0.7rem;
+  margin-top: 0.2rem;
+}
+
+.checkboxInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.checkboxBox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.15rem;
+  border: 1.5px solid rgba(19, 23, 33, 0.28);
+  border-radius: 0.28rem;
+  background: #ffffff;
+  cursor: pointer;
+  transition: border-color 180ms ease, background-color 180ms ease;
+
+  &::after {
+    content: "";
+    width: 0.45rem;
+    height: 0.7rem;
+    border: solid #ffffff;
+    border-width: 0 0.13rem 0.13rem 0;
+    transform: translateY(-0.08rem) rotate(45deg) scale(0);
+    transition: transform 140ms ease;
+  }
+}
+
+.checkboxLabel {
+  font-family: "Onest", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(19, 23, 33, 0.7);
+  cursor: pointer;
+
+  a {
+    color: #131721;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    &:hover {
+      color: #ff5a14;
+    }
+  }
+}
+
+.checkboxInput:checked + .checkboxBox {
+  background: #131721;
+  border-color: #131721;
+
+  &::after {
+    transform: translateY(-0.08rem) rotate(45deg) scale(1);
+  }
+}
+
+.checkboxInput:focus-visible + .checkboxBox {
+  border-color: #ff5a14;
+  box-shadow: 0 0 0 3px rgba(255, 90, 20, 0.14);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 0.85rem;
+}
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 1rem 1.9rem;
+  font-family: "Onest", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 550;
+  letter-spacing: 0.005em;
+  color: #ffffff;
+  background: linear-gradient(135deg, #3f434c 0%, #282c34 56%, #191c22 100%);
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: opacity 180ms ease, transform 180ms ease;
+
+  &:hover:not(:disabled) {
+    opacity: 0.94;
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #ff5a14;
+    outline-offset: 3px;
+  }
+}
+
+.statusMessage {
+  font-family: "Onest", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: rgba(19, 23, 33, 0.7);
+
+  &[data-tone="success"] {
+    color: #1f6e3a;
+  }
+
+  &[data-tone="error"] {
+    color: #b3261e;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    gap: 0.7rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .title {
+    @include home-section-title-mobile;
+  }
+
+  .form {
+    gap: 0.7rem;
+  }
+
+  .input,
+  .phoneInput {
+    padding: 0.88rem 1rem;
+    font-size: 0.98rem;
+  }
+
+  .submit {
+    width: 100%;
+    padding: 1rem 1.3rem;
+  }
+}

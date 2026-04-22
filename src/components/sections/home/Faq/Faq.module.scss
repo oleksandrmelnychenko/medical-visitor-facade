@@ -93,10 +93,10 @@
 .trigger {
   width: 100%;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 1.15rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.85rem;
   align-items: center;
-  padding: 1.35rem 0;
+  padding: 1.35rem 1rem;
   border: none;
   background: transparent;
   text-align: left;
@@ -104,14 +104,7 @@
 }
 
 .index {
-  min-width: 2.1rem;
-  font-family: "Onest", sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #f3f0eb;
+  display: none;
 }
 
 .question {
@@ -172,11 +165,16 @@
 
 .answerWrap {
   overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 0.85rem;
+  padding-inline: 1rem;
 }
 
 .answer {
   margin: 0;
-  padding: 0 4rem 1.5rem 3.3rem;
+  grid-column: 1;
+  padding: 0 0 1.5rem;
   max-width: 44rem;
   font-family: "Onest", sans-serif;
   font-size: 0.98rem;
@@ -208,7 +206,6 @@
   }
 
   .trigger {
-    gap: 0.85rem;
     padding: 1.1rem 0;
   }
 
@@ -218,7 +215,7 @@
   }
 
   .answer {
-    padding: 0 0 1.2rem 2.95rem;
+    padding: 0 0 1.2rem;
     font-size: 0.94rem;
     line-height: 1.52;
   }

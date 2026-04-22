@@ -194,6 +194,21 @@
         }
       }
     },
+    "contactForm": {
+      "eyebrow": "Contáctenos",
+      "title": "Reserve una consulta",
+      "subtitle": "Deje su teléfono — nos pondremos en contacto para una consulta personalizada.",
+      "nameLabel": "Nombre",
+      "namePlaceholder": "Su nombre",
+      "phoneLabel": "Teléfono",
+      "phonePlaceholder": "Número de teléfono",
+      "countryCodeLabel": "Código de país",
+      "consent": "Al hacer clic en «Enviar», usted acepta el tratamiento de datos personales conforme a nuestra <privacyLink>política de privacidad</privacyLink>.",
+      "submit": "Enviar",
+      "submitting": "Enviando…",
+      "success": "¡Gracias! Le contactaremos en breve.",
+      "error": "Algo salió mal. Inténtelo de nuevo o escríbanos directamente."
+    },
     "hero": {
       "brandLabel": "Medical Concierge · desde 2012",
       "titleDark": "Medicina avanzada",

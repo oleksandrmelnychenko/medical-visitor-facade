@@ -2,7 +2,7 @@
 
 .section {
   position: relative;
-  padding: clamp(5rem, 8vw, 8.5rem) 0;
+  padding: clamp(1.5rem, 2.8vw, 3rem) 0 clamp(5rem, 8vw, 8.5rem);
   background: #ece7df;
 }
 
@@ -779,7 +779,7 @@
 
 @media (max-width: 640px) {
   .section {
-    padding: 4.5rem 0;
+    padding: 1.25rem 0 4.5rem;
   }
 
   .secondaryStats {
