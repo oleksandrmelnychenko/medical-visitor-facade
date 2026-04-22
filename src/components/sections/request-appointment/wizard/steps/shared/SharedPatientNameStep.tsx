@@ -51,7 +51,11 @@ export function SharedPatientNameStep() {
               type="text"
               value={firstName}
               onChange={e => setFirstName(e.target.value)}
-              onBlur={() => setTouched(prev => ({ ...prev, firstName: true }))}
+              onBlur={() => {
+                if (firstName.trim().length > 0) {
+                  setTouched(prev => ({ ...prev, firstName: true }));
+                }
+              }}
               aria-required="true"
               aria-invalid={touched.firstName && !firstNameValid}
               className={`${formStyles.simpleInput} ${touched.firstName && !firstNameValid ? formStyles.inputError : ''}`}
@@ -78,7 +82,11 @@ export function SharedPatientNameStep() {
               type="text"
               value={lastName}
               onChange={e => setLastName(e.target.value)}
-              onBlur={() => setTouched(prev => ({ ...prev, lastName: true }))}
+              onBlur={() => {
+                if (lastName.trim().length > 0) {
+                  setTouched(prev => ({ ...prev, lastName: true }));
+                }
+              }}
               aria-required="true"
               aria-invalid={touched.lastName && !lastNameValid}
               className={`${formStyles.simpleInput} ${touched.lastName && !lastNameValid ? formStyles.inputError : ''}`}
