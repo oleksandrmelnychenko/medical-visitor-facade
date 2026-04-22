@@ -38,6 +38,7 @@ export function Hero() {
           preload="auto"
         />
         <span className={styles.videoFramePlaceholder} />
+        <span className={styles.heroAgencyTag}>{t("scrollToExplore")}</span>
       </div>
 
       {/* <div className={styles.scrollBar} aria-hidden="true">
