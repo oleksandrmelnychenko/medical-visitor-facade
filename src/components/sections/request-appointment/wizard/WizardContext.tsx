@@ -34,7 +34,7 @@ interface WizardContextType {
   setUploadedMedicalFiles: Dispatch<SetStateAction<File[]>>;
 }
 
-export const WIZARD_DRAFT_STORAGE_KEY = "gmed.apply.wizard.draft.v2";
+const WIZARD_DRAFT_STORAGE_KEY = "gmed.apply.wizard.draft.v2";
 const INITIAL_WIZARD_SERIALIZED = JSON.stringify(initialWizardData);
 
 const WizardContext = createContext<WizardContextType | null>(null);

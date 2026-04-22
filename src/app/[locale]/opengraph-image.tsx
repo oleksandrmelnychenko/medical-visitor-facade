@@ -24,8 +24,6 @@ export default async function OpengraphImage({ params }: Props) {
     getLocalizedMessage(safeLocale, "home.hero.subHeadlineAccent").catch(() => ""),
   ]);
 
-  const headline = [titleDark, titleMuted].filter(Boolean).join(" ");
-
   return new ImageResponse(
     (
       <div

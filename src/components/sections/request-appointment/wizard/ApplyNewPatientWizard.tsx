@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
@@ -217,16 +217,20 @@ function WizardStepView() {
 
 const GATE_STEPS: ReadonlySet<string> = new Set(["member-check", "account-check"]);
 
+const subscribeMounted = () => () => {};
+const getMountedSnapshot = () => true;
+const getMountedServerSnapshot = () => false;
+
 function SelectedProgramBannerInner() {
   const tMembership = useTranslations("membership");
   const { data } = useWizard();
   const searchParams = useSearchParams();
   const currentStep = searchParams.get("step") ?? "member-check";
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    subscribeMounted,
+    getMountedSnapshot,
+    getMountedServerSnapshot
+  );
 
   // Hide on the entry gate — the user hasn't committed to the new-patient
   // path yet, so showing a program is premature. Returning members can

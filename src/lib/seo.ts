@@ -12,9 +12,9 @@ function normalizeSiteUrl(url: string) {
 export const baseUrl = normalizeSiteUrl(process.env.NEXT_PUBLIC_BASE_URL || fallbackBaseUrl);
 
 export const languages = routing.locales;
-export type Language = (typeof languages)[number];
+type Language = (typeof languages)[number];
 export const defaultLanguage = "de" as Language;
-export const runtimeDefaultLanguage = routing.defaultLocale as Language;
+const runtimeDefaultLanguage = routing.defaultLocale as Language;
 
 const hreflangMap: Record<Language, string> = {
   de: "de-DE",
@@ -47,7 +47,7 @@ export function getLocalizedPath(locale: Language, path: string = "") {
  * Generate alternate language URLs for a given path
  * Uses path-based locale segments (/de/, /en/, etc.)
  */
-export function getAlternateLanguages(path: string = "", currentLocale: Language = "en") {
+function getAlternateLanguages(path: string = "", currentLocale: Language = "en") {
   const localizedEntries = Object.fromEntries(
     languages.map((locale) => [hreflangMap[locale], getLocalizedPath(locale, path)])
   );
@@ -114,7 +114,7 @@ export function getLocalizedMetadata({
 
 type MessageRecord = Record<string, unknown>;
 
-export const getLocaleMessages = cache(async (locale: Language): Promise<MessageRecord> => {
+const getLocaleMessages = cache(async (locale: Language): Promise<MessageRecord> => {
   return (await import(`../messages/${locale}.json`)).default as MessageRecord;
 });
 
@@ -153,7 +153,7 @@ export function getBreadcrumbItems(
  * Generate metadata for pages that should not be indexed
  * (login, register, account, admin, etc.)
  */
-export function getNoIndexMetadata() {
+function getNoIndexMetadata() {
   return {
     robots: {
       index: false,

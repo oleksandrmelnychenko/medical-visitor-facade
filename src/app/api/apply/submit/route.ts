@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import type { SalesforceBundle } from "@/components/sections/request-appointment/wizard/salesforce-bundle";
+import type { SubmissionBundle } from "@/components/sections/request-appointment/wizard/submission";
 import { validateWizardSubmission } from "@/components/sections/request-appointment/wizard/flow";
 
 export const runtime = "nodejs";
@@ -36,9 +36,9 @@ export async function POST(request: Request) {
       );
     }
 
-    let bundle: SalesforceBundle;
+    let bundle: SubmissionBundle;
     try {
-      bundle = JSON.parse(rawBundle) as SalesforceBundle;
+      bundle = JSON.parse(rawBundle) as SubmissionBundle;
     } catch {
       return NextResponse.json(
         { error: "Invalid bundle format" },

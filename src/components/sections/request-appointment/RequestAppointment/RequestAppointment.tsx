@@ -12,7 +12,7 @@ import pageStyles from "@/styles/page.module.scss";
 import styles from "./RequestAppointment.module.scss";
 import { ApplyNewPatientWizard } from "../wizard/ApplyNewPatientWizard";
 
-export type PatientType = "new" | "returning" | "physician" | null;
+type PatientType = "new" | "returning" | "physician" | null;
 
 const RequestAppointmentFallbackFlow = dynamic(
   () =>

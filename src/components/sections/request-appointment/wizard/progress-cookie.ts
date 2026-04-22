@@ -193,7 +193,7 @@ export function serializeWizardProgressSnapshot(snapshot: WizardProgressSnapshot
   return encodeURIComponent(JSON.stringify(snapshot));
 }
 
-export function parseWizardProgressSnapshot(
+function parseWizardProgressSnapshot(
   value: string | undefined
 ): WizardProgressSnapshot | null {
   if (!value) {
@@ -240,7 +240,7 @@ export function parseWizardProgressSnapshot(
   }
 }
 
-export function snapshotToWizardData(snapshot: WizardProgressSnapshot): WizardData {
+function snapshotToWizardData(snapshot: WizardProgressSnapshot): WizardData {
   return sanitizeWizardData({
     ...initialWizardData,
     memberCheckCompleted: snapshot.memberCheckCompleted,

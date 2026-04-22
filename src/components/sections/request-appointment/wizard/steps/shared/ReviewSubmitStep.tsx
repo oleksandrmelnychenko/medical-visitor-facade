@@ -9,7 +9,7 @@ import { useWizard } from '../../WizardContext';
 import { sanitizeWizardData, validateWizardSubmission } from '../../flow';
 import { WizardStepLayout } from '../../components/WizardStepLayout';
 import { WizardReviewSummary } from '../../components/WizardReviewSummary';
-import { buildSalesforceBundle, submitSalesforceBundle } from '../../salesforce-bundle';
+import { buildSubmissionBundle, submitApplication } from '../../submission';
 import formStyles from '@/components/auth/Auth.module.scss';
 import styles from '../../../RequestAppointment/RequestAppointment.module.scss';
 
@@ -71,8 +71,8 @@ export function ReviewSubmitStep() {
     setShowConsentErrors(false);
     setError(null);
 
-    const bundle = buildSalesforceBundle(submissionData, { flow, locale });
-    const result = await submitSalesforceBundle(bundle, uploadedMedicalFiles);
+    const bundle = buildSubmissionBundle(submissionData, { flow, locale });
+    const result = await submitApplication(bundle, uploadedMedicalFiles);
 
     if (result.success) {
       resetData();

@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { WizardStepLayout } from "./WizardStepLayout";
 import styles from "../../RequestAppointment/RequestAppointment.module.scss";
 
-export interface WizardChoiceOption {
+interface WizardChoiceOption {
   description?: string;
   hoverColor: string;
   icon: LucideIcon;

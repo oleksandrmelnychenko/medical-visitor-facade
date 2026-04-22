@@ -112,14 +112,6 @@ export interface WizardData {
   consentPrivacyPractices: boolean;
 }
 
-export const PROGRESS_STEPS = [
-  { key: 'eligibility', label: 'Eligibility' },
-  { key: 'patientInfo', label: 'Patient Information' },
-  { key: 'primaryConcern', label: 'Primary Concern' },
-  { key: 'servicesInsurance', label: 'Services & Insurance' },
-  { key: 'wrapUp', label: 'Wrap Up' },
-];
-
 export const initialWizardData: WizardData = {
   location: null,
   locationDetailed: null,

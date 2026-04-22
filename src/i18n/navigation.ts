@@ -91,7 +91,7 @@ function updateWizardStepHistory(
   return true;
 }
 
-export const { Link, redirect, usePathname, getPathname } = navigation;
+export const { Link, usePathname } = navigation;
 
 export function useRouter() {
   const router = navigation.useRouter();
