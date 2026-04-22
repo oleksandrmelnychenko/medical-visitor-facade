@@ -1,1 +1,0 @@
-export { RequestAppointment } from "./RequestAppointment";

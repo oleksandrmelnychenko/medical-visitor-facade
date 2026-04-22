@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import type { SubmissionBundle } from "@/components/sections/request-appointment/wizard/submission";
-import { validateWizardSubmission } from "@/components/sections/request-appointment/wizard/flow";
+import type { SubmissionBundle } from "@/features/apply/wizard/submission";
+import { validateWizardSubmission } from "@/features/apply/wizard/flow";
 
 export const runtime = "nodejs";
 
