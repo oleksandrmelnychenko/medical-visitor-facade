@@ -4,6 +4,25 @@
     "description": "The page you are looking for does not exist or has been moved.",
     "backHome": "Back to Home"
   },
+  "auth": {
+    "signIn": "Sign in",
+    "welcomeTitle": "Welcome back",
+    "welcomeSubtitle": "Enter your phone or email to continue.",
+    "phoneOrEmail": "Phone or email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "identifierRequired": "Please enter a phone or email.",
+    "invalidPhoneOrEmail": "Please enter a valid phone or email.",
+    "passwordRequired": "Please enter your password.",
+    "passwordMinLength": "Password must be at least 6 characters long.",
+    "applicationPending": "Request received. We will get in touch shortly.",
+    "confidentialityNotice": "Your data is protected and used only for this request.",
+    "privacyPolicyLink": "Privacy policy",
+    "payWithMollie": "Pay with Mollie",
+    "securePoweredBy": "Secure payments powered by"
+  },
   "error": {
     "title": "Something went wrong",
     "description": "We encountered an error loading this page. Please try again or come back later.",
@@ -225,6 +244,8 @@
     },
     "forWhom": {
       "eyebrow": "Specialization",
+      "title": "Core clinical focus areas",
+      "subtitle": "",
       "items": {
         "secondOpinion": {
           "label": "Expert audit of complex clinical cases"

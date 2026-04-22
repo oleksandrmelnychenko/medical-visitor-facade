@@ -4,6 +4,25 @@
     "description": "Posiblemente la página haya sido eliminada, movida o haya un error en la dirección.",
     "backHome": "Al inicio"
   },
+  "auth": {
+    "signIn": "Iniciar sesión",
+    "welcomeTitle": "Bienvenido de nuevo",
+    "welcomeSubtitle": "Introduzca teléfono o correo para continuar.",
+    "phoneOrEmail": "Teléfono o correo",
+    "password": "Contraseña",
+    "passwordPlaceholder": "Introduzca la contraseña",
+    "showPassword": "Mostrar contraseña",
+    "hidePassword": "Ocultar contraseña",
+    "identifierRequired": "Introduzca teléfono o correo.",
+    "invalidPhoneOrEmail": "Introduzca un teléfono o correo válido.",
+    "passwordRequired": "Introduzca la contraseña.",
+    "passwordMinLength": "La contraseña debe tener al menos 6 caracteres.",
+    "applicationPending": "Solicitud recibida. Le contactaremos en breve.",
+    "confidentialityNotice": "Sus datos están protegidos y se usan solo para esta solicitud.",
+    "privacyPolicyLink": "Política de privacidad",
+    "payWithMollie": "Pagar con Mollie",
+    "securePoweredBy": "Pagos seguros con"
+  },
   "error": {
     "title": "Algo salió mal",
     "description": "Se ha producido un error al cargar esta página. Inténtelo de nuevo o vuelva más tarde.",
@@ -225,6 +244,8 @@
     },
     "forWhom": {
       "eyebrow": "Especialización",
+      "title": "Áreas clínicas clave",
+      "subtitle": "",
       "items": {
         "secondOpinion": {
           "label": "Auditoría experta de casos clínicos complejos"

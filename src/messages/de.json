@@ -4,6 +4,25 @@
     "description": "Die angeforderte Seite existiert leider nicht oder wurde verschoben.",
     "backHome": "Zur Startseite"
   },
+  "auth": {
+    "signIn": "Anmelden",
+    "welcomeTitle": "Willkommen zurück",
+    "welcomeSubtitle": "Geben Sie Telefon oder E-Mail ein, um fortzufahren.",
+    "phoneOrEmail": "Telefon oder E-Mail",
+    "password": "Passwort",
+    "passwordPlaceholder": "Passwort eingeben",
+    "showPassword": "Passwort anzeigen",
+    "hidePassword": "Passwort ausblenden",
+    "identifierRequired": "Bitte Telefon oder E-Mail angeben.",
+    "invalidPhoneOrEmail": "Bitte gültige Telefonnummer oder E-Mail eingeben.",
+    "passwordRequired": "Bitte Passwort eingeben.",
+    "passwordMinLength": "Das Passwort muss mindestens 6 Zeichen lang sein.",
+    "applicationPending": "Anfrage erhalten. Wir melden uns in Kürze.",
+    "confidentialityNotice": "Ihre Daten sind geschützt und werden nur für diese Anfrage verwendet.",
+    "privacyPolicyLink": "Datenschutz",
+    "payWithMollie": "Mit Mollie bezahlen",
+    "securePoweredBy": "Sichere Zahlungen mit"
+  },
   "error": {
     "title": "Etwas ist schiefgelaufen",
     "description": "Beim Laden der Seite ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kommen Sie später zurück.",
@@ -225,6 +244,8 @@
     },
     "forWhom": {
       "eyebrow": "Spezialisierung",
+      "title": "Zentrale klinische Schwerpunkte",
+      "subtitle": "",
       "items": {
         "secondOpinion": {
           "label": "Expertenaudit komplexer klinischer Fälle"

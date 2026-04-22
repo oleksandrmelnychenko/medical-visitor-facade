@@ -247,14 +247,18 @@
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
+  transform: translateY(-6px);
   transition:
-    grid-template-rows 0.28s ease,
-    opacity 0.22s ease;
+    grid-template-rows 0.46s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.32s ease,
+    transform 0.46s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: grid-template-rows, opacity, transform;
 }
 
 .panelOpen {
   grid-template-rows: 1fr;
   opacity: 1;
+  transform: translateY(0);
 }
 
 .answerWrap {

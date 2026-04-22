@@ -1,5 +1,7 @@
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { ArrowLeftIcon } from "@phosphor-icons/react/dist/ssr";
 import styles from "./ForWhom.module.scss";
 
 const ITEMS = [
@@ -11,32 +13,53 @@ const ITEMS = [
 
 export function ForWhom() {
   const t = useTranslations("home.forWhom");
+  const eyebrow = t("eyebrow");
+  const subtitle = t("subtitle");
+  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section id="for-whom" className={styles.section} data-home-section="forWhom">
-      <span className={styles.eyebrow}>{t("eyebrow")}</span>
+    <section
+      id="for-whom"
+      className={styles.section}
+      data-home-section="forWhom"
+    >
+      <div className={styles.layout}>
+        <motion.div
+          className={styles.headingRow}
+          initial={shouldReduceMotion ? undefined : { opacity: 0, y: 24 }}
+          whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className={styles.header}>
+            {eyebrow ? <p className={styles.overline}>{eyebrow}</p> : null}
+            <h2 className={styles.title}>{t("title")}</h2>
+            {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
+          </div>
+        </motion.div>
 
-      <ul className={styles.list}>
-        {ITEMS.map((key) => {
-          const descriptionKey = `items.${key}.description`;
-          const hasDescription = t.has(descriptionKey);
-
-          return (
-            <li
-              key={key}
-              className={`${styles.item} ${!hasDescription ? styles.itemSingle : ""}`.trim()}
-            >
-              <div className={styles.labelRow}>
-                <h3 className={styles.label}>{t(`items.${key}.label`)}</h3>
-                <span className={styles.arrow} aria-hidden="true">
-                  <ArrowLeftIcon size={32} weight="light" />
+        <div className={styles.body}>
+          <ol className={styles.principlesList}>
+            {ITEMS.map((key, index) => (
+              <motion.li
+                key={key}
+                className={styles.principleItem}
+                initial={shouldReduceMotion ? undefined : { opacity: 0, y: 28 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: index * 0.05 }}
+              >
+                <span className={styles.principleIndex}>
+                  {String(index + 1).padStart(2, "0")}
                 </span>
-              </div>
-              {hasDescription ? <p className={styles.description}>{t(descriptionKey)}</p> : null}
-            </li>
-          );
-        })}
-      </ul>
+                <div className={styles.principleBody}>
+                  <p className={styles.principleText}>{t(`items.${key}.label`)}</p>
+                </div>
+              </motion.li>
+            ))}
+          </ol>
+        </div>
+      </div>
     </section>
   );
 }

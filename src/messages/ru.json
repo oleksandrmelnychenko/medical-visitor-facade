@@ -4,6 +4,25 @@
     "description": "Возможно, страница была удалена, перемещена или в адресе допущена ошибка.",
     "backHome": "На главную"
   },
+  "auth": {
+    "signIn": "Войти",
+    "welcomeTitle": "Вход в кабинет",
+    "welcomeSubtitle": "Введите телефон или e-mail, чтобы продолжить.",
+    "phoneOrEmail": "Телефон или e-mail",
+    "password": "Пароль",
+    "passwordPlaceholder": "Введите пароль",
+    "showPassword": "Показать пароль",
+    "hidePassword": "Скрыть пароль",
+    "identifierRequired": "Укажите телефон или e-mail.",
+    "invalidPhoneOrEmail": "Введите корректный телефон или e-mail.",
+    "passwordRequired": "Введите пароль.",
+    "passwordMinLength": "Пароль должен содержать минимум 6 символов.",
+    "applicationPending": "Заявка обрабатывается. Мы свяжемся с вами в ближайшее время.",
+    "confidentialityNotice": "Данные защищены и используются только для сопровождения обращения.",
+    "privacyPolicyLink": "Политика конфиденциальности",
+    "payWithMollie": "Оплата через Mollie",
+    "securePoweredBy": "Безопасные платежи от"
+  },
   "error": {
     "title": "Что-то пошло не так",
     "description": "Произошла ошибка при загрузке страницы. Попробуйте ещё раз или вернитесь позже.",
@@ -225,6 +244,8 @@
     },
     "forWhom": {
       "eyebrow": "Специализация",
+      "title": "Ключевые клинические направления",
+      "subtitle": "",
       "items": {
         "secondOpinion": {
           "label": "Экспертный аудит сложных клинических случаев"

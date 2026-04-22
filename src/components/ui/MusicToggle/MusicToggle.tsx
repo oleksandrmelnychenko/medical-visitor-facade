@@ -8,7 +8,6 @@ const AUDIO_SOURCES = [
   { src: "/audio/generic.mp3", type: "audio/mpeg" },
   { src: "/audio/generic.ogg", type: "audio/ogg" },
 ] as const;
-const INTERACTION_EVENTS = ["pointerdown", "touchstart", "keydown"] as const;
 const AUTOSTART_DELAY_MS = 280;
 const AUTOSTART_IDLE_TIMEOUT_MS = 700;
 
@@ -70,33 +69,6 @@ export function MusicToggle() {
     if (typeof window === "undefined") return;
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
-    const removeInteractionListeners = () => {
-      INTERACTION_EVENTS.forEach((evt) => {
-        document.removeEventListener(evt, unmuteOnInteraction, true);
-      });
-    };
-
-    const unmuteOnInteraction = () => {
-      const audio = ensureAudio();
-      audio.muted = false;
-      hasUnmutedRef.current = true;
-      setHasUnmuted(true);
-
-      if (audio.paused) {
-        tryPlay(audio);
-      }
-
-      removeInteractionListeners();
-    };
-
-    INTERACTION_EVENTS.forEach((evt) => {
-      document.addEventListener(evt, unmuteOnInteraction, {
-        capture: true,
-        once: true,
-        passive: true,
-      });
-    });
-
     const startMutedAutoplay = () => {
       const audio = ensureAudio();
       audio.muted = !hasUnmutedRef.current;
@@ -155,7 +127,6 @@ export function MusicToggle() {
 
     return () => {
       document.removeEventListener("visibilitychange", onVisibility);
-      removeInteractionListeners();
 
       const readyHandler = readyHandlerRef.current;
       if (readyHandler) {

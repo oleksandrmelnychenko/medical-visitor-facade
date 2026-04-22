@@ -205,7 +205,17 @@ export function Header() {
         )}
       >
         <div className={styles.stickyContainer}>
-          <Link href="/" className={styles.stickyLogoLink} aria-label="Medical Concierge Agency">
+          <Link
+            href="/"
+            className={styles.stickyLogoLink}
+            aria-label="Medical Concierge Agency"
+            onClick={(event) => {
+              if (pathname === "/") {
+                event.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+          >
             <LogoSvg className={styles.stickyLogo} />
           </Link>
 
@@ -305,6 +315,9 @@ export function Header() {
                       onClick={closeMobileMenu}
                       className={styles.menuMetaLink}
                     >
+                      <span className={styles.menuMetaLinkAvatar} aria-hidden="true">
+                        <User size={16} strokeWidth={2} />
+                      </span>
                       {tCommon("login")}
                       <ArrowUpRight aria-hidden="true" />
                     </Link>
