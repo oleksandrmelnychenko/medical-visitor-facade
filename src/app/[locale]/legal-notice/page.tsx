@@ -1,1 +1,1 @@
-export { default } from "@/features/legal/legal-notice/LegalNoticePage";
+export { default, generateMetadata } from "@/features/legal/legal-notice/LegalNoticePage";

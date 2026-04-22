@@ -1,1 +1,1 @@
-export { default } from "@/features/membership/MembershipPage";
+export { default, generateMetadata } from "@/features/membership/MembershipPage";

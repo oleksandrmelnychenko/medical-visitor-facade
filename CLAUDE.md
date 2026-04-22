@@ -13,44 +13,116 @@ npm run lint     # Run ESLint
 
 ## Architecture
 
-This is a Next.js 16 medical appointment website using the App Router with server-side rendering.
+Next.js 16 medical agency website using App Router, i18n (de, en, es, ru), and a feature-based source layout.
 
 ### Tech Stack
-- **Framework**: Next.js 16 with App Router
-- **Styling**: Sass with CSS Modules (`.module.scss` files)
-- **Animations**: Motion (Framer Motion)
-- **Forms**: React Hook Form with Zod validation
-- **UI Components**: Custom components using class-variance-authority (CVA) pattern
-- **Icons**: Lucide React
+
+- **Framework**: Next.js 16 (App Router, Turbopack)
+- **Styling**: Sass with CSS Modules (`.module.scss`, co-located with component)
+- **Animations**: Motion (`motion/react`)
+- **Forms**: Plain React state (no form library); `@/features/apply/wizard/validation.ts` for custom validators
+- **i18n**: `next-intl` with messages in `src/messages/{de,en,es,ru}.json`
+- **Icons**: `lucide-react`, `@phosphor-icons/react`
 
 ### Project Structure
-```
+
+```text
 src/
-├── app/                    # Next.js App Router (pages, layouts)
-├── components/
-│   ├── ui/                 # Reusable UI primitives (Button, Input)
-│   ├── sections/           # Page sections (feature components)
-│   └── layout/             # Header, Footer
-├── lib/                    # Utilities (cn function for classnames)
-└── styles/
-    ├── globals.scss        # Global styles
-    └── variables.scss      # CSS custom properties (design tokens)
+├── app/                            # Next.js routes (thin re-exports to features)
+│   ├── [locale]/
+│   │   ├── page.tsx                # → features/home/HomePage
+│   │   ├── apply/page.tsx          # → features/apply/ApplyPage
+│   │   ├── login/page.tsx          # → features/auth/LoginPage
+│   │   ├── membership/             # page.tsx + layout.tsx (layout stays in app/)
+│   │   ├── privacy-policy/         # page.tsx + layout.tsx
+│   │   ├── legal-notice/           # page.tsx + layout.tsx
+│   │   └── financial-assistance/   # page.tsx + layout.tsx
+│   └── api/                        # API routes (route handlers stay in app/)
+│
+├── features/                       # Business features (self-contained)
+│   ├── home/
+│   │   ├── HomePage.tsx            # server entry (default + generateMetadata)
+│   │   └── sections/
+│   │       ├── hero/ faq/ focus/ approach/ journey/
+│   │       ├── locations/ stats/ scroll-rail/ scroll-reveal/
+│   ├── apply/
+│   │   ├── ApplyPage.tsx           # server entry (cookie redirect + metadata)
+│   │   ├── ApplyShell.tsx          # client dispatcher (new / returning / physician)
+│   │   ├── FallbackFlow.tsx        # returning/physician form shell
+│   │   ├── forms/                  # PhysicianForm, ReturningPatientForm
+│   │   └── wizard/                 # new-patient wizard
+│   │       ├── NewPatientWizard.tsx
+│   │       ├── WizardContext.tsx
+│   │       ├── flow.ts types.ts validation.ts submission.ts
+│   │       ├── wizardPath.ts progressCookie.ts contactPhone.ts choiceCardStyles.ts
+│   │       ├── ui/                 # ChoiceStep, PathTree, ReviewSummary, StepLayout, TrustBanner
+│   │       ├── views/              # LateFlow, PatientFlow
+│   │       └── steps/              # grouped by zone
+│   │           ├── entry/          # MemberCheck, AccountCheck, Welcome
+│   │           ├── eligibility/    # Location, BecomeMember, TravelReady, MedicalRecords, ...
+│   │           ├── profile/        # PatientName, DateOfBirth, Phone, PrimaryLanguage, ...
+│   │           ├── care/           # Services, Address, PrimaryConcern, CurrentTreatment, TravelRisk
+│   │           ├── insurance/      # InsuranceIntro, Insurance, InsuranceCoverage
+│   │           └── finish/         # WrapUpIntro, PreferredLocation, VisitTiming, AnythingElse, ReviewSubmit
+│   ├── auth/
+│   │   ├── LoginPage.tsx           # server entry
+│   │   └── LoginForm.tsx           # client form
+│   ├── membership/
+│   │   ├── MembershipPage.tsx
+│   │   └── MembershipComparison.tsx
+│   └── legal/
+│       ├── privacy-policy/PrivacyPolicyPage.tsx
+│       ├── legal-notice/LegalNoticePage.tsx
+│       └── financial-assistance/FinancialAssistancePage.tsx
+│
+├── shared/                         # Cross-feature code
+│   ├── layout/                     # Header, Footer, NavigationHoverGuard
+│   ├── ui/
+│   │   ├── form/                   # Form.module.scss (used by auth + wizard)
+│   │   ├── section/                # SectionHeader, Section.module.scss
+│   │   ├── cookie-consent/
+│   │   ├── hover-sound/
+│   │   └── music-toggle/
+│   ├── seo/json-ld/                # JSON-LD helpers (breadcrumb, FAQ, organization, website)
+│   └── lib/                        # cn.ts, encryption.ts, seo.ts
+│
+├── i18n/                           # next-intl config
+├── messages/                       # Translations (de, en, es, ru — 645 keys each)
+└── styles/                         # globals.scss, variables.scss
 ```
 
-### Key Patterns
+### Conventions
 
-**Styling**: Components use co-located SCSS modules. The `cn()` utility from `@/lib/utils` combines CSS module classes with conditional classes:
+- **Folders** are kebab-case (`features/home/`, `home/hero/`, `steps/entry/`).
+- **Component files** are PascalCase (`Hero.tsx`, `MemberCheck.tsx`).
+- **CSS module files** match component name (`Hero.module.scss`).
+- **Utility files** are camelCase for multi-word (`wizardPath.ts`, `progressCookie.ts`), lowercase for single-word (`flow.ts`, `types.ts`).
+- **CSS class names** inside `.module.scss` are camelCase (accessed as `styles.videoFrame`).
+- **No Step/Shared/Wizard prefixes** on filenames when folder already gives the context (`wizard/ui/StepLayout.tsx`, not `WizardStepLayout.tsx`; `steps/entry/MemberCheck.tsx`, not `MemberCheckStep.tsx`).
+- **Path alias**: single `@/*` → `src/*`. Prefer absolute `@/shared/...` or `@/features/...` over long `../../../` relatives.
+
+### Route → feature wiring
+
+Every `src/app/[locale]/**/page.tsx` is a one-line re-export from the matching feature page:
+
 ```tsx
-import styles from './component.module.scss';
-import { cn } from '@/lib/utils';
-<div className={cn(styles.base, someCondition && styles.active)} />
+export { default, generateMetadata } from "@/features/<area>/<slug>/<X>Page";
 ```
 
-**UI Components**: Follow the CVA pattern for variant-based styling (see `src/components/ui/button.tsx`). Variants are defined using SCSS module classes mapped through CVA.
+`layout.tsx` files stay in `src/app/[locale]/**/` because they are a Next.js route concern (metadata inheritance, breadcrumb JSON-LD wrapping).
 
-**Path Aliases**: Use `@/*` to import from `src/*`.
+### Key patterns
 
-**Client Components**: Forms and interactive sections use `"use client"` directive and manage state with React hooks.
+**Styling**: `cn()` utility from `@/shared/lib/cn` combines CSS-module classes with conditionals:
 
-### Design Tokens
-CSS custom properties are defined in `src/styles/variables.scss`. Key tokens include colors (`--primary`, `--background`, `--muted-foreground`), spacing (`--radius`), and container widths (`--container-*`). Dark mode support via `[data-theme="dark"]` or `.dark` class.
+```tsx
+import styles from "./Component.module.scss";
+import { cn } from "@/shared/lib/cn";
+<div className={cn(styles.base, isActive && styles.active)} />
+```
+
+**Server vs client**: Feature pages export server components by default (`<Feature>Page.tsx`). Interactive bits live in separate client components (`<Feature>Form.tsx`, `<Feature>Shell.tsx`) with `"use client"`.
+
+**Design tokens**: `src/styles/variables.scss` holds CSS custom properties (colors, spacing, container widths). Dark mode via `[data-theme="dark"]`.
+
+**Submission flow**: `src/features/apply/wizard/submission.ts` builds a `SubmissionBundle` and posts to `/api/apply/submit`, which forwards to a generic `LEAD_INTAKE_URL` endpoint (not Salesforce — naming was historical).
