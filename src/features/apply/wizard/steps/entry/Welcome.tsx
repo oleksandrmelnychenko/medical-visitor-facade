@@ -8,7 +8,7 @@ import { Link } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
 import { StepLayout } from '../../ui/StepLayout';
 import styles from '@/features/apply/ApplyPage.module.scss';
-import formStyles from '@/components/auth/Auth.module.scss';
+import formStyles from '@/shared/ui/form/Form.module.scss';
 
 export function Welcome() {
   const t = useTranslations('appointment.newPatient');

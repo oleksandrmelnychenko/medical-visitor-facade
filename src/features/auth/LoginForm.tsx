@@ -6,9 +6,9 @@ import { ArrowUpRight, Eye, EyeOff, LogIn } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/shared/lib/cn";
-import sectionStyles from "@/components/sections/shared/Section.module.scss";
+import sectionStyles from "@/shared/ui/section/Section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
-import styles from "./LoginPageClient.module.scss";
+import styles from "./LoginForm.module.scss";
 
 function isValidIdentifier(value: string) {
   const trimmedValue = value.trim();
@@ -18,7 +18,7 @@ function isValidIdentifier(value: string) {
   return isEmail || isPhone;
 }
 
-export function LoginPageClient() {
+export function LoginForm() {
   const tAuth = useTranslations("auth");
   const tCommon = useTranslations("common");
   const tFooter = useTranslations("footer");

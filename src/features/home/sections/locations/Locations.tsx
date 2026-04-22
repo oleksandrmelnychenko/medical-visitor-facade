@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/shared/lib/cn";
-import sectionStyles from "@/components/sections/shared/Section.module.scss";
+import sectionStyles from "@/shared/ui/section/Section.module.scss";
 import { LocationsCitiesGrid } from "./LocationsCitiesGrid";
 import styles from "./Locations.module.scss";
 

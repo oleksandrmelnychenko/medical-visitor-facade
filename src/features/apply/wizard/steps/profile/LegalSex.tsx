@@ -7,7 +7,7 @@ import { useRouter } from "@/i18n/navigation";
 import { useWizard } from "../../WizardContext";
 import { LegalSexType } from "../../types";
 import { StepLayout } from "../../ui/StepLayout";
-import formStyles from "@/components/auth/Auth.module.scss";
+import formStyles from "@/shared/ui/form/Form.module.scss";
 import styles from "@/features/apply/ApplyPage.module.scss";
 
 const SEX_OPTIONS: { value: NonNullable<LegalSexType>; key: string }[] = [

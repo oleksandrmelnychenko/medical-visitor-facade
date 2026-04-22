@@ -4,7 +4,7 @@ import React, { useCallback, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
-import formStyles from "@/components/auth/Auth.module.scss";
+import formStyles from "@/shared/ui/form/Form.module.scss";
 import { COUNTRY_CODES, splitInternationalPhoneNumber } from "../../contactPhone";
 import { useWizard } from "../../WizardContext";
 import { validateEmail } from "../../validation";

@@ -4,7 +4,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/shared/lib/cn";
-import sectionStyles from "@/components/sections/shared/Section.module.scss";
+import sectionStyles from "@/shared/ui/section/Section.module.scss";
 import styles from "./MembershipComparison.module.scss";
 
 const PLANS = ["portal", "reserve"] as const;

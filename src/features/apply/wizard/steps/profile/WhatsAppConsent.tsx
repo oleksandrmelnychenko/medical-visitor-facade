@@ -9,7 +9,7 @@ import { BINARY_CHOICE_CARD_STYLES, BINARY_CHOICE_HOVER_COLORS } from "../../cho
 import { StepLayout } from "../../ui/StepLayout";
 import { ChoiceStep } from "../../ui/ChoiceStep";
 import { COUNTRY_CODES, splitInternationalPhoneNumber } from "../../contactPhone";
-import formStyles from "@/components/auth/Auth.module.scss";
+import formStyles from "@/shared/ui/form/Form.module.scss";
 import styles from "@/features/apply/ApplyPage.module.scss";
 
 export function WhatsAppConsent() {

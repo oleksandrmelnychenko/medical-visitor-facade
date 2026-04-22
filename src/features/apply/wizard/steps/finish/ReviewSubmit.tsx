@@ -10,7 +10,7 @@ import { sanitizeWizardData, validateWizardSubmission } from '../../flow';
 import { StepLayout } from '../../ui/StepLayout';
 import { ReviewSummary } from '../../ui/ReviewSummary';
 import { buildSubmissionBundle, submitApplication } from '../../submission';
-import formStyles from '@/components/auth/Auth.module.scss';
+import formStyles from '@/shared/ui/form/Form.module.scss';
 import styles from '@/features/apply/ApplyPage.module.scss';
 
 type ConsentField =

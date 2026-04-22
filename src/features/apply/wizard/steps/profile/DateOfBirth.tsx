@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { cn } from "@/shared/lib/cn";
-import formStyles from "@/components/auth/Auth.module.scss";
+import formStyles from "@/shared/ui/form/Form.module.scss";
 import { useWizard } from "../../WizardContext";
 import { StepLayout } from "../../ui/StepLayout";
 import styles from "@/features/apply/ApplyPage.module.scss";
