@@ -129,10 +129,7 @@
     "programs": "Programas",
     "requestAppointment": "Comentar su situación",
     "login": "Iniciar sesión",
-    "selectLanguage": "Seleccionar idioma",
-    "menu": "Menú",
-    "headerTagline": "Precisión clínica y medicina avanzada en Alemania",
-    "headerTaglineSub": "Verificación profesional de decisiones médicas y coordinación del proceso de tratamiento. Desde 2012."
+    "menu": "Menú"
   },
   "footer": {
     "impressum": "Información legal",
@@ -145,16 +142,7 @@
     "headquarters": "Oficina principal",
     "address": "81735 Múnich, Alemania",
     "theAgency": "La Agencia",
-    "membership": "Servicio médico",
-    "backToTop": "Arriba",
-    "trustLine": "14 años de experiencia clínica y organizativa en 4 ciudades de Alemania",
-    "trustSince": "Desde 2012",
-    "trustYearsNumber": "14",
-    "trustYearsLabel": "Años",
-    "trustCitiesNumber": "4",
-    "trustCitiesLabel": "Ciudades",
-    "trustLanguagesNumber": "4",
-    "trustLanguagesLabel": "Idiomas"
+    "backToTop": "Arriba"
   },
   "home": {
     "scrollReveal": {
@@ -192,34 +180,12 @@
         }
       }
     },
-    "contactForm": {
-      "eyebrow": "Contáctenos",
-      "title": "Reserve una consulta",
-      "subtitle": "Deje su teléfono — nos pondremos en contacto para una consulta personalizada.",
-      "nameLabel": "Nombre",
-      "namePlaceholder": "Su nombre",
-      "phoneLabel": "Teléfono",
-      "phonePlaceholder": "Número de teléfono",
-      "countryCodeLabel": "Código de país",
-      "consent": "Al hacer clic en «Enviar», usted acepta el tratamiento de datos personales conforme a nuestra <privacyLink>política de privacidad</privacyLink>.",
-      "submit": "Enviar",
-      "submitting": "Enviando…",
-      "success": "¡Gracias! Le contactaremos en breve.",
-      "error": "Algo salió mal. Inténtelo de nuevo o escríbanos directamente."
-    },
     "hero": {
-      "brandLabel": "Medical Concierge · desde 2012",
       "titleDark": "Medicina avanzada",
       "titleMuted": "en Alemania.",
-      "subHeadline": "Evaluación experta",
       "subHeadlineAccent": "de decisiones y acompañamiento integral.",
-      "subHeadlineTail": "Desde 2012.",
-      "caption": "Múnich · Berlín · Hamburgo · Colonia",
-      "cta": "Obtener consulta",
       "subtitle": "Aseguramos un ciclo completo de acompañamiento y seguridad médica: desde la selección de especialistas especializados hasta la coordinación de todas las etapas del tratamiento.",
-      "learnMore": "Saber más",
-      "scrollToExplore": "Agentur für Patientenbetreuung Heorhii Hudiiev",
-      "topBar": "Su conserje médico en las clínicas líderes de Alemania"
+      "scrollToExplore": "Agentur für Patientenbetreuung Heorhii Hudiiev"
     },
     "focus": {
       "eyebrow": "Especialización",
@@ -375,25 +341,13 @@
       }
     },
     "stats": {
-      "eyebrow": "",
       "introBadge": "Sobre nosotros",
       "introText": "Organización integral de procesos médicos en clínicas especializadas de Alemania desde 2012. Aseguramos un ciclo completo de acompañamiento: desde el análisis de documentación y preparación de datos hasta la coordinación interdisciplinaria y el servicio de Concierge.",
       "secondaryBadge": "Metodología y estándares",
-      "secondaryHeadline": "Enfoque interdisciplinario y profunda experiencia en la resolución de tareas médicas complejas.",
       "secondaryText": "Organizamos el trabajo según los estándares de calidad europeos. Realizamos un análisis experto de documentos, evaluamos riesgos y formamos un plan de tratamiento. Garantizamos la transparencia de las acciones, la seguridad de la información y un control constante en cada etapa del proceso de curación.",
-      "headline": "Acompañamiento médico integral y organización del tratamiento en clínicas de Alemania",
       "overlayLineOne": "Experiencia.",
       "overlayLineTwo": "Transparencia.",
-      "overlayLineThree": "Enrutamiento.",
-      "yearsValue": "14",
-      "yearsLabel": "Años de experiencia clínica",
-      "yearsShortLabel": "años",
-      "citiesValue": "4",
-      "citiesLabel": "Ciudades de presencia operativa",
-      "citiesShortLabel": "ciudades",
-      "supportAreasValue": "7",
-      "supportAreasLabel": "Direcciones de coordinación interdisciplinaria",
-      "supportAreasShortLabel": "direcciones"
+      "overlayLineThree": "Enrutamiento."
     }
   },
   "appointment": {
@@ -404,7 +358,6 @@
       "title": "Pro bono",
       "description1": "La organización de un tratamiento de calidad requiere recursos significativos. En el marco de la responsabilidad social, la agencia proporciona cuotas limitadas para el acompañamiento médico gratuito.",
       "description1Dark": "La agencia ejecuta un programa de responsabilidad social, asignando anualmente un número limitado de cuotas Pro bono para",
-      "description1Muted": "",
       "description1Accent": "acompañamiento médico gratuito",
       "description1Tail": "en casos clínicos críticos.",
       "description2": "Cada solicitud se considera individualmente, basándose en la complejidad del caso clínico y los recursos disponibles de la agencia.",

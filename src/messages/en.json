@@ -129,10 +129,7 @@
     "programs": "Programs",
     "requestAppointment": "Discuss your situation",
     "login": "Sign in",
-    "selectLanguage": "Select language",
-    "menu": "Menu",
-    "headerTagline": "Clinical precision and advanced medicine in Germany",
-    "headerTaglineSub": "Professional verification of medical decisions and coordination of the treatment process. Since 2012."
+    "menu": "Menu"
   },
   "footer": {
     "impressum": "Legal notice",
@@ -145,16 +142,7 @@
     "headquarters": "Office",
     "address": "81735 Munich, Germany",
     "theAgency": "The Agency",
-    "membership": "Medical service",
-    "backToTop": "Back to top",
-    "trustLine": "14 years of clinical and organizational expertise in 4 German cities",
-    "trustSince": "Since 2012",
-    "trustYearsNumber": "14",
-    "trustYearsLabel": "Years",
-    "trustCitiesNumber": "4",
-    "trustCitiesLabel": "Cities",
-    "trustLanguagesNumber": "4",
-    "trustLanguagesLabel": "Languages"
+    "backToTop": "Back to top"
   },
   "home": {
     "scrollReveal": {
@@ -192,34 +180,12 @@
         }
       }
     },
-    "contactForm": {
-      "eyebrow": "Get in touch",
-      "title": "Book a consultation",
-      "subtitle": "Leave your phone number — we will contact you for a personal consultation.",
-      "nameLabel": "Name",
-      "namePlaceholder": "Your name",
-      "phoneLabel": "Phone",
-      "phonePlaceholder": "Phone number",
-      "countryCodeLabel": "Country code",
-      "consent": "By clicking «Submit» you agree to the processing of personal data under our <privacyLink>privacy policy</privacyLink>.",
-      "submit": "Submit",
-      "submitting": "Sending…",
-      "success": "Thank you! We will contact you shortly.",
-      "error": "Something went wrong. Please try again or email us directly."
-    },
     "hero": {
-      "brandLabel": "Medical Concierge · since 2012",
       "titleDark": "Advanced medicine",
       "titleMuted": "in Germany.",
-      "subHeadline": "Expert review",
       "subHeadlineAccent": "of decisions and end-to-end coordination.",
-      "subHeadlineTail": "Since 2012.",
-      "caption": "Munich · Berlin · Hamburg · Cologne",
-      "cta": "Get a consultation",
       "subtitle": "We provide a full support cycle and medical safety: from selecting specialized experts to coordinating all stages of treatment.",
-      "learnMore": "Learn More",
-      "scrollToExplore": "Agentur für Patientenbetreuung Heorhii Hudiiev",
-      "topBar": "Your medical concierge in leading German clinics"
+      "scrollToExplore": "Agentur für Patientenbetreuung Heorhii Hudiiev"
     },
     "focus": {
       "eyebrow": "Specialization",
@@ -375,25 +341,13 @@
       }
     },
     "stats": {
-      "eyebrow": "",
       "introBadge": "About",
       "introText": "Comprehensive organization of medical processes in specialized German clinics since 2012. We provide a full support cycle: from documentation analysis and data preparation to interdisciplinary coordination and Concierge service.",
       "secondaryBadge": "Methodology and Standards",
-      "secondaryHeadline": "Interdisciplinary approach and deep expertise in resolving complex medical cases.",
       "secondaryText": "We organize work according to European quality standards. We perform expert document analysis, assess risks, and form a treatment plan. We ensure transparency, information protection, and constant control at every stage of the treatment process.",
-      "headline": "Comprehensive medical coordination and treatment organization in German clinics",
       "overlayLineOne": "Expertise.",
       "overlayLineTwo": "Transparency.",
-      "overlayLineThree": "Routing.",
-      "yearsValue": "14",
-      "yearsLabel": "Years of clinical expertise",
-      "yearsShortLabel": "years",
-      "citiesValue": "4",
-      "citiesLabel": "Cities of operational presence",
-      "citiesShortLabel": "cities",
-      "supportAreasValue": "7",
-      "supportAreasLabel": "Areas of interdisciplinary coordination",
-      "supportAreasShortLabel": "areas"
+      "overlayLineThree": "Routing."
     }
   },
   "appointment": {
@@ -404,7 +358,6 @@
       "title": "Pro bono",
       "description1": "Organizing high-quality treatment requires significant resources. As part of social responsibility, the agency provides limited quotas for pro bono medical coordination.",
       "description1Dark": "The agency runs a social responsibility programme, annually allocating a limited number of pro bono quotas for",
-      "description1Muted": "",
       "description1Accent": "complimentary medical support",
       "description1Tail": "in critical clinical cases.",
       "description2": "Each request is considered individually, based on the complexity of the clinical case and the agency's available resources.",

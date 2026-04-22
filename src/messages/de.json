@@ -129,10 +129,7 @@
     "programs": "Programme",
     "requestAppointment": "Ihre Situation besprechen",
     "login": "Anmelden",
-    "selectLanguage": "Sprache auswählen",
-    "menu": "Menü",
-    "headerTagline": "Klinische Präzision und fortschrittliche Medizin in Deutschland",
-    "headerTaglineSub": "Professionelle Verifizierung medizinischer Entscheidungen und Koordination des Behandlungsprozesses. Seit 2012."
+    "menu": "Menü"
   },
   "footer": {
     "impressum": "Impressum",
@@ -145,16 +142,7 @@
     "headquarters": "Hauptsitz",
     "address": "81735 München, Deutschland",
     "theAgency": "Die Agentur",
-    "membership": "Medizinischer Service",
-    "backToTop": "Nach oben",
-    "trustLine": "14 Jahre klinische und organisatorische Expertise in 4 deutschen Städten",
-    "trustSince": "Seit 2012",
-    "trustYearsNumber": "14",
-    "trustYearsLabel": "Jahre",
-    "trustCitiesNumber": "4",
-    "trustCitiesLabel": "Städte",
-    "trustLanguagesNumber": "4",
-    "trustLanguagesLabel": "Sprachen"
+    "backToTop": "Nach oben"
   },
   "home": {
     "scrollReveal": {
@@ -192,34 +180,12 @@
         }
       }
     },
-    "contactForm": {
-      "eyebrow": "Kontakt aufnehmen",
-      "title": "Beratung vereinbaren",
-      "subtitle": "Hinterlassen Sie Ihre Telefonnummer — wir melden uns für eine persönliche Beratung.",
-      "nameLabel": "Name",
-      "namePlaceholder": "Ihr Name",
-      "phoneLabel": "Telefon",
-      "phonePlaceholder": "Telefonnummer",
-      "countryCodeLabel": "Ländervorwahl",
-      "consent": "Mit dem Klick auf «Absenden» stimmen Sie der Verarbeitung personenbezogener Daten gemäß unserer <privacyLink>Datenschutzerklärung</privacyLink> zu.",
-      "submit": "Absenden",
-      "submitting": "Wird gesendet…",
-      "success": "Danke! Wir melden uns in Kürze bei Ihnen.",
-      "error": "Leider ist etwas schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt."
-    },
     "hero": {
-      "brandLabel": "Medical Concierge · seit 2012",
       "titleDark": "Fortschrittliche Medizin",
       "titleMuted": "in Deutschland.",
-      "subHeadline": "Fachliche Prüfung",
       "subHeadlineAccent": "von Entscheidungen und vollständige Begleitung.",
-      "subHeadlineTail": "Seit 2012.",
-      "caption": "München · Berlin · Hamburg · Köln",
-      "cta": "Beratung erhalten",
       "subtitle": "Wir bieten einen vollständigen Betreuungszyklus und medizinische Sicherheit: von der Auswahl spezialisierter Experten bis zur Koordination aller Behandlungsphasen.",
-      "learnMore": "Mehr erfahren",
-      "scrollToExplore": "Agentur für Patientenbetreuung Heorhii Hudiiev",
-      "topBar": "Ihr medizinischer Concierge in führenden deutschen Kliniken"
+      "scrollToExplore": "Agentur für Patientenbetreuung Heorhii Hudiiev"
     },
     "focus": {
       "eyebrow": "Spezialisierung",
@@ -375,25 +341,13 @@
       }
     },
     "stats": {
-      "eyebrow": "",
       "introBadge": "Über uns",
       "introText": "Umfassende Organisation medizinischer Prozesse in spezialisierten deutschen Kliniken seit 2012. Wir bieten einen vollständigen Betreuungszyklus: von der Dokumentenanalyse und Datenaufbereitung bis zur interdisziplinären Koordination und dem Concierge-Service.",
       "secondaryBadge": "Methodik und Standards",
-      "secondaryHeadline": "Interdisziplinärer Ansatz und tiefe Expertise bei der Lösung komplexer medizinischer Fälle.",
       "secondaryText": "Wir organisieren die Arbeit nach europäischen Qualitätsstandards. Wir führen eine fachkundige Dokumentenanalyse durch, bewerten Risiken und erstellen einen Behandlungsplan. Wir sorgen für Transparenz, Informationsschutz und ständige Kontrolle in jeder Phase des Behandlungsprozesses.",
-      "headline": "Umfassende medizinische Koordination und Behandlungs­organisation in deutschen Kliniken",
       "overlayLineOne": "Expertise.",
       "overlayLineTwo": "Transparenz.",
-      "overlayLineThree": "Koordination.",
-      "yearsValue": "14",
-      "yearsLabel": "Jahre klinischer Expertise",
-      "yearsShortLabel": "Jahre",
-      "citiesValue": "4",
-      "citiesLabel": "Städte operativer Präsenz",
-      "citiesShortLabel": "Städte",
-      "supportAreasValue": "7",
-      "supportAreasLabel": "Bereiche interdisziplinärer Koordination",
-      "supportAreasShortLabel": "Bereiche"
+      "overlayLineThree": "Koordination."
     }
   },
   "appointment": {
@@ -404,7 +358,6 @@
       "title": "Pro bono",
       "description1": "Die Organisation einer qualitativ hochwertigen Behandlung erfordert erhebliche Ressourcen. Im Rahmen der sozialen Verantwortung stellt die Agentur begrenzte Kontingente für eine unentgeltliche medizinische Koordination zur Verfügung.",
       "description1Dark": "Die Agentur führt ein Programm zur sozialen Verantwortung durch und stellt jährlich begrenzte Pro-bono-Kontingente für",
-      "description1Muted": "",
       "description1Accent": "unentgeltliche medizinische Betreuung",
       "description1Tail": "in kritischen klinischen Fällen bereit.",
       "description2": "Jede Anfrage wird individuell auf der Grundlage der Komplexität des klinischen Falls und der verfügbaren Ressourcen der Agentur geprüft.",
