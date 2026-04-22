@@ -18,13 +18,13 @@ export function Hero() {
         </h1>
       </div> */}
 
-      <div className={cn(styles.scrollBar, styles.scrollBarTop)} aria-hidden="true">
+      {/* <div className={cn(styles.scrollBar, styles.scrollBarTop)} aria-hidden="true">
         <span className={styles.scrollBarMark}>+</span>
         <span className={styles.scrollBarMark}>+</span>
         <span className={styles.scrollBarLabel}>{t("topBar")}</span>
         <span className={styles.scrollBarMark}>+</span>
         <span className={styles.scrollBarMark}>+</span>
-      </div>
+      </div> */}
 
       <div className={styles.videoFrame} aria-hidden="true" data-dark-bg="true">
         <video
@@ -40,13 +40,13 @@ export function Hero() {
         <span className={styles.videoFramePlaceholder} />
       </div>
 
-      <div className={styles.scrollBar} aria-hidden="true">
+      {/* <div className={styles.scrollBar} aria-hidden="true">
         <span className={styles.scrollBarMark}>+</span>
         <span className={styles.scrollBarMark}>+</span>
         <span className={styles.scrollBarLabel}>{t("scrollToExplore")}</span>
         <span className={styles.scrollBarMark}>+</span>
         <span className={styles.scrollBarMark}>+</span>
-      </div>
+      </div> */}
     </section>
   );
 }
