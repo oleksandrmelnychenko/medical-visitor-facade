@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ArrowUpLeft } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/shared/lib/cn';
 import sectionStyles from '@/components/sections/shared/Section.module.scss';
 import pageStyles from '@/styles/page.module.scss';
 import { WizardPathTree } from './WizardPathTree';

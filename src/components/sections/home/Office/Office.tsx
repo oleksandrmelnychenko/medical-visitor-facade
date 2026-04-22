@@ -4,7 +4,7 @@ import type { CSSProperties } from "react";
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useTranslations } from "next-intl";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/cn";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import { OfficeCitiesGrid } from "./OfficeCitiesGrid";
 import styles from "./Office.module.scss";

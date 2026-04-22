@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/cn";
 import styles from "./HomeScrollRail.module.scss";
 
 const SECTION_IDS = ["hero", "forWhom", "scale", "support", "care", "office", "outro", "faq"] as const;

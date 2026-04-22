@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { getLocale } from "next-intl/server";
 import { JetBrains_Mono, Inter } from "next/font/google";
 import "../styles/globals.scss";
-import { NavigationHoverGuard } from "@/components/layout/NavigationHoverGuard";
-import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/seo/JsonLd";
-import { baseUrl } from "@/lib/seo";
+import { NavigationHoverGuard } from "@/shared/layout/NavigationHoverGuard";
+import { OrganizationJsonLd, WebsiteJsonLd } from "@/shared/seo/json-ld";
+import { baseUrl } from "@/shared/lib/seo";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin", "cyrillic"],

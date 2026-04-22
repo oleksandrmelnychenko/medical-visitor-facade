@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { cn } from "@/lib/utils";
-import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { cn } from "@/shared/lib/cn";
+import { BreadcrumbJsonLd } from "@/shared/seo/json-ld";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
 import {
@@ -9,7 +9,7 @@ import {
   getLocalizedMessage,
   getLocalizedMetadata,
   normalizeLanguage,
-} from "@/lib/seo";
+} from "@/shared/lib/seo";
 import styles from "./privacy-policy.module.scss";
 
 type PrivacyPolicyPageProps = {

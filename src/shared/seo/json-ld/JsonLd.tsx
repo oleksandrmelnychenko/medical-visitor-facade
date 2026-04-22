@@ -1,4 +1,4 @@
-import { baseUrl } from "@/lib/seo";
+import { baseUrl } from "@/shared/lib/seo";
 
 export function OrganizationJsonLd() {
   const jsonLd = {

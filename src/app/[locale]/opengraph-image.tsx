@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { getLocalizedMessage, normalizeLanguage } from "@/lib/seo";
+import { getLocalizedMessage, normalizeLanguage } from "@/shared/lib/seo";
 
 export const runtime = "nodejs";
 

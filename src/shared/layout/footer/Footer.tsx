@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { LogoSvgOld } from "@/components/layout/Header/LogoSvgOld";
+import { LogoSvgOld } from "@/shared/layout/header/LogoSvgOld";
 import { FooterSwitch } from "./FooterSwitch";
 import styles from "./Footer.module.scss";
 

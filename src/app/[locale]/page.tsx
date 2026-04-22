@@ -9,12 +9,12 @@ import { Faq } from "@/components/sections/home/Faq";
 // import { ContactForm } from "@/components/sections/home/ContactForm";
 import { HomeScrollRail } from "@/components/sections/home/HomeScrollRail";
 import { ScaleStats } from "@/components/sections/ScaleStats";
-import { FaqJsonLd } from "@/components/seo/JsonLd";
+import { FaqJsonLd } from "@/shared/seo/json-ld";
 import {
   getLocalizedMetadata,
   getLocalizedMessage,
   normalizeLanguage,
-} from "@/lib/seo";
+} from "@/shared/lib/seo";
 
 const FAQ_ITEM_KEYS = ["services", "clinicSelection", "travel", "documents", "onSite", "start"] as const;
 

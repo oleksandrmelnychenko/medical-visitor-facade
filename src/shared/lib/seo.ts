@@ -115,7 +115,7 @@ export function getLocalizedMetadata({
 type MessageRecord = Record<string, unknown>;
 
 const getLocaleMessages = cache(async (locale: Language): Promise<MessageRecord> => {
-  return (await import(`../messages/${locale}.json`)).default as MessageRecord;
+  return (await import(`../../messages/${locale}.json`)).default as MessageRecord;
 });
 
 function getNestedMessage(messages: MessageRecord, path: string): unknown {

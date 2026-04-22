@@ -7,8 +7,8 @@ import {
   getLocalizedMetadata,
   getLocalizedMessage,
   normalizeLanguage,
-} from "@/lib/seo";
-import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+} from "@/shared/lib/seo";
+import { BreadcrumbJsonLd } from "@/shared/seo/json-ld";
 import { getAccessibleWizardStep } from "@/components/sections/request-appointment/wizard/flow";
 import {
   getWizardDataFromCookieValue,

@@ -4,9 +4,9 @@ import React, { startTransition, useEffect, useEffectEvent, useState } from "rea
 import { User, House, ArrowUpRight, ArrowLeft } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/cn";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
-import { MusicToggle } from "@/components/ui/MusicToggle";
+import { MusicToggle } from "@/shared/ui/music-toggle";
 import { LogoSvg } from "./LogoSvg";
 import styles from "./Header.module.scss";
 

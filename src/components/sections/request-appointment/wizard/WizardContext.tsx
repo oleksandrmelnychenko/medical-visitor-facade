@@ -15,7 +15,7 @@ import {
   readEncryptedJson,
   removeEncryptedJson,
   saveEncryptedJson,
-} from "@/lib/client-encryption";
+} from "@/shared/lib/encryption";
 import { WizardData, initialWizardData } from "./types";
 import {
   createWizardProgressSnapshot,

@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { MembershipComparison } from "@/components/sections/membership/MembershipComparison";
-import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { BreadcrumbJsonLd } from "@/shared/seo/json-ld";
 import {
   getBreadcrumbItems,
   getLocalizedMessage,
   getLocalizedMetadata,
   normalizeLanguage,
-} from "@/lib/seo";
+} from "@/shared/lib/seo";
 import styles from "./membership.module.scss";
 
 type MembershipPageProps = {

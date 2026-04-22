@@ -4,7 +4,7 @@ import React, { useCallback, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/cn";
 import formStyles from "@/components/auth/Auth.module.scss";
 import { useWizard } from "../../WizardContext";
 import { WizardStepLayout } from "../../components/WizardStepLayout";

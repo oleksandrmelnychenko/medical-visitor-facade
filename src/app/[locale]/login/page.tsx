@@ -3,7 +3,7 @@ import {
   getLocalizedMetadata,
   getLocalizedMessage,
   normalizeLanguage,
-} from "@/lib/seo";
+} from "@/shared/lib/seo";
 import { LoginPageClient } from "./LoginPageClient";
 
 type LoginPageProps = {

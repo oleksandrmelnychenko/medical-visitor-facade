@@ -2,7 +2,7 @@
 
 import type { CSSProperties, ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/cn";
 import { WizardStepLayout } from "./WizardStepLayout";
 import styles from "../../RequestAppointment/RequestAppointment.module.scss";
 

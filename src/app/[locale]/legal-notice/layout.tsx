@@ -4,8 +4,8 @@ import {
   getLocalizedMetadata,
   getLocalizedMessage,
   normalizeLanguage,
-} from "@/lib/seo";
-import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+} from "@/shared/lib/seo";
+import { BreadcrumbJsonLd } from "@/shared/seo/json-ld";
 type LegalNoticeLayoutProps = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;

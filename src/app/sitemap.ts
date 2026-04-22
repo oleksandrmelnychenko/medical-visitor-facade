@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { defaultLanguage, getLocalizedPath, languages } from "@/lib/seo";
+import { defaultLanguage, getLocalizedPath, languages } from "@/shared/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

@@ -1,11 +1,11 @@
 import { Metadata } from "next";
-import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { BreadcrumbJsonLd } from "@/shared/seo/json-ld";
 import {
   getBreadcrumbItems,
   getLocalizedMetadata,
   getLocalizedMessage,
   normalizeLanguage,
-} from "@/lib/seo";
+} from "@/shared/lib/seo";
 
 type MembershipLayoutProps = {
   children: React.ReactNode;

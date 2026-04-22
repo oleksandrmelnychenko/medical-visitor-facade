@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { baseUrl, languages } from "@/lib/seo";
+import { baseUrl, languages } from "@/shared/lib/seo";
 
 export default function robots(): MetadataRoute.Robots {
   const disallowRoutes = [

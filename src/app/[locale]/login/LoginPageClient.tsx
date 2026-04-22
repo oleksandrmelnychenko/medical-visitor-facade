@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ArrowUpRight, Eye, EyeOff, LogIn } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/cn";
 import sectionStyles from "@/components/sections/shared/Section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
 import styles from "./LoginPageClient.module.scss";

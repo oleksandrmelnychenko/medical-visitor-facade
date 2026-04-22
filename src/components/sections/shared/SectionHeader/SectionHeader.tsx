@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/cn";
 import styles from "./SectionHeader.module.scss";
 
 type SectionHeaderProps = {
