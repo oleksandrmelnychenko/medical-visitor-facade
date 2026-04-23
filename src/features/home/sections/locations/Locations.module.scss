@@ -229,10 +229,8 @@
   --tile-image-padding-inline: clamp(1rem, 1.8vw, 1.8rem);
   --tile-image-padding-top: 0.8rem;
   --tile-image-padding-bottom: clamp(1.4rem, 2.2vw, 2rem);
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  align-content: start;
-  gap: 0.8rem;
+  position: relative;
+  display: block;
 }
 
 .tileMedia {
@@ -251,13 +249,19 @@
 }
 
 .tileName {
+  position: absolute;
+  top: clamp(1rem, 1.8vw, 1.4rem);
+  left: clamp(1.1rem, 2vw, 1.6rem);
+  z-index: 2;
   margin: 0;
+  max-width: 7ch;
   font-family: "Onest", sans-serif;
   font-size: clamp(1.05rem, 1.4vw, 1.35rem);
   font-weight: 360;
   line-height: 1.1;
   letter-spacing: -0.008em;
   color: #0b0e14;
+  text-align: left;
 }
 
 .cityImage {
@@ -301,7 +305,7 @@
 }
 
 .tileNameCologne {
-  padding-left: 0.05rem;
+  max-width: 5ch;
 }
 
 @media (hover: hover) {

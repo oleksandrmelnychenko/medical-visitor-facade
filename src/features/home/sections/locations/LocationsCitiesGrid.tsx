@@ -82,6 +82,19 @@ export function LocationsCitiesGrid({
             }}
           >
             <div className={cn(styles.tileMedia, city.key === "cologne" && styles.tileMediaCologne)}>
+              <motion.h4
+                className={cn(styles.tileName, city.key === "cologne" && styles.tileNameCologne)}
+                initial={shouldReduceMotion ? undefined : { opacity: 0, y: 10 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  duration: 0.6,
+                  ease: EASE,
+                  delay: 0.95 + idx * 0.14,
+                }}
+              >
+                {city.name}
+              </motion.h4>
               <motion.div
                 style={{ position: "absolute", inset: 0 }}
                 initial={shouldReduceMotion ? undefined : { opacity: 0, scale: 1.1 }}
@@ -102,19 +115,6 @@ export function LocationsCitiesGrid({
                 />
               </motion.div>
             </div>
-            <motion.h4
-              className={cn(styles.tileName, city.key === "cologne" && styles.tileNameCologne)}
-              initial={shouldReduceMotion ? undefined : { opacity: 0, y: 10 }}
-              whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                duration: 0.6,
-                ease: EASE,
-                delay: 0.95 + idx * 0.14,
-              }}
-            >
-              {city.name}
-            </motion.h4>
           </motion.article>
         ))}
       </div>

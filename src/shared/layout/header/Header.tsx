@@ -171,8 +171,6 @@ export function Header() {
     { label: tCommon("programs"), href: "/membership", type: "route" as const },
   ] as const;
 
-  const showMobileLoginFab = showLogin && !isMobileMenuOpen && !isApplyPage && !isMembershipPage;
-
   if (isLoginPage) {
     return (
       <header className={styles.header}>
@@ -377,6 +375,17 @@ export function Header() {
                 </div>
               </div>
 
+              <Link
+                href="/apply"
+                prefetch={false}
+                onClick={closeMobileMenu}
+                className={styles.menuFeatureCard}
+              >
+                <span className={styles.menuFeatureGlyph} aria-hidden="true" />
+                <span className={styles.menuFeatureLabel}>{tCommon("headerRequestAppointment")}</span>
+                <ArrowUpRight aria-hidden="true" />
+              </Link>
+
               <div className={styles.menuContactCard}>
                 <p className={styles.menuContactTitle}>
                   <span>{menuCopy.contactLineOne}</span>
@@ -390,6 +399,24 @@ export function Header() {
                   <span className={styles.menuContactFieldText}>contact@gmed-health.com</span>
                   <ArrowUpRight aria-hidden="true" />
                 </a>
+              </div>
+
+              <div className={styles.menuLanguageRow} role="group" aria-label="Language">
+                {LANGUAGES.map((language) => (
+                  <button
+                    key={language.code}
+                    type="button"
+                    onClick={() => handleLanguageSelect(language.code)}
+                    className={cn(
+                      styles.menuLanguageButton,
+                      locale === language.code && styles.menuLanguageButtonActive
+                    )}
+                    aria-pressed={locale === language.code}
+                    aria-label={language.fullName}
+                  >
+                    {language.label}
+                  </button>
+                ))}
               </div>
 
               <div className={styles.mobileFooterLinks}>
@@ -424,31 +451,9 @@ export function Header() {
                   </span>
                 </Link>
               </div>
-
-              <Link
-                href="/apply"
-                prefetch={false}
-                onClick={closeMobileMenu}
-                className={styles.menuFeatureCard}
-              >
-                <span className={styles.menuFeatureGlyph} aria-hidden="true" />
-                <span className={styles.menuFeatureLabel}>{tCommon("headerRequestAppointment")}</span>
-                <ArrowUpRight aria-hidden="true" />
-              </Link>
             </div>
           </div>
         </div>
-
-        {showMobileLoginFab && (
-          <Link
-            href="/login"
-            prefetch={false}
-            className={styles.mobileLoginFab}
-            aria-label={tCommon("login")}
-          >
-            <User size={24} />
-          </Link>
-        )}
       </header>
     </>
   );
