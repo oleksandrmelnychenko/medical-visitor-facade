@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useRef } from 'react';
-import { Bank, Globe, GlobeHemisphereWest } from '@phosphor-icons/react';
+import { Landmark, Globe, Globe2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
@@ -13,7 +13,7 @@ const LOCATION_OPTIONS = [
   {
     value: 'germany' as const,
     color: '#E5D5A8',
-    icon: Bank,
+    icon: Landmark,
     titleKey: 'germany',
   },
   {
@@ -25,7 +25,7 @@ const LOCATION_OPTIONS = [
   {
     value: 'outside_eu' as const,
     color: '#A8D5E5',
-    icon: GlobeHemisphereWest,
+    icon: Globe2,
     titleKey: 'outsideEu',
   },
 ];

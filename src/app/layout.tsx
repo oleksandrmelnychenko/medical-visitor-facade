@@ -125,13 +125,6 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={`${jetbrainsMono.variable} ${inter.variable} ${instrumentSerif.variable}`} suppressHydrationWarning>
       <head>
-        <link
-          rel="preload"
-          as="image"
-          href="/video/hero-poster.jpg"
-          type="image/jpeg"
-          fetchPriority="high"
-        />
         <OrganizationJsonLd />
         <WebsiteJsonLd />
       </head>

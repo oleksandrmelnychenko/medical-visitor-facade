@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+export const maxDuration = 15;
+
+const NO_STORE_HEADERS = { "cache-control": "no-store, private, max-age=0" } as const;
+const MAX_BODY_BYTES = 32 * 1024;
 
 type ContactPayload = {
   name: string;
@@ -31,16 +36,25 @@ function sanitizePhone(value: unknown) {
   return value.replace(/[^\d+\s()-]/g, "").trim().slice(0, 32);
 }
 
+function jsonError(error: string, status: number) {
+  return NextResponse.json({ error }, { status, headers: NO_STORE_HEADERS });
+}
+
 export async function POST(request: Request) {
+  const contentLength = Number(request.headers.get("content-length") ?? "0");
+  if (contentLength > MAX_BODY_BYTES) {
+    return jsonError("Payload too large", 413);
+  }
+
   let body: unknown;
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+    return jsonError("Invalid JSON", 400);
   }
 
   if (!body || typeof body !== "object") {
-    return NextResponse.json({ error: "Invalid payload" }, { status: 400 });
+    return jsonError("Invalid payload", 400);
   }
 
   const raw = body as Record<string, unknown>;
@@ -53,22 +67,22 @@ export async function POST(request: Request) {
   };
 
   if (!payload.name) {
-    return NextResponse.json({ error: "Name is required" }, { status: 400 });
+    return jsonError("Name is required", 400);
   }
 
   if (!payload.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
-    return NextResponse.json({ error: "Valid email is required" }, { status: 400 });
+    return jsonError("Valid email is required", 400);
   }
 
   if (!payload.phone || payload.phone.replace(/\D/g, "").length < 6) {
-    return NextResponse.json({ error: "Phone is required" }, { status: 400 });
+    return jsonError("Phone is required", 400);
   }
 
   const config = getIntakeConfig();
 
   if (!config) {
     console.info("[contact] intake not configured, payload:", payload);
-    return NextResponse.json({ ok: true, forwarded: false });
+    return NextResponse.json({ ok: true, forwarded: false }, { headers: NO_STORE_HEADERS });
   }
 
   try {
@@ -88,12 +102,12 @@ export async function POST(request: Request) {
     if (!response.ok) {
       const text = await response.text().catch(() => "");
       console.error("[contact] intake rejected", response.status, text);
-      return NextResponse.json({ error: "Upstream error" }, { status: 502 });
+      return jsonError("Upstream error", 502);
     }
   } catch (error) {
     console.error("[contact] intake failed", error);
-    return NextResponse.json({ error: "Network error" }, { status: 502 });
+    return jsonError("Network error", 502);
   }
 
-  return NextResponse.json({ ok: true, forwarded: true });
+  return NextResponse.json({ ok: true, forwarded: true }, { headers: NO_STORE_HEADERS });
 }

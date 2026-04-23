@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import ReactDOM from "react-dom";
 import { Hero } from "./sections/hero";
 // import { Focus } from "./sections/focus";
 import { Approach } from "./sections/approach";
@@ -40,6 +41,12 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
 export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
   const safeLocale = normalizeLanguage(locale);
+
+  ReactDOM.preload("/video/hero-poster.jpg", {
+    as: "image",
+    fetchPriority: "high",
+    type: "image/jpeg",
+  });
 
   const [heroTitleDark, heroTitleMuted, faqItems] = await Promise.all([
     getLocalizedMessage(safeLocale, "home.hero.titleDark"),
