@@ -47,21 +47,23 @@ export function ScrollReveal() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
 
   return (
-    <div ref={ref} className={styles.anchor} data-home-section="outro" data-dark-bg="true">
-      <motion.div
-        className={styles.pinned}
-        style={isStaticMobile ? undefined : { y, opacity }}
-      >
-        <div className={styles.surface}>
-          <h2 className={styles.headline}>
-            {tHome("headline")}
-          </h2>
-          <Link href="/apply" prefetch={false} className={styles.cta}>
-            <span>{t("requestAppointment")}</span>
-            <ArrowUpRight aria-hidden="true" />
-          </Link>
-        </div>
-      </motion.div>
+    <div className={styles.wrap}>
+      <div ref={ref} className={styles.anchor} data-home-section="outro" data-dark-bg="true">
+        <motion.div
+          className={styles.pinned}
+          style={isStaticMobile ? undefined : { y, opacity }}
+        >
+          <div className={styles.surface}>
+            <h2 className={styles.headline}>
+              {tHome("headline")}
+            </h2>
+            <Link href="/apply" prefetch={false} className={styles.cta}>
+              <span>{t("requestAppointment")}</span>
+              <ArrowUpRight aria-hidden="true" />
+            </Link>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 }

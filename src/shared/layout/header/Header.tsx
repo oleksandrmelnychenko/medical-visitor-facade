@@ -386,21 +386,6 @@ export function Header() {
                 <ArrowUpRight aria-hidden="true" />
               </Link>
 
-              <div className={styles.menuContactCard}>
-                <p className={styles.menuContactTitle}>
-                  <span>{menuCopy.contactLineOne}</span>
-                </p>
-
-                <a
-                  href="mailto:contact@gmed-health.com"
-                  className={styles.menuContactField}
-                  onClick={closeMobileMenu}
-                >
-                  <span className={styles.menuContactFieldText}>contact@gmed-health.com</span>
-                  <ArrowUpRight aria-hidden="true" />
-                </a>
-              </div>
-
               <div className={styles.menuLanguageRow} role="group" aria-label={tCommon("language")}>
                 {LANGUAGES.map((language) => (
                   <button
