@@ -160,6 +160,7 @@ export function Header() {
   const isLoginPage = pathname === "/login";
   const isApplyPage = pathname === "/apply";
   const isMembershipPage = pathname === "/membership";
+  const showStickyFullBrand = isScrolled || isApplyPage || isMembershipPage;
   const showLogin = !isLoginPage;
   const showApplyCta = !isApplyPage;
   const menuCopy = MENU_COPY[locale as SupportedLocale] ?? MENU_COPY.en;
@@ -223,7 +224,7 @@ export function Header() {
         <div className={styles.stickyContainer}>
           <Link
             href="/"
-            className={cn(styles.stickyLogoLink, (isScrolled || isApplyPage) && styles.stickyLogoLinkWordmark)}
+            className={cn(styles.stickyLogoLink, showStickyFullBrand && styles.stickyLogoLinkWordmark)}
             aria-label="Medical Concierge Agency"
             onClick={(event) => {
               if (pathname === "/") {
@@ -241,9 +242,9 @@ export function Header() {
           <span
             className={cn(
               styles.stickyTaglineMeta,
-              (isScrolled || isApplyPage) && styles.stickyTaglineMetaVisible,
+              showStickyFullBrand && styles.stickyTaglineMetaVisible,
             )}
-            aria-hidden={!(isScrolled || isApplyPage)}
+            aria-hidden={!showStickyFullBrand}
           >
             Medical Concierge Agency
           </span>
