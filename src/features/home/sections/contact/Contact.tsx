@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
-import sectionStyles from "@/shared/ui/section/Section.module.scss";
 import formStyles from "@/shared/ui/form/Form.module.scss";
 import { cn } from "@/shared/lib/cn";
 import { validateEmail, validateName } from "@/features/apply/wizard/validation";
@@ -106,8 +105,8 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className={cn(sectionStyles.section, styles.section)} data-home-section="contact">
-      <div className={cn(sectionStyles.container, styles.container)}>
+    <section id="contact" className={styles.section} data-home-section="contact">
+      <div className={styles.container}>
         <header className={styles.header}>
           <span className={styles.eyebrow}>{t("eyebrow")}</span>
           <h2 className={styles.title}>{t("title")}</h2>
