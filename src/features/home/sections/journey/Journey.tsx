@@ -1,9 +1,5 @@
-"use client";
-
-import { useState } from "react";
-import { motion, useReducedMotion } from "motion/react";
-import { useTranslations } from "next-intl";
-import { cn } from "@/shared/lib/cn";
+import { getLocale, getTranslations } from "next-intl/server";
+import { JourneyAccordion } from "./JourneyAccordion";
 import styles from "./Journey.module.scss";
 
 const STEPS = [
@@ -17,28 +13,29 @@ const STEPS = [
 ] as const;
 
 const DETAIL_DESCRIPTORS = [
-  {
-    pointKey: "point1",
-    itemKey: "item1",
-  },
-  {
-    pointKey: "point2",
-    itemKey: "item2",
-  },
-  {
-    pointKey: "point3",
-    itemKey: "item3",
-  },
+  { pointKey: "point1", itemKey: "item1" },
+  { pointKey: "point2", itemKey: "item2" },
+  { pointKey: "point3", itemKey: "item3" },
 ] as const;
 
-export function Journey() {
-  const t = useTranslations("home.journey");
-  const shouldReduceMotion = useReducedMotion();
-  const [openKey, setOpenKey] = useState<(typeof STEPS)[number] | null>(STEPS[0]);
+export async function Journey() {
+  const locale = await getLocale();
+  const t = await getTranslations({ locale, namespace: "home.journey" });
 
-  const toggle = (key: (typeof STEPS)[number]) => {
-    setOpenKey((current) => (current === key ? null : key));
-  };
+  const items = STEPS.map((key) => ({
+    key,
+    title: t(`services.${key}.title`),
+    details: DETAIL_DESCRIPTORS.map((descriptor) => {
+      const itemTitleKey = `services.${key}.${descriptor.itemKey}Title`;
+      const itemTextKey = `services.${key}.${descriptor.itemKey}Text`;
+      const hasDetailed = t.has(itemTitleKey) && t.has(itemTextKey);
+
+      return {
+        title: hasDetailed ? t(itemTitleKey) : t(`services.${key}.${descriptor.pointKey}`),
+        text: hasDetailed ? t(itemTextKey) : null,
+      };
+    }),
+  }));
 
   return (
     <section id="journey" className={styles.section} data-home-section="journey">
@@ -53,75 +50,7 @@ export function Journey() {
           </div>
 
           <div className={styles.body}>
-            <div className={styles.accordion}>
-            {STEPS.map((key, index) => {
-              const isOpen = openKey === key;
-              const panelId = `care-${key}-panel`;
-              const triggerId = `care-${key}-trigger`;
-
-              return (
-                <article
-                  key={key}
-                  className={cn(styles.item, isOpen && styles.itemOpen)}
-                >
-                  <button
-                    id={triggerId}
-                    type="button"
-                    className={styles.trigger}
-                    onClick={() => toggle(key)}
-                    aria-expanded={isOpen}
-                    aria-controls={panelId}
-                  >
-                    <span className={styles.index}>
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className={styles.question}>
-                      {t(`services.${key}.title`)}
-                    </span>
-                    <span className={cn(styles.icon, isOpen && styles.iconOpen)} aria-hidden="true">
-                      <span className={styles.iconBar} />
-                      <span className={cn(styles.iconBar, styles.iconBarVertical)} />
-                    </span>
-                  </button>
-
-                  <div
-                    id={panelId}
-                    role="region"
-                    aria-labelledby={triggerId}
-                    aria-hidden={!isOpen}
-                    className={cn(styles.panel, isOpen && styles.panelOpen)}
-                  >
-                    <div className={styles.answerWrap}>
-                      <ul className={styles.answerList}>
-                        {DETAIL_DESCRIPTORS.map((descriptor) => {
-                          const itemTitleKey = `services.${key}.${descriptor.itemKey}Title`;
-                          const itemTextKey = `services.${key}.${descriptor.itemKey}Text`;
-                          const hasDetailedText =
-                            t.has(itemTitleKey) && t.has(itemTextKey);
-
-                          const pointTitle = hasDetailedText
-                            ? t(itemTitleKey)
-                            : t(`services.${key}.${descriptor.pointKey}`);
-                          const pointText = hasDetailedText
-                            ? t(itemTextKey)
-                            : null;
-
-                          return (
-                            <li key={descriptor.pointKey} className={styles.answerPoint}>
-                              <span className={styles.answerPointTitle}>{pointTitle}</span>
-                              {pointText && (
-                                <span className={styles.answerPointText}> — {pointText}</span>
-                              )}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-                  </div>
-                </article>
-              );
-            })}
-            </div>
+            <JourneyAccordion items={items} />
           </div>
         </div>
       </div>
