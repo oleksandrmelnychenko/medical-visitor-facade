@@ -58,12 +58,14 @@ export default async function ApplyPage({ params, searchParams }: ApplyPageProps
   const requestedStepParam = getSingleSearchParam(resolvedSearchParams.step);
   const activeType = isPatientType(requestedType) ? requestedType : null;
 
+  let initialStep: string | null = null;
+
   if (activeType === "new" || (!activeType && requestedStepParam)) {
     const cookieStore = await cookies();
     const cookieData = getWizardDataFromCookieValue(
       cookieStore.get(WIZARD_PROGRESS_COOKIE_NAME)?.value
     );
-    const requestedStep = isWizardStep(requestedStepParam) ? requestedStepParam : "member-check";
+    const requestedStep = isWizardStep(requestedStepParam) ? requestedStepParam : "greeting";
     const accessibleStep = getAccessibleWizardStep(requestedStep, cookieData);
     const hasInvalidStep = Boolean(requestedStepParam && !isWizardStep(requestedStepParam));
     const shouldRedirect =
@@ -72,6 +74,8 @@ export default async function ApplyPage({ params, searchParams }: ApplyPageProps
     if (shouldRedirect) {
       redirect(`/${safeLocale}/apply?type=new&step=${accessibleStep}`);
     }
+
+    initialStep = accessibleStep;
   }
 
   const [homeLabel, pageTitle, applyMessages] = await Promise.all([
@@ -89,7 +93,7 @@ export default async function ApplyPage({ params, searchParams }: ApplyPageProps
         ])}
       />
       <NextIntlClientProvider locale={safeLocale} messages={applyMessages}>
-        <ApplyShell />
+        <ApplyShell initialStep={initialStep} />
       </NextIntlClientProvider>
     </main>
   );

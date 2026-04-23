@@ -10,6 +10,7 @@ import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { WizardProvider } from "./WizardContext";
 import { getAccessibleWizardStep } from "./flow";
+import { isWizardStep } from "./progressCookie";
 import { Location } from "./steps/eligibility/Location";
 import { TravelReady } from "./steps/eligibility/TravelReady";
 import { MedicalRecords } from "./steps/eligibility/MedicalRecords";
@@ -108,7 +109,7 @@ function preloadLateFlow() {
   return lateFlowPrefetchPromise;
 }
 
-function WizardStepView() {
+function WizardStepView({ initialStep }: { initialStep: WizardStep | null }) {
   const router = useRouter();
   const { data, isDraftHydrated, updateData } = useWizard();
   const searchParams = useSearchParams();
@@ -116,7 +117,7 @@ function WizardStepView() {
   const selectedPlan = normalizeMembershipPlan(searchParams.get("plan"));
   const step = isDraftHydrated
     ? getAccessibleWizardStep(requestedStep, data)
-    : requestedStep;
+    : (initialStep ?? requestedStep);
 
   useEffect(() => {
     if (!isDraftHydrated || !selectedPlan || data.selectedProgram === selectedPlan) {
@@ -280,11 +281,13 @@ function SelectedProgramBanner() {
   );
 }
 
-export function NewPatientWizard() {
+export function NewPatientWizard({ initialStep = null }: { initialStep?: string | null }) {
+  const normalizedInitialStep = initialStep && isWizardStep(initialStep) ? initialStep : null;
+
   return (
     <WizardProvider>
       <SelectedProgramBanner />
-      <WizardStepView />
+      <WizardStepView initialStep={normalizedInitialStep} />
     </WizardProvider>
   );
 }

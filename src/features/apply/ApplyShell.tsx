@@ -23,7 +23,11 @@ function isPatientType(value: string | null): value is Exclude<PatientType, null
   return value === "new" || value === "returning" || value === "physician";
 }
 
-export function ApplyShell() {
+type ApplyShellProps = {
+  initialStep: string | null;
+};
+
+export function ApplyShell({ initialStep }: ApplyShellProps) {
   const t = useTranslations("appointment");
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -42,7 +46,7 @@ export function ApplyShell() {
         data-page="apply"
         className={cn(pageStyles.page, styles.applyPageChrome, styles.gridBackground)}
       >
-        <NewPatientWizard />
+        <NewPatientWizard initialStep={initialStep} />
       </div>
     );
   }
