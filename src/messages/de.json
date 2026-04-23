@@ -127,6 +127,10 @@
     "home": "Startseite",
     "services": "Leistungen",
     "programs": "Programme",
+    "skipToContent": "Zum Inhalt springen",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "language": "Sprache",
     "headerRequestAppointment": "Anfrage senden",
     "requestAppointment": "Ihre Situation besprechen",
     "login": "Anmelden",
@@ -148,6 +152,26 @@
   "home": {
     "scrollReveal": {
       "headline": "Wir sorgen für Transparenz und Kontrolle in jeder Phase des Behandlungsprozesses"
+    },
+    "contact": {
+      "eyebrow": "Kontakt",
+      "title": "Kontakt aufnehmen",
+      "subtitle": "Hinterlassen Sie eine Anfrage — unser Spezialist meldet sich innerhalb eines Werktages bei Ihnen.",
+      "nameLabel": "Vor- und Nachname",
+      "namePlaceholder": "Max Mustermann",
+      "emailLabel": "E-Mail",
+      "emailPlaceholder": "du@beispiel.de",
+      "phoneLabel": "Telefon",
+      "phonePlaceholder": "+49 ...",
+      "messageLabel": "Nachricht",
+      "messagePlaceholder": "Beschreiben Sie kurz Ihre Situation oder Anfrage",
+      "submit": "Senden",
+      "submitting": "Wird gesendet...",
+      "success": "Danke, Ihre Anfrage ist eingegangen. Wir melden uns in Kürze.",
+      "error": "Senden fehlgeschlagen. Bitte erneut versuchen oder an contact@gmed-health.com schreiben.",
+      "nameError": "Bitte geben Sie Ihren Namen an (mind. 2 Zeichen)",
+      "emailError": "Bitte geben Sie eine gültige E-Mail-Adresse an",
+      "phoneError": "Bitte geben Sie eine gültige Telefonnummer an"
     },
     "faq": {
       "eyebrow": "FAQs",
@@ -477,6 +501,26 @@
         "city": "Stadt",
         "state": "Region/Bundesland (0 eingeben, wenn nicht vorhanden)",
         "postalCode": "Postleitzahl (0 eingeben, wenn nicht vorhanden)"
+      },
+      "greeting": {
+        "title": "Anfrage stellen",
+        "subtitle": "Wir helfen Ihnen, Ihre Behandlung in Deutschland zu organisieren — von der Klinikauswahl bis zur Begleitung vor Ort. Kurz, was Sie erwartet.",
+        "points": {
+          "1": {
+            "title": "Kurzes Formular",
+            "text": "Einige Schritte zu Ihnen, zum Anliegen und zur aktuellen Situation."
+          },
+          "2": {
+            "title": "Vertraulichkeit",
+            "text": "Ihre Daten sind geschützt und werden nur zur Bearbeitung Ihrer Anfrage verwendet."
+          },
+          "3": {
+            "title": "Unsere Antwort",
+            "text": "Ein Spezialist meldet sich innerhalb eines Werktages bei Ihnen."
+          }
+        },
+        "start": "Starten",
+        "note": "Dauert 3–5 Minuten. Ihr Fortschritt wird gespeichert, falls Sie später fortfahren möchten."
       },
       "welcome": {
         "title": "Erstellung der Anfrage",

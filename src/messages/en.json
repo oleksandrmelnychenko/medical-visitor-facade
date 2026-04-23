@@ -127,6 +127,10 @@
     "home": "Home",
     "services": "Services",
     "programs": "Programs",
+    "skipToContent": "Skip to content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language",
     "headerRequestAppointment": "Leave a request",
     "requestAppointment": "Discuss your situation",
     "login": "Sign in",
@@ -148,6 +152,26 @@
   "home": {
     "scrollReveal": {
       "headline": "Ensuring transparency and control at every stage of the treatment process"
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "Get in touch",
+      "subtitle": "Leave a request — our specialist will get back to you within a business day.",
+      "nameLabel": "Full name",
+      "namePlaceholder": "John Doe",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@example.com",
+      "phoneLabel": "Phone",
+      "phonePlaceholder": "+49 ...",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Briefly describe your situation or request",
+      "submit": "Send",
+      "submitting": "Sending...",
+      "success": "Thanks, your request has been received. We will contact you shortly.",
+      "error": "Couldn't send. Please try again or email contact@gmed-health.com.",
+      "nameError": "Please enter your name (min. 2 characters)",
+      "emailError": "Please enter a valid email",
+      "phoneError": "Please enter a valid phone number"
     },
     "faq": {
       "eyebrow": "FAQs",
@@ -477,6 +501,26 @@
         "city": "City",
         "state": "State/Region (enter 0 if none)",
         "postalCode": "Index (enter 0 if none)"
+      },
+      "greeting": {
+        "title": "Submit a request",
+        "subtitle": "We'll help you arrange treatment in Germany — from clinic selection to on-site support. Before we start, here's what to expect.",
+        "points": {
+          "1": {
+            "title": "A short form",
+            "text": "A few steps about you, the reason for your request and your current situation."
+          },
+          "2": {
+            "title": "Confidentiality",
+            "text": "Your data is protected and used only to support your request."
+          },
+          "3": {
+            "title": "Our response",
+            "text": "A specialist will get back to you within one business day."
+          }
+        },
+        "start": "Start",
+        "note": "Takes 3–5 minutes. Your progress is saved if you need to come back later."
       },
       "welcome": {
         "title": "Registration of request",

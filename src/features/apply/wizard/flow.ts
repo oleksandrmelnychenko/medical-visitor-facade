@@ -66,6 +66,10 @@ function hasReachedLocationOrLater(data: WizardData) {
 }
 
 function getEntryFallback(data: WizardData): WizardStep | null {
+  if (!data.greetingCompleted) {
+    return "greeting";
+  }
+
   if (!data.memberCheckCompleted) {
     return "member-check";
   }
@@ -264,14 +268,25 @@ export function sanitizeWizardData(data: WizardData): WizardData {
   };
 
   if (hasReachedLocationOrLater(next)) {
+    next.greetingCompleted = true;
     next.memberCheckCompleted = true;
     next.accountCheckCompleted = true;
     next.welcomeCompleted = true;
   } else if (next.welcomeCompleted) {
+    next.greetingCompleted = true;
     next.memberCheckCompleted = true;
     next.accountCheckCompleted = true;
   } else if (next.accountCheckCompleted) {
+    next.greetingCompleted = true;
     next.memberCheckCompleted = true;
+  } else if (next.memberCheckCompleted) {
+    next.greetingCompleted = true;
+  }
+
+  if (!next.greetingCompleted) {
+    next.memberCheckCompleted = false;
+    next.accountCheckCompleted = false;
+    next.welcomeCompleted = false;
   }
 
   if (!next.memberCheckCompleted) {
@@ -326,13 +341,18 @@ export function getAccessibleWizardStep(step: WizardStep, data: WizardData): Wiz
   const cleanData = sanitizeWizardData(data);
 
   switch (step) {
-    case "member-check":
+    case "greeting":
       return step;
 
+    case "member-check":
+      return cleanData.greetingCompleted ? "member-check" : "greeting";
+
     case "account-check":
+      if (!cleanData.greetingCompleted) return "greeting";
       return cleanData.memberCheckCompleted ? "account-check" : "member-check";
 
     case "welcome":
+      if (!cleanData.greetingCompleted) return "greeting";
       if (!cleanData.memberCheckCompleted) return "member-check";
       if (!cleanData.accountCheckCompleted) return "account-check";
       return "welcome";
@@ -741,7 +761,7 @@ export function getAccessibleWizardStep(step: WizardStep, data: WizardData): Wiz
     }
 
     default:
-      return "member-check";
+      return cleanData.greetingCompleted ? "member-check" : "greeting";
   }
 }
 

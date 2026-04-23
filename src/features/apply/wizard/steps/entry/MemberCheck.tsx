@@ -37,8 +37,9 @@ export function MemberCheck() {
   const handleBack = useCallback(() => {
     if (isNavigatingRef.current) return;
     isNavigatingRef.current = true;
-    router.push('/');
-  }, [router]);
+    updateData({ greetingCompleted: false, memberCheckCompleted: false });
+    router.push('/apply?type=new&step=greeting');
+  }, [router, updateData]);
 
   return (
     <StepLayout

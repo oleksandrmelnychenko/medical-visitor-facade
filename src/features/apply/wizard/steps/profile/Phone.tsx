@@ -20,6 +20,7 @@ export function Phone() {
   const [email, setEmail] = useState(data.email || "");
   const [countryCode, setCountryCode] = useState(initialPhone.countryCode);
   const [touched, setTouched] = useState({ phone: false, email: false });
+  const emailErrorId = "email-address-error";
 
   const emailValid = validateEmail(email);
   const canContinue = !!phone.trim() && emailValid;
@@ -88,11 +89,12 @@ export function Phone() {
               onBlur={() => setTouched(prev => ({ ...prev, email: true }))}
               aria-required="true"
               aria-invalid={touched.email && !emailValid}
+              aria-describedby={touched.email && !emailValid ? emailErrorId : undefined}
               className={`${formStyles.simpleInput} ${touched.email && !emailValid ? formStyles.inputError : ''}`}
               autoComplete="email"
             />
             {touched.email && !emailValid && (
-              <span className={formStyles.fieldError}>{t('validation.emailInvalid')}</span>
+              <span id={emailErrorId} className={formStyles.fieldError}>{t('validation.emailInvalid')}</span>
             )}
           </div>
         </div>

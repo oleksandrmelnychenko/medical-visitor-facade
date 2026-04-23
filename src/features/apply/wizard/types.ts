@@ -1,4 +1,5 @@
 export type WizardStep =
+  | 'greeting'
   | 'member-check'
   | 'account-check'
   | 'welcome'
@@ -56,6 +57,7 @@ export interface WizardData {
   // Location & path
   location: LocationType;
   locationDetailed: LocationDetailedType;
+  greetingCompleted: boolean;
   memberCheckCompleted: boolean;
   accountCheckCompleted: boolean;
   welcomeCompleted: boolean;
@@ -115,6 +117,7 @@ export interface WizardData {
 export const initialWizardData: WizardData = {
   location: null,
   locationDetailed: null,
+  greetingCompleted: false,
   memberCheckCompleted: false,
   accountCheckCompleted: false,
   welcomeCompleted: false,

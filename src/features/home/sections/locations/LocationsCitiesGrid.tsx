@@ -59,7 +59,8 @@ export function LocationsCitiesGrid({
               src="/assets/city-munich-watercolor.webp"
               alt={mainCityName}
               fill
-              sizes="(max-width: 767px) 100vw, 60vw"
+              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 60vw, 860px"
+              quality={75}
               className={cn(styles.cityImage, styles.heroImageMunich)}
             />
           </motion.div>
@@ -110,7 +111,8 @@ export function LocationsCitiesGrid({
                   src={city.image}
                   alt={city.name}
                   fill
-                  sizes="(max-width: 767px) 50vw, 30vw"
+                  sizes="(max-width: 767px) 100vw, (max-width: 1279px) 33vw, 420px"
+                  quality={70}
                   className={cn(styles.cityImage, city.key === "cologne" && styles.cityImageCologne)}
                 />
               </motion.div>

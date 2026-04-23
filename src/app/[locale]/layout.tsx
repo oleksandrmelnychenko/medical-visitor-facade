@@ -1,5 +1,5 @@
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/shared/layout/header";
@@ -19,12 +19,20 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   setRequestLocale(locale);
-  const messages = await getMessages({ locale });
+  const [messages, tCommon] = await Promise.all([
+    getMessages({ locale }),
+    getTranslations({ locale, namespace: "common" }),
+  ]);
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
+      <a href="#main-content" className="skipLink">
+        {tCommon("skipToContent")}
+      </a>
       <Header />
-      {children}
+      <div id="main-content" tabIndex={-1}>
+        {children}
+      </div>
       <Footer locale={locale} />
       <CookieConsent />
     </NextIntlClientProvider>

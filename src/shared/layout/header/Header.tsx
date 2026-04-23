@@ -248,7 +248,7 @@ export function Header() {
           </span>
 
           <div className={styles.stickyActions}>
-            <div className={styles.stickyLocaleGroup} role="group" aria-label="Language">
+            <div className={styles.stickyLocaleGroup} role="group" aria-label={tCommon("language")}>
               {LANGUAGES.map((language) => (
                 <button
                   key={language.code}
@@ -294,7 +294,7 @@ export function Header() {
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen((open) => !open)}
-              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-label={isMobileMenuOpen ? tCommon("closeMenu") : tCommon("openMenu")}
               aria-expanded={isMobileMenuOpen}
               className={cn(
                 styles.stickyMenuPill,
@@ -401,7 +401,7 @@ export function Header() {
                 </a>
               </div>
 
-              <div className={styles.menuLanguageRow} role="group" aria-label="Language">
+              <div className={styles.menuLanguageRow} role="group" aria-label={tCommon("language")}>
                 {LANGUAGES.map((language) => (
                   <button
                     key={language.code}

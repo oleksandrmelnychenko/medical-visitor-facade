@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { cn } from "@/shared/lib/cn";
 import styles from "./ScrollRail.module.scss";
 
-const SECTION_IDS = ["hero", "approach", "journey", "locations", "outro", "faq"] as const;
+const SECTION_IDS = ["hero", "approach", "journey", "locations", "outro", "faq", "contact"] as const;
 const SECTION_SCROLL_OFFSET = 104;
 const SHORT_LABELS = {
   de: {
@@ -17,6 +17,7 @@ const SHORT_LABELS = {
     locations: "Standorte",
     outro: "Anfrage",
     faq: "FAQs",
+    contact: "Kontakt",
   },
   en: {
     hero: "Home",
@@ -27,6 +28,7 @@ const SHORT_LABELS = {
     locations: "Offices",
     outro: "Apply",
     faq: "FAQs",
+    contact: "Contact",
   },
   ru: {
     hero: "Главная",
@@ -37,6 +39,7 @@ const SHORT_LABELS = {
     locations: "Представительства",
     outro: "Заявка",
     faq: "FAQs",
+    contact: "Контакт",
   },
   es: {
     hero: "Inicio",
@@ -47,6 +50,7 @@ const SHORT_LABELS = {
     locations: "Oficinas",
     outro: "Solicitud",
     faq: "FAQs",
+    contact: "Contacto",
   },
 } as const;
 
@@ -68,6 +72,7 @@ export function ScrollRail() {
       { id: "locations", label: shortLabels.locations, fullLabel: tHome("locations.title") },
       { id: "outro", label: shortLabels.outro, fullLabel: tCommon("requestAppointment") },
       { id: "faq", label: shortLabels.faq, fullLabel: tHome("faq.title") },
+      { id: "contact", label: shortLabels.contact, fullLabel: tHome("contact.title") },
     ] as const,
     [shortLabels, tCommon, tHome]
   );

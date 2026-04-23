@@ -6,8 +6,8 @@ import { Journey } from "./sections/journey";
 import { Locations } from "./sections/locations";
 import { ScrollReveal } from "./sections/scroll-reveal";
 import { Faq } from "./sections/faq";
+import { Contact } from "./sections/contact";
 import { ScrollRail } from "./sections/scroll-rail";
-// import { Stats } from "./sections/stats";
 import { FaqJsonLd } from "@/shared/seo/json-ld";
 import {
   getLocalizedMetadata,
@@ -59,12 +59,12 @@ export default async function HomePage({ params }: HomePageProps) {
       <ScrollRail />
       <Hero />
       {/* <Focus /> */}
-      {/* <Stats /> */}
       <Approach />
       <Journey />
       <Locations />
       <ScrollReveal />
       <Faq />
+      <Contact />
     </main>
   );
 }

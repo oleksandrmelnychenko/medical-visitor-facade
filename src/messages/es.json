@@ -127,6 +127,10 @@
     "home": "Inicio",
     "services": "Servicios",
     "programs": "Programas",
+    "skipToContent": "Saltar al contenido",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "language": "Idioma",
     "headerRequestAppointment": "Enviar solicitud",
     "requestAppointment": "Comentar su situación",
     "login": "Iniciar sesión",
@@ -148,6 +152,26 @@
   "home": {
     "scrollReveal": {
       "headline": "Aseguramos transparencia y control en cada etapa del proceso de tratamiento"
+    },
+    "contact": {
+      "eyebrow": "Contacto",
+      "title": "Contáctenos",
+      "subtitle": "Deje una solicitud — nuestro especialista se pondrá en contacto con usted dentro de un día hábil.",
+      "nameLabel": "Nombre completo",
+      "namePlaceholder": "Juan Pérez",
+      "emailLabel": "Correo electrónico",
+      "emailPlaceholder": "tu@ejemplo.com",
+      "phoneLabel": "Teléfono",
+      "phonePlaceholder": "+49 ...",
+      "messageLabel": "Mensaje",
+      "messagePlaceholder": "Describa brevemente su situación o solicitud",
+      "submit": "Enviar",
+      "submitting": "Enviando...",
+      "success": "Gracias, su solicitud ha sido recibida. Nos pondremos en contacto en breve.",
+      "error": "No se pudo enviar. Inténtelo de nuevo o escriba a contact@gmed-health.com.",
+      "nameError": "Indique su nombre (mín. 2 caracteres)",
+      "emailError": "Ingrese un correo electrónico válido",
+      "phoneError": "Ingrese un número de teléfono válido"
     },
     "faq": {
       "eyebrow": "FAQs",
@@ -477,6 +501,26 @@
         "city": "Ciudad",
         "state": "Provincia/Región (introduzca 0 si no hay)",
         "postalCode": "Código postal (introduzca 0 si no hay)"
+      },
+      "greeting": {
+        "title": "Enviar solicitud",
+        "subtitle": "Le ayudaremos a organizar su tratamiento en Alemania — desde la selección de la clínica hasta el acompañamiento en el lugar. Antes de empezar, esto es lo que le espera.",
+        "points": {
+          "1": {
+            "title": "Formulario breve",
+            "text": "Unos pocos pasos sobre usted, el motivo de su solicitud y su situación actual."
+          },
+          "2": {
+            "title": "Confidencialidad",
+            "text": "Sus datos están protegidos y se usan únicamente para atender su solicitud."
+          },
+          "3": {
+            "title": "Nuestra respuesta",
+            "text": "Un especialista se pondrá en contacto con usted en un día hábil."
+          }
+        },
+        "start": "Comenzar",
+        "note": "Tarda 3–5 minutos. Su progreso se guarda por si necesita continuar más tarde."
       },
       "welcome": {
         "title": "Tramitación de la solicitud",

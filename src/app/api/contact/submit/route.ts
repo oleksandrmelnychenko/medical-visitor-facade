@@ -4,8 +4,9 @@ export const runtime = "nodejs";
 
 type ContactPayload = {
   name: string;
+  email: string;
   phone: string;
-  consent: boolean;
+  message: string;
   locale?: string;
 };
 
@@ -45,8 +46,9 @@ export async function POST(request: Request) {
   const raw = body as Record<string, unknown>;
   const payload: ContactPayload = {
     name: sanitizeString(raw.name, 120),
+    email: sanitizeString(raw.email, 160),
     phone: sanitizePhone(raw.phone),
-    consent: raw.consent === true,
+    message: sanitizeString(raw.message, 2000),
     locale: sanitizeString(raw.locale, 8) || undefined,
   };
 
@@ -54,12 +56,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Name is required" }, { status: 400 });
   }
 
-  if (!payload.phone || payload.phone.replace(/\D/g, "").length < 6) {
-    return NextResponse.json({ error: "Phone is required" }, { status: 400 });
+  if (!payload.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
+    return NextResponse.json({ error: "Valid email is required" }, { status: 400 });
   }
 
-  if (!payload.consent) {
-    return NextResponse.json({ error: "Consent is required" }, { status: 400 });
+  if (!payload.phone || payload.phone.replace(/\D/g, "").length < 6) {
+    return NextResponse.json({ error: "Phone is required" }, { status: 400 });
   }
 
   const config = getIntakeConfig();

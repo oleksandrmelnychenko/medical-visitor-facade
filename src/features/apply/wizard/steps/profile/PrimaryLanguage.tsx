@@ -16,6 +16,7 @@ export function PrimaryLanguage() {
   const { data, updateData } = useWizard();
   const [language, setLanguage] = useState(data.primaryLanguage || '');
   const [touched, setTouched] = useState(false);
+  const languageErrorId = "primary-language-error";
 
   const languageValid = validateMinLength(language, 2);
 
@@ -48,11 +49,12 @@ export function PrimaryLanguage() {
               aria-label={t('sharedPrimaryLanguage.title')}
               aria-required="true"
               aria-invalid={touched && !languageValid}
+              aria-describedby={touched && !languageValid ? languageErrorId : undefined}
               className={`${formStyles.simpleInput} ${touched && !languageValid ? formStyles.inputError : ''}`}
               autoFocus
             />
             {touched && !languageValid && (
-              <span className={formStyles.fieldError}>{t('validation.languageMin')}</span>
+              <span id={languageErrorId} className={formStyles.fieldError}>{t('validation.languageMin')}</span>
             )}
           </div>
         </div>

@@ -19,6 +19,7 @@ import { ExitNoRecords } from "./steps/eligibility/ExitNoRecords";
 import { MedicalRecordsLanguage } from "./steps/eligibility/MedicalRecordsLanguage";
 
 // Shared new steps
+import { Greeting } from "./steps/entry/Greeting";
 import { Welcome } from "./steps/entry/Welcome";
 import { MemberCheck } from "./steps/entry/MemberCheck";
 import { AccountCheck } from "./steps/entry/AccountCheck";
@@ -111,7 +112,7 @@ function WizardStepView() {
   const router = useRouter();
   const { data, isDraftHydrated, updateData } = useWizard();
   const searchParams = useSearchParams();
-  const requestedStep = (searchParams.get("step") ?? "member-check") as WizardStep;
+  const requestedStep = (searchParams.get("step") ?? "greeting") as WizardStep;
   const selectedPlan = normalizeMembershipPlan(searchParams.get("plan"));
   const step = isDraftHydrated
     ? getAccessibleWizardStep(requestedStep, data)
@@ -173,6 +174,9 @@ function WizardStepView() {
   let stepContent: React.ReactNode;
 
   switch (step) {
+    case "greeting":
+      stepContent = <Greeting />;
+      break;
     case "member-check":
       stepContent = <MemberCheck />;
       break;
@@ -221,7 +225,7 @@ function WizardStepView() {
   );
 }
 
-const GATE_STEPS: ReadonlySet<string> = new Set(["member-check", "account-check"]);
+const GATE_STEPS: ReadonlySet<string> = new Set(["greeting", "member-check", "account-check"]);
 
 const subscribeMounted = () => () => {};
 const getMountedSnapshot = () => true;

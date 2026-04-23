@@ -20,6 +20,8 @@ export function PatientName() {
   const [lastName, setLastName] = useState(data.lastName || '');
   const [suffix, setSuffix] = useState(data.suffix || '');
   const [touched, setTouched] = useState({ firstName: false, lastName: false });
+  const firstNameErrorId = "patient-first-name-error";
+  const lastNameErrorId = "patient-last-name-error";
 
   const firstNameValid = validateName(firstName);
   const lastNameValid = validateName(lastName);
@@ -58,11 +60,12 @@ export function PatientName() {
               }}
               aria-required="true"
               aria-invalid={touched.firstName && !firstNameValid}
+              aria-describedby={touched.firstName && !firstNameValid ? firstNameErrorId : undefined}
               className={`${formStyles.simpleInput} ${touched.firstName && !firstNameValid ? formStyles.inputError : ''}`}
               autoFocus
             />
             {touched.firstName && !firstNameValid && (
-              <span className={formStyles.fieldError}>{t('validation.nameMin')}</span>
+              <span id={firstNameErrorId} className={formStyles.fieldError}>{t('validation.nameMin')}</span>
             )}
           </div>
           <div className={formStyles.simpleFormGroup}>
@@ -89,10 +92,11 @@ export function PatientName() {
               }}
               aria-required="true"
               aria-invalid={touched.lastName && !lastNameValid}
+              aria-describedby={touched.lastName && !lastNameValid ? lastNameErrorId : undefined}
               className={`${formStyles.simpleInput} ${touched.lastName && !lastNameValid ? formStyles.inputError : ''}`}
             />
             {touched.lastName && !lastNameValid && (
-              <span className={formStyles.fieldError}>{t('validation.nameMin')}</span>
+              <span id={lastNameErrorId} className={formStyles.fieldError}>{t('validation.nameMin')}</span>
             )}
           </div>
           <div className={formStyles.simpleFormGroup}>

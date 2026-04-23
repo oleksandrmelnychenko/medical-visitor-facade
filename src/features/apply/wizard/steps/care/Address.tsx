@@ -62,12 +62,21 @@ export function Address() {
   const [isCountryOpen, setIsCountryOpen] = useState(false);
   const [touched, setTouched] = useState({ street: false, city: false, postal: false });
   const countryDropdownRef = useRef<HTMLDivElement>(null);
+  const countryTriggerRef = useRef<HTMLButtonElement>(null);
+  const countryOptionRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const countryLabelId = "address-country-label";
   const countryValueId = "address-country-value";
   const countryListId = "address-country-listbox";
+  const streetErrorId = "address-street-error";
+  const cityErrorId = "address-city-error";
+  const postalErrorId = "address-postal-error";
 
   const selectedCountry = useMemo(
     () => COUNTRIES.find(item => item.value === country) ?? null,
+    [country]
+  );
+  const selectedCountryIndex = useMemo(
+    () => Math.max(0, COUNTRIES.findIndex(item => item.value === country)),
     [country]
   );
 
@@ -75,6 +84,20 @@ export function Address() {
   const cityValid = validateMinLength(city, 2);
   const postalValid = validateZipCode(postal);
   const canContinue = !!country && streetValid && cityValid && postalValid;
+
+  const focusCountryOption = useCallback((index: number) => {
+    countryOptionRefs.current[index]?.focus();
+  }, []);
+
+  const closeCountryMenu = useCallback((restoreFocus = false) => {
+    setIsCountryOpen(false);
+
+    if (restoreFocus) {
+      window.requestAnimationFrame(() => {
+        countryTriggerRef.current?.focus();
+      });
+    }
+  }, []);
 
   const handleContinue = useCallback(() => {
     setTouched({ street: true, city: true, postal: true });
@@ -89,8 +112,48 @@ export function Address() {
 
   const handleSelectCountry = useCallback((value: string) => {
     setCountry(value);
-    setIsCountryOpen(false);
+    closeCountryMenu(true);
+  }, [closeCountryMenu]);
+
+  const handleCountryTriggerKeyDown = useCallback((event: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') {
+      return;
+    }
+
+    event.preventDefault();
+    setIsCountryOpen(true);
   }, []);
+
+  const handleCountryOptionKeyDown = useCallback((index: number, event: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeCountryMenu(true);
+      return;
+    }
+
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      focusCountryOption((index + 1) % COUNTRIES.length);
+      return;
+    }
+
+    if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      focusCountryOption((index - 1 + COUNTRIES.length) % COUNTRIES.length);
+      return;
+    }
+
+    if (event.key === 'Home') {
+      event.preventDefault();
+      focusCountryOption(0);
+      return;
+    }
+
+    if (event.key === 'End') {
+      event.preventDefault();
+      focusCountryOption(COUNTRIES.length - 1);
+    }
+  }, [closeCountryMenu, focusCountryOption]);
 
   useEffect(() => {
     if (!isCountryOpen) return;
@@ -116,6 +179,20 @@ export function Address() {
     };
   }, [isCountryOpen]);
 
+  useEffect(() => {
+    if (!isCountryOpen) {
+      return;
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      countryOptionRefs.current[selectedCountryIndex]?.focus();
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+    };
+  }, [isCountryOpen, selectedCountryIndex]);
+
   return (
     <StepLayout
       title={t('address.question')}
@@ -131,9 +208,11 @@ export function Address() {
             </span>
             <div ref={countryDropdownRef} className={styles.countryDropdown}>
               <button
+                ref={countryTriggerRef}
                 type="button"
                 className={`${formStyles.simpleInput} ${styles.countryDropdownTrigger}`}
                 onClick={() => setIsCountryOpen(prev => !prev)}
+                onKeyDown={handleCountryTriggerKeyDown}
                 aria-haspopup="listbox"
                 aria-expanded={isCountryOpen}
                 aria-controls={countryListId}
@@ -160,17 +239,21 @@ export function Address() {
                     role="listbox"
                     aria-label={t('address.country')}
                   >
-                    {COUNTRIES.map(item => {
+                    {COUNTRIES.map((item, index) => {
                       const isSelected = country === item.value;
 
                       return (
                         <button
+                          ref={node => {
+                            countryOptionRefs.current[index] = node;
+                          }}
                           key={item.value}
                           type="button"
                           role="option"
                           aria-selected={isSelected}
                           className={`${styles.countryDropdownOption} ${isSelected ? styles.countryDropdownOptionSelected : ''}`}
                           onClick={() => handleSelectCountry(item.value)}
+                          onKeyDown={event => handleCountryOptionKeyDown(index, event)}
                         >
                           <span className={styles.countryDropdownOptionMain}>
                             <span className={styles.countryDropdownFlag} aria-hidden="true">{item.flag}</span>
@@ -195,10 +278,11 @@ export function Address() {
               onBlur={() => setTouched(prev => ({ ...prev, street: true }))}
               aria-required="true"
               aria-invalid={touched.street && !streetValid}
+              aria-describedby={touched.street && !streetValid ? streetErrorId : undefined}
               className={`${formStyles.simpleInput} ${touched.street && !streetValid ? formStyles.inputError : ''}`}
             />
             {touched.street && !streetValid && (
-              <span className={formStyles.fieldError}>{t('validation.streetMin')}</span>
+              <span id={streetErrorId} className={formStyles.fieldError}>{t('validation.streetMin')}</span>
             )}
           </div>
           <div className={formStyles.simpleFormGroup}>
@@ -211,10 +295,11 @@ export function Address() {
               onBlur={() => setTouched(prev => ({ ...prev, city: true }))}
               aria-required="true"
               aria-invalid={touched.city && !cityValid}
+              aria-describedby={touched.city && !cityValid ? cityErrorId : undefined}
               className={`${formStyles.simpleInput} ${touched.city && !cityValid ? formStyles.inputError : ''}`}
             />
             {touched.city && !cityValid && (
-              <span className={formStyles.fieldError}>{t('validation.cityMin')}</span>
+              <span id={cityErrorId} className={formStyles.fieldError}>{t('validation.cityMin')}</span>
             )}
           </div>
           <div className={formStyles.simpleFormGroup}>
@@ -239,10 +324,11 @@ export function Address() {
               onBlur={() => setTouched(prev => ({ ...prev, postal: true }))}
               aria-required="true"
               aria-invalid={touched.postal && !postalValid}
+              aria-describedby={touched.postal && !postalValid ? postalErrorId : undefined}
               className={`${formStyles.simpleInput} ${touched.postal && !postalValid ? formStyles.inputError : ''}`}
             />
             {touched.postal && !postalValid && (
-              <span className={formStyles.fieldError}>{t('validation.zipInvalid')}</span>
+              <span id={postalErrorId} className={formStyles.fieldError}>{t('validation.zipInvalid')}</span>
             )}
           </div>
         </div>
