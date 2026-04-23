@@ -56,7 +56,7 @@ export function LocationsCitiesGrid({
             transition={{ duration: 1.4, ease: EASE, delay: 0.18 }}
           >
             <Image
-              src="/assets/city-munich-watercolor.png"
+              src="/assets/city-munich-watercolor.webp"
               alt={mainCityName}
               fill
               sizes="(max-width: 767px) 100vw, 60vw"

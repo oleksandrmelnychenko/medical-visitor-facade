@@ -45,7 +45,7 @@ export async function Stats() {
 
           <div className={styles.secondaryMedia}>
             <Image
-              src="/assets/scale-balcony-mountains.png"
+              src="/assets/scale-balcony-mountains.webp"
               alt="Alpine view from a German medical clinic balcony"
               fill
               sizes="(max-width: 960px) 100vw, 60vw"

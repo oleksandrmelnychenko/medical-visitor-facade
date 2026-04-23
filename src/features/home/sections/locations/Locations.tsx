@@ -14,17 +14,17 @@ const MUNICH_STYLE: CSSProperties = {};
 const OTHER_CITIES = [
   {
     key: "berlin",
-    image: "/assets/city-berlin-watercolor.png",
+    image: "/assets/city-berlin-watercolor.webp",
     delayMs: 200,
   },
   {
     key: "hamburg",
-    image: "/assets/city-hamburg-watercolor.png",
+    image: "/assets/city-hamburg-watercolor.webp",
     delayMs: 400,
   },
   {
     key: "cologne",
-    image: "/assets/city-cologne-watercolor.png",
+    image: "/assets/city-cologne-watercolor.webp",
     delayMs: 600,
   },
 ];
