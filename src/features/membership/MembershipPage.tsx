@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { MembershipComparison } from "./MembershipComparison";
+import { pickMessages } from "@/i18n/pickMessages";
 import { BreadcrumbJsonLd } from "@/shared/seo/json-ld";
 import {
   getBreadcrumbItems,
@@ -33,20 +35,22 @@ export async function generateMetadata({ params }: MembershipPageProps): Promise
 export default async function MembershipPage({ params }: MembershipPageProps) {
   const { locale } = await params;
   const safeLocale = normalizeLanguage(locale);
-  const tMembership = await getTranslations({ locale, namespace: "membership" });
-  const tCommon = await getTranslations({ locale, namespace: "common" });
+  const [tCommon, messages] = await Promise.all([
+    getTranslations({ locale, namespace: "common" }),
+    pickMessages(safeLocale, ["membership"]),
+  ]);
 
   const breadcrumbItems = getBreadcrumbItems(safeLocale, [
     { name: tCommon("home"), path: "" },
     { name: tCommon("programs"), path: "/membership" },
   ]);
 
-  void tMembership;
-
   return (
     <main className={styles.page} data-page="membership">
       <BreadcrumbJsonLd items={breadcrumbItems} />
-      <MembershipComparison />
+      <NextIntlClientProvider locale={safeLocale} messages={messages}>
+        <MembershipComparison />
+      </NextIntlClientProvider>
     </main>
   );
 }

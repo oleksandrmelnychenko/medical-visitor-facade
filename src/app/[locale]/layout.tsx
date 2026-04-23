@@ -1,7 +1,8 @@
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { pickMessages } from "@/i18n/pickMessages";
 import { Header } from "@/shared/layout/header";
 import { Footer } from "@/shared/layout/footer";
 import { CookieConsent } from "@/shared/ui/cookie-consent";
@@ -10,6 +11,12 @@ type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 };
+
+// Namespaces needed by client components that live on EVERY page
+// (Header, Footer, CookieConsent, error boundary). Route-specific
+// namespaces (appointment, auth, membership, privacyPolicy,
+// impressumPage) are provided per-page via nested providers.
+const SHELL_NAMESPACES = ["common", "footer", "cookies", "home", "error", "notFound"] as const;
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
@@ -20,7 +27,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale);
   const [messages, tCommon] = await Promise.all([
-    getMessages({ locale }),
+    pickMessages(locale, SHELL_NAMESPACES),
     getTranslations({ locale, namespace: "common" }),
   ]);
 

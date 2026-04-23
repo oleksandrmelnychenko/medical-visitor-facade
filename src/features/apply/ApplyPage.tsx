@@ -1,7 +1,9 @@
 import { Metadata } from "next";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
 import { ApplyShell } from "./ApplyShell";
+import { pickMessages } from "@/i18n/pickMessages";
 import {
   getBreadcrumbItems,
   getLocalizedMetadata,
@@ -72,9 +74,10 @@ export default async function ApplyPage({ params, searchParams }: ApplyPageProps
     }
   }
 
-  const [homeLabel, pageTitle] = await Promise.all([
+  const [homeLabel, pageTitle, applyMessages] = await Promise.all([
     getLocalizedMessage(safeLocale, "common.home"),
     getLocalizedMessage(safeLocale, "appointment.title"),
+    pickMessages(safeLocale, ["appointment", "membership"]),
   ]);
 
   return (
@@ -85,7 +88,9 @@ export default async function ApplyPage({ params, searchParams }: ApplyPageProps
           { name: pageTitle, path: "/apply" },
         ])}
       />
-      <ApplyShell />
+      <NextIntlClientProvider locale={safeLocale} messages={applyMessages}>
+        <ApplyShell />
+      </NextIntlClientProvider>
     </main>
   );
 }
