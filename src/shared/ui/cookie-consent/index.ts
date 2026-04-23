@@ -1,1 +1,1 @@
-export { CookieConsent } from "./CookieConsent";
+export { default as CookieConsent } from "./LazyCookieConsent";

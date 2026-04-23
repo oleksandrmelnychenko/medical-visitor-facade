@@ -38,8 +38,6 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  reactStrictMode: false,
-
   async redirects() {
     return [
       {
@@ -111,6 +109,7 @@ const nextConfig: NextConfig = {
 
   // Images configuration
   images: {
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',

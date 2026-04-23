@@ -19,41 +19,6 @@ const LANGUAGES = [
 
 type SupportedLocale = (typeof LANGUAGES)[number]["code"];
 
-const MENU_COPY = {
-  de: {
-    close: "Schließen",
-    contactLabel: "Kontakt",
-    contactLineOne: "Schreiben Sie uns",
-    contactLineTwo: "direkt",
-  },
-  en: {
-    close: "Close",
-    contactLabel: "Contact",
-    contactLineOne: "Write to us",
-    contactLineTwo: "directly",
-  },
-  ru: {
-    close: "Закрыть",
-    contactLabel: "Контакты",
-    contactLineOne: "Напишите нам",
-    contactLineTwo: "напрямую",
-  },
-  es: {
-    close: "Cerrar",
-    contactLabel: "Contacto",
-    contactLineOne: "Escríbanos",
-    contactLineTwo: "directamente",
-  },
-} satisfies Record<
-  SupportedLocale,
-  {
-    close: string;
-    contactLabel: string;
-    contactLineOne: string;
-    contactLineTwo: string;
-  }
->;
-
 export function Header() {
   const tCommon = useTranslations("common");
   const tFooter = useTranslations("footer");
@@ -163,7 +128,6 @@ export function Header() {
   const showStickyFullBrand = isScrolled || isApplyPage || isMembershipPage;
   const showLogin = !isLoginPage;
   const showApplyCta = !isApplyPage;
-  const menuCopy = MENU_COPY[locale as SupportedLocale] ?? MENU_COPY.en;
   const menuShowcaseLinks = [
     { label: tCommon("home"), href: "/", type: "route" as const },
     { label: tCommon("services"), href: "/#journey", type: "route" as const },
@@ -305,7 +269,7 @@ export function Header() {
               <span className={styles.stickyMenuPillLabel} aria-hidden="true">
                 <span className={styles.stickyMenuPillLabelTrack}>
                   <span className={styles.stickyMenuPillLabelText}>{tCommon("menu")}</span>
-                  <span className={styles.stickyMenuPillLabelText}>{menuCopy.close}</span>
+                  <span className={styles.stickyMenuPillLabelText}>{tCommon("closeMenu")}</span>
                 </span>
               </span>
               <span className={styles.stickyMenuPillDots} aria-hidden="true">
