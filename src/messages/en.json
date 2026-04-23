@@ -127,6 +127,7 @@
     "home": "Home",
     "services": "Services",
     "programs": "Programs",
+    "headerRequestAppointment": "Leave a request",
     "requestAppointment": "Discuss your situation",
     "login": "Sign in",
     "menu": "Menu"
@@ -223,8 +224,8 @@
     },
     "locations": {
       "overline": "Offices",
-      "title": "Presence in key medical clusters ensures direct control of the treatment process and",
-      "titleAccent": "prompt interaction with clinics.",
+      "title": "Coordination in German centers",
+      "titleAccent": "",
       "subtitle": "",
       "cities": {
         "berlin": {
@@ -737,11 +738,11 @@
   "membership": {
     "meta": {
       "title": "Medical Concierge service programs",
-      "description": "Compare interaction programs with GMED: management through a secure patient portal or full Concierge support GMED Reserve."
+      "description": "Compare GMED Standard, GMED Care, and GMED Reserve: portal access, coordination, proactive oversight, and personal concierge support."
     },
     "eyebrow": "GMED Services",
     "title": "Medical Concierge service programs",
-    "subtitle": "Support and coordination levels adapted to the complexity of the clinical case.",
+    "subtitle": "Three levels of support: from on-demand coordination to personal concierge service and expanded clinical oversight.",
     "intro": "Work organization is possible in two formats: managing medical information through a secure patient portal or comprehensive Concierge support (GMED Reserve).",
     "decision": {
       "title": "Format comparison",
@@ -817,32 +818,47 @@
       "bannerBody": "The program can be changed later.",
       "change": "Learn More"
     },
-    "portal": {
+    "standard": {
       "badge": "Standard",
-      "title": "GMED Online Portal",
-      "description": "Centralized management of medical data and administrative support.",
-      "bestFor": "Recommended for systemization of processes and independent planning.",
+      "title": "GMED Standard",
+      "description": "Portal access, documents, communication, and support on demand.",
       "features": {
-        "access": "24/7 access to information via a secure portal",
-        "executiveScheduling": "Administrative support and appointment booking",
-        "annualReview": "Annual strategic audit of the clinical case",
-        "crossBorder": "Cross-border coordination (on request)"
+        "consultations": "Individual consultations",
+        "coordination": "Coordination of medical processes",
+        "documents": "Document workflow and communication",
+        "languageSupport": "Linguistic and remote support",
+        "logistics": "Transport logistics and transfer",
+        "onDemandSupport": "Support on demand",
+        "scheduling": "Administrative support and appointment booking"
       },
-      "cta": "Continue with Portal"
+      "cta": "Continue with GMED Standard"
+    },
+    "care": {
+      "badge": "Recommended",
+      "title": "GMED Care",
+      "description": "Portal access, coordination, and proactive control of treatment stages.",
+      "includesStandard": "Includes everything in GMED Standard, plus:",
+      "features": {
+        "onlinePortal": "GMED Online Portal",
+        "portalAccess": "Access to your medical information 24/7",
+        "proactiveMonitoring": "Proactive monitoring of appointments, test results, and next steps",
+        "progressDashboard": "Personal online dashboard with patient progress indicators"
+      },
+      "cta": "Continue with GMED Care"
     },
     "reserve": {
       "badge": "Premium",
       "title": "GMED Reserve",
-      "description": "Comprehensive Concierge support and personal support.",
-      "bestFor": "Recommended for complex clinical cases requiring constant control and operational logistics.",
-      "includesPortal": "Includes Portal functionality, as well as:",
+      "description": "Personal concierge support, priority handling, and expanded coordination.",
+      "includesCare": "Includes everything in GMED Care, plus:",
       "features": {
-        "personalSupport": "Personal 24/7 support",
-        "priorityProcessing": "Priority request processing within 24 hours",
-        "dedicatedManager": "Personal 1:1 coordinator and a team of medical concierges",
-        "proactiveFollowUp": "Proactive monitoring of appointments, test results, and next steps",
-        "travelCoordination": "Logistical support and travel coordination",
-        "crossBorderCoordination": "Cross-border coordination and interdisciplinary interaction"
+        "dedicatedManager": "Personal 24/7 support",
+        "priorityHandling": "Priority request handling within 24 hours",
+        "conciergeSupport": "Personal 1:1 coordinator and a team of medical concierges",
+        "advancedLogistics": "Proactive monitoring of appointments, test results, and next steps",
+        "crossBorder": "Logistical support and travel coordination",
+        "complexCases": "Cross-border coordination and interdisciplinary interaction",
+        "annualReview": "Annual strategic audit of the clinical case"
       },
       "cta": "Continue with GMED Reserve"
     }

@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { useWizard } from '../../WizardContext';
@@ -109,14 +109,6 @@ export function Services() {
                   <span className={`${formStyles.checkboxContent} ${styles.serviceOptionContent}`}>
                     <span className={styles.serviceOptionTitleWrap}>
                       <span className={`${formStyles.checkboxTitle} ${styles.serviceOptionTitle}`}>{t(`services.${opt.key}`)}</span>
-                      {opt.key === 'concierge' ? (
-                        <Star
-                          className={styles.serviceOptionStar}
-                          aria-hidden="true"
-                          fill="currentColor"
-                          strokeWidth={1.8}
-                        />
-                      ) : null}
                     </span>
                     <button
                       type="button"

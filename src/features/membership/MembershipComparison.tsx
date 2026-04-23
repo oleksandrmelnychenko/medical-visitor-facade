@@ -7,17 +7,30 @@ import { cn } from "@/shared/lib/cn";
 import sectionStyles from "@/shared/ui/section/Section.module.scss";
 import styles from "./MembershipComparison.module.scss";
 
-const PLANS = ["portal", "reserve"] as const;
+const PLANS = [
+  { key: "standard", highlighted: false, includesKey: null },
+  { key: "care", highlighted: true, includesKey: "care.includesStandard" },
+  { key: "reserve", highlighted: false, includesKey: "reserve.includesCare" },
+] as const;
 
 const PLAN_HIGHLIGHTS = {
-  portal: ["access", "executiveScheduling", "annualReview"],
+  standard: [
+    "consultations",
+    "coordination",
+    "documents",
+    "languageSupport",
+    "logistics",
+    "onDemandSupport",
+    "scheduling",
+  ],
+  care: ["onlinePortal", "portalAccess", "proactiveMonitoring", "progressDashboard"],
   reserve: [
-    "personalSupport",
-    "priorityProcessing",
     "dedicatedManager",
-    "proactiveFollowUp",
-    "travelCoordination",
-    "crossBorderCoordination",
+    "priorityHandling",
+    "conciergeSupport",
+    "crossBorder",
+    "complexCases",
+    "annualReview",
   ],
 } as const;
 
@@ -35,48 +48,53 @@ export function MembershipComparison() {
           </header>
 
           <div className={styles.grid}>
-            {PLANS.map((plan) => {
-              const highlighted = plan === "reserve";
+            {PLANS.map(({ key, highlighted, includesKey }) => {
+              const isReserve = key === "reserve";
 
               return (
                 <article
-                  key={plan}
-                  className={cn(styles.card, highlighted && styles.cardHighlighted)}
+                  key={key}
+                  className={cn(
+                    styles.card,
+                    highlighted && styles.cardHighlighted,
+                    isReserve && styles.cardReserve
+                  )}
                 >
                   <div className={styles.cardHead}>
                     <span
                       className={cn(
                         styles.planBadge,
-                        highlighted && styles.planBadgeHighlighted
+                        highlighted && styles.planBadgeHighlighted,
+                        isReserve && styles.planBadgeReserve
                       )}
                     >
-                      {t(`${plan}.badge`)}
+                      {t(`${key}.badge`)}
                     </span>
-                    <h2 className={styles.planTitle}>{t(`${plan}.title`)}</h2>
-                    <p className={styles.planDescription}>{t(`${plan}.description`)}</p>
-                    {highlighted ? (
-                      <p className={styles.planIncludes}>{t("reserve.includesPortal")}</p>
+                    <h2 className={styles.planTitle}>{t(`${key}.title`)}</h2>
+                    <p className={styles.planDescription}>{t(`${key}.description`)}</p>
+                    {includesKey ? (
+                      <p className={styles.planIncludes}>{t(includesKey)}</p>
                     ) : null}
                   </div>
 
                   <ul className={styles.featureList}>
-                    {PLAN_HIGHLIGHTS[plan].map((key) => (
-                      <li key={key} className={styles.featureItem}>
+                    {PLAN_HIGHLIGHTS[key].map((featureKey) => (
+                      <li key={featureKey} className={styles.featureItem}>
                         <Check size={16} className={styles.featureIcon} aria-hidden="true" />
-                        <span>{t(`${plan}.features.${key}`)}</span>
+                        <span>{t(`${key}.features.${featureKey}`)}</span>
                       </li>
                     ))}
                   </ul>
 
                   <Link
-                    href={`/apply?type=new&plan=${plan}`}
+                    href={`/apply?type=new&plan=${key}`}
                     prefetch={false}
                     className={styles.planCta}
                   >
                     <span className={styles.planCtaIcon} aria-hidden="true">
                       <ArrowRight />
                     </span>
-                    <span className={styles.planCtaLabel}>{t(`${plan}.cta`)}</span>
+                    <span className={styles.planCtaLabel}>{t(`${key}.cta`)}</span>
                     <span className={styles.planCtaDot} aria-hidden="true" />
                   </Link>
                 </article>

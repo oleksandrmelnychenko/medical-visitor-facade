@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/shared/lib/cn";
@@ -54,25 +53,6 @@ export function Journey() {
           </div>
 
           <div className={styles.body}>
-            <motion.div
-              className={styles.media}
-              aria-hidden="true"
-              initial={shouldReduceMotion ? undefined : { opacity: 0, scale: 0.92, y: 28 }}
-              whileInView={shouldReduceMotion ? undefined : { opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className={styles.mediaInner}>
-                <Image
-                  src="/assets/care-forward-stones.webp"
-                  alt="Balanced stacked stones symbolising considered medical coordination"
-                  fill
-                  sizes="(max-width: 767px) 80vw, 32vw"
-                  className={styles.mediaImage}
-                />
-              </div>
-            </motion.div>
-
             <div className={styles.accordion}>
             {STEPS.map((key, index) => {
               const isOpen = openKey === key;

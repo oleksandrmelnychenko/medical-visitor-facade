@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/shared/lib/cn";
@@ -57,25 +56,6 @@ export function Approach() {
           </motion.div>
 
           <div className={styles.body}>
-            <motion.div
-              className={styles.conceptMedia}
-              aria-hidden="true"
-              initial={shouldReduceMotion ? undefined : { opacity: 0, scale: 1.08, y: 40 }}
-              whileInView={shouldReduceMotion ? undefined : { opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className={styles.conceptMediaInner}>
-                <Image
-                  src="/assets/full-support-concept.webp"
-                  alt="End-to-end patient support concept illustration"
-                  fill
-                  sizes="(max-width: 767px) 80vw, 32vw"
-                  className={styles.conceptMediaImage}
-                />
-              </div>
-            </motion.div>
-
             <motion.div
               className={styles.contentWrap}
               style={shouldReduceMotion ? undefined : { y: listY, opacity: listOpacity }}

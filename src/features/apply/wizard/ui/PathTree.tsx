@@ -116,11 +116,13 @@ function PathTreeInner() {
             <span className={styles.countDash}>—</span>
             {String(zones.length).padStart(2, '0')}
           </span>
-          <span className={styles.name}>
-            {activeZone ? (t as (k: string) => string)(`zones.${activeZone.key}`) : ''}
-          </span>
+          <div className={styles.headingRow}>
+            <span className={styles.name}>
+              {activeZone ? (t as (k: string) => string)(`zones.${activeZone.key}`) : ''}
+            </span>
+            <ZoneIcon className={styles.icon} aria-hidden="true" />
+          </div>
         </div>
-        <ZoneIcon className={styles.icon} aria-hidden="true" />
         <div className={styles.progressTrack} aria-hidden="true">
           <div
             className={styles.progressFill}

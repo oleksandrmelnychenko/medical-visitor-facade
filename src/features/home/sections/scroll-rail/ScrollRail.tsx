@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { cn } from "@/shared/lib/cn";
 import styles from "./ScrollRail.module.scss";
 
-const SECTION_IDS = ["hero", "focus", "stats", "approach", "journey", "locations", "outro", "faq"] as const;
+const SECTION_IDS = ["hero", "approach", "journey", "locations", "outro", "faq"] as const;
 const SECTION_SCROLL_OFFSET = 104;
 const SHORT_LABELS = {
   de: {
@@ -63,8 +63,6 @@ export function ScrollRail() {
         label: shortLabels.hero,
         fullLabel: `${tHome("hero.titleDark")} ${tHome("hero.titleMuted")}`,
       },
-      { id: "focus", label: shortLabels.focus, fullLabel: tHome("focus.eyebrow") },
-      { id: "stats", label: shortLabels.stats, fullLabel: shortLabels.stats },
       { id: "approach", label: shortLabels.approach, fullLabel: tHome("approach.title") },
       { id: "journey", label: shortLabels.journey, fullLabel: tHome("journey.title") },
       { id: "locations", label: shortLabels.locations, fullLabel: tHome("locations.title") },

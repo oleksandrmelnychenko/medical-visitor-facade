@@ -43,9 +43,9 @@ export function Location() {
     const selectedProgram = data.selectedProgram;
     const selectedMembership =
       locationDetailed !== 'germany' && selectedProgram
-        ? selectedProgram === 'reserve'
-          ? 'yes'
-          : 'no'
+        ? selectedProgram === 'standard'
+          ? 'no'
+          : 'yes'
         : null;
 
     updateData({

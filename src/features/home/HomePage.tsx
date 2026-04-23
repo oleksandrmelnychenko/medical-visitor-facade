@@ -1,13 +1,13 @@
 import { Metadata } from "next";
 import { Hero } from "./sections/hero";
-import { Focus } from "./sections/focus";
+// import { Focus } from "./sections/focus";
 import { Approach } from "./sections/approach";
 import { Journey } from "./sections/journey";
 import { Locations } from "./sections/locations";
 import { ScrollReveal } from "./sections/scroll-reveal";
 import { Faq } from "./sections/faq";
 import { ScrollRail } from "./sections/scroll-rail";
-import { Stats } from "./sections/stats";
+// import { Stats } from "./sections/stats";
 import { FaqJsonLd } from "@/shared/seo/json-ld";
 import {
   getLocalizedMetadata,
@@ -54,8 +54,8 @@ export default async function HomePage({ params }: HomePageProps) {
       <FaqJsonLd items={faqItems} />
       <ScrollRail />
       <Hero />
-      <Focus />
-      <Stats />
+      {/* <Focus /> */}
+      {/* <Stats /> */}
       <Approach />
       <Journey />
       <Locations />

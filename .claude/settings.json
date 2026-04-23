@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(md5 \"/Users/oleksandrmelnychenko/Downloads/remove-the--munich--text-label-from-the-left-side-.png\" \"/Users/oleksandrmelnychenko/medical-visitor-facade/public/assets/city-munich-watercolor.png\")",
+      "Bash(grep -v \"^--$\")",
+      "Bash(md5 \"/Users/oleksandrmelnychenko/medical-visitor-facade/public/assets/city-cologne-watercolor.png\")",
+      "Bash(python3 -c ' *)",
+      "Bash(sips -g pixelHigh -g pixelWide public/assets/city-munich-watercolor.png)",
+      "Bash(cp \"/Users/oleksandrmelnychenko/Downloads/remove-the--munich--text-label-from-the-left-side- \\(1\\).png\" public/assets/city-munich-watercolor.png)",
+      "Bash(cp \"/Users/oleksandrmelnychenko/Downloads/create-a-watercolor-architectural-illustration-of- \\(9\\).png\" public/assets/city-berlin-watercolor.png)",
+      "Bash(cp \"/Users/oleksandrmelnychenko/Downloads/create-a-watercolor-architectural-illustration-of- \\(8\\).png\" public/assets/city-hamburg-watercolor.png)",
+      "Bash(identify -format \"%f: %wx%h\\\\n\" public/assets/city-munich-watercolor.png public/assets/city-berlin-watercolor.png public/assets/city-hamburg-watercolor.png public/assets/city-cologne-watercolor.png)",
+      "Bash(identify -format \"%wx%h aspect=%[fx:w/h]\\\\n\" \"/Users/oleksandrmelnychenko/Downloads/create-a-watercolor-architectural-illustration-of- \\(10\\).png\")",
+      "Bash(identify -format \"%f: %wx%h\\\\n\" /Users/oleksandrmelnychenko/medical-visitor-facade/public/assets/city-cologne-watercolor.png)",
+      "Bash(identify -format \"%wx%h aspect=%[fx:w/h]\\\\n\" \"/Users/oleksandrmelnychenko/Downloads/remove-the--munich--text-label-from-the-left-side- \\(3\\).png\")",
+      "Bash(identify -format \"%wx%h\\\\n\" /Users/oleksandrmelnychenko/medical-visitor-facade/public/assets/city-munich-watercolor.png)",
+      "Bash(identify -format \"%wx%h alpha-corner=%[pixel:p{10,10}]\\\\n\" /Users/oleksandrmelnychenko/medical-visitor-facade/public/assets/city-munich-watercolor.png)",
+      "Bash(identify -format '%wx%h alpha=%[pixel:p{5,5}]\\\\n' '/Users/oleksandrmelnychenko/Downloads/create-a-watercolor-architectural-illustration-of- \\(14\\).png')",
+      "Bash(identify -format \"%wx%h alpha=%[pixel:p{5,5}]\\\\n\" /Users/oleksandrmelnychenko/medical-visitor-facade/public/assets/city-cologne-watercolor.png)",
+      "Bash(md5 /Users/oleksandrmelnychenko/medical-visitor-facade/public/assets/city-cologne-watercolor.png)",
+      "Bash(md5 \"/Users/oleksandrmelnychenko/Downloads/create-a-watercolor-architectural-illustration-of- \\(14\\).png\")",
+      "Bash(kill 66592 66601 66636 66637 sleep 1 ps aux)",
+      "Bash(echo \"Started PID $!\")",
+      "Bash(identify -format '%wx%h alpha=%[pixel:p{5,5}]\\\\n' '/Users/oleksandrmelnychenko/Downloads/create-a-watercolor-architectural-illustration-of- \\(15\\).png')",
+      "Bash(magick '/Users/oleksandrmelnychenko/Downloads/create-a-watercolor-architectural-illustration-of- \\(15\\).png' -fuzz 6% -transparent 'srgb\\(253,254,254\\)' /Users/oleksandrmelnychenko/medical-visitor-facade/public/assets/city-hamburg-watercolor.png)",
+      "Bash(identify -format '%wx%h corners: %[pixel:p{5,5}] %[pixel:p{1300,5}]\\\\n' /Users/oleksandrmelnychenko/medical-visitor-facade/public/assets/city-hamburg-watercolor.png)",
+      "Bash(pkill -f \"next-server\")",
+      "Bash(grep -oE 'heroCard[^\"]{0,40}')",
+      "Bash(curl -s \"http://localhost:3000/_next/static/chunks/src_13pmb7c._.css\")",
+      "Bash(grep -oE \"\\\\b\\(heroCard|tileMedia\\)[^{]{0,100}\\\\{[^}]{0,200}\")"
+    ]
+  }
+}

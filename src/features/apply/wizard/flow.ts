@@ -249,8 +249,17 @@ function getWrapUpFallback(data: WizardData): WizardStep | null {
 }
 
 export function sanitizeWizardData(data: WizardData): WizardData {
+  const selectedProgramRaw = data.selectedProgram as string | null;
   const next: WizardData = {
     ...data,
+    selectedProgram:
+      selectedProgramRaw === "portal"
+        ? "standard"
+        : selectedProgramRaw === "standard" ||
+            selectedProgramRaw === "care" ||
+            selectedProgramRaw === "reserve"
+          ? selectedProgramRaw
+          : null,
     phones: data.phones.length ? data.phones : [{ number: "", type: "mobile" }],
   };
 

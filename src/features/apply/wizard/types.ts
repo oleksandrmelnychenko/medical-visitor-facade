@@ -36,7 +36,7 @@ export type WizardStep =
   | 'anything-else'
   | 'review';
 
-export type MembershipPlanType = 'portal' | 'reserve' | null;
+export type MembershipPlanType = 'standard' | 'care' | 'reserve' | null;
 export type LocationType = 'eu' | 'outside_eu' | null;
 export type LocationDetailedType = 'germany' | 'eu_not_germany' | 'outside_eu' | null;
 export type YesNoType = 'yes' | 'no' | null;

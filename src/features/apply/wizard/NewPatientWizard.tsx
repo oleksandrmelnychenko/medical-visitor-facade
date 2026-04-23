@@ -71,7 +71,13 @@ type PatientFlowStep = (typeof PATIENT_FLOW_STEPS)[number];
 type LateFlowStep = (typeof LATE_FLOW_STEPS)[number];
 
 function normalizeMembershipPlan(value: string | null): MembershipPlanType {
-  return value === "portal" || value === "reserve" ? value : null;
+  if (value === "portal") {
+    return "standard";
+  }
+
+  return value === "standard" || value === "care" || value === "reserve"
+    ? value
+    : null;
 }
 
 function isPatientFlowStep(step: WizardStep): step is PatientFlowStep {

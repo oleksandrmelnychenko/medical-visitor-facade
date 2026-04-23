@@ -9,48 +9,23 @@ import sectionStyles from "@/shared/ui/section/Section.module.scss";
 import { LocationsCitiesGrid } from "./LocationsCitiesGrid";
 import styles from "./Locations.module.scss";
 
-const MUNICH_STYLE: CSSProperties = {
-  backgroundColor: "color-mix(in srgb, var(--tone-sand) 6%, #fff)",
-  borderColor: "color-mix(in srgb, var(--tone-sand) 25%, var(--border-card))",
-};
+const MUNICH_STYLE: CSSProperties = {};
 
 const OTHER_CITIES = [
   {
     key: "berlin",
-    image: "/assets/1_city-berlin-v2.png",
-    imageWidth: 750,
-    imageHeight: 971,
-    imageOverlay: "rgba(210, 195, 180, 0.6)",
+    image: "/assets/city-berlin-watercolor.png",
     delayMs: 200,
-    style: {
-      backgroundColor: "color-mix(in srgb, var(--tone-blue) 6%, #fff)",
-      borderColor: "color-mix(in srgb, var(--tone-blue) 25%, var(--border-card))",
-    },
   },
   {
     key: "hamburg",
-    image: "/assets/1_city-hamburg.png",
-    imageWidth: 1058,
-    imageHeight: 1336,
-    imagePosition: "center 35%",
+    image: "/assets/city-hamburg-watercolor.png",
     delayMs: 400,
-    style: {
-      backgroundColor: "color-mix(in srgb, var(--tone-sand) 8%, #fff)",
-      borderColor: "color-mix(in srgb, var(--tone-sand) 25%, var(--border-card))",
-    },
   },
   {
     key: "cologne",
-    image: "/assets/1_city-cologne.png",
-    imageWidth: 736,
-    imageHeight: 920,
-    imagePosition: "center 15%",
-    imageOverlay: "rgba(210, 195, 180, 0.6)",
+    image: "/assets/city-cologne-watercolor.png",
     delayMs: 600,
-    style: {
-      backgroundColor: "color-mix(in srgb, var(--tone-lavender) 6%, #fff)",
-      borderColor: "color-mix(in srgb, var(--tone-lavender) 25%, var(--border-card))",
-    },
   },
 ];
 

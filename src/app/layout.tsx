@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { getLocale } from "next-intl/server";
-import { JetBrains_Mono, Inter } from "next/font/google";
+import { JetBrains_Mono, Inter, Instrument_Serif } from "next/font/google";
 import "../styles/globals.scss";
 import { NavigationHoverGuard } from "@/shared/layout/NavigationHoverGuard";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/shared/seo/json-ld";
@@ -17,6 +17,14 @@ const inter = Inter({
   subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -110,7 +118,7 @@ export default async function RootLayout({
   const locale = await getLocale();
 
   return (
-    <html lang={locale} className={`${jetbrainsMono.variable} ${inter.variable}`} suppressHydrationWarning>
+    <html lang={locale} className={`${jetbrainsMono.variable} ${inter.variable} ${instrumentSerif.variable}`} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

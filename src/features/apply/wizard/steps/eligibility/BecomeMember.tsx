@@ -22,7 +22,7 @@ export function BecomeMember() {
     isNavigatingRef.current = true;
     updateData({
       wantsMembership: value,
-      selectedProgram: value === "yes" ? "reserve" : "portal",
+      selectedProgram: value === "yes" ? "care" : "standard",
     });
     router.push("/apply?type=new&step=outside-travel");
   }, [updateData, router]);
