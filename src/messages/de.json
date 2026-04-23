@@ -349,6 +349,10 @@
       "overlayLineOne": "Expertise.",
       "overlayLineTwo": "Transparenz.",
       "overlayLineThree": "Koordination."
+    },
+    "meta": {
+      "title": "Medizinischer Concierge Deutschland — Behandlung | GMED",
+      "description": "Premium medizinischer Concierge-Service in Deutschland. Wir koordinieren Kliniksuche, Zweitmeinung, Übersetzung und Patientenbegleitung in 4 Sprachen."
     }
   },
   "appointment": {
@@ -365,7 +369,11 @@
       "priority": "Prioritätsbereiche:",
       "priorityText": "Priorität bei der Verteilung der Kontingente haben Notfallsituationen und Fälle im Zusammenhang mit",
       "priorityAccent": "der Behandlung von Kindern.",
-      "note": "Bitte beachten Sie: Die Entscheidung über die Bereitstellung von Pro-bono-Leistungen wird auf Grundlage eines internen Audits getroffen. Die Bearbeitungszeit beträgt bis zu 7 Werktage."
+      "note": "Bitte beachten Sie: Die Entscheidung über die Bereitstellung von Pro-bono-Leistungen wird auf Grundlage eines internen Audits getroffen. Die Bearbeitungszeit beträgt bis zu 7 Werktage.",
+      "meta": {
+        "title": "Pro bono — kostenlose medizinische Begleitung | GMED",
+        "description": "GMED stellt jährlich Pro-Bono-Kontingente für die kostenlose medizinische Koordination in Notfällen und pädiatrischen Fällen bereit. Prüfung in 7 Werktagen."
+      }
     },
     "newPatient": {
       "trustBanner": "Wir garantieren die vollständige Sicherheit und Vertraulichkeit Ihrer Daten",
@@ -737,8 +745,8 @@
   },
   "membership": {
     "meta": {
-      "title": "Medizinische Concierge-Service-Programme",
-      "description": "Vergleichen Sie GMED Standard, GMED Care und GMED Reserve: Portalzugang, Koordination, proaktive Steuerung und persönliche Concierge-Begleitung."
+      "title": "Concierge-Programme GMED — Standard, Care, Reserve",
+      "description": "Vergleichen Sie GMED Standard, Care und Reserve: Portalzugang, medizinische Koordination, proaktive Steuerung und persönliche Concierge-Begleitung."
     },
     "eyebrow": "GMED-Services",
     "title": "Medizinische Concierge-Service-Programme",

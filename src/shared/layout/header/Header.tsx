@@ -421,7 +421,7 @@ export function Header() {
 
               <div className={styles.mobileFooterLinks}>
                 <Link
-                  href="/financial-assistance"
+                  href="/pro-bono"
                   onClick={closeMobileMenu}
                   className={styles.mobileFooterLink}
                 >

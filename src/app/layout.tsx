@@ -107,7 +107,12 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {},
+  verification: {
+    // TODO: replace with real verification codes from Search Console / Bing / Yandex
+    // google: "",
+    // yandex: "",
+    // other: { "msvalidate.01": "" },
+  },
 };
 
 export default async function RootLayout({
@@ -120,9 +125,6 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={`${jetbrainsMono.variable} ${inter.variable} ${instrumentSerif.variable}`} suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link
           rel="preload"
           as="image"

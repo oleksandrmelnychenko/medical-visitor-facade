@@ -43,6 +43,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/:locale/financial-assistance",
+        destination: "/:locale/pro-bono",
+        permanent: true,
+      },
+      {
         source: "/:locale/register",
         destination: "/:locale/apply",
         permanent: false,

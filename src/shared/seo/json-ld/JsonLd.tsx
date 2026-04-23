@@ -34,19 +34,86 @@ export function OrganizationJsonLd() {
       { "@type": "Country", name: "Germany" },
       { "@type": "Country", name: "Austria" },
       { "@type": "Country", name: "Switzerland" },
-    ],
-    medicalSpecialty: [
-      "Medical Tourism",
-      "Medical Concierge",
-      "Healthcare Coordination",
+      {
+        "@type": "City",
+        name: "München",
+        alternateName: "Munich",
+        containedInPlace: { "@type": "Country", name: "Germany" },
+      },
+      {
+        "@type": "City",
+        name: "Berlin",
+        containedInPlace: { "@type": "Country", name: "Germany" },
+      },
+      {
+        "@type": "City",
+        name: "Hamburg",
+        containedInPlace: { "@type": "Country", name: "Germany" },
+      },
+      {
+        "@type": "City",
+        name: "Köln",
+        alternateName: "Cologne",
+        containedInPlace: { "@type": "Country", name: "Germany" },
+      },
     ],
     serviceType: [
-      "Medical Tourism",
-      "Healthcare Coordination",
-      "Medical Concierge",
-      "Patient Support",
-      "Clinic Selection",
+      "Medical Concierge Service",
+      "Clinic Selection and Coordination",
+      "Second Opinion Coordination",
+      "Medical Translation",
+      "Patient Support and Logistics",
+      "Treatment Coordination",
+      "Medical Case Management",
     ],
+    knowsAbout: [
+      "Medical Tourism in Germany",
+      "German Healthcare System",
+      "Clinical Case Management",
+      "Second Opinion",
+      "Oncology Treatment Coordination",
+      "Cardiology Treatment Coordination",
+      "Medical Translation",
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Medical Concierge Programs",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "GMED Standard",
+            description:
+              "Portal access with structured coordination for independent patients navigating treatment in Germany.",
+            provider: { "@id": `${baseUrl}/#organization` },
+            areaServed: { "@type": "Country", name: "Germany" },
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "GMED Care",
+            description:
+              "Proactive medical coordination with case oversight, clinic selection, translation, and ongoing patient support.",
+            provider: { "@id": `${baseUrl}/#organization` },
+            areaServed: { "@type": "Country", name: "Germany" },
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "GMED Reserve",
+            description:
+              "Personal concierge-level support with full-cycle coordination, senior case manager, and on-site assistance.",
+            provider: { "@id": `${baseUrl}/#organization` },
+            areaServed: { "@type": "Country", name: "Germany" },
+          },
+        },
+      ],
+    },
     priceRange: "$$$",
     knowsLanguage: ["de", "en", "ru", "es"],
     sameAs: [],

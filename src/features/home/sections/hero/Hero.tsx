@@ -37,7 +37,7 @@ export function Hero() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
         />
         <span className={styles.videoFramePlaceholder} />
         <span className={styles.heroAgencyTag}>{t("scrollToExplore")}</span>

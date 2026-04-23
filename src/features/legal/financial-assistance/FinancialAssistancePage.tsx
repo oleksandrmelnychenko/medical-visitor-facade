@@ -19,13 +19,13 @@ export async function generateMetadata({ params }: FinancialAssistancePageProps)
   const { locale } = await params;
   const safeLocale = normalizeLanguage(locale);
   const [title, description] = await Promise.all([
-    getLocalizedMessage(safeLocale, "appointment.freeService.title"),
-    getLocalizedMessage(safeLocale, "appointment.freeService.description1"),
+    getLocalizedMessage(safeLocale, "appointment.freeService.meta.title"),
+    getLocalizedMessage(safeLocale, "appointment.freeService.meta.description"),
   ]);
 
   return getLocalizedMetadata({
     locale: safeLocale,
-    path: "/financial-assistance",
+    path: "/pro-bono",
     title,
     description,
   });
@@ -39,11 +39,11 @@ export default async function FinancialAssistancePage({ params }: FinancialAssis
 
   const breadcrumbItems = getBreadcrumbItems(safeLocale, [
     { name: tCommon("home"), path: "" },
-    { name: t("title"), path: "/financial-assistance" },
+    { name: t("title"), path: "/pro-bono" },
   ]);
 
   return (
-    <div className={cn(pageStyles.page, styles.page)} data-page="financial-assistance">
+    <main className={cn(pageStyles.page, styles.page)} data-page="pro-bono">
       <BreadcrumbJsonLd items={breadcrumbItems} />
       <section className={styles.section}>
         <div className={styles.container}>
@@ -75,6 +75,6 @@ export default async function FinancialAssistancePage({ params }: FinancialAssis
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

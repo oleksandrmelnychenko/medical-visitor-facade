@@ -349,6 +349,10 @@
       "overlayLineOne": "Expertise.",
       "overlayLineTwo": "Transparency.",
       "overlayLineThree": "Routing."
+    },
+    "meta": {
+      "title": "Medical Concierge Germany — Treatment Coordination | GMED",
+      "description": "Premium medical concierge in Germany. Full coordination of clinics, second opinions, medical visa, translation and patient support in 4 languages."
     }
   },
   "appointment": {
@@ -365,7 +369,11 @@
       "priority": "Priority areas:",
       "priorityText": "Priority in the distribution of quotas is given to emergency situations and cases involving the",
       "priorityAccent": "treatment of children.",
-      "note": "Please note: the decision to provide pro bono service is made based on an internal audit. The review period is up to 7 business days."
+      "note": "Please note: the decision to provide pro bono service is made based on an internal audit. The review period is up to 7 business days.",
+      "meta": {
+        "title": "Pro Bono Medical Support — Free Coordination | GMED",
+        "description": "GMED allocates annual pro bono quotas for free medical coordination in emergency and pediatric cases. Application reviewed within 7 business days."
+      }
     },
     "newPatient": {
       "trustBanner": "We guarantee full security and confidentiality of your data",
@@ -737,8 +745,8 @@
   },
   "membership": {
     "meta": {
-      "title": "Medical Concierge service programs",
-      "description": "Compare GMED Standard, GMED Care, and GMED Reserve: portal access, coordination, proactive oversight, and personal concierge support."
+      "title": "Concierge Programs — Standard, Care, Reserve | GMED",
+      "description": "Compare GMED Standard, Care, and Reserve concierge programs: portal access, medical coordination, proactive oversight, and personal concierge support."
     },
     "eyebrow": "GMED Services",
     "title": "Medical Concierge service programs",

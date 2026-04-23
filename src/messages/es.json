@@ -349,6 +349,10 @@
       "overlayLineOne": "Experiencia.",
       "overlayLineTwo": "Transparencia.",
       "overlayLineThree": "Enrutamiento."
+    },
+    "meta": {
+      "title": "Concierge médico en Alemania — coordinación | GMED",
+      "description": "Concierge médico premium en Alemania. Coordinación completa de clínicas, segunda opinión, visa médica, traducción y acompañamiento del paciente en 4 idiomas."
     }
   },
   "appointment": {
@@ -365,7 +369,11 @@
       "priority": "Direcciones prioritarias:",
       "priorityText": "Se da prioridad al distribuir las cuotas a situaciones de emergencia y casos relacionados con el",
       "priorityAccent": "tratamiento de niños.",
-      "note": "Tenga en cuenta: la decisión de proporcionar atención gratuita se toma sobre la base de una auditoría interna. El plazo de consideración es de hasta 7 días hábiles."
+      "note": "Tenga en cuenta: la decisión de proporcionar atención gratuita se toma sobre la base de una auditoría interna. El plazo de consideración es de hasta 7 días hábiles.",
+      "meta": {
+        "title": "Pro bono — acompañamiento médico gratuito | GMED",
+        "description": "GMED asigna cuotas anuales Pro bono para acompañamiento médico gratuito en casos de emergencia y pediátricos. Revisión en hasta 7 días hábiles."
+      }
     },
     "newPatient": {
       "trustBanner": "Garantizamos la seguridad y confidencialidad total de sus datos",
@@ -737,8 +745,8 @@
   },
   "membership": {
     "meta": {
-      "title": "Programas de servicio médico de conserjería",
-      "description": "Compare GMED Standard, GMED Care y GMED Reserve: acceso al portal, coordinación, supervisión proactiva y acompañamiento personal de concierge."
+      "title": "Programas de concierge — Standard, Care, Reserve | GMED",
+      "description": "Compare los programas GMED Standard, Care y Reserve: acceso al portal, coordinación médica, supervisión proactiva y acompañamiento personal."
     },
     "eyebrow": "Servicios GMED",
     "title": "Programas de servicio médico de conserjería",

@@ -17,13 +17,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const safeLocale = normalizeLanguage(locale);
   const [title, description] = await Promise.all([
-    getLocalizedMessage(safeLocale, "appointment.freeService.title"),
-    getLocalizedMessage(safeLocale, "appointment.freeService.description1"),
+    getLocalizedMessage(safeLocale, "appointment.freeService.meta.title"),
+    getLocalizedMessage(safeLocale, "appointment.freeService.meta.description"),
   ]);
 
   return getLocalizedMetadata({
     locale: safeLocale,
-    path: "/financial-assistance",
+    path: "/pro-bono",
     title,
     description,
   });
@@ -45,7 +45,7 @@ export default async function FinancialAssistanceLayout({
       <BreadcrumbJsonLd
         items={getBreadcrumbItems(safeLocale, [
           { name: homeLabel, path: "" },
-          { name: pageTitle, path: "/financial-assistance" },
+          { name: pageTitle, path: "/pro-bono" },
         ])}
       />
       {children}

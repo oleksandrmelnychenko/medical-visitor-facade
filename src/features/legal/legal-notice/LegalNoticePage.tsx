@@ -41,7 +41,7 @@ export default async function LegalNoticePage({ params }: LegalNoticePageProps) 
   ]);
 
   return (
-    <div className={cn(pageStyles.page, styles.page)} data-page="legal-notice">
+    <main className={cn(pageStyles.page, styles.page)} data-page="legal-notice">
       <BreadcrumbJsonLd items={breadcrumbItems} />
       <section className={cn(sectionStyles.section, styles.contentSection)}>
         <div className={styles.container}>
@@ -89,6 +89,6 @@ export default async function LegalNoticePage({ params }: LegalNoticePageProps) 
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

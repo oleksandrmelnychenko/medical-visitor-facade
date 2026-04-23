@@ -97,6 +97,18 @@ body {
   }
 }
 
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 body.no-hover,
 body.no-hover * {
   pointer-events: none !important;
@@ -134,11 +146,11 @@ body:has([data-page="membership"]) .headerOffset {
   background: transparent;
 }
 
-body:has([data-page="financial-assistance"]) {
+body:has([data-page="pro-bono"]) {
   background-color: #eceef5;
 }
 
-body:has([data-page="financial-assistance"]) .headerOffset {
+body:has([data-page="pro-bono"]) .headerOffset {
   height: 0;
   background: transparent;
 }

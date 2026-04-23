@@ -24,17 +24,16 @@ type HomePageProps = {
 export async function generateMetadata({ params }: HomePageProps): Promise<Metadata> {
   const { locale } = await params;
   const safeLocale = normalizeLanguage(locale);
-  const [title, heroSubtitle, careSubtitle] = await Promise.all([
-    getLocalizedMessage(safeLocale, "home.hero.titleDark"),
-    getLocalizedMessage(safeLocale, "home.hero.subtitle"),
-    getLocalizedMessage(safeLocale, "home.journey.subtitle"),
+  const [title, description] = await Promise.all([
+    getLocalizedMessage(safeLocale, "home.meta.title"),
+    getLocalizedMessage(safeLocale, "home.meta.description"),
   ]);
 
   return getLocalizedMetadata({
     locale: safeLocale,
     path: "/",
     title,
-    description: `${heroSubtitle}. ${careSubtitle}`,
+    description,
   });
 }
 
@@ -42,15 +41,20 @@ export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
   const safeLocale = normalizeLanguage(locale);
 
-  const faqItems = await Promise.all(
-    FAQ_ITEM_KEYS.map(async (key) => ({
-      question: await getLocalizedMessage(safeLocale, `home.faq.items.${key}.question`),
-      answer: await getLocalizedMessage(safeLocale, `home.faq.items.${key}.answer`),
-    })),
-  );
+  const [heroTitleDark, heroTitleMuted, faqItems] = await Promise.all([
+    getLocalizedMessage(safeLocale, "home.hero.titleDark"),
+    getLocalizedMessage(safeLocale, "home.hero.titleMuted"),
+    Promise.all(
+      FAQ_ITEM_KEYS.map(async (key) => ({
+        question: await getLocalizedMessage(safeLocale, `home.faq.items.${key}.question`),
+        answer: await getLocalizedMessage(safeLocale, `home.faq.items.${key}.answer`),
+      })),
+    ),
+  ]);
 
   return (
-    <div data-page="home">
+    <main data-page="home">
+      <h1 className="srOnly">{`${heroTitleDark} ${heroTitleMuted}`}</h1>
       <FaqJsonLd items={faqItems} />
       <ScrollRail />
       <Hero />
@@ -61,6 +65,6 @@ export default async function HomePage({ params }: HomePageProps) {
       <Locations />
       <ScrollReveal />
       <Faq />
-    </div>
+    </main>
   );
 }

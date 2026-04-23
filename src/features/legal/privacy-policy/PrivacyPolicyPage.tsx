@@ -174,7 +174,7 @@ export default async function PrivacyPolicyPage({ params }: PrivacyPolicyPagePro
   ];
 
   return (
-    <div className={cn(pageStyles.page, styles.page)} data-page="privacy-policy">
+    <main className={cn(pageStyles.page, styles.page)} data-page="privacy-policy">
       <BreadcrumbJsonLd items={breadcrumbItems} />
       <section className={cn(sectionStyles.section, styles.contentSection)}>
         <div className={styles.container}>
@@ -236,6 +236,6 @@ export default async function PrivacyPolicyPage({ params }: PrivacyPolicyPagePro
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

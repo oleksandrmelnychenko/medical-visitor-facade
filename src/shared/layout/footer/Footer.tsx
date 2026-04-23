@@ -46,7 +46,7 @@ export async function Footer({ locale }: FooterProps) {
             <p className={styles.columnLabel}>{t("theAgency")}</p>
             <ul className={`${styles.linkList} ${styles.agencyList}`}>
               <li className={`${styles.linkItem} ${styles.agencyLinkItem}`}>
-                <Link href="/financial-assistance" locale={locale}>
+                <Link href="/pro-bono" locale={locale}>
                   {t("financialAssistance")}
                   <ArrowUpRight aria-hidden="true" />
                 </Link>
