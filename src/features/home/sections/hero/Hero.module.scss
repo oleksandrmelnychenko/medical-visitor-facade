@@ -300,41 +300,6 @@
   }
 }
 
-.heroTagline {
-  margin: 0;
-  max-width: 28ch;
-  font-family: var(--font-inter), "Inter", sans-serif;
-  font-size: clamp(1.625rem, 1.225rem + 1.1vw, 2.375rem);
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.024em;
-  color: #0f1118;
-  text-align: left;
-  text-wrap: balance;
-
-  @media (max-width: 960px) {
-    max-width: 22ch;
-    font-size: clamp(1.55rem, 1.1rem + 1.8vw, 2rem);
-    line-height: 1.18;
-  }
-
-  @media (max-width: 560px) {
-    max-width: 18ch;
-    font-size: clamp(1.4rem, 1rem + 2.6vw, 1.85rem);
-    line-height: 1.2;
-    letter-spacing: -0.028em;
-  }
-
-  @media (max-width: 400px) {
-    max-width: 16ch;
-    font-size: clamp(1.25rem, 0.95rem + 2.4vw, 1.55rem);
-  }
-}
-
-.heroTaglineAccent {
-  font-weight: 600;
-}
-
 .videoFrame {
   position: relative;
   width: 100vw;
