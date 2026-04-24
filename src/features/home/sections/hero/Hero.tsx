@@ -6,6 +6,8 @@ import styles from "./Hero.module.scss";
 const DESKTOP_VIDEO = "/video/hero-video.mp4";
 const MOBILE_VIDEO = "/video/hero-video-mobile.mp4";
 const MOBILE_QUERY = "(max-width: 768px)";
+const HERO_VIDEO_WIDTH = 1280;
+const HERO_VIDEO_HEIGHT = 720;
 
 export function Hero() {
   const t = useTranslations("home.hero");
@@ -16,6 +18,8 @@ export function Hero() {
         <video
           className={styles.videoFrameMedia}
           poster="/video/hero-poster.jpg"
+          width={HERO_VIDEO_WIDTH}
+          height={HERO_VIDEO_HEIGHT}
           autoPlay
           muted
           loop

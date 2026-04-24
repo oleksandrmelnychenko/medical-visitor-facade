@@ -33,7 +33,7 @@
 
 .headline {
   margin: 0;
-  font-family: "Onest", sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-size: clamp(2.1rem, 4.2vw, 4rem);
   font-weight: 460;
   line-height: 0.97;
@@ -51,7 +51,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.15em;
-  font-family: "Onest", sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-size: clamp(1.16rem, 1.55vw, 1.42rem);
   font-weight: 580;
   line-height: 1.04;

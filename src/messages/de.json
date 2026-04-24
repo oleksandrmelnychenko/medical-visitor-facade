@@ -150,6 +150,18 @@
     "backToTop": "Nach oben"
   },
   "home": {
+    "scrollRail": {
+      "ariaLabel": "Abschnitte der Startseite",
+      "labels": {
+        "hero": "Start",
+        "approach": "Konzept",
+        "journey": "Leistungen",
+        "locations": "Standorte",
+        "outro": "Anfrage",
+        "faq": "FAQs",
+        "contact": "Kontakt"
+      }
+    },
     "scrollReveal": {
       "headline": "Wir sorgen für Transparenz und Kontrolle in jeder Phase des Behandlungsprozesses"
     },
@@ -168,6 +180,7 @@
       "submit": "Senden",
       "submitting": "Wird gesendet...",
       "success": "Danke, Ihre Anfrage ist eingegangen. Wir melden uns in Kürze.",
+      "rateLimited": "Zu viele Anfragen. Bitte warten Sie kurz und versuchen Sie es erneut.",
       "error": "Senden fehlgeschlagen. Bitte erneut versuchen oder an contact@gmed-health.com schreiben.",
       "nameError": "Bitte geben Sie Ihren Namen an (mind. 2 Zeichen)",
       "emailError": "Bitte geben Sie eine gültige E-Mail-Adresse an",

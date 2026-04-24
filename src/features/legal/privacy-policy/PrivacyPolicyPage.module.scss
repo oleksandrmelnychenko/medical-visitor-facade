@@ -67,7 +67,7 @@
 .pageLead {
   margin: 0;
   max-width: 54ch;
-  font-family: "Onest", sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-size: clamp(1.08rem, 1.35vw, 1.32rem);
   font-weight: 450;
   line-height: 1.44;

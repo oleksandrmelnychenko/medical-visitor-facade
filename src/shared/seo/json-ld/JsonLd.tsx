@@ -1,6 +1,23 @@
+import { headers } from "next/headers";
 import { baseUrl } from "@/shared/lib/seo";
 
-export function OrganizationJsonLd() {
+async function getRequestNonce() {
+  const requestHeaders = await headers();
+  return requestHeaders.get("x-nonce") ?? undefined;
+}
+
+function JsonLdScript({ jsonLd, nonce }: { jsonLd: unknown; nonce?: string }) {
+  return (
+    <script
+      nonce={nonce}
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+export async function OrganizationJsonLd() {
+  const nonce = await getRequestNonce();
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
@@ -119,15 +136,11 @@ export function OrganizationJsonLd() {
     sameAs: [],
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-  );
+  return <JsonLdScript jsonLd={jsonLd} nonce={nonce} />;
 }
 
-export function WebsiteJsonLd() {
+export async function WebsiteJsonLd() {
+  const nonce = await getRequestNonce();
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -141,12 +154,7 @@ export function WebsiteJsonLd() {
     inLanguage: ["de", "en", "ru", "es"],
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-  );
+  return <JsonLdScript jsonLd={jsonLd} nonce={nonce} />;
 }
 
 interface FaqItem {
@@ -154,7 +162,8 @@ interface FaqItem {
   answer: string;
 }
 
-export function FaqJsonLd({ items }: { items: FaqItem[] }) {
+export async function FaqJsonLd({ items }: { items: FaqItem[] }) {
+  const nonce = await getRequestNonce();
   if (!items.length) return null;
 
   const jsonLd = {
@@ -170,12 +179,7 @@ export function FaqJsonLd({ items }: { items: FaqItem[] }) {
     })),
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-  );
+  return <JsonLdScript jsonLd={jsonLd} nonce={nonce} />;
 }
 
 interface BreadcrumbItem {
@@ -183,7 +187,8 @@ interface BreadcrumbItem {
   url: string;
 }
 
-export function BreadcrumbJsonLd({ items }: { items: BreadcrumbItem[] }) {
+export async function BreadcrumbJsonLd({ items }: { items: BreadcrumbItem[] }) {
+  const nonce = await getRequestNonce();
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -195,10 +200,5 @@ export function BreadcrumbJsonLd({ items }: { items: BreadcrumbItem[] }) {
     })),
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-  );
+  return <JsonLdScript jsonLd={jsonLd} nonce={nonce} />;
 }

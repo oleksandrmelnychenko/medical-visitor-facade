@@ -1,14 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useActionState, useEffect, useEffectEvent, useRef, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 import formStyles from "@/shared/ui/form/Form.module.scss";
 import { cn } from "@/shared/lib/cn";
 import { validateEmail, validateName } from "@/features/apply/wizard/validation";
+import { submitContactAction } from "./actions";
+import { initialContactActionState } from "./contact-submission";
 import styles from "./Contact.module.scss";
 
-type Status = "idle" | "submitting" | "success" | "error";
+type Status = "success" | "error";
 type FieldKey = "name" | "email" | "phone";
 
 function validatePhone(value: string): boolean {
@@ -18,12 +20,16 @@ function validatePhone(value: string): boolean {
 export function Contact() {
   const t = useTranslations("home.contact");
   const locale = useLocale();
+  const [actionState, formAction, isPending] = useActionState(
+    submitContactAction,
+    initialContactActionState,
+  );
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
-  const [status, setStatus] = useState<Status>("idle");
+  const [status, setStatus] = useState<Status | null>(null);
   const [feedback, setFeedback] = useState("");
   const [feedbackVisible, setFeedbackVisible] = useState(false);
   const feedbackTimersRef = useRef<{ hide?: ReturnType<typeof setTimeout>; clear?: ReturnType<typeof setTimeout> }>({});
@@ -41,7 +47,7 @@ export function Contact() {
 
   useEffect(() => clearFeedbackTimers, []);
 
-  const showFeedback = (text: string, nextStatus: Status) => {
+  const showFeedback = useEffectEvent((text: string, nextStatus: Status) => {
     clearFeedbackTimers();
     setStatus(nextStatus);
     setFeedback(text);
@@ -50,58 +56,68 @@ export function Contact() {
       setFeedbackVisible(false);
       feedbackTimersRef.current.clear = setTimeout(() => {
         setFeedback("");
-        setStatus("idle");
+        setStatus(null);
       }, 400);
     }, 10000);
-  };
+  });
+
+  const handleSuccessfulSubmit = useEffectEvent(() => {
+    setName("");
+    setEmail("");
+    setPhone("");
+    setMessage("");
+    setTouched({ name: false, email: false, phone: false });
+    showFeedback(t("success"), "success");
+  });
+
+  useEffect(() => {
+    if (actionState.requestId === 0) return;
+
+    if (actionState.status === "validation-error") {
+      return;
+    }
+
+    if (actionState.status === "success") {
+      handleSuccessfulSubmit();
+      return;
+    }
+
+    if (actionState.status === "rate-limited") {
+      showFeedback(t("rateLimited"), "error");
+      return;
+    }
+
+    if (actionState.status === "error") {
+      showFeedback(t("error"), "error");
+    }
+  }, [actionState, t]);
 
   const nameValid = validateName(name);
   const emailValid = validateEmail(email);
   const phoneValid = validatePhone(phone);
-  const canSubmit = nameValid && emailValid && phoneValid && status !== "submitting";
+  const canSubmit = nameValid && emailValid && phoneValid && !isPending;
 
-  const showNameError = touched.name && !nameValid;
-  const showEmailError = touched.email && !emailValid;
-  const showPhoneError = touched.phone && !phoneValid;
+  const effectiveTouched = {
+    name: touched.name || Boolean(actionState.fieldErrors.name),
+    email: touched.email || Boolean(actionState.fieldErrors.email),
+    phone: touched.phone || Boolean(actionState.fieldErrors.phone),
+  };
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const showNameError = effectiveTouched.name && !nameValid;
+  const showEmailError = effectiveTouched.email && !emailValid;
+  const showPhoneError = effectiveTouched.phone && !phoneValid;
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     if (!canSubmit) {
+      event.preventDefault();
       setTouched({ name: true, email: true, phone: true });
       return;
     }
 
     clearFeedbackTimers();
-    setStatus("submitting");
     setFeedback("");
     setFeedbackVisible(false);
-
-    try {
-      const response = await fetch("/api/contact/submit", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          name: name.trim(),
-          email: email.trim(),
-          phone: phone.trim(),
-          message: message.trim(),
-          locale,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Request failed");
-      }
-
-      setName("");
-      setEmail("");
-      setPhone("");
-      setMessage("");
-      setTouched({ name: false, email: false, phone: false });
-      showFeedback(t("success"), "success");
-    } catch {
-      showFeedback(t("error"), "error");
-    }
+    setStatus(null);
   };
 
   return (
@@ -113,12 +129,14 @@ export function Contact() {
           <p className={styles.subtitle}>{t("subtitle")}</p>
         </header>
 
-        <form className={styles.form} onSubmit={handleSubmit} noValidate>
+        <form className={styles.form} action={formAction} onSubmit={handleSubmit} noValidate>
+          <input type="hidden" name="locale" value={locale} />
           <div className={formStyles.simpleFormGroup}>
             <label htmlFor="contact-name" className={formStyles.label}>
               {t("nameLabel")}
             </label>
             <input
+              name="name"
               id="contact-name"
               type="text"
               autoComplete="name"
@@ -144,6 +162,7 @@ export function Contact() {
                 {t("emailLabel")}
               </label>
               <input
+                name="email"
                 id="contact-email"
                 type="email"
                 autoComplete="email"
@@ -169,6 +188,7 @@ export function Contact() {
                 {t("phoneLabel")}
               </label>
               <input
+                name="phone"
                 id="contact-phone"
                 type="tel"
                 autoComplete="tel"
@@ -195,6 +215,7 @@ export function Contact() {
               {t("messageLabel")}
             </label>
             <textarea
+              name="message"
               id="contact-message"
               rows={4}
               className={cn(formStyles.simpleInput, styles.textarea)}
@@ -207,9 +228,10 @@ export function Contact() {
           <button
             type="submit"
             className={styles.submit}
-            aria-busy={status === "submitting"}
+            aria-busy={isPending}
+            disabled={isPending}
           >
-            <span>{status === "submitting" ? t("submitting") : t("submit")}</span>
+            <span>{isPending ? t("submitting") : t("submit")}</span>
             <ArrowRight aria-hidden="true" />
           </button>
 

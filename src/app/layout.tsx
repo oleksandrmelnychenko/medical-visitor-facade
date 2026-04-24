@@ -1,19 +1,27 @@
 import type { Metadata, Viewport } from "next";
 import { getLocale } from "next-intl/server";
 import { JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "../styles/globals.scss";
 import { NavigationHoverGuard } from "@/shared/layout/NavigationHoverGuard";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/shared/seo/json-ld";
 import { baseUrl } from "@/shared/lib/seo";
 
-// JetBrains Mono (variable) — only font actually served via next/font.
-// Onest (primary UI font) is self-hosted in globals.scss as a single
-// variable WOFF/TTF. Inter, Instrument Serif and Raleway used to be
-// imported but were unreferenced in the compiled CSS.
+// Both UI fonts are now served via next/font:
+// - JetBrains Mono for mono/meta UI
+// - Onest as the primary variable sans with fallback metrics adjustment
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin", "cyrillic"],
   variable: "--font-mono",
   display: "swap",
+});
+
+const onest = localFont({
+  src: "../assets/Onest-VariableFont_wght.woff2",
+  variable: "--font-sans",
+  display: "swap",
+  adjustFontFallback: "Arial",
+  fallback: ["system-ui", "Arial", "sans-serif"],
 });
 
 export const viewport: Viewport = {
@@ -111,7 +119,7 @@ export default async function RootLayout({
   const locale = await getLocale();
 
   return (
-    <html lang={locale} className={jetbrainsMono.variable} suppressHydrationWarning>
+    <html lang={locale} className={`${jetbrainsMono.variable} ${onest.variable}`} suppressHydrationWarning>
       <head>
         <OrganizationJsonLd />
         <WebsiteJsonLd />

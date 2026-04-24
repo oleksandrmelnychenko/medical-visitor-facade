@@ -121,7 +121,7 @@ $breakpoints: (
 }
 
 @mixin home-section-title {
-  font-family: "Onest", sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-size: clamp(1.92rem, 3.85vw, 3.45rem);
   font-weight: 340;
   line-height: 1.08;
@@ -134,7 +134,7 @@ $breakpoints: (
 }
 
 @mixin home-supporting-copy {
-  font-family: "Onest", sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-size: clamp(0.92rem, 0.98vw, 1rem);
   font-weight: 380;
   line-height: 1.58;

@@ -45,7 +45,7 @@
 
 .title {
   margin: 0;
-  font-family: "Onest", sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-size: clamp(1.72rem, 2.9vw, 2.42rem);
   font-weight: 400;
   letter-spacing: -0.018em;
@@ -116,7 +116,7 @@
   min-height: 3.1rem;
   margin-top: 1.35rem;
   padding: 0.92rem 1.7rem;
-  font-family: "Onest", sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-size: clamp(0.78rem, 0.66rem + 0.38vw, 0.98rem);
   font-weight: 600;
   line-height: 1;

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 import ReactDOM from "react-dom";
 import { Hero } from "./sections/hero";
 // import { Focus } from "./sections/focus";
@@ -66,11 +67,21 @@ export default async function HomePage({ params }: HomePageProps) {
       <ScrollRail />
       <Hero />
       {/* <Focus /> */}
-      <Approach />
-      <Journey />
-      <Locations />
-      <ScrollReveal />
-      <Faq />
+      <Suspense fallback={null}>
+        <Approach />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Journey />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Locations />
+      </Suspense>
+      <Suspense fallback={null}>
+        <ScrollReveal />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Faq />
+      </Suspense>
       <Contact />
     </main>
   );

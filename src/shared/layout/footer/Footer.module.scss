@@ -61,7 +61,7 @@
 
 .columnLabel {
   margin: 0 0 0.4rem;
-  font-family: "Onest", sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
   line-height: 1;
@@ -72,7 +72,7 @@
 
 .sectionTitle {
   margin: 0;
-  font-family: "Onest", sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-size: clamp(1rem, 1.22vw, 1.16rem);
   font-weight: 560;
   line-height: 1.08;
@@ -82,7 +82,7 @@
 
 .textSmall {
   margin: 0;
-  font-family: "Onest", sans-serif;
+  font-family: var(--font-sans), sans-serif;
   max-width: 18rem;
   font-size: clamp(1.14rem, 1.34vw, 1.32rem);
   font-weight: 500;
@@ -111,7 +111,7 @@
   justify-content: center;
 
   a {
-    font-family: "Onest", sans-serif;
+    font-family: var(--font-sans), sans-serif;
     max-width: 20rem;
     color: #000000;
     font-weight: 500;
@@ -142,7 +142,7 @@
     align-items: center;
     gap: 0.2em;
     width: fit-content;
-    font-family: "Onest", sans-serif;
+    font-family: var(--font-sans), sans-serif;
     font-size: clamp(0.98rem, 1.04vw, 1.06rem);
     font-weight: 560;
     line-height: 1.08;
@@ -197,7 +197,7 @@
 
 .bottomBar {
   text-align: left;
-  font-family: "Onest", sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-size: clamp(0.98rem, 1.04vw, 1.06rem);
   line-height: 1.08;
   letter-spacing: -0.035em;
@@ -223,7 +223,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-family: "Onest", sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-size: clamp(0.98rem, 1.04vw, 1.06rem);
   font-weight: 560;
   line-height: 1.08;
@@ -254,7 +254,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.15em;
-  font-family: "Onest", sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-size: clamp(0.98rem, 1.04vw, 1.06rem);
   font-weight: 560;
   line-height: 1.08;

@@ -1,80 +1,33 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { cn } from "@/shared/lib/cn";
 import styles from "./ScrollRail.module.scss";
 
 const SECTION_IDS = ["hero", "approach", "journey", "locations", "outro", "faq", "contact"] as const;
 const SECTION_SCROLL_OFFSET = 104;
-const SHORT_LABELS = {
-  de: {
-    hero: "Start",
-    focus: "Fokus",
-    stats: "Zahlen",
-    approach: "Konzept",
-    journey: "Leistungen",
-    locations: "Standorte",
-    outro: "Anfrage",
-    faq: "FAQs",
-    contact: "Kontakt",
-  },
-  en: {
-    hero: "Home",
-    focus: "Focus",
-    stats: "Scale",
-    approach: "Concept",
-    journey: "Services",
-    locations: "Offices",
-    outro: "Apply",
-    faq: "FAQs",
-    contact: "Contact",
-  },
-  ru: {
-    hero: "Главная",
-    focus: "Специализация",
-    stats: "Цифры",
-    approach: "Концепт",
-    journey: "Услуги",
-    locations: "Представительства",
-    outro: "Заявка",
-    faq: "FAQs",
-    contact: "Контакт",
-  },
-  es: {
-    hero: "Inicio",
-    focus: "Foco",
-    stats: "Cifras",
-    approach: "Concepto",
-    journey: "Servicios",
-    locations: "Oficinas",
-    outro: "Solicitud",
-    faq: "FAQs",
-    contact: "Contacto",
-  },
-} as const;
 
 export function ScrollRail() {
   const tHome = useTranslations("home");
+  const tScrollRail = useTranslations("home.scrollRail");
   const tCommon = useTranslations("common");
-  const locale = useLocale();
   const [activeIndex, setActiveIndex] = useState(0);
-  const shortLabels = SHORT_LABELS[locale as keyof typeof SHORT_LABELS] ?? SHORT_LABELS.en;
   const sections = useMemo(
     () => [
       {
         id: "hero",
-        label: shortLabels.hero,
+        label: tScrollRail("labels.hero"),
         fullLabel: `${tHome("hero.titleDark")} ${tHome("hero.titleMuted")}`,
       },
-      { id: "approach", label: shortLabels.approach, fullLabel: tHome("approach.title") },
-      { id: "journey", label: shortLabels.journey, fullLabel: tHome("journey.title") },
-      { id: "locations", label: shortLabels.locations, fullLabel: tHome("locations.title") },
-      { id: "outro", label: shortLabels.outro, fullLabel: tCommon("requestAppointment") },
-      { id: "faq", label: shortLabels.faq, fullLabel: tHome("faq.title") },
-      { id: "contact", label: shortLabels.contact, fullLabel: tHome("contact.title") },
+      { id: "approach", label: tScrollRail("labels.approach"), fullLabel: tHome("approach.title") },
+      { id: "journey", label: tScrollRail("labels.journey"), fullLabel: tHome("journey.title") },
+      { id: "locations", label: tScrollRail("labels.locations"), fullLabel: tHome("locations.title") },
+      { id: "outro", label: tScrollRail("labels.outro"), fullLabel: tCommon("requestAppointment") },
+      { id: "faq", label: tScrollRail("labels.faq"), fullLabel: tHome("faq.title") },
+      { id: "contact", label: tScrollRail("labels.contact"), fullLabel: tHome("contact.title") },
     ] as const,
-    [shortLabels, tCommon, tHome]
+    [tCommon, tHome, tScrollRail]
   );
 
   const sectionIndex = useMemo(
@@ -166,7 +119,7 @@ export function ScrollRail() {
     <nav
       className={cn(styles.rail, isDark && styles.railInverted, isHidden && styles.railHidden)}
       aria-hidden={isHidden}
-      aria-label="Home sections"
+      aria-label={tScrollRail("ariaLabel")}
     >
       <ol className={styles.points}>
         {sections.map((section, index) => (

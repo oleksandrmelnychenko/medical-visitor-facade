@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import type { SubmissionBundle } from "@/features/apply/wizard/submission";
 import { validateWizardSubmission } from "@/features/apply/wizard/flow";
+import { enforceRateLimit } from "@/shared/lib/rate-limit";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -24,6 +25,10 @@ function jsonError(error: string, status: number) {
   return NextResponse.json({ error }, { status, headers: NO_STORE_HEADERS });
 }
 
+function createResponseHeaders(rateLimitHeaders: HeadersInit = {}) {
+  return { ...NO_STORE_HEADERS, ...rateLimitHeaders };
+}
+
 export async function POST(request: Request) {
   try {
     const contentType = request.headers.get("content-type") ?? "";
@@ -37,33 +42,56 @@ export async function POST(request: Request) {
       return jsonError("Payload too large", 413);
     }
 
+    const rateLimit = await enforceRateLimit(request.headers, "apply");
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        { error: "Too many requests. Please try again later." },
+        { status: 429, headers: createResponseHeaders(rateLimit.headers) },
+      );
+    }
+
     const formData = await request.formData();
     const rawBundle = formData.get("bundle");
 
     if (typeof rawBundle !== "string") {
-      return jsonError("Invalid bundle format", 400);
+      return NextResponse.json(
+        { error: "Invalid bundle format" },
+        { status: 400, headers: createResponseHeaders(rateLimit.headers) },
+      );
     }
 
     let bundle: SubmissionBundle;
     try {
       bundle = JSON.parse(rawBundle) as SubmissionBundle;
     } catch {
-      return jsonError("Invalid bundle format", 400);
+      return NextResponse.json(
+        { error: "Invalid bundle format" },
+        { status: 400, headers: createResponseHeaders(rateLimit.headers) },
+      );
     }
 
     if (!bundle.payload || !bundle.summary) {
-      return jsonError("Invalid bundle format", 400);
+      return NextResponse.json(
+        { error: "Invalid bundle format" },
+        { status: 400, headers: createResponseHeaders(rateLimit.headers) },
+      );
     }
 
     const validationErrors = validateWizardSubmission(bundle.payload);
     if (validationErrors.length > 0) {
-      return jsonError("Incomplete or invalid application data", 400);
+      return NextResponse.json(
+        { error: "Incomplete or invalid application data" },
+        { status: 400, headers: createResponseHeaders(rateLimit.headers) },
+      );
     }
 
     const config = getIntakeConfig();
     if (!config) {
       console.error("Lead intake endpoint not configured");
-      return jsonError("Service configuration error", 500);
+      return NextResponse.json(
+        { error: "Service configuration error" },
+        { status: 500, headers: createResponseHeaders(rateLimit.headers) },
+      );
     }
 
     const forward = new FormData();
@@ -108,7 +136,10 @@ export async function POST(request: Request) {
         status: upstream.status,
         body: upstreamBody,
       });
-      return jsonError("Failed to submit request", 502);
+      return NextResponse.json(
+        { error: "Failed to submit request" },
+        { status: 502, headers: createResponseHeaders(rateLimit.headers) },
+      );
     }
 
     return NextResponse.json(
@@ -117,7 +148,7 @@ export async function POST(request: Request) {
         leadId: upstreamBody.lead_id,
         uploadedFileCount: upstreamBody.attachment_count ?? 0,
       },
-      { headers: NO_STORE_HEADERS },
+      { headers: createResponseHeaders(rateLimit.headers) },
     );
   } catch (err) {
     console.error("Submit error:", err);
