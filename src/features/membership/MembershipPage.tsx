@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { MembershipComparison } from "./MembershipComparison";
-import { pickMessages } from "@/i18n/pickMessages";
+import { pickMessages, SHELL_NAMESPACES } from "@/i18n/pickMessages";
 import { BreadcrumbJsonLd } from "@/shared/seo/json-ld";
 import {
   getBreadcrumbItems,
@@ -37,7 +37,7 @@ export default async function MembershipPage({ params }: MembershipPageProps) {
   const safeLocale = normalizeLanguage(locale);
   const [tCommon, messages] = await Promise.all([
     getTranslations({ locale, namespace: "common" }),
-    pickMessages(safeLocale, ["membership"]),
+    pickMessages(safeLocale, [...SHELL_NAMESPACES, "membership"]),
   ]);
 
   const breadcrumbItems = getBreadcrumbItems(safeLocale, [

@@ -5,7 +5,7 @@ import {
   getLocalizedMessage,
   normalizeLanguage,
 } from "@/shared/lib/seo";
-import { pickMessages } from "@/i18n/pickMessages";
+import { pickMessages, SHELL_NAMESPACES } from "@/i18n/pickMessages";
 import { LoginForm } from "./LoginForm";
 
 type LoginPageProps = {
@@ -36,7 +36,7 @@ type LoginPageRenderProps = {
 export default async function LoginPage({ params }: LoginPageRenderProps) {
   const { locale } = await params;
   const safeLocale = normalizeLanguage(locale);
-  const messages = await pickMessages(safeLocale, ["auth"]);
+  const messages = await pickMessages(safeLocale, [...SHELL_NAMESPACES, "auth"]);
 
   return (
     <NextIntlClientProvider locale={safeLocale} messages={messages}>

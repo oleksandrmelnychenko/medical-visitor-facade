@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import Image from "next/image";
-import { ArrowUpRight, Eye, EyeOff, LogIn } from "lucide-react";
+import { ArrowRight, ArrowUpLeft, Eye, EyeOff } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/shared/lib/cn";
@@ -20,7 +20,6 @@ function isValidIdentifier(value: string) {
 
 export function LoginForm() {
   const tAuth = useTranslations("auth");
-  const tCommon = useTranslations("common");
   const tFooter = useTranslations("footer");
   const tNotFound = useTranslations("notFound");
   const [identifier, setIdentifier] = useState("");
@@ -137,27 +136,17 @@ export function LoginForm() {
 
                 <div className={styles.submitButtonFrame}>
                   <button className={styles.submitButton} type="submit">
-                    <LogIn size={18} />
-                    {tAuth("signIn")}
+                    <span className={styles.submitButtonLabel}>{tAuth("signIn")}</span>
+                    <ArrowRight aria-hidden="true" />
                   </button>
                 </div>
 
                 <Link href="/" className={styles.desktopHomeLabel}>
+                  <ArrowUpLeft aria-hidden="true" />
                   {tNotFound("backHome")}
                 </Link>
 
                 <p className={styles.confidentialityNotice}>{tAuth("confidentialityNotice")}</p>
-
-                <div className={styles.linkRow}>
-                  <Link href="/apply" className={styles.secondaryLink}>
-                    {tCommon("requestAppointment")}
-                    <ArrowUpRight aria-hidden="true" />
-                  </Link>
-                  <Link href="/privacy-policy" className={styles.secondaryLink}>
-                    {tAuth("privacyPolicyLink")}
-                    <ArrowUpRight aria-hidden="true" />
-                  </Link>
-                </div>
 
                 <div className={styles.mollieBadge}>
                   <a

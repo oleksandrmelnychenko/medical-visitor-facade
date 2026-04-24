@@ -12,15 +12,7 @@ type FooterProps = {
 export async function Footer({ locale }: FooterProps) {
   const t = await getTranslations("footer");
 
-  const authFooter = (
-    <footer className={styles.authFooter}>
-      <div className={styles.authFooterInner}>
-        <p className={styles.authFooterText}>
-          {t("copyright", { year: 2026 })}. {t("allRightsReserved")}
-        </p>
-      </div>
-    </footer>
-  );
+  const authFooter = null;
 
   const mainFooter = (
     <footer className={styles.footer}>

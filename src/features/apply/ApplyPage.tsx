@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { ApplyShell } from "./ApplyShell";
-import { pickMessages } from "@/i18n/pickMessages";
+import { pickMessages, SHELL_NAMESPACES } from "@/i18n/pickMessages";
 import {
   getBreadcrumbItems,
   getLocalizedMetadata,
@@ -81,7 +81,7 @@ export default async function ApplyPage({ params, searchParams }: ApplyPageProps
   const [homeLabel, pageTitle, applyMessages] = await Promise.all([
     getLocalizedMessage(safeLocale, "common.home"),
     getLocalizedMessage(safeLocale, "appointment.title"),
-    pickMessages(safeLocale, ["appointment", "membership"]),
+    pickMessages(safeLocale, [...SHELL_NAMESPACES, "appointment", "membership"]),
   ]);
 
   return (
