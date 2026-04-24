@@ -230,13 +230,14 @@ body:has([data-page="home"]) {
   box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.9);
 }
 
-// Keep a global visible focus only for button-like controls.
-// Form fields define their own focus treatment locally.
+// Keep a global visible focus only for button-like controls that don't
+// define their own. We no longer override border-radius here — doing so
+// breaks pill buttons that set their own radius (the outline already
+// follows the element's existing radius in modern browsers).
 button,
 [role="button"] {
   &:focus-visible {
     outline: 2px solid var(--primary);
     outline-offset: 2px;
-    border-radius: 2px;
   }
 }

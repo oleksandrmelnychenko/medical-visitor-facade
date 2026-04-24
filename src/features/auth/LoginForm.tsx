@@ -10,12 +10,18 @@ import sectionStyles from "@/shared/ui/section/Section.module.scss";
 import pageStyles from "@/styles/page.module.scss";
 import styles from "./LoginForm.module.scss";
 
+type FieldKey = "identifier" | "password";
+
 function isValidIdentifier(value: string) {
   const trimmedValue = value.trim();
   const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedValue);
   const isPhone = /^\+?[0-9\s().-]{5,}$/.test(trimmedValue);
 
   return isEmail || isPhone;
+}
+
+function isValidPassword(value: string) {
+  return value.trim().length >= 6;
 }
 
 export function LoginForm() {
@@ -25,34 +31,37 @@ export function LoginForm() {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [feedback, setFeedback] = useState<{ type: "error" | "success"; message: string } | null>(
-    null
-  );
+  const [success, setSuccess] = useState<string | null>(null);
+  const [touched, setTouched] = useState<Record<FieldKey, boolean>>({
+    identifier: false,
+    password: false,
+  });
+
+  const identifierValue = identifier.trim();
+  const passwordValue = password.trim();
+  const identifierValid = identifierValue.length > 0 && isValidIdentifier(identifier);
+  const passwordValid = isValidPassword(password);
+
+  const showIdentifierError = touched.identifier && !identifierValid;
+  const showPasswordError = touched.password && !passwordValid;
+
+  const identifierErrorMessage = identifierValue.length === 0
+    ? tAuth("identifierRequired")
+    : tAuth("invalidPhoneOrEmail");
+  const passwordErrorMessage = passwordValue.length === 0
+    ? tAuth("passwordRequired")
+    : tAuth("passwordMinLength");
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setSuccess(null);
 
-    if (!identifier.trim()) {
-      setFeedback({ type: "error", message: tAuth("identifierRequired") });
+    if (!identifierValid || !passwordValid) {
+      setTouched({ identifier: true, password: true });
       return;
     }
 
-    if (!isValidIdentifier(identifier)) {
-      setFeedback({ type: "error", message: tAuth("invalidPhoneOrEmail") });
-      return;
-    }
-
-    if (!password.trim()) {
-      setFeedback({ type: "error", message: tAuth("passwordRequired") });
-      return;
-    }
-
-    if (password.trim().length < 6) {
-      setFeedback({ type: "error", message: tAuth("passwordMinLength") });
-      return;
-    }
-
-    setFeedback({ type: "success", message: tAuth("applicationPending") });
+    setSuccess(tAuth("applicationPending"));
   };
 
   return (
@@ -89,13 +98,22 @@ export function LoginForm() {
                   </label>
                   <input
                     id="identifier"
+                    name="identifier"
                     type="text"
                     value={identifier}
                     onChange={(event) => setIdentifier(event.target.value)}
-                    className={styles.input}
+                    onBlur={() => setTouched((prev) => ({ ...prev, identifier: true }))}
+                    className={cn(styles.input, showIdentifierError && styles.inputError)}
                     placeholder={tAuth("phoneOrEmail")}
                     autoComplete="username"
+                    aria-invalid={showIdentifierError}
+                    aria-describedby={showIdentifierError ? "login-identifier-error" : undefined}
                   />
+                  {showIdentifierError ? (
+                    <span id="login-identifier-error" className={styles.fieldError}>
+                      {identifierErrorMessage}
+                    </span>
+                  ) : null}
                 </div>
 
                 <div className={styles.fieldGroup}>
@@ -105,12 +123,16 @@ export function LoginForm() {
                   <div className={styles.passwordWrapper}>
                     <input
                       id="password"
+                      name="password"
                       type={showPassword ? "text" : "password"}
                       value={password}
                       onChange={(event) => setPassword(event.target.value)}
-                      className={styles.input}
+                      onBlur={() => setTouched((prev) => ({ ...prev, password: true }))}
+                      className={cn(styles.input, showPasswordError && styles.inputError)}
                       placeholder={tAuth("passwordPlaceholder")}
                       autoComplete="current-password"
+                      aria-invalid={showPasswordError}
+                      aria-describedby={showPasswordError ? "login-password-error" : undefined}
                     />
                     <button
                       type="button"
@@ -121,16 +143,20 @@ export function LoginForm() {
                       {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                     </button>
                   </div>
+                  {showPasswordError ? (
+                    <span id="login-password-error" className={styles.fieldError}>
+                      {passwordErrorMessage}
+                    </span>
+                  ) : null}
                 </div>
 
-                {feedback ? (
+                {success ? (
                   <p
-                    className={cn(
-                      styles.feedback,
-                      feedback.type === "error" ? styles.feedbackError : styles.feedbackSuccess
-                    )}
+                    className={cn(styles.feedback, styles.feedbackSuccess)}
+                    role="status"
+                    aria-live="polite"
                   >
-                    {feedback.message}
+                    {success}
                   </p>
                 ) : null}
 
