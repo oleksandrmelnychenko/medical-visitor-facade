@@ -32,13 +32,13 @@
     "typescript": "^6.0.3"
   },
   "browserslist": [
-    "chrome >= 90",
-    "edge >= 90",
-    "firefox >= 90",
-    "safari >= 14",
-    "ios_saf >= 14",
-    "opera >= 76",
-    "samsung >= 14",
+    "chrome >= 94",
+    "edge >= 94",
+    "firefox >= 94",
+    "safari >= 16",
+    "ios_saf >= 16",
+    "opera >= 80",
+    "samsung >= 18",
     "not dead"
   ]
 }

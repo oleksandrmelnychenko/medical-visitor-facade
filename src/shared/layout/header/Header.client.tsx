@@ -373,11 +373,12 @@ export function HeaderApplyLink({
         href="/apply"
         prefetch={false}
         onClick={closeMobileMenu}
-        className={styles.menuFeatureCard}
+        className={styles.menuApplyButton}
       >
-        <span className={styles.menuFeatureGlyph} aria-hidden="true" />
-        <span className={styles.menuFeatureLabel}>{label}</span>
-        <ArrowUpRight aria-hidden="true" />
+        <span className={styles.menuApplyButtonIcon} aria-hidden="true">
+          <ArrowUpRight />
+        </span>
+        <span className={styles.menuApplyButtonLabel}>{label}</span>
       </Link>
     );
   }

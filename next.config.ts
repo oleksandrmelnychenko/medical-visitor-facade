@@ -87,9 +87,12 @@ const nextConfig: NextConfig = {
   // Other security options
   poweredByHeader: false, // Remove X-Powered-By header
 
-  // Bundle optimization - auto tree-shake barrel imports
+  // Bundle optimization - auto tree-shake barrel imports,
+  // inline critical CSS instead of shipping multiple render-blocking
+  // stylesheet links.
   experimental: {
     optimizePackageImports: ['lucide-react', 'motion/react'],
+    inlineCss: true,
   },
 
   // Images configuration
